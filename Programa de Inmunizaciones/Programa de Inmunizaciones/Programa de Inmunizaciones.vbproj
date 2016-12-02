@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B06B1301-94FF-48F2-A059-909F971B9DE9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Programa_de_Inmunizaciones.My.MyApplication</StartupObject>
+    <RootNamespace>Programa_de_Inmunizaciones</RootNamespace>
+    <AssemblyName>Programa de Inmunizaciones</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Programa de Inmunizaciones.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Programa de Inmunizaciones.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABM\abm_barrios.Designer.vb">
+      <DependentUpon>abm_barrios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_barrios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_carga.Designer.vb">
+      <DependentUpon>abm_carga.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_carga.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_cargo.Designer.vb">
+      <DependentUpon>abm_cargo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_cargo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_departamentos.Designer.vb">
+      <DependentUpon>abm_departamentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_departamentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_empleados.Designer.vb">
+      <DependentUpon>abm_empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_estados_atencion.Designer.vb">
+      <DependentUpon>abm_estados_atencion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_estados_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_estados_pedidos.Designer.vb">
+      <DependentUpon>abm_estados_pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_estados_pedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_estado_capacitaciones.Designer.vb">
+      <DependentUpon>abm_estado_capacitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_estado_capacitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_estados_efector.Designer.vb">
+      <DependentUpon>abm_estados_efector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_estados_efector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_localidades.Designer.vb">
+      <DependentUpon>abm_localidades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_localidades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_perdidas.Designer.vb">
+      <DependentUpon>abm_perdidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_perdidas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_stock.Designer.vb">
+      <DependentUpon>abm_stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_stock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_tipos_documento.Designer.vb">
+      <DependentUpon>abm_tipos_documento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_tipos_documento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\abm_tipos_efectores.Designer.vb">
+      <DependentUpon>abm_tipos_efectores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\abm_tipos_efectores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clases\acceso_datos.vb" />
+    <Compile Include="Clases\ComboBoxV1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_atencion.Designer.vb">
+      <DependentUpon>Registrar_atencion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_peticiones_desarrollos.Designer.vb">
+      <DependentUpon>Registrar_peticiones_desarrollos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_peticiones_desarrollos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_superviciones.Designer.vb">
+      <DependentUpon>Registrar_superviciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_superviciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_asistencia_capacitaciones.Designer.vb">
+      <DependentUpon>Registrar_asistencia_capacitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_asistencia_capacitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_capacitaciones.Designer.vb">
+      <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_capacitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_efectores.Designer.vb">
+      <DependentUpon>Registrar_efectores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_efectores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_notificaciones.Designer.vb">
+      <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú.Designer.vb">
+      <DependentUpon>Menú.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\global1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
+      <DependentUpon>Registrar_atencion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú.resx">
+      <DependentUpon>Menú.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
