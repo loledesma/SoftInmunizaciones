@@ -225,6 +225,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
+      <DependentUpon>abm_tipos_documento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
