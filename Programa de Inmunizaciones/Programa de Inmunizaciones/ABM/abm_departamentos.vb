@@ -22,7 +22,7 @@
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Dim tabla As New DataTable
-        Dim sql As String = "SELECT * FROM DEPARTAMENTOS = " & Me.txt_id_departamento.Text
+        Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE id = " & Me.txt_id_departamento.Text
 
         tabla = acceso.consulta(sql)
 
@@ -114,6 +114,7 @@
         Me.dgv_departamentos.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.txt_id_departamento.Enabled = True
+        Me.cmd_eliminar.Enabled = False
         Me.condicion_estado = estado.insertar
         Me.txt_id_departamento.Text = ""
         Me.txt_descripcion.Text = ""
@@ -124,7 +125,6 @@
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         Me.condicion_estado = estado.insertar
         Me.limpiar(Me.Controls)
-        Me.txt_descripcion.Focus()
         Dim tabla As New DataTable
         Dim sql As String = ""
 
@@ -132,11 +132,12 @@
 
         tabla = acceso.consulta(sql)
 
-        Me.txt_id_departamento.Text = tabla.Rows.Count() - 1
+        Me.txt_id_departamento.Text = tabla.Rows.Count() + 1
 
         Me.txt_id_departamento.Enabled = False
-        Me.txt_descripcion.Enabled = True
-        Me.txt_descripcion.Text = ""
+        Me.txt_descripcion.Focus()
+        Me.cmd_guardar.Enabled = True
+        Me.cmd_eliminar.Enabled = False
     End Sub
 
     Private Function validar()
@@ -149,7 +150,7 @@
             Me.txt_id_departamento.Focus()
             Return False
         ElseIf Me.txt_descripcion.Text = "" Then
-            MessageBox.Show("La Descrpcion está vacía", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("La Descripcion está vacía", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_descripcion.Focus()
             Return False
         End If
@@ -160,8 +161,8 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql = " SELECT * FROM DEPARTAMENTOS "
-        sql &= " WHERE id = " = Me.txt_id_departamento.Text
+        sql &= "SELECT * FROM DEPARTAMENTOS "
+        sql &= "WHERE id = " & Me.txt_id_departamento.Text
 
         tabla = acceso.consulta(sql)
 
@@ -189,9 +190,9 @@
         End If
         Me.limpiar(Me.Controls)
         Me.cargar_grilla()
-        Me.cmd_nuevo.Enabled = False
+        Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
-        Me.cmd_limpiar.Enabled = False
+        Me.cmd_limpiar.Enabled = True
     End Sub
 
     Private Sub insertar()
@@ -208,7 +209,7 @@
         Dim sql As String = ""
 
         sql = "UPDATE DEPARTAMENTOS "
-        sql &= " SET descripcion = " & Me.txt_descripcion.Text
+        sql &= " SET descripcion = '" & Me.txt_descripcion.Text & "'"
         sql &= " WHERE id = " & Me.txt_id_departamento.Text
 
         acceso.ejecutar(sql)
