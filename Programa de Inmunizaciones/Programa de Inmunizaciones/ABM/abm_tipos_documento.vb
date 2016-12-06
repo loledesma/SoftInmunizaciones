@@ -109,6 +109,52 @@
 
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
-        'CONTINUAR DESDE ACÁ
+
+        If validar_campos() = True Then
+            If condicion = estado.insertar Then
+                If Me.validar_Existencia() = analizar_existencia.noExiste Then
+                    Me.insertar()
+                Else
+                    MessageBox.Show("Ya existe ese tipo de documento!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                End If
+            Else
+                Me.modificar()
+            End If
+        Else
+            Exit Sub
+        End If
+        Me.limpiar(Me.Controls)
+        Me.cargar_grilla()
+    End Sub
+
+    Private Function validar_campos() As Boolean
+
+        If Me.txt_id_tipo_doc.Text = "" Then
+            MessageBox.Show("El ID no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_id_tipo_doc.Focus()
+            Exit Function
+        End If
+        If Me.txt_descripcion.Text = "" Then
+            MessageBox.Show("La descripción no puede estár vacía!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_descripcion.Focus()
+            Exit Function
+        End If
+
+        Return True
+
+    End Function
+
+   
+
+    Private Sub dgv_tipos_doc_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_tipos_doc.CellMouseDoubleClick
+
+        Me.condicion = estado.modificar
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * FROM TIPOS_DOCUMENTO WHERE id = " & Me.dgv_tipos_doc.CurrentRow.Cells("id").Value
     End Sub
 End Class
