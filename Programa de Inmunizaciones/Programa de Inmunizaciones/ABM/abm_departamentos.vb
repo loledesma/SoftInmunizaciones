@@ -14,11 +14,30 @@
         Me.txt_id_departamento.Enabled = True
         Me.cargar_grilla()
         Me.cmd_eliminar.Enabled = False
+        Me.cmd_nuevo.Enabled = True
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_limpiar.Enabled = True
         Me.txt_id_departamento.Focus()
     End Sub
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
+        Dim tabla As New DataTable
+        Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE id = " & Me.txt_id_departamento.Text
 
+        tabla = acceso.consulta(sql)
+
+        If Not (tabla.Rows.Count() = 0) Then
+            Me.dgv_departamentos.Rows.Clear()
+            Me.dgv_departamentos.Rows.Add()
+            Me.dgv_departamentos.Rows(0).Cells("id_departamentos").Value = tabla.Rows(0)("id")
+            Me.dgv_departamentos.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+        Else
+            MessageBox.Show("No existe el departamento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.txt_id_departamento.Focus()
+            Exit Sub
+        End If
+        Me.cmd_eliminar.Enabled = True
+        Me.condicion_estado = estado.modificar
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
@@ -63,6 +82,136 @@
         Next
     End Sub
 
+    Private Sub grid_departamentos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_departamentos.CellDoubleClick
 
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        sql = " SELECT * FROM DEPARTAMENTOS "
+        sql &= " WHERE id = " & Me.dgv_departamentos.CurrentRow.Cells(0).Value
 
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show(" NO EXISTE SELECCION")
+            Exit Sub
+        End If
+
+        Me.txt_id_departamento.Text = tabla.Rows(0)("id")
+        Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
+        Me.txt_id_departamento.Enabled = True
+
+        Me.condicion_estado = estado.modificar
+
+        Me.cmd_eliminar.Enabled = True
+
+    End Sub
+
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.dgv_departamentos.Enabled = True
+        Me.txt_descripcion.Enabled = True
+        Me.txt_id_departamento.Enabled = True
+        Me.cmd_eliminar.Enabled = False
+        Me.condicion_estado = estado.insertar
+        Me.txt_id_departamento.Text = ""
+        Me.txt_descripcion.Text = ""
+        Me.limpiar(Me.Controls)
+        Me.txt_id_departamento.Focus()
+    End Sub
+
+    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+        Me.condicion_estado = estado.insertar
+        Me.limpiar(Me.Controls)
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql = "SELECT * FROM DEPARTAMENTOS"
+
+        tabla = acceso.consulta(sql)
+
+        Me.txt_id_departamento.Text = tabla.Rows.Count() + 1
+
+        Me.txt_id_departamento.Enabled = False
+        Me.txt_descripcion.Focus()
+        Me.cmd_guardar.Enabled = True
+        Me.cmd_eliminar.Enabled = False
+    End Sub
+
+    Private Function validar()
+        If Me.txt_id_departamento.Text = "" Then
+            MessageBox.Show("El id está vacío", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.txt_id_departamento.Focus()
+            Return False
+        ElseIf IsNumeric(Me.txt_id_departamento.Text) = False Then
+            MessageBox.Show("No se admiten caracteres en el ID", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.txt_id_departamento.Focus()
+            Return False
+        ElseIf Me.txt_descripcion.Text = "" Then
+            MessageBox.Show("La Descripcion está vacía", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.txt_descripcion.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function validar_existencia() As analizar_existencia
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * FROM DEPARTAMENTOS "
+        sql &= "WHERE id = " & Me.txt_id_departamento.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            Return analizar_existencia.no_existe
+        Else
+            Return analizar_existencia.existe
+        End If
+
+    End Function
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+        If Me.validar() = True Then
+            If condicion_estado = estado.insertar Then
+                If Me.validar_existencia() = analizar_existencia.no_existe Then
+                    Me.insertar()
+                Else
+                    MessageBox.Show("Ya existe este Departamento en la base de datos")
+                    Exit Sub
+                End If
+            Else
+                Me.modificar()
+            End If
+        Else
+            Exit Sub
+        End If
+        Me.limpiar(Me.Controls)
+        Me.cargar_grilla()
+        Me.cmd_nuevo.Enabled = True
+        Me.cmd_guardar.Enabled = True
+        Me.cmd_limpiar.Enabled = True
+    End Sub
+
+    Private Sub insertar()
+        Dim sql As String = ""
+
+        sql = "INSERT INTO DEPARTAMENTOS "
+        sql &= " VALUES (" & Me.txt_id_departamento.Text
+        sql &= ", '" & Me.txt_descripcion.Text & "')"
+
+        acceso.ejecutar(sql)
+    End Sub
+
+    Private Sub modificar()
+        Dim sql As String = ""
+
+        sql = "UPDATE DEPARTAMENTOS "
+        sql &= " SET descripcion = '" & Me.txt_descripcion.Text & "'"
+        sql &= " WHERE id = " & Me.txt_id_departamento.Text
+
+        acceso.ejecutar(sql)
+    End Sub
 End Class
