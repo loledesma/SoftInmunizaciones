@@ -24,6 +24,7 @@ Partial Class abm_departamentos
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_departamentos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_departamentos = New System.Windows.Forms.GroupBox()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.txt_descripcion = New System.Windows.Forms.TextBox()
@@ -134,6 +135,9 @@ Partial Class abm_departamentos
         Me.dgv_departamentos.Location = New System.Drawing.Point(9, 19)
         Me.dgv_departamentos.Name = "dgv_departamentos"
         Me.dgv_departamentos.ReadOnly = True
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        Me.dgv_departamentos.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_departamentos.Size = New System.Drawing.Size(280, 254)
         Me.dgv_departamentos.TabIndex = 0
         '
