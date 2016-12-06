@@ -155,6 +155,76 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT * FROM TIPOS_DOCUMENTO WHERE id = " & Me.dgv_tipos_doc.CurrentRow.Cells("id").Value
+        sql &= "SELECT * FROM TIPOS_DOCUMENTO WHERE id = " & Me.dgv_tipos_doc.CurrentRow.Cells("id_tipo_doc").Value
+
+        tabla = acceso.consulta(sql)
+
+        Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
+        Me.txt_id_tipo_doc.Text = tabla.Rows(0)("id")
+
+    End Sub
+
+
+    Private Sub cmb_buscar_Click(sender As Object, e As EventArgs) Handles cmb_buscar.Click
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * FROM TIPOS_DOCUMENTO WHERE id = " & Me.txt_id_tipo_doc.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() - 1 Then
+            MessageBox.Show("No existe tipo de documento con el ID ingresado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.cargar_grilla()
+            Me.cmd_nuevo.Enabled = True
+            Me.cmd_guardar.Enabled = True
+            Me.txt_id_tipo_doc.Focus()
+            Exit Sub
+        Else
+            dgv_tipos_doc.Rows.Clear()
+            dgv_tipos_doc.Rows.Add()
+            dgv_tipos_doc.Rows(0).Cells("id_tipo_doc").Value = tabla.Rows(0)("id")
+            dgv_tipos_doc.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+        End If
+
+    End Sub
+
+    Private Sub cmd_cancelar_Click(sender As Object, e As EventArgs) Handles cmd_cancelar.Click
+        Me.limpiar(Me.Controls)
+        cmd_nuevo.Enabled = True
+        cmd_eliminar.Enabled = False
+        cmd_guardar.Enabled = True
+        Me.txt_id_tipo_doc.Enabled = True
+        Me.txt_id_tipo_doc.Focus()
+
+    End Sub
+
+    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+        Me.limpiar(Controls)
+        Me.txt_descripcion.Focus()
+        cmd_guardar.Enabled = True
+        cmd_eliminar.Enabled = False
+        cmd_nuevo.Enabled = False
+        txt_id_tipo_doc.Enabled = False
+
+        Dim tabla As New DataTable
+
+        Dim sql As String = ""
+
+        sql &= "select * from tipos_documento "
+
+        tabla = acceso.consulta(sql)
+
+        txt_id_tipo_doc.Text = tabla.Rows().Count() + 1
+    End Sub
+
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+        Dim sql As String = "DELETE FROM TIPOS_DOCUMENTO WHERE id = " & txt_id_tipo_doc.Text
+        acceso.ejecutar(sql)
+        Me.cargar_grilla()
+        Me.limpiar(Controls)
+        cmd_nuevo.Enabled = True
+        cmd_cancelar.Enabled = True
+        cmd_guardar.Enabled = False
     End Sub
 End Class
