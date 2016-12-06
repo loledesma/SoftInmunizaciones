@@ -32,13 +32,13 @@ Partial Class abm_departamentos
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv_departamentos = New System.Windows.Forms.DataGridView()
+        Me.id_departamentos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.cmd_cancelar = New System.Windows.Forms.Button()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.id_departamentos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_departamentos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_departamentos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,7 +125,7 @@ Partial Class abm_departamentos
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -136,6 +136,20 @@ Partial Class abm_departamentos
         Me.dgv_departamentos.ReadOnly = True
         Me.dgv_departamentos.Size = New System.Drawing.Size(280, 254)
         Me.dgv_departamentos.TabIndex = 0
+        '
+        'id_departamentos
+        '
+        Me.id_departamentos.HeaderText = "ID"
+        Me.id_departamentos.Name = "id_departamentos"
+        Me.id_departamentos.ReadOnly = True
+        Me.id_departamentos.Width = 50
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 175
         '
         'cmd_salir
         '
@@ -150,24 +164,24 @@ Partial Class abm_departamentos
         Me.cmd_salir.TabIndex = 10
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
-        'cmd_cancelar
+        'cmd_limpiar
         '
-        Me.cmd_cancelar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_cancelar.BackgroundImage = CType(resources.GetObject("cmd_cancelar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_cancelar.FlatAppearance.BorderSize = 0
-        Me.cmd_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_cancelar.Location = New System.Drawing.Point(343, 216)
-        Me.cmd_cancelar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_cancelar.Name = "cmd_cancelar"
-        Me.cmd_cancelar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_cancelar.TabIndex = 9
-        Me.cmd_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_cancelar.UseVisualStyleBackColor = False
+        Me.cmd_limpiar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.BackgroundImage = CType(resources.GetObject("cmd_limpiar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_limpiar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_limpiar.FlatAppearance.BorderSize = 0
+        Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_limpiar.Location = New System.Drawing.Point(343, 216)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_limpiar.Name = "cmd_limpiar"
+        Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_limpiar.TabIndex = 9
+        Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_limpiar.UseVisualStyleBackColor = False
         '
         'cmd_guardar
         '
@@ -226,20 +240,6 @@ Partial Class abm_departamentos
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
-        'id_departamentos
-        '
-        Me.id_departamentos.HeaderText = "ID"
-        Me.id_departamentos.Name = "id_departamentos"
-        Me.id_departamentos.ReadOnly = True
-        Me.id_departamentos.Width = 50
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 175
-        '
         'abm_departamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -248,7 +248,7 @@ Partial Class abm_departamentos
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(416, 411)
         Me.Controls.Add(Me.cmd_salir)
-        Me.Controls.Add(Me.cmd_cancelar)
+        Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.cmd_eliminar)
@@ -271,7 +271,7 @@ Partial Class abm_departamentos
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_departamentos As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
-    Friend WithEvents cmd_cancelar As System.Windows.Forms.Button
+    Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
