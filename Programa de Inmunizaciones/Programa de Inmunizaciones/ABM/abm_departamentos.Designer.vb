@@ -56,7 +56,7 @@ Partial Class abm_departamentos
         Me.grp_departamentos.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_departamentos.Location = New System.Drawing.Point(12, 12)
         Me.grp_departamentos.Name = "grp_departamentos"
-        Me.grp_departamentos.Size = New System.Drawing.Size(277, 85)
+        Me.grp_departamentos.Size = New System.Drawing.Size(295, 85)
         Me.grp_departamentos.TabIndex = 1
         Me.grp_departamentos.TabStop = False
         Me.grp_departamentos.Text = "Datos"
@@ -66,7 +66,7 @@ Partial Class abm_departamentos
         Me.cmd_buscar.BackgroundImage = CType(resources.GetObject("cmd_buscar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar.Location = New System.Drawing.Point(235, 15)
+        Me.cmd_buscar.Location = New System.Drawing.Point(257, 15)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(32, 32)
         Me.cmd_buscar.TabIndex = 12
@@ -76,7 +76,7 @@ Partial Class abm_departamentos
         '
         Me.txt_descripcion.Location = New System.Drawing.Point(112, 49)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(155, 20)
+        Me.txt_descripcion.Size = New System.Drawing.Size(177, 20)
         Me.txt_descripcion.TabIndex = 2
         '
         'txt_id_departamento
@@ -100,9 +100,9 @@ Partial Class abm_departamentos
         Me.lbl_departamento.AutoSize = True
         Me.lbl_departamento.Location = New System.Drawing.Point(6, 25)
         Me.lbl_departamento.Name = "lbl_departamento"
-        Me.lbl_departamento.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_departamento.Size = New System.Drawing.Size(91, 13)
         Me.lbl_departamento.TabIndex = 0
-        Me.lbl_departamento.Text = "ID Tipo Documento"
+        Me.lbl_departamento.Text = "Id Departamentos"
         '
         'GroupBox2
         '
@@ -161,7 +161,7 @@ Partial Class abm_departamentos
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_salir.Location = New System.Drawing.Point(343, 337)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
@@ -177,7 +177,7 @@ Partial Class abm_departamentos
         Me.cmd_limpiar.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_limpiar.Location = New System.Drawing.Point(343, 216)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
@@ -196,7 +196,7 @@ Partial Class abm_departamentos
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_guardar.Location = New System.Drawing.Point(343, 80)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -215,7 +215,7 @@ Partial Class abm_departamentos
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_nuevo.Location = New System.Drawing.Point(343, 12)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -234,7 +234,7 @@ Partial Class abm_departamentos
         Me.cmd_eliminar.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_eliminar.Location = New System.Drawing.Point(343, 148)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
