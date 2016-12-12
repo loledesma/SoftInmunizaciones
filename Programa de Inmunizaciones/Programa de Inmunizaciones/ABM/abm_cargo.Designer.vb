@@ -27,7 +27,9 @@ Partial Class abm_cargo
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_cargo))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv_cargos = New System.Windows.Forms.DataGridView()
-        Me.grp_departamentos = New System.Windows.Forms.GroupBox()
+        Me.id_cargos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.grp_cargos = New System.Windows.Forms.GroupBox()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.txt_descripcion = New System.Windows.Forms.TextBox()
         Me.txt_id_cargo = New System.Windows.Forms.TextBox()
@@ -38,11 +40,9 @@ Partial Class abm_cargo
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.id_cargos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_cargos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grp_departamentos.SuspendLayout()
+        Me.grp_cargos.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -82,21 +82,35 @@ Partial Class abm_cargo
         Me.dgv_cargos.Size = New System.Drawing.Size(293, 254)
         Me.dgv_cargos.TabIndex = 0
         '
-        'grp_departamentos
+        'id_cargos
         '
-        Me.grp_departamentos.BackColor = System.Drawing.Color.Transparent
-        Me.grp_departamentos.Controls.Add(Me.cmd_buscar)
-        Me.grp_departamentos.Controls.Add(Me.txt_descripcion)
-        Me.grp_departamentos.Controls.Add(Me.txt_id_cargo)
-        Me.grp_departamentos.Controls.Add(Me.lbl_descripcion)
-        Me.grp_departamentos.Controls.Add(Me.lbl_cargo)
-        Me.grp_departamentos.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_departamentos.Location = New System.Drawing.Point(12, 12)
-        Me.grp_departamentos.Name = "grp_departamentos"
-        Me.grp_departamentos.Size = New System.Drawing.Size(308, 85)
-        Me.grp_departamentos.TabIndex = 3
-        Me.grp_departamentos.TabStop = False
-        Me.grp_departamentos.Text = "Datos"
+        Me.id_cargos.HeaderText = "ID"
+        Me.id_cargos.Name = "id_cargos"
+        Me.id_cargos.ReadOnly = True
+        Me.id_cargos.Width = 50
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 175
+        '
+        'grp_cargos
+        '
+        Me.grp_cargos.BackColor = System.Drawing.Color.Transparent
+        Me.grp_cargos.Controls.Add(Me.cmd_buscar)
+        Me.grp_cargos.Controls.Add(Me.txt_descripcion)
+        Me.grp_cargos.Controls.Add(Me.txt_id_cargo)
+        Me.grp_cargos.Controls.Add(Me.lbl_descripcion)
+        Me.grp_cargos.Controls.Add(Me.lbl_cargo)
+        Me.grp_cargos.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_cargos.Location = New System.Drawing.Point(12, 12)
+        Me.grp_cargos.Name = "grp_cargos"
+        Me.grp_cargos.Size = New System.Drawing.Size(308, 85)
+        Me.grp_cargos.TabIndex = 3
+        Me.grp_cargos.TabStop = False
+        Me.grp_cargos.Text = "Datos"
         '
         'cmd_buscar
         '
@@ -230,20 +244,6 @@ Partial Class abm_cargo
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
-        'id_cargos
-        '
-        Me.id_cargos.HeaderText = "ID"
-        Me.id_cargos.Name = "id_cargos"
-        Me.id_cargos.ReadOnly = True
-        Me.id_cargos.Width = 50
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 175
-        '
         'abm_cargo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -257,19 +257,19 @@ Partial Class abm_cargo
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.grp_departamentos)
+        Me.Controls.Add(Me.grp_cargos)
         Me.Name = "abm_cargo"
         Me.Text = "abm_cargo"
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgv_cargos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grp_departamentos.ResumeLayout(False)
-        Me.grp_departamentos.PerformLayout()
+        Me.grp_cargos.ResumeLayout(False)
+        Me.grp_cargos.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_cargos As System.Windows.Forms.DataGridView
-    Friend WithEvents grp_departamentos As System.Windows.Forms.GroupBox
+    Friend WithEvents grp_cargos As System.Windows.Forms.GroupBox
     Friend WithEvents cmd_buscar As System.Windows.Forms.Button
     Friend WithEvents txt_descripcion As System.Windows.Forms.TextBox
     Friend WithEvents txt_id_cargo As System.Windows.Forms.TextBox
