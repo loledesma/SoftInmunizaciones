@@ -225,6 +225,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ABM\abm_carga.resx">
+      <DependentUpon>abm_carga.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_cargo.resx">
       <DependentUpon>abm_cargo.vb</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_localidades.resx">
       <DependentUpon>abm_localidades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM\abm_stock.resx">
+      <DependentUpon>abm_stock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
