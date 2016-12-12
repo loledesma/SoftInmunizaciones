@@ -1,3 +1,292 @@
 ﻿Public Class abm_localidades
 
+    Private Sub abm_localidades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmb_dptos.cargar()
+        cargar_grilla()
+        limpiar(Controls)
+        txt_id_localidad.Enabled = True
+        cmb_dptos.SelectedIndex = -1
+        cmd_guardar.Enabled = False
+        cmd_eliminar.Enabled = False
+    End Sub
+
+    Enum estado
+        insertar
+        modificar
+    End Enum
+    Enum analizar_existencia
+        existe
+        no_existe
+    End Enum
+
+    Dim condicion As estado = estado.insertar
+    Private Sub abm_localidades_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("¿Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
+            e.Cancel = True
+        Else
+            e.Cancel = False
+        End If
+    End Sub
+
+    Private Sub cargar_grilla() '   VER CON LORE PARA QUE APAREZCA NOMBRE DEL DPTO EN LA GRILLA!
+        Dim sql As String = "SELECT * FROM LOCALIDADES "
+        Dim tabla As New DataTable
+
+        tabla = acceso.consulta(sql)
+
+        dgv_localidades.Rows.Clear()
+        Dim c As Integer = 0
+
+        For c = 0 To tabla.Rows.Count - 1
+            Me.dgv_localidades.Rows.Add()
+            Me.dgv_localidades.Rows(c).Cells("id_localidad").Value = tabla.Rows(c)("id")
+            Me.dgv_localidades.Rows(c).Cells("cod_postal").Value = tabla.Rows(c)("cod_postal")
+            Me.dgv_localidades.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+            Me.dgv_localidades.Rows(c).Cells("dpto").Value = tabla.Rows(c)("id_departamento")
+        Next
+    End Sub
+
+    Private Sub insertar()
+        Dim sql As String = ""
+
+        sql &= "INSERT INTO LOCALIDADES VALUES ( " & Me.txt_id_localidad.Text & ",'" & Me.txt_descripcion.Text & "' , " & Me.txt_cod_postal.Text & ", " & Me.cmb_dptos.SelectedValue & ")"
+        acceso.ejecutar(sql)
+
+    End Sub
+
+    Private Sub modificar()
+        Dim sql As String = ""
+
+        sql &= "UPDATE LOCALIDADES "
+        sql &= "SET descripcion = '" & Me.txt_descripcion.Text
+        sql &= "', cod_postal = " & Me.txt_cod_postal.Text
+        sql &= ", id_departamento = " & Me.cmb_dptos.SelectedValue
+        sql &= " WHERE id = " & Me.txt_id_localidad.Text
+
+        acceso.ejecutar(sql)
+
+    End Sub
+
+    Private Function validar_campos() As Boolean
+        If txt_id_localidad.Text = "" Then
+            MessageBox.Show("El campo ID está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_id_localidad.Focus()
+            Exit Function
+        End If
+        If txt_descripcion.Text = "" Then
+            MessageBox.Show("El campo DESCRIPCIÓN está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_descripcion.Focus()
+            Exit Function
+        End If
+        If txt_cod_postal.Text = "" Then
+            MessageBox.Show("El campo CODIGO POSTAL está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            txt_cod_postal.Focus()
+            Exit Function
+        End If
+        If cmb_dptos.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar un departamento!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_dptos.Focus()
+            Exit Function
+        End If
+
+        Return True
+    End Function
+
+    Private Function validar_existencia() As analizar_existencia
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        sql &= "SELECT * FROM LOCALIDADES WHERE id = " & Me.txt_id_localidad.Text
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count = 0 Then
+            Return analizar_existencia.no_existe
+        Else
+            Return analizar_existencia.existe
+        End If
+
+    End Function
+
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+        If Me.validar_campos() = True Then
+            If condicion = estado.insertar Then
+                If validar_existencia() = analizar_existencia.no_existe Then
+                    Me.insertar()
+                Else
+                    MessageBox.Show("Ya existe una localidad con ese ID!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                End If
+            Else
+                Me.modificar()
+            End If
+        Else
+            Exit Sub
+        End If
+        Me.limpiar(Controls)
+        cargar_grilla()
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_nuevo.Enabled = True
+        cmd_eliminar.Enabled = False
+        cmd_cancelar.Enabled = True
+        cmb_dptos.SelectedIndex = -1
+    End Sub
+    Private Sub limpiar(ByVal de_donde As Object)
+        Me.condicion = estado.insertar
+        Dim cmd As ComboBoxV1
+
+        For Each obj As System.Windows.Forms.Control In de_donde
+            Select Case obj.GetType.ToString
+                Case "System.Windows.Forms.TextBox"
+                    obj.Text = ""
+                Case "System.Windows.Forms.MaskedTextBox"
+                    obj.Text = ""
+                Case "WindowsApplication1.ComboBoxV1"
+                    cmd = obj
+                    cmd.SelectedIndex = -1
+                Case "System.Windows.Forms.GroupBox"
+                    Me.limpiar(obj.Controls)
+            End Select
+        Next obj
+        cmd_nuevo.Enabled = True
+    End Sub
+
+    
+
+    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+        Dim sql As String = "select * from localidades "
+        Dim tabla As New DataTable
+        limpiar(Controls)
+        tabla = acceso.consulta(sql)
+
+        Me.txt_id_localidad.Text = tabla.Rows.Count + 1
+        txt_id_localidad.Enabled = False
+        cmd_eliminar.Enabled = False
+        cmd_nuevo.Enabled = False
+        cmd_guardar.Enabled = True
+        cmd_cancelar.Enabled = True
+        cmb_dptos.SelectedIndex = -1
+        txt_cod_postal.Focus()
+
+    End Sub
+
+    Private Sub dgv_localidades_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_localidades.CellMouseDoubleClick
+        condicion = estado.modificar
+        Dim tabla As DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * FROM LOCALIDADES WHERE id = " & Me.dgv_localidades.CurrentRow.Cells("id_localidad").Value
+
+        tabla = acceso.consulta(sql)
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("Debe seleccionar una fila válida!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+        Me.txt_id_localidad.Text = tabla.Rows(0)("id")
+        Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
+        Me.txt_cod_postal.Text = tabla.Rows(0)("cod_postal")
+        Me.cmb_dptos.SelectedValue = tabla.Rows(0)("id_departamento")
+
+        cmd_eliminar.Enabled = True
+        cmd_guardar.Enabled = True
+        cmd_nuevo.Enabled = True
+    End Sub
+
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+        Dim sql As String = ""
+        If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
+             "Atencion", MessageBoxButtons.OKCancel, _
+            MessageBoxIcon.Question, _
+            MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
+
+            If IsNumeric(Me.txt_id_localidad.Text) Then
+                sql = "DELETE FROM LOCALIDADES "
+                sql &= "WHERE id = " & Me.txt_id_localidad.Text
+
+                acceso.ejecutar(sql)
+            Else
+                MessageBox.Show("El elemento no existe o ingrese un valor numérico")
+                Me.txt_id_localidad.Focus()
+                Exit Sub
+            End If
+        End If
+        Me.txt_id_localidad.Enabled = True
+        Me.cargar_grilla()
+        Me.limpiar(Me.Controls)
+        cmd_cancelar.Enabled = True
+        Me.condicion = estado.insertar
+    End Sub
+
+    Private Sub cmd_cancelar_Click(sender As Object, e As EventArgs) Handles cmd_cancelar.Click
+        limpiar(Controls)
+        cmd_nuevo.Enabled = True
+        cmd_eliminar.Enabled = False
+        cmd_cancelar.Enabled = False
+        cmd_guardar.Enabled = False
+        cargar_grilla()
+        cmb_dptos.SelectedIndex = -1
+        txt_id_localidad.Enabled = True
+        txt_id_localidad.Focus()
+    End Sub
+
+    Private Sub cmd_buscar_id_Click(sender As Object, e As EventArgs) Handles cmd_buscar_id.Click
+
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        If txt_id_localidad.Text = "" Then
+            MessageBox.Show("Ingrese un valor numérico antes de buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmd_buscar_id.Focus()
+            Exit Sub
+        Else
+            sql &= "select * from localidades where id = " & Me.txt_id_localidad.Text
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count = 0 Then
+                MessageBox.Show("No se encontró una localidad con el ID: " & Me.txt_id_localidad.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                dgv_localidades.Rows.Clear()
+                dgv_localidades.Rows.Add()
+                dgv_localidades.Rows(0).Cells("id_localidad").Value = tabla.Rows(0)("id")
+                dgv_localidades.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                dgv_localidades.Rows(0).Cells("cod_postal").Value = tabla.Rows(0)("cod_postal")
+                dgv_localidades.Rows(0).Cells("dpto").Value = tabla(0)("id_departamento")
+            End If
+        End If
+        limpiar(Controls)
+
+
+    End Sub
+
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        Me.Close()
+    End Sub
+
+
+    Private Sub cmd_buscar_codpostal_Click(sender As Object, e As EventArgs) Handles cmd_buscar_codpostal.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        If txt_cod_postal.Text = "" Then
+            MessageBox.Show("Ingrese un valor numérico antes de buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmd_buscar_id.Focus()
+            Exit Sub
+        Else
+            sql &= "select * from localidades where cod_postal = " & Me.txt_cod_postal.Text
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count = 0 Then
+                MessageBox.Show("No se encontró una localidad con el Codigo Postal: " & Me.txt_cod_postal.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                dgv_localidades.Rows.Clear()
+                dgv_localidades.Rows.Add()
+                dgv_localidades.Rows(0).Cells("id_localidad").Value = tabla.Rows(0)("id")
+                dgv_localidades.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                dgv_localidades.Rows(0).Cells("cod_postal").Value = tabla.Rows(0)("cod_postal")
+                dgv_localidades.Rows(0).Cells("dpto").Value = tabla(0)("id_departamento")
+            End If
+        End If
+        limpiar(Controls)
+    End Sub
 End Class

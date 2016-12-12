@@ -14,6 +14,8 @@
 
     Private Sub abm_tipos_documento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
+        Me.cmd_guardar.Enabled = False
+        cmd_eliminar.Enabled = False
     End Sub
 
     Private Sub abm_tipos_documento_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -154,6 +156,7 @@
         Me.condicion = estado.modificar
         Dim tabla As New DataTable
         Dim sql As String = ""
+        Me.txt_id_tipo_doc.Enabled = False
 
         sql &= "SELECT * FROM TIPOS_DOCUMENTO WHERE id = " & Me.dgv_tipos_doc.CurrentRow.Cells("id_tipo_doc").Value
 
@@ -227,4 +230,6 @@
         cmd_cancelar.Enabled = True
         cmd_guardar.Enabled = False
     End Sub
+
+
 End Class

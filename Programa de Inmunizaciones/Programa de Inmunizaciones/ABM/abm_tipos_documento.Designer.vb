@@ -23,7 +23,7 @@ Partial Class abm_tipos_documento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_tipos_documento))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos = New System.Windows.Forms.GroupBox()
         Me.cmb_buscar = New System.Windows.Forms.Button()
         Me.txt_descripcion = New System.Windows.Forms.TextBox()
@@ -109,7 +109,7 @@ Partial Class abm_tipos_documento
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_salir.Location = New System.Drawing.Point(307, 334)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
@@ -125,7 +125,7 @@ Partial Class abm_tipos_documento
         Me.cmd_cancelar.FlatAppearance.BorderSize = 0
         Me.cmd_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_cancelar.Location = New System.Drawing.Point(307, 213)
         Me.cmd_cancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cancelar.Name = "cmd_cancelar"
@@ -144,7 +144,7 @@ Partial Class abm_tipos_documento
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_guardar.Location = New System.Drawing.Point(307, 77)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -163,7 +163,7 @@ Partial Class abm_tipos_documento
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_nuevo.Location = New System.Drawing.Point(307, 9)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -182,7 +182,7 @@ Partial Class abm_tipos_documento
         Me.cmd_eliminar.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmd_eliminar.Location = New System.Drawing.Point(307, 145)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
@@ -211,14 +211,14 @@ Partial Class abm_tipos_documento
         Me.dgv_tipos_doc.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dgv_tipos_doc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_tipos_doc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_tipo_doc, Me.descripcion})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkTurquoise
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_tipos_doc.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_tipos_doc.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_tipos_doc.GridColor = System.Drawing.Color.RoyalBlue
         Me.dgv_tipos_doc.Location = New System.Drawing.Point(9, 19)
         Me.dgv_tipos_doc.Name = "dgv_tipos_doc"
