@@ -237,6 +237,9 @@
     <EmbeddedResource Include="ABM\abm_localidades.resx">
       <DependentUpon>abm_localidades.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM\abm_perdidas.resx">
+      <DependentUpon>abm_perdidas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_stock.resx">
       <DependentUpon>abm_stock.vb</DependentUpon>
     </EmbeddedResource>
