@@ -59,6 +59,7 @@
         End If
         Me.cmd_eliminar.Enabled = True
         Me.condicion_estado = estado.modificar
+        limpiar(Controls)
     End Sub
 
     Private Sub abm_cargo_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -99,12 +100,11 @@
 
         Me.txt_id_cargo.Text = tabla.Rows(0)("id")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
-        Me.txt_id_cargo.Enabled = True
 
         Me.condicion_estado = estado.modificar
 
         Me.cmd_eliminar.Enabled = True
-
+        Me.txt_id_cargo.Enabled = False
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -117,8 +117,6 @@
         Me.txt_id_cargo.Enabled = True
         Me.cmd_eliminar.Enabled = False
         Me.condicion_estado = estado.insertar
-        Me.txt_id_cargo.Text = ""
-        Me.txt_descripcion.Text = ""
         Me.limpiar(Me.Controls)
         Me.txt_id_cargo.Focus()
     End Sub
@@ -129,7 +127,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql = "SELECT * FROM CARGO"
+        sql = "SELECT * FROM CARGO "
 
         tabla = acceso.consulta(sql)
 
@@ -172,7 +170,6 @@
         Else
             Return analizar_existencia.existe
         End If
-
     End Function
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click

@@ -65,7 +65,7 @@
 
     Private Sub limpiar(ByVal de_donde As Object)
         Me.condicion = estado.insertar
-        Dim cmd As ComboBoxV1
+        Dim cmb As ComboBoxV1
 
         For Each obj As System.Windows.Forms.Control In de_donde
             Select Case obj.GetType.ToString
@@ -74,8 +74,8 @@
                 Case "System.Windows.Forms.MaskedTextBox"
                     obj.Text = ""
                 Case "WindowsApplication1.ComboBoxV1"
-                    cmd = obj
-                    cmd.SelectedIndex = -1
+                    cmb = obj
+                    cmb.SelectedIndex = -1
                 Case "System.Windows.Forms.GroupBox"
                     Me.limpiar(obj.Controls)
             End Select
