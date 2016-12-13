@@ -114,14 +114,18 @@ Partial Class abm_cargo
         '
         'cmd_buscar
         '
+        Me.cmd_buscar.BackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar.BackgroundImage = CType(resources.GetObject("cmd_buscar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_buscar.FlatAppearance.BorderSize = 0
         Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar.Location = New System.Drawing.Point(257, 11)
+        Me.cmd_buscar.ForeColor = System.Drawing.Color.Transparent
+        Me.cmd_buscar.Location = New System.Drawing.Point(179, 15)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(32, 32)
         Me.cmd_buscar.TabIndex = 12
-        Me.cmd_buscar.UseVisualStyleBackColor = True
+        Me.cmd_buscar.UseVisualStyleBackColor = False
         '
         'txt_descripcion
         '
@@ -192,7 +196,7 @@ Partial Class abm_cargo
         Me.cmd_guardar.BackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.BackgroundImage = CType(resources.GetObject("cmd_guardar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_guardar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_guardar.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
