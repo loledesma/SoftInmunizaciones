@@ -103,6 +103,7 @@
         Me.condicion_estado = estado.modificar
 
         Me.cmd_eliminar.Enabled = True
+        Me.txt_id_departamento.Enabled = False
 
     End Sub
 
@@ -116,10 +117,9 @@
         Me.txt_id_departamento.Enabled = True
         Me.cmd_eliminar.Enabled = False
         Me.condicion_estado = estado.insertar
-        Me.txt_id_departamento.Text = ""
-        Me.txt_descripcion.Text = ""
         Me.limpiar(Me.Controls)
         Me.txt_id_departamento.Focus()
+        cargar_grilla()
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
@@ -240,4 +240,24 @@
     End Sub
 
 
+    Private Sub cmb_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmb_buscar_nombre.Click
+        Dim tabla As New DataTable
+        Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE descripcion = " & Me.txt_descripcion.Text
+
+        tabla = acceso.consulta(sql)
+
+        If Not (tabla.Rows.Count() = 0) Then
+            Me.dgv_departamentos.Rows.Clear()
+            Me.dgv_departamentos.Rows.Add()
+            Me.dgv_departamentos.Rows(0).Cells("id_departamentos").Value = tabla.Rows(0)("id")
+            Me.dgv_departamentos.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+        Else
+            MessageBox.Show("No existe el departamento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.txt_id_departamento.Focus()
+            Exit Sub
+        End If
+        Me.cmd_eliminar.Enabled = True
+        Me.condicion_estado = estado.modificar
+        limpiar(Controls)
+    End Sub
 End Class
