@@ -30,6 +30,8 @@ Partial Class abm_localidades
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmd_buscar_nombre = New System.Windows.Forms.Button()
+        Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmd_buscar_codpostal = New System.Windows.Forms.Button()
         Me.txt_cod_postal = New System.Windows.Forms.TextBox()
@@ -44,8 +46,9 @@ Partial Class abm_localidades
         Me.id_localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cod_postal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmd_filtrar_dptos = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_localidades, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +61,7 @@ Partial Class abm_localidades
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(306, 359)
+        Me.cmd_salir.Location = New System.Drawing.Point(439, 305)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 6
@@ -73,8 +76,8 @@ Partial Class abm_localidades
         Me.cmd_cancelar.FlatAppearance.BorderSize = 0
         Me.cmd_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_cancelar.Location = New System.Drawing.Point(217, 359)
+        Me.cmd_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_cancelar.Location = New System.Drawing.Point(217, 305)
         Me.cmd_cancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cancelar.Name = "cmd_cancelar"
         Me.cmd_cancelar.Size = New System.Drawing.Size(60, 60)
@@ -93,7 +96,7 @@ Partial Class abm_localidades
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_guardar.Location = New System.Drawing.Point(81, 359)
+        Me.cmd_guardar.Location = New System.Drawing.Point(81, 305)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
@@ -112,7 +115,7 @@ Partial Class abm_localidades
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_nuevo.Location = New System.Drawing.Point(13, 359)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(13, 305)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
@@ -131,7 +134,7 @@ Partial Class abm_localidades
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_eliminar.Location = New System.Drawing.Point(149, 359)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(149, 305)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
@@ -143,6 +146,8 @@ Partial Class abm_localidades
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.cmd_filtrar_dptos)
+        Me.GroupBox1.Controls.Add(Me.cmd_buscar_nombre)
         Me.GroupBox1.Controls.Add(Me.cmb_dptos)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.cmd_buscar_codpostal)
@@ -156,15 +161,37 @@ Partial Class abm_localidades
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(354, 142)
+        Me.GroupBox1.Size = New System.Drawing.Size(487, 88)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos"
         '
+        'cmd_buscar_nombre
+        '
+        Me.cmd_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmd_buscar_nombre.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_nombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_nombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_nombre.Location = New System.Drawing.Point(455, 23)
+        Me.cmd_buscar_nombre.Name = "cmd_buscar_nombre"
+        Me.cmd_buscar_nombre.Size = New System.Drawing.Size(26, 25)
+        Me.cmd_buscar_nombre.TabIndex = 9
+        Me.cmd_buscar_nombre.UseVisualStyleBackColor = True
+        '
+        'cmb_dptos
+        '
+        Me.cmb_dptos._descripcion = "descripcion"
+        Me.cmb_dptos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_dptos._pk = "id"
+        Me.cmb_dptos.FormattingEnabled = True
+        Me.cmb_dptos.Location = New System.Drawing.Point(277, 52)
+        Me.cmb_dptos.Name = "cmb_dptos"
+        Me.cmb_dptos.Size = New System.Drawing.Size(170, 21)
+        Me.cmb_dptos.TabIndex = 5
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 107)
+        Me.Label4.Location = New System.Drawing.Point(200, 55)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(74, 13)
         Me.Label4.TabIndex = 8
@@ -199,15 +226,15 @@ Partial Class abm_localidades
         '
         'txt_descripcion
         '
-        Me.txt_descripcion.Location = New System.Drawing.Point(91, 78)
+        Me.txt_descripcion.Location = New System.Drawing.Point(277, 26)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(245, 20)
+        Me.txt_descripcion.Size = New System.Drawing.Size(170, 20)
         Me.txt_descripcion.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 81)
+        Me.Label2.Location = New System.Drawing.Point(200, 29)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 3
@@ -245,9 +272,9 @@ Partial Class abm_localidades
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.dgv_localidades)
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 160)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 106)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(354, 192)
+        Me.GroupBox2.Size = New System.Drawing.Size(487, 192)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Existentes"
@@ -258,7 +285,7 @@ Partial Class abm_localidades
         Me.dgv_localidades.AllowUserToDeleteRows = False
         Me.dgv_localidades.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dgv_localidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_localidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_localidad, Me.cod_postal, Me.descripcion, Me.dpto})
+        Me.dgv_localidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_localidad, Me.cod_postal, Me.descripcion, Me.id_dpto, Me.dpto})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -270,7 +297,7 @@ Partial Class abm_localidades
         Me.dgv_localidades.Location = New System.Drawing.Point(9, 19)
         Me.dgv_localidades.Name = "dgv_localidades"
         Me.dgv_localidades.ReadOnly = True
-        Me.dgv_localidades.Size = New System.Drawing.Size(339, 167)
+        Me.dgv_localidades.Size = New System.Drawing.Size(472, 167)
         Me.dgv_localidades.TabIndex = 0
         '
         'id_localidad
@@ -278,37 +305,46 @@ Partial Class abm_localidades
         Me.id_localidad.HeaderText = "ID"
         Me.id_localidad.Name = "id_localidad"
         Me.id_localidad.ReadOnly = True
-        Me.id_localidad.Width = 50
+        Me.id_localidad.Width = 30
         '
         'cod_postal
         '
         Me.cod_postal.HeaderText = "Cod. Postal"
         Me.cod_postal.Name = "cod_postal"
         Me.cod_postal.ReadOnly = True
-        Me.cod_postal.Width = 75
+        Me.cod_postal.Width = 45
         '
         'descripcion
         '
         Me.descripcion.HeaderText = "Nombre"
         Me.descripcion.Name = "descripcion"
         Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 150
+        '
+        'id_dpto
+        '
+        Me.id_dpto.HeaderText = "ID Dpto"
+        Me.id_dpto.Name = "id_dpto"
+        Me.id_dpto.ReadOnly = True
+        Me.id_dpto.Width = 30
         '
         'dpto
         '
         Me.dpto.HeaderText = "Departamento"
         Me.dpto.Name = "dpto"
         Me.dpto.ReadOnly = True
+        Me.dpto.Width = 175
         '
-        'cmb_dptos
+        'cmd_filtrar_dptos
         '
-        Me.cmb_dptos._descripcion = "descripcion"
-        Me.cmb_dptos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_dptos._pk = "id"
-        Me.cmb_dptos.FormattingEnabled = True
-        Me.cmb_dptos.Location = New System.Drawing.Point(91, 104)
-        Me.cmb_dptos.Name = "cmb_dptos"
-        Me.cmb_dptos.Size = New System.Drawing.Size(245, 21)
-        Me.cmb_dptos.TabIndex = 5
+        Me.cmd_filtrar_dptos.BackgroundImage = CType(resources.GetObject("cmd_filtrar_dptos.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_filtrar_dptos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_filtrar_dptos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_filtrar_dptos.Location = New System.Drawing.Point(455, 49)
+        Me.cmd_filtrar_dptos.Name = "cmd_filtrar_dptos"
+        Me.cmd_filtrar_dptos.Size = New System.Drawing.Size(26, 25)
+        Me.cmd_filtrar_dptos.TabIndex = 10
+        Me.cmd_filtrar_dptos.UseVisualStyleBackColor = True
         '
         'abm_localidades
         '
@@ -316,7 +352,7 @@ Partial Class abm_localidades
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(378, 431)
+        Me.ClientSize = New System.Drawing.Size(510, 373)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cmd_salir)
@@ -351,8 +387,11 @@ Partial Class abm_localidades
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_localidades As System.Windows.Forms.DataGridView
+    Friend WithEvents cmd_buscar_nombre As System.Windows.Forms.Button
     Friend WithEvents id_localidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cod_postal As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_dpto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dpto As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_filtrar_dptos As System.Windows.Forms.Button
 End Class
