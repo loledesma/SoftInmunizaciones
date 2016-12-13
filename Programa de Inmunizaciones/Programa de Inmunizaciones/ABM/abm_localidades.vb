@@ -29,8 +29,10 @@
     End Sub
 
     Private Sub cargar_grilla() '   VER CON LORE PARA QUE APAREZCA NOMBRE DEL DPTO EN LA GRILLA!
-        Dim sql As String = "SELECT * FROM LOCALIDADES "
+        Dim sql As String = ""
         Dim tabla As New DataTable
+        sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
+        sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id "
 
         tabla = acceso.consulta(sql)
 
@@ -42,7 +44,9 @@
             Me.dgv_localidades.Rows(c).Cells("id_localidad").Value = tabla.Rows(c)("id")
             Me.dgv_localidades.Rows(c).Cells("cod_postal").Value = tabla.Rows(c)("cod_postal")
             Me.dgv_localidades.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
-            Me.dgv_localidades.Rows(c).Cells("dpto").Value = tabla.Rows(c)("id_departamento")
+            Me.dgv_localidades.Rows(c).Cells("dpto").Value = tabla.Rows(c)("descrip")
+            Me.dgv_localidades.Rows(c).Cells("id_dpto").Value = tabla.Rows(c)("id_departamento")
+
         Next
     End Sub
 
@@ -241,7 +245,8 @@
             cmd_buscar_id.Focus()
             Exit Sub
         Else
-            sql &= "select * from localidades where id = " & Me.txt_id_localidad.Text
+            sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
+            sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id WHERE L.id = " & Me.txt_id_localidad.Text
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
@@ -252,11 +257,12 @@
                 dgv_localidades.Rows(0).Cells("id_localidad").Value = tabla.Rows(0)("id")
                 dgv_localidades.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
                 dgv_localidades.Rows(0).Cells("cod_postal").Value = tabla.Rows(0)("cod_postal")
-                dgv_localidades.Rows(0).Cells("dpto").Value = tabla(0)("id_departamento")
+                dgv_localidades.Rows(0).Cells("dpto").Value = tabla(0)("descrip")
+                dgv_localidades.Rows(0).Cells("id_dpto").Value = tabla(0)("id_departamento")
             End If
         End If
         limpiar(Controls)
-
+        txt_id_localidad.Focus()
 
     End Sub
 
@@ -268,25 +274,84 @@
     Private Sub cmd_buscar_codpostal_Click(sender As Object, e As EventArgs) Handles cmd_buscar_codpostal.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
+        Dim c As Integer = 0
         If txt_cod_postal.Text = "" Then
             MessageBox.Show("Ingrese un valor numérico antes de buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             cmd_buscar_id.Focus()
             Exit Sub
         Else
-            sql &= "select * from localidades where cod_postal = " & Me.txt_cod_postal.Text
+            sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
+            sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id WHERE L.cod_postal = " & Me.txt_cod_postal.Text
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
                 MessageBox.Show("No se encontró una localidad con el Codigo Postal: " & Me.txt_cod_postal.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 dgv_localidades.Rows.Clear()
-                dgv_localidades.Rows.Add()
-                dgv_localidades.Rows(0).Cells("id_localidad").Value = tabla.Rows(0)("id")
-                dgv_localidades.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
-                dgv_localidades.Rows(0).Cells("cod_postal").Value = tabla.Rows(0)("cod_postal")
-                dgv_localidades.Rows(0).Cells("dpto").Value = tabla(0)("id_departamento")
+                For c = 0 To tabla.Rows.Count - 1
+                    dgv_localidades.Rows.Add()
+                    dgv_localidades.Rows(c).Cells("id_localidad").Value = tabla.Rows(c)("id")
+                    dgv_localidades.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+                    dgv_localidades.Rows(c).Cells("cod_postal").Value = tabla.Rows(c)("cod_postal")
+                    dgv_localidades.Rows(c).Cells("dpto").Value = tabla(c)("descrip")
+                    dgv_localidades.Rows(c).Cells("id_dpto").Value = tabla(c)("id_departamento")
+                Next
+            End If
+        End If
+        limpiar(Controls)
+        txt_cod_postal.Focus()
+    End Sub
+
+    Private Sub cmd_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmd_buscar_nombre.Click
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        If Me.txt_descripcion.Text = "" Then
+            MessageBox.Show("Debe ingresar un nombre en el campo descripcion!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        Else
+            sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
+            sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id WHERE L.descripcion = '" & Me.txt_descripcion.Text & "' "
+
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count = 0 Then
+                MessageBox.Show("No existe una localidad con el nombre: " & Me.txt_descripcion.Text)
+                txt_descripcion.Focus()
+                Exit Sub
+            Else
+                Me.dgv_localidades.Rows.Clear()
+                Me.dgv_localidades.Rows.Add()
+                Me.dgv_localidades.Rows(0).Cells("id_localidad").Value = tabla.Rows(0)("id")
+                Me.dgv_localidades.Rows(0).Cells("cod_postal").Value = tabla.Rows(0)("cod_postal")
+                Me.dgv_localidades.Rows(0).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                Me.dgv_localidades.Rows(0).Cells("id_dpto").Value = tabla.Rows(0)("id_departamento")
+                Me.dgv_localidades.Rows(0).Cells("dpto").Value = tabla.Rows(0)("descrip")
             End If
         End If
         limpiar(Controls)
     End Sub
+
+    Private Sub cmd_filtrar_dptos_Click(sender As Object, e As EventArgs) Handles cmd_filtrar_dptos.Click
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
+        sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id WHERE L.id_departamento = " & Me.cmb_dptos.SelectedValue
+
+        tabla = acceso.consulta(sql)
+        Dim c As Integer = 0
+        dgv_localidades.Rows.Clear()
+
+        For c = 0 To tabla.Rows.Count - 1
+            dgv_localidades.Rows.Add()
+            dgv_localidades.Rows(c).Cells("id_localidad").Value = tabla.Rows(c)("id")
+            dgv_localidades.Rows(c).Cells("cod_postal").Value = tabla.Rows(c)("cod_postal")
+            dgv_localidades.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+            dgv_localidades.Rows(c).Cells("id_dpto").Value = tabla.Rows(c)("id_departamento")
+            dgv_localidades.Rows(c).Cells("dpto").Value = tabla.Rows(c)("descrip")
+
+        Next
+    End Sub
+
 End Class

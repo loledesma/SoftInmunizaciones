@@ -225,6 +225,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ABM\abm_barrios.resx">
+      <DependentUpon>abm_barrios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_carga.resx">
       <DependentUpon>abm_carga.vb</DependentUpon>
     </EmbeddedResource>
