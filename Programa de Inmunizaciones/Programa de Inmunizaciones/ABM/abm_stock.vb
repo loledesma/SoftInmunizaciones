@@ -59,6 +59,7 @@
         End If
         Me.cmd_eliminar.Enabled = True
         Me.condicion_estado = estado.modificar
+        limpiar(Controls)
     End Sub
 
     Private Sub abm_stock_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -99,11 +100,11 @@
 
         Me.txt_id_stock.Text = tabla.Rows(0)("id")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
-        Me.txt_id_stock.Enabled = True
 
         Me.condicion_estado = estado.modificar
 
         Me.cmd_eliminar.Enabled = True
+        Me.txt_id_stock.Enabled = False
 
     End Sub
 
@@ -117,8 +118,6 @@
         Me.txt_id_stock.Enabled = True
         Me.cmd_eliminar.Enabled = False
         Me.condicion_estado = estado.insertar
-        Me.txt_id_stock.Text = ""
-        Me.txt_descripcion.Text = ""
         Me.limpiar(Me.Controls)
         Me.txt_id_stock.Focus()
     End Sub
