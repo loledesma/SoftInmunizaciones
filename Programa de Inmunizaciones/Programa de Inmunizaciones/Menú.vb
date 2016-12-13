@@ -58,4 +58,8 @@
     Private Sub cmd_abm_tipos_efectores_Click(sender As Object, e As EventArgs) Handles cmd_abm_tipos_efectores.Click
         abm_tipos_efectores.ShowDialog()
     End Sub
+
+    Private Sub cmd_abm_barrios_Click(sender As Object, e As EventArgs) Handles cmd_abm_barrios.Click
+        abm_barrios.ShowDialog()
+    End Sub
 End Class
