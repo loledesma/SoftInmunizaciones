@@ -30,8 +30,8 @@ Partial Class abm_localidades
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmd_filtrar_dptos = New System.Windows.Forms.Button()
         Me.cmd_buscar_nombre = New System.Windows.Forms.Button()
-        Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmd_buscar_codpostal = New System.Windows.Forms.Button()
         Me.txt_cod_postal = New System.Windows.Forms.TextBox()
@@ -48,7 +48,7 @@ Partial Class abm_localidades
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmd_filtrar_dptos = New System.Windows.Forms.Button()
+        Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_localidades, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,7 +64,7 @@ Partial Class abm_localidades
         Me.cmd_salir.Location = New System.Drawing.Point(439, 305)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.TabIndex = 5
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_cancelar
@@ -81,7 +81,7 @@ Partial Class abm_localidades
         Me.cmd_cancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cancelar.Name = "cmd_cancelar"
         Me.cmd_cancelar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_cancelar.TabIndex = 5
+        Me.cmd_cancelar.TabIndex = 4
         Me.cmd_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_cancelar.UseVisualStyleBackColor = False
@@ -100,7 +100,7 @@ Partial Class abm_localidades
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 2
+        Me.cmd_guardar.TabIndex = 1
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -119,7 +119,7 @@ Partial Class abm_localidades
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 4
+        Me.cmd_nuevo.TabIndex = 2
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -166,6 +166,17 @@ Partial Class abm_localidades
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos"
         '
+        'cmd_filtrar_dptos
+        '
+        Me.cmd_filtrar_dptos.BackgroundImage = CType(resources.GetObject("cmd_filtrar_dptos.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_filtrar_dptos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_filtrar_dptos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_filtrar_dptos.Location = New System.Drawing.Point(455, 49)
+        Me.cmd_filtrar_dptos.Name = "cmd_filtrar_dptos"
+        Me.cmd_filtrar_dptos.Size = New System.Drawing.Size(26, 25)
+        Me.cmd_filtrar_dptos.TabIndex = 7
+        Me.cmd_filtrar_dptos.UseVisualStyleBackColor = True
+        '
         'cmd_buscar_nombre
         '
         Me.cmd_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmd_buscar_nombre.BackgroundImage"), System.Drawing.Image)
@@ -174,19 +185,8 @@ Partial Class abm_localidades
         Me.cmd_buscar_nombre.Location = New System.Drawing.Point(455, 23)
         Me.cmd_buscar_nombre.Name = "cmd_buscar_nombre"
         Me.cmd_buscar_nombre.Size = New System.Drawing.Size(26, 25)
-        Me.cmd_buscar_nombre.TabIndex = 9
+        Me.cmd_buscar_nombre.TabIndex = 3
         Me.cmd_buscar_nombre.UseVisualStyleBackColor = True
-        '
-        'cmb_dptos
-        '
-        Me.cmb_dptos._descripcion = "descripcion"
-        Me.cmb_dptos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_dptos._pk = "id"
-        Me.cmb_dptos.FormattingEnabled = True
-        Me.cmb_dptos.Location = New System.Drawing.Point(277, 52)
-        Me.cmb_dptos.Name = "cmb_dptos"
-        Me.cmb_dptos.Size = New System.Drawing.Size(170, 21)
-        Me.cmb_dptos.TabIndex = 5
         '
         'Label4
         '
@@ -205,7 +205,7 @@ Partial Class abm_localidades
         Me.cmd_buscar_codpostal.Location = New System.Drawing.Point(167, 49)
         Me.cmd_buscar_codpostal.Name = "cmd_buscar_codpostal"
         Me.cmd_buscar_codpostal.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_codpostal.TabIndex = 3
+        Me.cmd_buscar_codpostal.TabIndex = 5
         Me.cmd_buscar_codpostal.UseVisualStyleBackColor = True
         '
         'txt_cod_postal
@@ -213,7 +213,7 @@ Partial Class abm_localidades
         Me.txt_cod_postal.Location = New System.Drawing.Point(91, 52)
         Me.txt_cod_postal.Name = "txt_cod_postal"
         Me.txt_cod_postal.Size = New System.Drawing.Size(70, 20)
-        Me.txt_cod_postal.TabIndex = 2
+        Me.txt_cod_postal.TabIndex = 4
         '
         'Label3
         '
@@ -229,7 +229,7 @@ Partial Class abm_localidades
         Me.txt_descripcion.Location = New System.Drawing.Point(277, 26)
         Me.txt_descripcion.Name = "txt_descripcion"
         Me.txt_descripcion.Size = New System.Drawing.Size(170, 20)
-        Me.txt_descripcion.TabIndex = 4
+        Me.txt_descripcion.TabIndex = 2
         '
         'Label2
         '
@@ -275,7 +275,7 @@ Partial Class abm_localidades
         Me.GroupBox2.Location = New System.Drawing.Point(12, 106)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(487, 192)
-        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Existentes"
         '
@@ -335,16 +335,16 @@ Partial Class abm_localidades
         Me.dpto.ReadOnly = True
         Me.dpto.Width = 175
         '
-        'cmd_filtrar_dptos
+        'cmb_dptos
         '
-        Me.cmd_filtrar_dptos.BackgroundImage = CType(resources.GetObject("cmd_filtrar_dptos.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_filtrar_dptos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_filtrar_dptos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_filtrar_dptos.Location = New System.Drawing.Point(455, 49)
-        Me.cmd_filtrar_dptos.Name = "cmd_filtrar_dptos"
-        Me.cmd_filtrar_dptos.Size = New System.Drawing.Size(26, 25)
-        Me.cmd_filtrar_dptos.TabIndex = 10
-        Me.cmd_filtrar_dptos.UseVisualStyleBackColor = True
+        Me.cmb_dptos._descripcion = "descripcion"
+        Me.cmb_dptos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_dptos._pk = "id"
+        Me.cmb_dptos.FormattingEnabled = True
+        Me.cmb_dptos.Location = New System.Drawing.Point(277, 52)
+        Me.cmb_dptos.Name = "cmb_dptos"
+        Me.cmb_dptos.Size = New System.Drawing.Size(170, 21)
+        Me.cmb_dptos.TabIndex = 6
         '
         'abm_localidades
         '
@@ -360,6 +360,7 @@ Partial Class abm_localidades
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.cmd_eliminar)
+        Me.KeyPreview = True
         Me.Name = "abm_localidades"
         Me.Text = "abm_localidades"
         Me.GroupBox1.ResumeLayout(False)
