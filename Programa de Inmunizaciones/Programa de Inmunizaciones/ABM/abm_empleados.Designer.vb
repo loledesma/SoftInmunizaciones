@@ -48,22 +48,17 @@ Partial Class abm_empleados
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.grp_datos_sigipsa = New System.Windows.Forms.GroupBox()
         Me.cmd_buscar_x_usuario = New System.Windows.Forms.Button()
-        Me.MaskedTextBox3 = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_fecha = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_fecha = New System.Windows.Forms.Label()
         Me.lbl_usuario = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txt_usuario = New System.Windows.Forms.TextBox()
+        Me.txt_email = New System.Windows.Forms.TextBox()
         Me.lbl_mail = New System.Windows.Forms.Label()
         Me.grp_datos_laborales = New System.Windows.Forms.GroupBox()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
         Me.cmd_buscar_x_efector = New System.Windows.Forms.Button()
-        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_perfil = New System.Windows.Forms.Label()
-        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_cargo = New System.Windows.Forms.Label()
-        Me.cmb_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_vacunatorio = New System.Windows.Forms.Label()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
@@ -73,6 +68,11 @@ Partial Class abm_empleados
         Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_estadistica = New System.Windows.Forms.Button()
         Me.cmd_listados = New System.Windows.Forms.Button()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_sigipsa.SuspendLayout()
@@ -357,11 +357,11 @@ Partial Class abm_empleados
         '
         Me.grp_datos_sigipsa.BackColor = System.Drawing.Color.Transparent
         Me.grp_datos_sigipsa.Controls.Add(Me.cmd_buscar_x_usuario)
-        Me.grp_datos_sigipsa.Controls.Add(Me.MaskedTextBox3)
+        Me.grp_datos_sigipsa.Controls.Add(Me.txt_fecha)
         Me.grp_datos_sigipsa.Controls.Add(Me.lbl_fecha)
         Me.grp_datos_sigipsa.Controls.Add(Me.lbl_usuario)
-        Me.grp_datos_sigipsa.Controls.Add(Me.TextBox4)
-        Me.grp_datos_sigipsa.Controls.Add(Me.TextBox3)
+        Me.grp_datos_sigipsa.Controls.Add(Me.txt_usuario)
+        Me.grp_datos_sigipsa.Controls.Add(Me.txt_email)
         Me.grp_datos_sigipsa.Controls.Add(Me.lbl_mail)
         Me.grp_datos_sigipsa.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_sigipsa.Location = New System.Drawing.Point(12, 378)
@@ -386,14 +386,14 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_usuario.TabIndex = 30
         Me.cmd_buscar_x_usuario.UseVisualStyleBackColor = False
         '
-        'MaskedTextBox3
+        'txt_fecha
         '
-        Me.MaskedTextBox3.Location = New System.Drawing.Point(125, 68)
-        Me.MaskedTextBox3.Mask = "00/00/0000"
-        Me.MaskedTextBox3.Name = "MaskedTextBox3"
-        Me.MaskedTextBox3.Size = New System.Drawing.Size(97, 20)
-        Me.MaskedTextBox3.TabIndex = 30
-        Me.MaskedTextBox3.ValidatingType = GetType(Date)
+        Me.txt_fecha.Location = New System.Drawing.Point(125, 68)
+        Me.txt_fecha.Mask = "00/00/0000"
+        Me.txt_fecha.Name = "txt_fecha"
+        Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha.TabIndex = 30
+        Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'lbl_fecha
         '
@@ -413,19 +413,19 @@ Partial Class abm_empleados
         Me.lbl_usuario.TabIndex = 32
         Me.lbl_usuario.Text = "Usuario Sigipsa"
         '
-        'TextBox4
+        'txt_usuario
         '
-        Me.TextBox4.Location = New System.Drawing.Point(125, 45)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(257, 20)
-        Me.TextBox4.TabIndex = 31
+        Me.txt_usuario.Location = New System.Drawing.Point(125, 45)
+        Me.txt_usuario.Name = "txt_usuario"
+        Me.txt_usuario.Size = New System.Drawing.Size(257, 20)
+        Me.txt_usuario.TabIndex = 31
         '
-        'TextBox3
+        'txt_email
         '
-        Me.TextBox3.Location = New System.Drawing.Point(126, 19)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(257, 20)
-        Me.TextBox3.TabIndex = 30
+        Me.txt_email.Location = New System.Drawing.Point(126, 19)
+        Me.txt_email.Name = "txt_email"
+        Me.txt_email.Size = New System.Drawing.Size(257, 20)
+        Me.txt_email.TabIndex = 30
         '
         'lbl_mail
         '
@@ -458,17 +458,6 @@ Partial Class abm_empleados
         Me.grp_datos_laborales.TabIndex = 34
         Me.grp_datos_laborales.TabStop = False
         Me.grp_datos_laborales.Text = "Datos Laborales"
-        '
-        'cmb_departamentos
-        '
-        Me.cmb_departamentos._descripcion = "descripcion"
-        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamentos._pk = "id"
-        Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(124, 19)
-        Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(218, 21)
-        Me.cmb_departamentos.TabIndex = 39
         '
         'cmd_agregar_efector
         '
@@ -504,17 +493,6 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_efector.TabIndex = 34
         Me.cmd_buscar_x_efector.UseVisualStyleBackColor = False
         '
-        'cmb_perfil
-        '
-        Me.cmb_perfil._descripcion = "descripcion"
-        Me.cmb_perfil._nombre_tabla = "PERFILES_SIGIPSA"
-        Me.cmb_perfil._pk = "id"
-        Me.cmb_perfil.FormattingEnabled = True
-        Me.cmb_perfil.Location = New System.Drawing.Point(124, 130)
-        Me.cmb_perfil.Name = "cmb_perfil"
-        Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_perfil.TabIndex = 38
-        '
         'lbl_perfil
         '
         Me.lbl_perfil.AutoSize = True
@@ -524,17 +502,6 @@ Partial Class abm_empleados
         Me.lbl_perfil.TabIndex = 37
         Me.lbl_perfil.Text = "Perfil"
         '
-        'cmb_cargo
-        '
-        Me.cmb_cargo._descripcion = "descripcion"
-        Me.cmb_cargo._nombre_tabla = "CARGO"
-        Me.cmb_cargo._pk = "id"
-        Me.cmb_cargo.FormattingEnabled = True
-        Me.cmb_cargo.Location = New System.Drawing.Point(124, 101)
-        Me.cmb_cargo.Name = "cmb_cargo"
-        Me.cmb_cargo.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_cargo.TabIndex = 36
-        '
         'lbl_cargo
         '
         Me.lbl_cargo.AutoSize = True
@@ -543,28 +510,6 @@ Partial Class abm_empleados
         Me.lbl_cargo.Size = New System.Drawing.Size(35, 13)
         Me.lbl_cargo.TabIndex = 35
         Me.lbl_cargo.Text = "Cargo"
-        '
-        'cmb_efectores
-        '
-        Me.cmb_efectores._descripcion = "nombre"
-        Me.cmb_efectores._nombre_tabla = "EFECTORES"
-        Me.cmb_efectores._pk = "cuie"
-        Me.cmb_efectores.FormattingEnabled = True
-        Me.cmb_efectores.Location = New System.Drawing.Point(125, 75)
-        Me.cmb_efectores.Name = "cmb_efectores"
-        Me.cmb_efectores.Size = New System.Drawing.Size(217, 21)
-        Me.cmb_efectores.TabIndex = 34
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(125, 49)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_localidades.TabIndex = 33
         '
         'lbl_vacunatorio
         '
@@ -664,6 +609,61 @@ Partial Class abm_empleados
         Me.cmd_listados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_listados.UseVisualStyleBackColor = False
         '
+        'cmb_departamentos
+        '
+        Me.cmb_departamentos._descripcion = "descripcion"
+        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamentos._pk = "id"
+        Me.cmb_departamentos.FormattingEnabled = True
+        Me.cmb_departamentos.Location = New System.Drawing.Point(124, 22)
+        Me.cmb_departamentos.Name = "cmb_departamentos"
+        Me.cmb_departamentos.Size = New System.Drawing.Size(170, 21)
+        Me.cmb_departamentos.TabIndex = 40
+        '
+        'cmb_perfil
+        '
+        Me.cmb_perfil._descripcion = "descripcion"
+        Me.cmb_perfil._nombre_tabla = "PERFILES_SIGIPSA"
+        Me.cmb_perfil._pk = "id"
+        Me.cmb_perfil.FormattingEnabled = True
+        Me.cmb_perfil.Location = New System.Drawing.Point(124, 130)
+        Me.cmb_perfil.Name = "cmb_perfil"
+        Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_perfil.TabIndex = 38
+        '
+        'cmb_cargo
+        '
+        Me.cmb_cargo._descripcion = "descripcion"
+        Me.cmb_cargo._nombre_tabla = "CARGO"
+        Me.cmb_cargo._pk = "id"
+        Me.cmb_cargo.FormattingEnabled = True
+        Me.cmb_cargo.Location = New System.Drawing.Point(124, 101)
+        Me.cmb_cargo.Name = "cmb_cargo"
+        Me.cmb_cargo.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_cargo.TabIndex = 36
+        '
+        'cmb_efectores
+        '
+        Me.cmb_efectores._descripcion = "nombre"
+        Me.cmb_efectores._nombre_tabla = "EFECTORES"
+        Me.cmb_efectores._pk = "cuie"
+        Me.cmb_efectores.FormattingEnabled = True
+        Me.cmb_efectores.Location = New System.Drawing.Point(125, 75)
+        Me.cmb_efectores.Name = "cmb_efectores"
+        Me.cmb_efectores.Size = New System.Drawing.Size(217, 21)
+        Me.cmb_efectores.TabIndex = 34
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(125, 49)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_localidades.TabIndex = 33
+        '
         'cmb_tipo_doc
         '
         Me.cmb_tipo_doc._descripcion = "descripcion"
@@ -730,11 +730,11 @@ Partial Class abm_empleados
     Friend WithEvents cmd_buscar_x_documento As System.Windows.Forms.Button
     Friend WithEvents grp_datos_sigipsa As System.Windows.Forms.GroupBox
     Friend WithEvents cmd_buscar_x_usuario As System.Windows.Forms.Button
-    Friend WithEvents MaskedTextBox3 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_fecha As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lbl_fecha As System.Windows.Forms.Label
     Friend WithEvents lbl_usuario As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_usuario As System.Windows.Forms.TextBox
+    Friend WithEvents txt_email As System.Windows.Forms.TextBox
     Friend WithEvents lbl_mail As System.Windows.Forms.Label
     Friend WithEvents grp_datos_laborales As System.Windows.Forms.GroupBox
     Friend WithEvents lbl_vacunatorio As System.Windows.Forms.Label
@@ -754,6 +754,6 @@ Partial Class abm_empleados
     Friend WithEvents lbl_perfil As System.Windows.Forms.Label
     Friend WithEvents cmb_cargo As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_cargo As System.Windows.Forms.Label
-    Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents cmb_tipo_doc As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1
 End Class

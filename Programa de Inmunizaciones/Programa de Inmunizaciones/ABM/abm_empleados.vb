@@ -44,7 +44,7 @@
                     obj.Text = ""
                 Case "System.Windows.Forms.MaskedTextBox"
                     obj.Text = ""
-                Case "WindowsApplication1.ComboBoxV1"
+                Case "Programa_de_Inmunizaciones.ComboBoxV1"
                     cmd = obj
                     cmd.SelectedIndex = -1
                 Case "System.Windows.Forms.GroupBox"
@@ -63,14 +63,12 @@
     End Sub
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
-        Me.dgv_empleados.Enabled = True
-        Me.txt_id_empleado.Enabled = True
         Me.grp_datos_laborales.Enabled = True
         Me.grp_datos_personales.Enabled = True
         Me.grp_datos_sigipsa.Enabled = True
+        Me.limpiar(Me.Controls)
         Me.cmd_eliminar.Enabled = False
         Me.condicion_estado = estado.insertar
-        Me.limpiar(Me.Controls)
         Me.txt_id_empleado.Focus()
         cargar_grilla()
     End Sub
@@ -118,6 +116,7 @@
     '  End If
     ' End Sub
 
+    'VOLVER A PROGRAMAR ESTO!!!
 
-  
+
 End Class
