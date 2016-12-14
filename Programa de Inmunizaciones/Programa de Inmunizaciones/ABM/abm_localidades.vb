@@ -116,27 +116,7 @@
     End Function
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
-        If Me.validar_campos() = True Then
-            If condicion = estado.insertar Then
-                If validar_existencia() = analizar_existencia.no_existe Then
-                    Me.insertar()
-                Else
-                    MessageBox.Show("Ya existe una localidad con ese ID!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    Exit Sub
-                End If
-            Else
-                Me.modificar()
-            End If
-        Else
-            Exit Sub
-        End If
-        Me.limpiar(Controls)
-        cargar_grilla()
-        Me.cmd_guardar.Enabled = False
-        Me.cmd_nuevo.Enabled = True
-        cmd_eliminar.Enabled = False
-        cmd_cancelar.Enabled = True
-        cmb_dptos.SelectedIndex = -1
+        guardar()
     End Sub
     Private Sub limpiar(ByVal de_donde As Object)
         Me.condicion = estado.insertar
@@ -161,20 +141,7 @@
     
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        Dim sql As String = "select * from localidades "
-        Dim tabla As New DataTable
-        limpiar(Controls)
-        tabla = acceso.consulta(sql)
-
-        Me.txt_id_localidad.Text = tabla.Rows.Count + 1
-        txt_id_localidad.Enabled = False
-        cmd_eliminar.Enabled = False
-        cmd_nuevo.Enabled = False
-        cmd_guardar.Enabled = True
-        cmd_cancelar.Enabled = True
-        cmb_dptos.SelectedIndex = -1
-        txt_cod_postal.Focus()
-
+        Me.nuevo()
     End Sub
 
     Private Sub dgv_localidades_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_localidades.CellMouseDoubleClick
@@ -353,5 +320,53 @@
 
         Next
     End Sub
+    Private Sub nuevo()
+        Dim sql As String = "select * from localidades "
+        Dim tabla As New DataTable
+        limpiar(Controls)
+        tabla = acceso.consulta(sql)
+        Dim ultimo As Integer = tabla.Rows.Count() - 1
+        Me.txt_id_localidad.Text = tabla.Rows(ultimo)("id") + 1
+        txt_id_localidad.Enabled = False
+        cmd_eliminar.Enabled = False
+        cmd_nuevo.Enabled = False
+        cmd_guardar.Enabled = True
+        cmd_cancelar.Enabled = True
+        cmb_dptos.SelectedIndex = -1
+        txt_descripcion.Focus()
 
+    End Sub
+
+    Private Sub guardar()
+        If Me.validar_campos() = True Then
+            If condicion = estado.insertar Then
+                If validar_existencia() = analizar_existencia.no_existe Then
+                    Me.insertar()
+                Else
+                    MessageBox.Show("Ya existe una localidad con ese ID!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                End If
+            Else
+                Me.modificar()
+            End If
+        Else
+            Exit Sub
+        End If
+        Me.limpiar(Controls)
+        cargar_grilla()
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_nuevo.Enabled = True
+        cmd_eliminar.Enabled = False
+        cmd_cancelar.Enabled = True
+        cmb_dptos.SelectedIndex = -1
+    End Sub
+
+    Private Sub abm_localidades_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+        If e.KeyChar = ChrW(Keys.Enter) Then
+            guardar()
+        End If
+        If e.KeyChar = ChrW(Keys.NumPad0) Then
+            nuevo()
+        End If
+    End Sub
 End Class
