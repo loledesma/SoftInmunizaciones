@@ -20,13 +20,13 @@
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_empleado.Enabled = True
         Me.txt_id_empleado.Focus()
-        Me.cmb_tipo_documento.cargar()
+        Me.cmb_tipo_doc.cargar()
         Me.cmb_departamentos.cargar()
         Me.cmb_localidades.cargar()
         Me.cmb_efectores.cargar()
         Me.cmb_perfil.cargar()
         Me.cmb_cargo.cargar()
-        Me.cmb_tipo_documento.SelectedIndex = -1
+        Me.cmb_tipo_doc.SelectedIndex = -1
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_efectores.SelectedIndex = -1
@@ -36,7 +36,7 @@
 
     Private Sub limpiar(ByVal de_donde As Object)
         Me.condicion_estado = estado.insertar
-        Dim cmb As ComboBoxV1
+        Dim cmd As ComboBoxV1
 
         For Each obj As System.Windows.Forms.Control In de_donde
             Select Case obj.GetType.ToString
@@ -45,8 +45,8 @@
                 Case "System.Windows.Forms.MaskedTextBox"
                     obj.Text = ""
                 Case "WindowsApplication1.ComboBoxV1"
-                    cmb = obj
-                    cmb.SelectedIndex = -1
+                    cmd = obj
+                    cmd.SelectedIndex = -1
                 Case "System.Windows.Forms.GroupBox"
                     Me.limpiar(obj.Controls)
             End Select
@@ -60,6 +60,19 @@
         Else
             e.Cancel = False
         End If
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.dgv_empleados.Enabled = True
+        Me.txt_id_empleado.Enabled = True
+        Me.grp_datos_laborales.Enabled = True
+        Me.grp_datos_personales.Enabled = True
+        Me.grp_datos_sigipsa.Enabled = True
+        Me.cmd_eliminar.Enabled = False
+        Me.condicion_estado = estado.insertar
+        Me.limpiar(Me.Controls)
+        Me.txt_id_empleado.Focus()
+        cargar_grilla()
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -86,23 +99,25 @@
         Next
     End Sub
 
-    Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamentos.SelectedValueChanged
-        If Me.cmb_departamentos.SelectedIndex <> -1 Then
-            Me.cmb_localidades.cargar("id_departamento ", Me.cmb_departamentos.SelectedValue)
-            Me.cmb_localidades.Enabled = True
-            Me.cmb_localidades.SelectedIndex = -1
+    ' Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs)
+    ' If Me.cmb_departamentos.SelectedIndex <> -1 Then
+    ' Me.cmb_localidades.cargar("id_departamento", Me.cmb_departamentos.SelectedValue)
+    'Me.cmb_localidades.Enabled = True
+    'Else
+    'Me.cmb_localidades.SelectedIndex = -1
+    ' End If
+    ' End Sub
 
-            'AGREGAR UN LIMPIAR PARA QUE LIMPIE DE FORMA DESCENDENTE AL CAMBIAR EL DEPTO
-        End If
-    End Sub
-
-    Private Sub cmb_localidades_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_localidades.SelectedValueChanged
-        If Me.cmb_localidades.SelectedIndex <> -1 Then
-            Me.cmb_efectores.cargar("id_localidad ", Me.cmb_localidades.SelectedValue)
-            Me.cmb_efectores.Enabled = True
-            Me.cmb_efectores.SelectedIndex = -1
-        End If
-    End Sub
+    'Private Sub cmb_localidades_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_localidades.SelectedValueChanged
+    'If Me.cmb_localidades.SelectedIndex <> -1 Then
+    '   Me.cmb_efectores.cargar("id_localidad", Me.cmb_localidades.SelectedValue)
+    '  Me.cmb_efectores.Enabled = True
+    '   Me.cmb_efectores.SelectedIndex = -1
+    '  Else
+    '   Me.cmb_efectores.SelectedIndex = -1
+    '  End If
+    ' End Sub
 
 
+  
 End Class
