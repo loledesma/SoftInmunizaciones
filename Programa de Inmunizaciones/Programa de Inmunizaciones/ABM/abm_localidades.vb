@@ -138,7 +138,7 @@
         cmd_nuevo.Enabled = True
     End Sub
 
-    
+
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         Me.nuevo()
@@ -361,12 +361,12 @@
         cmb_dptos.SelectedIndex = -1
     End Sub
 
-    Private Sub abm_localidades_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
-        If e.KeyChar = ChrW(Keys.Enter) Then
-            guardar()
-        End If
-        If e.KeyChar = ChrW(Keys.NumPad0) Then
+    Private Sub abm_localidades_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
             nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
         End If
     End Sub
 End Class
