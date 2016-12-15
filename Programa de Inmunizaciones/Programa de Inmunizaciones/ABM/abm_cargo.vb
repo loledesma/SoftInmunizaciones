@@ -122,16 +122,21 @@
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+        Me.nuevo()
+    End Sub
+
+    Private Sub nuevo()
         Me.condicion_estado = estado.insertar
         Me.limpiar(Me.Controls)
         Dim tabla As New DataTable
         Dim sql As String = ""
+        Dim ultimo As Integer = tabla.Rows.Count() - 1
 
         sql = "SELECT * FROM CARGO "
 
         tabla = acceso.consulta(sql)
 
-        Me.txt_id_cargo.Text = tabla.Rows.Count() + 1
+        Me.txt_id_cargo.Text = tabla.Rows(ultimo)("id") + 1
 
         Me.txt_id_cargo.Enabled = False
         Me.txt_descripcion.Focus()
@@ -173,6 +178,10 @@
     End Function
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+        Me.guardar()
+    End Sub
+
+    Private Sub guardar()
         If Me.validar() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then

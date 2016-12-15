@@ -37,10 +37,10 @@ Partial Class abm_barrios
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dgv_barrios = New System.Windows.Forms.DataGridView()
-        Me.id_barrio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.barrio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_barrio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.barrio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
@@ -81,7 +81,7 @@ Partial Class abm_barrios
         Me.cmb_dptos.Location = New System.Drawing.Point(68, 49)
         Me.cmb_dptos.Name = "cmb_dptos"
         Me.cmb_dptos.Size = New System.Drawing.Size(140, 21)
-        Me.cmb_dptos.TabIndex = 9
+        Me.cmb_dptos.TabIndex = 4
         '
         'Label4
         '
@@ -96,22 +96,24 @@ Partial Class abm_barrios
         '
         Me.cmd_buscar_descripcion.BackgroundImage = CType(resources.GetObject("cmd_buscar_descripcion.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_descripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_descripcion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_descripcion.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_descripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_descripcion.Location = New System.Drawing.Point(490, 23)
         Me.cmd_buscar_descripcion.Name = "cmd_buscar_descripcion"
         Me.cmd_buscar_descripcion.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_descripcion.TabIndex = 7
+        Me.cmd_buscar_descripcion.TabIndex = 3
         Me.cmd_buscar_descripcion.UseVisualStyleBackColor = True
         '
         'cmd_buscar_id
         '
         Me.cmd_buscar_id.BackgroundImage = CType(resources.GetObject("cmd_buscar_id.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_id.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_id.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_id.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_id.Location = New System.Drawing.Point(135, 20)
         Me.cmd_buscar_id.Name = "cmd_buscar_id"
         Me.cmd_buscar_id.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_id.TabIndex = 6
+        Me.cmd_buscar_id.TabIndex = 1
         Me.cmd_buscar_id.UseVisualStyleBackColor = True
         '
         'cmb_localidades
@@ -130,14 +132,14 @@ Partial Class abm_barrios
         Me.txt_descripcion.Location = New System.Drawing.Point(279, 23)
         Me.txt_descripcion.Name = "txt_descripcion"
         Me.txt_descripcion.Size = New System.Drawing.Size(205, 20)
-        Me.txt_descripcion.TabIndex = 4
+        Me.txt_descripcion.TabIndex = 2
         '
         'txt_id_barrio
         '
-        Me.txt_id_barrio.Location = New System.Drawing.Point(71, 23)
+        Me.txt_id_barrio.Location = New System.Drawing.Point(68, 23)
         Me.txt_id_barrio.Name = "txt_id_barrio"
         Me.txt_id_barrio.Size = New System.Drawing.Size(58, 20)
-        Me.txt_id_barrio.TabIndex = 3
+        Me.txt_id_barrio.TabIndex = 0
         '
         'Label3
         '
@@ -174,7 +176,7 @@ Partial Class abm_barrios
         Me.GroupBox1.Location = New System.Drawing.Point(12, 103)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(521, 210)
-        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Existentes"
         '
@@ -184,7 +186,7 @@ Partial Class abm_barrios
         Me.dgv_barrios.AllowUserToDeleteRows = False
         Me.dgv_barrios.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dgv_barrios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_barrios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_barrio, Me.barrio, Me.id_localidad, Me.localidad})
+        Me.dgv_barrios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_localidad, Me.localidad, Me.id_barrio, Me.barrio})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -198,20 +200,6 @@ Partial Class abm_barrios
         Me.dgv_barrios.ReadOnly = True
         Me.dgv_barrios.Size = New System.Drawing.Size(509, 185)
         Me.dgv_barrios.TabIndex = 0
-        '
-        'id_barrio
-        '
-        Me.id_barrio.HeaderText = "ID Barrio"
-        Me.id_barrio.Name = "id_barrio"
-        Me.id_barrio.ReadOnly = True
-        Me.id_barrio.Width = 30
-        '
-        'barrio
-        '
-        Me.barrio.HeaderText = "Barrio"
-        Me.barrio.Name = "barrio"
-        Me.barrio.ReadOnly = True
-        Me.barrio.Width = 200
         '
         'id_localidad
         '
@@ -227,6 +215,20 @@ Partial Class abm_barrios
         Me.localidad.ReadOnly = True
         Me.localidad.Width = 200
         '
+        'id_barrio
+        '
+        Me.id_barrio.HeaderText = "ID Barrio"
+        Me.id_barrio.Name = "id_barrio"
+        Me.id_barrio.ReadOnly = True
+        Me.id_barrio.Width = 30
+        '
+        'barrio
+        '
+        Me.barrio.HeaderText = "Barrio"
+        Me.barrio.Name = "barrio"
+        Me.barrio.ReadOnly = True
+        Me.barrio.Width = 200
+        '
         'cmd_salir
         '
         Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
@@ -237,7 +239,7 @@ Partial Class abm_barrios
         Me.cmd_salir.Location = New System.Drawing.Point(473, 320)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 11
+        Me.cmd_salir.TabIndex = 5
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_limpiar
@@ -254,7 +256,7 @@ Partial Class abm_barrios
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 10
+        Me.cmd_limpiar.TabIndex = 4
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -273,7 +275,7 @@ Partial Class abm_barrios
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 7
+        Me.cmd_guardar.TabIndex = 1
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -292,7 +294,7 @@ Partial Class abm_barrios
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 9
+        Me.cmd_nuevo.TabIndex = 2
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -311,7 +313,7 @@ Partial Class abm_barrios
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_eliminar.TabIndex = 8
+        Me.cmd_eliminar.TabIndex = 3
         Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
@@ -330,6 +332,7 @@ Partial Class abm_barrios
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.grp_barrios)
+        Me.KeyPreview = True
         Me.Name = "abm_barrios"
         Me.Text = "Barrios"
         Me.grp_barrios.ResumeLayout(False)
@@ -348,10 +351,6 @@ Partial Class abm_barrios
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_barrios As System.Windows.Forms.DataGridView
-    Friend WithEvents id_barrio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents barrio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_localidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
@@ -361,4 +360,8 @@ Partial Class abm_barrios
     Friend WithEvents cmd_buscar_id As System.Windows.Forms.Button
     Friend WithEvents cmb_dptos As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents id_localidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_barrio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents barrio As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
