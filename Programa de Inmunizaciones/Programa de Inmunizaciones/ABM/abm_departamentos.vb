@@ -98,7 +98,7 @@
 
         Me.txt_id_departamento.Text = tabla.Rows(0)("id")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
-        Me.txt_id_departamento.Enabled = True
+
 
         Me.condicion_estado = estado.modificar
 

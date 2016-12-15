@@ -27,15 +27,15 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_apellido = New System.Windows.Forms.Button()
         Me.cmd_buscar_x_documento = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_telefono = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_caracteristica = New System.Windows.Forms.MaskedTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Telefono = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txt_apellido = New System.Windows.Forms.TextBox()
         Me.lbl_apellido = New System.Windows.Forms.Label()
         Me.lbl_nombre = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.txt_nro_documento = New System.Windows.Forms.TextBox()
         Me.lbl_documento = New System.Windows.Forms.Label()
         Me.txt_id_empleado = New System.Windows.Forms.TextBox()
@@ -56,18 +56,18 @@ Partial Class abm_empleados
         Me.lbl_mail = New System.Windows.Forms.Label()
         Me.grp_datos_laborales = New System.Windows.Forms.GroupBox()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
-        Me.cmd_buscar_x_efector = New System.Windows.Forms.Button()
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_cargo = New System.Windows.Forms.Label()
         Me.lbl_vacunatorio = New System.Windows.Forms.Label()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_estadistica = New System.Windows.Forms.Button()
         Me.cmd_listados = New System.Windows.Forms.Button()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -87,15 +87,15 @@ Partial Class abm_empleados
         Me.grp_datos_personales.Controls.Add(Me.cmd_buscar_x_apellido)
         Me.grp_datos_personales.Controls.Add(Me.cmd_buscar_x_documento)
         Me.grp_datos_personales.Controls.Add(Me.Label4)
-        Me.grp_datos_personales.Controls.Add(Me.MaskedTextBox2)
+        Me.grp_datos_personales.Controls.Add(Me.txt_telefono)
         Me.grp_datos_personales.Controls.Add(Me.Label3)
-        Me.grp_datos_personales.Controls.Add(Me.MaskedTextBox1)
+        Me.grp_datos_personales.Controls.Add(Me.txt_caracteristica)
         Me.grp_datos_personales.Controls.Add(Me.Label2)
         Me.grp_datos_personales.Controls.Add(Me.Telefono)
-        Me.grp_datos_personales.Controls.Add(Me.TextBox2)
+        Me.grp_datos_personales.Controls.Add(Me.txt_apellido)
         Me.grp_datos_personales.Controls.Add(Me.lbl_apellido)
         Me.grp_datos_personales.Controls.Add(Me.lbl_nombre)
-        Me.grp_datos_personales.Controls.Add(Me.TextBox1)
+        Me.grp_datos_personales.Controls.Add(Me.txt_nombre)
         Me.grp_datos_personales.Controls.Add(Me.txt_nro_documento)
         Me.grp_datos_personales.Controls.Add(Me.lbl_documento)
         Me.grp_datos_personales.Controls.Add(Me.txt_id_empleado)
@@ -148,13 +148,13 @@ Partial Class abm_empleados
         Me.Label4.TabIndex = 25
         Me.Label4.Text = "--"
         '
-        'MaskedTextBox2
+        'txt_telefono
         '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(247, 159)
-        Me.MaskedTextBox2.Mask = "999999999"
-        Me.MaskedTextBox2.Name = "MaskedTextBox2"
-        Me.MaskedTextBox2.Size = New System.Drawing.Size(135, 20)
-        Me.MaskedTextBox2.TabIndex = 24
+        Me.txt_telefono.Location = New System.Drawing.Point(247, 159)
+        Me.txt_telefono.Mask = "999999999"
+        Me.txt_telefono.Name = "txt_telefono"
+        Me.txt_telefono.Size = New System.Drawing.Size(135, 20)
+        Me.txt_telefono.TabIndex = 24
         '
         'Label3
         '
@@ -165,13 +165,13 @@ Partial Class abm_empleados
         Me.Label3.TabIndex = 23
         Me.Label3.Text = ")"
         '
-        'MaskedTextBox1
+        'txt_caracteristica
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(139, 159)
-        Me.MaskedTextBox1.Mask = "9999999"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(67, 20)
-        Me.MaskedTextBox1.TabIndex = 22
+        Me.txt_caracteristica.Location = New System.Drawing.Point(139, 159)
+        Me.txt_caracteristica.Mask = "9999999"
+        Me.txt_caracteristica.Name = "txt_caracteristica"
+        Me.txt_caracteristica.Size = New System.Drawing.Size(67, 20)
+        Me.txt_caracteristica.TabIndex = 22
         '
         'Label2
         '
@@ -191,12 +191,12 @@ Partial Class abm_empleados
         Me.Telefono.TabIndex = 20
         Me.Telefono.Text = "Telefono"
         '
-        'TextBox2
+        'txt_apellido
         '
-        Me.TextBox2.Location = New System.Drawing.Point(126, 133)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(256, 20)
-        Me.TextBox2.TabIndex = 19
+        Me.txt_apellido.Location = New System.Drawing.Point(126, 133)
+        Me.txt_apellido.Name = "txt_apellido"
+        Me.txt_apellido.Size = New System.Drawing.Size(256, 20)
+        Me.txt_apellido.TabIndex = 19
         '
         'lbl_apellido
         '
@@ -216,12 +216,12 @@ Partial Class abm_empleados
         Me.lbl_nombre.TabIndex = 17
         Me.lbl_nombre.Text = "Nombres"
         '
-        'TextBox1
+        'txt_nombre
         '
-        Me.TextBox1.Location = New System.Drawing.Point(126, 107)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(256, 20)
-        Me.TextBox1.TabIndex = 16
+        Me.txt_nombre.Location = New System.Drawing.Point(126, 107)
+        Me.txt_nombre.Name = "txt_nombre"
+        Me.txt_nombre.Size = New System.Drawing.Size(256, 20)
+        Me.txt_nombre.TabIndex = 16
         '
         'txt_nro_documento
         '
@@ -441,7 +441,6 @@ Partial Class abm_empleados
         Me.grp_datos_laborales.BackColor = System.Drawing.Color.Transparent
         Me.grp_datos_laborales.Controls.Add(Me.cmb_departamentos)
         Me.grp_datos_laborales.Controls.Add(Me.cmd_agregar_efector)
-        Me.grp_datos_laborales.Controls.Add(Me.cmd_buscar_x_efector)
         Me.grp_datos_laborales.Controls.Add(Me.cmb_perfil)
         Me.grp_datos_laborales.Controls.Add(Me.lbl_perfil)
         Me.grp_datos_laborales.Controls.Add(Me.cmb_cargo)
@@ -469,7 +468,7 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_agregar_efector.Location = New System.Drawing.Point(383, 72)
+        Me.cmd_agregar_efector.Location = New System.Drawing.Point(358, 72)
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(25, 25)
@@ -477,21 +476,6 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_efector.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_efector.UseVisualStyleBackColor = False
-        '
-        'cmd_buscar_x_efector
-        '
-        Me.cmd_buscar_x_efector.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_buscar_x_efector.BackgroundImage = CType(resources.GetObject("cmd_buscar_x_efector.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_buscar_x_efector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_x_efector.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_buscar_x_efector.FlatAppearance.BorderSize = 0
-        Me.cmd_buscar_x_efector.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar_x_efector.ForeColor = System.Drawing.Color.Transparent
-        Me.cmd_buscar_x_efector.Location = New System.Drawing.Point(352, 72)
-        Me.cmd_buscar_x_efector.Name = "cmd_buscar_x_efector"
-        Me.cmd_buscar_x_efector.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_x_efector.TabIndex = 34
-        Me.cmd_buscar_x_efector.UseVisualStyleBackColor = False
         '
         'lbl_perfil
         '
@@ -543,33 +527,12 @@ Partial Class abm_empleados
         Me.dgv_empleados.AllowUserToAddRows = False
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efector, Me.nombre, Me.apellido})
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.apellido, Me.tipo_doc, Me.nro_doc})
         Me.dgv_empleados.Location = New System.Drawing.Point(450, 17)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
         Me.dgv_empleados.Size = New System.Drawing.Size(522, 465)
         Me.dgv_empleados.TabIndex = 35
-        '
-        'efector
-        '
-        Me.efector.HeaderText = "Vacunatorio"
-        Me.efector.Name = "efector"
-        Me.efector.ReadOnly = True
-        Me.efector.Width = 200
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.Width = 150
-        '
-        'apellido
-        '
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        Me.apellido.Width = 150
         '
         'cmd_estadistica
         '
@@ -608,6 +571,32 @@ Partial Class abm_empleados
         Me.cmd_listados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_listados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_listados.UseVisualStyleBackColor = False
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.Width = 150
+        '
+        'apellido
+        '
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        Me.apellido.Width = 150
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.ReadOnly = True
+        '
+        'nro_doc
+        '
+        Me.nro_doc.HeaderText = "Nro Documento"
+        Me.nro_doc.Name = "nro_doc"
+        Me.nro_doc.ReadOnly = True
         '
         'cmb_departamentos
         '
@@ -709,16 +698,16 @@ Partial Class abm_empleados
     Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
     Friend WithEvents lbl_descripcion As System.Windows.Forms.Label
     Friend WithEvents lbl_empleado As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_apellido As System.Windows.Forms.TextBox
     Friend WithEvents lbl_apellido As System.Windows.Forms.Label
     Friend WithEvents lbl_nombre As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
     Friend WithEvents txt_nro_documento As System.Windows.Forms.TextBox
     Friend WithEvents lbl_documento As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox2 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_telefono As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_caracteristica As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Telefono As System.Windows.Forms.Label
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
@@ -743,17 +732,17 @@ Partial Class abm_empleados
     Friend WithEvents cmb_efectores As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents cmb_localidades As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
-    Friend WithEvents efector As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents apellido As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_estadistica As System.Windows.Forms.Button
     Friend WithEvents cmd_listados As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_efector As System.Windows.Forms.Button
-    Friend WithEvents cmd_buscar_x_efector As System.Windows.Forms.Button
     Friend WithEvents cmb_perfil As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_perfil As System.Windows.Forms.Label
     Friend WithEvents cmb_cargo As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_cargo As System.Windows.Forms.Label
     Friend WithEvents cmb_tipo_doc As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents apellido As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
