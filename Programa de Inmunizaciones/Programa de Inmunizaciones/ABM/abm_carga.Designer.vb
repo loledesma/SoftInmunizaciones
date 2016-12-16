@@ -258,6 +258,7 @@ Partial Class abm_carga
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.grp_grilla_carga)
         Me.Controls.Add(Me.grp_carga)
+        Me.KeyPreview = True
         Me.Name = "abm_carga"
         Me.Text = "abm_carga"
         Me.grp_grilla_carga.ResumeLayout(False)
