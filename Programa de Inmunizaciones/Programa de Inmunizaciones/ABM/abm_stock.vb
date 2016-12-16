@@ -131,9 +131,9 @@
         Me.limpiar(Me.Controls)
         Dim tabla As New DataTable
         Dim sql As String = ""
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
 
         sql = "SELECT * FROM STOCK"
+        Dim ultimo As Integer = tabla.Rows.Count() - 1
 
         tabla = acceso.consulta(sql)
 
@@ -247,4 +247,15 @@
         Me.limpiar(Me.Controls)
         Me.condicion_estado = estado.insertar
     End Sub
+
+    Private Sub abm_stock_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
+            nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
+        End If
+    End Sub
+
+
 End Class
