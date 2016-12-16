@@ -214,7 +214,7 @@ Partial Class abm_tipos_documento
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]

@@ -22,6 +22,7 @@ Partial Class abm_localidades
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_localidades))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmd_salir = New System.Windows.Forms.Button()
@@ -43,11 +44,12 @@ Partial Class abm_localidades
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv_localidades = New System.Windows.Forms.DataGridView()
-        Me.id_localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cod_postal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_localidades = New System.Windows.Forms.ToolTip(Me.components)
         Me.id_dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cod_postal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -285,7 +287,7 @@ Partial Class abm_localidades
         Me.dgv_localidades.AllowUserToDeleteRows = False
         Me.dgv_localidades.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dgv_localidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_localidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_localidad, Me.cod_postal, Me.descripcion, Me.id_dpto, Me.dpto})
+        Me.dgv_localidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_dpto, Me.dpto, Me.id_localidad, Me.descripcion, Me.cod_postal})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -300,27 +302,6 @@ Partial Class abm_localidades
         Me.dgv_localidades.Size = New System.Drawing.Size(472, 167)
         Me.dgv_localidades.TabIndex = 0
         '
-        'id_localidad
-        '
-        Me.id_localidad.HeaderText = "ID"
-        Me.id_localidad.Name = "id_localidad"
-        Me.id_localidad.ReadOnly = True
-        Me.id_localidad.Width = 30
-        '
-        'cod_postal
-        '
-        Me.cod_postal.HeaderText = "Cod. Postal"
-        Me.cod_postal.Name = "cod_postal"
-        Me.cod_postal.ReadOnly = True
-        Me.cod_postal.Width = 45
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Nombre"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 150
-        '
         'id_dpto
         '
         Me.id_dpto.HeaderText = "ID Dpto"
@@ -334,6 +315,27 @@ Partial Class abm_localidades
         Me.dpto.Name = "dpto"
         Me.dpto.ReadOnly = True
         Me.dpto.Width = 175
+        '
+        'id_localidad
+        '
+        Me.id_localidad.HeaderText = "ID"
+        Me.id_localidad.Name = "id_localidad"
+        Me.id_localidad.ReadOnly = True
+        Me.id_localidad.Width = 30
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Nombre"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 150
+        '
+        'cod_postal
+        '
+        Me.cod_postal.HeaderText = "Cod. Postal"
+        Me.cod_postal.Name = "cod_postal"
+        Me.cod_postal.ReadOnly = True
+        Me.cod_postal.Width = 45
         '
         'cmb_dptos
         '
@@ -362,7 +364,7 @@ Partial Class abm_localidades
         Me.Controls.Add(Me.cmd_eliminar)
         Me.KeyPreview = True
         Me.Name = "abm_localidades"
-        Me.Text = "abm_localidades"
+        Me.Text = "Localidades"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -389,10 +391,11 @@ Partial Class abm_localidades
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_localidades As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_buscar_nombre As System.Windows.Forms.Button
-    Friend WithEvents id_localidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cod_postal As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_filtrar_dptos As System.Windows.Forms.Button
+    Friend WithEvents tltp_localidades As System.Windows.Forms.ToolTip
     Friend WithEvents id_dpto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dpto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cmd_filtrar_dptos As System.Windows.Forms.Button
+    Friend WithEvents id_localidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cod_postal As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

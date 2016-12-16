@@ -259,7 +259,7 @@ Partial Class abm_perdidas
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.grp_datos)
         Me.Name = "abm_perdidas"
-        Me.Text = "abm_perdidas"
+        Me.Text = "Pérdidas"
         Me.grp_datos.ResumeLayout(False)
         Me.grp_datos.PerformLayout()
         Me.grp_grilla_stock.ResumeLayout(False)
