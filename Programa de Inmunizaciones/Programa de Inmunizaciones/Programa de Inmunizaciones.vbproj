@@ -255,6 +255,9 @@
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
+      <DependentUpon>Registrar_efectores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menú.resx">
       <DependentUpon>Menú.vb</DependentUpon>
     </EmbeddedResource>

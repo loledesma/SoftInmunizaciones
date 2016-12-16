@@ -38,6 +38,7 @@ Partial Class Menú
         Me.cmd_abm_cargo = New System.Windows.Forms.Button()
         Me.cmd_abm_carga = New System.Windows.Forms.Button()
         Me.cmd_abm_barrios = New System.Windows.Forms.Button()
+        Me.cmd_registro_efectores = New System.Windows.Forms.Button()
         Me.grp_abm.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -220,12 +221,24 @@ Partial Class Menú
         Me.cmd_abm_barrios.Text = "BARRIOS"
         Me.cmd_abm_barrios.UseVisualStyleBackColor = True
         '
+        'cmd_registro_efectores
+        '
+        Me.cmd_registro_efectores.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cmd_registro_efectores.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.cmd_registro_efectores.Location = New System.Drawing.Point(334, 31)
+        Me.cmd_registro_efectores.Name = "cmd_registro_efectores"
+        Me.cmd_registro_efectores.Size = New System.Drawing.Size(125, 52)
+        Me.cmd_registro_efectores.TabIndex = 14
+        Me.cmd_registro_efectores.Text = "REGISTRO DE EFECTORES"
+        Me.cmd_registro_efectores.UseVisualStyleBackColor = True
+        '
         'Menú
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(336, 248)
+        Me.ClientSize = New System.Drawing.Size(471, 294)
+        Me.Controls.Add(Me.cmd_registro_efectores)
         Me.Controls.Add(Me.grp_abm)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Menú"
@@ -249,5 +262,6 @@ Partial Class Menú
     Friend WithEvents cmd_estados_efector As System.Windows.Forms.Button
     Friend WithEvents cmd_estados_atencion As System.Windows.Forms.Button
     Friend WithEvents cmd_estado_capacitac As System.Windows.Forms.Button
+    Friend WithEvents cmd_registro_efectores As System.Windows.Forms.Button
 
 End Class
