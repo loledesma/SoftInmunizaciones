@@ -8,6 +8,7 @@
         cmb_dptos.SelectedIndex = -1
         cmd_guardar.Enabled = False
         cmd_eliminar.Enabled = False
+        tip()
     End Sub
 
     Enum estado
@@ -302,23 +303,28 @@
     Private Sub cmd_filtrar_dptos_Click(sender As Object, e As EventArgs) Handles cmd_filtrar_dptos.Click
         Dim tabla As New DataTable
         Dim sql As String = ""
+        If cmb_dptos.SelectedIndex <> -1 Then
+            sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
+            sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id WHERE L.id_departamento = " & Me.cmb_dptos.SelectedValue
 
-        sql &= "SELECT L.id, L.descripcion, L.cod_postal, L.id_departamento, D.descripcion AS descrip"
-        sql &= " FROM LOCALIDADES L JOIN DEPARTAMENTOS D ON L.id_departamento = D.id WHERE L.id_departamento = " & Me.cmb_dptos.SelectedValue
+            tabla = acceso.consulta(sql)
+            Dim c As Integer = 0
+            dgv_localidades.Rows.Clear()
 
-        tabla = acceso.consulta(sql)
-        Dim c As Integer = 0
-        dgv_localidades.Rows.Clear()
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_localidades.Rows.Add()
+                dgv_localidades.Rows(c).Cells("id_localidad").Value = tabla.Rows(c)("id")
+                dgv_localidades.Rows(c).Cells("cod_postal").Value = tabla.Rows(c)("cod_postal")
+                dgv_localidades.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+                dgv_localidades.Rows(c).Cells("id_dpto").Value = tabla.Rows(c)("id_departamento")
+                dgv_localidades.Rows(c).Cells("dpto").Value = tabla.Rows(c)("descrip")
 
-        For c = 0 To tabla.Rows.Count - 1
-            dgv_localidades.Rows.Add()
-            dgv_localidades.Rows(c).Cells("id_localidad").Value = tabla.Rows(c)("id")
-            dgv_localidades.Rows(c).Cells("cod_postal").Value = tabla.Rows(c)("cod_postal")
-            dgv_localidades.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
-            dgv_localidades.Rows(c).Cells("id_dpto").Value = tabla.Rows(c)("id_departamento")
-            dgv_localidades.Rows(c).Cells("dpto").Value = tabla.Rows(c)("descrip")
-
-        Next
+            Next
+        Else
+            MessageBox.Show("Debe seleccionar un departamento antes de buscar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_dptos.Focus()
+            Exit Sub
+        End If
     End Sub
     Private Sub nuevo()
         Dim sql As String = "select * from localidades "
@@ -368,5 +374,43 @@
         If e.Control And e.KeyCode.ToString = "G" Then
             guardar()
         End If
+    End Sub
+
+    Private Sub tip()
+        tltp_localidades.SetToolTip(cmd_buscar_codpostal, "Buscar por código postal")
+        tltp_localidades.SetToolTip(cmd_buscar_id, "Buscar por ID de la localidad")
+        tltp_localidades.SetToolTip(cmd_buscar_nombre, "Buscar por nombre de la localidad")
+        tltp_localidades.SetToolTip(cmd_cancelar, "Limpiar formulario")
+        tltp_localidades.SetToolTip(cmd_eliminar, "Eliminar registro")
+        tltp_localidades.SetToolTip(cmd_filtrar_dptos, "Buscar localidades por departamento")
+        tltp_localidades.SetToolTip(cmd_guardar, "Guardar")
+        tltp_localidades.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_localidades.SetToolTip(cmd_salir, "Salir")
+
+
+    End Sub
+
+
+
+    Private Sub cmb_dptos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_dptos.SelectedValueChanged
+        Dim localidades As String = ""
+        If cmb_dptos.SelectedIndex <> -1 Then
+            Dim tabla As New DataTable
+            Dim sql As String = "SELECT * FROM LOCALIDADES WHERE id_departamento = " & Me.cmb_dptos.SelectedValue
+
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                localidades += tabla.Rows(c)("descripcion") & vbCrLf
+
+            Next
+        End If
+        tltp_localidades.SetToolTip(cmb_dptos, localidades)
+
+    End Sub
+
+    Private Sub cmb_dptos_SelectedIndexChanged(sender As Object, e As EventArgs)
+
     End Sub
 End Class
