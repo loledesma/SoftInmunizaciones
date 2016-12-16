@@ -95,7 +95,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT T.descripcion, E.nombres As nombre, E.apellidos As apellido, E.nro_doc "
+        sql &= "SELECT T.descripcion, E.id As id, E.nombres As nombre, E.apellidos As apellido, E.nro_doc "
         sql &= "FROM EMPLEADOS E JOIN TIPOS_DOCUMENTO T ON E.id_tipo_doc = T.id "
         sql &= "ORDER BY E.id"
         tabla = acceso.consulta(sql)
@@ -104,6 +104,7 @@
         Dim c As Integer = 0
         For c = 0 To tabla.Rows.Count() - 1
             Me.dgv_empleados.Rows.Add()
+            Me.dgv_empleados.Rows(c).Cells("id_empleado").Value = tabla.Rows(c)("id")
             Me.dgv_empleados.Rows(c).Cells("nombre").Value = tabla.Rows(c)("nombre")
             Me.dgv_empleados.Rows(c).Cells("apellido").Value = tabla.Rows(c)("apellido")
             Me.dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(c)("descripcion")
@@ -113,15 +114,24 @@
 
     Private Sub grid_empleados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellDoubleClick
         Me.condicion_click = doble_Click.activado
+
         Dim fecha As Date
         Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
         Dim sql As String = ""
         Dim sql2 As String = ""
 
         sql &= " SELECT * FROM EMPLEADOS "
         sql &= " WHERE id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
 
+        sql2 &= "SELECT E.cuie As cuie, E.id_departamento As id_depto, E.id_localidad As id_loc, EE.id_cargo As cargo, EE.id_perfil as perfil "
+        sql2 &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+        sql2 &= " JOIN EFECTORES E ON EE.id_efector = E.cuie"
+        sql2 &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
+        MsgBox(sql2)
+
         tabla = acceso.consulta(sql)
+        tabla2 = acceso.consulta(sql2)
 
         If tabla.Rows.Count() = 0 Then
             MessageBox.Show("NO EXISTE SELECCION")
@@ -145,17 +155,12 @@
             Me.txt_fecha.Text = fecha.ToString("dd/MM/yyyy")
         End If
 
+
+
         Me.grp_datos_laborales.Enabled = True
         Me.grp_datos_personales.Enabled = True
         Me.txt_id_empleado.Enabled = False
         Me.grp_datos_sigipsa.Enabled = True
-
-        sql2 &= "SELECT E.cuie, E.id_departamento, E.id_localidad, E.id_cargo, E.id_perfil "
-        sql2 &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-        sql2 &= " JOIN EFECTORES E ON EE.id_efector = E.cuie"
-        sql2 &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
-
-
         Me.condicion_estado = estado.modificar
         Me.cmd_eliminar.Enabled = True
         Me.condicion_click = doble_Click.desactivado

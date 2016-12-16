@@ -22,10 +22,11 @@ Partial Class abm_departamentos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_departamentos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_departamentos))
         Me.grp_departamentos = New System.Windows.Forms.GroupBox()
+        Me.cmb_buscar_nombre = New System.Windows.Forms.Button()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.txt_descripcion = New System.Windows.Forms.TextBox()
         Me.txt_id_departamento = New System.Windows.Forms.TextBox()
@@ -33,14 +34,13 @@ Partial Class abm_departamentos
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv_departamentos = New System.Windows.Forms.DataGridView()
+        Me.id_departamentos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.cmb_buscar_nombre = New System.Windows.Forms.Button()
-        Me.id_departamentos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_departamentos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_departamentos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,6 +62,17 @@ Partial Class abm_departamentos
         Me.grp_departamentos.TabIndex = 1
         Me.grp_departamentos.TabStop = False
         Me.grp_departamentos.Text = "Datos"
+        '
+        'cmb_buscar_nombre
+        '
+        Me.cmb_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmb_buscar_nombre.BackgroundImage"), System.Drawing.Image)
+        Me.cmb_buscar_nombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmb_buscar_nombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmb_buscar_nombre.Location = New System.Drawing.Point(295, 47)
+        Me.cmb_buscar_nombre.Name = "cmb_buscar_nombre"
+        Me.cmb_buscar_nombre.Size = New System.Drawing.Size(25, 25)
+        Me.cmb_buscar_nombre.TabIndex = 13
+        Me.cmb_buscar_nombre.UseVisualStyleBackColor = True
         '
         'cmd_buscar
         '
@@ -142,6 +153,20 @@ Partial Class abm_departamentos
         Me.dgv_departamentos.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_departamentos.Size = New System.Drawing.Size(333, 254)
         Me.dgv_departamentos.TabIndex = 0
+        '
+        'id_departamentos
+        '
+        Me.id_departamentos.HeaderText = "ID"
+        Me.id_departamentos.Name = "id_departamentos"
+        Me.id_departamentos.ReadOnly = True
+        Me.id_departamentos.Width = 50
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 225
         '
         'cmd_salir
         '
@@ -232,31 +257,6 @@ Partial Class abm_departamentos
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
-        'cmb_buscar_nombre
-        '
-        Me.cmb_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmb_buscar_nombre.BackgroundImage"), System.Drawing.Image)
-        Me.cmb_buscar_nombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmb_buscar_nombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmb_buscar_nombre.Location = New System.Drawing.Point(295, 47)
-        Me.cmb_buscar_nombre.Name = "cmb_buscar_nombre"
-        Me.cmb_buscar_nombre.Size = New System.Drawing.Size(25, 25)
-        Me.cmb_buscar_nombre.TabIndex = 13
-        Me.cmb_buscar_nombre.UseVisualStyleBackColor = True
-        '
-        'id_departamentos
-        '
-        Me.id_departamentos.HeaderText = "ID"
-        Me.id_departamentos.Name = "id_departamentos"
-        Me.id_departamentos.ReadOnly = True
-        Me.id_departamentos.Width = 50
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 225
-        '
         'abm_departamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,6 +271,7 @@ Partial Class abm_departamentos
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.grp_departamentos)
+        Me.KeyPreview = True
         Me.Name = "abm_departamentos"
         Me.Text = "abm_departamentos"
         Me.grp_departamentos.ResumeLayout(False)

@@ -127,13 +127,13 @@
     End Sub
 
     Private Sub nuevo()
-        Me.condicion_estado = estado.insertar
-        Dim sql As String = "SELECT * from DEPARTAMENTOS "
-        Dim tabla As New DataTable
         limpiar(Controls)
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
+        Me.condicion_estado = estado.insertar
+        Dim sql As String = "SELECT * FROM DEPARTAMENTOS"
+        Dim tabla As New DataTable
 
         tabla = acceso.consulta(sql)
+        Dim ultimo As Integer = tabla.Rows.Count() - 1
 
         Me.txt_id_departamento.Text = tabla.Rows(ultimo)("id") + 1
 
@@ -249,7 +249,7 @@
 
     Private Sub cmb_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmb_buscar_nombre.Click
         Dim tabla As New DataTable
-        Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE descripcion = " & Me.txt_descripcion.Text
+        Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE descripcion = '" & Me.txt_descripcion.Text & "'"
 
         tabla = acceso.consulta(sql)
 
@@ -266,5 +266,14 @@
         Me.cmd_eliminar.Enabled = True
         Me.condicion_estado = estado.modificar
         limpiar(Controls)
+    End Sub
+
+    Private Sub abm_departamentos_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
+            nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
+        End If
     End Sub
 End Class

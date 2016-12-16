@@ -62,4 +62,9 @@
     Private Sub cmd_abm_barrios_Click(sender As Object, e As EventArgs) Handles cmd_abm_barrios.Click
         abm_barrios.ShowDialog()
     End Sub
+
+  
+    Private Sub cmd_registro_efectores_Click(sender As Object, e As EventArgs) Handles cmd_registro_efectores.Click
+        Registrar_efectores.ShowDialog()
+    End Sub
 End Class

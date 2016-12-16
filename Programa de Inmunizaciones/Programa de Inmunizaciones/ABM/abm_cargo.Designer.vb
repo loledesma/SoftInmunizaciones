@@ -262,6 +262,7 @@ Partial Class abm_cargo
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.grp_cargos)
+        Me.KeyPreview = True
         Me.Name = "abm_cargo"
         Me.Text = "abm_cargo"
         Me.GroupBox2.ResumeLayout(False)
