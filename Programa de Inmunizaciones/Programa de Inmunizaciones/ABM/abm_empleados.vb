@@ -183,7 +183,7 @@
     End Sub
 
     Private Sub cmd_agregar_efector_Click(sender As Object, e As EventArgs) Handles cmd_agregar_efector.Click
-        If MessageBox.Show("¿Desea agregar un efector nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxButtons.Information) = Windows.Forms.DialogResult.OK Then
+        If MessageBox.Show("¿Desea agregar un efector nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
             Registrar_efectores.ShowDialog()
         Else
             Exit Sub
