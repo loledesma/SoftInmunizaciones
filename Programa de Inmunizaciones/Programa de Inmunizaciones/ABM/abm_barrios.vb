@@ -25,7 +25,8 @@
         cmb_dptos.SelectedIndex = -1
         cmd_guardar.Enabled = False
         cmd_eliminar.Enabled = False
-
+        abrir()
+        autocompletar(txt_descripcion)
     End Sub
 
 
@@ -176,6 +177,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         cmd_eliminar.Enabled = True
+        txt_id_barrio.Enabled = False
 
         sql &= "SELECT B.id, B.descripcion, B.id_localidad, L.id_departamento FROM BARRIOS B JOIN LOCALIDADES L ON B.id_localidad = L.id "
         sql &= " WHERE B.id = " & Me.dgv_barrios.CurrentRow.Cells("id_barrio").Value
@@ -324,4 +326,30 @@
         limpiar(Controls)
     End Sub
     '   CONTINUAR DESDE ACÁ
+
+    Private Sub autocompletar(ByVal textbx As TextBox)
+
+        cmd = New OleDb.OleDbCommand("select descripcion from BARRIOS", conexion)
+        res = cmd.ExecuteReader()
+
+        While res.Read()
+            textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
+
+
+        End While
+        res.Close()
+
+
+    End Sub
+
+    Dim conexion As OleDb.OleDbConnection
+    Dim cmd As OleDb.OleDbCommand
+    Dim adaptador As OleDb.OleDbDataAdapter
+    Dim res As OleDb.OleDbDataReader
+
+    Private Sub abrir()
+        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        conexion.Open()
+    End Sub
+
 End Class
