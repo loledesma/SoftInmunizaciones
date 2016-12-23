@@ -9,6 +9,9 @@
         cmd_guardar.Enabled = False
         cmd_eliminar.Enabled = False
         tip()
+        abrir()
+        autocompletar(txt_descripcion)
+
     End Sub
 
     Enum estado
@@ -149,6 +152,7 @@
         condicion = estado.modificar
         Dim tabla As DataTable
         Dim sql As String = ""
+        txt_id_localidad.Enabled = False
 
         sql &= "SELECT * FROM LOCALIDADES WHERE id = " & Me.dgv_localidades.CurrentRow.Cells("id_localidad").Value
 
@@ -391,7 +395,6 @@
     End Sub
 
 
-
     Private Sub cmb_dptos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_dptos.SelectedValueChanged
         Dim localidades As String = ""
         If cmb_dptos.SelectedIndex <> -1 Then
@@ -410,7 +413,32 @@
 
     End Sub
 
-    Private Sub cmb_dptos_SelectedIndexChanged(sender As Object, e As EventArgs)
+    'CODIGO DE AUTOCOMPLETADO: VER
+    Private Sub autocompletar(ByVal textbx As TextBox)
+
+        cmd = New OleDb.OleDbCommand("select descripcion from LOCALIDADES", conexion)
+        res = cmd.ExecuteReader()
+
+        While res.Read()
+            textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
+
+
+        End While
+        res.Close()
+
 
     End Sub
+
+    Dim conexion As OleDb.OleDbConnection
+    Dim cmd As OleDb.OleDbCommand
+    Dim adaptador As OleDb.OleDbDataAdapter
+    Dim res As OleDb.OleDbDataReader
+
+    Private Sub abrir()
+        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        conexion.Open()
+    End Sub
+    'FIN DE CODIGO DE AUTOCOMPLETADO
+
+
 End Class
