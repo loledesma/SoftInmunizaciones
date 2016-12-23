@@ -129,6 +129,8 @@ Partial Class abm_barrios
         '
         'txt_descripcion
         '
+        Me.txt_descripcion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_descripcion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_descripcion.Location = New System.Drawing.Point(279, 23)
         Me.txt_descripcion.Name = "txt_descripcion"
         Me.txt_descripcion.Size = New System.Drawing.Size(205, 20)
