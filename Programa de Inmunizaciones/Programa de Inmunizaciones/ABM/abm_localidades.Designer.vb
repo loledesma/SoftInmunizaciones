@@ -44,12 +44,12 @@ Partial Class abm_localidades
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv_localidades = New System.Windows.Forms.DataGridView()
-        Me.tltp_localidades = New System.Windows.Forms.ToolTip(Me.components)
         Me.id_dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dpto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cod_postal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_localidades = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -228,6 +228,8 @@ Partial Class abm_localidades
         '
         'txt_descripcion
         '
+        Me.txt_descripcion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_descripcion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_descripcion.Location = New System.Drawing.Point(277, 26)
         Me.txt_descripcion.Name = "txt_descripcion"
         Me.txt_descripcion.Size = New System.Drawing.Size(170, 20)
