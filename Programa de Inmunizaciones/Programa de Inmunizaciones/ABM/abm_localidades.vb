@@ -168,6 +168,7 @@
         cmd_eliminar.Enabled = True
         cmd_guardar.Enabled = True
         cmd_nuevo.Enabled = True
+        cmd_cancelar.Enabled = True
     End Sub
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
