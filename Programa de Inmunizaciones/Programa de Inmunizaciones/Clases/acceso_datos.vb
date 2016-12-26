@@ -235,6 +235,27 @@
 
         Public Function leo_tabla(ByVal nom_tabla As String, ByVal nom_col As String, ByVal valor As String) As Data.DataTable
             Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor)
-        End Function
+    End Function
+
+    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
+        Dim conexion As OleDb.OleDbConnection
+        Dim cmd As OleDb.OleDbCommand
+        Dim res As OleDb.OleDbDataReader
+
+        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        conexion.Open()
+
+        cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+        res = cmd.ExecuteReader()
+
+        While res.Read()
+            textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
+
+
+        End While
+        res.Close()
+
+    End Sub
+
 
     End Class

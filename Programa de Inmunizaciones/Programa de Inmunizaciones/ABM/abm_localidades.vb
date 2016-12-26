@@ -9,8 +9,7 @@
         cmd_guardar.Enabled = False
         cmd_eliminar.Enabled = False
         tip()
-        abrir()
-        autocompletar(txt_descripcion)
+        acceso.autocompletar(txt_descripcion, "LOCALIDADES", "descripcion")
 
     End Sub
 
@@ -414,31 +413,31 @@
     End Sub
 
     'CODIGO DE AUTOCOMPLETADO: VER
-    Private Sub autocompletar(ByVal textbx As TextBox)
+    'Private Sub autocompletar(ByVal textbx As TextBox)
 
-        cmd = New OleDb.OleDbCommand("select descripcion from LOCALIDADES", conexion)
-        res = cmd.ExecuteReader()
+    '    cmd = New OleDb.OleDbCommand("select descripcion from LOCALIDADES", conexion)
+    '    res = cmd.ExecuteReader()
 
-        While res.Read()
-            textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
-
-
-        End While
-        res.Close()
+    '    While res.Read()
+    '        textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
 
 
-    End Sub
+    '    End While
+    '    res.Close()
 
-    Dim conexion As OleDb.OleDbConnection
-    Dim cmd As OleDb.OleDbCommand
-    Dim adaptador As OleDb.OleDbDataAdapter
-    Dim res As OleDb.OleDbDataReader
 
-    Private Sub abrir()
-        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
-        conexion.Open()
-    End Sub
-    'FIN DE CODIGO DE AUTOCOMPLETADO
+    'End Sub
+
+    'Dim conexion As OleDb.OleDbConnection
+    'Dim cmd As OleDb.OleDbCommand
+    'Dim adaptador As OleDb.OleDbDataAdapter
+    'Dim res As OleDb.OleDbDataReader
+
+    'Private Sub abrir()
+    '    conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+    '    conexion.Open()
+    'End Sub
+    ''FIN DE CODIGO DE AUTOCOMPLETADO
 
 
 End Class

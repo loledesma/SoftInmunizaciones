@@ -392,7 +392,7 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_agregar_efector.Location = New System.Drawing.Point(340, 128)
+        Me.cmd_agregar_efector.Location = New System.Drawing.Point(348, 128)
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(25, 25)
@@ -698,7 +698,7 @@ Partial Class abm_empleados
         Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Location = New System.Drawing.Point(377, 127)
+        Me.Button2.Location = New System.Drawing.Point(382, 128)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(25, 25)
