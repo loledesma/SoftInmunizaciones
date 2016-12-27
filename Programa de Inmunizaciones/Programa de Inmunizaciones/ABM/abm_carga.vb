@@ -19,8 +19,16 @@
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_carga.Focus()
+        acceso.autocompletar(txt_descripcion, "CARGA", "descripcion")
     End Sub
 
+    Private Sub tip()
+        tltp_carga.SetToolTip(cmd_buscar, "Buscar por Id")
+        tltp_carga.SetToolTip(cmd_eliminar, "Eliminar")
+        tltp_carga.SetToolTip(cmd_guardar, "Guardar")
+        tltp_carga.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_carga.SetToolTip(cmd_salir, "Salir")
+    End Sub
     Private Sub limpiar(ByVal de_donde As Object)
         Me.condicion_estado = estado.insertar
         Dim cmd As ComboBoxV1
@@ -107,11 +115,11 @@
         Me.txt_id_carga.Enabled = False
     End Sub
 
-    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs)
         Me.dgv_carga.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.txt_id_carga.Enabled = True
@@ -122,7 +130,7 @@
         cargar_grilla()
     End Sub
 
-    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs)
         Me.nuevo()
     End Sub
 
@@ -131,14 +139,16 @@
         Me.limpiar(Me.Controls)
         Dim tabla As New DataTable
         Dim sql As String = ""
-
         sql = "SELECT * FROM CARGA"
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
-
         tabla = acceso.consulta(sql)
 
-        Me.txt_id_carga.Text = tabla.Rows(ultimo)("id") + 1
-
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_carga.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_carga.Text = tabla.Rows(ultimo)("id") + 1
+        End If
+        
         Me.txt_id_carga.Enabled = False
         Me.txt_descripcion.Focus()
         Me.cmd_guardar.Enabled = True
@@ -179,7 +189,7 @@
 
     End Function
 
-    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs)
         Me.guardar()
     End Sub
 
@@ -225,7 +235,7 @@
         acceso.ejecutar(sql)
     End Sub
 
-    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs)
         Dim sql As String = ""
         If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
              "Atencion", MessageBoxButtons.OKCancel, _
@@ -257,6 +267,7 @@
             guardar()
         End If
     End Sub
+
 
 
 End Class

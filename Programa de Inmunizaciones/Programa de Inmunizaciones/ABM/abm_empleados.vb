@@ -580,8 +580,12 @@
         limpiar(Controls)
         condicion_estado = estado.insertar
         tabla = acceso.consulta(sql)
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
-        Me.txt_id_empleado.Text = tabla.Rows(ultimo)("id") + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_empleado.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_empleado.Text = tabla.Rows(ultimo)("id") + 1
+        End If
         grp_datos_laborales.Enabled = True
         grp_datos_personales.Enabled = True
         grp_datos_sigipsa.Enabled = True

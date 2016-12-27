@@ -17,6 +17,15 @@
         cmd_eliminar.Enabled = False
         cmd_guardar.Enabled = False
         cmd_limpiar.Enabled = False
+        acceso.autocompletar(txt_descripcion, "PERDIDAS", "descripcion")
+    End Sub
+
+    Private Sub tip()
+        tltp_perdidas.SetToolTip(cmd_buscar, "Buscar por Id")
+        tltp_perdidas.SetToolTip(cmd_eliminar, "Eliminar")
+        tltp_perdidas.SetToolTip(cmd_guardar, "Guardar")
+        tltp_perdidas.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_perdidas.SetToolTip(cmd_salir, "Salir")
     End Sub
 
     Private Sub cargar_grilla()
@@ -126,10 +135,14 @@
         Dim sql As String = ""
 
         sql = "SELECT * FROM PERDIDAS"
-
         tabla = acceso.consulta(sql)
 
-        Me.txt_id_perdida.Text = tabla.Rows.Count() + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_perdida.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_perdida.Text = tabla.Rows(ultimo)("id") + 1
+        End If
 
         Me.txt_id_perdida.Enabled = False
         Me.txt_descripcion.Focus()
