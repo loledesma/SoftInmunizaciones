@@ -22,14 +22,10 @@ Partial Class abm_stock
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_stock))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.cmd_limpiar = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.grp_grilla_stock = New System.Windows.Forms.GroupBox()
         Me.dgv_stock = New System.Windows.Forms.DataGridView()
         Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,99 +36,16 @@ Partial Class abm_stock
         Me.txt_id_stock = New System.Windows.Forms.TextBox()
         Me.lbl_descripcion = New System.Windows.Forms.Label()
         Me.lbl_carga = New System.Windows.Forms.Label()
+        Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.tltp_stock = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_grilla_stock.SuspendLayout()
         CType(Me.dgv_stock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_stock.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'cmd_salir
-        '
-        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(351, 332)
-        Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 29
-        Me.cmd_salir.UseVisualStyleBackColor = False
-        '
-        'cmd_limpiar
-        '
-        Me.cmd_limpiar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_limpiar.BackgroundImage = CType(resources.GetObject("cmd_limpiar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_limpiar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_limpiar.FlatAppearance.BorderSize = 0
-        Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_limpiar.Location = New System.Drawing.Point(348, 224)
-        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_limpiar.Name = "cmd_limpiar"
-        Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 28
-        Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_limpiar.UseVisualStyleBackColor = False
-        '
-        'cmd_guardar
-        '
-        Me.cmd_guardar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_guardar.BackgroundImage = CType(resources.GetObject("cmd_guardar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_guardar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_guardar.FlatAppearance.BorderSize = 0
-        Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_guardar.Location = New System.Drawing.Point(348, 88)
-        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 25
-        Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_guardar.UseVisualStyleBackColor = False
-        '
-        'cmd_nuevo
-        '
-        Me.cmd_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_nuevo.BackgroundImage = CType(resources.GetObject("cmd_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_nuevo.Location = New System.Drawing.Point(348, 20)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 27
-        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_eliminar
-        '
-        Me.cmd_eliminar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_eliminar.BackgroundImage = CType(resources.GetObject("cmd_eliminar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_eliminar.FlatAppearance.BorderSize = 0
-        Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_eliminar.Location = New System.Drawing.Point(348, 156)
-        Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_eliminar.Name = "cmd_eliminar"
-        Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_eliminar.TabIndex = 26
-        Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
         'grp_grilla_stock
         '
@@ -153,21 +66,21 @@ Partial Class abm_stock
         Me.dgv_stock.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dgv_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_stock.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_stock, Me.descripcion})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_stock.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_stock.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_stock.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dgv_stock.Location = New System.Drawing.Point(9, 19)
         Me.dgv_stock.Name = "dgv_stock"
         Me.dgv_stock.ReadOnly = True
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
-        Me.dgv_stock.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        Me.dgv_stock.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_stock.Size = New System.Drawing.Size(293, 254)
         Me.dgv_stock.TabIndex = 0
         '
@@ -244,6 +157,95 @@ Partial Class abm_stock
         Me.lbl_carga.TabIndex = 0
         Me.lbl_carga.Text = "Id Estado Stock"
         '
+        'cmd_salir
+        '
+        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_salir.FlatAppearance.BorderSize = 0
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.Location = New System.Drawing.Point(348, 329)
+        Me.cmd_salir.Name = "cmd_salir"
+        Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_salir.TabIndex = 20
+        Me.cmd_salir.UseVisualStyleBackColor = False
+        '
+        'cmd_limpiar
+        '
+        Me.cmd_limpiar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.BackgroundImage = CType(resources.GetObject("cmd_limpiar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_limpiar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_limpiar.FlatAppearance.BorderSize = 0
+        Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar.Location = New System.Drawing.Point(348, 225)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_limpiar.Name = "cmd_limpiar"
+        Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_limpiar.TabIndex = 19
+        Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_limpiar.UseVisualStyleBackColor = False
+        '
+        'cmd_guardar
+        '
+        Me.cmd_guardar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_guardar.BackgroundImage = CType(resources.GetObject("cmd_guardar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_guardar.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.cmd_guardar.FlatAppearance.BorderSize = 0
+        Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar.Location = New System.Drawing.Point(348, 89)
+        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_guardar.Name = "cmd_guardar"
+        Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_guardar.TabIndex = 16
+        Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_guardar.UseVisualStyleBackColor = False
+        '
+        'cmd_nuevo
+        '
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_nuevo.BackgroundImage = CType(resources.GetObject("cmd_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.Location = New System.Drawing.Point(348, 21)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_nuevo.TabIndex = 18
+        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
+        'cmd_eliminar
+        '
+        Me.cmd_eliminar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_eliminar.BackgroundImage = CType(resources.GetObject("cmd_eliminar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_eliminar.FlatAppearance.BorderSize = 0
+        Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_eliminar.Location = New System.Drawing.Point(348, 157)
+        Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_eliminar.Name = "cmd_eliminar"
+        Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_eliminar.TabIndex = 17
+        Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_eliminar.UseVisualStyleBackColor = False
+        '
         'abm_stock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -252,12 +254,12 @@ Partial Class abm_stock
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(421, 403)
         Me.Controls.Add(Me.cmd_salir)
+        Me.Controls.Add(Me.grp_grilla_stock)
         Me.Controls.Add(Me.cmd_limpiar)
+        Me.Controls.Add(Me.grp_stock)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.cmd_eliminar)
-        Me.Controls.Add(Me.grp_grilla_stock)
-        Me.Controls.Add(Me.grp_stock)
         Me.Name = "abm_stock"
         Me.Text = "abm_stock"
         Me.grp_grilla_stock.ResumeLayout(False)
@@ -267,11 +269,6 @@ Partial Class abm_stock
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents cmd_salir As System.Windows.Forms.Button
-    Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
-    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
-    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
-    Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents grp_grilla_stock As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_stock As System.Windows.Forms.DataGridView
     Friend WithEvents grp_stock As System.Windows.Forms.GroupBox
@@ -282,4 +279,10 @@ Partial Class abm_stock
     Friend WithEvents lbl_carga As System.Windows.Forms.Label
     Friend WithEvents id_stock As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_salir As System.Windows.Forms.Button
+    Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
+    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
+    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
+    Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
+    Friend WithEvents tltp_stock As System.Windows.Forms.ToolTip
 End Class

@@ -76,18 +76,18 @@ Partial Class abm_empleados
         Me.grp_datos_sigipsa = New System.Windows.Forms.GroupBox()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.id_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -706,6 +706,48 @@ Partial Class abm_empleados
         Me.txt_usuario.Size = New System.Drawing.Size(257, 20)
         Me.txt_usuario.TabIndex = 31
         '
+        'id_empleado
+        '
+        Me.id_empleado.HeaderText = "id"
+        Me.id_empleado.Name = "id_empleado"
+        Me.id_empleado.ReadOnly = True
+        Me.id_empleado.Width = 80
+        '
+        'nombres
+        '
+        Me.nombres.HeaderText = "Nombre"
+        Me.nombres.Name = "nombres"
+        Me.nombres.ReadOnly = True
+        Me.nombres.Width = 150
+        '
+        'apellidos
+        '
+        Me.apellidos.HeaderText = "Apellido"
+        Me.apellidos.Name = "apellidos"
+        Me.apellidos.ReadOnly = True
+        Me.apellidos.Width = 150
+        '
+        'id_tipo_doc
+        '
+        Me.id_tipo_doc.HeaderText = "Id_Tipo_Doc"
+        Me.id_tipo_doc.Name = "id_tipo_doc"
+        Me.id_tipo_doc.ReadOnly = True
+        Me.id_tipo_doc.Visible = False
+        Me.id_tipo_doc.Width = 50
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo Doc"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.ReadOnly = True
+        '
+        'nro_doc
+        '
+        Me.nro_doc.HeaderText = "Nro Documento"
+        Me.nro_doc.Name = "nro_doc"
+        Me.nro_doc.ReadOnly = True
+        Me.nro_doc.Width = 150
+        '
         'cmb_departamentos
         '
         Me.cmb_departamentos._descripcion = "descripcion"
@@ -772,48 +814,6 @@ Partial Class abm_empleados
         Me.cmb_tipo_doc.Size = New System.Drawing.Size(137, 21)
         Me.cmb_tipo_doc.TabIndex = 30
         '
-        'id_empleado
-        '
-        Me.id_empleado.HeaderText = "id"
-        Me.id_empleado.Name = "id_empleado"
-        Me.id_empleado.ReadOnly = True
-        Me.id_empleado.Width = 80
-        '
-        'nombres
-        '
-        Me.nombres.HeaderText = "Nombre"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Width = 150
-        '
-        'apellidos
-        '
-        Me.apellidos.HeaderText = "Apellido"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Width = 150
-        '
-        'id_tipo_doc
-        '
-        Me.id_tipo_doc.HeaderText = "Id_Tipo_Doc"
-        Me.id_tipo_doc.Name = "id_tipo_doc"
-        Me.id_tipo_doc.ReadOnly = True
-        Me.id_tipo_doc.Visible = False
-        Me.id_tipo_doc.Width = 50
-        '
-        'tipo_doc
-        '
-        Me.tipo_doc.HeaderText = "Tipo Doc"
-        Me.tipo_doc.Name = "tipo_doc"
-        Me.tipo_doc.ReadOnly = True
-        '
-        'nro_doc
-        '
-        Me.nro_doc.HeaderText = "Nro Documento"
-        Me.nro_doc.Name = "nro_doc"
-        Me.nro_doc.ReadOnly = True
-        Me.nro_doc.Width = 150
-        '
         'abm_empleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -833,6 +833,7 @@ Partial Class abm_empleados
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_nuevo)
+        Me.KeyPreview = True
         Me.Name = "abm_empleados"
         Me.Text = "abm_empleados"
         Me.grp_datos_personales.ResumeLayout(False)

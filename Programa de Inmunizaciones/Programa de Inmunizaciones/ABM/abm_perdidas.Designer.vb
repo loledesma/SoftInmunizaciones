@@ -22,6 +22,7 @@ Partial Class abm_perdidas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_perdidas))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -40,6 +41,7 @@ Partial Class abm_perdidas
         Me.dgv_perdidas = New System.Windows.Forms.DataGridView()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_perdidas = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos.SuspendLayout()
         Me.grp_grilla_stock.SuspendLayout()
         CType(Me.dgv_perdidas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -282,4 +284,5 @@ Partial Class abm_perdidas
     Friend WithEvents dgv_perdidas As System.Windows.Forms.DataGridView
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tltp_perdidas As System.Windows.Forms.ToolTip
 End Class

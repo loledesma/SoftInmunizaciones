@@ -18,6 +18,19 @@
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_departamento.Focus()
+        acceso.autocompletar(txt_descripcion, "DEPARTAMENTOS", "descripcion")
+        tip()
+    End Sub
+
+    Private Sub tip()
+        tltp_departamentos.SetToolTip(cmd_buscar_nombre, "Buscar por nombre de departamento")
+        tltp_departamentos.SetToolTip(cmd_buscar, "Buscar por Id")
+        tltp_departamentos.SetToolTip(cmd_listados, "Listados")
+        tltp_departamentos.SetToolTip(cmd_estadistica, "Estadísticos")
+        tltp_departamentos.SetToolTip(cmd_eliminar, "Eliminar")
+        tltp_departamentos.SetToolTip(cmd_guardar, "Guardar")
+        tltp_departamentos.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_departamentos.SetToolTip(cmd_salir, "Salir")
     End Sub
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
@@ -107,11 +120,11 @@
 
     End Sub
 
-    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs)
         Me.dgv_departamentos.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.txt_id_departamento.Enabled = True
@@ -131,11 +144,14 @@
         Me.condicion_estado = estado.insertar
         Dim sql As String = "SELECT * FROM DEPARTAMENTOS"
         Dim tabla As New DataTable
-
         tabla = acceso.consulta(sql)
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
 
-        Me.txt_id_departamento.Text = tabla.Rows(ultimo)("id") + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_departamento = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_departamento.Text = tabla.Rows(ultimo)("id") + 1
+        End If
 
         Me.txt_id_departamento.Enabled = False
         Me.txt_descripcion.Focus()
@@ -176,7 +192,7 @@
         End If
 
     End Function
-    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs)
         Me.guardar()
     End Sub
 
@@ -222,7 +238,7 @@
         acceso.ejecutar(sql)
     End Sub
 
-    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs)
         Dim sql As String = ""
         If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
              "Atencion", MessageBoxButtons.OKCancel, _
@@ -247,7 +263,7 @@
     End Sub
 
 
-    Private Sub cmb_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmb_buscar_nombre.Click
+    Private Sub cmb_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmd_buscar_nombre.Click
         Dim tabla As New DataTable
         Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE descripcion = '" & Me.txt_descripcion.Text & "'"
 
