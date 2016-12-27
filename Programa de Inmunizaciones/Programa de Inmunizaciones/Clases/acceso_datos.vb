@@ -219,7 +219,17 @@
             sql &= " WHERE " & restriccion
             acceso.ejecutar(sql)
 
-        End Sub
+    End Sub
+
+    Public Sub borrar(ByVal tabla As String, ByVal restriccion As String, ByVal restriccion2 As String)
+        Dim sql As String = ""
+
+        sql &= "DELETE FROM " & tabla
+        sql &= " WHERE " & restriccion
+        sql &= " AND " & restriccion2
+        acceso.ejecutar(sql)
+
+    End Sub
 
         Public Function leo_tabla() As Data.DataTable
             Return Me.consulta("SELECT * FROM " & Me.nombre_tabla)
@@ -249,9 +259,7 @@
         res = cmd.ExecuteReader()
 
         While res.Read()
-            textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
-
-
+            textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
         End While
         res.Close()
 
