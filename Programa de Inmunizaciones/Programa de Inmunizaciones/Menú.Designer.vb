@@ -39,6 +39,7 @@ Partial Class Menú
         Me.cmd_abm_carga = New System.Windows.Forms.Button()
         Me.cmd_abm_barrios = New System.Windows.Forms.Button()
         Me.cmd_registro_efectores = New System.Windows.Forms.Button()
+        Me.cmd_registrar_notificacion = New System.Windows.Forms.Button()
         Me.grp_abm.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -232,12 +233,24 @@ Partial Class Menú
         Me.cmd_registro_efectores.Text = "REGISTRO DE EFECTORES"
         Me.cmd_registro_efectores.UseVisualStyleBackColor = True
         '
+        'cmd_registrar_notificacion
+        '
+        Me.cmd_registrar_notificacion.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cmd_registrar_notificacion.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.cmd_registrar_notificacion.Location = New System.Drawing.Point(331, 89)
+        Me.cmd_registrar_notificacion.Name = "cmd_registrar_notificacion"
+        Me.cmd_registrar_notificacion.Size = New System.Drawing.Size(125, 52)
+        Me.cmd_registrar_notificacion.TabIndex = 15
+        Me.cmd_registrar_notificacion.Text = "REGISTRAR NOTIFICACION"
+        Me.cmd_registrar_notificacion.UseVisualStyleBackColor = True
+        '
         'Menú
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(471, 294)
+        Me.Controls.Add(Me.cmd_registrar_notificacion)
         Me.Controls.Add(Me.cmd_registro_efectores)
         Me.Controls.Add(Me.grp_abm)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -263,5 +276,6 @@ Partial Class Menú
     Friend WithEvents cmd_estados_atencion As System.Windows.Forms.Button
     Friend WithEvents cmd_estado_capacitac As System.Windows.Forms.Button
     Friend WithEvents cmd_registro_efectores As System.Windows.Forms.Button
+    Friend WithEvents cmd_registrar_notificacion As System.Windows.Forms.Button
 
 End Class
