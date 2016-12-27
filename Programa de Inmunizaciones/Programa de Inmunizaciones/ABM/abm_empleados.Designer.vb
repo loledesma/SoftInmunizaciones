@@ -58,14 +58,15 @@ Partial Class abm_empleados
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.id_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_estadistica = New System.Windows.Forms.Button()
         Me.cmd_listados = New System.Windows.Forms.Button()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
+        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lbl_mail = New System.Windows.Forms.Label()
         Me.txt_email = New System.Windows.Forms.TextBox()
         Me.lbl_usuario = New System.Windows.Forms.Label()
@@ -75,18 +76,18 @@ Partial Class abm_empleados
         Me.grp_datos_sigipsa = New System.Windows.Forms.GroupBox()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.id_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -522,47 +523,12 @@ Partial Class abm_empleados
         Me.dgv_empleados.AllowUserToAddRows = False
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_empleado, Me.nombres, Me.apellidos, Me.tipo_doc, Me.nro_doc})
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_empleado, Me.nombres, Me.apellidos, Me.id_tipo_doc, Me.tipo_doc, Me.nro_doc})
         Me.dgv_empleados.Location = New System.Drawing.Point(437, 18)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
         Me.dgv_empleados.Size = New System.Drawing.Size(639, 296)
         Me.dgv_empleados.TabIndex = 35
-        '
-        'id_empleado
-        '
-        Me.id_empleado.HeaderText = "id"
-        Me.id_empleado.Name = "id_empleado"
-        Me.id_empleado.ReadOnly = True
-        Me.id_empleado.Width = 80
-        '
-        'nombres
-        '
-        Me.nombres.HeaderText = "Nombre"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Width = 150
-        '
-        'apellidos
-        '
-        Me.apellidos.HeaderText = "Apellido"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Width = 150
-        '
-        'tipo_doc
-        '
-        Me.tipo_doc.HeaderText = "Tipo"
-        Me.tipo_doc.Name = "tipo_doc"
-        Me.tipo_doc.ReadOnly = True
-        Me.tipo_doc.Width = 50
-        '
-        'nro_doc
-        '
-        Me.nro_doc.HeaderText = "Nro Documento"
-        Me.nro_doc.Name = "nro_doc"
-        Me.nro_doc.ReadOnly = True
-        Me.nro_doc.Width = 150
         '
         'cmd_estadistica
         '
@@ -613,6 +579,47 @@ Partial Class abm_empleados
         Me.dgv_efectores.ReadOnly = True
         Me.dgv_efectores.Size = New System.Drawing.Size(637, 159)
         Me.dgv_efectores.TabIndex = 38
+        '
+        'cuie
+        '
+        Me.cuie.HeaderText = "Cuie"
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        '
+        'nombre_efector
+        '
+        Me.nombre_efector.HeaderText = "Vacunatorio"
+        Me.nombre_efector.Name = "nombre_efector"
+        Me.nombre_efector.ReadOnly = True
+        Me.nombre_efector.Width = 200
+        '
+        'cargo
+        '
+        Me.cargo.HeaderText = "Cargo"
+        Me.cargo.Name = "cargo"
+        Me.cargo.ReadOnly = True
+        Me.cargo.Width = 140
+        '
+        'perfil
+        '
+        Me.perfil.HeaderText = "Perfil"
+        Me.perfil.Name = "perfil"
+        Me.perfil.ReadOnly = True
+        Me.perfil.Width = 150
+        '
+        'id_cargo
+        '
+        Me.id_cargo.HeaderText = "id_cargo"
+        Me.id_cargo.Name = "id_cargo"
+        Me.id_cargo.ReadOnly = True
+        Me.id_cargo.Visible = False
+        '
+        'id_perfil
+        '
+        Me.id_perfil.HeaderText = "id_perfil"
+        Me.id_perfil.Name = "id_perfil"
+        Me.id_perfil.ReadOnly = True
+        Me.id_perfil.Visible = False
         '
         'lbl_mail
         '
@@ -699,47 +706,6 @@ Partial Class abm_empleados
         Me.txt_usuario.Size = New System.Drawing.Size(257, 20)
         Me.txt_usuario.TabIndex = 31
         '
-        'cuie
-        '
-        Me.cuie.HeaderText = "Cuie"
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        '
-        'nombre_efector
-        '
-        Me.nombre_efector.HeaderText = "Vacunatorio"
-        Me.nombre_efector.Name = "nombre_efector"
-        Me.nombre_efector.ReadOnly = True
-        Me.nombre_efector.Width = 200
-        '
-        'cargo
-        '
-        Me.cargo.HeaderText = "Cargo"
-        Me.cargo.Name = "cargo"
-        Me.cargo.ReadOnly = True
-        Me.cargo.Width = 140
-        '
-        'perfil
-        '
-        Me.perfil.HeaderText = "Perfil"
-        Me.perfil.Name = "perfil"
-        Me.perfil.ReadOnly = True
-        Me.perfil.Width = 150
-        '
-        'id_cargo
-        '
-        Me.id_cargo.HeaderText = "id_cargo"
-        Me.id_cargo.Name = "id_cargo"
-        Me.id_cargo.ReadOnly = True
-        Me.id_cargo.Visible = False
-        '
-        'id_perfil
-        '
-        Me.id_perfil.HeaderText = "id_perfil"
-        Me.id_perfil.Name = "id_perfil"
-        Me.id_perfil.ReadOnly = True
-        Me.id_perfil.Visible = False
-        '
         'cmb_departamentos
         '
         Me.cmb_departamentos._descripcion = "descripcion"
@@ -805,6 +771,48 @@ Partial Class abm_empleados
         Me.cmb_tipo_doc.Name = "cmb_tipo_doc"
         Me.cmb_tipo_doc.Size = New System.Drawing.Size(137, 21)
         Me.cmb_tipo_doc.TabIndex = 30
+        '
+        'id_empleado
+        '
+        Me.id_empleado.HeaderText = "id"
+        Me.id_empleado.Name = "id_empleado"
+        Me.id_empleado.ReadOnly = True
+        Me.id_empleado.Width = 80
+        '
+        'nombres
+        '
+        Me.nombres.HeaderText = "Nombre"
+        Me.nombres.Name = "nombres"
+        Me.nombres.ReadOnly = True
+        Me.nombres.Width = 150
+        '
+        'apellidos
+        '
+        Me.apellidos.HeaderText = "Apellido"
+        Me.apellidos.Name = "apellidos"
+        Me.apellidos.ReadOnly = True
+        Me.apellidos.Width = 150
+        '
+        'id_tipo_doc
+        '
+        Me.id_tipo_doc.HeaderText = "Id_Tipo_Doc"
+        Me.id_tipo_doc.Name = "id_tipo_doc"
+        Me.id_tipo_doc.ReadOnly = True
+        Me.id_tipo_doc.Visible = False
+        Me.id_tipo_doc.Width = 50
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo Doc"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.ReadOnly = True
+        '
+        'nro_doc
+        '
+        Me.nro_doc.HeaderText = "Nro Documento"
+        Me.nro_doc.Name = "nro_doc"
+        Me.nro_doc.ReadOnly = True
+        Me.nro_doc.Width = 150
         '
         'abm_empleados
         '
@@ -889,11 +897,6 @@ Partial Class abm_empleados
     Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents tltp_empleados As System.Windows.Forms.ToolTip
     Friend WithEvents txt_nro_documento As System.Windows.Forms.TextBox
-    Friend WithEvents id_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_limpiar_laboral As System.Windows.Forms.Button
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -901,4 +904,10 @@ Partial Class abm_empleados
     Friend WithEvents perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

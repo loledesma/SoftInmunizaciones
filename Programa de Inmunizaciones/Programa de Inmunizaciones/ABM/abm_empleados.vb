@@ -100,6 +100,7 @@
     End Sub
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.txt_id_empleado.Enabled = True
         Me.grp_datos_laborales.Enabled = True
         Me.grp_datos_personales.Enabled = True
         Me.grp_datos_sigipsa.Enabled = True
@@ -263,7 +264,6 @@
                 MessageBox.Show("No se encontró un empleado con el numero: " & Me.txt_nro_documento.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 dgv_empleados.Rows.Clear()
-                dgv_efectores.Rows.Clear()
                 For c = 0 To tabla.Rows.Count - 1
                     dgv_empleados.Rows.Add()
                     dgv_empleados.Rows(c).Cells("id_empleado").Value = tabla.Rows(c)("id_empleado")
@@ -277,11 +277,14 @@
                 If tabla2.Rows.Count = 0 Then
                     MessageBox.Show("El empleado buscado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
-                    dgv_efectores.Rows.Add()
-                    dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                    dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                    dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                    dgv_efectores.Rows.Clear()
+                    For d = 0 To tabla2.Rows.Count - 1
+                        dgv_efectores.Rows.Add()
+                        dgv_efectores.Rows(d).Cells("cuie").Value = tabla2.Rows(d)("cuie")
+                        dgv_efectores.Rows(d).Cells("nombre_efector").Value = tabla2.Rows(d)("nombre_efector")
+                        dgv_efectores.Rows(d).Cells("cargo").Value = tabla2.Rows(d)("cargo")
+                        dgv_efectores.Rows(d).Cells("perfil").Value = tabla2.Rows(d)("perfil")
+                    Next
                 End If
             End If
         End If
@@ -331,11 +334,13 @@
                 If tabla2.Rows.Count = 0 Then
                     MessageBox.Show("El empleado buscado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
-                    dgv_efectores.Rows.Add()
-                    dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                    dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                    dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                    For c = 0 To tabla2.Rows.Count - 1
+                        dgv_efectores.Rows.Add()
+                        dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
+                        dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
+                        dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
+                        dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                    Next
                 End If
             End If
         End If
@@ -384,13 +389,15 @@
                 Next
 
                 If tabla2.Rows.Count = 0 Then
-                    MessageBox.Show("El empleado buscado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("El empleado buscado no tiene efectores asignados", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
-                    dgv_efectores.Rows.Add()
-                    dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                    dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                    dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                    For c = 0 To tabla2.Rows.Count - 1
+                        dgv_efectores.Rows.Add()
+                        dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
+                        dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
+                        dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
+                        dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                    Next
                 End If
             End If
         End If
@@ -415,7 +422,25 @@
         guardar()
     End Sub
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+        Dim restriccion As String = ""
+        Dim restriccion2 As String = ""
 
+        If validar_existencia() = analizar_existencia.existe Then
+            If validar_existencia_efector() = analizar_existencia.no_existe Then
+                restriccion = "id = " & Me.txt_id_empleado.Text
+                acceso.borrar("EMPLEADOS", restriccion)
+            Else
+                restriccion2 = "id_empleados = " & Me.txt_id_empleado.Text
+                acceso.borrar("EMPLEADOSXEFECTOR", restriccion2)
+                restriccion = "id = " & Me.txt_id_empleado.Text
+                acceso.borrar("EMPLEADOS", restriccion)
+            End If
+        Else
+            MessageBox.Show("El empleado todavía no se encuentra registrado para eliminarlo", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+
+        cargar_grilla()
+        dgv_efectores.Rows.Clear()
     End Sub
     Private Sub guardar()
         If validar_empleado() = True Then
@@ -447,12 +472,16 @@
 
         If validar_existencia() = analizar_existencia.existe Then
             If validar_existencia_efector() = analizar_existencia.no_existe Then
+                restriccion = "id = " & Me.txt_id_empleado.Text
+                acceso.borrar("EMPLEADOS", restriccion)
+            Else
                 restriccion2 = "id_empleados = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOSXEFECTOR", restriccion2)
+                restriccion = "id = " & Me.txt_id_empleado.Text
+                acceso.borrar("EMPLEADOS", restriccion)
             End If
-            restriccion = "id = " & Me.txt_id_empleado.Text
-            acceso.borrar("EMPLEADOS", restriccion)
         End If
+
         Me.insertar_empleado()
     End Sub
 
@@ -474,6 +503,7 @@
 
     Private Sub insertar_empleado()
         Dim sql As String = ""
+        Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
 
         acceso._nombre_tabla = "EMPLEADOS"
 
@@ -481,8 +511,8 @@
         sql = "id = " & Me.txt_id_empleado.Text
         sql &= ", id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
         sql &= ", nro_doc = " & Me.txt_nro_documento.Text
-        sql &= ", nombres = '" & Me.txt_nombre.Text & "'"
-        sql &= ", apellidos = '" & Me.txt_apellido.Text & "'"
+        sql &= ", nombres = " & Me.txt_nombre.Text
+        sql &= ", apellidos = " & Me.txt_apellido.Text
 
         If txt_telefono.Text <> "" Then
             sql &= ", telefono = " & Me.txt_telefono.Text
@@ -492,19 +522,19 @@
             sql &= ", caracteristica = Null "
         End If
         If txt_email.Text <> "" Then
-            sql &= ", mail_contacto = '" & Me.txt_email.Text & "'"
+            sql &= ", mail_contacto = " & Me.txt_email.Text
         Else
             sql &= ", mail_contacto = Null "
         End If
         If txt_usuario.Text <> "" Then
-            sql &= ", usuario_sigipsa= '" & Me.txt_usuario.Text & "'"
+            sql &= ", usuario_sigipsa= " & Me.txt_usuario.Text
         Else
             sql &= ", usuario_sigipsa = Null"
         End If
         If txt_fecha.Text <> "" Then
             sql &= ", fecha_alta = '" & Me.txt_fecha.Text & "'"
         Else
-            sql &= ", fecha alta = Null "
+            sql &= ", fecha alta =  '" & fecha & "'"
         End If
 
         acceso.insertar(sql)
@@ -859,8 +889,5 @@
         Me.cmd_efector_nuevo.Enabled = False
         Me.cmd_eliminar_efector.Enabled = True
     End Sub
-
-
-
 
 End Class
