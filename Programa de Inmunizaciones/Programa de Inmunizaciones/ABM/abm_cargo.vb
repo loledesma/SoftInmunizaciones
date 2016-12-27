@@ -19,8 +19,16 @@
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_cargo.Focus()
+        acceso.autocompletar(txt_descripcion, "CARGO", "descripcion")
     End Sub
 
+    Private Sub tip()
+        tltp_cargo.SetToolTip(cmd_buscar, "Buscar por Id")
+        tltp_cargo.SetToolTip(cmd_eliminar, "Eliminar")
+        tltp_cargo.SetToolTip(cmd_guardar, "Guardar")
+        tltp_cargo.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_cargo.SetToolTip(cmd_salir, "Salir")
+    End Sub
     Private Sub limpiar(ByVal de_donde As Object)
         Me.condicion_estado = estado.insertar
         Dim cmd As ComboBoxV1
@@ -130,13 +138,15 @@
         Me.limpiar(Me.Controls)
         Dim tabla As New DataTable
         Dim sql As String = ""
-
         sql = "SELECT * FROM CARGO "
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
-
         tabla = acceso.consulta(sql)
 
-        Me.txt_id_cargo.Text = tabla.Rows(ultimo)("id") + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_cargo.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_cargo.Text = tabla.Rows(ultimo)("id") + 1
+        End If
 
         Me.txt_id_cargo.Enabled = False
         Me.txt_descripcion.Focus()

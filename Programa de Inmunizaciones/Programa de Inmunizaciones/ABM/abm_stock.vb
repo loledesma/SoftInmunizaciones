@@ -19,6 +19,16 @@
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_stock.Focus()
+        tip()
+        acceso.autocompletar(txt_descripcion, "STOCK", "descripcion")
+    End Sub
+
+    Private Sub tip()
+        tltp_stock.SetToolTip(cmd_buscar, "Buscar por Id")
+        tltp_stock.SetToolTip(cmd_eliminar, "Eliminar")
+        tltp_stock.SetToolTip(cmd_guardar, "Guardar")
+        tltp_stock.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_stock.SetToolTip(cmd_salir, "Salir")
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
@@ -108,11 +118,11 @@
 
     End Sub
 
-    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs)
         Me.dgv_stock.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.txt_id_stock.Enabled = True
@@ -122,7 +132,7 @@
         Me.txt_id_stock.Focus()
     End Sub
 
-    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+    Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs)
         Me.nuevo()
     End Sub
 
@@ -133,11 +143,14 @@
         Dim sql As String = ""
 
         sql = "SELECT * FROM STOCK"
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
-
         tabla = acceso.consulta(sql)
 
-        Me.txt_id_stock.Text = tabla.Rows(ultimo)("id") + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_stock.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_stock.Text = tabla.Rows(ultimo)("id") + 1
+        End If
 
         Me.txt_id_stock.Enabled = False
         Me.txt_descripcion.Focus()
@@ -178,7 +191,7 @@
 
     End Function
 
-    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs)
         Me.guardar()
     End Sub
 
@@ -224,7 +237,7 @@
         acceso.ejecutar(sql)
     End Sub
 
-    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs)
         Dim sql As String = ""
         If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
              "Atencion", MessageBoxButtons.OKCancel, _
