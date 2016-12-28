@@ -147,7 +147,7 @@
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
-            Me.txt_id_departamento = 1
+            Me.txt_id_departamento.Text = 1
         Else
             Dim ultimo As Integer = tabla.Rows.Count() - 1
             Me.txt_id_departamento.Text = tabla.Rows(ultimo)("id") + 1
