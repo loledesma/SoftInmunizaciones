@@ -237,7 +237,7 @@ Partial Class Menú
         '
         Me.cmd_registrar_notificacion.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.cmd_registrar_notificacion.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmd_registrar_notificacion.Location = New System.Drawing.Point(331, 89)
+        Me.cmd_registrar_notificacion.Location = New System.Drawing.Point(334, 89)
         Me.cmd_registrar_notificacion.Name = "cmd_registrar_notificacion"
         Me.cmd_registrar_notificacion.Size = New System.Drawing.Size(125, 52)
         Me.cmd_registrar_notificacion.TabIndex = 15

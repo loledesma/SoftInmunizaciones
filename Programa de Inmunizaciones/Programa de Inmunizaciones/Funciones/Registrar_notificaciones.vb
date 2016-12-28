@@ -80,11 +80,14 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        'sql &= "SELECT NE.fecha as fecha, NE.id_efector, E.nombre, NE.id_estado_carga, C.descripcion"
-        'sql &= ", NE.id_estado_stock "
-        'sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN "
-        'sql &= "ORDER BY NE.fecha"
-        'tabla = acceso.consulta(sql)
+        sql &= "SELECT NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, "
+        sql &= "C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas "
+        sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+        sql &= " JOIN CARGA C ON NE.id_estado_carga = C.id"
+        sql &= " JOIN STOCK S ON NE.id_estado_stock = S.id"
+        sql &= " JOIN PERDIDAS P ON NE.id_estado_perdidas = P.id "
+        sql &= "ORDER BY NE.fecha"
+        tabla = acceso.consulta(sql)
 
         Me.dgv_notificaciones.Rows.Clear()
         Dim c As Integer = 0
