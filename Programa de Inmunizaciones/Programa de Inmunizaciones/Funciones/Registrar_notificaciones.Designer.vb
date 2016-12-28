@@ -71,6 +71,7 @@ Partial Class Registrar_notificaciones
         Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_notificacion.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -532,7 +533,7 @@ Partial Class Registrar_notificaciones
         Me.dgv_notificaciones.AllowUserToAddRows = False
         Me.dgv_notificaciones.AllowUserToDeleteRows = False
         Me.dgv_notificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_notificaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fecha, Me.nombre_efector, Me.carga, Me.perdidas, Me.stock, Me.id_stock, Me.id_cargo, Me.id_perfil})
+        Me.dgv_notificaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fecha, Me.nombre_efector, Me.carga, Me.perdidas, Me.stock, Me.id_stock, Me.id_cargo, Me.id_perfil, Me.id})
         Me.dgv_notificaciones.Location = New System.Drawing.Point(425, 8)
         Me.dgv_notificaciones.Name = "dgv_notificaciones"
         Me.dgv_notificaciones.ReadOnly = True
@@ -591,6 +592,13 @@ Partial Class Registrar_notificaciones
         Me.id_perfil.Name = "id_perfil"
         Me.id_perfil.ReadOnly = True
         Me.id_perfil.Visible = False
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Visible = False
         '
         'Registrar_notificaciones
         '
@@ -670,4 +678,5 @@ Partial Class Registrar_notificaciones
     Friend WithEvents id_stock As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
