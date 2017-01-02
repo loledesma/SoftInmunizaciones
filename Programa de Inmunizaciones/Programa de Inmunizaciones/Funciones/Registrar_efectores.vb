@@ -27,6 +27,7 @@
         cmb_tipos_efectores.cargar()
         cmb_estado_efector.cargar()
         cmb_tipo_carga.cargar()
+        cmb_estados_empleados.cargar()
         limpiar(Controls)
         cargar_grilla_vacunatorios()
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
@@ -164,9 +165,9 @@
         Me.cmb_estado_efector.SelectedValue = tabla2.Rows(0)("id_estado")
 
 
-        sql &= "SELECT EM.id AS id_empleado, EM.nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado,C.descripcion AS cargo, EM.usuario_sigipsa, PS.descripcion AS perfil, EE.id_cargo, EE.id_perfil, TD.descripcion AS tipo_doc FROM "
-        sql &= "EMPLEADOS EM JOIN EMPLEADOSXEFECTOR ON EM.id_empleado = EE.id_empleados JOIN TIPOS_DOCUMENTO ON EM.id_tipo_doc = TD.id JOIN PERFILES_SIGIPSA PS ON PS.id = EE.id_perfil "
-        sql &= "WHERE id_efector = '" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
+        sql &= "SELECT EM.id AS id_empleado, EM.nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, C.descripcion AS cargo, EM.usuario_sigipsa, PS.descripcion AS perfil, EE.id_cargo, EE.id_perfil, TD.descripcion AS tipo_doc FROM "
+        sql &= "EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id JOIN PERFILES_SIGIPSA PS ON PS.id = EE.id_perfil JOIN CARGO C ON C.id = EE.id_cargo "
+        sql &= "WHERE EE.id_efector = '" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
 
         tabla = acceso.consulta(sql)
 
@@ -276,23 +277,28 @@
 
     Private Sub guardar()
         If validar_efector() = True Then
-            If Me.dgv_vacunatorios.Rows.Count = 0 Then
-                If MessageBox.Show("¿Está seguro que desea registrar un efector sin empleados asignados?", "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Cancel Then
-                    Exit Sub
-                Else
-                    If validar_existencia() = analizar_existencia.existe Then
-                        MessageBox.Show("¡El efector ya se encuentra registrado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        txt_cuie.Focus()
-                    Else
-                        insertar_efector()
-                        Exit Sub
-                    End If
-                End If
 
-            End If
         End If
+        If condicion_estado = estado.insertar Then
+            If validar_existencia() = analizar_existencia.existe Then
+                MessageBox.Show("El Efector ya se encuentra registrado en la base de datos!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                insertar_efector()
+                'CONTINUAR CON LAS VALIDACIONES
+                End If
+            Else
+                Me.modificar()
+            End If
+
+
+    End Sub
+    Private Sub modificar()
+
     End Sub
 
+    Private Sub modificar_empleadoXEfector()
+
+    End Sub
     Private Sub insertar_efector()
         Dim sql As String = ""
 
@@ -344,7 +350,6 @@
         End If
 
         acceso.insertar(sql)
-        'CONTINUAR DESDE ACÁ !
 
     End Sub
     Private Sub nuevo()
@@ -354,7 +359,6 @@
 
         grp_datos_empleados.Enabled = True
         grp_datos_vacunatorio.Enabled = True
-        cmd_eliminar.Enabled = False
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
         txt_cuie.Focus()
@@ -401,6 +405,4 @@
             Exit Sub
         End If
     End Sub
-
-
 End Class
