@@ -164,14 +164,17 @@
             MessageBox.Show("El id está vacío", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_id_departamento.Focus()
             Return False
+            Exit Function
         ElseIf IsNumeric(Me.txt_id_departamento.Text) = False Then
             MessageBox.Show("No se admiten caracteres en el ID", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_id_departamento.Focus()
             Return False
+            Exit Function
         ElseIf Me.txt_descripcion.Text = "" Then
             MessageBox.Show("La Descripcion está vacía", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_descripcion.Focus()
             Return False
+            Exit Function
         End If
         Return True
     End Function

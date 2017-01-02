@@ -39,6 +39,8 @@
         Me.cmb_perfil.cargar()
         Me.cmb_cargo.cargar()
         Me.cmb_departamentos.cargar()
+        Me.cmb_estados.cargar()
+        Me.cmb_estados.SelectedIndex = -1
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_tipo_doc.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
@@ -136,77 +138,81 @@
         Next
     End Sub
 
-    Private Sub grid_empleados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellDoubleClick
-        Me.condicion_click = doble_Click.activado
+    'Private Sub grid_empleados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellDoubleClick
+    '    Me.condicion_click = doble_Click.activado
 
-        Dim fecha As Date
-        Dim tabla As New DataTable
-        Dim tabla2 As New DataTable
-        Dim sql As String = ""
-        Dim sql2 As String = ""
+    '    Dim fecha As Date
+    '    Dim tabla As New DataTable
+    '    Dim tabla2 As New DataTable
+    '    Dim sql As String = ""
+    '    Dim sql2 As String = ""
 
-        sql &= " SELECT * FROM EMPLEADOS "
-        sql &= " WHERE id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
+    '    sql &= " SELECT * FROM EMPLEADOS "
+    '    sql &= " WHERE id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
 
-        sql2 &= "SELECT E.cuie As cuie, E.id_departamento As id_depto, E.id_localidad As id_loc, EE.id_cargo As cargo, EE.id_perfil as perfil "
-        sql2 &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-        sql2 &= " JOIN EFECTORES E ON EE.id_efector = E.cuie"
-        sql2 &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
+    '    sql2 &= "SELECT E.cuie As cuie, E.id_departamento As id_depto, E.id_localidad As id_loc, EE.id_cargo As cargo, EE.id_perfil as perfil "
+    '    sql2 &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+    '    sql2 &= " JOIN EFECTORES E ON EE.id_efector = E.cuie"
+    '    sql2 &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells(0).Value
 
+    '    sql2 &= "SELECT * FROM ESTADOXUSUARIOS "
+    '    sql2 &= " WHERE id_empleado= " & Me.dgv_empleados.CurrentRow.Cells(0).Value
 
-        tabla = acceso.consulta(sql)
-        tabla2 = acceso.consulta(sql2)
+    '    tabla = acceso.consulta(sql)
+    '    tabla2 = acceso.consulta(sql2)
 
-        If tabla.Rows.Count() = 0 Then
-            MessageBox.Show("NO EXISTE SELECCION")
-            Exit Sub
-        End If
+    '    If tabla.Rows.Count() = 0 Then
+    '        MessageBox.Show("NO EXISTE SELECCION")
+    '        Exit Sub
+    '    End If
 
-        Me.txt_id_empleado.Text = tabla.Rows(0)("id")
-        Me.cmb_tipo_doc.SelectedValue = tabla.Rows(0)("id_tipo_doc")
-        Me.txt_nro_documento.Text = tabla.Rows(0)("nro_doc")
-        Me.txt_nombre.Text = tabla.Rows(0)("nombres")
-        Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
+    '    Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+    '    Me.cmb_tipo_doc.SelectedValue = tabla.Rows(0)("id_tipo_doc")
+    '    Me.txt_nro_documento.Text = tabla.Rows(0)("nro_doc")
+    '    Me.txt_nombre.Text = tabla.Rows(0)("nombres")
+    '    Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
 
-        If IsDBNull(tabla.Rows(0)("caracteristica")) Then
-            Me.txt_caracteristica.Text = ""
-        Else
-            Me.txt_caracteristica.Text = tabla.Rows(0)("caracteristica")
-        End If
+    '    If IsDBNull(tabla.Rows(0)("caracteristica")) Then
+    '        Me.txt_caracteristica.Text = ""
+    '    Else
+    '        Me.txt_caracteristica.Text = tabla.Rows(0)("caracteristica")
+    '    End If
 
-        If IsDBNull(tabla.Rows(0)("telefono")) Then
-            Me.txt_telefono.Text = ""
-        Else
-            Me.txt_telefono.Text = tabla.Rows(0)("telefono")
-        End If
+    '    If IsDBNull(tabla.Rows(0)("telefono")) Then
+    '        Me.txt_telefono.Text = ""
+    '    Else
+    '        Me.txt_telefono.Text = tabla.Rows(0)("telefono")
+    '    End If
 
-        If IsDBNull(tabla.Rows(0)("mail_contacto")) Then
-            Me.txt_email.Text = ""
-        Else
-            Me.txt_email.Text = tabla.Rows(0)("mail_contacto")
-        End If
+    '    If IsDBNull(tabla.Rows(0)("mail_contacto")) Then
+    '        Me.txt_email.Text = ""
+    '    Else
+    '        Me.txt_email.Text = tabla.Rows(0)("mail_contacto")
+    '    End If
 
-        If IsDBNull(tabla.Rows(0)("usuario_sigipsa")) Then
-            Me.txt_usuario.Text = ""
-        Else
-            Me.txt_usuario.Text = tabla.Rows(0)("usuario_Sigipsa")
-        End If
+    '    If IsDBNull(tabla.Rows(0)("usuario_sigipsa")) Then
+    '        Me.txt_usuario.Text = ""
+    '        Me.cmb_estados.SelectedIndex = -1
+    '    Else
+    '        Me.txt_usuario.Text = tabla.Rows(0)("usuario_Sigipsa")
+    '        Me.cmb_estados.SelectedValue = tabla2.Rows(0)("id_estado")
+    '    End If
 
-        If IsDBNull(tabla.Rows(0)("fecha_alta")) Then
-            Me.txt_fecha.Text = ""
-        Else
-            fecha = tabla.Rows(0)("fecha_alta")
-            Me.txt_fecha.Text = fecha.ToString("dd/MM/yyyy")
-        End If
+    '    If IsDBNull(tabla.Rows(0)("fecha_alta")) Then
+    '        Me.txt_fecha.Text = ""
+    '    Else
+    '        fecha = tabla.Rows(0)("fecha_alta")
+    '        Me.txt_fecha.Text = fecha.ToString("dd/MM/yyyy")
+    '    End If
 
-        Me.grp_datos_laborales.Enabled = True
-        Me.grp_datos_personales.Enabled = True
-        Me.txt_id_empleado.Enabled = False
-        Me.grp_datos_sigipsa.Enabled = True
-        Me.condicion_estado = estado.modificar
-        Me.cmd_eliminar.Enabled = True
-        Me.condicion_click = doble_Click.desactivado
-    End Sub
+    '    Me.grp_datos_laborales.Enabled = True
+    '    Me.grp_datos_personales.Enabled = True
+    '    Me.txt_id_empleado.Enabled = False
+    '    Me.grp_datos_sigipsa.Enabled = True
+    '    Me.condicion_estado = estado.modificar
+    '    Me.cmd_eliminar.Enabled = True
+    '    Me.condicion_click = doble_Click.desactivado
+    'End Sub
 
     Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamentos.SelectedValueChanged
         If Me.condicion_click = doble_Click.desactivado Then
@@ -271,7 +277,7 @@
                     dgv_empleados.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
                     dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(c)("tipo_doc")
                     dgv_empleados.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
-                
+
                 Next
 
                 If tabla2.Rows.Count = 0 Then
@@ -346,7 +352,7 @@
         End If
         limpiar(Controls)
         txt_apellido.Focus()
-       
+
     End Sub
 
     Private Sub cmd_buscar_x_usuario_Click(sender As Object, e As EventArgs) Handles cmd_buscar_x_usuario.Click
@@ -427,11 +433,16 @@
 
         If validar_existencia() = analizar_existencia.existe Then
             If validar_existencia_efector() = analizar_existencia.no_existe Then
+                restriccion2 = "id_empleado = " & Me.txt_id_empleado.Text
+                acceso.borrar("ESTADOXUSUARIOS", restriccion2)
                 restriccion = "id = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOS", restriccion)
             Else
                 restriccion2 = "id_empleados = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOSXEFECTOR", restriccion2)
+                restriccion2 = ""
+                restriccion2 &= "id_empleado = " & Me.txt_id_empleado.Text
+                acceso.borrar("ESTADOXUSUARIOS", restriccion2)
                 restriccion = "id = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOS", restriccion)
             End If
@@ -472,18 +483,25 @@
 
         If validar_existencia() = analizar_existencia.existe Then
             If validar_existencia_efector() = analizar_existencia.no_existe Then
+                restriccion2 = "id_empleado = " & Me.txt_id_empleado.Text
+                acceso.borrar("ESTADOXUSUARIOS", restriccion2)
                 restriccion = "id = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOS", restriccion)
             Else
                 restriccion2 = "id_empleados = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOSXEFECTOR", restriccion2)
+                restriccion2 = ""
+                restriccion2 &= "id_empleado = " & Me.txt_id_empleado.Text
+                acceso.borrar("ESTADOXUSUARIOS", restriccion2)
                 restriccion = "id = " & Me.txt_id_empleado.Text
                 acceso.borrar("EMPLEADOS", restriccion)
+                
             End If
         End If
-
         Me.insertar_empleado()
     End Sub
+
+
 
     Private Function validar_existencia_efector() As analizar_existencia
         Dim tabla As New DataTable
@@ -511,8 +529,8 @@
         sql = "id = " & Me.txt_id_empleado.Text
         sql &= ", id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
         sql &= ", nro_doc = " & Me.txt_nro_documento.Text
-        sql &= ", nombres = " & Me.txt_nombre.Text
-        sql &= ", apellidos = " & Me.txt_apellido.Text
+        sql &= ", nombres=" & Me.txt_nombre.Text
+        sql &= ", apellidos=" & Me.txt_apellido.Text
 
         If txt_telefono.Text <> "" Then
             sql &= ", telefono = " & Me.txt_telefono.Text
@@ -522,12 +540,13 @@
             sql &= ", caracteristica = Null "
         End If
         If txt_email.Text <> "" Then
-            sql &= ", mail_contacto = " & Me.txt_email.Text
+            sql &= ", mail_contacto=" & Me.txt_email.Text
         Else
-            sql &= ", mail_contacto = Null "
+            sql &= ", mail_contacto= Null"
         End If
         If txt_usuario.Text <> "" Then
-            sql &= ", usuario_sigipsa= " & Me.txt_usuario.Text
+            sql &= ", usuario_sigipsa=" & Me.txt_usuario.Text
+            alta_estado()
         Else
             sql &= ", usuario_sigipsa = Null"
         End If
@@ -536,6 +555,15 @@
         Else
             sql &= ", fecha alta =  '" & fecha & "'"
         End If
+            acceso.insertar(sql)
+    End Sub
+
+    Private Sub alta_estado()
+        Dim sql As String = ""
+        acceso._nombre_tabla = "ESTADOXUSUARIOS"
+
+        sql &= "id_estado = " & Me.cmb_estados.SelectedValue
+        sql &= ", id_empleado = " & Me.txt_id_empleado.Text
 
         acceso.insertar(sql)
     End Sub
@@ -602,12 +630,18 @@
         Dim tabla As DataTable
         Dim tabla2 As DataTable
         Dim sql As String = ""
+        Dim sql2 As String = ""
         txt_id_empleado.Enabled = False
         Dim fecha As Date
 
         sql &= "SELECT * FROM EMPLEADOS WHERE id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
 
+        sql2 &= "SELECT * FROM ESTADOXUSUARIOS "
+        sql2 &= " WHERE id_empleado= " & Me.dgv_empleados.CurrentRow.Cells(0).Value
+
+
         tabla = acceso.consulta(sql)
+        tabla2 = acceso.consulta(sql2)
         If tabla.Rows.Count() = 0 Then
             MessageBox.Show("¡El empleado buscado no se encuentra registrado todavia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
@@ -638,44 +672,46 @@
 
         If IsDBNull(tabla.Rows(0)("usuario_sigipsa")) Then
             Me.txt_usuario.Text = ""
+            Me.cmb_estados.SelectedIndex = -1
         Else
             Me.txt_usuario.Text = tabla.Rows(0)("usuario_Sigipsa")
+            Me.cmb_estados.SelectedValue = tabla2.Rows(0)("id_estado")
         End If
 
-        If IsDBNull(tabla.Rows(0)("fecha_alta")) Then
-            Me.txt_fecha.Text = ""
-        Else
-            fecha = tabla.Rows(0)("fecha_alta")
-            Me.txt_fecha.Text = fecha.ToString("dd/MM/yyyy")
-        End If
+            If IsDBNull(tabla.Rows(0)("fecha_alta")) Then
+                Me.txt_fecha.Text = ""
+            Else
+                fecha = tabla.Rows(0)("fecha_alta")
+                Me.txt_fecha.Text = fecha.ToString("dd/MM/yyyy")
+            End If
 
-        sql = ""
-        sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, PS.descripcion As perfil "
-        sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-        sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
-        sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
-        sql &= " JOIN PERFILES_SIGIPSA PS ON EE.id_perfil = PS.id"
-        sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
-        tabla2 = acceso.consulta(sql)
+            sql = ""
+            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, PS.descripcion As perfil "
+            sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+            sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
+            sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
+            sql &= " JOIN PERFILES_SIGIPSA PS ON EE.id_perfil = PS.id"
+            sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
+            tabla2 = acceso.consulta(sql)
 
-        If tabla2.Rows.Count = 0 Then
-            MessageBox.Show("El empleado seleccionado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        Else
-            Dim c As Integer = 0
-            For c = 0 To tabla2.Rows.Count() - 1
-                dgv_efectores.Rows.Add()
-                dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
-            Next
-        End If
-        cmd_eliminar.Enabled = True
-        cmd_guardar.Enabled = True
-        cmd_nuevo.Enabled = True
-        cmd_efector_nuevo.Enabled = True
-        cmd_agregar_efector.Enabled = True
-        cmd_eliminar_efector.Enabled = False
+            If tabla2.Rows.Count = 0 Then
+                MessageBox.Show("El empleado seleccionado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                Dim c As Integer = 0
+                For c = 0 To tabla2.Rows.Count() - 1
+                    dgv_efectores.Rows.Add()
+                    dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
+                    dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
+                    dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
+                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                Next
+            End If
+            cmd_eliminar.Enabled = True
+            cmd_guardar.Enabled = True
+            cmd_nuevo.Enabled = True
+            cmd_efector_nuevo.Enabled = True
+            cmd_agregar_efector.Enabled = True
+            cmd_eliminar_efector.Enabled = False
     End Sub
 
     Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
@@ -772,6 +808,13 @@
             Return False
             Me.txt_fecha.Focus()
             Exit Function
+        ElseIf txt_usuario.Text <> "" Then
+            If cmb_estados.SelectedIndex = -1 Then
+                MessageBox.Show("Debe seleccionar un estado para el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return False
+                Me.cmb_estados.Focus()
+                Exit Function
+            End If
         End If
         Return True
     End Function
@@ -893,5 +936,19 @@
         Me.cmd_efector_nuevo.Enabled = False
         Me.cmd_eliminar_efector.Enabled = True
     End Sub
+
+    Private Sub cmd_cambiar_estado_Click(sender As Object, e As EventArgs) Handles cmd_cambiar_estado.Click
+        Dim sql As String = ""
+
+        sql &= "UPDATE ESTADOXUSUARIOS "
+        sql &= "SET id_estado = " & Me.cmb_estados.SelectedValue
+        sql &= " WHERE id_empleado = " & Me.txt_id_empleado.Text
+
+        acceso.ejecutar(sql)
+
+        limpiar(Controls)
+        Me.cargar_grilla()
+    End Sub
+
 
 End Class

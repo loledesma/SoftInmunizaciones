@@ -118,11 +118,11 @@
 
     End Sub
 
-    Private Sub cmd_salir_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.Close()
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         Me.dgv_stock.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.txt_id_stock.Enabled = True
@@ -191,7 +191,7 @@
 
     End Function
 
-    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
         Me.guardar()
     End Sub
 
@@ -237,7 +237,7 @@
         acceso.ejecutar(sql)
     End Sub
 
-    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
         If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
              "Atencion", MessageBoxButtons.OKCancel, _
