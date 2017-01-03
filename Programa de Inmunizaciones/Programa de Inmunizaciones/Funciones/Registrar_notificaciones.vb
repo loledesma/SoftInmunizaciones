@@ -22,6 +22,7 @@
         Me.cargar_grilla()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_apellidos, "EMPLEADOS", "apellidos")
+        acceso.autocompletar(txt_nombres, "EMPLEADOS", "nombres")
         acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
@@ -53,7 +54,9 @@
 
     Private Sub tip()
         tltp_notificaciones.SetToolTip(cmd_efector_nuevo, "Dar de alta efector nuevo")
+        tltp_notificaciones.SetToolTip(cmd_buscar_empleado, "Buscar id empleado")
         tltp_notificaciones.SetToolTip(cmd_buscar_notificaciones, "Buscar notificación")
+        tltp_notificaciones.SetToolTip(cmd_empleado_nuevo, "Dar de alta empleado nuevo")
         tltp_notificaciones.SetToolTip(cmd_listados, "Listados")
         tltp_notificaciones.SetToolTip(cmd_estadistica, "Estadísticos")
         tltp_notificaciones.SetToolTip(cmd_eliminar, "Eliminar")
@@ -148,7 +151,7 @@
         End If
     End Sub
 
- 
+
     Private Sub Registrar_notificaciones_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control And e.KeyCode.ToString = "N" Then
             nuevo()
@@ -251,7 +254,18 @@
     End Sub
 
     Private Sub modificar()
+        Dim sql As String = ""
 
+        sql = "UPDATE NOTIFICACIONXEFECTOR "
+        sql &= " SET fecha = '" & Me.txt_fecha.Text & "'"
+        sql &= ", id_estado_carga = " & Me.cmb_carga.SelectedValue
+        sql &= ", id_estado_stock= " & Me.cmb_stock.SelectedValue
+        sql &= ", id_estado_perdidas= " & Me.cmb_perdidas.SelectedValue
+        sql &= ", id_efector='" & Me.txt_cuie.Text & "'"
+        sql &= ", id_empleado= " & Me.txt_id_empleado.Text
+        sql &= " WHERE id = " & Me.txt_id_notificacion.Text
+
+        acceso.ejecutar(sql)
     End Sub
     Private Sub guardar()
         If Me.validar() = True Then
@@ -347,6 +361,7 @@
         Me.txt_id_empleado.Enabled = False
         Me.condicion_estado = estado.modificar
         Me.cmd_eliminar.Enabled = True
+        Me.cmd_guardar.Enabled = True
         Me.condicion_click = doble_Click.desactivado
     End Sub
 
@@ -426,6 +441,64 @@
         End If
     End Sub
 
+    'Private Sub cmd_buscar_notificaciones_Click(sender As Object, e As EventArgs) Handles cmd_buscar_notificaciones.Click
 
-   
+    'End Sub
+
+    Private Sub cmd_buscar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleado.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        Dim c As Integer = 0
+        If txt_apellidos.Text = "" And txt_nombres.Text = "" Then
+            If txt_usuario.Text = "" Then
+                MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                txt_apellidos.Focus()
+                Exit Sub
+            ElseIf txt_usuario.Text <> "" Then
+                sql = ""
+                sql &= "SELECT * FROM EMPLEADOS "
+                sql &= " WHERE usuario_sigipsa= '" & Me.txt_usuario.Text & "'"
+
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count = 0 Then
+                    MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Else
+                    Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+                    Me.txt_nombres.Text = tabla.Rows(0)("nombres")
+                    Me.txt_apellidos.Text = tabla.Rows(0)("apellidos")
+                End If
+            End If
+        Else
+            If txt_apellidos.Text = "" And txt_nombres.Text <> "" Then
+                MessageBox.Show("¡Ingrese un apellido para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                txt_apellidos.Focus()
+                Exit Sub
+            ElseIf txt_apellidos.Text <> "" And txt_nombres.Text = "" Then
+                MessageBox.Show("¡Ingrese un nombre para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                txt_nombres.Focus()
+                Exit Sub
+            ElseIf txt_apellidos.Text <> "" And txt_nombres.Text <> "" Then
+                sql = ""
+                sql &= "SELECT * FROM EMPLEADOS "
+                sql &= " WHERE nombres= '" & Me.txt_nombres.Text & "' AND apellidos '" & Me.txt_apellidos.Text
+
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count = 0 Then
+                    MessageBox.Show("No se encontro id de empleado con esos datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Else
+                    Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+                    Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
+                End If
+            End If
+        End If
+
+    End Sub
+
+    Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
+        If MessageBox.Show("¿Desea agregar un empleado nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+            abm_empleados.ShowDialog()
+        Else
+            Exit Sub
+        End If
+    End Sub
 End Class
