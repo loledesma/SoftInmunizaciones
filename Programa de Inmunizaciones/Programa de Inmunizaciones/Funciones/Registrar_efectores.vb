@@ -103,6 +103,7 @@
         Dim tabla2 As New DataTable
         Dim sql As String = ""
         Dim sql2 As String = ""
+        dgv_empleados.Rows.Clear()
 
         sql2 &= " SELECT * FROM EFECTORES "
         sql2 &= " WHERE cuie = '" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
@@ -165,8 +166,8 @@
         Me.cmb_estado_efector.SelectedValue = tabla2.Rows(0)("id_estado")
 
 
-        sql &= "SELECT EM.id AS id_empleado, EM.nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, C.descripcion AS cargo, EM.usuario_sigipsa, PS.descripcion AS perfil, EE.id_cargo, EE.id_perfil, TD.descripcion AS tipo_doc FROM "
-        sql &= "EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id JOIN PERFILES_SIGIPSA PS ON PS.id = EE.id_perfil JOIN CARGO C ON C.id = EE.id_cargo "
+        sql &= "SELECT EM.id AS id_empleado, EM.nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, C.descripcion AS cargo, EM.usuario_sigipsa, PS.descripcion AS perfil, EE.id_cargo, EE.id_perfil, TD.descripcion AS tipo_doc, ESTXEMPL.descripcion AS estado_empleado FROM "
+        sql &= "EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id JOIN PERFILES_SIGIPSA PS ON PS.id = EE.id_perfil JOIN CARGO C ON C.id = EE.id_cargo JOIN ESTADOS_EMPLEADOS ESTXEMPL ON ESTXEMPL.id = EE.id_estado_empleado  "
         sql &= "WHERE EE.id_efector = '" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
 
         tabla = acceso.consulta(sql)
@@ -189,6 +190,7 @@
                 dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(c)("perfil")
                 dgv_empleados.Rows(c).Cells("id_cargo").Value = tabla.Rows(c)("id_cargo")
                 dgv_empleados.Rows(c).Cells("id_perfil").Value = tabla.Rows(c)("id_perfil")
+                dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla.Rows(c)("estado_empleado")
             Next
         End If
 
@@ -277,19 +279,27 @@
 
     Private Sub guardar()
         If validar_efector() = True Then
-
-        End If
-        If condicion_estado = estado.insertar Then
-            If validar_existencia() = analizar_existencia.existe Then
-                MessageBox.Show("El Efector ya se encuentra registrado en la base de datos!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Else
-                insertar_efector()
-                'CONTINUAR CON LAS VALIDACIONES
+            If condicion_estado = estado.insertar Then
+                If validar_existencia() = analizar_existencia.existe Then
+                    MessageBox.Show("El Efector ya se encuentra registrado en la base de datos!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Else
+                    If dgv_empleados.Rows.Count = 0 Then
+                        If MessageBox.Show("¿Está seguro que desea registrar el efector sin empleados asignados?", "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.OK Then
+                            insertar_efector()
+                            Exit Sub
+                        Else
+                            Me.txt_id_empleado.Focus()
+                        End If
+                    Else
+                        insertar_efector()
+                        grabar_empleadoxefector()
+                        'CONTINUAR CON LAS VALIDACIONES
+                    End If
                 End If
             Else
                 Me.modificar()
             End If
-
+        End If
 
     End Sub
     Private Sub modificar()
@@ -352,6 +362,77 @@
         acceso.insertar(sql)
 
     End Sub
+    Private Function validar_empleado()
+        If txt_id_empleado.Text = "" Then
+            MessageBox.Show("¡No se puede agregar un empleado sin su ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_id_empleado.Focus()
+            Return False
+            Exit Function
+        End If
+        If txt_apellido.Text = "" Then
+            MessageBox.Show("¡El campo apellido no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_apellido.Focus()
+            Return False
+            Exit Function
+        End If
+        If txt_numero_doc.Text = "" Then
+            MessageBox.Show("¡El campo número de documento no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_numero_doc.Focus()
+            Return False
+            Exit Function
+        End If
+        If txt_usuario.Text = "" Then
+            MessageBox.Show("¡El campo usuario de Sigipsa no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_usuario.Focus()
+            Return False
+            Exit Function
+        End If
+        If cmb_tipos_documento.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un tipo de documento!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmb_tipos_documento.Focus()
+            Return False
+            Exit Function
+        End If
+        If cmb_estados_empleados.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un estado para el empleado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmb_estados_empleados.Focus()
+            Return False
+            Exit Function
+        End If
+        Return True
+    End Function
+
+    Private Function validar_existencia_empleado() As Boolean
+
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        sql &= "SELECT * FROM EMPLEADOS WHERE nro_doc = " & txt_numero_doc.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count = 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+    Private Sub agregar_en_grilla_empleados()
+        If validar_empleado() = True Then
+            If validar_existencia_empleado() = False Then
+                dgv_empleados.Rows.Add()
+                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id").Value = txt_id_empleado.Text
+                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("tipo_doc").Value = cmb_tipos_documento.SelectedValue
+                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("numero").Value = txt_numero_doc.Text
+                ' dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombre_empleado").Value = 
+            Else
+                MessageBox.Show("Ya existe el empleado que trata de asignar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
+        End If
+
+
+    End Sub
     Private Sub nuevo()
 
         limpiar(Controls)
@@ -403,6 +484,30 @@
             abm_empleados.ShowDialog()
         Else
             Exit Sub
+        End If
+    End Sub
+
+    Private Sub cmd_buscar_empleadoXDNI_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleadoXDNI.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        txt_id_empleado.Enabled = False
+
+
+        sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos, E.usuario_sigipsa, EMXE.id_estado_empleado "
+        sql &= "FROM EMPLEADOS E JOIN EMPLEADOSXEFECTOR EMXE ON E.id = EMXE.id_empleados JOIN ESTADOS_EMPLEADOS EXE ON EXE.id = EMXE.id_estado_empleado WHERE nro_doc = " & Me.txt_numero_doc.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows().Count = 0 Then
+            MessageBox.Show("No existe ningún empleado con el DNI ingresado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        Else
+            Me.txt_id_empleado.Text = tabla.Rows(0)("id_empleado")
+            Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("id_tipo_doc")
+            Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
+            Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
+            Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
+            Me.cmb_estados_empleados.SelectedValue = tabla.Rows(0)("id_estado_empleado")
         End If
     End Sub
 End Class
