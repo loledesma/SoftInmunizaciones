@@ -255,11 +255,11 @@
             sql &= "WHERE EMP.nro_doc = " & Me.txt_nro_documento.Text
             tabla = acceso.consulta(sql)
             sql = ""
-            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, PS.descripcion As perfil, EST.descripcion As estado"
+            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo,  EST.descripcion As estado"
+            sql &= ", EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado "
             sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
             sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
             sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
-            sql &= " JOIN PERFILES_SIGIPSA PS ON EE.id_perfil = PS.id"
             sql &= " JOIN ESTADOS_EMPLEADOS EST ON EE.id_estado_empleado = EST.id "
             sql &= " WHERE EMP.nro_doc = " & Me.txt_nro_documento.Text
             tabla2 = acceso.consulta(sql)
@@ -289,8 +289,25 @@
                         dgv_efectores.Rows(d).Cells("cuie").Value = tabla2.Rows(d)("cuie")
                         dgv_efectores.Rows(d).Cells("nombre_efector").Value = tabla2.Rows(d)("nombre_efector")
                         dgv_efectores.Rows(d).Cells("cargo").Value = tabla2.Rows(d)("cargo")
-                        dgv_efectores.Rows(d).Cells("perfil").Value = tabla2.Rows(d)("perfil")
+
+                        sql = ""
+                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
+                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
+                        sql &= " WHERE EMP.nro_doc = " & Me.txt_nro_documento.Text
+                        tabla2.Clear()
+                        tabla2 = acceso.consulta(sql)
+
+                        If tabla2.Rows.Count() = 0 Then
+                            dgv_efectores.Rows(d).Cells("perfil").Value = ""
+                            dgv_efectores.Rows(d).Cells("id_perfil").Value = ""
+                        Else
+                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla2.Rows(d)("perfil")
+                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla2.Rows(d)("id_perfil")
+                        End If
                         dgv_efectores.Rows(d).Cells("estado_empleado").Value = tabla2.Rows(d)("estado")
+                        dgv_efectores.Rows(d).Cells("id_cargo").Value = tabla2.Rows(d)("id_cargo")
+                        dgv_efectores.Rows(d).Cells("id_estado").Value = tabla2.Rows(d)("id_estado")
                     Next
                 End If
             End If
@@ -315,11 +332,11 @@
             sql &= "WHERE EMP.apellidos = '" & Me.txt_apellido.Text & "'"
             tabla = acceso.consulta(sql)
             sql = ""
-            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, PS.descripcion As perfil, EST.descripcion As estado "
+            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, EST.descripcion As estado "
+            sql &= " , EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado "
             sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
             sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
             sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
-            sql &= " JOIN PERFILES_SIGIPSA PS ON EE.id_perfil = PS.id"
             sql &= " JOIN ESTADOS_EMPLEADOS EST ON EE.id_estado_empleado = EST.id "
             sql &= " WHERE EMP.apellidos = '" & Me.txt_apellido.Text & "'"
             tabla2 = acceso.consulta(sql)
@@ -349,8 +366,26 @@
                         dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                         dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
                         dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                        dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+
+                        sql = ""
+                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
+                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
+                        sql &= " WHERE EMP.id = '" & Me.txt_apellido.Text & "'"
+                        tabla2.Clear()
+                        tabla2 = acceso.consulta(sql)
+
+                        If tabla2.Rows.Count() = 0 Then
+                            dgv_efectores.Rows(c).Cells("perfil").Value = ""
+                            dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
+                        Else
+                            dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                            dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
+                        End If
+
                         dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
+                        dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
+                        dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
                     Next
                 End If
             End If
@@ -375,11 +410,11 @@
             sql &= "WHERE EMP.usuario_sigipsa = '" & Me.txt_usuario.Text & "'"
             tabla = acceso.consulta(sql)
             sql = ""
-            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, PS.descripcion As perfil, EST.descripcion As estado "
+            sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, EST.descripcion As estado "
+            sql &= " , EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado "
             sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
             sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
             sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
-            sql &= " JOIN PERFILES_SIGIPSA PS ON EE.id_perfil = PS.id"
             sql &= " JOIN ESTADOS_EMPLEADOS EST ON EE.id_estado_empleado = EST.id "
             sql &= " WHERE EMP.usuario_sigipsa = '" & Me.txt_usuario.Text & "'"
             tabla2 = acceso.consulta(sql)
@@ -408,8 +443,25 @@
                         dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                         dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
                         dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                        dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                        dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
+
+                        sql = ""
+                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
+                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
+                        sql &= " WHERE EMP.id = '" & Me.txt_usuario.Text & "'"
+                        tabla2.Clear()
+                        tabla2 = acceso.consulta(sql)
+
+                        If tabla2.Rows.Count() = 0 Then
+                            dgv_efectores.Rows(c).Cells("perfil").Value = ""
+                            dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
+                        Else
+                            dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                            dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
+                        End If
                         dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
+                        dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
                     Next
                 End If
             End If
@@ -461,8 +513,11 @@
         Else
             Exit Sub
         End If
+        dgv_efectores.Rows.Clear()
+        dgv_empleados.Rows.Clear()
         Me.limpiar(Me.Controls)
         Me.cargar_grilla()
+        Me.txt_id_empleado.Enabled = True
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
@@ -479,17 +534,18 @@
         sql &= " , caracteristica= " & Me.txt_caracteristica.Text
         sql &= " , telefono= " & Me.txt_telefono.Text
         sql &= " , mail_contacto= '" & Me.txt_email.Text & "'"
-        sql &= " , usuario_sigipsa= '" & Me.txt_usuario.Text & "'"
-        sql &= " , fecha_alta= '" & Me.txt_fecha.Text & "'"
+        If txt_usuario.Text <> "" Then
+            sql &= " , usuario_sigipsa='" & Me.txt_usuario.Text & "'"
+            sql &= " , fecha_alta= '" & Me.txt_fecha.Text & "'"
+        Else
+            sql &= ", usuario_sigipsa=NULL"
+            sql &= ", fecha_alta=NULL"
+        End If
         sql &= " WHERE id = " & Me.txt_id_empleado.Text
 
         acceso.ejecutar(sql)
 
-        sql &= "UPDATE ESTADOXUSUARIOS "
-        sql &= "SET id_estado = " & Me.cmb_estados.SelectedValue
-        sql &= " WHERE id_empleado = " & Me.txt_id_empleado.Text
-
-        acceso.ejecutar(sql)
+        alta_estado()
 
     End Sub
 
@@ -513,6 +569,7 @@
     Private Sub insertar_empleado()
         Dim sql As String = ""
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
+        Dim tabla As New DataTable
         acceso._nombre_tabla = "EMPLEADOS"
 
 
@@ -536,17 +593,26 @@
         End If
         If txt_usuario.Text <> "" Then
             sql &= ", usuario_sigipsa=" & Me.txt_usuario.Text
-            alta_estado()
         Else
-            sql &= ", usuario_sigipsa = Null"
+            sql &= ", usuario_sigipsa=Null"
         End If
-        If txt_fecha.Text <> "" Then
+
+        If IsDate(txt_fecha.Text) Then
             sql &= ", fecha_alta = '" & Me.txt_fecha.Text & "'"
         Else
-            sql &= ", fecha alta =  '" & fecha & "'"
+            sql &= ", fecha alta =Null"
         End If
         acceso.insertar(sql)
-       
+
+        sql = ""
+        sql = "SELECT * FROM EMPLEADOS WHERE id= " & Me.txt_id_empleado.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() <> 0 Then
+            alta_estado()
+        End If
+
     End Sub
 
     Private Sub alta_estado()
@@ -566,10 +632,7 @@
 
             acceso.insertar(sql)
         End If
-        limpiar(Controls)
-        dgv_efectores.Rows.Clear()
-        dgv_empleados.Rows.Clear()
-        cargar_grilla()
+        
     End Sub
 
     Private Function validar_existencia_estado() As analizar_existencia
@@ -614,8 +677,12 @@
             txt_insert = " id_efector=" & Me.dgv_efectores.Rows(c).Cells("cuie").Value
             txt_insert &= ", id_empleados=" & Me.txt_id_empleado.Text
             txt_insert &= ", id_cargo=" & Me.dgv_efectores.Rows(c).Cells("id_cargo").Value
-            txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
-            txt_insert &= ", id_estado_emplado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
+            If IsNothing(Me.dgv_efectores.Rows(c).Cells("id_perfil").Value) Then
+                txt_insert &= ", id_perfil=Null"
+            Else
+                txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
+            End If
+            txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
 
             acceso.insertar(txt_insert)
             txt_insert = ""
@@ -625,12 +692,16 @@
     Private Sub modificar_empleadoxefector()
         Dim c As Integer = 0
         Dim txt_insert As String = ""
-
+      
         For c = 0 To dgv_efectores.Rows.Count() - 1
             If validar_existencia_efector() = analizar_existencia.existe Then
                 txt_insert &= "UPDATE EMPLEADOSXEFECTOR "
                 txt_insert &= " SET id_cargo= " & Me.dgv_efectores.Rows(c).Cells("id_cargo").Value
-                txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
+                If IsNothing(Me.dgv_efectores.Rows(c).Cells("id_perfil").Value) Then
+                    txt_insert &= ", id_perfil= Null"
+                Else
+                    txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
+                End If
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
                 txt_insert &= " WHERE id_empleados= " & Me.txt_id_empleado.Text & " AND id_efector='" & Me.dgv_efectores.Rows(c).Cells("cuie").Value & "'"
                 acceso.ejecutar(txt_insert)
@@ -640,7 +711,13 @@
                 txt_insert = " id_efector=" & Me.dgv_efectores.Rows(c).Cells("cuie").Value
                 txt_insert &= ", id_empleados=" & Me.txt_id_empleado.Text
                 txt_insert &= ", id_cargo=" & Me.dgv_efectores.Rows(c).Cells("id_cargo").Value
-                txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
+
+                If IsNothing(Me.dgv_efectores.Rows(c).Cells("id_perfil").Value) Then
+                    txt_insert &= ", id_perfil=Null"
+                Else
+                    txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
+                End If
+
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
                 acceso.insertar(txt_insert)
             End If
@@ -667,17 +744,24 @@
         grp_datos_personales.Enabled = True
         grp_datos_sigipsa.Enabled = True
         txt_id_empleado.Enabled = False
+        cmb_departamentos.Enabled = True
+        cmb_localidades.Enabled = True
+        txt_efectores.Enabled = True
+        dgv_efectores.Rows.Clear()
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
         cmb_tipo_doc.Focus()
         Me.cmd_eliminar_efector.Enabled = True
     End Sub
 
+ 
     Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_empleados.CellMouseDoubleClick
         dgv_efectores.Rows.Clear()
+        limpiar(Controls)
         condicion_estado = estado.modificar
         Dim tabla As DataTable
         Dim tabla2 As DataTable
+        Dim tabla3 As DataTable
         Dim sql As String = ""
         Dim sql2 As String = ""
         txt_id_empleado.Enabled = False
@@ -719,12 +803,18 @@
             Me.txt_email.Text = tabla.Rows(0)("mail_contacto")
         End If
 
-        If IsDBNull(tabla.Rows(0)("usuario_sigipsa")) Then
+        sql = ""
+        sql &= "SELECT EMP.usuario_sigipsa As usuario_sigipsa, EU.id_estado As id_estado "
+        sql &= " FROM EMPLEADOS EMP JOIN ESTADOXUSUARIOS EU ON EMP.id = EU.id_empleado "
+        sql &= "WHERE id= " & tabla.Rows(0)("id") & " AND usuario_sigipsa IS NOT NULL "
+        tabla3 = acceso.consulta(sql)
+
+        If tabla3.Rows.Count() = 0 Then
             Me.txt_usuario.Text = ""
             Me.cmb_estados.SelectedIndex = -1
         Else
-            Me.txt_usuario.Text = tabla.Rows(0)("usuario_Sigipsa")
-            Me.cmb_estados.SelectedValue = tabla2.Rows(0)("id_estado")
+            Me.txt_usuario.Text = tabla3.Rows(0)("usuario_Sigipsa")
+            Me.cmb_estados.SelectedValue = tabla3.Rows(0)("id_estado")
         End If
 
         If IsDBNull(tabla.Rows(0)("fecha_alta")) Then
@@ -735,14 +825,14 @@
         End If
 
         sql = ""
-        sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, PS.descripcion As perfil, EST.descripcion As estado "
-        sql &= " , EE.id_cargo As id_cargo, EE.id_perfil As id_perfil, EE.id_estado_empleado As id_estado "
+        sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, EST.descripcion As estado "
+        sql &= " , EE.id_cargo As id_cargo, EE.id_estado_empleado As id_estado "
         sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
         sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
         sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
-        sql &= " JOIN PERFILES_SIGIPSA PS ON EE.id_perfil = PS.id"
         sql &= " JOIN ESTADOS_EMPLEADOS EST ON EE.id_estado_empleado = EST.id"
         sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
+        tabla2.Clear()
         tabla2 = acceso.consulta(sql)
 
         If tabla2.Rows.Count = 0 Then
@@ -755,11 +845,24 @@
                 dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                 dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
                 dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
                 dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
                 dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
-                dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
                 dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
+
+                sql = ""
+                sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
+                sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
+                sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
+                tabla2.Clear()
+                tabla2 = acceso.consulta(sql)
+                If tabla2.Rows.Count() = 0 Then
+                    dgv_efectores.Rows(c).Cells("perfil").Value = ""
+                    dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
+                Else
+                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
+                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
+                End If
             Next
         End If
 
@@ -808,10 +911,13 @@
         Me.txt_efectores.Text = tabla.Rows(0)("nombre_efector")
         Me.txt_cuie.Text = tabla.Rows(0)("cuie")
         Me.cmb_cargo.SelectedValue = tabla.Rows(0)("cargo")
-        Me.cmb_perfil.SelectedValue = tabla.Rows(0)("perfil")
+        If IsDBNull(tabla.Rows(0)("perfil")) Then
+            Me.cmb_perfil.SelectedIndex = -1
+        Else
+            Me.cmb_perfil.SelectedValue = tabla.Rows(0)("perfil")
+        End If
+
         Me.cmb_estado_empleado.SelectedValue = tabla.Rows(0)("estado")
-
-
 
         grp_datos_laborales.Enabled = True
         Me.cmd_eliminar_efector.Enabled = False
@@ -862,16 +968,22 @@
                 Me.txt_caracteristica.Focus()
                 Exit Function
             End If
-        ElseIf txt_fecha.Text > hoy Then
-            MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_fecha.Focus()
-            Exit Function
+       
         ElseIf txt_usuario.Text <> "" Then
             If cmb_estados.SelectedIndex = -1 Then
                 MessageBox.Show("Debe seleccionar un estado para el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Return False
                 Me.cmb_estados.Focus()
+                Exit Function
+            ElseIf txt_fecha.Text > hoy Then
+                MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return False
+                Me.txt_fecha.Focus()
+                Exit Function
+            ElseIf IsDate(txt_fecha.Text) Then
+                MessageBox.Show("Debe ingresar una fecha de alta para ese usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return False
+                Me.txt_fecha.Focus()
                 Exit Function
             End If
         End If
@@ -904,16 +1016,18 @@
             Return False
             Me.cmb_cargo.Focus()
             Exit Function
-        ElseIf cmb_perfil.SelectedIndex = -1 Then
-            MessageBox.Show("Debe seleccionar un perfil", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.cmb_perfil.Focus()
-            Exit Function
         ElseIf cmb_estado_empleado.SelectedIndex = -1 Then
             MessageBox.Show("Debe seleccionar un estado del empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.cmb_estado_empleado.Focus()
             Exit Function
+        ElseIf txt_usuario.Text <> "" Then
+            If cmb_perfil.SelectedIndex = -1 Then
+                MessageBox.Show("Debe seleccionar un perfil", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Return False
+                Me.cmb_perfil.Focus()
+                Exit Function
+            End If
         End If
         Return True
     End Function
@@ -929,7 +1043,6 @@
                         Me.dgv_efectores.Rows(c).Cells("cuie").Value = Me.txt_cuie.Text
                         Me.dgv_efectores.Rows(c).Cells("nombre_efector").Value = Me.txt_efectores.Text
                         Me.dgv_efectores.Rows(c).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
-                        Me.dgv_efectores.Rows(c).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
                         Me.dgv_efectores.Rows(c).Cells("id_estado").Value = Me.cmb_estado_empleado.SelectedValue
                         sql = ""
                         sql &= "SELECT C.descripcion As descripcion FROM CARGO C "
@@ -937,18 +1050,27 @@
                         tabla1.Clear()
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(c).Cells("cargo").Value = tabla1.Rows(0)("descripcion")
-                        sql = ""
-                        sql &= "SELECT P.descripcion As descripcion FROM PERFILES_SIGIPSA P "
-                        sql &= " WHERE P.id= " & Me.cmb_cargo.SelectedValue
-                        tabla1.Clear()
-                        tabla1 = acceso.consulta(sql)
-                        Me.dgv_efectores.Rows(c).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
+                       
                         sql = ""
                         sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                         sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
                         tabla1.Clear()
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla1.Rows(0)("descripcion")
+
+                        If cmb_perfil.SelectedIndex = -1 Then
+                            Me.dgv_efectores.Rows(c).Cells("id_perfil").Value = Nothing
+                            Me.dgv_efectores.Rows(c).Cells("perfil").Value = Nothing
+                        Else
+                            Me.dgv_efectores.Rows(c).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                            sql = ""
+                            sql &= "SELECT P.descripcion As descripcion FROM PERFILES_SIGIPSA P "
+                            sql &= " WHERE P.id= " & Me.cmb_perfil.SelectedValue
+                            tabla1.Clear()
+                            tabla1 = acceso.consulta(sql)
+                            Me.dgv_efectores.Rows(c).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
+                        End If
+
                         flag = True
                     End If
                 Next
@@ -957,19 +1079,27 @@
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("cuie").Value = Me.txt_cuie.Text
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("nombre_efector").Value = Me.txt_efectores.Text
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
-                    Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                    Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_estado").Value = Me.cmb_estado_empleado.SelectedValue
                     sql = ""
                     sql &= "SELECT C.descripcion As descripcion FROM CARGO C "
                     sql &= " WHERE C.id= " & Me.cmb_cargo.SelectedValue
                     tabla1.Clear()
                     tabla1 = acceso.consulta(sql)
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("cargo").Value = tabla1.Rows(0)("descripcion")
-                    sql = ""
-                    sql &= "SELECT P.descripcion As descripcion FROM PERFILES_SIGIPSA P "
-                    sql &= " WHERE P.id= " & Me.cmb_cargo.SelectedValue
-                    tabla1.Clear()
-                    tabla1 = acceso.consulta(sql)
-                    Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
+
+                    If cmb_perfil.SelectedIndex = -1 Then
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_perfil").Value = Nothing
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("perfil").Value = Nothing
+                    Else
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                        sql = ""
+                        sql &= "SELECT P.descripcion As descripcion FROM PERFILES_SIGIPSA P "
+                        sql &= " WHERE P.id= " & Me.cmb_perfil.SelectedValue
+                        tabla1.Clear()
+                        tabla1 = acceso.consulta(sql)
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
+                    End If
+                 
                     sql = ""
                     sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                     sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
@@ -1013,7 +1143,7 @@
                 sql &= "SELECT E.nombre As nombre FROM EFECTORES E "
                 sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
-                txt_cuie.Text = tabla.Rows(0)("nombre")
+                txt_efectores.Text = tabla.Rows(0)("nombre")
             End If
         End If
     End Sub

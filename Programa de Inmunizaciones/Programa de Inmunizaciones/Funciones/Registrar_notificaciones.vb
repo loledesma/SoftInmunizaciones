@@ -501,4 +501,8 @@
             Exit Sub
         End If
     End Sub
+
+    Private Sub cmd_listados_Click(sender As Object, e As EventArgs) Handles cmd_listados.Click
+
+    End Sub
 End Class
