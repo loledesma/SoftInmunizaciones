@@ -46,6 +46,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -201,6 +203,12 @@
     <Compile Include="Funciones\Registrar_notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\Listados_notificaciones.Designer.vb">
+      <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Listados_notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Menú.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +275,10 @@
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_notificaciones.rdlc" />
+    <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
+      <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menú.resx">
       <DependentUpon>Menú.vb</DependentUpon>
     </EmbeddedResource>
@@ -302,7 +314,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Estadisticos\" />
-    <Folder Include="Listados\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

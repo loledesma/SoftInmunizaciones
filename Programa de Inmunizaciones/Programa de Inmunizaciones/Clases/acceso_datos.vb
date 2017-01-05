@@ -259,7 +259,9 @@
         res = cmd.ExecuteReader()
 
         While res.Read()
-            textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
+            If IsDBNull(res.Item(descripcion)) = False Then
+                textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
+            End If
         End While
         res.Close()
 
