@@ -304,8 +304,8 @@
         End If
 
         Me.txt_id_notificacion.Enabled = False
-        Me.cmb_departamentos.Enabled = False
-        Me.cmb_localidades.Enabled = False
+        Me.cmb_departamentos.Enabled = True
+        Me.cmb_localidades.Enabled = True
         Me.txt_fecha.Focus()
         Me.cmd_guardar.Enabled = True
         Me.cmd_eliminar.Enabled = False
@@ -319,7 +319,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
-        sql &= "WHERE id = " & Me.dgv_notificaciones.CurrentRow.Cells(8).Value
+        sql &= "WHERE id = " & Me.dgv_notificaciones.CurrentRow.Cells(9).Value
 
         tabla = acceso.consulta(sql)
 
@@ -480,7 +480,7 @@
             ElseIf txt_apellidos.Text <> "" And txt_nombres.Text <> "" Then
                 sql = ""
                 sql &= "SELECT * FROM EMPLEADOS "
-                sql &= " WHERE nombres= '" & Me.txt_nombres.Text & "' AND apellidos '" & Me.txt_apellidos.Text
+                sql &= " WHERE nombres= '" & Me.txt_nombres.Text & "' AND apellidos= '" & Me.txt_apellidos.Text & "'"
 
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count = 0 Then
@@ -500,5 +500,9 @@
         Else
             Exit Sub
         End If
+    End Sub
+
+    Private Sub cmd_listados_Click(sender As Object, e As EventArgs) Handles cmd_listados.Click
+        listados_notificaciones.ShowDialog()
     End Sub
 End Class
