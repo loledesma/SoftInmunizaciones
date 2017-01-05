@@ -300,6 +300,9 @@
                 Me.modificar()
             End If
         End If
+        cargar_grilla_vacunatorios()
+
+        'VER ERROR CON CUIE AL DAR DE ALTA NUEVO EFECTOR
 
     End Sub
     Private Sub modificar()
@@ -314,7 +317,7 @@
 
         acceso._nombre_tabla = "EFECTORES"
 
-        sql &= "cuie=" & Me.txt_cuie.Text
+        sql &= "cuie =" & Me.txt_cuie.Text
         sql &= ", nombre =" & Me.txt_nombre.Text
         sql &= ", id_departamento =" & Me.cmb_departamento.SelectedValue
         sql &= ", id_localidad =" & Me.cmb_localidades.SelectedValue
@@ -418,19 +421,89 @@
         End If
     End Function
     Private Sub agregar_en_grilla_empleados()
-        If validar_empleado() = True Then
-            If validar_existencia_empleado() = False Then
-                dgv_empleados.Rows.Add()
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id").Value = txt_id_empleado.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("tipo_doc").Value = cmb_tipos_documento.SelectedValue
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("numero").Value = txt_numero_doc.Text
-                ' dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombre_empleado").Value = 
-            Else
-                MessageBox.Show("Ya existe el empleado que trata de asignar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
-            End If
-        End If
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        Dim flag As Boolean = False
+        Dim c As Integer = 0
 
+
+
+        If validar_efector() = True Then
+            If validar_empleado() = True Then
+
+                For c = 0 To dgv_empleados.Rows.Count - 1
+                    If Me.txt_id_empleado.Text = dgv_empleados.Rows(c).Cells("id").Value Then
+                        dgv_empleados.Rows(c).Cells("id").Value = txt_id_empleado.Text
+                        dgv_empleados.Rows(c).Cells("numero").Value = txt_numero_doc.Text
+                        dgv_empleados.Rows(c).Cells("nombre_empleado").Value = txt_nombres_empleado.Text
+                        dgv_empleados.Rows(c).Cells("apellido").Value = txt_apellido.Text
+                        dgv_empleados.Rows(c).Cells("usuario").Value = txt_usuario.Text
+                        sql = ""
+                        sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(0)("descripcion")
+                        sql &= ""
+                        sql &= "SELECT C.descripcion, EE.id_cargo FROM CARGO C JOIN EMPLEADOSXEFECTOR EE ON C.id = EE.id_cargo JOIN EMPLEADOS E ON E.id = EE.id_empleados WHERE E.id = " & Me.txt_id_empleado.Text
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_empleados.Rows(c).Cells("cargo").Value = tabla.Rows(0)("descripcion")
+                        dgv_empleados.Rows(c).Cells("id_cargo").Value = tabla.Rows(0)("id_cargo")
+                        sql &= ""
+                        sql &= "SELECT P.descripcion, EE.id_perfil FROM PERFILES_SIGIPSA P JOIN EMPLEADOSXEFECTOR EE ON P.id = EE.id_perfil "
+                        sql &= "WHERE EE.id_empleados = " & Me.txt_id_empleado.Text
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+                        dgv_empleados.Rows(c).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
+                        sql = ""
+                        tabla.Clear()
+                        sql &= "SELECT ESTEMPL.descripcion FROM ESTADOS_EMPLEADOS ESTEMPL JOIN EMPLEADOSXEFECTOR EE ON ESTEMPL.id = EE.id_estado_empleado "
+                        sql &= "WHERE EE.id_empleados = " & Me.cmb_estados_empleados.SelectedValue
+                        tabla = acceso.consulta(sql)
+                        sql &= ""
+                        dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla.Rows(0)("descripcion")
+                        flag = True
+
+                    End If
+
+                Next
+                If flag = False Then
+                    dgv_empleados.Rows.Add()
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id").Value = Me.txt_id_empleado.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("numero").Value = Me.txt_numero_doc.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombre_empleado").Value = txt_nombres_empleado.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellido").Value = txt_apellido.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("usuario").Value = txt_usuario.Text
+                    sql = ""
+                    sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
+                    tabla.Clear()
+                    tabla = acceso.consulta(sql)
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("tipo_doc").Value = tabla.Rows(0)("descripcion")
+                    sql = ""
+                    sql &= "SELECT C.descripcion, EE.id_cargo FROM CARGO C JOIN EMPLEADOSXEFECTOR EE ON C.id = EE.id_cargo JOIN EMPLEADOS E ON E.id = EE.id_empleados WHERE E.id = " & Me.txt_id_empleado.Text
+                    tabla.Clear()
+                    tabla = acceso.consulta(sql)
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("cargo").Value = tabla.Rows(0)("descripcion")
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_cargo").Value = tabla.Rows(0)("id_cargo")
+                    sql = ""
+                    sql &= "SELECT P.descripcion, EE.id_perfil FROM PERFILES_SIGIPSA P JOIN EMPLEADOSXEFECTOR EE ON P.id = EE.id_perfil "
+                    sql &= "WHERE EE.id_empleados = " & Me.txt_id_empleado.Text
+                    tabla.Clear()
+                    tabla = acceso.consulta(sql)
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
+                    sql = ""
+                    tabla.Clear()
+                    sql &= "SELECT ESTEMPL.descripcion FROM ESTADOS_EMPLEADOS ESTEMPL JOIN EMPLEADOSXEFECTOR EE ON ESTEMPL.id = EE.id_estado_empleado "
+                    sql &= "WHERE EE.id_empleados = " & Me.cmb_estados_empleados.SelectedValue
+                    tabla = acceso.consulta(sql)
+                    sql = ""
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("estado_empleado").Value = tabla.Rows(0)("descripcion")
+
+                    End if
+                End If
+        End If
 
     End Sub
     Private Sub nuevo()
@@ -493,7 +566,7 @@
         txt_id_empleado.Enabled = False
 
 
-        sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos, E.usuario_sigipsa, EMXE.id_estado_empleado "
+        sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa, EMXE.id_estado_empleado "
         sql &= "FROM EMPLEADOS E JOIN EMPLEADOSXEFECTOR EMXE ON E.id = EMXE.id_empleados JOIN ESTADOS_EMPLEADOS EXE ON EXE.id = EMXE.id_estado_empleado WHERE nro_doc = " & Me.txt_numero_doc.Text
 
         tabla = acceso.consulta(sql)
@@ -508,6 +581,13 @@
             Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
             Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
             Me.cmb_estados_empleados.SelectedValue = tabla.Rows(0)("id_estado_empleado")
+            Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
+
         End If
     End Sub
+
+    Private Sub cmd_agregar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empleado.Click
+        agregar_en_grilla_empleados()
+    End Sub
+
 End Class
