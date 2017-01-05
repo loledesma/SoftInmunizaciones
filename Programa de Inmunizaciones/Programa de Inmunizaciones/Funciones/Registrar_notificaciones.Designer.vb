@@ -53,16 +53,6 @@ Partial Class Registrar_notificaciones
         Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.lbl_id = New System.Windows.Forms.Label()
         Me.dgv_notificaciones = New System.Windows.Forms.DataGridView()
-        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
         Me.cmd_buscar_notificaciones = New System.Windows.Forms.Button()
@@ -76,6 +66,16 @@ Partial Class Registrar_notificaciones
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_perdidas = New System.Windows.Forms.Label()
         Me.lbl_carga = New System.Windows.Forms.Label()
+        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_notificaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -450,79 +450,12 @@ Partial Class Registrar_notificaciones
         Me.dgv_notificaciones.AllowUserToAddRows = False
         Me.dgv_notificaciones.AllowUserToDeleteRows = False
         Me.dgv_notificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_notificaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fecha, Me.nombre_efector, Me.carga, Me.perdidas, Me.stock, Me.id_stock, Me.id_carga, Me.id_perdidas, Me.id, Me.id_efector})
+        Me.dgv_notificaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fecha, Me.nombre_efector, Me.carga, Me.perdidas, Me.stock, Me.id_stock, Me.id_carga, Me.id_perdidas, Me.id_efector, Me.id})
         Me.dgv_notificaciones.Location = New System.Drawing.Point(425, 8)
         Me.dgv_notificaciones.Name = "dgv_notificaciones"
         Me.dgv_notificaciones.ReadOnly = True
         Me.dgv_notificaciones.Size = New System.Drawing.Size(628, 437)
         Me.dgv_notificaciones.TabIndex = 46
-        '
-        'fecha
-        '
-        Me.fecha.HeaderText = "Fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        Me.fecha.Width = 80
-        '
-        'nombre_efector
-        '
-        Me.nombre_efector.HeaderText = "Vacunatorio"
-        Me.nombre_efector.Name = "nombre_efector"
-        Me.nombre_efector.ReadOnly = True
-        Me.nombre_efector.Width = 200
-        '
-        'carga
-        '
-        Me.carga.HeaderText = "Carga"
-        Me.carga.Name = "carga"
-        Me.carga.ReadOnly = True
-        '
-        'perdidas
-        '
-        Me.perdidas.HeaderText = "Perdidas"
-        Me.perdidas.Name = "perdidas"
-        Me.perdidas.ReadOnly = True
-        '
-        'stock
-        '
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        Me.stock.ReadOnly = True
-        '
-        'id_stock
-        '
-        Me.id_stock.HeaderText = "id_stock"
-        Me.id_stock.Name = "id_stock"
-        Me.id_stock.ReadOnly = True
-        Me.id_stock.Visible = False
-        '
-        'id_carga
-        '
-        Me.id_carga.HeaderText = "id_carga"
-        Me.id_carga.Name = "id_carga"
-        Me.id_carga.ReadOnly = True
-        Me.id_carga.Visible = False
-        '
-        'id_perdidas
-        '
-        Me.id_perdidas.HeaderText = "id_perdidas"
-        Me.id_perdidas.Name = "id_perdidas"
-        Me.id_perdidas.ReadOnly = True
-        Me.id_perdidas.Visible = False
-        '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
-        '
-        'id_efector
-        '
-        Me.id_efector.HeaderText = "id_efector"
-        Me.id_efector.Name = "id_efector"
-        Me.id_efector.ReadOnly = True
-        Me.id_efector.Visible = False
         '
         'grp_datos_notificacion
         '
@@ -651,6 +584,73 @@ Partial Class Registrar_notificaciones
         Me.lbl_carga.TabIndex = 30
         Me.lbl_carga.Text = "Carga"
         '
+        'fecha
+        '
+        Me.fecha.HeaderText = "Fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        Me.fecha.Width = 80
+        '
+        'nombre_efector
+        '
+        Me.nombre_efector.HeaderText = "Vacunatorio"
+        Me.nombre_efector.Name = "nombre_efector"
+        Me.nombre_efector.ReadOnly = True
+        Me.nombre_efector.Width = 200
+        '
+        'carga
+        '
+        Me.carga.HeaderText = "Carga"
+        Me.carga.Name = "carga"
+        Me.carga.ReadOnly = True
+        '
+        'perdidas
+        '
+        Me.perdidas.HeaderText = "Perdidas"
+        Me.perdidas.Name = "perdidas"
+        Me.perdidas.ReadOnly = True
+        '
+        'stock
+        '
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
+        '
+        'id_stock
+        '
+        Me.id_stock.HeaderText = "id_stock"
+        Me.id_stock.Name = "id_stock"
+        Me.id_stock.ReadOnly = True
+        Me.id_stock.Visible = False
+        '
+        'id_carga
+        '
+        Me.id_carga.HeaderText = "id_carga"
+        Me.id_carga.Name = "id_carga"
+        Me.id_carga.ReadOnly = True
+        Me.id_carga.Visible = False
+        '
+        'id_perdidas
+        '
+        Me.id_perdidas.HeaderText = "id_perdidas"
+        Me.id_perdidas.Name = "id_perdidas"
+        Me.id_perdidas.ReadOnly = True
+        Me.id_perdidas.Visible = False
+        '
+        'id_efector
+        '
+        Me.id_efector.HeaderText = "id_efector"
+        Me.id_efector.Name = "id_efector"
+        Me.id_efector.ReadOnly = True
+        Me.id_efector.Visible = False
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Visible = False
+        '
         'Registrar_notificaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -710,16 +710,6 @@ Partial Class Registrar_notificaciones
     Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
     Friend WithEvents lbl_cuie As System.Windows.Forms.Label
-    Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents carga As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents perdidas As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents stock As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_stock As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_carga As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_perdidas As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_efector As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents grp_datos_notificacion As System.Windows.Forms.GroupBox
     Friend WithEvents lbl_id_notificacion As System.Windows.Forms.Label
     Friend WithEvents cmb_carga As Programa_de_Inmunizaciones.ComboBoxV1
@@ -734,4 +724,14 @@ Partial Class Registrar_notificaciones
     Friend WithEvents cmd_buscar_notificaciones As System.Windows.Forms.Button
     Friend WithEvents cmd_buscar_empleado As System.Windows.Forms.Button
     Friend WithEvents cmd_empleado_nuevo As System.Windows.Forms.Button
+    Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents carga As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents perdidas As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents stock As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_stock As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_carga As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_perdidas As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_efector As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

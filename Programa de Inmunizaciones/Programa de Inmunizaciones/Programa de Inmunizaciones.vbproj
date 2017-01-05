@@ -275,6 +275,7 @@
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_notificaciones.rdlc" />
     <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
       <DependentUpon>Listados_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
