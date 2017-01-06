@@ -206,6 +206,9 @@ Partial Class listados_notificaciones
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReportViewer1.AutoScroll = True
         Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)

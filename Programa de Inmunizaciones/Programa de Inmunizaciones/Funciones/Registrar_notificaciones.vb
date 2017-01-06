@@ -367,20 +367,19 @@
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
-        If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
+        If IsNumeric(Me.txt_id_notificacion.Text) Then
+            If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
              "Atencion", MessageBoxButtons.OKCancel, _
             MessageBoxIcon.Question, _
             MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
-
-            If IsNumeric(Me.txt_id_notificacion.Text) Then
                 sql = "DELETE FROM NOTIFICACIONXEFECTOR "
                 sql &= "WHERE id = " & Me.txt_id_notificacion.Text
                 acceso.ejecutar(sql)
-            Else
-                MessageBox.Show("El elemento no existe o ingrese un valor numérico")
-                Me.txt_id_notificacion.Focus()
-                Exit Sub
             End If
+        Else
+            MessageBox.Show("El elemento no existe o ingrese un valor numérico")
+            Me.txt_id_notificacion.Focus()
+            Exit Sub
         End If
 
         Me.txt_id_notificacion.Enabled = True
