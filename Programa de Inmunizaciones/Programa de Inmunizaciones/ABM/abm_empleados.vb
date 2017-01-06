@@ -21,7 +21,6 @@
     Dim condicion_click As doble_Click = doble_Click.desactivado
 
     Private Sub abm_empleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        limpiar(Me.Controls)
         Me.cargar_grilla()
         acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
@@ -43,7 +42,6 @@
         Me.cmb_estado_empleado.cargar()
         Me.cmb_estados.SelectedIndex = -1
         Me.cmb_departamentos.SelectedIndex = -1
-        Me.cmb_tipo_doc.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_perfil.SelectedIndex = -1
         Me.cmb_cargo.SelectedIndex = -1
@@ -97,6 +95,14 @@
         If MessageBox.Show("¿Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
             e.Cancel = True
         Else
+            limpiar(Me.Controls)
+            Me.cmb_estados.SelectedIndex = -1
+            Me.cmb_departamentos.SelectedIndex = -1
+            Me.cmb_tipo_doc.SelectedIndex = -1
+            Me.cmb_localidades.SelectedIndex = -1
+            Me.cmb_perfil.SelectedIndex = -1
+            Me.cmb_cargo.SelectedIndex = -1
+            Me.cmb_estado_empleado.SelectedIndex = -1
             e.Cancel = False
         End If
     End Sub
@@ -113,6 +119,14 @@
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        limpiar(Me.Controls)
+        Me.cmb_estados.SelectedIndex = -1
+        Me.cmb_departamentos.SelectedIndex = -1
+        Me.cmb_tipo_doc.SelectedIndex = -1
+        Me.cmb_localidades.SelectedIndex = -1
+        Me.cmb_perfil.SelectedIndex = -1
+        Me.cmb_cargo.SelectedIndex = -1
+        Me.cmb_estado_empleado.SelectedIndex = -1
         Me.Close()
     End Sub
 
@@ -235,8 +249,7 @@
     '        End If
     '    End If
     'End Sub
-
-    Private Sub cmd_buscar_x_documento_Click(sender As Object, e As EventArgs) Handles cmd_buscar_x_documento.Click
+    Public Sub buscar_x_documento()
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
@@ -289,10 +302,13 @@
                         dgv_efectores.Rows(d).Cells("cuie").Value = tabla2.Rows(d)("cuie")
                         dgv_efectores.Rows(d).Cells("nombre_efector").Value = tabla2.Rows(d)("nombre_efector")
                         dgv_efectores.Rows(d).Cells("cargo").Value = tabla2.Rows(d)("cargo")
+                        dgv_efectores.Rows(d).Cells("estado_empleado").Value = tabla2.Rows(d)("estado")
+                        dgv_efectores.Rows(d).Cells("id_cargo").Value = tabla2.Rows(d)("id_cargo")
+                        dgv_efectores.Rows(d).Cells("id_estado").Value = tabla2.Rows(d)("id_estado")
 
                         sql = ""
                         sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
-                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                        sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
                         sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
                         sql &= " WHERE EMP.nro_doc = " & Me.txt_nro_documento.Text
                         tabla2.Clear()
@@ -305,16 +321,17 @@
                             dgv_efectores.Rows(d).Cells("perfil").Value = tabla2.Rows(d)("perfil")
                             dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla2.Rows(d)("id_perfil")
                         End If
-                        dgv_efectores.Rows(d).Cells("estado_empleado").Value = tabla2.Rows(d)("estado")
-                        dgv_efectores.Rows(d).Cells("id_cargo").Value = tabla2.Rows(d)("id_cargo")
-                        dgv_efectores.Rows(d).Cells("id_estado").Value = tabla2.Rows(d)("id_estado")
+
                     Next
                 End If
             End If
         End If
-        limpiar(Controls)
+        limpiar(Me.Controls)
         txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = False
+    End Sub
+    Private Sub cmd_buscar_x_documento_Click(sender As Object, e As EventArgs) Handles cmd_buscar_x_documento.Click
+        buscar_x_documento()
     End Sub
 
     Private Sub cmd_buscar_x_apellido_Click(sender As Object, e As EventArgs) Handles cmd_buscar_x_apellido.Click
@@ -923,6 +940,7 @@
         Me.cmd_eliminar_efector.Enabled = False
         Me.cmb_departamentos.Enabled = False
         Me.cmb_localidades.Enabled = False
+        Me.txt_cuie.Enabled = False
         Me.txt_efectores.Enabled = False
         Me.cmd_efector_nuevo.Enabled = False
         Me.cmd_limpiar_laboral.Enabled = True
@@ -1166,7 +1184,7 @@
         Me.cmb_estado_empleado.SelectedIndex = -1
         Me.cmb_perfil.SelectedIndex = -1
         Me.cmb_cargo.SelectedIndex = -1
-        Me.cmd_efector_nuevo.Enabled = False
+        Me.cmd_efector_nuevo.Enabled = True
         Me.cmd_eliminar_efector.Enabled = True
     End Sub
 
