@@ -21,6 +21,8 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
     End Sub
 
+
+
     Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamentos.SelectedValueChanged
         If Me.condicion_click = doble_Click.desactivado Then
             If cmb_departamentos.SelectedIndex <> -1 Then
@@ -137,7 +139,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT N.fecha as fecha, D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, N.id_efector as Cuie "
+        sql &= "SELECT N.fecha as fecha, D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, N.id_efector as cuie "
         sql &= ", E.nombre as nombre_vacunatorio, EMP.usuario_sigipsa as usuario_sigipsa, C.descripcion as carga "
         sql &= ", S.descripcion as stock, P.descripcion as perdidas "
         sql &= " FROM NOTIFICACIONXEFECTOR N JOIN EFECTORES E ON N.id_efector = E.cuie "
@@ -170,25 +172,25 @@
             ElseIf cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND cuie = '" & Me.txt_cuie.Text & "'"
+                sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
             sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND cuie = '" & Me.txt_cuie.Text & "'"
+                sql &= " AND cuie='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
-                sql &= " AND cuie = '" & Me.txt_cuie.Text & "'"
+                sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
             End If
-        ElseIf txt_cuie.Text = "" Then
-            sql &= " WHERE cuie= '" & Me.txt_cuie.Text & "'"
+        ElseIf txt_cuie.Text <> "" Then
+            sql &= " WHERE cuie='" & Me.txt_cuie.Text & "'"
         End If
 
-        sql &= "ORDER BY fecha, nombre_departamento "
+        sql &= "ORDER BY fecha, nombre_departamento, nombre_localidad, cuie "
 
         tabla = acceso.consulta(sql)
 
@@ -205,5 +207,15 @@
 
     Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
         Me.imprimir()
+    End Sub
+
+
+    Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        Me.ReportViewer1.Width = Me.Width - 50
+        Me.ReportViewer1.Height = Me.Height - 200
+
+        'Me.ReportViewer1.Anchor = AnchorStyles.Left
+        'Me.ReportViewer1.Anchor = AnchorStyles.Right
+        'Me.ReportViewer1.PerformAutoScale()
     End Sub
 End Class
