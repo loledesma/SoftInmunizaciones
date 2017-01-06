@@ -62,7 +62,7 @@ Partial Class listados_efector_loc_dpto
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(568, 20)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(659, 10)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -86,7 +86,7 @@ Partial Class listados_efector_loc_dpto
         Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_efector.Location = New System.Drawing.Point(134, 12)
         Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(726, 133)
+        Me.grp_datos_efector.Size = New System.Drawing.Size(726, 112)
         Me.grp_datos_efector.TabIndex = 3
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
@@ -164,7 +164,7 @@ Partial Class listados_efector_loc_dpto
         Me.cmb_localidades.FormattingEnabled = True
         Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(366, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(382, 21)
         Me.cmb_localidades.TabIndex = 1
         '
         'listados_efector_loc_dpto

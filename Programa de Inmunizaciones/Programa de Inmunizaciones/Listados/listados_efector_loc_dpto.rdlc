@@ -35,7 +35,12 @@
                           <TextRuns>
                             <TextRun>
                               <Value>DEPARTAMENTO</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -44,8 +49,9 @@
                       <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -65,7 +71,12 @@
                           <TextRuns>
                             <TextRun>
                               <Value>LOCALIDAD</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -74,8 +85,9 @@
                       <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -95,7 +107,12 @@
                           <TextRuns>
                             <TextRun>
                               <Value>TIPO</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -104,8 +121,9 @@
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -125,7 +143,12 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CUIE</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -134,8 +157,9 @@
                       <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -155,7 +179,12 @@
                           <TextRuns>
                             <TextRun>
                               <Value>VACUNATORIO</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -164,8 +193,9 @@
                       <rd:DefaultName>Textbox15</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
+                          <Width>1.25pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -190,7 +220,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombre_departamento.Value</Value>
-                              <Style />
+                              <Style>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -200,7 +232,8 @@
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>Dashed</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -220,7 +253,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombre_localidad.Value</Value>
-                              <Style />
+                              <Style>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -230,7 +265,8 @@
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>Dashed</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -250,7 +286,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!tipo_efector.Value</Value>
-                              <Style />
+                              <Style>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -260,7 +298,8 @@
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>Dashed</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -280,7 +319,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!cuie.Value</Value>
-                              <Style />
+                              <Style>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -290,7 +331,8 @@
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>Dashed</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -310,7 +352,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombre_efector.Value</Value>
-                              <Style />
+                              <Style>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -320,7 +364,8 @@
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>Dashed</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -365,8 +410,14 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.30208in</Height>
-    <Style />
+    <Height>1.85416in</Height>
+    <Style>
+      <Border>
+        <Style>Dashed</Style>
+        <Width>2pt</Width>
+      </Border>
+      <BackgroundColor>CornflowerBlue</BackgroundColor>
+    </Style>
   </Body>
   <Width>16.259in</Width>
   <Page>
@@ -396,6 +447,7 @@
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>40pt</FontSize>
+                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -412,8 +464,9 @@
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
-              <Style>Double</Style>
-              <Width>2pt</Width>
+              <Color>White</Color>
+              <Style>Dashed</Style>
+              <Width>2.25pt</Width>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -426,6 +479,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>CornflowerBlue</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
@@ -450,7 +504,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!ExecutionTime</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Calibri</FontFamily>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -477,6 +534,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>CornflowerBlue</BackgroundColor>
       </Style>
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
