@@ -46,10 +46,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -200,14 +203,33 @@
     <Compile Include="Funciones\Registrar_notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú.vb">
+    <Compile Include="Listados\listados_efector_loc_dpto.Designer.vb">
+      <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listados_efector_loc_dpto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú.Designer.vb">
-      <DependentUpon>Menú.vb</DependentUpon>
+    <Compile Include="Listados\Listados_notificaciones.Designer.vb">
+      <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Listados_notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.designer.vb">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\global1.vb" />
+    <Compile Include="Modulos\Inmunizaciones.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones.vb">
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -261,8 +283,16 @@
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menú.resx">
-      <DependentUpon>Menú.vb</DependentUpon>
+    <EmbeddedResource Include="Listados\listados_efector_loc_dpto.rdlc" />
+    <EmbeddedResource Include="Listados\listados_efector_loc_dpto.resx">
+      <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_notificaciones.rdlc" />
+    <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
+      <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -272,6 +302,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Modulos\Inmunizaciones.xsc">
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Inmunizaciones.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Inmunizaciones.xss">
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -283,7 +324,9 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Estadisticos\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
