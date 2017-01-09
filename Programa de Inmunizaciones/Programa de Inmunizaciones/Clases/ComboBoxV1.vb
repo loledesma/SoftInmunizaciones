@@ -49,4 +49,13 @@
         Me.ValueMember = pk
         Me.DataSource = tabla
     End Sub
+
+    Public Sub cargar(ByVal nom_col As String, ByVal valor As String, ByVal nom_col2 As String, ByVal valor2 As String)
+        Dim tabla As New DataTable
+        Dim acc As acceso_datos = global1.acceso
+        tabla = acc.leo_tabla(nombre_tabla, nom_col, valor, nom_col2, valor2)
+        Me.DisplayMember = descripcion
+        Me.ValueMember = pk
+        Me.DataSource = tabla
+    End Sub
 End Class
