@@ -329,6 +329,7 @@
         limpiar(Me.Controls)
         txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = False
+        Me.condicion_estado = estado.modificar
     End Sub
     Private Sub cmd_buscar_x_documento_Click(sender As Object, e As EventArgs) Handles cmd_buscar_x_documento.Click
         buscar_x_documento()
@@ -410,6 +411,7 @@
         limpiar(Controls)
         txt_apellido.Focus()
         Me.cmd_eliminar_efector.Enabled = False
+        Me.condicion_estado = estado.modificar
     End Sub
 
     Private Sub cmd_buscar_x_usuario_Click(sender As Object, e As EventArgs) Handles cmd_buscar_x_usuario.Click
@@ -486,6 +488,7 @@
         limpiar(Controls)
         txt_usuario.Focus()
         Me.cmd_eliminar_efector.Enabled = False
+        Me.condicion_estado = estado.modificar
     End Sub
 
     Private Sub abm_empleados_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown

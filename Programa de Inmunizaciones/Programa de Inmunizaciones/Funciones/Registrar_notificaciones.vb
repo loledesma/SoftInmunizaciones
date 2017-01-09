@@ -57,8 +57,6 @@
         tltp_notificaciones.SetToolTip(cmd_buscar_empleado, "Buscar id empleado")
         tltp_notificaciones.SetToolTip(cmd_buscar_notificaciones, "Buscar notificación")
         tltp_notificaciones.SetToolTip(cmd_empleado_nuevo, "Dar de alta empleado nuevo")
-        tltp_notificaciones.SetToolTip(cmd_listados, "Listados")
-        tltp_notificaciones.SetToolTip(cmd_estadistica, "Estadísticos")
         tltp_notificaciones.SetToolTip(cmd_eliminar, "Eliminar")
         tltp_notificaciones.SetToolTip(cmd_guardar, "Guardar")
         tltp_notificaciones.SetToolTip(cmd_nuevo, "Nuevo")
@@ -501,7 +499,4 @@
         End If
     End Sub
 
-    Private Sub cmd_listados_Click(sender As Object, e As EventArgs) Handles cmd_listados.Click
-        listados_notificaciones.ShowDialog()
-    End Sub
 End Class

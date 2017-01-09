@@ -32,6 +32,11 @@
         Registrar_efectores.ShowDialog()
     End Sub
 
+
+    Private Sub NuevaAtenciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaAtenciónToolStripMenuItem.Click
+        Registrar_atencion.ShowDialog()
+    End Sub
+
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
