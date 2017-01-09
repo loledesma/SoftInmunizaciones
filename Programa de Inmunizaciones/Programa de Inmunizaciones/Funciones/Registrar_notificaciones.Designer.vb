@@ -28,8 +28,6 @@ Partial Class Registrar_notificaciones
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_listados = New System.Windows.Forms.Button()
-        Me.cmd_estadistica = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.grp_datos_generales = New System.Windows.Forms.GroupBox()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
@@ -53,6 +51,16 @@ Partial Class Registrar_notificaciones
         Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.lbl_id = New System.Windows.Forms.Label()
         Me.dgv_notificaciones = New System.Windows.Forms.DataGridView()
+        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
         Me.cmd_buscar_notificaciones = New System.Windows.Forms.Button()
@@ -66,16 +74,6 @@ Partial Class Registrar_notificaciones
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_perdidas = New System.Windows.Forms.Label()
         Me.lbl_carga = New System.Windows.Forms.Label()
-        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_notificaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,44 +155,6 @@ Partial Class Registrar_notificaciones
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_listados
-        '
-        Me.cmd_listados.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_listados.BackgroundImage = CType(resources.GetObject("cmd_listados.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_listados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_listados.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_listados.FlatAppearance.BorderSize = 0
-        Me.cmd_listados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_listados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_listados.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_listados.Location = New System.Drawing.Point(542, 465)
-        Me.cmd_listados.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_listados.Name = "cmd_listados"
-        Me.cmd_listados.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_listados.TabIndex = 8
-        Me.cmd_listados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_listados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_listados.UseVisualStyleBackColor = False
-        '
-        'cmd_estadistica
-        '
-        Me.cmd_estadistica.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_estadistica.BackgroundImage = CType(resources.GetObject("cmd_estadistica.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_estadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_estadistica.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_estadistica.FlatAppearance.BorderSize = 0
-        Me.cmd_estadistica.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_estadistica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_estadistica.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_estadistica.Location = New System.Drawing.Point(460, 465)
-        Me.cmd_estadistica.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_estadistica.Name = "cmd_estadistica"
-        Me.cmd_estadistica.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_estadistica.TabIndex = 7
-        Me.cmd_estadistica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_estadistica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_estadistica.UseVisualStyleBackColor = False
         '
         'cmd_salir
         '
@@ -457,6 +417,73 @@ Partial Class Registrar_notificaciones
         Me.dgv_notificaciones.Size = New System.Drawing.Size(628, 437)
         Me.dgv_notificaciones.TabIndex = 46
         '
+        'fecha
+        '
+        Me.fecha.HeaderText = "Fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        Me.fecha.Width = 80
+        '
+        'nombre_efector
+        '
+        Me.nombre_efector.HeaderText = "Vacunatorio"
+        Me.nombre_efector.Name = "nombre_efector"
+        Me.nombre_efector.ReadOnly = True
+        Me.nombre_efector.Width = 200
+        '
+        'carga
+        '
+        Me.carga.HeaderText = "Carga"
+        Me.carga.Name = "carga"
+        Me.carga.ReadOnly = True
+        '
+        'perdidas
+        '
+        Me.perdidas.HeaderText = "Perdidas"
+        Me.perdidas.Name = "perdidas"
+        Me.perdidas.ReadOnly = True
+        '
+        'stock
+        '
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
+        '
+        'id_stock
+        '
+        Me.id_stock.HeaderText = "id_stock"
+        Me.id_stock.Name = "id_stock"
+        Me.id_stock.ReadOnly = True
+        Me.id_stock.Visible = False
+        '
+        'id_carga
+        '
+        Me.id_carga.HeaderText = "id_carga"
+        Me.id_carga.Name = "id_carga"
+        Me.id_carga.ReadOnly = True
+        Me.id_carga.Visible = False
+        '
+        'id_perdidas
+        '
+        Me.id_perdidas.HeaderText = "id_perdidas"
+        Me.id_perdidas.Name = "id_perdidas"
+        Me.id_perdidas.ReadOnly = True
+        Me.id_perdidas.Visible = False
+        '
+        'id_efector
+        '
+        Me.id_efector.HeaderText = "id_efector"
+        Me.id_efector.Name = "id_efector"
+        Me.id_efector.ReadOnly = True
+        Me.id_efector.Visible = False
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Visible = False
+        '
         'grp_datos_notificacion
         '
         Me.grp_datos_notificacion.BackColor = System.Drawing.Color.Transparent
@@ -584,73 +611,6 @@ Partial Class Registrar_notificaciones
         Me.lbl_carga.TabIndex = 30
         Me.lbl_carga.Text = "Carga"
         '
-        'fecha
-        '
-        Me.fecha.HeaderText = "Fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        Me.fecha.Width = 80
-        '
-        'nombre_efector
-        '
-        Me.nombre_efector.HeaderText = "Vacunatorio"
-        Me.nombre_efector.Name = "nombre_efector"
-        Me.nombre_efector.ReadOnly = True
-        Me.nombre_efector.Width = 200
-        '
-        'carga
-        '
-        Me.carga.HeaderText = "Carga"
-        Me.carga.Name = "carga"
-        Me.carga.ReadOnly = True
-        '
-        'perdidas
-        '
-        Me.perdidas.HeaderText = "Perdidas"
-        Me.perdidas.Name = "perdidas"
-        Me.perdidas.ReadOnly = True
-        '
-        'stock
-        '
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        Me.stock.ReadOnly = True
-        '
-        'id_stock
-        '
-        Me.id_stock.HeaderText = "id_stock"
-        Me.id_stock.Name = "id_stock"
-        Me.id_stock.ReadOnly = True
-        Me.id_stock.Visible = False
-        '
-        'id_carga
-        '
-        Me.id_carga.HeaderText = "id_carga"
-        Me.id_carga.Name = "id_carga"
-        Me.id_carga.ReadOnly = True
-        Me.id_carga.Visible = False
-        '
-        'id_perdidas
-        '
-        Me.id_perdidas.HeaderText = "id_perdidas"
-        Me.id_perdidas.Name = "id_perdidas"
-        Me.id_perdidas.ReadOnly = True
-        Me.id_perdidas.Visible = False
-        '
-        'id_efector
-        '
-        Me.id_efector.HeaderText = "id_efector"
-        Me.id_efector.Name = "id_efector"
-        Me.id_efector.ReadOnly = True
-        Me.id_efector.Visible = False
-        '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
-        '
         'Registrar_notificaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -663,8 +623,6 @@ Partial Class Registrar_notificaciones
         Me.Controls.Add(Me.grp_datos_empleados)
         Me.Controls.Add(Me.grp_datos_generales)
         Me.Controls.Add(Me.cmd_salir)
-        Me.Controls.Add(Me.cmd_listados)
-        Me.Controls.Add(Me.cmd_estadistica)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_eliminar)
@@ -686,8 +644,6 @@ Partial Class Registrar_notificaciones
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
-    Friend WithEvents cmd_listados As System.Windows.Forms.Button
-    Friend WithEvents cmd_estadistica As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents grp_datos_generales As System.Windows.Forms.GroupBox
     Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1

@@ -231,20 +231,24 @@
 
     End Sub
 
-        Public Function leo_tabla() As Data.DataTable
-            Return Me.consulta("SELECT * FROM " & Me.nombre_tabla)
-        End Function
+    Public Function leo_tabla() As Data.DataTable
+        Return Me.consulta("SELECT * FROM " & Me.nombre_tabla)
+    End Function
 
-        Public Function leo_tabla(ByVal nombre As String) As Data.DataTable
-            Return Me.consulta("SELECT * FROM " & nombre)
-        End Function
+    Public Function leo_tabla(ByVal nombre As String) As Data.DataTable
+        Return Me.consulta("SELECT * FROM " & nombre)
+    End Function
 
-        Public Function leo_tabla(ByVal pk As Integer, ByVal descripcion As String, ByVal nombre As String) As Data.DataTable
-            Return Me.consulta("SELECT " & pk & ", " & descripcion & " FROM " & nombre)
-        End Function
+    Public Function leo_tabla(ByVal pk As Integer, ByVal descripcion As String, ByVal nombre As String) As Data.DataTable
+        Return Me.consulta("SELECT " & pk & ", " & descripcion & " FROM " & nombre)
+    End Function
 
-        Public Function leo_tabla(ByVal nom_tabla As String, ByVal nom_col As String, ByVal valor As String) As Data.DataTable
-            Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor)
+    Public Function leo_tabla(ByVal nom_tabla As String, ByVal nom_col As String, ByVal valor As String) As Data.DataTable
+        Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor)
+    End Function
+
+    Public Function leo_tabla(ByVal nom_tabla As String, ByVal nom_col As String, ByVal valor As String, ByVal nom_col2 As String, ByVal valor2 As String) As Data.DataTable
+        Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor & " OR " & nom_col2 & " = " & valor2)
     End Function
 
     Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
@@ -268,4 +272,4 @@
     End Sub
 
 
-    End Class
+End Class
