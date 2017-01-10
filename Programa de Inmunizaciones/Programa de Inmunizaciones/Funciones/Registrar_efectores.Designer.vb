@@ -199,9 +199,9 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_cuie.BackgroundImage = CType(resources.GetObject("cmd_buscar_cuie.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_cuie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_cuie.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(398, 15)
+        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(418, 19)
         Me.cmd_buscar_cuie.Name = "cmd_buscar_cuie"
-        Me.cmd_buscar_cuie.Size = New System.Drawing.Size(56, 51)
+        Me.cmd_buscar_cuie.Size = New System.Drawing.Size(56, 50)
         Me.cmd_buscar_cuie.TabIndex = 1
         Me.cmd_buscar_cuie.UseVisualStyleBackColor = True
         '
