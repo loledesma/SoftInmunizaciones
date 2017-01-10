@@ -31,7 +31,6 @@ Partial Class Registrar_efectores
         Me.lbl_pc = New System.Windows.Forms.Label()
         Me.lbl_heladera = New System.Windows.Forms.Label()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
-        Me.cmd_buscar_nombre = New System.Windows.Forms.Button()
         Me.cmd_buscar_cuie = New System.Windows.Forms.Button()
         Me.cmb_tipo_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -123,7 +122,6 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.Controls.Add(Me.lbl_pc)
         Me.grp_datos_vacunatorio.Controls.Add(Me.lbl_heladera)
         Me.grp_datos_vacunatorio.Controls.Add(Me.txt_cuie)
-        Me.grp_datos_vacunatorio.Controls.Add(Me.cmd_buscar_nombre)
         Me.grp_datos_vacunatorio.Controls.Add(Me.cmd_buscar_cuie)
         Me.grp_datos_vacunatorio.Controls.Add(Me.cmb_tipo_carga)
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label15)
@@ -196,25 +194,14 @@ Partial Class Registrar_efectores
         Me.txt_cuie.Size = New System.Drawing.Size(159, 20)
         Me.txt_cuie.TabIndex = 0
         '
-        'cmd_buscar_nombre
-        '
-        Me.cmd_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmd_buscar_nombre.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_buscar_nombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_nombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar_nombre.Location = New System.Drawing.Point(395, 46)
-        Me.cmd_buscar_nombre.Name = "cmd_buscar_nombre"
-        Me.cmd_buscar_nombre.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_nombre.TabIndex = 3
-        Me.cmd_buscar_nombre.UseVisualStyleBackColor = True
-        '
         'cmd_buscar_cuie
         '
         Me.cmd_buscar_cuie.BackgroundImage = CType(resources.GetObject("cmd_buscar_cuie.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_cuie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_cuie.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(279, 19)
+        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(398, 15)
         Me.cmd_buscar_cuie.Name = "cmd_buscar_cuie"
-        Me.cmd_buscar_cuie.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_buscar_cuie.Size = New System.Drawing.Size(56, 51)
         Me.cmd_buscar_cuie.TabIndex = 1
         Me.cmd_buscar_cuie.UseVisualStyleBackColor = True
         '
@@ -1051,7 +1038,6 @@ Partial Class Registrar_efectores
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents cmb_referentes As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents cmd_buscar_nombre As System.Windows.Forms.Button
     Friend WithEvents cmd_buscar_cuie As System.Windows.Forms.Button
     Friend WithEvents grp_grilla_empleados As System.Windows.Forms.GroupBox
     Friend WithEvents grp_datos_empleados As System.Windows.Forms.GroupBox
