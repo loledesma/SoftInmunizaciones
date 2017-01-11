@@ -110,6 +110,7 @@
 
         sql &= "SELECT EF.cuie, EF.nombre, E.nombre AS nombre_referente, L.descripcion AS nombre_loc FROM "
         sql &= "EFECTORES EF JOIN EFECTORES E ON EF.id_referente = E.cuie JOIN LOCALIDADES L on L.id = EF.id_localidad "
+        sql &= " ORDER BY EF.id_referente desc "
 
         tabla = acceso.consulta(sql)
 
@@ -198,7 +199,7 @@
 
         Me.cmb_estado_efector.SelectedValue = tabla2.Rows(0)("id_estado")
 
-
+        sql = ""
         sql &= "SELECT EM.id AS id_empleado, EM.nro_doc as nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, "
         sql &= " C.descripcion AS cargo, EM.usuario_sigipsa as usuario_sigipsa, EE.id_cargo as id_cargo, EE.id_perfil as id_perfil, TD.descripcion AS tipo_doc, "
         sql &= " ESTXEMPL.descripcion AS estado_empleado, EE.id_estado_empleado as id_estado "
@@ -207,7 +208,7 @@
         sql &= " JOIN CARGO C ON C.id = EE.id_cargo "
         sql &= " JOIN ESTADOS_EMPLEADOS ESTXEMPL ON ESTXEMPL.id = EE.id_estado_empleado  "
         sql &= "WHERE EE.id_efector='" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
-
+        tabla.Rows.Clear()
         tabla = acceso.consulta(sql)
 
         
@@ -265,7 +266,7 @@
 
         sql &= " SELECT EMP.id as id_empleado, EMP.id_tipo_doc as tipo_doc, EMP.nro_doc as nro_doc "
         sql &= " , EMP.apellidos as apellidos, EMP.nombres as nombres, EMP.usuario_sigipsa as usuario "
-        sql &= " , EE.id_perfil as id_perfil, EE.id_cargo as id_cargo, EE.id_estado_empleado as id_estado, EE.id_cargo as id_cargo "
+        sql &= " , EE.id_cargo as id_cargo, EE.id_estado_empleado as id_estado, EE.id_cargo as id_cargo "
         sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EE ON EE.id_efector = E.cuie "
         sql &= " JOIN EMPLEADOS EMP ON EMP.id = EE.id_empleados"
         sql &= " WHERE E.cuie ='" & Me.txt_cuie.Text & "'"
@@ -284,6 +285,7 @@
         Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
         Me.cmb_estados_empleados.SelectedValue = tabla.Rows(0)("id_estado")
         Me.cmb_cargo.SelectedValue = tabla.Rows(0)("id_cargo")
+
 
         Me.cmd_eliminar_empleado.Enabled = False
         Me.txt_id_empleado.Enabled = False
@@ -686,7 +688,6 @@
                         sql &= "WHERE ESTEMPL.id = " & Me.cmb_estados_empleados.SelectedValue
                         tabla.Clear()
                         tabla = acceso.consulta(sql)
-                        sql &= ""
                         dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla.Rows(0)("descripcion")
 
                         flag = True
@@ -719,12 +720,12 @@
                     'tabla = acceso.consulta(sql)
                     'dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("perfil").Value = tabla.Rows(0)("descripcion")
                     sql = ""
-                    tabla.Clear()
                     sql &= "SELECT ESTEMPL.descripcion as descripcion "
                     sql &= " FROM ESTADOS_EMPLEADOS ESTEMPL "
                     sql &= "WHERE ESTEMPL.id= " & Me.cmb_estados_empleados.SelectedValue
+                    tabla.Clear()
                     tabla = acceso.consulta(sql)
-                    sql = ""
+
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("estado_empleado").Value = tabla.Rows(0)("descripcion")
 
                     End if
@@ -757,6 +758,7 @@
             txt_insert = " id_efector=" & Me.txt_cuie.Text
             txt_insert &= ", id_empleados=" & Me.dgv_empleados.Rows(c).Cells("id").Value
             txt_insert &= ", id_cargo=" & Me.dgv_empleados.Rows(c).Cells("id_cargo").Value
+            txt_insert &= ", id_estado_empleado=" & Me.dgv_empleados.Rows(c).Cells("id_estado").Value
 
             If IsNothing(Me.dgv_empleados.Rows(c).Cells("id_perfil").Value) Then
                 txt_insert &= ", id_perfil=Null"
