@@ -170,7 +170,7 @@
             Exit Sub
         End If
 
-        Me.EFECTORES_Y_REFERENTESBindingSource.DataSource = tabla
+        Me.EFECTORESYREFERENTESBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
 
     End Sub

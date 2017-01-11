@@ -647,21 +647,21 @@
           <DataField>nombre_referente_empleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="telefono">
-          <DataField>telefono</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="mail">
-          <DataField>mail</DataField>
+        <Field Name="apellido_referente_empleado">
+          <DataField>apellido_referente_empleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="caracteristica">
           <DataField>caracteristica</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
-        <Field Name="apellido_referente_empleado">
-          <DataField>apellido_referente_empleado</DataField>
+        <Field Name="mail">
+          <DataField>mail</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="telefono">
+          <DataField>telefono</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

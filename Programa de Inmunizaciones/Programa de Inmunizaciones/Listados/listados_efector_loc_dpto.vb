@@ -144,7 +144,7 @@
             Exit Sub
         End If
 
-        Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource.DataSource = tabla
+        Me.LISTEFECTORXLOCXDPTOBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
     End Sub
 

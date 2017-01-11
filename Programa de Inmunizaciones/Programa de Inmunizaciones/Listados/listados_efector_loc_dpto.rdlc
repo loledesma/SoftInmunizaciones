@@ -571,16 +571,16 @@
           <DataField>nombre_localidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="tipo_efector">
+          <DataField>tipo_efector</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="cuie">
           <DataField>cuie</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="nombre_efector">
           <DataField>nombre_efector</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tipo_efector">
-          <DataField>tipo_efector</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

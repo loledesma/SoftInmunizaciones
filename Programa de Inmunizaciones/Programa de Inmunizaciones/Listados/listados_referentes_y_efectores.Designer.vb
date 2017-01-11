@@ -25,6 +25,7 @@ Partial Class listados_referentes_y_efectores
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_referentes_y_efectores))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
@@ -37,12 +38,16 @@ Partial Class listados_referentes_y_efectores
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.EFECTORES_Y_REFERENTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.grp_datos_efector.SuspendLayout()
+        Me.EFECTORESYREFERENTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EFECTORES_Y_REFERENTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grp_datos_efector.SuspendLayout()
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'grp_datos_efector
         '
@@ -169,7 +174,7 @@ Partial Class listados_referentes_y_efectores
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.EFECTORES_Y_REFERENTESBindingSource
+        ReportDataSource1.Value = Me.EFECTORESYREFERENTESBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listado_referentes_y_efectores.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
@@ -177,15 +182,10 @@ Partial Class listados_referentes_y_efectores
         Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
         Me.ReportViewer1.TabIndex = 4
         '
-        'Inmunizaciones
+        'EFECTORESYREFERENTESBindingSource
         '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EFECTORES_Y_REFERENTESBindingSource
-        '
-        Me.EFECTORES_Y_REFERENTESBindingSource.DataMember = "EFECTORES_Y_REFERENTES"
-        Me.EFECTORES_Y_REFERENTESBindingSource.DataSource = Me.Inmunizaciones
+        Me.EFECTORESYREFERENTESBindingSource.DataMember = "EFECTORES_Y_REFERENTES"
+        Me.EFECTORESYREFERENTESBindingSource.DataSource = Me.Inmunizaciones
         '
         'listados_referentes_y_efectores
         '
@@ -199,10 +199,10 @@ Partial Class listados_referentes_y_efectores
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "listados_referentes_y_efectores"
         Me.Text = "REFERENTES"
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EFECTORES_Y_REFERENTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -219,6 +219,6 @@ Partial Class listados_referentes_y_efectores
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
     Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
-    Friend WithEvents EFECTORES_Y_REFERENTESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents EFECTORESYREFERENTESBindingSource As System.Windows.Forms.BindingSource
 End Class

@@ -233,8 +233,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Inmunizaciones.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Modulos\Inmunizaciones.vb">
-      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    <Compile Include="Modulos\Inmunizaciones2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -325,6 +327,17 @@
     </None>
     <None Include="Modulos\Inmunizaciones.xss">
       <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xsc">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Inmunizaciones2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xss">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

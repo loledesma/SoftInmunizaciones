@@ -200,7 +200,7 @@
             Exit Sub
         End If
 
-        Me.LISTADO_NOTIFICACIONESBindingSource.DataSource = tabla
+        Me.LISTADONOTIFICACIONESBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
 
     End Sub
