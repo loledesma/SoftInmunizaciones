@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:EFECTORES_Y_REFERENTES" ZOrder="4" X="5" Y="15" Height="162" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="158" />
     <Shape ID="DesignTable:LIST_EFECTOR_X_LOC_X_DPTO" ZOrder="3" X="251" Y="19" Height="124" Width="240" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
     <Shape ID="DesignTable:LISTADO_NOTIFICACIONES" ZOrder="2" X="514" Y="25" Height="200" Width="224" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
-    <Shape ID="DesignTable:LIST_CAPACITACIONES" ZOrder="1" X="766" Y="20" Height="124" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
+    <Shape ID="DesignTable:LIST_CAPACITACIONES" ZOrder="1" X="784" Y="51" Height="124" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
