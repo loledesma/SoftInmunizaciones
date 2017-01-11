@@ -37,7 +37,14 @@
         Registrar_atencion.ShowDialog()
     End Sub
 
+    Private Sub ReferentesRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReferentesRegistradosToolStripMenuItem.Click
+        listados_referentes_y_efectores.ShowDialog()
+    End Sub
+
+
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+  
 End Class
