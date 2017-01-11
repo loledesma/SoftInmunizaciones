@@ -941,8 +941,6 @@
 
         grp_datos_laborales.Enabled = True
         Me.cmd_eliminar_efector.Enabled = False
-        Me.cmb_departamentos.Enabled = False
-        Me.cmb_localidades.Enabled = False
         Me.txt_cuie.Enabled = False
         Me.txt_efectores.Enabled = False
         Me.cmd_efector_nuevo.Enabled = False
@@ -1151,7 +1149,9 @@
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
                 sql &= " WHERE E.nombre='" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
-                txt_cuie.Text = tabla.Rows(0)("cuie")
+                If tabla.Rows.Count() <> 0 Then
+                    txt_cuie.Text = tabla.Rows(0)("cuie")
+                End If
             End If
         End If
     End Sub
@@ -1164,7 +1164,9 @@
                 sql &= "SELECT E.nombre As nombre FROM EFECTORES E "
                 sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
-                txt_efectores.Text = tabla.Rows(0)("nombre")
+                If tabla.Rows.Count() <> 0 Then
+                    txt_efectores.Text = tabla.Rows(0)("nombre")
+                End If
             End If
         End If
     End Sub
