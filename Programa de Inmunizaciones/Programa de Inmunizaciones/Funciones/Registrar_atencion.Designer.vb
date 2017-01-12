@@ -25,16 +25,15 @@ Partial Class Registrar_atencion
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_atencion))
         Me.grp_datos_atencion = New System.Windows.Forms.GroupBox()
+        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
         Me.txt_efector = New System.Windows.Forms.TextBox()
         Me.lbl_efector = New System.Windows.Forms.Label()
         Me.cmd_buscar = New System.Windows.Forms.Button()
-        Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_id_notificacion = New System.Windows.Forms.Label()
-        Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_id_atencion = New System.Windows.Forms.TextBox()
         Me.txt_fecha = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_perfil = New System.Windows.Forms.Label()
@@ -57,7 +56,8 @@ Partial Class Registrar_atencion
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.tltp_atencion = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
+        Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_atencion.SuspendLayout()
         CType(Me.dgv_atenciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_descripcion.SuspendLayout()
@@ -88,6 +88,25 @@ Partial Class Registrar_atencion
         Me.grp_datos_atencion.TabIndex = 1
         Me.grp_datos_atencion.TabStop = False
         Me.grp_datos_atencion.Text = "Datos Atención"
+        '
+        'cmd_efector_nuevo
+        '
+        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(376, 161)
+        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_efector_nuevo.TabIndex = 62
+        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
         '
         'cmd_actualizar_estado
         '
@@ -155,17 +174,6 @@ Partial Class Registrar_atencion
         Me.cmd_buscar.TabIndex = 55
         Me.cmd_buscar.UseVisualStyleBackColor = True
         '
-        'cmb_empleados
-        '
-        Me.cmb_empleados._descripcion = "nombres"
-        Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
-        Me.cmb_empleados._pk = "id"
-        Me.cmb_empleados.FormattingEnabled = True
-        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
-        Me.cmb_empleados.Name = "cmb_empleados"
-        Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 54
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -183,17 +191,6 @@ Partial Class Registrar_atencion
         Me.lbl_id_notificacion.Size = New System.Drawing.Size(16, 13)
         Me.lbl_id_notificacion.TabIndex = 52
         Me.lbl_id_notificacion.Text = "Id"
-        '
-        'cmb_estado_atencion
-        '
-        Me.cmb_estado_atencion._descripcion = "descripcion"
-        Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
-        Me.cmb_estado_atencion._pk = "id"
-        Me.cmb_estado_atencion.FormattingEnabled = True
-        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
-        Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
-        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_atencion.TabIndex = 2
         '
         'txt_id_atencion
         '
@@ -411,24 +408,27 @@ Partial Class Registrar_atencion
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
-        'cmd_efector_nuevo
+        'cmb_empleados
         '
-        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(376, 161)
-        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
-        Me.cmd_efector_nuevo.TabIndex = 62
-        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
+        Me.cmb_empleados._descripcion = "nombres"
+        Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
+        Me.cmb_empleados._pk = "id"
+        Me.cmb_empleados.FormattingEnabled = True
+        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
+        Me.cmb_empleados.Name = "cmb_empleados"
+        Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
+        Me.cmb_empleados.TabIndex = 54
+        '
+        'cmb_estado_atencion
+        '
+        Me.cmb_estado_atencion._descripcion = "descripcion"
+        Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
+        Me.cmb_estado_atencion._pk = "id"
+        Me.cmb_estado_atencion.FormattingEnabled = True
+        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
+        Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
+        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_estado_atencion.TabIndex = 2
         '
         'Registrar_atencion
         '

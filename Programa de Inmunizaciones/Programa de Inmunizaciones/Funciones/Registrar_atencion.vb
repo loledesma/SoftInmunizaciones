@@ -160,7 +160,6 @@
 
     Private Sub dgv_atenciones_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_atenciones.CellMouseDoubleClick
         Me.condicion_click = doble_Click.activado
-        Me.condicion_estado = condicion.modificar
         Dim tabla As New DataTable
         Dim sql As String = ""
         limpiar(Controls)
@@ -190,6 +189,7 @@
 
         Me.cmd_eliminar.Enabled = True
         Me.condicion_click = doble_Click.desactivado
+        Me.condicion_estado = condicion.modificar
     End Sub
 
     Private Sub abm_empleados_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
@@ -400,5 +400,30 @@
         Else
             Exit Sub
         End If
+    End Sub
+
+    Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
+        Me.condicion_estado = condicion.modificar
+        Me.condicion_click = doble_Click.activado
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        limpiar(Controls)
+
+
+
+        sql &= "SELECT * FROM ATENCION_SOPORTE "
+        sql &= " WHERE id_efector= '" & Me.txt_efector.Text & "'"
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("¡No existe la atencion solicitada!")
+            Exit Sub
+        End If
+
+        ''TERMINAR ACA
+
+
+        Me.cmd_eliminar.Enabled = True
+        Me.condicion_click = doble_Click.desactivado
     End Sub
 End Class
