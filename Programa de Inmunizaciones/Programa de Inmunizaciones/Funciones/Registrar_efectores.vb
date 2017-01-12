@@ -19,6 +19,7 @@
     Private Sub Registrar_efectores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmb_tipos_documento.cargar()
         cmb_barrios.cargar()
+        cmb_estado_rm.cargar()
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
@@ -153,6 +154,13 @@
         Me.txt_heladera.Text = tabla2.Rows(0)("tiene_heladera")
         Me.txt_pc.Text = tabla2.Rows(0)("tiene_internet")
 
+
+        If IsDBNull(tabla2.Rows(0)("estado_rm")) Then
+            Me.cmb_estado_rm.SelectedIndex = -1
+        Else
+            Me.cmb_estado_rm.SelectedValue = tabla2.Rows(0)("estado_rm")
+        End If
+
         If IsDBNull(tabla2.Rows(0)("id_barrio")) Then
             Me.cmb_barrios.SelectedIndex = -1
         Else
@@ -211,7 +219,7 @@
         tabla.Rows.Clear()
         tabla = acceso.consulta(sql)
 
-        
+
 
         If tabla.Rows.Count() = 0 Then
             MessageBox.Show("El efector seleccionado no tiene empleados asignados!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -481,6 +489,12 @@
         sql &= " , id_tipo_carga= " & Me.cmb_tipo_carga.SelectedValue
         sql &= ", tiene_heladera='" & Me.txt_heladera.Text & "'"
         sql &= ", tiene_internet='" & Me.txt_pc.Text & "'"
+
+        If cmb_estado_rm.SelectedValue <> -1 Then
+            sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
+        Else
+            sql &= ", estado_rm = Null"
+        End If
         sql &= " WHERE cuie='" & Me.txt_cuie.Text & "'"
 
         acceso.ejecutar(sql)
@@ -555,6 +569,12 @@
         sql &= ", id_estado =" & Me.cmb_estado_efector.SelectedValue
         sql &= ", tiene_heladera=" & Me.txt_heladera.Text
         sql &= ", tiene_internet=" & Me.txt_pc.Text
+
+        If cmb_estado_rm.SelectedValue <> -1 Then
+            sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
+        Else
+            sql &= ", estado_rm = Null"
+        End If
 
         If txt_calle.Text <> "" Then
             sql &= ", calle =" & txt_calle.Text

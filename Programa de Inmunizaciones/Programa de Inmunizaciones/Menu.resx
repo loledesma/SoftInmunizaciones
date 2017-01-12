@@ -121,8 +121,8 @@
   <data name="EstadisticasToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 38</value>
   </data>
-  <data name="&gt;&gt;VacunatoriosToolStripMenuItem.Name" xml:space="preserve">
-    <value>VacunatoriosToolStripMenuItem</value>
+  <data name="&gt;&gt;EmpleadosPorReferenteToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;HerramientasDelSistemaToolStripMenuItem.Name" xml:space="preserve">
     <value>HerramientasDelSistemaToolStripMenuItem</value>
@@ -163,6 +163,9 @@
   </data>
   <data name="NuevaAtenciónToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Name" xml:space="preserve">
+    <value>AtencionesRegistradasToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;NotificacionesPorToolStripMenuItem.Name" xml:space="preserve">
     <value>NotificacionesPorToolStripMenuItem</value>
@@ -16977,6 +16980,9 @@
   <data name="EstadisticasToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>251, 38</value>
   </data>
+  <data name="&gt;&gt;VacunatoriosToolStripMenuItem.Name" xml:space="preserve">
+    <value>VacunatoriosToolStripMenuItem</value>
+  </data>
   <data name="EstadisticasToolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
@@ -17049,9 +17055,6 @@
   </data>
   <data name="&gt;&gt;RegistrarAtenciónToolStripMenuItem.Name" xml:space="preserve">
     <value>RegistrarAtenciónToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EfectoresPorDptoYLocalidadToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;GestiónDeEmpleadosToolStripMenuItem.Name" xml:space="preserve">
     <value>GestiónDeEmpleadosToolStripMenuItem</value>
@@ -17140,9 +17143,6 @@
         CIQIJeAqhbcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;EmpleadosPorReferenteToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="RegistrarAtenciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Atenciones</value>
   </data>
@@ -17215,7 +17215,7 @@
   <data name="&gt;&gt;EstadisticasToolStripMenuItem3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ReferentesRegistradosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;EfectoresPorDptoYLocalidadToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ReferentesRegistradosToolStripMenuItem.Name" xml:space="preserve">
@@ -17522,8 +17522,8 @@
   <data name="&gt;&gt;NuevaNotificaciónToolStripMenuItem.Name" xml:space="preserve">
     <value>NuevaNotificaciónToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;EfectoresPorDptoYLocalidadToolStripMenuItem.Name" xml:space="preserve">
-    <value>EfectoresPorDptoYLocalidadToolStripMenuItem</value>
+  <data name="&gt;&gt;ReferentesRegistradosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -17548,6 +17548,9 @@
   </data>
   <data name="VacunatoriosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 68</value>
+  </data>
+  <data name="AtencionesRegistradasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 24</value>
   </data>
   <data name="&gt;&gt;GestiónDeEmpleadosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -17768,6 +17771,9 @@
   <data name="RegistrarAtenciónToolStripMenuItem.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="GestiónDeEmpleadosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
@@ -17857,6 +17863,9 @@
   </data>
   <data name="UsuariosRegistradosToolStripMenuItem.Text" xml:space="preserve">
     <value>Usuarios Registrados</value>
+  </data>
+  <data name="&gt;&gt;EfectoresPorDptoYLocalidadToolStripMenuItem.Name" xml:space="preserve">
+    <value>EfectoresPorDptoYLocalidadToolStripMenuItem</value>
   </data>
   <data name="EfectoresPorReferenteToolStripMenuItem.Text" xml:space="preserve">
     <value>Efectores por Referente</value>

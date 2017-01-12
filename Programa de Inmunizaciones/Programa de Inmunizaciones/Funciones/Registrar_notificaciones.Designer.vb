@@ -213,7 +213,7 @@ Partial Class Registrar_notificaciones
         Me.txt_efectores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_efectores.Location = New System.Drawing.Point(114, 72)
         Me.txt_efectores.Name = "txt_efectores"
-        Me.txt_efectores.Size = New System.Drawing.Size(217, 20)
+        Me.txt_efectores.Size = New System.Drawing.Size(269, 20)
         Me.txt_efectores.TabIndex = 2
         '
         'cmd_efector_nuevo
@@ -262,9 +262,9 @@ Partial Class Registrar_notificaciones
         Me.lbl_vacunatorio.AutoSize = True
         Me.lbl_vacunatorio.Location = New System.Drawing.Point(9, 75)
         Me.lbl_vacunatorio.Name = "lbl_vacunatorio"
-        Me.lbl_vacunatorio.Size = New System.Drawing.Size(64, 13)
+        Me.lbl_vacunatorio.Size = New System.Drawing.Size(41, 13)
         Me.lbl_vacunatorio.TabIndex = 32
-        Me.lbl_vacunatorio.Text = "Vacunatorio"
+        Me.lbl_vacunatorio.Text = "Efector"
         '
         'lbl_localidad
         '
