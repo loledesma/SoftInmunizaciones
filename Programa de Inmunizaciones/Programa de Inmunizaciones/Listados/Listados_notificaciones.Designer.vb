@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class listados_notificaciones
+Partial Class listados_atenciones
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,9 +23,9 @@ Partial Class listados_notificaciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_notificaciones))
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.LISTADO_NOTIFICACIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_atenciones))
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.LISTADONOTIFICACIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
@@ -37,23 +37,23 @@ Partial Class listados_notificaciones
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
         Me.txt_efectores = New System.Windows.Forms.TextBox()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_vacunatorio = New System.Windows.Forms.Label()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
-        CType(Me.LISTADO_NOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LISTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_notificacion.SuspendLayout()
         Me.grp_datos_efector.SuspendLayout()
         Me.SuspendLayout()
         '
-        'LISTADO_NOTIFICACIONESBindingSource
+        'LISTADONOTIFICACIONESBindingSource
         '
-        Me.LISTADO_NOTIFICACIONESBindingSource.DataMember = "LISTADO_NOTIFICACIONES"
-        Me.LISTADO_NOTIFICACIONESBindingSource.DataSource = Me.Inmunizaciones
+        Me.LISTADONOTIFICACIONESBindingSource.DataMember = "LISTADO_NOTIFICACIONES"
+        Me.LISTADONOTIFICACIONESBindingSource.DataSource = Me.Inmunizaciones
         '
         'Inmunizaciones
         '
@@ -69,7 +69,7 @@ Partial Class listados_notificaciones
         Me.grp_datos_notificacion.Controls.Add(Me.txt_fecha_desde)
         Me.grp_datos_notificacion.Controls.Add(Me.lbl_desde)
         Me.grp_datos_notificacion.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_notificacion.Location = New System.Drawing.Point(477, 13)
+        Me.grp_datos_notificacion.Location = New System.Drawing.Point(481, 12)
         Me.grp_datos_notificacion.Name = "grp_datos_notificacion"
         Me.grp_datos_notificacion.Size = New System.Drawing.Size(514, 133)
         Me.grp_datos_notificacion.TabIndex = 2
@@ -177,6 +177,28 @@ Partial Class listados_notificaciones
         Me.txt_efectores.Size = New System.Drawing.Size(282, 20)
         Me.txt_efectores.TabIndex = 2
         '
+        'cmb_departamentos
+        '
+        Me.cmb_departamentos._descripcion = "descripcion"
+        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamentos._pk = "id"
+        Me.cmb_departamentos.FormattingEnabled = True
+        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
+        Me.cmb_departamentos.Name = "cmb_departamentos"
+        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
+        Me.cmb_departamentos.TabIndex = 0
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
+        Me.cmb_localidades.TabIndex = 1
+        '
         'lbl_vacunatorio
         '
         Me.lbl_vacunatorio.AutoSize = True
@@ -213,38 +235,16 @@ Partial Class listados_notificaciones
         Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LISTADO_NOTIFICACIONESBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource3.Name = "DataSet1"
+        ReportDataSource3.Value = Me.LISTADONOTIFICACIONESBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_notificaciones.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
         Me.ReportViewer1.TabIndex = 4
         '
-        'cmb_departamentos
-        '
-        Me.cmb_departamentos._descripcion = "descripcion"
-        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamentos._pk = "id"
-        Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
-        Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
-        Me.cmb_departamentos.TabIndex = 0
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
-        Me.cmb_localidades.TabIndex = 1
-        '
-        'listados_notificaciones
+        'listados_atenciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -255,9 +255,9 @@ Partial Class listados_notificaciones
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Controls.Add(Me.grp_datos_notificacion)
-        Me.Name = "listados_notificaciones"
+        Me.Name = "listados_atenciones"
         Me.Text = "NOTIFICACIONES"
-        CType(Me.LISTADO_NOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LISTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_notificacion.ResumeLayout(False)
         Me.grp_datos_notificacion.PerformLayout()
@@ -283,7 +283,7 @@ Partial Class listados_notificaciones
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
     Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents LISTADO_NOTIFICACIONESBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
     Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
+    Friend WithEvents LISTADONOTIFICACIONESBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
 End Class

@@ -25,8 +25,6 @@ Partial Class listados_efector_loc_dpto
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_efector_loc_dpto))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.lbl_tipo = New System.Windows.Forms.Label()
@@ -37,20 +35,12 @@ Partial Class listados_efector_loc_dpto
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        CType(Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
+        Me.LISTEFECTORXLOCXDPTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.grp_datos_efector.SuspendLayout()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LISTEFECTORXLOCXDPTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'LIST_EFECTOR_X_LOC_X_DPTOBindingSource
-        '
-        Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource.DataMember = "LIST_EFECTOR_X_LOC_X_DPTO"
-        Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource.DataSource = Me.Inmunizaciones
-        '
-        'Inmunizaciones
-        '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'cmd_ejecutar
         '
@@ -159,13 +149,23 @@ Partial Class listados_efector_loc_dpto
         Me.ReportViewer1.AutoScroll = True
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource
+        ReportDataSource1.Value = Me.LISTEFECTORXLOCXDPTOBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_efector_loc_dpto.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(22, 153)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(983, 402)
         Me.ReportViewer1.TabIndex = 4
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LISTEFECTORXLOCXDPTOBindingSource
+        '
+        Me.LISTEFECTORXLOCXDPTOBindingSource.DataMember = "LIST_EFECTOR_X_LOC_X_DPTO"
+        Me.LISTEFECTORXLOCXDPTOBindingSource.DataSource = Me.Inmunizaciones
         '
         'listados_efector_loc_dpto
         '
@@ -179,10 +179,10 @@ Partial Class listados_efector_loc_dpto
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "listados_efector_loc_dpto"
         Me.Text = "NOTIFICACIONES"
-        CType(Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LISTEFECTORXLOCXDPTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -196,7 +196,7 @@ Partial Class listados_efector_loc_dpto
     Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
     Friend WithEvents lbl_tipo As System.Windows.Forms.Label
     Friend WithEvents cmb_tipo_efector As Programa_de_Inmunizaciones.ComboBoxV1
-    Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents LIST_EFECTOR_X_LOC_X_DPTOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents LISTEFECTORXLOCXDPTOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
 End Class
