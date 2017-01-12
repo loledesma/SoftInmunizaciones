@@ -1,4 +1,5 @@
-﻿Public Class listados_atenciones
+﻿Public Class list_atenciones
+
     Enum doble_Click
         activado
         desactivado
@@ -6,7 +7,7 @@
 
     Dim condicion_click = doble_Click.desactivado
 
-    Private Sub listados_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub list_atenciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cmb_departamentos.cargar()
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
@@ -62,7 +63,7 @@
     End Sub
 
     Private Sub tip()
-        tltp_notificaciones.SetToolTip(cmd_ejecutar, "EJECUTAR")
+        tltp_atenciones.SetToolTip(cmd_ejecutar, "EJECUTAR")
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
@@ -82,7 +83,7 @@
         Next obj
     End Sub
 
-    Private Sub Listados_notificaciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub list_atenciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.limpiar(Me.Controls)
             e.Cancel = False
@@ -139,18 +140,14 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT N.fecha as fecha, D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, N.id_efector as cuie "
-        sql &= ", E.nombre as nombre_vacunatorio, EMP.usuario_sigipsa as usuario_sigipsa, C.descripcion as carga "
-        sql &= ", S.descripcion as stock, P.descripcion as perdidas "
-        sql &= " FROM NOTIFICACIONXEFECTOR N JOIN EFECTORES E ON N.id_efector = E.cuie "
-        sql &= " JOIN CARGA C ON N.id_estado_carga = C.id"
-        sql &= " JOIN STOCK S ON N.id_estado_stock = S.id"
-        sql &= " JOIN PERDIDAS P ON N.id_estado_perdidas = P.id "
-        sql &= " JOIN DEPARTAMENTOS D ON E.id_departamento = D.id "
-        sql &= " JOIN LOCALIDADES L ON E.id_localidad = L.id "
-        sql &= " JOIN EMPLEADOS EMP ON N.id_empleado = EMP.id "
-
-
+        sql &= "SELECT A.fecha as fecha, A.descripcion as descripcion, E.nombres as administrador, EF.nombre as nombre_efector "
+        sql &= " , EA.descripcion as estado "
+        sql &= " FROM ATENCION_SOPORTE A JOIN EMPLEADOS E ON A.id_administrador = E.id "
+        sql &= " JOIN EFECTORES EF ON A.id_efector = EF.cuie"
+        sql &= " JOIN ESTADOS_ATENCION EA ON EA.id = A.id_estados_atencion "
+        sql &= " JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
+        sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id "
+    
         If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
             MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_fecha_hasta.Focus()
@@ -172,25 +169,25 @@
             ElseIf cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
+                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
             sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND cuie='" & Me.txt_cuie.Text & "'"
+                sql &= " AND EF.cuie='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
-                sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
+                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf txt_cuie.Text <> "" Then
-            sql &= " WHERE cuie='" & Me.txt_cuie.Text & "'"
+            sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
         End If
 
-        sql &= "ORDER BY fecha, nombre_departamento, nombre_localidad, cuie "
+        sql &= "ORDER BY fecha, nombre_efector, estado "
 
         tabla = acceso.consulta(sql)
 
@@ -200,7 +197,7 @@
             Exit Sub
         End If
 
-        Me.LISTADONOTIFICACIONESBindingSource.DataSource = tabla
+        Me.LISTATENCIONESBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
 
     End Sub

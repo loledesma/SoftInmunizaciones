@@ -1,4 +1,4 @@
-﻿Public Class listados_atenciones
+﻿Public Class listados_referentes_y_efectores
     Enum doble_Click
         activado
         desactivado
@@ -15,7 +15,6 @@
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
         Me.cmb_departamentos.Focus()
-        Me.ReportViewer1.Clear()
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -73,7 +72,7 @@
                     obj.Text = ""
                 Case "System.Windows.Forms.MaskedTextBox"
                     obj.Text = ""
-                Case "Programa_de_Inmunizaciones.ComboBoxV1"
+                Case "WindowsApplication1.ComboBoxV1"
                     cmd = obj
                     cmd.SelectedIndex = -1
                 Case "System.Windows.Forms.GroupBox"
@@ -82,7 +81,7 @@
         Next obj
     End Sub
 
-    Private Sub Listados_notificaciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub listados_referentes_y_efectores_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.limpiar(Me.Controls)
             e.Cancel = False
@@ -91,27 +90,27 @@
         End If
     End Sub
 
-    Private Function validar_fecha() As Boolean
-        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        Dim desde As Date = txt_fecha_desde.Text
-        Dim hasta As Date = txt_fecha_hasta.Text
-        Dim limite As Date = "01/01/1990"
+    'Private Function validar_fecha() As Boolean
+    '    Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
+    '    Dim desde As Date = txt_fecha_desde.Text
+    '    Dim hasta As Date = txt_fecha_hasta.Text
+    '    Dim limite As Date = "01/01/1990"
 
-        If Me.txt_fecha_hasta.Text > hoy Then
-            MessageBox.Show("La fecha ingresada (hasta) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_hasta.Focus()
-            Return False
-        ElseIf desde > hasta Then
-            MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_desde.Focus()
-            Return False
-        ElseIf desde < limite Then
-            MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_desde.Focus()
-            Return False
-        End If
-        Return True
-    End Function
+    '    If Me.txt_fecha_hasta.Text > hoy Then
+    '        MessageBox.Show("La fecha ingresada (hasta) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '        Me.txt_fecha_hasta.Focus()
+    '        Return False
+    '    ElseIf desde > hasta Then
+    '        MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '        Me.txt_fecha_desde.Focus()
+    '        Return False
+    '    ElseIf desde < limite Then
+    '        MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '        Me.txt_fecha_desde.Focus()
+    '        Return False
+    '    End If
+    '    Return True
+    'End Function
 
     'Private Function validar() As Boolean
     '    If cmb_departamentos.SelectedIndex <> -1 Then
@@ -139,58 +138,29 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT N.fecha as fecha, D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, N.id_efector as cuie "
-        sql &= ", E.nombre as nombre_vacunatorio, EMP.usuario_sigipsa as usuario_sigipsa, C.descripcion as carga "
-        sql &= ", S.descripcion as stock, P.descripcion as perdidas "
-        sql &= " FROM NOTIFICACIONXEFECTOR N JOIN EFECTORES E ON N.id_efector = E.cuie "
-        sql &= " JOIN CARGA C ON N.id_estado_carga = C.id"
-        sql &= " JOIN STOCK S ON N.id_estado_stock = S.id"
-        sql &= " JOIN PERDIDAS P ON N.id_estado_perdidas = P.id "
-        sql &= " JOIN DEPARTAMENTOS D ON E.id_departamento = D.id "
-        sql &= " JOIN LOCALIDADES L ON E.id_localidad = L.id "
-        sql &= " JOIN EMPLEADOS EMP ON N.id_empleado = EMP.id "
+        sql &= "SELECT E.cuie as cuie, E.nombre as nombre_efector, EMP.nombres as nombre_referente_empleado, EMP.apellidos as apellido_referente_empleado "
+        sql &= " , EMP.caracteristica as caracteristica, EMP.telefono as telefono, EMP.mail_contacto as mail "
+        sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EE ON E.cuie = EE.id_efector "
+        sql &= " JOIN EMPLEADOS EMP ON EMP.id = EE.id_empleados "
+        sql &= " WHERE EE.id_cargo= 2"
 
-
-        If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
-            MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_hasta.Focus()
-            Exit Sub
-        ElseIf IsDate(txt_fecha_hasta.Text) And IsDate(txt_fecha_desde.Text) = False Then
-            MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_desde.Focus()
-            Exit Sub
-        End If
-
-        If IsDate(Me.txt_fecha_desde.Text) And IsDate(Me.txt_fecha_hasta.Text) Then
-            If Me.validar_fecha() = False Then
-                Exit Sub
-            Else
-                sql &= " WHERE fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
-            End If
-            If Me.cmb_departamentos.SelectedIndex <> -1 Then
-                sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
-            ElseIf cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+        If Me.cmb_departamentos.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
                 sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
             End If
-        ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
-            If cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-            ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND cuie='" & Me.txt_cuie.Text & "'"
-            End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
+            sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
                 sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf txt_cuie.Text <> "" Then
-            sql &= " WHERE cuie='" & Me.txt_cuie.Text & "'"
+            sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
         End If
 
-        sql &= "ORDER BY fecha, nombre_departamento, nombre_localidad, cuie "
+        sql &= "ORDER BY cuie "
 
         tabla = acceso.consulta(sql)
 
@@ -200,13 +170,9 @@
             Exit Sub
         End If
 
-        Me.LISTADONOTIFICACIONESBindingSource.DataSource = tabla
+        Me.EFECTORESYREFERENTESBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
 
-    End Sub
-
-    Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
-        Me.imprimir()
     End Sub
 
 
@@ -217,5 +183,9 @@
         'Me.ReportViewer1.Anchor = AnchorStyles.Left
         'Me.ReportViewer1.Anchor = AnchorStyles.Right
         'Me.ReportViewer1.PerformAutoScale()
+    End Sub
+
+    Private Sub cmd_ejecutar_Click_1(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
+        Me.imprimir()
     End Sub
 End Class

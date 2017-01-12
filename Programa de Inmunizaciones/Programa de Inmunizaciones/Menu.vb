@@ -9,7 +9,7 @@
     End Sub
 
     Private Sub NotificacionesPorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificacionesPorToolStripMenuItem.Click
-        listados_notificaciones.ShowDialog()
+        listados_atenciones.ShowDialog()
     End Sub
 
     Private Sub NuevaNotificaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaNotificaciónToolStripMenuItem.Click
@@ -37,7 +37,17 @@
         Registrar_atencion.ShowDialog()
     End Sub
 
+    Private Sub ReferentesRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReferentesRegistradosToolStripMenuItem.Click
+        listados_referentes_y_efectores.ShowDialog()
+    End Sub
+    Private Sub AtencionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem.Click
+        list_atenciones.ShowDialog()
+    End Sub
+
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+  
+  
 End Class

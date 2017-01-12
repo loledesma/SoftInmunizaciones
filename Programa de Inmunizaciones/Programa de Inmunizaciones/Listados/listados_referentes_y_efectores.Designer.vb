@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class listados_atenciones
+Partial Class listados_referentes_y_efectores
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,17 +23,11 @@ Partial Class listados_atenciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_atenciones))
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.LISTADONOTIFICACIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_referentes_y_efectores))
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
-        Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_hasta = New System.Windows.Forms.Label()
-        Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_desde = New System.Windows.Forms.Label()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
         Me.txt_efectores = New System.Windows.Forms.TextBox()
@@ -44,37 +38,36 @@ Partial Class listados_atenciones
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
-        CType(Me.LISTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.EFECTORESYREFERENTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grp_datos_notificacion.SuspendLayout()
         Me.grp_datos_efector.SuspendLayout()
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'LISTADONOTIFICACIONESBindingSource
-        '
-        Me.LISTADONOTIFICACIONESBindingSource.DataMember = "LISTADO_NOTIFICACIONES"
-        Me.LISTADONOTIFICACIONESBindingSource.DataSource = Me.Inmunizaciones
         '
         'Inmunizaciones
         '
         Me.Inmunizaciones.DataSetName = "Inmunizaciones"
         Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'grp_datos_notificacion
+        'grp_datos_efector
         '
-        Me.grp_datos_notificacion.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_notificacion.Controls.Add(Me.cmd_ejecutar)
-        Me.grp_datos_notificacion.Controls.Add(Me.txt_fecha_hasta)
-        Me.grp_datos_notificacion.Controls.Add(Me.lbl_hasta)
-        Me.grp_datos_notificacion.Controls.Add(Me.txt_fecha_desde)
-        Me.grp_datos_notificacion.Controls.Add(Me.lbl_desde)
-        Me.grp_datos_notificacion.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_notificacion.Location = New System.Drawing.Point(481, 12)
-        Me.grp_datos_notificacion.Name = "grp_datos_notificacion"
-        Me.grp_datos_notificacion.Size = New System.Drawing.Size(514, 133)
-        Me.grp_datos_notificacion.TabIndex = 2
-        Me.grp_datos_notificacion.TabStop = False
-        Me.grp_datos_notificacion.Text = "Datos Notificacion"
+        Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_efector.Controls.Add(Me.cmd_ejecutar)
+        Me.grp_datos_efector.Controls.Add(Me.txt_cuie)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_cuie)
+        Me.grp_datos_efector.Controls.Add(Me.txt_efectores)
+        Me.grp_datos_efector.Controls.Add(Me.cmb_departamentos)
+        Me.grp_datos_efector.Controls.Add(Me.cmb_localidades)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_vacunatorio)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_localidad)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_departamento)
+        Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_datos_efector.Location = New System.Drawing.Point(237, 12)
+        Me.grp_datos_efector.Name = "grp_datos_efector"
+        Me.grp_datos_efector.Size = New System.Drawing.Size(612, 133)
+        Me.grp_datos_efector.TabIndex = 3
+        Me.grp_datos_efector.TabStop = False
+        Me.grp_datos_efector.Text = "Datos Efector"
         '
         'cmd_ejecutar
         '
@@ -86,69 +79,14 @@ Partial Class listados_atenciones
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(430, 34)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(516, 22)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_ejecutar.TabIndex = 10
+        Me.cmd_ejecutar.TabIndex = 50
         Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_ejecutar.UseVisualStyleBackColor = False
-        '
-        'txt_fecha_hasta
-        '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(281, 50)
-        Me.txt_fecha_hasta.Mask = "00/00/0000"
-        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
-        Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_hasta.TabIndex = 35
-        Me.txt_fecha_hasta.ValidatingType = GetType(Date)
-        '
-        'lbl_hasta
-        '
-        Me.lbl_hasta.AutoSize = True
-        Me.lbl_hasta.Location = New System.Drawing.Point(236, 54)
-        Me.lbl_hasta.Name = "lbl_hasta"
-        Me.lbl_hasta.Size = New System.Drawing.Size(35, 13)
-        Me.lbl_hasta.TabIndex = 34
-        Me.lbl_hasta.Text = "Hasta"
-        '
-        'txt_fecha_desde
-        '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(116, 50)
-        Me.txt_fecha_desde.Mask = "00/00/0000"
-        Me.txt_fecha_desde.Name = "txt_fecha_desde"
-        Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_desde.TabIndex = 2
-        Me.txt_fecha_desde.ValidatingType = GetType(Date)
-        '
-        'lbl_desde
-        '
-        Me.lbl_desde.AutoSize = True
-        Me.lbl_desde.Location = New System.Drawing.Point(59, 53)
-        Me.lbl_desde.Name = "lbl_desde"
-        Me.lbl_desde.Size = New System.Drawing.Size(38, 13)
-        Me.lbl_desde.TabIndex = 33
-        Me.lbl_desde.Text = "Desde"
-        '
-        'grp_datos_efector
-        '
-        Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_efector.Controls.Add(Me.txt_cuie)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_cuie)
-        Me.grp_datos_efector.Controls.Add(Me.txt_efectores)
-        Me.grp_datos_efector.Controls.Add(Me.cmb_departamentos)
-        Me.grp_datos_efector.Controls.Add(Me.cmb_localidades)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_vacunatorio)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_localidad)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_departamento)
-        Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_efector.Location = New System.Drawing.Point(21, 12)
-        Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(436, 133)
-        Me.grp_datos_efector.TabIndex = 3
-        Me.grp_datos_efector.TabStop = False
-        Me.grp_datos_efector.Text = "Datos Efector"
         '
         'txt_cuie
         '
@@ -235,16 +173,21 @@ Partial Class listados_atenciones
         Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
-        ReportDataSource3.Name = "DataSet1"
-        ReportDataSource3.Value = Me.LISTADONOTIFICACIONESBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_notificaciones.rdlc"
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.EFECTORESYREFERENTESBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listado_referentes_y_efectores.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
         Me.ReportViewer1.TabIndex = 4
         '
-        'listados_atenciones
+        'EFECTORESYREFERENTESBindingSource
+        '
+        Me.EFECTORESYREFERENTESBindingSource.DataMember = "EFECTORES_Y_REFERENTES"
+        Me.EFECTORESYREFERENTESBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'listados_referentes_y_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -254,24 +197,16 @@ Partial Class listados_atenciones
         Me.ClientSize = New System.Drawing.Size(1017, 565)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
-        Me.Controls.Add(Me.grp_datos_notificacion)
-        Me.Name = "listados_atenciones"
-        Me.Text = "NOTIFICACIONES"
-        CType(Me.LISTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "listados_referentes_y_efectores"
+        Me.Text = "REFERENTES"
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grp_datos_notificacion.ResumeLayout(False)
-        Me.grp_datos_notificacion.PerformLayout()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents grp_datos_notificacion As System.Windows.Forms.GroupBox
-    Friend WithEvents txt_fecha_desde As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lbl_desde As System.Windows.Forms.Label
-    Friend WithEvents lbl_hasta As System.Windows.Forms.Label
-    Friend WithEvents txt_fecha_hasta As System.Windows.Forms.MaskedTextBox
     Friend WithEvents grp_datos_efector As System.Windows.Forms.GroupBox
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
     Friend WithEvents lbl_cuie As System.Windows.Forms.Label
@@ -281,9 +216,9 @@ Partial Class listados_atenciones
     Friend WithEvents lbl_vacunatorio As System.Windows.Forms.Label
     Friend WithEvents lbl_localidad As System.Windows.Forms.Label
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
-    Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
-    Friend WithEvents LISTADONOTIFICACIONESBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents EFECTORESYREFERENTESBindingSource As System.Windows.Forms.BindingSource
 End Class
