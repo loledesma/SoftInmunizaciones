@@ -68,6 +68,7 @@
         tltp_empleados.SetToolTip(cmd_estadistica, "Estadísticos")
         tltp_empleados.SetToolTip(cmd_guardar, "Guardar")
         tltp_empleados.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_empleados.SetToolTip(cmd_limpiar, "Limpiar")
         tltp_empleados.SetToolTip(cmd_salir, "Salir")
     End Sub
 
