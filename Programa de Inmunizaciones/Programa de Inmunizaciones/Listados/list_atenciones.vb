@@ -140,16 +140,14 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT A.fecha as fecha, A.descripcion as descripcion, EMP.nombres as administrador, E.nombre as nombre_efector "
+        sql &= "SELECT A.fecha as fecha, A.descripcion as descripcion, E.nombres as administrador, EF.nombre as nombre_efector "
         sql &= " , EA.descripcion as estado "
         sql &= " FROM ATENCION_SOPORTE A JOIN EMPLEADOS E ON A.id_administrador = E.id "
-        sql &= " JOIN EFECTORES E A.id_efector = E.cuie"
-        sql &= " JOIN EMPLEADOS EMP ON A.id_administrador = EMP.id "
+        sql &= " JOIN EFECTORES EF ON A.id_efector = EF.cuie"
         sql &= " JOIN ESTADOS_ATENCION EA ON EA.id = A.id_estados_atencion "
-        sql &= " JOIN DEPARTAMENTOS D ON E.id_departamento = D.id "
-        sql &= " JOIN LOCALIDADES L ON E.id_localidad = L.id "
-
-
+        sql &= " JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
+        sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id "
+    
         If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
             MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_fecha_hasta.Focus()
@@ -171,26 +169,26 @@
             ElseIf cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
             sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND E.cuie='" & Me.txt_cuie.Text & "'"
+                sql &= " AND EF.cuie='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
-                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf txt_cuie.Text <> "" Then
-            sql &= " WHERE E.cuie='" & Me.txt_cuie.Text & "'"
+            sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
         End If
 
         sql &= "ORDER BY fecha, nombre_efector, estado "
-
+        MsgBox(sql)
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then

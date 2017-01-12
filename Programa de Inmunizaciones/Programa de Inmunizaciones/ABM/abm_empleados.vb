@@ -350,9 +350,10 @@
             sql &= " FROM EMPLEADOS EMP "
             sql &= "WHERE EMP.apellidos = '" & Me.txt_apellido.Text & "'"
             tabla = acceso.consulta(sql)
+
             sql = ""
             sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, EST.descripcion As estado "
-            sql &= " , EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado "
+            sql &= " , EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado, EST.descripcion as estado "
             sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
             sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
             sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
@@ -376,37 +377,39 @@
 
                 Next
 
-                If tabla2.Rows.Count = 0 Then
-                    MessageBox.Show("El empleado buscado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    Me.cmd_eliminar_efector.Enabled = True
-                Else
-                    For c = 0 To tabla2.Rows.Count - 1
-                        dgv_efectores.Rows.Add()
-                        dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                        dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                        dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
+                'If tabla2.Rows.Count = 0 Then
+                '    MessageBox.Show("El empleado buscado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                '    Me.cmd_eliminar_efector.Enabled = True
+                'Else
+                '    For c = 0 To tabla2.Rows.Count - 1
+                '        dgv_efectores.Rows.Add()
+                '        dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
+                '        dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
+                '        dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
+                '        dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
+                '        dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
+                '        dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
 
-                        sql = ""
-                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
-                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
-                        sql &= " WHERE EMP.id = '" & Me.txt_apellido.Text & "'"
-                        tabla2.Clear()
-                        tabla2 = acceso.consulta(sql)
+                '        sql = ""
+                '        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
+                '        sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                '        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
+                '        sql &= " WHERE EMP.apellidos = '" & Me.txt_apellido.Text & "'"
+                '        tabla.Clear()
+                '        tabla = acceso.consulta(sql)
 
-                        If tabla2.Rows.Count() = 0 Then
-                            dgv_efectores.Rows(c).Cells("perfil").Value = ""
-                            dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
-                        Else
-                            dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
-                            dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
-                        End If
 
-                        dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
-                        dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
-                        dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
-                    Next
-                End If
+                '        If tabla.Rows.Count() = 0 Then
+                '            dgv_efectores.Rows(c).Cells("perfil").Value = ""
+                '            dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
+                '        Else
+                '            dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(c)("perfil")
+                '            dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(c)("id_perfil")
+                '        End If
+
+
+                '    Next
+                'End If
             End If
         End If
         limpiar(Controls)
@@ -875,14 +878,14 @@
                 sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
                 sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
                 sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
-                tabla2.Clear()
-                tabla2 = acceso.consulta(sql)
-                If tabla2.Rows.Count() = 0 Then
+                tabla.Clear()
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count() = 0 Then
                     dgv_efectores.Rows(c).Cells("perfil").Value = ""
                     dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
                 Else
-                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
-                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
+                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(c)("perfil")
+                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(c)("id_perfil")
                 End If
             Next
         End If
