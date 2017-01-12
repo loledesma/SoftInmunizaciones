@@ -61,6 +61,7 @@
         tltp_notificaciones.SetToolTip(cmd_guardar, "Guardar")
         tltp_notificaciones.SetToolTip(cmd_nuevo, "Nuevo")
         tltp_notificaciones.SetToolTip(cmd_salir, "Salir")
+        tltp_notificaciones.SetToolTip(cmd_limpiar, "Limpiar")
     End Sub
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         Me.txt_id_empleado.Enabled = True

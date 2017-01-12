@@ -251,6 +251,9 @@
         tltp_atencion.SetToolTip(cmd_guardar, "Guardar")
         tltp_atencion.SetToolTip(cmd_nuevo, "Nuevo")
         tltp_atencion.SetToolTip(cmd_salir, "Salir")
+        tltp_atencion.SetToolTip(cmd_limpiar, "Limpiar")
+        tltp_atencion.SetToolTip(cmd_actualizar_estado, "Actualizar estado de la atención")
+        tltp_atencion.SetToolTip(cmd_efector_nuevo, "Alta de efector de nuevo")
     End Sub
 
     Private Function validar_existencia() As analizar_existencia
