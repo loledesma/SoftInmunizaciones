@@ -25,6 +25,8 @@ Partial Class list_atenciones
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_atenciones))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.LISTATENCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
@@ -41,14 +43,24 @@ Partial Class list_atenciones
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_desde = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.LISTATENCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
+        Me.LIST_ATENCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_datos_atenciones.SuspendLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LIST_ATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'LISTATENCIONESBindingSource
+        '
+        Me.LISTATENCIONESBindingSource.DataMember = "LIST_ATENCIONES"
+        Me.LISTATENCIONESBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'grp_datos_efector
         '
@@ -226,23 +238,18 @@ Partial Class list_atenciones
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LISTATENCIONESBindingSource
+        ReportDataSource1.Value = Me.LIST_ATENCIONESBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_notificaciones.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_atenciones.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(18, 150)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(967, 436)
         Me.ReportViewer1.TabIndex = 6
         '
-        'Inmunizaciones
+        'LIST_ATENCIONESBindingSource
         '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LISTATENCIONESBindingSource
-        '
-        Me.LISTATENCIONESBindingSource.DataMember = "LIST_ATENCIONES"
-        Me.LISTATENCIONESBindingSource.DataSource = Me.Inmunizaciones
+        Me.LIST_ATENCIONESBindingSource.DataMember = "LIST_ATENCIONES"
+        Me.LIST_ATENCIONESBindingSource.DataSource = Me.Inmunizaciones
         '
         'list_atenciones
         '
@@ -255,12 +262,13 @@ Partial Class list_atenciones
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "list_atenciones"
         Me.Text = "ATENCIONES"
+        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
         Me.grp_datos_atenciones.ResumeLayout(False)
         Me.grp_datos_atenciones.PerformLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LIST_ATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -284,4 +292,5 @@ Partial Class list_atenciones
     Friend WithEvents LISTATENCIONESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
     Friend WithEvents tltp_atenciones As System.Windows.Forms.ToolTip
+    Friend WithEvents LIST_ATENCIONESBindingSource As System.Windows.Forms.BindingSource
 End Class
