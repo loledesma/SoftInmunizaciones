@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class list_atenciones
+Partial Class list_usuarios
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,8 +23,10 @@ Partial Class list_atenciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_atenciones))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_usuarios))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.LISTATENCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
@@ -42,13 +44,21 @@ Partial Class list_atenciones
         Me.lbl_desde = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.LISTATENCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_datos_atenciones.SuspendLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'LISTATENCIONESBindingSource
+        '
+        Me.LISTATENCIONESBindingSource.DataMember = "LIST_ATENCIONES"
+        Me.LISTATENCIONESBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'grp_datos_efector
         '
@@ -234,17 +244,7 @@ Partial Class list_atenciones
         Me.ReportViewer1.Size = New System.Drawing.Size(967, 436)
         Me.ReportViewer1.TabIndex = 6
         '
-        'Inmunizaciones
-        '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LISTATENCIONESBindingSource
-        '
-        Me.LISTATENCIONESBindingSource.DataMember = "LIST_ATENCIONES"
-        Me.LISTATENCIONESBindingSource.DataSource = Me.Inmunizaciones
-        '
-        'list_atenciones
+        'list_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -253,14 +253,14 @@ Partial Class list_atenciones
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_atenciones)
         Me.Controls.Add(Me.grp_datos_efector)
-        Me.Name = "list_atenciones"
-        Me.Text = "ATENCIONES"
+        Me.Name = "list_usuarios"
+        Me.Text = "USUARIOS"
+        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
         Me.grp_datos_atenciones.ResumeLayout(False)
         Me.grp_datos_atenciones.PerformLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -15,15 +15,15 @@
               <Width>6.49521cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.57458cm</Width>
+              <Width>5.43687cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>13.98292cm</Width>
+              <Width>16.2848cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.67938cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -356,8 +356,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.86995cm</Top>
         <Left>0.57891cm</Left>
-        <Height>1.2cm</Height>
-        <Width>33.34917cm</Width>
+        <Height>1.27938cm</Height>
+        <Width>34.51334cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
