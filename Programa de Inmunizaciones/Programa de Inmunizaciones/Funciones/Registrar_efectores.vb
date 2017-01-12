@@ -23,17 +23,20 @@
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
-        cmb_referentes.cargar("id_tipo", "2", "id_tipo", "3")
+
         cmb_tipos_efectores.cargar()
         cmb_estado_efector.cargar()
         cmb_tipo_carga.cargar()
         cmb_estados_empleados.cargar()
         limpiar(Controls)
         cargar_grilla_vacunatorios()
+
+        tip()
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_nombre, "EFECTORES", "nombre")
+        acceso.autocompletar(txt_referentes, "EFECTORES", "nombre")
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -43,6 +46,21 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
 
     End Sub
+
+    Private Sub tip()
+        tltp_efectores.SetToolTip(cmd_limpiar, "Limpiar")
+        tltp_efectores.SetToolTip(cmd_buscar_empleadoXDNI, "Buscar id empleado por dni")
+        tltp_efectores.SetToolTip(cmd_eliminar_empleado, "Eliminar empleado de la grilla")
+        tltp_efectores.SetToolTip(cmd_limpiar_empleados, "Limpiar grilla de empleados")
+        tltp_efectores.SetToolTip(cmd_agregar_empleado, "Agregar empleado a la grilla")
+        tltp_efectores.SetToolTip(cmd_buscar_cuie, "Buscar efector por CUIE")
+        tltp_efectores.SetToolTip(cmd_empleado_nuevo, "Dar de alta empleado nuevo")
+        tltp_efectores.SetToolTip(cmd_guardar, "Guardar")
+        tltp_efectores.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_efectores.SetToolTip(cmd_salir, "Salir")
+    End Sub
+
+
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.Close()
@@ -197,7 +215,12 @@
             Me.txt_horarioHasta.Text = tabla2.Rows(0)("horario_hasta")
         End If
 
-        Me.cmb_referentes.SelectedValue = tabla2.Rows(0)("id_referente")
+        sql = ""
+        sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & tabla2.Rows(0)("id_referente") & "'"
+        tabla.Rows.Clear()
+        tabla = acceso.consulta(sql)
+
+        Me.txt_referentes.Text = tabla.Rows(0)("nombre")
         Me.cmb_tipos_efectores.SelectedValue = tabla2.Rows(0)("id_tipo")
         If IsDBNull(tabla2.Rows(0)("id_tipo_carga")) Then
             Me.cmb_tipo_carga.SelectedIndex = -1
@@ -337,32 +360,27 @@
             txt_cuie.Focus()
             Return False
             Exit Function
-        End If
-        If txt_nombre.Text = "" Then
+        ElseIf txt_nombre.Text = "" Then
             MessageBox.Show("¡Debe ingresar el nombre del vacunatorio!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txt_nombre.Focus()
             Return False
             Exit Function
-        End If
-        If cmb_referentes.SelectedIndex = -1 Then
-            MessageBox.Show("¡Debe seleccionar un referente!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.cmb_referentes.Focus()
+        ElseIf txt_referentes.Text = "" Then
+            MessageBox.Show("¡Debe ingresar un referente!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.txt_referentes.Focus()
             Return False
             Exit Function
-        End If
-        If cmb_estado_efector.SelectedIndex = -1 Then
+        ElseIf cmb_estado_efector.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un estado para el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_estado_efector.Focus()
             Return False
             Exit Function
-        End If
-        If cmb_tipo_carga.SelectedIndex = -1 Then
+        ElseIf cmb_tipo_carga.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un tipo de carga para el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_estado_efector.Focus()
             Return False
             Exit Function
-        End If
-        If txt_pc.Text <> "SI" Then
+        ElseIf txt_pc.Text <> "SI" Then
             If txt_pc.Text <> "NO" Then
                 If txt_pc.Text <> "DESCONOCIDO" Then
                     MessageBox.Show("¡Debe ingresar SI, NO O DESCONOCIDO!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -371,8 +389,7 @@
                     Exit Function
                 End If
             End If
-        End If
-        If txt_heladera.Text <> "SI" Then
+        ElseIf txt_heladera.Text <> "SI" Then
             If txt_heladera.Text <> "NO" Then
                 If txt_heladera.Text <> "DESCONOCIDO" Then
                     MessageBox.Show("¡Debe ingresar SI, NO O DESCONOCIDO!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -381,21 +398,17 @@
                     Exit Function
                 End If
             End If
-        End If
-    
-        If cmb_tipos_efectores.SelectedIndex = -1 Then
+        ElseIf cmb_tipos_efectores.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un tipo de efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_tipos_efectores.Focus()
             Return False
             Exit Function
-        End If
-        If cmb_localidades.SelectedIndex = -1 Then
+        ElseIf cmb_localidades.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar una localidad a la cual pertenezca el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            cmb_localidades.Focus()
             Return False
+            cmb_localidades.Focus()
             Exit Function
-        End If
-        If cmb_departamento.SelectedIndex = -1 Then
+        ElseIf cmb_departamento.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un departamento al cual pertenezca el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_departamento.Focus()
             Return False
@@ -442,7 +455,13 @@
     End Sub
     Private Sub modificar()
         Dim sql As String = ""
+        Dim tabla As New DataTable
 
+        sql &= "SELECT cuie FROM EFECTORES WHERE nombre='" & Me.txt_referentes.Text & "'"
+        tabla.Rows.Clear()
+        tabla = acceso.consulta(sql)
+
+        sql = ""
         sql = "UPDATE EFECTORES "
         sql &= " SET nombre='" & Me.txt_nombre.Text & "'"
         sql &= " , id_departamento= " & Me.cmb_departamento.SelectedValue
@@ -483,7 +502,8 @@
             sql &= ", horario_hasta = Null"
         End If
 
-        sql &= " , id_referente='" & Me.cmb_referentes.SelectedValue & "'"
+
+        sql &= " , id_referente='" & tabla.Rows(0)("cuie") & "'"
         sql &= " , id_tipo= " & Me.cmb_tipos_efectores.SelectedValue
         sql &= " , id_estado= " & Me.cmb_estado_efector.SelectedValue
         sql &= " , id_tipo_carga= " & Me.cmb_tipo_carga.SelectedValue
@@ -559,11 +579,17 @@
 
         acceso._nombre_tabla = "EFECTORES"
 
+        Dim tabla As New DataTable
+
+        sql &= "SELECT cuie FROM EFECTORES WHERE nombre='" & Me.txt_referentes.Text & "'"
+        tabla = acceso.consulta(sql)
+
+        sql = ""
         sql &= "cuie =" & Me.txt_cuie.Text
         sql &= ", nombre =" & Me.txt_nombre.Text
         sql &= ", id_departamento =" & Me.cmb_departamento.SelectedValue
         sql &= ", id_localidad =" & Me.cmb_localidades.SelectedValue
-        sql &= ", id_referente=" & Me.cmb_referentes.SelectedValue
+        sql &= ", id_referente=" & tabla.Rows(0)("cuie")
         sql &= ", id_tipo =" & Me.cmb_tipos_efectores.SelectedValue
         sql &= ", id_tipo_carga =" & Me.cmb_tipo_carga.SelectedValue
         sql &= ", id_estado =" & Me.cmb_estado_efector.SelectedValue
@@ -616,18 +642,18 @@
     Private Function validar_empleado()
         If txt_id_empleado.Text = "" Then
             MessageBox.Show("¡No se puede agregar un empleado sin su ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_id_empleado.Focus()
             Return False
+            txt_id_empleado.Focus()
             Exit Function
         ElseIf txt_nombre.Text = "" Then
             MessageBox.Show("¡El campo nombre no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_nombre.Focus()
             Return False
+            txt_nombre.Focus()
             Exit Function
         ElseIf txt_apellido.Text = "" Then
             MessageBox.Show("¡El campo apellido no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_apellido.Focus()
             Return False
+            txt_apellido.Focus()
             Exit Function
         ElseIf txt_numero_doc.Text = "" Then
             MessageBox.Show("¡El campo número de documento no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
