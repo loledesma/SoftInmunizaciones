@@ -282,7 +282,6 @@
         sql &= ", id_efector=" & Me.txt_cuie.Text
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
-        MsgBox(sql)
         acceso.insertar(sql)
     End Sub
 

@@ -169,6 +169,7 @@
         Me.txt_nombre.Text = tabla2.Rows(0)("nombre")
         Me.cmb_departamento.SelectedValue = tabla2.Rows(0)("id_departamento")
         Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
+        Me.condicion_click = doble_Click.desactivado
         Me.txt_heladera.Text = tabla2.Rows(0)("tiene_heladera")
         Me.txt_pc.Text = tabla2.Rows(0)("tiene_internet")
 
@@ -281,7 +282,6 @@
             Next
         End If
 
-        Me.condicion_click = doble_Click.desactivado
     End Sub
     Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_empleados.CellMouseDoubleClick
         condicion_click = doble_Click.activado
