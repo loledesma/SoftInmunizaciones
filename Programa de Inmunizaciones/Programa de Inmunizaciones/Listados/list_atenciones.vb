@@ -188,7 +188,7 @@
         End If
 
         sql &= "ORDER BY fecha, nombre_efector, estado "
-        MsgBox(sql)
+
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
