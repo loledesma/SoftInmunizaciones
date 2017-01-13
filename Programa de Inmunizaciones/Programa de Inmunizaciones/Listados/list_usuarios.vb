@@ -7,11 +7,13 @@
 
     Dim condicion_click = doble_Click.desactivado
 
-    Private Sub list_atenciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub list_usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cmb_departamentos.cargar()
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedIndex = -1
+        Me.cmb_estados_usuarios.cargar()
+        Me.cmb_estados_usuarios.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
@@ -83,7 +85,7 @@
         Next obj
     End Sub
 
-    Private Sub list_atenciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub list_usuarios_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.limpiar(Me.Controls)
             e.Cancel = False
@@ -92,117 +94,59 @@
         End If
     End Sub
 
-    Private Function validar_fecha() As Boolean
-        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        Dim desde As Date = txt_fecha_desde.Text
-        Dim hasta As Date = txt_fecha_hasta.Text
-        Dim limite As Date = "01/01/1990"
-
-        If Me.txt_fecha_hasta.Text > hoy Then
-            MessageBox.Show("La fecha ingresada (hasta) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_hasta.Focus()
-            Return False
-        ElseIf desde > hasta Then
-            MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_desde.Focus()
-            Return False
-        ElseIf desde < limite Then
-            MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_desde.Focus()
-            Return False
-        End If
-        Return True
-    End Function
-
-    'Private Function validar() As Boolean
-    '    If cmb_departamentos.SelectedIndex <> -1 Then
-    '        If cmb_localidades.SelectedIndex = -1 Then
-    '            MessageBox.Show("Debe seleccionar la localidad", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '            Me.cmb_localidades.Focus()
-    '            Return False
-    '            Exit Function
-    '        ElseIf txt_cuie.Text = "" Then
-    '            MessageBox.Show("Debe ingresar el cuie", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '            Me.txt_cuie.Focus()
-    '            Return False
-    '            Exit Function
-    '        ElseIf txt_efectores.Text = "" Then
-    '            MessageBox.Show("Debe ingresar el efector", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '            Me.txt_efectores.Focus()
-    '            Return False
-    '            Exit Function
-    '        End If
-    '    End If
-    '    Return True
-    'End Function
-
+  
     Private Sub imprimir()
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT A.fecha as fecha, A.descripcion as descripcion, E.nombres as administrador, EF.nombre as nombre_efector "
-        sql &= " , EA.descripcion as estado "
-        sql &= " FROM ATENCION_SOPORTE A JOIN EMPLEADOS E ON A.id_administrador = E.id "
-        sql &= " JOIN EFECTORES EF ON A.id_efector = EF.cuie"
-        sql &= " JOIN ESTADOS_ATENCION EA ON EA.id = A.id_estados_atencion "
-        sql &= " JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
-        sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id "
+        sql &= "SELECT D.nombre as nombre_departamento, L.nombre as nombre_localidad, E.nombre as nombre_efector, EMP.usuario_sigipsa as usuario "
+        sql &= ", EU.descripcion as estado"
+        sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EXE ON E.cuie = EXE.id_efector "
+        sql &= " JOIN EMPLEADOS EMP ON EXE.id_empleados = EMP.id "
+        sql &= " JOIN ESTADOXUSUARIOS EXU ON EMP.id = EXU.id_empleado "
+        sql &= " JOIN ESTADOS_USUARIOS EU ON EXU.id_estado = EU.id "
 
-        If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
-            MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_hasta.Focus()
-            Exit Sub
-        ElseIf IsDate(txt_fecha_hasta.Text) And IsDate(txt_fecha_desde.Text) = False Then
-            MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_fecha_desde.Focus()
-            Exit Sub
-        End If
 
-        If IsDate(Me.txt_fecha_desde.Text) And IsDate(Me.txt_fecha_hasta.Text) Then
-            If Me.validar_fecha() = False Then
-                Exit Sub
-            Else
-                sql &= " WHERE fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
-            End If
-            If Me.cmb_departamentos.SelectedIndex <> -1 Then
-                sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
-            ElseIf cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-            ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
-            End If
-        ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
+         If Me.cmb_departamentos.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+                sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND EF.cuie='" & Me.txt_cuie.Text & "'"
+                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+            ElseIf cmb_estados_usuarios.SelectedIndex <> -1 Then
+                sql &= " AND EXU.id_estado= " & Me.cmb_estados_usuarios.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
+            sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
-                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
+                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+            ElseIf cmb_estados_usuarios.SelectedIndex <> -1 Then
+                sql &= " AND EXU.id_estado= " & Me.cmb_estados_usuarios.SelectedValue
             End If
         ElseIf txt_cuie.Text <> "" Then
-            sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
+            sql &= " WHERE E.cuie ='" & Me.txt_cuie.Text & "'"
+            If cmb_estados_usuarios.SelectedIndex <> -1 Then
+                sql &= " AND EXU.id_estado= " & Me.cmb_estados_usuarios.SelectedValue
+            End If
+        ElseIf cmb_estados_usuarios.SelectedIndex <> -1 Then
+            sql &= " WHERE EXU.id_estado= " & Me.cmb_estados_usuarios.SelectedValue
         End If
 
-        sql &= "ORDER BY fecha, nombre_efector, estado "
+            sql &= "ORDER BY fecha, nombre_efector, estado_usuario, usuario "
 
-        tabla = acceso.consulta(sql)
+            tabla = acceso.consulta(sql)
 
-        If tabla.Rows.Count() = 0 Then
-            Me.ReportViewer1.Clear()
-            MessageBox.Show("No hay datos para esa búsqueda")
-            Exit Sub
-        End If
+            If tabla.Rows.Count() = 0 Then
+                Me.ReportViewer1.Clear()
+                MessageBox.Show("No hay datos para esa búsqueda")
+                Exit Sub
+            End If
 
-
-        Me.ReportViewer1.RefreshReport()
+            Me.ReportViewer1.RefreshReport()
 
     End Sub
 
-    Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
+    Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs)
         Me.imprimir()
     End Sub
 

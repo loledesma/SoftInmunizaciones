@@ -427,26 +427,29 @@
     Private Sub guardar()
         If validar_efector() = True Then
             If condicion_estado = estado.insertar Then
-                    If Me.validar_existencia() = analizar_existencia.no_existe Then
-                        If dgv_empleados.Rows.Count = 0 Then
-                            If MessageBox.Show("¿Desea registrar el efector sin empleados?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
-                                Me.txt_id_empleado.Focus()
-                                Exit Sub
-                            Else
-                                Me.insertar_efector()
-                            End If
+                If validar_existencia() = analizar_existencia.no_existe Then
+                    If dgv_empleados.Rows.Count() = 0 Then
+                        If MessageBox.Show("¿Desea registrar el efector sin empleados?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
+                            Me.txt_id_empleado.Focus()
+                            Exit Sub
+                        Else
+                            Me.insertar_efector()
                         End If
+                    Else
                         Me.insertar_efector()
                         grabar_empleadoxefector()
-                    Else
-                        MessageBox.Show("Ya se encuentra registrado este efector")
-                        Exit Sub
                     End If
+                Else
+                    MessageBox.Show("Ya se encuentra registrado este efector")
+                    Exit Sub
+                End If
             Else
                 Me.modificar()
                 modificar_empleadoXEfector()
             End If
         End If
+
+
         dgv_empleados.Rows.Clear()
         dgv_vacunatorios.Rows.Clear()
         limpiar(Me.Controls)

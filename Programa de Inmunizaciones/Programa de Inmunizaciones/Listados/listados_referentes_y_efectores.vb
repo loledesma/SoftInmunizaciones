@@ -157,7 +157,7 @@
                 sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf txt_cuie.Text <> "" Then
-            sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
+            sql &= " WHERE cuie ='" & Me.txt_cuie.Text & "'"
         End If
 
         sql &= "ORDER BY cuie "

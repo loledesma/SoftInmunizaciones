@@ -556,8 +556,21 @@
         sql &= " , nombres= '" & Me.txt_nombre.Text & "'"
         sql &= " , apellidos= '" & Me.txt_apellido.Text & "'"
         sql &= " , caracteristica= " & Me.txt_caracteristica.Text
-        sql &= " , telefono= " & Me.txt_telefono.Text
-        sql &= " , mail_contacto= '" & Me.txt_email.Text & "'"
+
+        If txt_telefono.Text <> "" Then
+            sql &= ", telefono = " & Me.txt_telefono.Text
+            sql &= ", caracteristica = " & Me.txt_caracteristica.Text
+        Else
+            sql &= ", telefono = Null "
+            sql &= ", caracteristica = Null "
+        End If
+
+        If txt_email.Text <> "" Then
+            sql &= ", mail_contacto='" & Me.txt_email.Text & "'"
+        Else
+            sql &= ", mail_contacto= Null"
+        End If
+
         If txt_usuario.Text <> "" Then
             sql &= " , usuario_sigipsa='" & Me.txt_usuario.Text & "'"
             sql &= " , fecha_alta= '" & Me.txt_fecha.Text & "'"
@@ -626,6 +639,7 @@
         Else
             sql &= ", fecha alta =Null"
         End If
+
         acceso.insertar(sql)
 
         sql = ""
@@ -701,12 +715,13 @@
             txt_insert = " id_efector=" & Me.dgv_efectores.Rows(c).Cells("cuie").Value
             txt_insert &= ", id_empleados=" & Me.txt_id_empleado.Text
             txt_insert &= ", id_cargo=" & Me.dgv_efectores.Rows(c).Cells("id_cargo").Value
+            txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
+
             If IsNothing(Me.dgv_efectores.Rows(c).Cells("id_perfil").Value) Then
                 txt_insert &= ", id_perfil=Null"
             Else
                 txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
             End If
-            txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
 
             acceso.insertar(txt_insert)
             txt_insert = ""
@@ -730,6 +745,7 @@
                 txt_insert &= " WHERE id_empleados= " & Me.txt_id_empleado.Text & " AND id_efector='" & Me.dgv_efectores.Rows(c).Cells("cuie").Value & "'"
                 acceso.ejecutar(txt_insert)
 
+
             Else
                 acceso._nombre_tabla = "EMPLEADOSXEFECTOR"
                 txt_insert = " id_efector=" & Me.dgv_efectores.Rows(c).Cells("cuie").Value
@@ -744,6 +760,7 @@
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
                 acceso.insertar(txt_insert)
+
             End If
             txt_insert = ""
         Next
@@ -991,7 +1008,6 @@
                 Me.txt_caracteristica.Focus()
                 Exit Function
             End If
-       
         ElseIf txt_usuario.Text <> "" Then
             If cmb_estados.SelectedIndex = -1 Then
                 MessageBox.Show("Debe seleccionar un estado para el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1003,7 +1019,7 @@
                 Return False
                 Me.txt_fecha.Focus()
                 Exit Function
-            ElseIf IsDate(txt_fecha.Text) Then
+            ElseIf IsDate(txt_fecha.Text) = False Then
                 MessageBox.Show("Debe ingresar una fecha de alta para ese usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Return False
                 Me.txt_fecha.Focus()
