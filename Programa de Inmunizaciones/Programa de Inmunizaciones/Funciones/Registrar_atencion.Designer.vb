@@ -99,7 +99,7 @@ Partial Class Registrar_atencion
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(376, 161)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(376, 144)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
         Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
@@ -131,7 +131,7 @@ Partial Class Registrar_atencion
         '
         Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_cuie.Location = New System.Drawing.Point(111, 135)
+        Me.txt_cuie.Location = New System.Drawing.Point(111, 173)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(150, 20)
         Me.txt_cuie.TabIndex = 59
@@ -139,7 +139,7 @@ Partial Class Registrar_atencion
         'lbl_cuie
         '
         Me.lbl_cuie.AutoSize = True
-        Me.lbl_cuie.Location = New System.Drawing.Point(9, 135)
+        Me.lbl_cuie.Location = New System.Drawing.Point(11, 180)
         Me.lbl_cuie.Name = "lbl_cuie"
         Me.lbl_cuie.Size = New System.Drawing.Size(28, 13)
         Me.lbl_cuie.TabIndex = 58
@@ -149,7 +149,7 @@ Partial Class Registrar_atencion
         '
         Me.txt_efector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_efector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_efector.Location = New System.Drawing.Point(111, 161)
+        Me.txt_efector.Location = New System.Drawing.Point(111, 144)
         Me.txt_efector.Name = "txt_efector"
         Me.txt_efector.Size = New System.Drawing.Size(262, 20)
         Me.txt_efector.TabIndex = 57
@@ -157,7 +157,7 @@ Partial Class Registrar_atencion
         'lbl_efector
         '
         Me.lbl_efector.AutoSize = True
-        Me.lbl_efector.Location = New System.Drawing.Point(7, 161)
+        Me.lbl_efector.Location = New System.Drawing.Point(6, 148)
         Me.lbl_efector.Name = "lbl_efector"
         Me.lbl_efector.Size = New System.Drawing.Size(41, 13)
         Me.lbl_efector.TabIndex = 56

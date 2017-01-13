@@ -42,6 +42,7 @@
         Me.cmb_carga.SelectedIndex = -1
         Me.cmb_perdidas.SelectedIndex = -1
         Me.cmb_stock.SelectedIndex = -1
+        Me.txt_id_notificacion.Focus()
 
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
@@ -145,7 +146,10 @@
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
                 sql &= " WHERE E.nombre= '" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
-                txt_cuie.Text = tabla.Rows(0)("cuie")
+
+                If tabla.Rows.Count() <> 0 Then
+                    txt_cuie.Text = tabla.Rows(0)("cuie")
+                End If
             End If
         End If
     End Sub
@@ -447,6 +451,12 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim c As Integer = 0
+
+        If txt_cuie.Text = "" Then
+            MessageBox.Show("Debe ingresar el cuie", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_cuie.Focus()
+            Exit Sub
+        End If
         If txt_apellidos.Text = "" And txt_nombres.Text = "" Then
             If txt_usuario.Text = "" Then
                 MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -454,12 +464,13 @@
                 Exit Sub
             ElseIf txt_usuario.Text <> "" Then
                 sql = ""
-                sql &= "SELECT * FROM EMPLEADOS "
-                sql &= " WHERE usuario_sigipsa= '" & Me.txt_usuario.Text & "'"
+                sql &= "SELECT EMP.id as id, EMP.nombres as nombres, EMP.apellidos as apellidos"
+                sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+                sql &= " WHERE EMP.usuario_sigipsa= '" & Me.txt_usuario.Text & "' AND EXE.id_efector ='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text & " en ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
                     Me.txt_id_empleado.Text = tabla.Rows(0)("id")
                     Me.txt_nombres.Text = tabla.Rows(0)("nombres")
@@ -477,12 +488,14 @@
                 Exit Sub
             ElseIf txt_apellidos.Text <> "" And txt_nombres.Text <> "" Then
                 sql = ""
-                sql &= "SELECT * FROM EMPLEADOS "
-                sql &= " WHERE nombres= '" & Me.txt_nombres.Text & "' AND apellidos= '" & Me.txt_apellidos.Text & "'"
+                sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
+                sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+                sql &= " WHERE EMP.nombres='" & Me.txt_nombres.Text & "' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
+                sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No se encontro id de empleado con esos datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("No se encontro id de empleado con esos datos para ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
                     Me.txt_id_empleado.Text = tabla.Rows(0)("id")
                     Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
@@ -500,7 +513,74 @@
         End If
     End Sub
 
+    Private Function validar_cuie() As Boolean
+        If Me.txt_cuie.Text = "" Then
+            MessageBox.Show("Debe ingresar un cuie para buscar")
+            Me.txt_cuie.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
     Private Sub cmd_buscar_notificaciones_Click(sender As Object, e As EventArgs) Handles cmd_buscar_notificaciones.Click
-        ''TERMINAR ACA
+        Me.condicion_estado = estado.modificar
+        Me.condicion_click = doble_Click.activado
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim sql As String = ""
+
+
+        If validar_cuie() Then
+            sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
+            sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+            sql &= " ORDER BY fecha"
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count() = 0 Then
+                MessageBox.Show("¡No existe la notificación solicitada!")
+                Exit Sub
+            Else
+                Dim c As Integer = 0
+                dgv_notificaciones.Rows.Clear()
+                For c = 0 To tabla.Rows.Count() - 1
+                    dgv_notificaciones.Rows.Add()
+                    dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
+                    dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
+                    dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(0)("id_estado_stock")
+                    dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(0)("id_estado_perdidas")
+                    dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(0)("id_estado_carga")
+                    dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(0)("id_efector")
+                    
+                    sql = ""
+                    sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_notificaciones.Rows(c).Cells("id_efector").Value & "'"
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(0)("nombre")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM CARGA WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_carga").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("carga").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM STOCK WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_stock").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("stock").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM PERDIDAS WHERE id=" & dgv_notificaciones.Rows(c).Cells("id_perdidas").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
+
+                Next
+            End If
+        End If
+
+
+        limpiar(Me.Controls)
+        Me.condicion_estado = estado.modificar
     End Sub
 End Class
