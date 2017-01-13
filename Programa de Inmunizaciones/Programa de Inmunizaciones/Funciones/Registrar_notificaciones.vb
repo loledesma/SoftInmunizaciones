@@ -146,7 +146,10 @@
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
                 sql &= " WHERE E.nombre= '" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
-                txt_cuie.Text = tabla.Rows(0)("cuie")
+
+                If tabla.Rows.Count() <> 0 Then
+                    txt_cuie.Text = tabla.Rows(0)("cuie")
+                End If
             End If
         End If
     End Sub
@@ -448,6 +451,12 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim c As Integer = 0
+
+        If txt_cuie.Text = "" Then
+            MessageBox.Show("Debe ingresar el cuie", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_cuie.Focus()
+            Exit Sub
+        End If
         If txt_apellidos.Text = "" And txt_nombres.Text = "" Then
             If txt_usuario.Text = "" Then
                 MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -455,12 +464,13 @@
                 Exit Sub
             ElseIf txt_usuario.Text <> "" Then
                 sql = ""
-                sql &= "SELECT * FROM EMPLEADOS "
-                sql &= " WHERE usuario_sigipsa= '" & Me.txt_usuario.Text & "'"
+                sql &= "SELECT EMP.id as id, EMP.nombres as nombres, EMP.apellidos as apellidos"
+                sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+                sql &= " WHERE EMP.usuario_sigipsa= '" & Me.txt_usuario.Text & "' AND EXE.id_efector ='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text & " en ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
                     Me.txt_id_empleado.Text = tabla.Rows(0)("id")
                     Me.txt_nombres.Text = tabla.Rows(0)("nombres")
@@ -478,12 +488,14 @@
                 Exit Sub
             ElseIf txt_apellidos.Text <> "" And txt_nombres.Text <> "" Then
                 sql = ""
-                sql &= "SELECT * FROM EMPLEADOS "
-                sql &= " WHERE nombres= '" & Me.txt_nombres.Text & "' AND apellidos= '" & Me.txt_apellidos.Text & "'"
+                sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
+                sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+                sql &= " WHERE EMP.nombres='" & Me.txt_nombres.Text & "' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
+                sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No se encontro id de empleado con esos datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("No se encontro id de empleado con esos datos para ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
                     Me.txt_id_empleado.Text = tabla.Rows(0)("id")
                     Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
