@@ -42,6 +42,7 @@
         Me.cmb_carga.SelectedIndex = -1
         Me.cmb_perdidas.SelectedIndex = -1
         Me.cmb_stock.SelectedIndex = -1
+        Me.txt_id_notificacion.Focus()
 
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
@@ -500,7 +501,74 @@
         End If
     End Sub
 
+    Private Function validar_cuie() As Boolean
+        If Me.txt_cuie.Text = "" Then
+            MessageBox.Show("Debe ingresar un cuie para buscar")
+            Me.txt_cuie.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
     Private Sub cmd_buscar_notificaciones_Click(sender As Object, e As EventArgs) Handles cmd_buscar_notificaciones.Click
-        ''TERMINAR ACA
+        Me.condicion_estado = estado.modificar
+        Me.condicion_click = doble_Click.activado
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim sql As String = ""
+
+
+        If validar_cuie() Then
+            sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
+            sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+            sql &= " ORDER BY fecha"
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count() = 0 Then
+                MessageBox.Show("¡No existe la notificación solicitada!")
+                Exit Sub
+            Else
+                Dim c As Integer = 0
+                dgv_notificaciones.Rows.Clear()
+                For c = 0 To tabla.Rows.Count() - 1
+                    dgv_notificaciones.Rows.Add()
+                    dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
+                    dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
+                    dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(0)("id_estado_stock")
+                    dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(0)("id_estado_perdidas")
+                    dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(0)("id_estado_carga")
+                    dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(0)("id_efector")
+                    
+                    sql = ""
+                    sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_notificaciones.Rows(c).Cells("id_efector").Value & "'"
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(0)("nombre")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM CARGA WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_carga").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("carga").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM STOCK WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_stock").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("stock").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM PERDIDAS WHERE id=" & dgv_notificaciones.Rows(c).Cells("id_perdidas").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_notificaciones.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
+
+                Next
+            End If
+        End If
+
+
+        limpiar(Me.Controls)
+        Me.condicion_estado = estado.modificar
     End Sub
 End Class
