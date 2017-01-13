@@ -1,4 +1,4 @@
-﻿Public Class listados_atenciones
+﻿Public Class listados_notificaciones
     Enum doble_Click
         activado
         desactivado

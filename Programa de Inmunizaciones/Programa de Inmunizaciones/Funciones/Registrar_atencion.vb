@@ -26,6 +26,7 @@
         Me.cmb_estado_atencion.SelectedIndex = -1
         cargar_combo()
         tip()
+        Me.txt_id_atencion.Focus()
         Me.cmb_empleados.SelectedIndex = -1
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -373,7 +374,7 @@
         Dim tabla As DataTable
 
         If txt_id_atencion.Text = "" Then
-            MessageBox.Show("Seleccione una atenciòn para actualizar el estado")
+            MessageBox.Show("Seleccione una atención para actualizar el estado")
             Me.txt_id_atencion.Focus()
             Exit Sub
         End If
@@ -402,28 +403,78 @@
         End If
     End Sub
 
+    Private Function validar_cuie() As Boolean
+        If Me.txt_cuie.Text = "" Then
+            MessageBox.Show("Debe ingresar un cuie para buscar")
+            Me.txt_cuie.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Me.condicion_estado = condicion.modificar
         Me.condicion_click = doble_Click.activado
         Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
         Dim sql As String = ""
-        limpiar(Controls)
 
 
+        If validar_cuie() Then
+            sql &= "SELECT * FROM ATENCION_SOPORTE "
+            sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+            sql &= " ORDER BY fecha"
+            tabla = acceso.consulta(sql)
 
-        sql &= "SELECT * FROM ATENCION_SOPORTE "
-        sql &= " WHERE id_efector= '" & Me.txt_efector.Text & "'"
-        tabla = acceso.consulta(sql)
+            If tabla.Rows.Count() = 0 Then
+                MessageBox.Show("¡No existe la atencion solicitada!")
+                Exit Sub
+            Else
+                Dim c As Integer = 0
+                dgv_atenciones.Rows.Clear()
+                For c = 0 To tabla.Rows.Count() - 1
+                    dgv_atenciones.Rows.Add()
+                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
+                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
+                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(0)("id_efector")
+                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estados_atencion")
+                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
+                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
 
-        If tabla.Rows.Count() = 0 Then
-            MessageBox.Show("¡No existe la atencion solicitada!")
-            Exit Sub
+                    sql = ""
+                    sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT nombres FROM EMPLEADOS WHERE id= " & Me.dgv_atenciones.Rows(c).Cells("id_administrador").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                    sql = ""
+                    sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_atenciones.Rows(c).Cells("cuie").Value & "'"
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
+                Next
+            End If
         End If
 
-        ''TERMINAR ACA
 
+        limpiar(Me.Controls)
+        Me.condicion_estado = condicion.modificar
+    End Sub
 
-        Me.cmd_eliminar.Enabled = True
-        Me.condicion_click = doble_Click.desactivado
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.txt_id_atencion.Enabled = True
+        Me.grp_datos_atencion.Enabled = True
+        Me.grp_descripcion.Enabled = True
+        Me.descripcion.ToolTipText = ""
+        Me.limpiar(Me.Controls)
+        Me.condicion_estado = condicion.insertar
+        Me.txt_id_atencion.Focus()
+        Me.cargar_grilla()
     End Sub
 End Class

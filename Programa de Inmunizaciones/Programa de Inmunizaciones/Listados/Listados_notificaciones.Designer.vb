@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class listados_atenciones
+Partial Class listados_notificaciones
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,8 +23,8 @@ Partial Class listados_atenciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_atenciones))
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_notificaciones))
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.LISTADONOTIFICACIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
@@ -235,16 +235,16 @@ Partial Class listados_atenciones
         Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
-        ReportDataSource3.Name = "DataSet1"
-        ReportDataSource3.Value = Me.LISTADONOTIFICACIONESBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.LISTADONOTIFICACIONESBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_notificaciones.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
         Me.ReportViewer1.TabIndex = 4
         '
-        'listados_atenciones
+        'listados_notificaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -255,7 +255,7 @@ Partial Class listados_atenciones
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Controls.Add(Me.grp_datos_notificacion)
-        Me.Name = "listados_atenciones"
+        Me.Name = "listados_notificaciones"
         Me.Text = "NOTIFICACIONES"
         CType(Me.LISTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
