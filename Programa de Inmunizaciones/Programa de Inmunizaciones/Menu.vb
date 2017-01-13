@@ -32,7 +32,25 @@
         Registrar_efectores.ShowDialog()
     End Sub
 
+
+    Private Sub NuevaAtenciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaAtenciónToolStripMenuItem.Click
+        Registrar_atencion.ShowDialog()
+    End Sub
+
+    Private Sub ReferentesRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReferentesRegistradosToolStripMenuItem.Click
+        listados_referentes_y_efectores.ShowDialog()
+    End Sub
+    Private Sub AtencionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem.Click
+        list_atenciones.ShowDialog()
+    End Sub
+    Private Sub UsuariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosRegistradosToolStripMenuItem.Click
+        list_usuarios.ShowDialog()
+    End Sub
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+  
+  
+  
 End Class

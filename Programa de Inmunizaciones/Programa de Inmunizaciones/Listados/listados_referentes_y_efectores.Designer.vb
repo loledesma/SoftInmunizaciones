@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class listados_efector_loc_dpto
+Partial Class listados_referentes_y_efectores
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,34 +23,51 @@ Partial Class listados_efector_loc_dpto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_efector_loc_dpto))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_referentes_y_efectores))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.LISTEFECTORXLOCXDPTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
-        Me.lbl_tipo = New System.Windows.Forms.Label()
-        Me.cmb_tipo_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
+        Me.txt_cuie = New System.Windows.Forms.TextBox()
+        Me.lbl_cuie = New System.Windows.Forms.Label()
+        Me.txt_efectores = New System.Windows.Forms.TextBox()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.lbl_vacunatorio = New System.Windows.Forms.Label()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
-        Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        CType(Me.LISTEFECTORXLOCXDPTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
+        Me.EFECTORESYREFERENTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'LISTEFECTORXLOCXDPTOBindingSource
-        '
-        Me.LISTEFECTORXLOCXDPTOBindingSource.DataMember = "LIST_EFECTOR_X_LOC_X_DPTO"
-        Me.LISTEFECTORXLOCXDPTOBindingSource.DataSource = Me.Inmunizaciones
         '
         'Inmunizaciones
         '
         Me.Inmunizaciones.DataSetName = "Inmunizaciones"
         Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'grp_datos_efector
+        '
+        Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_efector.Controls.Add(Me.cmd_ejecutar)
+        Me.grp_datos_efector.Controls.Add(Me.txt_cuie)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_cuie)
+        Me.grp_datos_efector.Controls.Add(Me.txt_efectores)
+        Me.grp_datos_efector.Controls.Add(Me.cmb_departamentos)
+        Me.grp_datos_efector.Controls.Add(Me.cmb_localidades)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_vacunatorio)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_localidad)
+        Me.grp_datos_efector.Controls.Add(Me.lbl_departamento)
+        Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_datos_efector.Location = New System.Drawing.Point(237, 12)
+        Me.grp_datos_efector.Name = "grp_datos_efector"
+        Me.grp_datos_efector.Size = New System.Drawing.Size(612, 133)
+        Me.grp_datos_efector.TabIndex = 3
+        Me.grp_datos_efector.TabStop = False
+        Me.grp_datos_efector.Text = "Datos Efector"
         '
         'cmd_ejecutar
         '
@@ -62,54 +79,41 @@ Partial Class listados_efector_loc_dpto
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(659, 10)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(516, 22)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_ejecutar.TabIndex = 10
+        Me.cmd_ejecutar.TabIndex = 50
         Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_ejecutar.UseVisualStyleBackColor = False
         '
-        'grp_datos_efector
+        'txt_cuie
         '
-        Me.grp_datos_efector.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_efector.Controls.Add(Me.cmd_ejecutar)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_tipo)
-        Me.grp_datos_efector.Controls.Add(Me.cmb_tipo_efector)
-        Me.grp_datos_efector.Controls.Add(Me.cmb_departamentos)
-        Me.grp_datos_efector.Controls.Add(Me.cmb_localidades)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_localidad)
-        Me.grp_datos_efector.Controls.Add(Me.lbl_departamento)
-        Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_efector.Location = New System.Drawing.Point(134, 12)
-        Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(726, 112)
-        Me.grp_datos_efector.TabIndex = 3
-        Me.grp_datos_efector.TabStop = False
-        Me.grp_datos_efector.Text = "Datos Efector"
+        Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_cuie.Location = New System.Drawing.Point(122, 103)
+        Me.txt_cuie.Name = "txt_cuie"
+        Me.txt_cuie.Size = New System.Drawing.Size(184, 20)
+        Me.txt_cuie.TabIndex = 4
         '
-        'lbl_tipo
+        'lbl_cuie
         '
-        Me.lbl_tipo.AutoSize = True
-        Me.lbl_tipo.Location = New System.Drawing.Point(6, 82)
-        Me.lbl_tipo.Name = "lbl_tipo"
-        Me.lbl_tipo.Size = New System.Drawing.Size(28, 13)
-        Me.lbl_tipo.TabIndex = 33
-        Me.lbl_tipo.Text = "Tipo"
+        Me.lbl_cuie.AutoSize = True
+        Me.lbl_cuie.Location = New System.Drawing.Point(8, 103)
+        Me.lbl_cuie.Name = "lbl_cuie"
+        Me.lbl_cuie.Size = New System.Drawing.Size(28, 13)
+        Me.lbl_cuie.TabIndex = 49
+        Me.lbl_cuie.Text = "Cuie"
         '
-        'cmb_tipo_efector
+        'txt_efectores
         '
-        Me.cmb_tipo_efector._descripcion = "descripcion"
-        Me.cmb_tipo_efector._nombre_tabla = "TIPOS_EFECTORES"
-        Me.cmb_tipo_efector._pk = "id"
-        Me.cmb_tipo_efector.FormattingEnabled = True
-        Me.cmb_tipo_efector.Location = New System.Drawing.Point(122, 76)
-        Me.cmb_tipo_efector.Name = "cmb_tipo_efector"
-        Me.cmb_tipo_efector.Size = New System.Drawing.Size(183, 21)
-        Me.cmb_tipo_efector.TabIndex = 32
+        Me.txt_efectores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_efectores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_efectores.Location = New System.Drawing.Point(122, 75)
+        Me.txt_efectores.Name = "txt_efectores"
+        Me.txt_efectores.Size = New System.Drawing.Size(282, 20)
+        Me.txt_efectores.TabIndex = 2
         '
         'cmb_departamentos
         '
@@ -119,7 +123,7 @@ Partial Class listados_efector_loc_dpto
         Me.cmb_departamentos.FormattingEnabled = True
         Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
         Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(382, 21)
+        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
         Me.cmb_departamentos.TabIndex = 0
         '
         'cmb_localidades
@@ -130,8 +134,17 @@ Partial Class listados_efector_loc_dpto
         Me.cmb_localidades.FormattingEnabled = True
         Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(382, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
         Me.cmb_localidades.TabIndex = 1
+        '
+        'lbl_vacunatorio
+        '
+        Me.lbl_vacunatorio.AutoSize = True
+        Me.lbl_vacunatorio.Location = New System.Drawing.Point(6, 77)
+        Me.lbl_vacunatorio.Name = "lbl_vacunatorio"
+        Me.lbl_vacunatorio.Size = New System.Drawing.Size(64, 13)
+        Me.lbl_vacunatorio.TabIndex = 32
+        Me.lbl_vacunatorio.Text = "Vacunatorio"
         '
         'lbl_localidad
         '
@@ -157,17 +170,24 @@ Partial Class listados_efector_loc_dpto
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReportViewer1.AutoScroll = True
+        Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
+        Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LISTEFECTORXLOCXDPTOBindingSource
+        ReportDataSource1.Value = Me.EFECTORESYREFERENTESBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_efector_loc_dpto.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(22, 153)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listado_referentes_y_efectores.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(983, 402)
+        Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
         Me.ReportViewer1.TabIndex = 4
         '
-        'listados_efector_loc_dpto
+        'EFECTORESYREFERENTESBindingSource
+        '
+        Me.EFECTORESYREFERENTESBindingSource.DataMember = "EFECTORES_Y_REFERENTES"
+        Me.EFECTORESYREFERENTESBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'listados_referentes_y_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -177,26 +197,28 @@ Partial Class listados_efector_loc_dpto
         Me.ClientSize = New System.Drawing.Size(1017, 565)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
-        Me.Name = "listados_efector_loc_dpto"
-        Me.Text = "EFECTORES"
-        CType(Me.LISTEFECTORXLOCXDPTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "listados_referentes_y_efectores"
+        Me.Text = "REFERENTES"
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents grp_datos_efector As System.Windows.Forms.GroupBox
+    Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_cuie As System.Windows.Forms.Label
+    Friend WithEvents txt_efectores As System.Windows.Forms.TextBox
     Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents cmb_localidades As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents lbl_vacunatorio As System.Windows.Forms.Label
     Friend WithEvents lbl_localidad As System.Windows.Forms.Label
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
-    Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
-    Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
-    Friend WithEvents lbl_tipo As System.Windows.Forms.Label
-    Friend WithEvents cmb_tipo_efector As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents LISTEFECTORXLOCXDPTOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents tltp_notificaciones As System.Windows.Forms.ToolTip
+    Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents EFECTORESYREFERENTESBindingSource As System.Windows.Forms.BindingSource
 End Class

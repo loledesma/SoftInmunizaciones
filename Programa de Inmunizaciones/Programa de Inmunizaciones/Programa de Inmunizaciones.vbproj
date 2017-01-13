@@ -209,10 +209,28 @@
     <Compile Include="Listados\listados_efector_loc_dpto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\listados_referentes_y_efectores.Designer.vb">
+      <DependentUpon>listados_referentes_y_efectores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listados_referentes_y_efectores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\Listados_notificaciones.Designer.vb">
       <DependentUpon>Listados_notificaciones.vb</DependentUpon>
     </Compile>
     <Compile Include="Listados\Listados_notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_usuarios.Designer.vb">
+      <DependentUpon>list_usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_atenciones.Designer.vb">
+      <DependentUpon>list_atenciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_atenciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu.designer.vb">
@@ -227,8 +245,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Inmunizaciones.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Modulos\Inmunizaciones.vb">
-      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    <Compile Include="Modulos\Inmunizaciones2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -287,9 +307,28 @@
     <EmbeddedResource Include="Listados\listados_efector_loc_dpto.resx">
       <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_referentes_y_efectores.resx">
+      <DependentUpon>listados_referentes_y_efectores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\listados_notificaciones.rdlc" />
     <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
       <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_usuarios.resx">
+      <DependentUpon>list_usuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_atenciones.rdlc" />
+    <EmbeddedResource Include="Listados\list_atenciones.resx">
+      <DependentUpon>list_atenciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_capacitaciones.rdlc" />
+    <EmbeddedResource Include="Listados\list_empleados.rdlc" />
+    <EmbeddedResource Include="Listados\list_empleados_x_estado.rdlc" />
+    <EmbeddedResource Include="Listados\list_localidad_x_dpto.rdlc" />
+    <EmbeddedResource Include="Listados\list_usuarios.rdlc" />
+    <EmbeddedResource Include="Menu.es-AR.resx">
+      <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
@@ -312,6 +351,17 @@
     </None>
     <None Include="Modulos\Inmunizaciones.xss">
       <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xsc">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Inmunizaciones2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xss">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
