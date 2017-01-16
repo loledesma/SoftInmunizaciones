@@ -62,7 +62,7 @@ Partial Class listados_efector_loc_dpto
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(659, 10)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(511, 20)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -86,7 +86,7 @@ Partial Class listados_efector_loc_dpto
         Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_efector.Location = New System.Drawing.Point(134, 12)
         Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(726, 112)
+        Me.grp_datos_efector.Size = New System.Drawing.Size(583, 112)
         Me.grp_datos_efector.TabIndex = 3
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
@@ -162,9 +162,9 @@ Partial Class listados_efector_loc_dpto
         ReportDataSource1.Value = Me.LISTEFECTORXLOCXDPTOBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_efector_loc_dpto.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(22, 153)
+        Me.ReportViewer1.Location = New System.Drawing.Point(22, 130)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(983, 402)
+        Me.ReportViewer1.Size = New System.Drawing.Size(983, 425)
         Me.ReportViewer1.TabIndex = 4
         '
         'listados_efector_loc_dpto
