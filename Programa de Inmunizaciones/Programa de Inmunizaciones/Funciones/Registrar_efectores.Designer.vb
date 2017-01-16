@@ -161,7 +161,7 @@ Partial Class Registrar_efectores
         Me.txt_referentes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_referentes.Location = New System.Drawing.Point(112, 143)
         Me.txt_referentes.Name = "txt_referentes"
-        Me.txt_referentes.Size = New System.Drawing.Size(388, 20)
+        Me.txt_referentes.Size = New System.Drawing.Size(393, 20)
         Me.txt_referentes.TabIndex = 13
         '
         'cmb_estado_rm
@@ -190,7 +190,7 @@ Partial Class Registrar_efectores
         Me.txt_pc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_pc.Location = New System.Drawing.Point(349, 109)
         Me.txt_pc.Name = "txt_pc"
-        Me.txt_pc.Size = New System.Drawing.Size(143, 20)
+        Me.txt_pc.Size = New System.Drawing.Size(156, 20)
         Me.txt_pc.TabIndex = 12
         '
         'txt_heladera
@@ -234,7 +234,7 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_cuie.BackgroundImage = CType(resources.GetObject("cmd_buscar_cuie.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_cuie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_cuie.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(418, 19)
+        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(446, 15)
         Me.cmd_buscar_cuie.Name = "cmd_buscar_cuie"
         Me.cmd_buscar_cuie.Size = New System.Drawing.Size(56, 50)
         Me.cmd_buscar_cuie.TabIndex = 7
@@ -329,7 +329,7 @@ Partial Class Registrar_efectores
         '
         Me.txt_horarioHasta.Location = New System.Drawing.Point(435, 77)
         Me.txt_horarioHasta.Name = "txt_horarioHasta"
-        Me.txt_horarioHasta.Size = New System.Drawing.Size(61, 20)
+        Me.txt_horarioHasta.Size = New System.Drawing.Size(70, 20)
         Me.txt_horarioHasta.TabIndex = 10
         '
         'Label10
