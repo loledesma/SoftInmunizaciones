@@ -295,6 +295,7 @@ Partial Class Menu
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSkyBlue
         Me.Controls.Add(Me.menu_programa_inmunizaciones)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.MainMenuStrip = Me.menu_programa_inmunizaciones
