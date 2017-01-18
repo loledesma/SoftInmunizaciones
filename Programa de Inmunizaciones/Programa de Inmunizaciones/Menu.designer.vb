@@ -65,7 +65,7 @@ Partial Class Menu
         'menu_programa_inmunizaciones
         '
         resources.ApplyResources(Me.menu_programa_inmunizaciones, "menu_programa_inmunizaciones")
-        Me.menu_programa_inmunizaciones.BackColor = System.Drawing.Color.Beige
+        Me.menu_programa_inmunizaciones.BackColor = System.Drawing.Color.Lavender
         Me.menu_programa_inmunizaciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNotificaciónToolStripMenuItem, Me.RegistrarAtenciónToolStripMenuItem, Me.VacunatoriosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.HerramientasGeneralesToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.HerramientasDelSistemaToolStripMenuItem})
         Me.menu_programa_inmunizaciones.Name = "menu_programa_inmunizaciones"
         Me.menu_programa_inmunizaciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -295,6 +295,7 @@ Partial Class Menu
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSkyBlue
         Me.Controls.Add(Me.menu_programa_inmunizaciones)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.MainMenuStrip = Me.menu_programa_inmunizaciones

@@ -39,6 +39,14 @@ Partial Class Registrar_atencion
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_estado = New System.Windows.Forms.Label()
         Me.dgv_atenciones = New System.Windows.Forms.DataGridView()
+        Me.grp_descripcion = New System.Windows.Forms.GroupBox()
+        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.tltp_atencion = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,14 +56,6 @@ Partial Class Registrar_atencion
         Me.id_administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.grp_descripcion = New System.Windows.Forms.GroupBox()
-        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
-        Me.cmd_limpiar = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.tltp_atencion = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_atencion.SuspendLayout()
@@ -238,67 +238,6 @@ Partial Class Registrar_atencion
         Me.dgv_atenciones.Size = New System.Drawing.Size(656, 488)
         Me.dgv_atenciones.TabIndex = 47
         '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'fecha
-        '
-        Me.fecha.HeaderText = "Fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        '
-        'estado
-        '
-        Me.estado.HeaderText = "Estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        '
-        'id_estado
-        '
-        Me.id_estado.HeaderText = "id_estado"
-        Me.id_estado.Name = "id_estado"
-        Me.id_estado.ReadOnly = True
-        Me.id_estado.Visible = False
-        '
-        'efector
-        '
-        Me.efector.HeaderText = "Efector"
-        Me.efector.Name = "efector"
-        Me.efector.ReadOnly = True
-        Me.efector.Width = 200
-        '
-        'cuie
-        '
-        Me.cuie.HeaderText = "cuie"
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        Me.cuie.Visible = False
-        '
-        'id_administrador
-        '
-        Me.id_administrador.HeaderText = "id_administrador"
-        Me.id_administrador.Name = "id_administrador"
-        Me.id_administrador.ReadOnly = True
-        Me.id_administrador.Visible = False
-        '
-        'administrador
-        '
-        Me.administrador.HeaderText = "Administrador"
-        Me.administrador.Name = "administrador"
-        Me.administrador.ReadOnly = True
-        Me.administrador.Visible = False
-        Me.administrador.Width = 150
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "descripcion"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 200
-        '
         'grp_descripcion
         '
         Me.grp_descripcion.BackColor = System.Drawing.Color.Transparent
@@ -313,9 +252,9 @@ Partial Class Registrar_atencion
         '
         'txt_descripcion
         '
-        Me.txt_descripcion.Location = New System.Drawing.Point(19, 19)
+        Me.txt_descripcion.Location = New System.Drawing.Point(9, 19)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(372, 238)
+        Me.txt_descripcion.Size = New System.Drawing.Size(381, 238)
         Me.txt_descripcion.TabIndex = 0
         Me.txt_descripcion.Text = ""
         '
@@ -408,6 +347,67 @@ Partial Class Registrar_atencion
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'fecha
+        '
+        Me.fecha.HeaderText = "Fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        '
+        'estado
+        '
+        Me.estado.HeaderText = "Estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        '
+        'id_estado
+        '
+        Me.id_estado.HeaderText = "id_estado"
+        Me.id_estado.Name = "id_estado"
+        Me.id_estado.ReadOnly = True
+        Me.id_estado.Visible = False
+        '
+        'efector
+        '
+        Me.efector.HeaderText = "Efector"
+        Me.efector.Name = "efector"
+        Me.efector.ReadOnly = True
+        Me.efector.Width = 200
+        '
+        'cuie
+        '
+        Me.cuie.HeaderText = "CUIE"
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        Me.cuie.Visible = False
+        '
+        'id_administrador
+        '
+        Me.id_administrador.HeaderText = "id_administrador"
+        Me.id_administrador.Name = "id_administrador"
+        Me.id_administrador.ReadOnly = True
+        Me.id_administrador.Visible = False
+        '
+        'administrador
+        '
+        Me.administrador.HeaderText = "Administrador"
+        Me.administrador.Name = "administrador"
+        Me.administrador.ReadOnly = True
+        Me.administrador.Visible = False
+        Me.administrador.Width = 150
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripcion"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 200
+        '
         'cmb_empleados
         '
         Me.cmb_empleados._descripcion = "nombres"
@@ -444,6 +444,7 @@ Partial Class Registrar_atencion
         Me.Controls.Add(Me.grp_descripcion)
         Me.Controls.Add(Me.dgv_atenciones)
         Me.Controls.Add(Me.grp_datos_atencion)
+        Me.KeyPreview = True
         Me.Name = "Registrar_atencion"
         Me.Text = "ATENCIONES"
         Me.grp_datos_atencion.ResumeLayout(False)
@@ -477,6 +478,7 @@ Partial Class Registrar_atencion
     Friend WithEvents tltp_atencion As System.Windows.Forms.ToolTip
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents cmd_actualizar_estado As System.Windows.Forms.Button
+    Friend WithEvents cmd_efector_nuevo As System.Windows.Forms.Button
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents estado As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -486,5 +488,4 @@ Partial Class Registrar_atencion
     Friend WithEvents id_administrador As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents administrador As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cmd_efector_nuevo As System.Windows.Forms.Button
 End Class

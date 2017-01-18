@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>8.11359cm</Width>
+              <Width>2.68963cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.92396cm</Width>
+              <Width>9.14465cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.79166cm</Width>
+              <Width>5.01353cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.57937cm</Width>
+              <Width>8.00333cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>11.99854cm</Width>
+              <Width>6.73333cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -34,7 +34,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>DEPARTAMENTO</Value>
+                              <Value>CUIE</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -70,7 +70,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>LOCALIDAD</Value>
+                              <Value>EFECTOR</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CUIE</Value>
+                              <Value>LOCALIDAD</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -178,7 +178,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>VACUNATORIO</Value>
+                              <Value>DEPARTAMENTO</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -212,14 +212,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre_departamento">
+                    <Textbox Name="cuie1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre_departamento.Value</Value>
+                              <Value>=Fields!cuie.Value</Value>
                               <Style>
                                 <Color>White</Color>
                               </Style>
@@ -228,7 +228,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre_departamento</rd:DefaultName>
+                      <rd:DefaultName>cuie1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -245,14 +245,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre_localidad">
+                    <Textbox Name="nombre_efector1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre_localidad.Value</Value>
+                              <Value>=Fields!nombre_efector.Value</Value>
                               <Style>
                                 <Color>White</Color>
                               </Style>
@@ -261,7 +261,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre_localidad</rd:DefaultName>
+                      <rd:DefaultName>nombre_efector1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -311,14 +311,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="cuie">
+                    <Textbox Name="nombre_localidad">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!cuie.Value</Value>
+                              <Value>=Fields!nombre_localidad.Value</Value>
                               <Style>
                                 <Color>White</Color>
                               </Style>
@@ -327,7 +327,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>cuie</rd:DefaultName>
+                      <rd:DefaultName>nombre_localidad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -344,14 +344,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre_efector">
+                    <Textbox Name="nombre_departamento">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre_efector.Value</Value>
+                              <Value>=Fields!nombre_departamento.Value</Value>
                               <Style>
                                 <Color>White</Color>
                               </Style>
@@ -360,7 +360,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre_efector</rd:DefaultName>
+                      <rd:DefaultName>nombre_departamento</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -399,10 +399,15 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!nombre_departamento.Value</Value>
+          </SortExpression>
+        </SortExpressions>
         <Top>1.24037cm</Top>
         <Left>1.14448cm</Left>
         <Height>1.2cm</Height>
-        <Width>38.40712cm</Width>
+        <Width>31.58447cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -416,7 +421,7 @@
         <Style>Dashed</Style>
         <Width>2pt</Width>
       </Border>
-      <BackgroundColor>CornflowerBlue</BackgroundColor>
+      <BackgroundColor>LightSeaGreen</BackgroundColor>
     </Style>
   </Body>
   <Width>16.259in</Width>
@@ -479,7 +484,7 @@
         <Border>
           <Style>None</Style>
         </Border>
-        <BackgroundColor>CornflowerBlue</BackgroundColor>
+        <BackgroundColor>LightSeaGreen</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
@@ -488,6 +493,7 @@
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line2">
+          <Top>0cm</Top>
           <Height>0cm</Height>
           <Width>41.29785cm</Width>
           <Style>
@@ -534,7 +540,7 @@
         <Border>
           <Style>None</Style>
         </Border>
-        <BackgroundColor>CornflowerBlue</BackgroundColor>
+        <BackgroundColor>LightSeaGreen</BackgroundColor>
       </Style>
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
