@@ -49,21 +49,6 @@ Partial Class Registrar_notificaciones
         Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.lbl_id = New System.Windows.Forms.Label()
         Me.dgv_notificaciones = New System.Windows.Forms.DataGridView()
-        Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
-        Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
-        Me.cmd_buscar_notificaciones = New System.Windows.Forms.Button()
-        Me.lbl_id_notificacion = New System.Windows.Forms.Label()
-        Me.txt_id_notificacion = New System.Windows.Forms.TextBox()
-        Me.txt_fecha = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_stock = New System.Windows.Forms.Label()
-        Me.lbl_perfil = New System.Windows.Forms.Label()
-        Me.lbl_perdidas = New System.Windows.Forms.Label()
-        Me.lbl_carga = New System.Windows.Forms.Label()
-        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -74,6 +59,23 @@ Partial Class Registrar_notificaciones
         Me.id_perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
+        Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
+        Me.cmd_buscar_notificaciones = New System.Windows.Forms.Button()
+        Me.lbl_id_notificacion = New System.Windows.Forms.Label()
+        Me.txt_id_notificacion = New System.Windows.Forms.TextBox()
+        Me.txt_fecha = New System.Windows.Forms.MaskedTextBox()
+        Me.lbl_stock = New System.Windows.Forms.Label()
+        Me.lbl_perfil = New System.Windows.Forms.Label()
+        Me.lbl_perdidas = New System.Windows.Forms.Label()
+        Me.lbl_carga = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_contador_notif = New System.Windows.Forms.Label()
+        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_notificaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -395,6 +397,72 @@ Partial Class Registrar_notificaciones
         Me.dgv_notificaciones.Size = New System.Drawing.Size(628, 437)
         Me.dgv_notificaciones.TabIndex = 46
         '
+        'fecha
+        '
+        Me.fecha.HeaderText = "Fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        Me.fecha.Width = 80
+        '
+        'nombre_efector
+        '
+        Me.nombre_efector.HeaderText = "Vacunatorio"
+        Me.nombre_efector.Name = "nombre_efector"
+        Me.nombre_efector.ReadOnly = True
+        Me.nombre_efector.Width = 200
+        '
+        'carga
+        '
+        Me.carga.HeaderText = "Carga"
+        Me.carga.Name = "carga"
+        Me.carga.ReadOnly = True
+        '
+        'perdidas
+        '
+        Me.perdidas.HeaderText = "Perdidas"
+        Me.perdidas.Name = "perdidas"
+        Me.perdidas.ReadOnly = True
+        '
+        'stock
+        '
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
+        '
+        'id_stock
+        '
+        Me.id_stock.HeaderText = "id_stock"
+        Me.id_stock.Name = "id_stock"
+        Me.id_stock.ReadOnly = True
+        Me.id_stock.Visible = False
+        '
+        'id_carga
+        '
+        Me.id_carga.HeaderText = "id_carga"
+        Me.id_carga.Name = "id_carga"
+        Me.id_carga.ReadOnly = True
+        Me.id_carga.Visible = False
+        '
+        'id_perdidas
+        '
+        Me.id_perdidas.HeaderText = "id_perdidas"
+        Me.id_perdidas.Name = "id_perdidas"
+        Me.id_perdidas.ReadOnly = True
+        Me.id_perdidas.Visible = False
+        '
+        'id_efector
+        '
+        Me.id_efector.HeaderText = "id_efector"
+        Me.id_efector.Name = "id_efector"
+        Me.id_efector.ReadOnly = True
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Visible = False
+        '
         'grp_datos_notificacion
         '
         Me.grp_datos_notificacion.BackColor = System.Drawing.Color.Transparent
@@ -489,6 +557,29 @@ Partial Class Registrar_notificaciones
         Me.lbl_carga.TabIndex = 30
         Me.lbl_carga.Text = "Carga"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(422, 448)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(207, 17)
+        Me.Label1.TabIndex = 47
+        Me.Label1.Text = "Notificaciones registradas: "
+        '
+        'lbl_contador_notif
+        '
+        Me.lbl_contador_notif.AutoSize = True
+        Me.lbl_contador_notif.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_notif.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_notif.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_notif.Location = New System.Drawing.Point(622, 448)
+        Me.lbl_contador_notif.Name = "lbl_contador_notif"
+        Me.lbl_contador_notif.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_notif.TabIndex = 48
+        '
         'cmb_carga
         '
         Me.cmb_carga._descripcion = "descripcion"
@@ -544,72 +635,6 @@ Partial Class Registrar_notificaciones
         Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
         Me.cmb_localidades.TabIndex = 1
         '
-        'fecha
-        '
-        Me.fecha.HeaderText = "Fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        Me.fecha.Width = 80
-        '
-        'nombre_efector
-        '
-        Me.nombre_efector.HeaderText = "Vacunatorio"
-        Me.nombre_efector.Name = "nombre_efector"
-        Me.nombre_efector.ReadOnly = True
-        Me.nombre_efector.Width = 200
-        '
-        'carga
-        '
-        Me.carga.HeaderText = "Carga"
-        Me.carga.Name = "carga"
-        Me.carga.ReadOnly = True
-        '
-        'perdidas
-        '
-        Me.perdidas.HeaderText = "Perdidas"
-        Me.perdidas.Name = "perdidas"
-        Me.perdidas.ReadOnly = True
-        '
-        'stock
-        '
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        Me.stock.ReadOnly = True
-        '
-        'id_stock
-        '
-        Me.id_stock.HeaderText = "id_stock"
-        Me.id_stock.Name = "id_stock"
-        Me.id_stock.ReadOnly = True
-        Me.id_stock.Visible = False
-        '
-        'id_carga
-        '
-        Me.id_carga.HeaderText = "id_carga"
-        Me.id_carga.Name = "id_carga"
-        Me.id_carga.ReadOnly = True
-        Me.id_carga.Visible = False
-        '
-        'id_perdidas
-        '
-        Me.id_perdidas.HeaderText = "id_perdidas"
-        Me.id_perdidas.Name = "id_perdidas"
-        Me.id_perdidas.ReadOnly = True
-        Me.id_perdidas.Visible = False
-        '
-        'id_efector
-        '
-        Me.id_efector.HeaderText = "id_efector"
-        Me.id_efector.Name = "id_efector"
-        Me.id_efector.ReadOnly = True
-        '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
-        '
         'Registrar_notificaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -617,6 +642,8 @@ Partial Class Registrar_notificaciones
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 530)
+        Me.Controls.Add(Me.lbl_contador_notif)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.grp_datos_notificacion)
         Me.Controls.Add(Me.dgv_notificaciones)
         Me.Controls.Add(Me.grp_datos_empleados)
@@ -637,6 +664,7 @@ Partial Class Registrar_notificaciones
         Me.grp_datos_notificacion.ResumeLayout(False)
         Me.grp_datos_notificacion.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
@@ -689,4 +717,6 @@ Partial Class Registrar_notificaciones
     Friend WithEvents id_perdidas As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_efector As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_notif As System.Windows.Forms.Label
 End Class
