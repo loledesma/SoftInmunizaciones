@@ -1173,6 +1173,7 @@
                     txt_cuie.Text = tabla.Rows(0)("cuie")
                     cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
                     cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If
@@ -1190,6 +1191,7 @@
                     txt_efectores.Text = tabla.Rows(0)("nombre")
                     cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
                     cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If
