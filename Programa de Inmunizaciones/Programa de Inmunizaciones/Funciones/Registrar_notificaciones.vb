@@ -20,6 +20,7 @@
     Private Sub Registrar_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar(Me.Controls)
         Me.cargar_grilla()
+        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_apellidos, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_nombres, "EMPLEADOS", "nombres")
@@ -582,5 +583,9 @@
 
         limpiar(Me.Controls)
         Me.condicion_estado = estado.modificar
+    End Sub
+
+    Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_notificaciones.CellValueChanged
+        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
     End Sub
 End Class
