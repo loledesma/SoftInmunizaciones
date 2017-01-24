@@ -323,8 +323,8 @@
         Else
             Exit Sub
         End If
-        Me.limpiar(Me.Controls)
-        Me.txt_descripcion.Text = ""
+        'Me.limpiar(Me.Controls)
+        'Me.txt_descripcion.Text = ""
         Me.cargar_grilla()
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True

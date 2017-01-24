@@ -151,7 +151,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_apellido.Location = New System.Drawing.Point(386, 105)
         Me.cmd_buscar_x_apellido.Name = "cmd_buscar_x_apellido"
         Me.cmd_buscar_x_apellido.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_x_apellido.TabIndex = 8
+        Me.cmd_buscar_x_apellido.TabIndex = 6
         Me.cmd_buscar_x_apellido.UseVisualStyleBackColor = True
         '
         'txt_nro_documento
@@ -189,7 +189,7 @@ Partial Class abm_empleados
         Me.txt_telefono.Mask = "999999999"
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(135, 20)
-        Me.txt_telefono.TabIndex = 7
+        Me.txt_telefono.TabIndex = 8
         '
         'Label3
         '
@@ -206,7 +206,7 @@ Partial Class abm_empleados
         Me.txt_caracteristica.Mask = "9999999"
         Me.txt_caracteristica.Name = "txt_caracteristica"
         Me.txt_caracteristica.Size = New System.Drawing.Size(67, 20)
-        Me.txt_caracteristica.TabIndex = 6
+        Me.txt_caracteristica.TabIndex = 7
         '
         'Label2
         '
@@ -340,7 +340,7 @@ Partial Class abm_empleados
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 4
+        Me.cmd_guardar.TabIndex = 3
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -359,7 +359,7 @@ Partial Class abm_empleados
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 3
+        Me.cmd_nuevo.TabIndex = 4
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -429,7 +429,7 @@ Partial Class abm_empleados
         Me.cmb_estado_empleado.Location = New System.Drawing.Point(124, 156)
         Me.cmb_estado_empleado.Name = "cmb_estado_empleado"
         Me.cmb_estado_empleado.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estado_empleado.TabIndex = 7
+        Me.cmb_estado_empleado.TabIndex = 6
         '
         'Label1
         '
@@ -536,7 +536,7 @@ Partial Class abm_empleados
         Me.cmb_perfil.Location = New System.Drawing.Point(124, 183)
         Me.cmb_perfil.Name = "cmb_perfil"
         Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_perfil.TabIndex = 6
+        Me.cmb_perfil.TabIndex = 7
         '
         'lbl_perfil
         '
@@ -615,7 +615,7 @@ Partial Class abm_empleados
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
         Me.dgv_empleados.Size = New System.Drawing.Size(615, 297)
-        Me.dgv_empleados.TabIndex = 35
+        Me.dgv_empleados.TabIndex = 9
         '
         'id_empleado
         '
@@ -707,7 +707,7 @@ Partial Class abm_empleados
         Me.dgv_efectores.Name = "dgv_efectores"
         Me.dgv_efectores.ReadOnly = True
         Me.dgv_efectores.Size = New System.Drawing.Size(618, 214)
-        Me.dgv_efectores.TabIndex = 38
+        Me.dgv_efectores.TabIndex = 10
         '
         'cuie
         '
@@ -803,7 +803,7 @@ Partial Class abm_empleados
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha.TabIndex = 2
+        Me.txt_fecha.TabIndex = 3
         Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'grp_datos_sigipsa
@@ -835,7 +835,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_usuario.Location = New System.Drawing.Point(388, 42)
         Me.cmd_buscar_x_usuario.Name = "cmd_buscar_x_usuario"
         Me.cmd_buscar_x_usuario.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_x_usuario.TabIndex = 4
+        Me.cmd_buscar_x_usuario.TabIndex = 2
         Me.cmd_buscar_x_usuario.UseVisualStyleBackColor = True
         '
         'cmd_cambiar_estado
@@ -852,7 +852,7 @@ Partial Class abm_empleados
         Me.cmd_cambiar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cambiar_estado.Name = "cmd_cambiar_estado"
         Me.cmd_cambiar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_cambiar_estado.TabIndex = 43
+        Me.cmd_cambiar_estado.TabIndex = 5
         Me.cmd_cambiar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_cambiar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_cambiar_estado.UseVisualStyleBackColor = False
@@ -866,7 +866,7 @@ Partial Class abm_empleados
         Me.cmb_estados.Location = New System.Drawing.Point(124, 91)
         Me.cmb_estados.Name = "cmb_estados"
         Me.cmb_estados.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estados.TabIndex = 3
+        Me.cmb_estados.TabIndex = 4
         '
         'lbl_estado
         '
