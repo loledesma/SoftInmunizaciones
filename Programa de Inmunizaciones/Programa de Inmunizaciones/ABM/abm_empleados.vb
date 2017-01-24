@@ -1183,7 +1183,7 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_cuie.Text <> "" Then
-                sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
+                sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
