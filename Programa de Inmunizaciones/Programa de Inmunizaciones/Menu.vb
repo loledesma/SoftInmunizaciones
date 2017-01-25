@@ -49,8 +49,7 @@
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-
-
-
-
+    Private Sub LocalidadesPorDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesPorDepartamentosToolStripMenuItem.Click
+        listado_localidadesxdpto.Show()
+    End Sub
 End Class
