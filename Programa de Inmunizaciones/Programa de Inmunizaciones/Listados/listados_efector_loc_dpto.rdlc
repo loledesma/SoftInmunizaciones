@@ -418,6 +418,7 @@
     <Height>1.85416in</Height>
     <Style>
       <Border>
+        <Color>White</Color>
         <Style>Dashed</Style>
         <Width>2pt</Width>
       </Border>
@@ -437,6 +438,7 @@
           <Width>41.29785cm</Width>
           <Style>
             <Border>
+              <Color>White</Color>
               <Style>Solid</Style>
             </Border>
           </Style>
@@ -493,7 +495,6 @@
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line2">
-          <Top>0cm</Top>
           <Height>0cm</Height>
           <Width>41.29785cm</Width>
           <Style>

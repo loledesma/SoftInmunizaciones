@@ -122,8 +122,11 @@
             sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+                If cmb_tipo_efector.SelectedIndex <> -1 Then
+                    sql &= " AND EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
+                End If
             ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
-                sql &= " AND E.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
+                sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
@@ -133,6 +136,7 @@
         ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
             sql &= " WHERE EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
         End If
+
 
         sql &= "ORDER BY nombre_departamento, nombre_localidad, tipo_efector, nombre_efector "
 
