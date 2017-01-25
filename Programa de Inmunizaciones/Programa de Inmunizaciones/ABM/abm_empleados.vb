@@ -116,6 +116,8 @@
         Me.limpiar(Me.Controls)
         Me.condicion_estado = estado.insertar
         Me.txt_id_empleado.Focus()
+        txt_cuie.Enabled = True
+        txt_nombre.Enabled = True
         cargar_grilla()
     End Sub
 
