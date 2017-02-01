@@ -25,6 +25,7 @@ Partial Class listados_referentes_y_efectores
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listados_referentes_y_efectores))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EFECTORESYREFERENTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
@@ -38,11 +39,15 @@ Partial Class listados_referentes_y_efectores
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
-        Me.EFECTORESYREFERENTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
-        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EFECTORESYREFERENTESBindingSource
+        '
+        Me.EFECTORESYREFERENTESBindingSource.DataMember = "EFECTORES_Y_REFERENTES"
+        Me.EFECTORESYREFERENTESBindingSource.DataSource = Me.Inmunizaciones
         '
         'Inmunizaciones
         '
@@ -64,7 +69,7 @@ Partial Class listados_referentes_y_efectores
         Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_efector.Location = New System.Drawing.Point(237, 12)
         Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(612, 133)
+        Me.grp_datos_efector.Size = New System.Drawing.Size(490, 133)
         Me.grp_datos_efector.TabIndex = 3
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
@@ -79,7 +84,7 @@ Partial Class listados_referentes_y_efectores
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(516, 22)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(411, 20)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -177,15 +182,10 @@ Partial Class listados_referentes_y_efectores
         ReportDataSource1.Value = Me.EFECTORESYREFERENTESBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listado_referentes_y_efectores.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
+        Me.ReportViewer1.Size = New System.Drawing.Size(993, 399)
         Me.ReportViewer1.TabIndex = 4
-        '
-        'EFECTORESYREFERENTESBindingSource
-        '
-        Me.EFECTORESYREFERENTESBindingSource.DataMember = "EFECTORES_Y_REFERENTES"
-        Me.EFECTORESYREFERENTESBindingSource.DataSource = Me.Inmunizaciones
         '
         'listados_referentes_y_efectores
         '
@@ -199,10 +199,10 @@ Partial Class listados_referentes_y_efectores
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "listados_referentes_y_efectores"
         Me.Text = "REFERENTES"
+        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
-        CType(Me.EFECTORESYREFERENTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
