@@ -36,6 +36,14 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
     End Sub
 
+    Private Sub Registrar_atencion_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
+            nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
+        End If
+    End Sub
     Private Sub txt_nombre_LostFocus(sender As Object, e As EventArgs) Handles txt_efector.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -315,8 +323,8 @@
         Else
             Exit Sub
         End If
-        Me.limpiar(Me.Controls)
-        Me.txt_descripcion.Text = ""
+        'Me.limpiar(Me.Controls)
+        'Me.txt_descripcion.Text = ""
         Me.cargar_grilla()
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
@@ -476,5 +484,6 @@
         Me.condicion_estado = condicion.insertar
         Me.txt_id_atencion.Focus()
         Me.cargar_grilla()
+        Me.txt_descripcion.Text = ""
     End Sub
 End Class

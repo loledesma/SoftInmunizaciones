@@ -56,12 +56,8 @@
     End Sub
 
     Private Sub Listados_notificaciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Me.limpiar(Me.Controls)
-            e.Cancel = False
-        Else
-            e.Cancel = True
-        End If
+        
+
     End Sub
 
     'Private Function validar_fecha() As Boolean
@@ -122,8 +118,11 @@
             sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+                If cmb_tipo_efector.SelectedIndex <> -1 Then
+                    sql &= " AND EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
+                End If
             ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
-                sql &= " AND E.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
+                sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
@@ -133,6 +132,7 @@
         ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
             sql &= " WHERE EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
         End If
+
 
         sql &= "ORDER BY nombre_departamento, nombre_localidad, tipo_efector, nombre_efector "
 
@@ -157,8 +157,6 @@
         Me.ReportViewer1.Width = Me.Width - 50
         Me.ReportViewer1.Height = Me.Height - 200
 
-        'Me.ReportViewer1.Anchor = AnchorStyles.Left
-        'Me.ReportViewer1.Anchor = AnchorStyles.Right
-        'Me.ReportViewer1.PerformAutoScale()
+        
     End Sub
 End Class

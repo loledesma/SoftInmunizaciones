@@ -116,6 +116,8 @@
         Me.limpiar(Me.Controls)
         Me.condicion_estado = estado.insertar
         Me.txt_id_empleado.Focus()
+        txt_cuie.Enabled = True
+        txt_nombre.Enabled = True
         cargar_grilla()
     End Sub
 
@@ -555,7 +557,7 @@
         sql &= " , nro_doc= " & Me.txt_nro_documento.Text
         sql &= " , nombres= '" & Me.txt_nombre.Text & "'"
         sql &= " , apellidos= '" & Me.txt_apellido.Text & "'"
-        sql &= " , caracteristica= " & Me.txt_caracteristica.Text
+        ' sql &= " , caracteristica= " & Me.txt_caracteristica.Text
 
         If txt_telefono.Text <> "" Then
             sql &= ", telefono = " & Me.txt_telefono.Text
@@ -1166,11 +1168,14 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
-                sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
+                sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.nombre='" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If
@@ -1181,11 +1186,14 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_cuie.Text <> "" Then
-                sql &= "SELECT E.nombre As nombre FROM EFECTORES E "
+                sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_efectores.Text = tabla.Rows(0)("nombre")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If

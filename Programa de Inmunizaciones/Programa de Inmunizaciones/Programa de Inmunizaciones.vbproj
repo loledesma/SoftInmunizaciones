@@ -221,6 +221,18 @@
     <Compile Include="Listados\Listados_notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\listado_localidadesxdpto.Designer.vb">
+      <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listado_localidadesxdpto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_efectores_x_estado.Designer.vb">
+      <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efectores_x_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_usuarios.Designer.vb">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </Compile>
@@ -314,7 +326,14 @@
     <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
       <DependentUpon>Listados_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listado_localidadesxdpto.resx">
+      <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_x_estado.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_x_estado.resx">
+      <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </EmbeddedResource>
