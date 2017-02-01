@@ -1106,4 +1106,8 @@
         txt_nombre.Focus()
         Me.condicion_estado = estado.modificar
     End Sub
+
+    Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
+        lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
+    End Sub
 End Class

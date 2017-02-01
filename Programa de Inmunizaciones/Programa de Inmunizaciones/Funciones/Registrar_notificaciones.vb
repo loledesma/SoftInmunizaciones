@@ -144,12 +144,32 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
-                sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
+                sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.nombre= '" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
 
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+                End If
+            End If
+        End If
+    End Sub
+ 
+    Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        If Me.condicion_click = doble_Click.desactivado Then
+            If txt_cuie.Text <> "" Then
+                sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
+                sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count() <> 0 Then
+                    txt_efectores.Text = tabla.Rows(0)("nombre")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If

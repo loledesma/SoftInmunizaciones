@@ -52,4 +52,8 @@
     Private Sub LocalidadesPorDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesPorDepartamentosToolStripMenuItem.Click
         listado_localidadesxdpto.Show()
     End Sub
+
+    Private Sub EfectoresPorReferenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorReferenteToolStripMenuItem.Click
+        listados_referentes_y_efectores.ShowDialog()
+    End Sub
 End Class

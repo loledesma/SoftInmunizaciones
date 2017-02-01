@@ -109,6 +109,8 @@ Partial Class Registrar_efectores
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_grilla_empleados.SuspendLayout()
@@ -879,7 +881,7 @@ Partial Class Registrar_efectores
         Me.grp_grilla_vacunatorios.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_grilla_vacunatorios.Location = New System.Drawing.Point(529, 12)
         Me.grp_grilla_vacunatorios.Name = "grp_grilla_vacunatorios"
-        Me.grp_grilla_vacunatorios.Size = New System.Drawing.Size(714, 260)
+        Me.grp_grilla_vacunatorios.Size = New System.Drawing.Size(714, 243)
         Me.grp_grilla_vacunatorios.TabIndex = 8
         Me.grp_grilla_vacunatorios.TabStop = False
         Me.grp_grilla_vacunatorios.Text = "Vacunatorios"
@@ -901,7 +903,7 @@ Partial Class Registrar_efectores
         Me.dgv_vacunatorios.Location = New System.Drawing.Point(6, 19)
         Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
         Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(702, 232)
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(702, 219)
         Me.dgv_vacunatorios.TabIndex = 0
         '
         'cuie
@@ -1002,6 +1004,29 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(532, 261)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(169, 17)
+        Me.Label22.TabIndex = 48
+        Me.Label22.Text = "Efectores registrados:"
+        '
+        'lbl_contador_efectores
+        '
+        Me.lbl_contador_efectores.AutoSize = True
+        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_efectores.Location = New System.Drawing.Point(707, 261)
+        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
+        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_efectores.TabIndex = 49
+        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1009,6 +1034,8 @@ Partial Class Registrar_efectores
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1255, 634)
+        Me.Controls.Add(Me.lbl_contador_efectores)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
@@ -1031,6 +1058,7 @@ Partial Class Registrar_efectores
         Me.grp_grilla_vacunatorios.ResumeLayout(False)
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents grp_datos_vacunatorio As System.Windows.Forms.GroupBox
@@ -1116,4 +1144,6 @@ Partial Class Registrar_efectores
     Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
     Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
 End Class
