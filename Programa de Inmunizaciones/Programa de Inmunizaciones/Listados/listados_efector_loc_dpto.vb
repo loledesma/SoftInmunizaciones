@@ -56,12 +56,8 @@
     End Sub
 
     Private Sub Listados_notificaciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Me.limpiar(Me.Controls)
-            e.Cancel = False
-        Else
-            e.Cancel = True
-        End If
+        
+
     End Sub
 
     'Private Function validar_fecha() As Boolean
@@ -161,8 +157,6 @@
         Me.ReportViewer1.Width = Me.Width - 50
         Me.ReportViewer1.Height = Me.Height - 200
 
-        'Me.ReportViewer1.Anchor = AnchorStyles.Left
-        'Me.ReportViewer1.Anchor = AnchorStyles.Right
-        'Me.ReportViewer1.PerformAutoScale()
+        
     End Sub
 End Class

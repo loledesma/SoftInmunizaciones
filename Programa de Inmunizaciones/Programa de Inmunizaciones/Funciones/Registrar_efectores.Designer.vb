@@ -519,9 +519,9 @@ Partial Class Registrar_efectores
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -893,11 +893,11 @@ Partial Class Registrar_efectores
         Me.dgv_vacunatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_vacunatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre, Me.referente, Me.localidad})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.InactiveBorder
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_vacunatorios.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_vacunatorios.Location = New System.Drawing.Point(6, 19)
