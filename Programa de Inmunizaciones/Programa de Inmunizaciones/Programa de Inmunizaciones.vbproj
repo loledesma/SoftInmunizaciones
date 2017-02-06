@@ -321,6 +321,9 @@
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_peticiones_desarrollos.resx">
+      <DependentUpon>Registrar_peticiones_desarrollos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_recordatorio.resx">
       <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
     </EmbeddedResource>
