@@ -72,10 +72,23 @@
             dgv_pedidos.Rows.Add()
             dgv_pedidos.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
             dgv_pedidos.Rows(c).Cells("fecha_pedido").Value = tabla.Rows(c)("fecha_pedido")
-            dgv_pedidos.Rows(c).Cells("fecha_solucion").Value = tabla.Rows(c)("fecha_solucion")
+
+            If IsDBNull(tabla.Rows(c)("fecha_solucion")) = True Then
+                dgv_pedidos.Rows(c).Cells("fecha_solucion").Value = "NULL"
+            Else
+                dgv_pedidos.Rows(c).Cells("fecha_solucion").Value = tabla.Rows(c)("fecha_solucion")
+            End If
+
             dgv_pedidos.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_pedidos")
             dgv_pedidos.Rows(c).Cells("solicitado").Value = tabla.Rows(c)("descripcionSolicitud")
-            dgv_pedidos.Rows(c).Cells("respuesta").Value = tabla.Rows(c)("descripcionRespuesta")
+
+            If IsDBNull(tabla.Rows(c)("descripcionRespuesta")) = True Then
+                dgv_pedidos.Rows(c).Cells("respuesta").Value = "NULL"
+            Else
+                dgv_pedidos.Rows(c).Cells("respuesta").Value = tabla.Rows(c)("descripcionRespuesta")
+            End If
+
+
             dgv_pedidos.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
             dgv_pedidos.Rows(c).Cells("desarrollador").Value = tabla.Rows(c)("desarrollador")
 
@@ -143,11 +156,24 @@
 
         Me.txt_id_desarrollo.Text = Me.dgv_pedidos.CurrentRow.Cells("id").Value
         Me.txt_fecha_pedido.Text = tabla.Rows(0)("fecha_pedido")
-        Me.txt_fecha_solucion.Text = tabla.Rows(0)("fecha_solucion")
+
+        If IsDBNull(tabla.Rows(0)("fecha_solucion")) = True Then
+            txt_fecha_solucion.Text = "NULL"
+        Else
+            txt_fecha_solucion.Text = tabla.Rows(0)("fecha_solucion")
+        End If
+
         Me.cmb_estado_pedido.SelectedValue = tabla.Rows(0)("id_estados_pedidos")
         Me.cmb_empleados.SelectedValue = tabla.Rows(0)("id_administrador")
         Me.txt_solicitado.Text = tabla.Rows(0)("descripcionSolicitud")
-        Me.txt_respuesta.Text = tabla.Rows(0)("descripcionRespuesta")
+
+
+        If IsDBNull(tabla.Rows(0)("descripcionRespuesta")) = True Then
+            Me.txt_respuesta.Text = "NULL"
+        Else
+            Me.txt_respuesta.Text = tabla.Rows(0)("descripcionRespuesta")
+        End If
+
         Me.txt_desarrollador.Text = tabla.Rows(0)("desarrollador")
 
         Me.cmd_eliminar.Enabled = True
@@ -222,12 +248,22 @@
 
         sql &= "id = " & Me.txt_id_desarrollo.Text
         sql &= ", fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
-        sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
+
+        If IsDate(txt_fecha_solucion.Text) Then
+            sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
+        Else
+            sql &= ", fecha_solucion= NULL"
+        End If
+
+        If txt_respuesta.Text = "" Then
+            sql &= ", descripcionRespuesta = NULL"
+        Else
+            sql &= ", descripcionRespuesta = " & Me.txt_respuesta.Text
+        End If
+
         sql &= ", id_estados_pedidos = " & Me.cmb_estado_pedido.SelectedValue
         sql &= ", descripcionSolicitud =" & Me.txt_solicitado.Text
-        sql &= ", descripcionRespuesta =" & Me.txt_respuesta.Text
         sql &= ", desarrollador= " & Me.txt_desarrollador.Text
-
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         acceso.insertar(sql)
     End Sub
@@ -237,12 +273,25 @@
 
         sql = "UPDATE PEDIDO_DESARROLLO "
         sql &= " SET fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
-        sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
+
+        If IsDate(txt_fecha_solucion.Text) = False Then
+            sql &= ", fecha_solucion= Null"
+        Else
+            sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
+        End If
+
         sql &= ", id_estados_pedidos = " & Me.cmb_estado_pedido.SelectedValue
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         sql &= ", descripcionSolicitud ='" & Me.txt_solicitado.Text & "'"
-        sql &= ", descripcionRespuesta ='" & Me.txt_respuesta.Text & "'"
-        sql &= ", desarrollador ='" & Me.txt_respuesta.Text & "'"
+
+
+        If txt_respuesta.Text = "" Then
+            sql &= ", descripcionRespuesta = NULL"
+        Else
+            sql &= ", descripcionRespuesta ='" & Me.txt_respuesta.Text & "'"
+        End If
+
+        sql &= ", desarrollador ='" & Me.txt_desarrollador.Text & "'"
         sql &= " WHERE id = " & Me.txt_id_desarrollo.Text
 
         acceso.ejecutar(sql)
@@ -254,7 +303,7 @@
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
                     Me.insertar()
                 Else
-                    MessageBox.Show("Ya se encuentra cargada esta atención")
+                    MessageBox.Show("Ya se encuentra cargada la peticion")
                     Exit Sub
                 End If
             Else
@@ -373,15 +422,26 @@
                 dgv_pedidos.Rows.Add()
                 dgv_pedidos.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
                 dgv_pedidos.Rows(c).Cells("fecha_pedido").Value = tabla.Rows(0)("fecha_pedido")
-                dgv_pedidos.Rows(c).Cells("fecha_solucion").Value = tabla.Rows(0)("fecha_solucion")
+
+                If IsDBNull(tabla.Rows(0)("fecha_solucion")) = True Then
+                    dgv_pedidos.Rows(c).Cells("fecha_solucion").Value = "NULL"
+                Else
+                    dgv_pedidos.Rows(c).Cells("fecha_solucion").Value = tabla.Rows(0)("fecha_solucion")
+                End If
+
+                If IsDBNull(tabla.Rows(0)("descripcionRespuesta")) = True Then
+                    dgv_pedidos.Rows(c).Cells("respuesta").Value = "NULL"
+                Else
+                    dgv_pedidos.Rows(c).Cells("respuesta").Value = tabla.Rows(0)("descripcionRespuesta")
+                End If
+
                 dgv_pedidos.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estados_pedidos")
                 dgv_pedidos.Rows(c).Cells("desarrollador").Value = tabla.Rows(0)("desarrollador")
                 dgv_pedidos.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
                 dgv_pedidos.Rows(c).Cells("solicitado").Value = tabla.Rows(0)("descripcionSolicitud")
-                dgv_pedidos.Rows(c).Cells("respuesta").Value = tabla.Rows(0)("descripcionRespuesta")
 
                 sql = ""
-                sql &= "SELECT descripcion FROM ESTADOS_PEDIDO WHERE id=" & Me.dgv_pedidos.Rows(c).Cells("id_estado").Value
+                sql &= "SELECT descripcion FROM ESTADOS_PEDIDOS WHERE id=" & Me.dgv_pedidos.Rows(c).Cells("id_estado").Value
                 tabla2.Rows.Clear()
                 tabla2 = acceso.consulta(sql)
                 dgv_pedidos.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
