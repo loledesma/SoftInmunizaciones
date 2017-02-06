@@ -72,4 +72,8 @@
     Private Sub RegistrarPeticionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPeticionesToolStripMenuItem.Click
         Registrar_peticiones_desarrollos.ShowDialog()
     End Sub
+
+    Private Sub VacunatoriosImplementadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosImplementadosToolStripMenuItem.Click
+        est_efectores_implementados.ShowDialog()
+    End Sub
 End Class
