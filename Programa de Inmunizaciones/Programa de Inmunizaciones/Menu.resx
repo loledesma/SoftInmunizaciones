@@ -7339,36 +7339,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Menu - Programa de Inmunizaciones</value>
   </data>
-  <data name="&gt;&gt;RegistrarAtenciónToolStripMenuItem.Name" xml:space="preserve">
-    <value>RegistrarAtenciónToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;RegistrarAtenciónToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NuevaAtenciónToolStripMenuItem.Name" xml:space="preserve">
-    <value>NuevaAtenciónToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;NuevaAtenciónToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ListadosToolStripMenuItem3.Name" xml:space="preserve">
-    <value>ListadosToolStripMenuItem3</value>
-  </data>
-  <data name="&gt;&gt;ListadosToolStripMenuItem3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Name" xml:space="preserve">
-    <value>AtencionesRegistradasToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EstadisticasToolStripMenuItem4.Name" xml:space="preserve">
-    <value>EstadisticasToolStripMenuItem4</value>
-  </data>
-  <data name="&gt;&gt;EstadisticasToolStripMenuItem4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;RegistrarNotificaciónToolStripMenuItem.Name" xml:space="preserve">
     <value>RegistrarNotificaciónToolStripMenuItem</value>
   </data>
@@ -7397,6 +7367,36 @@
     <value>EstadisticasToolStripMenuItem3</value>
   </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarAtenciónToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarAtenciónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarAtenciónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NuevaAtenciónToolStripMenuItem.Name" xml:space="preserve">
+    <value>NuevaAtenciónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;NuevaAtenciónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem3.Name" xml:space="preserve">
+    <value>ListadosToolStripMenuItem3</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Name" xml:space="preserve">
+    <value>AtencionesRegistradasToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EstadisticasToolStripMenuItem4.Name" xml:space="preserve">
+    <value>EstadisticasToolStripMenuItem4</value>
+  </data>
+  <data name="&gt;&gt;EstadisticasToolStripMenuItem4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RecordatoriosToolStripMenuItem.Name" xml:space="preserve">

@@ -65,6 +65,4 @@
         Registrar_recordatorio.ShowDialog()
     End Sub
 
-  
-
 End Class
