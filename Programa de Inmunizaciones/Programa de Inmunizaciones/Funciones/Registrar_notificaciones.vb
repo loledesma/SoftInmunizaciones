@@ -556,7 +556,7 @@
             sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
             sql &= " ORDER BY fecha"
             tabla = acceso.consulta(sql)
-            MsgBox(sql)
+
 
             If tabla.Rows.Count() = 0 Then
                 MessageBox.Show("¡No existe la notificación solicitada!")
