@@ -173,6 +173,12 @@
     <Compile Include="Funciones\Registrar_atencion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.Designer.vb">
       <DependentUpon>Registrar_peticiones_desarrollos.vb</DependentUpon>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_entrega_insumos.resx">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
