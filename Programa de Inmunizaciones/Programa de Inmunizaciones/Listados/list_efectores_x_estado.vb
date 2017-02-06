@@ -53,7 +53,7 @@
         sql &= " FROM EFECTORES E JOIN ESTADOS_EFECTOR EE ON E.id_estado = EE.id JOIN LOCALIDADES L ON E.id_localidad = L.id JOIN DEPARTAMENTOS D ON L.id_departamento = D.id "
 
         If cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedIndex
+            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
 
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id = " & Me.cmb_localidades.SelectedValue
@@ -97,5 +97,12 @@
         Me.ReportViewer1.Width = Me.Width - 50
         Me.ReportViewer1.Height = Me.Height - 200
         Me.ReportViewer1.PerformAutoScale()
+    End Sub
+
+    
+    Private Sub list_efectores_x_estado_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "B" Then
+            imprimir()
+        End If
     End Sub
 End Class

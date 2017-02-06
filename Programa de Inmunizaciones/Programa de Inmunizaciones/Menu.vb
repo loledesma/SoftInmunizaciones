@@ -40,7 +40,7 @@
     Private Sub ReferentesRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         listados_referentes_y_efectores.ShowDialog()
     End Sub
-    Private Sub AtencionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem.Click
+    Private Sub AtencionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs)
         list_atenciones.ShowDialog()
     End Sub
     Private Sub UsuariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosRegistradosToolStripMenuItem.Click
@@ -54,7 +54,7 @@
     End Sub
 
     Private Sub EfectoresPorReferenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorReferenteToolStripMenuItem.Click
-        listados_referentes_y_efectores.ShowDialog()
+
     End Sub
 
     Private Sub EfectoresPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEstadoToolStripMenuItem.Click
@@ -64,7 +64,7 @@
     Private Sub RegistrarRecordatoriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatoriosToolStripMenuItem.Click
         Registrar_recordatorio.ShowDialog()
     End Sub
-
-  
-
+    Private Sub ReferentesRegistradosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ReferentesRegistradosToolStripMenuItem.Click
+        listados_referentes_y_efectores.ShowDialog()
+    End Sub
 End Class
