@@ -24,16 +24,18 @@ Partial Class Menu
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Me.menu_programa_inmunizaciones = New System.Windows.Forms.MenuStrip()
-        Me.RegistrarNotificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NuevaNotificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListadosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificacionesPorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadisticasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarAtenciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaAtenciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtencionesRegistradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarNotificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevaNotificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificacionesPorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstadisticasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RecordatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarRecordatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeVacunatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,6 +50,7 @@ Partial Class Menu
         Me.EmpleadosPorEstadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosRegistradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosCompletoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReferentesRegistradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosConsinCursoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosPorReferenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,7 +61,6 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReferentesRegistradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -66,9 +68,39 @@ Partial Class Menu
         '
         Me.menu_programa_inmunizaciones.BackColor = System.Drawing.Color.Honeydew
         resources.ApplyResources(Me.menu_programa_inmunizaciones, "menu_programa_inmunizaciones")
-        Me.menu_programa_inmunizaciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNotificaciónToolStripMenuItem, Me.RegistrarAtenciónToolStripMenuItem, Me.VacunatoriosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.HerramientasGeneralesToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.HerramientasDelSistemaToolStripMenuItem})
+        Me.menu_programa_inmunizaciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNotificaciónToolStripMenuItem, Me.RegistrarAtenciónToolStripMenuItem, Me.RecordatoriosToolStripMenuItem, Me.VacunatoriosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.HerramientasGeneralesToolStripMenuItem, Me.EstadisticasToolStripMenuItem, Me.HerramientasDelSistemaToolStripMenuItem})
         Me.menu_programa_inmunizaciones.Name = "menu_programa_inmunizaciones"
         Me.menu_programa_inmunizaciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        '
+        'RegistrarAtenciónToolStripMenuItem
+        '
+        Me.RegistrarAtenciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaAtenciónToolStripMenuItem, Me.ListadosToolStripMenuItem3, Me.EstadisticasToolStripMenuItem4})
+        Me.RegistrarAtenciónToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        resources.ApplyResources(Me.RegistrarAtenciónToolStripMenuItem, "RegistrarAtenciónToolStripMenuItem")
+        Me.RegistrarAtenciónToolStripMenuItem.Name = "RegistrarAtenciónToolStripMenuItem"
+        '
+        'NuevaAtenciónToolStripMenuItem
+        '
+        Me.NuevaAtenciónToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
+        Me.NuevaAtenciónToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
+        resources.ApplyResources(Me.NuevaAtenciónToolStripMenuItem, "NuevaAtenciónToolStripMenuItem")
+        Me.NuevaAtenciónToolStripMenuItem.Name = "NuevaAtenciónToolStripMenuItem"
+        '
+        'ListadosToolStripMenuItem3
+        '
+        Me.ListadosToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AtencionesRegistradasToolStripMenuItem})
+        resources.ApplyResources(Me.ListadosToolStripMenuItem3, "ListadosToolStripMenuItem3")
+        Me.ListadosToolStripMenuItem3.Name = "ListadosToolStripMenuItem3"
+        '
+        'AtencionesRegistradasToolStripMenuItem
+        '
+        Me.AtencionesRegistradasToolStripMenuItem.Name = "AtencionesRegistradasToolStripMenuItem"
+        resources.ApplyResources(Me.AtencionesRegistradasToolStripMenuItem, "AtencionesRegistradasToolStripMenuItem")
+        '
+        'EstadisticasToolStripMenuItem4
+        '
+        resources.ApplyResources(Me.EstadisticasToolStripMenuItem4, "EstadisticasToolStripMenuItem4")
+        Me.EstadisticasToolStripMenuItem4.Name = "EstadisticasToolStripMenuItem4"
         '
         'RegistrarNotificaciónToolStripMenuItem
         '
@@ -100,35 +132,16 @@ Partial Class Menu
         resources.ApplyResources(Me.EstadisticasToolStripMenuItem3, "EstadisticasToolStripMenuItem3")
         Me.EstadisticasToolStripMenuItem3.Name = "EstadisticasToolStripMenuItem3"
         '
-        'RegistrarAtenciónToolStripMenuItem
+        'RecordatoriosToolStripMenuItem
         '
-        Me.RegistrarAtenciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaAtenciónToolStripMenuItem, Me.ListadosToolStripMenuItem3, Me.EstadisticasToolStripMenuItem4})
-        Me.RegistrarAtenciónToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        resources.ApplyResources(Me.RegistrarAtenciónToolStripMenuItem, "RegistrarAtenciónToolStripMenuItem")
-        Me.RegistrarAtenciónToolStripMenuItem.Name = "RegistrarAtenciónToolStripMenuItem"
+        Me.RecordatoriosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarRecordatoriosToolStripMenuItem})
+        Me.RecordatoriosToolStripMenuItem.Name = "RecordatoriosToolStripMenuItem"
+        resources.ApplyResources(Me.RecordatoriosToolStripMenuItem, "RecordatoriosToolStripMenuItem")
         '
-        'NuevaAtenciónToolStripMenuItem
+        'RegistrarRecordatoriosToolStripMenuItem
         '
-        Me.NuevaAtenciónToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.NuevaAtenciónToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
-        resources.ApplyResources(Me.NuevaAtenciónToolStripMenuItem, "NuevaAtenciónToolStripMenuItem")
-        Me.NuevaAtenciónToolStripMenuItem.Name = "NuevaAtenciónToolStripMenuItem"
-        '
-        'ListadosToolStripMenuItem3
-        '
-        Me.ListadosToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AtencionesRegistradasToolStripMenuItem})
-        resources.ApplyResources(Me.ListadosToolStripMenuItem3, "ListadosToolStripMenuItem3")
-        Me.ListadosToolStripMenuItem3.Name = "ListadosToolStripMenuItem3"
-        '
-        'AtencionesRegistradasToolStripMenuItem
-        '
-        Me.AtencionesRegistradasToolStripMenuItem.Name = "AtencionesRegistradasToolStripMenuItem"
-        resources.ApplyResources(Me.AtencionesRegistradasToolStripMenuItem, "AtencionesRegistradasToolStripMenuItem")
-        '
-        'EstadisticasToolStripMenuItem4
-        '
-        resources.ApplyResources(Me.EstadisticasToolStripMenuItem4, "EstadisticasToolStripMenuItem4")
-        Me.EstadisticasToolStripMenuItem4.Name = "EstadisticasToolStripMenuItem4"
+        Me.RegistrarRecordatoriosToolStripMenuItem.Name = "RegistrarRecordatoriosToolStripMenuItem"
+        resources.ApplyResources(Me.RegistrarRecordatoriosToolStripMenuItem, "RegistrarRecordatoriosToolStripMenuItem")
         '
         'VacunatoriosToolStripMenuItem
         '
@@ -222,6 +235,11 @@ Partial Class Menu
         Me.EmpleadosCompletoToolStripMenuItem.Name = "EmpleadosCompletoToolStripMenuItem"
         resources.ApplyResources(Me.EmpleadosCompletoToolStripMenuItem, "EmpleadosCompletoToolStripMenuItem")
         '
+        'ReferentesRegistradosToolStripMenuItem
+        '
+        Me.ReferentesRegistradosToolStripMenuItem.Name = "ReferentesRegistradosToolStripMenuItem"
+        resources.ApplyResources(Me.ReferentesRegistradosToolStripMenuItem, "ReferentesRegistradosToolStripMenuItem")
+        '
         'EstadisticasToolStripMenuItem2
         '
         Me.EstadisticasToolStripMenuItem2.BackColor = System.Drawing.Color.Transparent
@@ -287,11 +305,6 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
-        'ReferentesRegistradosToolStripMenuItem
-        '
-        Me.ReferentesRegistradosToolStripMenuItem.Name = "ReferentesRegistradosToolStripMenuItem"
-        resources.ApplyResources(Me.ReferentesRegistradosToolStripMenuItem, "ReferentesRegistradosToolStripMenuItem")
-        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -344,4 +357,6 @@ Partial Class Menu
     Friend WithEvents EmpleadosPorReferenteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AtencionesRegistradasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReferentesRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RecordatoriosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistrarRecordatoriosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
