@@ -469,6 +469,12 @@
   <data name="HeldareasYPCsToolStripMenuItem.Text" xml:space="preserve">
     <value>Heladeras y PC's</value>
   </data>
+  <data name="HolaLoreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 24</value>
+  </data>
+  <data name="HolaLoreToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hola Lore</value>
+  </data>
   <data name="RecordatoriosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
@@ -674,6 +680,12 @@
   </data>
   <data name="VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem.Text" xml:space="preserve">
     <value>Vacunatorios por localidad y departamento</value>
+  </data>
+  <data name="VacunatoriosImplementadosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 24</value>
+  </data>
+  <data name="VacunatoriosImplementadosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Vacunatorios implementados</value>
   </data>
   <data name="EstadisticasToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7515,6 +7527,12 @@
   <data name="&gt;&gt;RegistrarPedidosDeDesarrolloToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;RegistrarPeticionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarPeticionesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarPeticionesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;RegistrarPedidosDeUsuariosToolStripMenuItem.Name" xml:space="preserve">
     <value>RegistrarPedidosDeUsuariosToolStripMenuItem</value>
   </data>
@@ -7525,6 +7543,18 @@
     <value>SupervisionesToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;SupervisionesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Name" xml:space="preserve">
+    <value>HeldareasYPCsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HolaLoreToolStripMenuItem.Name" xml:space="preserve">
+    <value>HolaLoreToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;HolaLoreToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;VacunatoriosToolStripMenuItem.Name" xml:space="preserve">
@@ -7573,6 +7603,12 @@
     <value>VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VacunatoriosImplementadosToolStripMenuItem.Name" xml:space="preserve">
+    <value>VacunatoriosImplementadosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;VacunatoriosImplementadosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EmpleadosToolStripMenuItem.Name" xml:space="preserve">
@@ -7675,18 +7711,6 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegistrarPeticionesToolStripMenuItem.Name" xml:space="preserve">
-    <value>RegistrarPeticionesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;RegistrarPeticionesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Name" xml:space="preserve">
-    <value>HeldareasYPCsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
