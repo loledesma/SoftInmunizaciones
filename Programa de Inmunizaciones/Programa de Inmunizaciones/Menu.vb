@@ -60,4 +60,11 @@
     Private Sub EfectoresPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEstadoToolStripMenuItem.Click
         list_efectores_x_estado.ShowDialog()
     End Sub
+
+    Private Sub RegistrarRecordatoriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatoriosToolStripMenuItem.Click
+        Registrar_recordatorio.ShowDialog()
+    End Sub
+
+  
+
 End Class
