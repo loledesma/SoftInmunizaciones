@@ -176,7 +176,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 197)
         Me.grp_datos_recordatorio.TabIndex = 22
         Me.grp_datos_recordatorio.TabStop = False
-        Me.grp_datos_recordatorio.Text = "Recordatorio"
+        Me.grp_datos_recordatorio.Text = "Peticiones de Desarrollo"
         '
         'txt_desarrollador
         '
@@ -274,7 +274,7 @@ Partial Class Registrar_peticiones_desarrollos
         'cmb_estado_pedido
         '
         Me.cmb_estado_pedido._descripcion = "descripcion"
-        Me.cmb_estado_pedido._nombre_tabla = "ESTADOS_PEDIDO"
+        Me.cmb_estado_pedido._nombre_tabla = "ESTADOS_PEDIDOS"
         Me.cmb_estado_pedido._pk = "id"
         Me.cmb_estado_pedido.FormattingEnabled = True
         Me.cmb_estado_pedido.Location = New System.Drawing.Point(111, 134)

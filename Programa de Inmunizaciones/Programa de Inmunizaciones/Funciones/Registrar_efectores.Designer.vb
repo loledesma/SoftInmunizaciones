@@ -1059,8 +1059,8 @@ Partial Class Registrar_efectores
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
-
     End Sub
+
     Friend WithEvents grp_datos_vacunatorio As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
