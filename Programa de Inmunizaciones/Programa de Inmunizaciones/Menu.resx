@@ -427,11 +427,47 @@
   <data name="RegistrarAtenciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Atenciones</value>
   </data>
+  <data name="RegistrarRecordatorioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 24</value>
+  </data>
+  <data name="RegistrarRecordatorioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Registrar recordatorio</value>
+  </data>
   <data name="RegistrarRecordatoriosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 24</value>
+    <value>204, 24</value>
   </data>
   <data name="RegistrarRecordatoriosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Registrar recordatorios</value>
+    <value>Equipo de Sistemas</value>
+  </data>
+  <data name="RegistrarPeticionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 24</value>
+  </data>
+  <data name="RegistrarPeticionesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Registrar peticiones</value>
+  </data>
+  <data name="RegistrarPedidosDeDesarrolloToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 24</value>
+  </data>
+  <data name="RegistrarPedidosDeDesarrolloToolStripMenuItem.Text" xml:space="preserve">
+    <value>Desarrollos Sigipsa</value>
+  </data>
+  <data name="RegistrarPedidosDeUsuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 24</value>
+  </data>
+  <data name="RegistrarPedidosDeUsuariosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Usuarios Sigipsa</value>
+  </data>
+  <data name="SupervisionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 24</value>
+  </data>
+  <data name="SupervisionesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Supervisiones</value>
+  </data>
+  <data name="HeldareasYPCsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 24</value>
+  </data>
+  <data name="HeldareasYPCsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Heladeras y PC's</value>
   </data>
   <data name="RecordatoriosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -468,10 +504,10 @@
     <value>None</value>
   </data>
   <data name="RecordatoriosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 68</value>
+    <value>157, 68</value>
   </data>
   <data name="RecordatoriosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Recordatorios</value>
+    <value>ProCeInCor</value>
   </data>
   <data name="GestiónDeVacunatoriosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7443,6 +7479,12 @@
   <data name="&gt;&gt;ListadosToolStripMenuItem3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Name" xml:space="preserve">
+    <value>AtencionesRegistradasToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem4.Name" xml:space="preserve">
     <value>EstadisticasToolStripMenuItem4</value>
   </data>
@@ -7459,6 +7501,30 @@
     <value>RegistrarRecordatoriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;RegistrarRecordatoriosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarRecordatorioToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarRecordatorioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarRecordatorioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarPedidosDeDesarrolloToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarPedidosDeDesarrolloToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarPedidosDeDesarrolloToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarPedidosDeUsuariosToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarPedidosDeUsuariosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarPedidosDeUsuariosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SupervisionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>SupervisionesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;SupervisionesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;VacunatoriosToolStripMenuItem.Name" xml:space="preserve">
@@ -7501,6 +7567,12 @@
     <value>EstadisticasToolStripMenuItem1</value>
   </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem.Name" xml:space="preserve">
+    <value>VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EmpleadosToolStripMenuItem.Name" xml:space="preserve">
@@ -7551,6 +7623,18 @@
   <data name="&gt;&gt;EstadisticasToolStripMenuItem2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;EmpleadosPorCursoToolStripMenuItem.Name" xml:space="preserve">
+    <value>EmpleadosPorCursoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EmpleadosPorCursoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EmpleadosPorReferenteToolStripMenuItem.Name" xml:space="preserve">
+    <value>EmpleadosPorReferenteToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EmpleadosPorReferenteToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;HerramientasGeneralesToolStripMenuItem.Name" xml:space="preserve">
     <value>HerramientasGeneralesToolStripMenuItem</value>
   </data>
@@ -7593,28 +7677,16 @@
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Name" xml:space="preserve">
-    <value>AtencionesRegistradasToolStripMenuItem</value>
+  <data name="&gt;&gt;RegistrarPeticionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarPeticionesToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;AtencionesRegistradasToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;RegistrarPeticionesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem.Name" xml:space="preserve">
-    <value>VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem</value>
+  <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Name" xml:space="preserve">
+    <value>HeldareasYPCsToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EmpleadosPorCursoToolStripMenuItem.Name" xml:space="preserve">
-    <value>EmpleadosPorCursoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EmpleadosPorCursoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EmpleadosPorReferenteToolStripMenuItem.Name" xml:space="preserve">
-    <value>EmpleadosPorReferenteToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EmpleadosPorReferenteToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

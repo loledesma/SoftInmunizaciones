@@ -61,10 +61,15 @@
         list_efectores_x_estado.ShowDialog()
     End Sub
 
-    Private Sub RegistrarRecordatoriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatoriosToolStripMenuItem.Click
-        Registrar_recordatorio.ShowDialog()
-    End Sub
     Private Sub ReferentesRegistradosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ReferentesRegistradosToolStripMenuItem.Click
         listados_referentes_y_efectores.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
+        Registrar_recordatorio.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarPeticionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPeticionesToolStripMenuItem.Click
+        Registrar_peticiones_desarrollos.ShowDialog()
     End Sub
 End Class
