@@ -42,6 +42,8 @@ Partial Class Menu
         Me.RegistrarPedidosDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HeldareasYPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockDeInsumosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HolaLoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeVacunatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -69,8 +71,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RegistrarEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockDeInsumosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstadoDeHeladerasPorEfectorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -186,6 +187,16 @@ Partial Class Menu
         Me.HeldareasYPCsToolStripMenuItem.Name = "HeldareasYPCsToolStripMenuItem"
         resources.ApplyResources(Me.HeldareasYPCsToolStripMenuItem, "HeldareasYPCsToolStripMenuItem")
         '
+        'RegistrarEntregaToolStripMenuItem
+        '
+        Me.RegistrarEntregaToolStripMenuItem.Name = "RegistrarEntregaToolStripMenuItem"
+        resources.ApplyResources(Me.RegistrarEntregaToolStripMenuItem, "RegistrarEntregaToolStripMenuItem")
+        '
+        'StockDeInsumosToolStripMenuItem
+        '
+        Me.StockDeInsumosToolStripMenuItem.Name = "StockDeInsumosToolStripMenuItem"
+        resources.ApplyResources(Me.StockDeInsumosToolStripMenuItem, "StockDeInsumosToolStripMenuItem")
+        '
         'HolaLoreToolStripMenuItem
         '
         Me.HolaLoreToolStripMenuItem.Name = "HolaLoreToolStripMenuItem"
@@ -211,7 +222,7 @@ Partial Class Menu
         'ListadosToolStripMenuItem
         '
         Me.ListadosToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.ListadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EfectoresPorDptoYLocalidadToolStripMenuItem, Me.EfectoresPorEstadoToolStripMenuItem, Me.EfectoresPorReferenteToolStripMenuItem})
+        Me.ListadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EfectoresPorDptoYLocalidadToolStripMenuItem, Me.EfectoresPorEstadoToolStripMenuItem, Me.EfectoresPorReferenteToolStripMenuItem, Me.EstadoDeHeladerasPorEfectorToolStripMenuItem})
         Me.ListadosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.ListadosToolStripMenuItem, "ListadosToolStripMenuItem")
         Me.ListadosToolStripMenuItem.Name = "ListadosToolStripMenuItem"
@@ -358,15 +369,10 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
-        'RegistrarEntregaToolStripMenuItem
+        'EstadoDeHeladerasPorEfectorToolStripMenuItem
         '
-        Me.RegistrarEntregaToolStripMenuItem.Name = "RegistrarEntregaToolStripMenuItem"
-        resources.ApplyResources(Me.RegistrarEntregaToolStripMenuItem, "RegistrarEntregaToolStripMenuItem")
-        '
-        'StockDeInsumosToolStripMenuItem
-        '
-        Me.StockDeInsumosToolStripMenuItem.Name = "StockDeInsumosToolStripMenuItem"
-        resources.ApplyResources(Me.StockDeInsumosToolStripMenuItem, "StockDeInsumosToolStripMenuItem")
+        resources.ApplyResources(Me.EstadoDeHeladerasPorEfectorToolStripMenuItem, "EstadoDeHeladerasPorEfectorToolStripMenuItem")
+        Me.EstadoDeHeladerasPorEfectorToolStripMenuItem.Name = "EstadoDeHeladerasPorEfectorToolStripMenuItem"
         '
         'Menu
         '
@@ -432,4 +438,5 @@ Partial Class Menu
     Friend WithEvents VacunatoriosImplementadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistrarEntregaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StockDeInsumosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EstadoDeHeladerasPorEfectorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
