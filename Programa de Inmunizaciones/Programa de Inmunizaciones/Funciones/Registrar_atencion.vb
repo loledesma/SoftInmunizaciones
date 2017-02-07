@@ -36,6 +36,16 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
     End Sub
 
+    Private Sub dgv_atenciones_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_atenciones.CellFormatting
+
+        Dim estado As String = Me.dgv_atenciones.Rows(e.RowIndex).Cells("estado").Value
+
+        If estado = "PENDIENTE" Then
+            e.CellStyle.BackColor = Color.Yellow
+        End If
+
+    End Sub
+
     Private Sub Registrar_atencion_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control And e.KeyCode.ToString = "N" Then
             nuevo()
