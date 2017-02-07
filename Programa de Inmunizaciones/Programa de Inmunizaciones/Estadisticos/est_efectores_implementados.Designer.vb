@@ -30,10 +30,10 @@ Partial Class est_efectores_implementados
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmd_generar = New System.Windows.Forms.Button()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.EST_EFECTORES_IMPLEMENTADOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -57,7 +57,7 @@ Partial Class est_efectores_implementados
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_efectores_implementados.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(5, 107)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(775, 451)
+        Me.ReportViewer1.Size = New System.Drawing.Size(948, 460)
         Me.ReportViewer1.TabIndex = 0
         '
         'GroupBox1
@@ -71,7 +71,7 @@ Partial Class est_efectores_implementados
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.GroupBox1.Location = New System.Drawing.Point(156, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(450, 89)
+        Me.GroupBox1.Size = New System.Drawing.Size(500, 89)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos"
@@ -82,11 +82,29 @@ Partial Class est_efectores_implementados
         Me.cmd_generar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_generar.FlatAppearance.BorderSize = 0
         Me.cmd_generar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_generar.Location = New System.Drawing.Point(380, 19)
+        Me.cmd_generar.Location = New System.Drawing.Point(423, 19)
         Me.cmd_generar.Name = "cmd_generar"
         Me.cmd_generar.Size = New System.Drawing.Size(60, 60)
         Me.cmd_generar.TabIndex = 4
         Me.cmd_generar.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 55)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Localidad"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 27)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Departamento"
         '
         'cmb_localidades
         '
@@ -111,31 +129,13 @@ Partial Class est_efectores_implementados
         Me.cmb_departamentos.Size = New System.Drawing.Size(278, 21)
         Me.cmb_departamentos.TabIndex = 2
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 55)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Localidad"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 27)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Departamento"
-        '
         'est_efectores_implementados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(784, 563)
+        Me.ClientSize = New System.Drawing.Size(957, 571)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "est_efectores_implementados"
