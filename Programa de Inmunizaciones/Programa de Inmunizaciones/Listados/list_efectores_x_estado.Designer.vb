@@ -162,6 +162,7 @@ Partial Class list_efectores_x_estado
         Me.ClientSize = New System.Drawing.Size(845, 599)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.Name = "list_efectores_x_estado"
         Me.Text = "list_efectores_x_estado"
         CType(Me.LIST_EFECTOR_X_ESTADOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -313,7 +313,7 @@
         Dim tabla As DataTable
 
         If txt_id_recordatorio.Text = "" Then
-            MessageBox.Show("Seleccione una atención para actualizar el estado")
+            MessageBox.Show("Seleccione una peticion para actualizar el estado")
             Me.txt_id_recordatorio.Focus()
             Exit Sub
         End If
@@ -322,7 +322,7 @@
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
-            MessageBox.Show("No se encuentra registrada esa atención todavia")
+            MessageBox.Show("No se encuentra registrado ese recordatorio todavia")
             Me.txt_id_recordatorio.Focus()
             Exit Sub
         Else

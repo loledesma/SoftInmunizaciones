@@ -161,10 +161,22 @@
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Estadisticos\est_efectores_implementados.Designer.vb">
+      <DependentUpon>est_efectores_implementados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_efectores_implementados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones\Registrar_atencion.Designer.vb">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.Designer.vb">
@@ -312,14 +324,24 @@
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efectores_implementados.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efectores_implementados.resx">
+      <DependentUpon>est_efectores_implementados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_entrega_insumos.resx">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_peticiones_desarrollos.resx">
+      <DependentUpon>Registrar_peticiones_desarrollos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_recordatorio.resx">
       <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
@@ -402,9 +424,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Estadisticos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -3,7 +3,7 @@
   <Body>
     <ReportItems>
       <Line Name="Line2">
-        <Top>3.11037cm</Top>
+        <Top>2.81933cm</Top>
         <Height>0cm</Height>
         <Width>22.27791cm</Width>
         <Style>
@@ -406,10 +406,18 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!nombre_departamento.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!nombre_localidad.Value</Value>
+          </SortExpression>
+        </SortExpressions>
         <Top>0.79058cm</Top>
         <Left>0.47282cm</Left>
         <Height>1.2cm</Height>
-        <Width>20.41229cm</Width>
+        <Width>20.41228cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -423,7 +431,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.25581in</Height>
+    <Height>1.10997in</Height>
     <Style />
   </Body>
   <Width>8.77083in</Width>
@@ -485,7 +493,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.38165cm</Height>
+      <Height>3.04311cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -522,10 +530,10 @@
           <Source>Embedded</Source>
           <Value>Proceincor4</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.1411cm</Top>
+          <Top>0.07056cm</Top>
           <Left>0.29104cm</Left>
-          <Height>2.00271cm</Height>
-          <Width>4.27813cm</Width>
+          <Height>2.97255cm</Height>
+          <Width>5.01896cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
