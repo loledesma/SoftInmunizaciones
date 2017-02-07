@@ -77,4 +77,9 @@
     Private Sub cmd_generar_Click(sender As Object, e As EventArgs) Handles cmd_generar.Click
         imprimir()
     End Sub
+
+    Private Sub est_efectores_implementados_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        Me.ReportViewer1.Width = Me.Width - 25
+        Me.ReportViewer1.Height = Me.Height - 100
+    End Sub
 End Class
