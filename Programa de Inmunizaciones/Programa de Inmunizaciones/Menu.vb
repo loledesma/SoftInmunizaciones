@@ -76,4 +76,12 @@
     Private Sub VacunatoriosImplementadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosImplementadosToolStripMenuItem.Click
         est_efectores_implementados.ShowDialog()
     End Sub
+
+    Private Sub StockDeInsumosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockDeInsumosToolStripMenuItem.Click
+        abm_stock_insumos.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarEntregaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarEntregaToolStripMenuItem.Click
+        Registrar_entrega_insumos.ShowDialog()
+    End Sub
 End Class

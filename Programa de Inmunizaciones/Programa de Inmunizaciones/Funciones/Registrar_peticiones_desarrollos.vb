@@ -138,6 +138,18 @@
         cmd_nuevo.Enabled = True
     End Sub
 
+    Private Sub dgv_pedidos_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_pedidos.CellFormatting
+
+        Dim estado As String = Me.dgv_pedidos.Rows(e.RowIndex).Cells("estado").Value
+
+        If estado = "PENDIENTE" Then
+            e.CellStyle.BackColor = Color.Yellow
+        ElseIf estado = "RECHZADO" Then
+            e.CellStyle.BackColor = Color.Red
+        End If
+
+    End Sub
+
     Private Sub dgv_pedidos_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_pedidos.CellMouseDoubleClick
         Me.condicion_click = doble_Click.activado
         Dim tabla As New DataTable
