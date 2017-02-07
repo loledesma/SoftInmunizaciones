@@ -171,7 +171,9 @@
         Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
         Me.condicion_click = doble_Click.desactivado
         Me.txt_heladera.Text = tabla2.Rows(0)("tiene_heladera")
+        Me.txt_antiguedad.Text = tabla2.Rows(0)("antiguedad")
         Me.txt_pc.Text = tabla2.Rows(0)("tiene_internet")
+
 
 
         If IsDBNull(tabla2.Rows(0)("estado_rm")) Then
@@ -512,6 +514,8 @@
         sql &= " , id_tipo_carga= " & Me.cmb_tipo_carga.SelectedValue
         sql &= ", tiene_heladera='" & Me.txt_heladera.Text & "'"
         sql &= ", tiene_internet='" & Me.txt_pc.Text & "'"
+        sql &= ", antiguedad='" & Me.txt_antiguedad.Text & "'"
+
 
         If cmb_estado_rm.SelectedValue <> -1 Then
             sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
@@ -598,6 +602,7 @@
         sql &= ", id_estado =" & Me.cmb_estado_efector.SelectedValue
         sql &= ", tiene_heladera=" & Me.txt_heladera.Text
         sql &= ", tiene_internet=" & Me.txt_pc.Text
+        sql &= ", antiguedad=" & Me.txt_antiguedad.Text
 
         If cmb_estado_rm.SelectedValue <> -1 Then
             sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue

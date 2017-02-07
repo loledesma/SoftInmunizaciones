@@ -69,6 +69,8 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockDeInsumosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -180,6 +182,7 @@ Partial Class Menu
         '
         'HeldareasYPCsToolStripMenuItem
         '
+        Me.HeldareasYPCsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarEntregaToolStripMenuItem, Me.StockDeInsumosToolStripMenuItem})
         Me.HeldareasYPCsToolStripMenuItem.Name = "HeldareasYPCsToolStripMenuItem"
         resources.ApplyResources(Me.HeldareasYPCsToolStripMenuItem, "HeldareasYPCsToolStripMenuItem")
         '
@@ -355,6 +358,16 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
+        'RegistrarEntregaToolStripMenuItem
+        '
+        Me.RegistrarEntregaToolStripMenuItem.Name = "RegistrarEntregaToolStripMenuItem"
+        resources.ApplyResources(Me.RegistrarEntregaToolStripMenuItem, "RegistrarEntregaToolStripMenuItem")
+        '
+        'StockDeInsumosToolStripMenuItem
+        '
+        Me.StockDeInsumosToolStripMenuItem.Name = "StockDeInsumosToolStripMenuItem"
+        resources.ApplyResources(Me.StockDeInsumosToolStripMenuItem, "StockDeInsumosToolStripMenuItem")
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -417,4 +430,6 @@ Partial Class Menu
     Friend WithEvents HeldareasYPCsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HolaLoreToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VacunatoriosImplementadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistrarEntregaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents StockDeInsumosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
