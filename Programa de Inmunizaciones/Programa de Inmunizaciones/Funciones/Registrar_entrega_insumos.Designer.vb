@@ -25,13 +25,15 @@ Partial Class Registrar_entrega_insumos
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_entrega_insumos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
         Me.txt_nombre_efector = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txt_solicitado = New System.Windows.Forms.RichTextBox()
+        Me.txt_observaciones = New System.Windows.Forms.RichTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_apellido = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -66,10 +68,6 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.dgv_entrega = New System.Windows.Forms.DataGridView()
-        Me.dgv_detalle_entrega = New System.Windows.Forms.DataGridView()
-        Me.id_insumo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.insumo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_pedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_entrega = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -79,6 +77,10 @@ Partial Class Registrar_entrega_insumos
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv_detalle_entrega = New System.Windows.Forms.DataGridView()
+        Me.id_insumo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.insumo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgv_entrega, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,7 +95,7 @@ Partial Class Registrar_entrega_insumos
         Me.grp_datos_recordatorio.Controls.Add(Me.Label7)
         Me.grp_datos_recordatorio.Controls.Add(Me.txt_cuie)
         Me.grp_datos_recordatorio.Controls.Add(Me.Label6)
-        Me.grp_datos_recordatorio.Controls.Add(Me.txt_solicitado)
+        Me.grp_datos_recordatorio.Controls.Add(Me.txt_observaciones)
         Me.grp_datos_recordatorio.Controls.Add(Me.Label5)
         Me.grp_datos_recordatorio.Controls.Add(Me.txt_apellido)
         Me.grp_datos_recordatorio.Controls.Add(Me.Label4)
@@ -173,13 +175,13 @@ Partial Class Registrar_entrega_insumos
         Me.Label6.TabIndex = 70
         Me.Label6.Text = "Cuie"
         '
-        'txt_solicitado
+        'txt_observaciones
         '
-        Me.txt_solicitado.Location = New System.Drawing.Point(109, 281)
-        Me.txt_solicitado.Name = "txt_solicitado"
-        Me.txt_solicitado.Size = New System.Drawing.Size(283, 103)
-        Me.txt_solicitado.TabIndex = 69
-        Me.txt_solicitado.Text = ""
+        Me.txt_observaciones.Location = New System.Drawing.Point(109, 281)
+        Me.txt_observaciones.Name = "txt_observaciones"
+        Me.txt_observaciones.Size = New System.Drawing.Size(283, 103)
+        Me.txt_observaciones.TabIndex = 69
+        Me.txt_observaciones.Text = ""
         '
         'Label5
         '
@@ -584,48 +586,10 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_entrega.Location = New System.Drawing.Point(438, 16)
         Me.dgv_entrega.Name = "dgv_entrega"
         Me.dgv_entrega.ReadOnly = True
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_entrega.Size = New System.Drawing.Size(559, 393)
         Me.dgv_entrega.TabIndex = 64
-        '
-        'dgv_detalle_entrega
-        '
-        Me.dgv_detalle_entrega.AllowUserToAddRows = False
-        Me.dgv_detalle_entrega.AllowUserToDeleteRows = False
-        Me.dgv_detalle_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_detalle_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_insumo, Me.insumo, Me.cantidad})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_detalle_entrega.Location = New System.Drawing.Point(438, 422)
-        Me.dgv_detalle_entrega.Name = "dgv_detalle_entrega"
-        Me.dgv_detalle_entrega.ReadOnly = True
-        Me.dgv_detalle_entrega.Size = New System.Drawing.Size(559, 131)
-        Me.dgv_detalle_entrega.TabIndex = 65
-        '
-        'id_insumo
-        '
-        Me.id_insumo.HeaderText = "id_insumo"
-        Me.id_insumo.Name = "id_insumo"
-        Me.id_insumo.ReadOnly = True
-        Me.id_insumo.Visible = False
-        '
-        'insumo
-        '
-        Me.insumo.HeaderText = "Insumo"
-        Me.insumo.Name = "insumo"
-        Me.insumo.ReadOnly = True
-        Me.insumo.Width = 300
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
         '
         'id
         '
@@ -647,7 +611,7 @@ Partial Class Registrar_entrega_insumos
         '
         'estado
         '
-        Me.estado.HeaderText = "estado"
+        Me.estado.HeaderText = "Estado"
         Me.estado.Name = "estado"
         Me.estado.ReadOnly = True
         '
@@ -685,6 +649,48 @@ Partial Class Registrar_entrega_insumos
         Me.id_estado.Name = "id_estado"
         Me.id_estado.ReadOnly = True
         Me.id_estado.Visible = False
+        '
+        'dgv_detalle_entrega
+        '
+        Me.dgv_detalle_entrega.AllowUserToAddRows = False
+        Me.dgv_detalle_entrega.AllowUserToDeleteRows = False
+        Me.dgv_detalle_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_detalle_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_insumo, Me.insumo, Me.cantidad})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_detalle_entrega.Location = New System.Drawing.Point(438, 422)
+        Me.dgv_detalle_entrega.Name = "dgv_detalle_entrega"
+        Me.dgv_detalle_entrega.ReadOnly = True
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgv_detalle_entrega.Size = New System.Drawing.Size(559, 131)
+        Me.dgv_detalle_entrega.TabIndex = 65
+        '
+        'id_insumo
+        '
+        Me.id_insumo.HeaderText = "id_insumo"
+        Me.id_insumo.Name = "id_insumo"
+        Me.id_insumo.ReadOnly = True
+        Me.id_insumo.Visible = False
+        '
+        'insumo
+        '
+        Me.insumo.HeaderText = "Insumo"
+        Me.insumo.Name = "insumo"
+        Me.insumo.ReadOnly = True
+        Me.insumo.Width = 300
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
         '
         'Registrar_entrega_insumos
         '
@@ -740,7 +746,7 @@ Partial Class Registrar_entrega_insumos
     Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
     Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txt_solicitado As System.Windows.Forms.RichTextBox
+    Friend WithEvents txt_observaciones As System.Windows.Forms.RichTextBox
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button

@@ -1,16 +1,12 @@
 ﻿Public Class Registrar_entrega_insumos
 
-    Enum condicion
-        insertar
-        modificar
-    End Enum
+   
 
     Enum analizar_existencia
         existe
         no_existe
     End Enum
 
-    Dim condicion_estado As condicion = condicion.insertar
 
     Enum doble_Click
         activado
@@ -79,14 +75,12 @@
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_nombre_efector.Text = tabla.Rows(0)("nombre")
-
                 End If
             End If
         End If
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
-        condicion_estado = condicion.insertar
         Dim cmd As ComboBoxV1
 
         For Each obj As System.Windows.Forms.Control In de_donde
@@ -123,7 +117,7 @@
             nuevo()
         End If
         If e.Control And e.KeyCode.ToString = "G" Then
-            'guardar()
+            guardar()
         End If
     End Sub
 
@@ -137,7 +131,7 @@
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
-        'guardar()
+        guardar()
     End Sub
 
     Private Sub cmd_agregar_efector_Click(sender As Object, e As EventArgs) Handles cmd_agregar_efector.Click
@@ -172,175 +166,200 @@
     End Sub
 
     Private Sub registrar_entrega()
+        Dim sql As String = ""
+        Dim tabla As New DataTable
 
+        If validar_entrega() Then
+            If validar_detalle() Then
+                If dgv_detalle_entrega.Rows.Count() = 0 Then
+                    MessageBox.Show("Debe ingresar los insumos que se entregaron")
+                    cmb_insumos.Focus()
+                    Exit Sub
+                Else
+                    Dim c As Integer = 0
+                    For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
+                        sql = ""
+                        sql &= "UPDATE DETALLE_ENTREGA_INSUMOS "
+                        sql &= " SET id_entrega= " & Me.txt_id_entrega.Text
+                        sql &= ", id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+                        sql &= ", cantidad= " & Me.dgv_detalle_entrega.Rows(c).Cells("cantidad").Value
+                        acceso.ejecutar(sql)
+                    Next
+
+                    sql = ""
+                    sql &= "UPDATE ENTREGA_INSUMOS "
+                    sql &= " SET id_estado_entrega= " & Me.cmb_estado_entrega.SelectedValue
+                    sql &= " , id_receptor= " & Me.txt_id_empleado.Text
+                    sql &= " , fecha_entrega= '" & Me.txt_fecha_entrega.Text & "'"
+
+                    If txt_observaciones.Text <> "" Then
+                        sql &= ", observaciones='" & Me.txt_observaciones.Text & "'"
+                    End If
+
+                    sql &= " WHERE id= " & Me.txt_id_entrega.Text
+                    acceso.ejecutar(sql)
+                    
+                End If
+            End If
+        Else
+            Exit Sub
+        End If
     End Sub
 
     Private Sub registrar_rechazo()
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        If validar_entrega() Then
+            sql &= "UPDATE FROM ENTREGA_INSUMOS "
+            sql &= " SET id_estado_entrega= " & Me.cmb_estado_entrega.SelectedValue
+            sql &= " WHERE id= " & Me.txt_id_entrega.Text
+            acceso.ejecutar(sql)
+        Else
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub dgv_entrega_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_entrega.CellMouseDoubleClick
+        dgv_detalle_entrega.Rows.Clear()
+        limpiar(Controls)
+        Me.cmd_guardar.Enabled = False
+        Dim tabla As DataTable
+        Dim tabla2 As DataTable
+
+        Dim sql As String = ""
+        Dim sql2 As String = ""
+
+        sql &= "SELECT * FROM ENTREGA_INSUMOS WHERE id = " & Me.dgv_entrega.CurrentRow.Cells("id").Value
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("¡El empleado buscado no se encuentra registrado todavia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+
+        Me.txt_id_entrega.Text = tabla.Rows(0)("id")
+        Me.txt_fecha_pedido.Text = tabla.Rows(0)("fecha_pedido")
+
+        If IsDBNull(tabla.Rows(0)("fecha_entrega")) Then
+            txt_fecha_entrega.Text = ""
+        Else
+            txt_fecha_entrega.Text = tabla.Rows(0)("fecha_entrega")
+        End If
+        Me.txt_cuie.Text = tabla.Rows(0)("id_efector")
+
+        sql2 = ""
+        sql2 &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.txt_cuie.Text & "'"
+        tabla2 = acceso.consulta(sql2)
+
+        Me.txt_nombre_efector.Text = tabla2.Rows(0)("nombre")
+
+
+        Me.cmb_estado_entrega.SelectedValue = tabla.Rows(0)("id_estado_entrega")
+        Me.cmb_autorizador.SelectedValue = tabla.Rows(0)("id_autoriza")
+
+        If IsDBNull(tabla.Rows(0)("id_receptor")) Then
+            txt_id_empleado.Text = ""
+            txt_nombre.Text = ""
+            txt_apellido.Text = ""
+        Else
+            txt_id_empleado.Text = tabla.Rows(0)("id_receptor")
+
+            sql = ""
+            sql &= "SELECT * FROM EMPLEADOS WHERE id=" & Me.txt_id_empleado.Text
+            tabla2 = acceso.consulta(sql)
+            txt_nombre.Text = tabla2.Rows(0)("nombres")
+            txt_apellido.Text = tabla2.Rows(0)("apellidos")
+        End If
+
+        If IsDBNull(tabla.Rows(0)("observaciones")) Then
+            txt_observaciones.Text = ""
+        Else
+            txt_observaciones.Text = tabla.Rows(0)("observaciones")
+        End If
+
+        sql = ""
+        sql &= " SELECT DEI.id_entrega as id_entrega, DEI.id_insumo as id_insumo, DEI.cantidad as cantidad "
+        sql &= ", I.descripcion as insumo "
+        sql &= " FROM DETALLE_ENTREGA_INSUMOS DEI JOIN INSUMOS I ON DEI.id_insumo = I.id "
+        sql &= " WHERE DEI.id_entrega = " & Me.dgv_entrega.CurrentRow.Cells("id").Value
+        tabla2.Clear()
+        tabla2 = acceso.consulta(sql)
+
+        If tabla2.Rows.Count = 0 Then
+            MessageBox.Show("El pedido no tiene insumos asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.cmd_agregar_insumo.Enabled = True
+            Me.cmd_eliminar_insumo.Enabled = False
+        Else
+            Me.cmd_eliminar_insumo.Enabled = True
+            Me.cmd_agregar_insumo.Enabled = True
+            Dim c As Integer = 0
+            For c = 0 To tabla2.Rows.Count() - 1
+                dgv_detalle_entrega.Rows.Add()
+                dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = tabla2.Rows(c)("id_insumo")
+                dgv_detalle_entrega.Rows(c).Cells("insumo").Value = tabla2.Rows(c)("insumo")
+                dgv_detalle_entrega.Rows(c).Cells("cantidad").Value = tabla2.Rows(c)("cantidad")
+            Next
+        End If
+
+        cmd_guardar.Enabled = True
+        cmd_nuevo.Enabled = True
+        cmd_agregar_insumo.Enabled = True
+        cmd_eliminar_insumo.Enabled = False
 
     End Sub
 
+    Private Function validar_existencia() As analizar_existencia
+        Dim tabla As New DataTable
+        Dim sql As String = ""
 
+        sql = "SELECT * FROM ENTREGA_INSUMOS "
+        sql &= " WHERE fecha_pedido = '" & Me.txt_fecha_pedido.Text & "'"
+        sql &= " AND id_efector= '" & Me.txt_cuie.Text & "'"
 
-    'Private Sub dgv_entrega_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_entrega.CellMouseDoubleClick
-    '    dgv_detalle_entrega.Rows.Clear()
-    '    limpiar(Controls)
-    '    Me.cmd_guardar.Enabled = False
+        tabla = acceso.consulta(sql)
 
+        If tabla.Rows.Count() = 0 Then
+            Return analizar_existencia.no_existe
+        Else
+            Return analizar_existencia.existe
+        End If
 
-    '    Dim tabla As DataTable
-    '    Dim tabla2 As DataTable
-    '    Dim tabla3 As DataTable
-    '    Dim sql As String = ""
-    '    Dim sql2 As String = ""
-    '    txt_id_empleado.Enabled = False
-    '    Dim fecha As Date
+        Return True
+    End Function
+    Private Sub guardar()
+        If Me.validar_entrega() = True Then
+            If Me.validar_existencia() = analizar_existencia.no_existe Then
+                If dgv_detalle_entrega.Rows.Count = 0 Then
+                    MessageBox.Show("Debe ingresar los insumos pedidos")
+                    Exit Sub
+                Else
+                    Me.insertar_pedido()
+                    Me.insertar_detalle_entrega()
+                End If
+            Else
+                MessageBox.Show("Ya se encuentra registrado este pedido")
+            End If
+        Else
+            Exit Sub
+        End If
 
-    '    sql &= "SELECT * FROM EMPLEADOS WHERE id = " & Me.dgv_entrega.CurrentRow.Cells("id_empleado").Value
+        dgv_detalle_entrega.Rows.Clear()
+        dgv_entrega.Rows.Clear()
+        Me.limpiar(Me.Controls)
+        Me.cargar_grilla_entregas()
+        Me.txt_id_entrega.Enabled = True
+        Me.cmd_nuevo.Enabled = True
+        Me.cmd_guardar.Enabled = True
+        Me.cmd_limpiar.Enabled = True
+    End Sub
 
-    '    sql2 &= "SELECT * FROM ESTADOXUSUARIOS "
-    '    sql2 &= " WHERE id_empleado= " & Me.dgv_entrega.CurrentRow.Cells(0).Value
-
-
-    '    tabla = acceso.consulta(sql)
-    '    tabla2 = acceso.consulta(sql2)
-    '    If tabla.Rows.Count() = 0 Then
-    '        MessageBox.Show("¡El empleado buscado no se encuentra registrado todavia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    '        Exit Sub
-    '    End If
-    '    Me.txt_id_empleado.Text = tabla.Rows(0)("id")
-    '    Me.cmb_tipo_doc.SelectedValue = tabla.Rows(0)("id_tipo_doc")
-    '    Me.txt_nro_documento.Text = tabla.Rows(0)("nro_doc")
-    '    Me.txt_nombre.Text = tabla.Rows(0)("nombres")
-    '    Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
-
-    '    If IsDBNull(tabla.Rows(0)("caracteristica")) Then
-    '        Me.txt_caracteristica.Text = ""
-    '    Else
-    '        Me.txt_caracteristica.Text = tabla.Rows(0)("caracteristica")
-    '    End If
-
-    '    If IsDBNull(tabla.Rows(0)("telefono")) Then
-    '        Me.txt_telefono.Text = ""
-    '    Else
-    '        Me.txt_telefono.Text = tabla.Rows(0)("telefono")
-    '    End If
-
-    '    If IsDBNull(tabla.Rows(0)("mail_contacto")) Then
-    '        Me.txt_email.Text = ""
-    '    Else
-    '        Me.txt_email.Text = tabla.Rows(0)("mail_contacto")
-    '    End If
-
-    '    sql = ""
-    '    sql &= "SELECT EMP.usuario_sigipsa As usuario_sigipsa, EU.id_estado As id_estado "
-    '    sql &= " FROM EMPLEADOS EMP JOIN ESTADOXUSUARIOS EU ON EMP.id = EU.id_empleado "
-    '    sql &= "WHERE id= " & tabla.Rows(0)("id") & " AND usuario_sigipsa IS NOT NULL "
-    '    tabla3 = acceso.consulta(sql)
-
-    '    If tabla3.Rows.Count() = 0 Then
-    '        Me.txt_usuario.Text = ""
-    '        Me.cmb_estados.SelectedIndex = -1
-    '    Else
-    '        Me.txt_usuario.Text = tabla3.Rows(0)("usuario_Sigipsa")
-    '        Me.cmb_estados.SelectedValue = tabla3.Rows(0)("id_estado")
-    '    End If
-
-    '    If IsDBNull(tabla.Rows(0)("fecha_alta")) Then
-    '        Me.txt_fecha.Text = ""
-    '    Else
-    '        fecha = tabla.Rows(0)("fecha_alta")
-    '        Me.txt_fecha.Text = fecha.ToString("dd/MM/yyyy")
-    '    End If
-
-    '    sql = ""
-    '    sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, EST.descripcion As estado "
-    '    sql &= " , EE.id_cargo As id_cargo, EE.id_estado_empleado As id_estado "
-    '    sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-    '    sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
-    '    sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
-    '    sql &= " JOIN ESTADOS_EMPLEADOS EST ON EE.id_estado_empleado = EST.id"
-    '    sql &= " WHERE EMP.id = " & Me.dgv_entrega.CurrentRow.Cells("id_empleado").Value
-    '    tabla2.Clear()
-    '    tabla2 = acceso.consulta(sql)
-
-    '    If tabla2.Rows.Count = 0 Then
-    '        MessageBox.Show("El empleado seleccionado no tiene efectores asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    '        Me.cmd_agregar_efector.Enabled = True
-    '    Else
-    '        Dim c As Integer = 0
-    '        For c = 0 To tabla2.Rows.Count() - 1
-    '            dgv_efectores.Rows.Add()
-    '            dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-    '            dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-    '            dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-    '            dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
-    '            dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
-    '            dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
-
-    '            sql = ""
-    '            sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
-    '            sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-    '            sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
-    '            sql &= " WHERE EMP.id = " & Me.dgv_entrega.CurrentRow.Cells("id_empleado").Value
-    '            tabla.Clear()
-    '            tabla = acceso.consulta(sql)
-    '            If tabla.Rows.Count() = 0 Then
-    '                dgv_efectores.Rows(c).Cells("perfil").Value = ""
-    '                dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
-    '            Else
-    '                dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(c)("perfil")
-    '                dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(c)("id_perfil")
-    '            End If
-    '        Next
-    '    End If
-
-    '    cmd_guardar.Enabled = True
-    '    cmd_nuevo.Enabled = True
-    '    cmd_efector_nuevo.Enabled = True
-    '    cmd_agregar_efector.Enabled = True
-    '    cmd_eliminar_efector.Enabled = False
-    '    Me.condicion_estado = estado.modificar
-    'End Sub
-    'Private Sub guardar()
-    '    If Me.validar_pedido() = True Then
-    '        If condicion_estado = condicion.insertar Then
-    '            If Me.validar_existencia() = analizar_existencia.no_existe Then
-    '                If dgv_efectores.Rows.Count = 0 Then
-    '                    If MessageBox.Show("¿Desea registrar el empleado sin efectores?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
-    '                        Me.cmb_departamentos.Focus()
-    '                        Exit Sub
-    '                    Else
-    '                        Me.insertar_empleado()
-    '                    End If
-    '                End If
-    '                Me.insertar_empleado()
-    '                grabar_empleadoxefector()
-    '            Else
-    '                MessageBox.Show("Ya se encuentra registrado este empleado")
-    '                Exit Sub
-    '            End If
-    '        Else
-    '            Me.modificar()
-    '            modificar_empleadoxefector()
-    '        End If
-    '    Else
-    '        Exit Sub
-    '    End If
-    '    dgv_efectores.Rows.Clear()
-    '    dgv_entrega.Rows.Clear()
-    '    Me.limpiar(Me.Controls)
-    '    Me.cargar_grilla()
-    '    Me.txt_id_empleado.Enabled = True
-    '    Me.cmd_nuevo.Enabled = True
-    '    Me.cmd_guardar.Enabled = True
-    '    Me.cmd_limpiar.Enabled = True
-    'End Sub
 
     Private Sub nuevo()
         limpiar(Controls)
+        Me.txt_observaciones.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_fecha_entrega.Text = ""
-        Me.condicion_estado = condicion.insertar
         Dim sql As String = "SELECT * FROM ENTREGA_INSUMOS "
         Dim tabla As New DataTable
         tabla = acceso.consulta(sql)
@@ -358,6 +377,82 @@
         Me.cmd_guardar.Enabled = True
     End Sub
 
+    Private Function validar_detalle() As Boolean
+        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
+        If txt_id_entrega.Text = "" Then
+            MessageBox.Show("Debe ingresar el id de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_id_entrega.Focus()
+            Exit Function
+        ElseIf txt_id_empleado.Text = "" Then
+            MessageBox.Show("Debe ingresar un empleado que recibe o buscar el empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_id_empleado.Focus()
+            Exit Function
+        ElseIf txt_nombre.Text = "" Then
+            MessageBox.Show("Debe ingresar un nombre de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_nombre.Focus()
+            Exit Function
+        ElseIf txt_apellido.Text = "" Then
+            MessageBox.Show("Debe ingresar un apellido de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_apellido.Focus()
+            Exit Function
+        ElseIf IsDate(txt_fecha_entrega.Text) = False Then
+            MessageBox.Show("Debe ingresar una fecha de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_entrega.Focus()
+            Exit Function
+        ElseIf txt_fecha_entrega.Text > hoy Then
+            MessageBox.Show("Debe ingresar una fecha de entrega valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_entrega.Focus()
+            Exit Function
+        End If
+        Return True
+    End Function
+
+    Private Function validar_entrega() As Boolean
+        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
+        If IsNumeric(txt_id_entrega.Text) = False Then
+            MessageBox.Show("Debe ingresar un numero de entrega valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_id_entrega.Focus()
+            Exit Function
+        ElseIf txt_nombre_efector.Text = "" Then
+            MessageBox.Show("Debe ingresar un efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_nombre_efector.Focus()
+            Exit Function
+        ElseIf txt_cuie.Text = "" Then
+            MessageBox.Show("Debe ingresar un efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_cuie.Focus()
+            Exit Function
+        ElseIf cmb_autorizador.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar quien recibio y/o autoriza el pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_autorizador.Focus()
+            Exit Function
+        ElseIf cmb_estado_entrega.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar un estado para el pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_estado_entrega.Focus()
+            Exit Function
+        ElseIf txt_fecha_pedido.Text > hoy Then
+            MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_pedido.Focus()
+            Exit Function
+        ElseIf IsDate(txt_fecha_pedido.Text) = False Then
+            MessageBox.Show("Debe ingresar una fecha de pedido para ese usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_pedido.Focus()
+            Exit Function
+        End If
+        Return True
+    End Function
 
     Private Sub cargar_grilla_entregas()
         Dim tabla As New DataTable
@@ -379,6 +474,7 @@
             Me.dgv_entrega.Rows(c).Cells("fecha_entrega").Value = tabla.Rows(c)("fecha_entrega")
             Me.dgv_entrega.Rows(c).Cells("id_autoriza").Value = tabla.Rows(c)("id_autoriza")
             Me.dgv_entrega.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+            Me.dgv_entrega.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado_entrega")
 
             sql = ""
             sql &= "SELECT nombre FROM EFECTORES where cuie='" & tabla.Rows(c)("id_efector") & "'"
@@ -390,6 +486,12 @@
             tabla2.Rows.Clear()
             tabla2 = acceso.consulta(sql)
             Me.dgv_entrega.Rows(c).Cells("autoriza").Value = tabla2.Rows(0)("nombres")
+
+            sql = ""
+            sql &= "SELECT descripcion FROM ESTADO_ENTREGA WHERE id= " & tabla.Rows(c)("id_estado_entrega")
+            tabla2.Rows.Clear()
+            tabla2 = acceso.consulta(sql)
+            Me.dgv_entrega.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
         Next
     End Sub
     Private Sub cmd_buscar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleado.Click
@@ -428,6 +530,54 @@
                 Me.txt_id_empleado.Text = tabla.Rows(0)("id")
             End If
         End If
+    End Sub
+
+    Private Sub insertar_pedido()
+        Dim sql As String = ""
+        Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
+        Dim tabla As New DataTable
+        acceso._nombre_tabla = "ENTREGA_INSUMOS"
+
+        sql = "id = " & Me.txt_id_entrega.Text
+        sql &= " fecha_pedido= '" & Me.txt_fecha_pedido.Text & "'"
+        If IsDate(txt_fecha_entrega.Text) Then
+            sql &= ", fecha_entrega = '" & Me.txt_fecha_entrega.Text & "'"
+        Else
+            sql &= ", fecha_entrega =Null"
+        End If
+
+        If txt_id_empleado.Text <> "" Then
+            sql &= ", id_receptor=" & Me.txt_id_empleado.Text
+        Else
+            sql &= ", id_receptor=Null"
+        End If
+
+        sql &= ", id_autoriza=" & Me.cmb_autorizador.SelectedValue
+        sql &= " , id_efector=" & Me.txt_cuie.Text
+
+        If txt_observaciones.Text <> "" Then
+            sql &= ", observaciones = " & Me.txt_observaciones.Text
+        Else
+            sql &= ", observaciones = NULL"
+        End If
+
+        acceso.insertar(sql)
+
+        sql = ""
+        sql = "SELECT * FROM ENTREGA_INSUMOS WHERE id= " & Me.txt_id_entrega.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() <> 0 Then
+            sql = ""
+            sql &= "UPDATE ENTREGA_INSUMOS "
+            sql &= " SET id_estado_entrega= 2"
+            sql &= " WHERE id= " & Me.txt_id_entrega.Text
+        End If
+    End Sub
+
+    Private Sub insertar_detalle_entrega()
+
     End Sub
 
 
