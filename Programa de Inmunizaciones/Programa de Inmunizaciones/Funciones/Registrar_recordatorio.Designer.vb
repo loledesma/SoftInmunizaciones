@@ -36,14 +36,14 @@ Partial Class Registrar_recordatorio
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.cmd_buscar = New System.Windows.Forms.Button()
+        Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_id_notificacion = New System.Windows.Forms.Label()
+        Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_id_recordatorio = New System.Windows.Forms.TextBox()
         Me.txt_fecha = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_estado = New System.Windows.Forms.Label()
-        Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
@@ -149,7 +149,7 @@ Partial Class Registrar_recordatorio
         Me.grp_datos_recordatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_recordatorio.Name = "grp_datos_recordatorio"
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 146)
-        Me.grp_datos_recordatorio.TabIndex = 11
+        Me.grp_datos_recordatorio.TabIndex = 0
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Recordatorio"
         '
@@ -180,8 +180,19 @@ Partial Class Registrar_recordatorio
         Me.cmd_buscar.Location = New System.Drawing.Point(353, 16)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(37, 36)
-        Me.cmd_buscar.TabIndex = 1
+        Me.cmd_buscar.TabIndex = 2
         Me.cmd_buscar.UseVisualStyleBackColor = True
+        '
+        'cmb_empleados
+        '
+        Me.cmb_empleados._descripcion = "nombres"
+        Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
+        Me.cmb_empleados._pk = "id"
+        Me.cmb_empleados.FormattingEnabled = True
+        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
+        Me.cmb_empleados.Name = "cmb_empleados"
+        Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
+        Me.cmb_empleados.TabIndex = 5
         '
         'Label1
         '
@@ -201,6 +212,17 @@ Partial Class Registrar_recordatorio
         Me.lbl_id_notificacion.TabIndex = 52
         Me.lbl_id_notificacion.Text = "Id"
         '
+        'cmb_estado_atencion
+        '
+        Me.cmb_estado_atencion._descripcion = "descripcion"
+        Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
+        Me.cmb_estado_atencion._pk = "id"
+        Me.cmb_estado_atencion.FormattingEnabled = True
+        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
+        Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
+        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_estado_atencion.TabIndex = 3
+        '
         'txt_id_recordatorio
         '
         Me.txt_id_recordatorio.Location = New System.Drawing.Point(109, 21)
@@ -214,7 +236,7 @@ Partial Class Registrar_recordatorio
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha.TabIndex = 2
+        Me.txt_fecha.TabIndex = 1
         Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'lbl_perfil
@@ -235,28 +257,6 @@ Partial Class Registrar_recordatorio
         Me.lbl_estado.TabIndex = 30
         Me.lbl_estado.Text = "Estado Atención"
         '
-        'cmb_empleados
-        '
-        Me.cmb_empleados._descripcion = "nombres"
-        Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
-        Me.cmb_empleados._pk = "id"
-        Me.cmb_empleados.FormattingEnabled = True
-        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
-        Me.cmb_empleados.Name = "cmb_empleados"
-        Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 5
-        '
-        'cmb_estado_atencion
-        '
-        Me.cmb_estado_atencion._descripcion = "descripcion"
-        Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
-        Me.cmb_estado_atencion._pk = "id"
-        Me.cmb_estado_atencion.FormattingEnabled = True
-        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
-        Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
-        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_atencion.TabIndex = 3
-        '
         'cmd_eliminar
         '
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Transparent
@@ -271,7 +271,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_eliminar.TabIndex = 15
+        Me.cmd_eliminar.TabIndex = 3
         Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
@@ -290,7 +290,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 16
+        Me.cmd_limpiar.TabIndex = 4
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -309,7 +309,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 13
+        Me.cmd_guardar.TabIndex = 2
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -328,7 +328,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 14
+        Me.cmd_nuevo.TabIndex = 1
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -343,7 +343,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_salir.Location = New System.Drawing.Point(1024, 464)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 17
+        Me.cmd_salir.TabIndex = 5
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'Registrar_recordatorio

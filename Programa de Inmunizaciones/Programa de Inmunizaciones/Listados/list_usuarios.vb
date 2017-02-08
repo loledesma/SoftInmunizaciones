@@ -146,11 +146,6 @@
 
     End Sub
 
-    Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs)
-        Me.imprimir()
-    End Sub
-
-
     Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         Me.ReportViewer1.Width = Me.Width - 50
         Me.ReportViewer1.Height = Me.Height - 200
@@ -158,5 +153,9 @@
         'Me.ReportViewer1.Anchor = AnchorStyles.Left
         'Me.ReportViewer1.Anchor = AnchorStyles.Right
         'Me.ReportViewer1.PerformAutoScale()
+    End Sub
+
+    Private Sub cmd_ejecutar_Click_1(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
+        Me.imprimir()
     End Sub
 End Class
