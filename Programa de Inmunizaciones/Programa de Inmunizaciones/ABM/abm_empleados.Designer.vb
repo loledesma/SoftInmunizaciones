@@ -611,7 +611,7 @@ Partial Class abm_empleados
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_empleado, Me.nombres, Me.apellidos, Me.id_tipo_doc, Me.tipo_doc, Me.nro_doc})
-        Me.dgv_empleados.Location = New System.Drawing.Point(461, 18)
+        Me.dgv_empleados.Location = New System.Drawing.Point(461, 16)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
         Me.dgv_empleados.Size = New System.Drawing.Size(615, 297)

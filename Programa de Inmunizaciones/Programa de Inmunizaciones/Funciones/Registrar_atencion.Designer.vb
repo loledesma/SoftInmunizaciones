@@ -85,7 +85,7 @@ Partial Class Registrar_atencion
         Me.grp_datos_atencion.Location = New System.Drawing.Point(22, 12)
         Me.grp_datos_atencion.Name = "grp_datos_atencion"
         Me.grp_datos_atencion.Size = New System.Drawing.Size(403, 204)
-        Me.grp_datos_atencion.TabIndex = 0
+        Me.grp_datos_atencion.TabIndex = 1
         Me.grp_datos_atencion.TabStop = False
         Me.grp_datos_atencion.Text = "Datos Atención"
         '
@@ -134,7 +134,7 @@ Partial Class Registrar_atencion
         Me.txt_cuie.Location = New System.Drawing.Point(111, 173)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(150, 20)
-        Me.txt_cuie.TabIndex = 8
+        Me.txt_cuie.TabIndex = 7
         '
         'lbl_cuie
         '
@@ -171,7 +171,7 @@ Partial Class Registrar_atencion
         Me.cmd_buscar.Location = New System.Drawing.Point(353, 16)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(37, 36)
-        Me.cmd_buscar.TabIndex = 1
+        Me.cmd_buscar.TabIndex = 2
         Me.cmd_buscar.UseVisualStyleBackColor = True
         '
         'cmb_empleados
@@ -227,7 +227,7 @@ Partial Class Registrar_atencion
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha.TabIndex = 2
+        Me.txt_fecha.TabIndex = 1
         Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'lbl_perfil
@@ -374,7 +374,7 @@ Partial Class Registrar_atencion
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 2
+        Me.cmd_guardar.TabIndex = 3
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -393,7 +393,7 @@ Partial Class Registrar_atencion
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 3
+        Me.cmd_nuevo.TabIndex = 2
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
