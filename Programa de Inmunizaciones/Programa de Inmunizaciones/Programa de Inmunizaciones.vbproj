@@ -292,6 +292,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Inmunizaciones2.vb">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
