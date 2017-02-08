@@ -45,6 +45,8 @@ Partial Public Class Inmunizaciones
 
     Private tableLIST_EFECTOR_X_ESTADO As LIST_EFECTOR_X_ESTADODataTable
 
+    Private tableLIST_HELADERAS_ANTIGUAS As LIST_HELADERAS_ANTIGUASDataTable
+
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -103,6 +105,9 @@ Partial Public Class Inmunizaciones
             End If
             If (Not (ds.Tables("LIST_EFECTOR_X_ESTADO")) Is Nothing) Then
                 MyBase.Tables.Add(New LIST_EFECTOR_X_ESTADODataTable(ds.Tables("LIST_EFECTOR_X_ESTADO")))
+            End If
+            If (Not (ds.Tables("LIST_HELADERAS_ANTIGUAS")) Is Nothing) Then
+                MyBase.Tables.Add(New LIST_HELADERAS_ANTIGUASDataTable(ds.Tables("LIST_HELADERAS_ANTIGUAS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -223,6 +228,16 @@ Partial Public Class Inmunizaciones
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+     Global.System.ComponentModel.Browsable(False), _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)> _
+    Public ReadOnly Property LIST_HELADERAS_ANTIGUAS() As LIST_HELADERAS_ANTIGUASDataTable
+        Get
+            Return Me.tableLIST_HELADERAS_ANTIGUAS
+        End Get
+    End Property
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
      Global.System.ComponentModel.BrowsableAttribute(True), _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)> _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -318,6 +333,9 @@ Partial Public Class Inmunizaciones
             If (Not (ds.Tables("LIST_EFECTOR_X_ESTADO")) Is Nothing) Then
                 MyBase.Tables.Add(New LIST_EFECTOR_X_ESTADODataTable(ds.Tables("LIST_EFECTOR_X_ESTADO")))
             End If
+            If (Not (ds.Tables("LIST_HELADERAS_ANTIGUAS")) Is Nothing) Then
+                MyBase.Tables.Add(New LIST_HELADERAS_ANTIGUASDataTable(ds.Tables("LIST_HELADERAS_ANTIGUAS")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -410,6 +428,12 @@ Partial Public Class Inmunizaciones
                 Me.tableLIST_EFECTOR_X_ESTADO.InitVars()
             End If
         End If
+        Me.tableLIST_HELADERAS_ANTIGUAS = CType(MyBase.Tables("LIST_HELADERAS_ANTIGUAS"), LIST_HELADERAS_ANTIGUASDataTable)
+        If (initTable = True) Then
+            If (Not (Me.tableLIST_HELADERAS_ANTIGUAS) Is Nothing) Then
+                Me.tableLIST_HELADERAS_ANTIGUAS.InitVars()
+            End If
+        End If
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -440,6 +464,8 @@ Partial Public Class Inmunizaciones
         MyBase.Tables.Add(Me.tableLIST_EMPLEADOS)
         Me.tableLIST_EFECTOR_X_ESTADO = New LIST_EFECTOR_X_ESTADODataTable()
         MyBase.Tables.Add(Me.tableLIST_EFECTOR_X_ESTADO)
+        Me.tableLIST_HELADERAS_ANTIGUAS = New LIST_HELADERAS_ANTIGUASDataTable()
+        MyBase.Tables.Add(Me.tableLIST_HELADERAS_ANTIGUAS)
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -499,6 +525,12 @@ Partial Public Class Inmunizaciones
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeLIST_EFECTOR_X_ESTADO() As Boolean
+        Return False
+    End Function
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Private Function ShouldSerializeLIST_HELADERAS_ANTIGUAS() As Boolean
         Return False
     End Function
 
@@ -589,6 +621,9 @@ Partial Public Class Inmunizaciones
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Public Delegate Sub LIST_EFECTOR_X_ESTADORowChangeEventHandler(ByVal sender As Object, ByVal e As LIST_EFECTOR_X_ESTADORowChangeEvent)
+
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Delegate Sub LIST_HELADERAS_ANTIGUASRowChangeEventHandler(ByVal sender As Object, ByVal e As LIST_HELADERAS_ANTIGUASRowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -3735,6 +3770,310 @@ Partial Public Class Inmunizaciones
     End Class
 
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(), _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    Partial Public Class LIST_HELADERAS_ANTIGUASDataTable
+        Inherits Global.System.Data.TypedTableBase(Of LIST_HELADERAS_ANTIGUASRow)
+
+        Private columnnombre_dpto As Global.System.Data.DataColumn
+
+        Private columnnombre_localidad As Global.System.Data.DataColumn
+
+        Private columncuie As Global.System.Data.DataColumn
+
+        Private columnnombre_efector As Global.System.Data.DataColumn
+
+        Private columnestado_heladera As Global.System.Data.DataColumn
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.TableName = "LIST_HELADERAS_ANTIGUAS"
+            Me.BeginInit()
+            Me.InitClass()
+            Me.EndInit()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New()
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property nombre_dptoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre_dpto
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property nombre_localidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre_localidad
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property cuieColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncuie
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property nombre_efectorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre_efector
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property estado_heladeraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnestado_heladera
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Default Public ReadOnly Property Item(ByVal index As Integer) As LIST_HELADERAS_ANTIGUASRow
+            Get
+                Return CType(Me.Rows(index), LIST_HELADERAS_ANTIGUASRow)
+            End Get
+        End Property
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LIST_HELADERAS_ANTIGUASRowChanging As LIST_HELADERAS_ANTIGUASRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LIST_HELADERAS_ANTIGUASRowChanged As LIST_HELADERAS_ANTIGUASRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LIST_HELADERAS_ANTIGUASRowDeleting As LIST_HELADERAS_ANTIGUASRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LIST_HELADERAS_ANTIGUASRowDeleted As LIST_HELADERAS_ANTIGUASRowChangeEventHandler
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Sub AddLIST_HELADERAS_ANTIGUASRow(ByVal row As LIST_HELADERAS_ANTIGUASRow)
+            Me.Rows.Add(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Function AddLIST_HELADERAS_ANTIGUASRow(ByVal nombre_dpto As String, ByVal nombre_localidad As String, ByVal cuie As String, ByVal nombre_efector As String, ByVal estado_heladera As String) As LIST_HELADERAS_ANTIGUASRow
+            Dim rowLIST_HELADERAS_ANTIGUASRow As LIST_HELADERAS_ANTIGUASRow = CType(Me.NewRow, LIST_HELADERAS_ANTIGUASRow)
+            Dim columnValuesArray() As Object = New Object() {nombre_dpto, nombre_localidad, cuie, nombre_efector, estado_heladera}
+            rowLIST_HELADERAS_ANTIGUASRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowLIST_HELADERAS_ANTIGUASRow)
+            Return rowLIST_HELADERAS_ANTIGUASRow
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As LIST_HELADERAS_ANTIGUASDataTable = CType(MyBase.Clone, LIST_HELADERAS_ANTIGUASDataTable)
+            cln.InitVars()
+            Return cln
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New LIST_HELADERAS_ANTIGUASDataTable()
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub InitVars()
+            Me.columnnombre_dpto = MyBase.Columns("nombre_dpto")
+            Me.columnnombre_localidad = MyBase.Columns("nombre_localidad")
+            Me.columncuie = MyBase.Columns("cuie")
+            Me.columnnombre_efector = MyBase.Columns("nombre_efector")
+            Me.columnestado_heladera = MyBase.Columns("estado_heladera")
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitClass()
+            Me.columnnombre_dpto = New Global.System.Data.DataColumn("nombre_dpto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre_dpto)
+            Me.columnnombre_localidad = New Global.System.Data.DataColumn("nombre_localidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre_localidad)
+            Me.columncuie = New Global.System.Data.DataColumn("cuie", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncuie)
+            Me.columnnombre_efector = New Global.System.Data.DataColumn("nombre_efector", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre_efector)
+            Me.columnestado_heladera = New Global.System.Data.DataColumn("estado_heladera", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnestado_heladera)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function NewLIST_HELADERAS_ANTIGUASRow() As LIST_HELADERAS_ANTIGUASRow
+            Return CType(Me.NewRow, LIST_HELADERAS_ANTIGUASRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New LIST_HELADERAS_ANTIGUASRow(builder)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(LIST_HELADERAS_ANTIGUASRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.LIST_HELADERAS_ANTIGUASRowChangedEvent) Is Nothing) Then
+                RaiseEvent LIST_HELADERAS_ANTIGUASRowChanged(Me, New LIST_HELADERAS_ANTIGUASRowChangeEvent(CType(e.Row, LIST_HELADERAS_ANTIGUASRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.LIST_HELADERAS_ANTIGUASRowChangingEvent) Is Nothing) Then
+                RaiseEvent LIST_HELADERAS_ANTIGUASRowChanging(Me, New LIST_HELADERAS_ANTIGUASRowChangeEvent(CType(e.Row, LIST_HELADERAS_ANTIGUASRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.LIST_HELADERAS_ANTIGUASRowDeletedEvent) Is Nothing) Then
+                RaiseEvent LIST_HELADERAS_ANTIGUASRowDeleted(Me, New LIST_HELADERAS_ANTIGUASRowChangeEvent(CType(e.Row, LIST_HELADERAS_ANTIGUASRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.LIST_HELADERAS_ANTIGUASRowDeletingEvent) Is Nothing) Then
+                RaiseEvent LIST_HELADERAS_ANTIGUASRowDeleting(Me, New LIST_HELADERAS_ANTIGUASRowChangeEvent(CType(e.Row, LIST_HELADERAS_ANTIGUASRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub RemoveLIST_HELADERAS_ANTIGUASRow(ByVal row As LIST_HELADERAS_ANTIGUASRow)
+            Me.Rows.Remove(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As Inmunizaciones = New Inmunizaciones()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "LIST_HELADERAS_ANTIGUASDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+
+                            Do While ((s1.Position <> s1.Length) _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+
+
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close()
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close()
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class EFECTORES_Y_REFERENTESRow
@@ -5491,6 +5830,161 @@ Partial Public Class Inmunizaciones
     End Class
 
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class LIST_HELADERAS_ANTIGUASRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableLIST_HELADERAS_ANTIGUAS As LIST_HELADERAS_ANTIGUASDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableLIST_HELADERAS_ANTIGUAS = CType(Me.Table, LIST_HELADERAS_ANTIGUASDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property nombre_dpto() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_dptoColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre_dpto' de la tabla 'LIST_HELADERAS_ANTIGUAS' es DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_dptoColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property nombre_localidad() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_localidadColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre_localidad' de la tabla 'LIST_HELADERAS_ANTIGUAS' e" & _
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_localidadColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property cuie() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_HELADERAS_ANTIGUAS.cuieColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cuie' de la tabla 'LIST_HELADERAS_ANTIGUAS' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_HELADERAS_ANTIGUAS.cuieColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property nombre_efector() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_efectorColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre_efector' de la tabla 'LIST_HELADERAS_ANTIGUAS' es " & _
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_efectorColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property estado_heladera() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_HELADERAS_ANTIGUAS.estado_heladeraColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estado_heladera' de la tabla 'LIST_HELADERAS_ANTIGUAS' es" & _
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_HELADERAS_ANTIGUAS.estado_heladeraColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isnombre_dptoNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_dptoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setnombre_dptoNull()
+            Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_dptoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isnombre_localidadNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_localidadColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setnombre_localidadNull()
+            Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_localidadColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IscuieNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_HELADERAS_ANTIGUAS.cuieColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetcuieNull()
+            Me(Me.tableLIST_HELADERAS_ANTIGUAS.cuieColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isnombre_efectorNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_efectorColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setnombre_efectorNull()
+            Me(Me.tableLIST_HELADERAS_ANTIGUAS.nombre_efectorColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isestado_heladeraNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_HELADERAS_ANTIGUAS.estado_heladeraColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setestado_heladeraNull()
+            Me(Me.tableLIST_HELADERAS_ANTIGUAS.estado_heladeraColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -5836,6 +6330,42 @@ Partial Public Class Inmunizaciones
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property Row() As LIST_EFECTOR_X_ESTADORow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Class LIST_HELADERAS_ANTIGUASRowChangeEvent
+        Inherits Global.System.EventArgs
+
+        Private eventRow As LIST_HELADERAS_ANTIGUASRow
+
+        Private eventAction As Global.System.Data.DataRowAction
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New(ByVal row As LIST_HELADERAS_ANTIGUASRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New()
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Row() As LIST_HELADERAS_ANTIGUASRow
             Get
                 Return Me.eventRow
             End Get
