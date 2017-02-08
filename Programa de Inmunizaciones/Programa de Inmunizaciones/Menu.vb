@@ -88,4 +88,8 @@
     Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasPorEfectorToolStripMenuItem.Click
         list_heladeras_antiguas.ShowDialog()
     End Sub
+
+    Private Sub EmpleadosPorCursoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorCursoToolStripMenuItem.Click
+        est_empleados_con_y_sin_curso.ShowDialog()
+    End Sub
 End Class
