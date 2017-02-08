@@ -84,4 +84,8 @@
     Private Sub RegistrarEntregaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarEntregaToolStripMenuItem.Click
         Registrar_entrega_insumos.ShowDialog()
     End Sub
+
+    Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasPorEfectorToolStripMenuItem.Click
+        list_heladeras_antiguas.ShowDialog()
+    End Sub
 End Class
