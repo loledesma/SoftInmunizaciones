@@ -37,9 +37,9 @@ Partial Class list_usuarios
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_usuario = New System.Windows.Forms.GroupBox()
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.cmb_estados_usuarios = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_usuario.SuspendLayout()
         Me.SuspendLayout()
@@ -149,6 +149,7 @@ Partial Class list_usuarios
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Nothing
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_atenciones.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(18, 150)
@@ -170,6 +171,25 @@ Partial Class list_usuarios
         Me.grp_usuario.TabStop = False
         Me.grp_usuario.Text = "Datos Usuario"
         '
+        'cmd_ejecutar
+        '
+        Me.cmd_ejecutar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_ejecutar.BackgroundImage = CType(resources.GetObject("cmd_ejecutar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_ejecutar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
+        Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(424, 30)
+        Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_ejecutar.Name = "cmd_ejecutar"
+        Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_ejecutar.TabIndex = 31
+        Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_ejecutar.UseVisualStyleBackColor = False
+        '
         'cmb_estados_usuarios
         '
         Me.cmb_estados_usuarios._descripcion = "descripcion"
@@ -189,25 +209,6 @@ Partial Class list_usuarios
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 30
         Me.Label4.Text = "Estado"
-        '
-        'cmd_ejecutar
-        '
-        Me.cmd_ejecutar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_ejecutar.BackgroundImage = CType(resources.GetObject("cmd_ejecutar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_ejecutar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
-        Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(424, 30)
-        Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_ejecutar.Name = "cmd_ejecutar"
-        Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_ejecutar.TabIndex = 31
-        Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_ejecutar.UseVisualStyleBackColor = False
         '
         'list_usuarios
         '
