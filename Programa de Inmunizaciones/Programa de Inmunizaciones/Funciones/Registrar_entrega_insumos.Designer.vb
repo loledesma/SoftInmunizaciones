@@ -120,7 +120,7 @@ Partial Class Registrar_entrega_insumos
         Me.grp_datos_recordatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_recordatorio.Name = "grp_datos_recordatorio"
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(420, 397)
-        Me.grp_datos_recordatorio.TabIndex = 23
+        Me.grp_datos_recordatorio.TabIndex = 1
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Entrega y Pedido"
         '
@@ -138,7 +138,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_agregar_efector.TabIndex = 75
+        Me.cmd_agregar_efector.TabIndex = 4
         Me.cmd_agregar_efector.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_efector.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_efector.UseVisualStyleBackColor = False
@@ -148,7 +148,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_nombre_efector.Location = New System.Drawing.Point(107, 77)
         Me.txt_nombre_efector.Name = "txt_nombre_efector"
         Me.txt_nombre_efector.Size = New System.Drawing.Size(274, 20)
-        Me.txt_nombre_efector.TabIndex = 74
+        Me.txt_nombre_efector.TabIndex = 3
         '
         'Label7
         '
@@ -164,7 +164,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_cuie.Location = New System.Drawing.Point(109, 105)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(78, 20)
-        Me.txt_cuie.TabIndex = 71
+        Me.txt_cuie.TabIndex = 5
         '
         'Label6
         '
@@ -180,7 +180,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_observaciones.Location = New System.Drawing.Point(109, 281)
         Me.txt_observaciones.Name = "txt_observaciones"
         Me.txt_observaciones.Size = New System.Drawing.Size(283, 103)
-        Me.txt_observaciones.TabIndex = 69
+        Me.txt_observaciones.TabIndex = 12
         Me.txt_observaciones.Text = ""
         '
         'Label5
@@ -197,7 +197,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_apellido.Location = New System.Drawing.Point(109, 252)
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(283, 20)
-        Me.txt_apellido.TabIndex = 67
+        Me.txt_apellido.TabIndex = 11
         '
         'Label4
         '
@@ -233,14 +233,14 @@ Partial Class Registrar_entrega_insumos
         Me.txt_nombre.Location = New System.Drawing.Point(109, 222)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(283, 20)
-        Me.txt_nombre.TabIndex = 63
+        Me.txt_nombre.TabIndex = 10
         '
         'txt_id_empleado
         '
         Me.txt_id_empleado.Location = New System.Drawing.Point(110, 196)
         Me.txt_id_empleado.Name = "txt_id_empleado"
         Me.txt_id_empleado.Size = New System.Drawing.Size(99, 20)
-        Me.txt_id_empleado.TabIndex = 62
+        Me.txt_id_empleado.TabIndex = 9
         '
         'Label1
         '
@@ -257,7 +257,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_fecha_entrega.Mask = "00/00/0000"
         Me.txt_fecha_entrega.Name = "txt_fecha_entrega"
         Me.txt_fecha_entrega.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_entrega.TabIndex = 55
+        Me.txt_fecha_entrega.TabIndex = 2
         Me.txt_fecha_entrega.ValidatingType = GetType(Date)
         '
         'lbl_fecha_entrega
@@ -283,7 +283,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 4
+        Me.cmd_actualizar_estado.TabIndex = 7
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
@@ -308,7 +308,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmb_autorizador.Location = New System.Drawing.Point(109, 167)
         Me.cmb_autorizador.Name = "cmb_autorizador"
         Me.cmb_autorizador.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_autorizador.TabIndex = 5
+        Me.cmb_autorizador.TabIndex = 8
         '
         'lbl_autoriza
         '
@@ -337,7 +337,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmb_estado_entrega.Location = New System.Drawing.Point(109, 139)
         Me.cmb_estado_entrega.Name = "cmb_estado_entrega"
         Me.cmb_estado_entrega.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_entrega.TabIndex = 3
+        Me.cmb_estado_entrega.TabIndex = 6
         '
         'txt_id_entrega
         '
@@ -388,7 +388,7 @@ Partial Class Registrar_entrega_insumos
         Me.GroupBox1.Location = New System.Drawing.Point(12, 415)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(420, 138)
-        Me.GroupBox1.TabIndex = 58
+        Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detalle de Entrega y Pedido"
         '
@@ -401,7 +401,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_ver_stock.Location = New System.Drawing.Point(139, 85)
         Me.cmd_ver_stock.Name = "cmd_ver_stock"
         Me.cmd_ver_stock.Size = New System.Drawing.Size(168, 35)
-        Me.cmd_ver_stock.TabIndex = 62
+        Me.cmd_ver_stock.TabIndex = 5
         Me.cmd_ver_stock.Text = "VER STOCK"
         Me.cmd_ver_stock.UseVisualStyleBackColor = True
         '
@@ -419,7 +419,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar_insumo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_insumo.Name = "cmd_limpiar_insumo"
         Me.cmd_limpiar_insumo.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_limpiar_insumo.TabIndex = 59
+        Me.cmd_limpiar_insumo.TabIndex = 2
         Me.cmd_limpiar_insumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar_insumo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar_insumo.UseVisualStyleBackColor = False
@@ -438,7 +438,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_eliminar_insumo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_insumo.Name = "cmd_eliminar_insumo"
         Me.cmd_eliminar_insumo.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_eliminar_insumo.TabIndex = 61
+        Me.cmd_eliminar_insumo.TabIndex = 4
         Me.cmd_eliminar_insumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar_insumo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar_insumo.UseVisualStyleBackColor = False
@@ -457,7 +457,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_insumo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_insumo.Name = "cmd_agregar_insumo"
         Me.cmd_agregar_insumo.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_agregar_insumo.TabIndex = 60
+        Me.cmd_agregar_insumo.TabIndex = 3
         Me.cmd_agregar_insumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_insumo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_insumo.UseVisualStyleBackColor = False
@@ -468,7 +468,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_cantidad.Mask = "9999999"
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(98, 20)
-        Me.txt_cantidad.TabIndex = 58
+        Me.txt_cantidad.TabIndex = 1
         '
         'Label3
         '
@@ -488,7 +488,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmb_insumos.Location = New System.Drawing.Point(107, 19)
         Me.cmb_insumos.Name = "cmb_insumos"
         Me.cmb_insumos.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_insumos.TabIndex = 3
+        Me.cmb_insumos.TabIndex = 0
         '
         'Label8
         '
@@ -513,7 +513,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 62
+        Me.cmd_limpiar.TabIndex = 5
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -532,7 +532,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 59
+        Me.cmd_guardar.TabIndex = 4
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -551,7 +551,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 60
+        Me.cmd_nuevo.TabIndex = 3
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -566,7 +566,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_salir.Location = New System.Drawing.Point(929, 567)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 63
+        Me.cmd_salir.TabIndex = 7
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'dgv_entrega
@@ -670,7 +670,7 @@ Partial Class Registrar_entrega_insumos
         DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
         Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_detalle_entrega.Size = New System.Drawing.Size(559, 131)
-        Me.dgv_detalle_entrega.TabIndex = 65
+        Me.dgv_detalle_entrega.TabIndex = 6
         '
         'id_insumo
         '

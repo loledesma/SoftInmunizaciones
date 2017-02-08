@@ -577,8 +577,83 @@
     End Sub
 
     Private Sub insertar_detalle_entrega()
+        Dim sql As String = ""
+        Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
+        Dim tabla As New DataTable
+        acceso._nombre_tabla = "DETALLE_ENTREGA_INSUMOS"
 
+        Dim c As Integer
+        For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
+            sql &= "id_entrega = " & Me.txt_id_entrega.Text
+            sql &= ", id_insumo = " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+            sql &= " , cantidad= " & Me.dgv_detalle_entrega.Rows(c).Cells("cantidad").Value
+
+            acceso.insertar(sql)
+
+            sql = ""
+        Next
     End Sub
 
+
+    Private Sub cmd_limpiar_insumo_Click(sender As Object, e As EventArgs) Handles cmd_limpiar_insumo.Click
+        limpiar_insumos()
+    End Sub
+
+    Private Sub limpiar_insumos()
+        Me.cmb_insumos.SelectedIndex = -1
+        Me.txt_cantidad.Text = ""
+        Me.cmd_agregar_efector.Enabled = True
+        Me.cmd_eliminar_insumo.Enabled = False
+    End Sub
+
+    Private Sub cmd_agregar_insumo_Click(sender As Object, e As EventArgs) Handles cmd_agregar_insumo.Click
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        Dim flag As Boolean = False
+        Dim c As Integer = 0
+
+        If validar_entrega() = True Then
+            If validar_detalle() = True Then
+
+                For c = 0 To dgv_detalle_entrega.Rows.Count - 1
+                    If Me.cmb_insumos.SelectedValue = dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value Then
+                        dgv_detalle_entrega.Rows(c).Cells("cantidad").Value = txt_id_empleado.Text
+                       
+                        sql = ""
+                        sql &= "SELECT descripcion FROM INSUMOS WHERE id = " & dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_detalle_entrega.Rows(c).Cells("insumo").Value = tabla.Rows(0)("descripcion")
+
+                        flag = True
+                    End If
+                Next
+                If flag = False Then
+                    dgv_detalle_entrega.Rows.Add()
+                    dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("id_insumo").Value = Me.txt_id_entrega.Text
+                    dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("cantidad").Value = Me.txt_cantidad.Text
+                  
+                    sql = ""
+                    sql &= "SELECT descripcion FROM INSUMOS WHERE id = " & dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("id_insumo").Value
+                    tabla.Clear()
+                    tabla = acceso.consulta(sql)
+                    dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("insumo").Value = tabla.Rows(0)("descripcion")
+
+                End If
+            End If
+        End If
+
+        limpiar_insumos()
+    End Sub
+
+    Private Sub cmd_eliminar_insumo_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_insumo.Click
+        Dim num As Integer = dgv_detalle_entrega.CurrentRow.Index
+        For c = 0 To dgv_detalle_entrega.Rows.Count - 1
+            If num = c Then
+                dgv_detalle_entrega.Rows.RemoveAt(c)
+                Exit For
+            End If
+        Next
+    End Sub
 
 End Class
