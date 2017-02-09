@@ -780,6 +780,99 @@
   <data name="VacunatoriosImplementadosToolStripMenuItem.Text" xml:space="preserve">
     <value>Vacunatorios implementados</value>
   </data>
+  <data name="VacunatoriosSegúnHeladeraToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADb0lEQVRYR8WX/0tTURTA/a3+hPoj+sUIUoiICirJILR+Ea20sszqBxXN
+        UAuDFHXTvmyRKJFpezOEoJBklCYkkRllkpvuzS9plobOvWk6Pd1z3Zvvvp3J3DJ/+Iz7zj3vnLN77jn3
+        vhgACIsax8stBpf1sFG2mI2y1M6wG13SLAfHXGYxow7qUjYoSKEWg+vZdqNsNTEHbgaECdO1mvBdyqYW
+        UojUy/Vbq51SKTOm6IyvBwVtoC3KB0IK78nSNvZyl85YNHShTcpXkKBqUNrB8jpCGIkOZhNt6/0JD/yf
+        b4RzFWZbvxKBAeaJKQnL/s0zBM3jb0Qj66SgzQwplSVaWZd2TwQC8G84rlQtW6F9qgd+L7ih5UeH9uWw
+        KXpbC0dzcyD2SCrsz8gS5tCXEMBKqa3u9hqXFXpm7OBeVCIK4PTdUohNSOXOkT0p5/U6ilqiPAB/neuV
+        wOUdjyiAqgELHMzMDgQQl5xO6FlNPADsWkxANplIA7jxrg52JqRx5wfOXYJdiacoPTf6ZsuP7VWcvONq
+        hvmlBVhaXo4ogOPX87nzvWkXoNL+FIo7a8HgtATpoW+2/Ly3B02ahlpgeG5i3QGgMzX/+a33SZ1VLGYW
+        AD9YiMm1U5DdVAmJeTlQaHsgyI8V5HHnyTcLBXkI2jEAPMmECSxD22Q3TC3MkAFU9DdB3IkM2HfmIneG
+        5VbU8ZCDz/Fsrqz3SdB7BPYY/3EqTGAZfnYPhizDzPpySCouAKNTgqyGCtidlM6XPf7kWR7AFckQ9A4J
+        800GoEKlwDBogUOXr0J5X2NAdvtLAySVXOPOE/NyBf014QEQKVChAsB/F2pzlfU2kPI1YCkgNiGWIS6/
+        b9kXFABuPu1zlOAmpMuwbuQFjM79FAK41f2I17VWLzpYGVKNSCXSThguvBFRrRjL8NWv9zD5Z3ojA1hp
+        xdRhVMP2QN+sDB6fdwMD8B9G+KM/jlUwBZ9mHLwpRcPziU7BLkM8jhHthUTFNvmB3wsU3xz0e4b52KGM
+        wCxbGRwjWC0Dyigf4w3K65sPzE0vesCpjMHrqY+C3aALCUJdyVRk7xg0fm/jY8uYjTtU57TXtsejrfwA
+        U+e+sjQSKaSvZMimXkpVNvVarsJXIkQ6IiT8DxMVzJN/Y/7/TzMtBl6im/Bxqge71krb/pef5xDzF3Gt
+        ENw6oM9kAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="VacunatoriosSegúnHeladeraToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="VacunatoriosSegúnHeladeraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 38</value>
+  </data>
+  <data name="VacunatoriosSegúnHeladeraToolStripMenuItem.Text" xml:space="preserve">
+    <value>Vacunatorios según heladera</value>
+  </data>
+  <data name="EstadoDeHeladerasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADb0lEQVRYR8WX/0tTURTA/a3+hPoj+sUIUoiICirJILR+Ea20sszqBxXN
+        UAuDFHXTvmyRKJFpezOEoJBklCYkkRllkpvuzS9plobOvWk6Pd1z3Zvvvp3J3DJ/+Iz7zj3vnLN77jn3
+        vhgACIsax8stBpf1sFG2mI2y1M6wG13SLAfHXGYxow7qUjYoSKEWg+vZdqNsNTEHbgaECdO1mvBdyqYW
+        UojUy/Vbq51SKTOm6IyvBwVtoC3KB0IK78nSNvZyl85YNHShTcpXkKBqUNrB8jpCGIkOZhNt6/0JD/yf
+        b4RzFWZbvxKBAeaJKQnL/s0zBM3jb0Qj66SgzQwplSVaWZd2TwQC8G84rlQtW6F9qgd+L7ih5UeH9uWw
+        KXpbC0dzcyD2SCrsz8gS5tCXEMBKqa3u9hqXFXpm7OBeVCIK4PTdUohNSOXOkT0p5/U6ilqiPAB/neuV
+        wOUdjyiAqgELHMzMDgQQl5xO6FlNPADsWkxANplIA7jxrg52JqRx5wfOXYJdiacoPTf6ZsuP7VWcvONq
+        hvmlBVhaXo4ogOPX87nzvWkXoNL+FIo7a8HgtATpoW+2/Ly3B02ahlpgeG5i3QGgMzX/+a33SZ1VLGYW
+        AD9YiMm1U5DdVAmJeTlQaHsgyI8V5HHnyTcLBXkI2jEAPMmECSxD22Q3TC3MkAFU9DdB3IkM2HfmIneG
+        5VbU8ZCDz/Fsrqz3SdB7BPYY/3EqTGAZfnYPhizDzPpySCouAKNTgqyGCtidlM6XPf7kWR7AFckQ9A4J
+        800GoEKlwDBogUOXr0J5X2NAdvtLAySVXOPOE/NyBf014QEQKVChAsB/F2pzlfU2kPI1YCkgNiGWIS6/
+        b9kXFABuPu1zlOAmpMuwbuQFjM79FAK41f2I17VWLzpYGVKNSCXSThguvBFRrRjL8NWv9zD5Z3ojA1hp
+        xdRhVMP2QN+sDB6fdwMD8B9G+KM/jlUwBZ9mHLwpRcPziU7BLkM8jhHthUTFNvmB3wsU3xz0e4b52KGM
+        wCxbGRwjWC0Dyigf4w3K65sPzE0vesCpjMHrqY+C3aALCUJdyVRk7xg0fm/jY8uYjTtU57TXtsejrfwA
+        U+e+sjQSKaSvZMimXkpVNvVarsJXIkQ6IiT8DxMVzJN/Y/7/TzMtBl6im/Bxqge71krb/pef5xDzF3Gt
+        ENw6oM9kAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="EstadoDeHeladerasToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="EstadoDeHeladerasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 38</value>
+  </data>
+  <data name="EstadoDeHeladerasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Estado de heladeras</value>
+  </data>
+  <data name="EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADb0lEQVRYR8WX/0tTURTA/a3+hPoj+sUIUoiICirJILR+Ea20sszqBxXN
+        UAuDFHXTvmyRKJFpezOEoJBklCYkkRllkpvuzS9plobOvWk6Pd1z3Zvvvp3J3DJ/+Iz7zj3vnLN77jn3
+        vhgACIsax8stBpf1sFG2mI2y1M6wG13SLAfHXGYxow7qUjYoSKEWg+vZdqNsNTEHbgaECdO1mvBdyqYW
+        UojUy/Vbq51SKTOm6IyvBwVtoC3KB0IK78nSNvZyl85YNHShTcpXkKBqUNrB8jpCGIkOZhNt6/0JD/yf
+        b4RzFWZbvxKBAeaJKQnL/s0zBM3jb0Qj66SgzQwplSVaWZd2TwQC8G84rlQtW6F9qgd+L7ih5UeH9uWw
+        KXpbC0dzcyD2SCrsz8gS5tCXEMBKqa3u9hqXFXpm7OBeVCIK4PTdUohNSOXOkT0p5/U6ilqiPAB/neuV
+        wOUdjyiAqgELHMzMDgQQl5xO6FlNPADsWkxANplIA7jxrg52JqRx5wfOXYJdiacoPTf6ZsuP7VWcvONq
+        hvmlBVhaXo4ogOPX87nzvWkXoNL+FIo7a8HgtATpoW+2/Ly3B02ahlpgeG5i3QGgMzX/+a33SZ1VLGYW
+        AD9YiMm1U5DdVAmJeTlQaHsgyI8V5HHnyTcLBXkI2jEAPMmECSxD22Q3TC3MkAFU9DdB3IkM2HfmIneG
+        5VbU8ZCDz/Fsrqz3SdB7BPYY/3EqTGAZfnYPhizDzPpySCouAKNTgqyGCtidlM6XPf7kWR7AFckQ9A4J
+        800GoEKlwDBogUOXr0J5X2NAdvtLAySVXOPOE/NyBf014QEQKVChAsB/F2pzlfU2kPI1YCkgNiGWIS6/
+        b9kXFABuPu1zlOAmpMuwbuQFjM79FAK41f2I17VWLzpYGVKNSCXSThguvBFRrRjL8NWv9zD5Z3ojA1hp
+        xdRhVMP2QN+sDB6fdwMD8B9G+KM/jlUwBZ9mHLwpRcPziU7BLkM8jhHthUTFNvmB3wsU3xz0e4b52KGM
+        wCxbGRwjWC0Dyigf4w3K65sPzE0vesCpjMHrqY+C3aALCUJdyVRk7xg0fm/jY8uYjTtU57TXtsejrfwA
+        U+e+sjQSKaSvZMimXkpVNvVarsJXIkQ6IiT8DxMVzJN/Y/7/TzMtBl6im/Bxqge71krb/pef5xDzF3Gt
+        ENw6oM9kAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="EmisiónDeResumenDesdeSigipsaToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 38</value>
+  </data>
+  <data name="EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Emisión de Resumen desde Sigipsa</value>
+  </data>
   <data name="EstadisticasToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
@@ -7772,6 +7865,18 @@
   <data name="&gt;&gt;VacunatoriosImplementadosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;VacunatoriosSegúnHeladeraToolStripMenuItem.Name" xml:space="preserve">
+    <value>VacunatoriosSegúnHeladeraToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;VacunatoriosSegúnHeladeraToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EstadoDeHeladerasToolStripMenuItem.Name" xml:space="preserve">
+    <value>EstadoDeHeladerasToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EstadoDeHeladerasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;EmpleadosToolStripMenuItem.Name" xml:space="preserve">
     <value>EmpleadosToolStripMenuItem</value>
   </data>
@@ -7872,6 +7977,12 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Name" xml:space="preserve">
+    <value>EmisiónDeResumenDesdeSigipsaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

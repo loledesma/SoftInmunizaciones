@@ -173,10 +173,28 @@
     <Compile Include="Estadisticos\est_efectores_implementados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticos\est_efect_emiten_sigipsa.Designer.vb">
+      <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_efect_emiten_sigipsa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.Designer.vb">
+      <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.Designer.vb">
       <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
     </Compile>
     <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_heladeras.Designer.vb">
+      <DependentUpon>est_estado_heladeras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_heladeras.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.Designer.vb">
@@ -348,13 +366,25 @@
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_con_y_sin_heladera.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_efectores_implementados.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_efectores_implementados.resx">
       <DependentUpon>est_efectores_implementados.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.resx">
+      <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_ef_con_y_sin_heladera.resx">
+      <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticos\est_empleados_con_curso.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_empleados_con_y_sin_curso.resx">
       <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_estado_heladeras.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_estado_heladeras.resx">
+      <DependentUpon>est_estado_heladeras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>

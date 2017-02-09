@@ -80,6 +80,22 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EST_ESTADO_HELADERAS" msprop:Generator_TableClassName="EST_ESTADO_HELADERASDataTable" msprop:Generator_TableVarName="tableEST_ESTADO_HELADERAS" msprop:Generator_RowChangedName="EST_ESTADO_HELADERASRowChanged" msprop:Generator_TablePropName="EST_ESTADO_HELADERAS" msprop:Generator_RowDeletingName="EST_ESTADO_HELADERASRowDeleting" msprop:Generator_RowChangingName="EST_ESTADO_HELADERASRowChanging" msprop:Generator_RowEvHandlerName="EST_ESTADO_HELADERASRowChangeEventHandler" msprop:Generator_RowDeletedName="EST_ESTADO_HELADERASRowDeleted" msprop:Generator_RowClassName="EST_ESTADO_HELADERASRow" msprop:Generator_UserTableName="EST_ESTADO_HELADERAS" msprop:Generator_RowEvArgName="EST_ESTADO_HELADERASRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="estado_heladera" msprop:Generator_ColumnVarNameInTable="columnestado_heladera" msprop:Generator_ColumnPropNameInRow="estado_heladera" msprop:Generator_ColumnPropNameInTable="estado_heladeraColumn" msprop:Generator_UserColumnName="estado_heladera" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EST_EF_EMITEN_SIGIPSA" msprop:Generator_TableClassName="EST_EF_EMITEN_SIGIPSADataTable" msprop:Generator_TableVarName="tableEST_EF_EMITEN_SIGIPSA" msprop:Generator_TablePropName="EST_EF_EMITEN_SIGIPSA" msprop:Generator_RowDeletingName="EST_EF_EMITEN_SIGIPSARowDeleting" msprop:Generator_RowChangingName="EST_EF_EMITEN_SIGIPSARowChanging" msprop:Generator_RowEvHandlerName="EST_EF_EMITEN_SIGIPSARowChangeEventHandler" msprop:Generator_RowDeletedName="EST_EF_EMITEN_SIGIPSARowDeleted" msprop:Generator_UserTableName="EST_EF_EMITEN_SIGIPSA" msprop:Generator_RowChangedName="EST_EF_EMITEN_SIGIPSARowChanged" msprop:Generator_RowEvArgName="EST_EF_EMITEN_SIGIPSARowChangeEvent" msprop:Generator_RowClassName="EST_EF_EMITEN_SIGIPSARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
