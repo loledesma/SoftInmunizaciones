@@ -55,6 +55,8 @@ Partial Class Menu
         Me.EstadisticasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosImplementadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VacunatoriosSegúnHeladeraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstadoDeHeladerasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeEmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -72,6 +74,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -251,7 +254,7 @@ Partial Class Menu
         'EstadisticasToolStripMenuItem1
         '
         Me.EstadisticasToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
-        Me.EstadisticasToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem, Me.VacunatoriosImplementadosToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem, Me.VacunatoriosImplementadosToolStripMenuItem, Me.VacunatoriosSegúnHeladeraToolStripMenuItem, Me.EstadoDeHeladerasToolStripMenuItem, Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem})
         Me.EstadisticasToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.EstadisticasToolStripMenuItem1, "EstadisticasToolStripMenuItem1")
         Me.EstadisticasToolStripMenuItem1.Name = "EstadisticasToolStripMenuItem1"
@@ -265,6 +268,16 @@ Partial Class Menu
         '
         resources.ApplyResources(Me.VacunatoriosImplementadosToolStripMenuItem, "VacunatoriosImplementadosToolStripMenuItem")
         Me.VacunatoriosImplementadosToolStripMenuItem.Name = "VacunatoriosImplementadosToolStripMenuItem"
+        '
+        'VacunatoriosSegúnHeladeraToolStripMenuItem
+        '
+        resources.ApplyResources(Me.VacunatoriosSegúnHeladeraToolStripMenuItem, "VacunatoriosSegúnHeladeraToolStripMenuItem")
+        Me.VacunatoriosSegúnHeladeraToolStripMenuItem.Name = "VacunatoriosSegúnHeladeraToolStripMenuItem"
+        '
+        'EstadoDeHeladerasToolStripMenuItem
+        '
+        resources.ApplyResources(Me.EstadoDeHeladerasToolStripMenuItem, "EstadoDeHeladerasToolStripMenuItem")
+        Me.EstadoDeHeladerasToolStripMenuItem.Name = "EstadoDeHeladerasToolStripMenuItem"
         '
         'EmpleadosToolStripMenuItem
         '
@@ -374,6 +387,11 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
+        'EmisiónDeResumenDesdeSigipsaToolStripMenuItem
+        '
+        resources.ApplyResources(Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem, "EmisiónDeResumenDesdeSigipsaToolStripMenuItem")
+        Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Name = "EmisiónDeResumenDesdeSigipsaToolStripMenuItem"
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -439,4 +457,7 @@ Partial Class Menu
     Friend WithEvents RegistrarEntregaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StockDeInsumosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EstadoDeHeladerasPorEfectorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents VacunatoriosSegúnHeladeraToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EstadoDeHeladerasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EmisiónDeResumenDesdeSigipsaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
