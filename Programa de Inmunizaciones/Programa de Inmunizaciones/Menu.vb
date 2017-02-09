@@ -88,4 +88,16 @@
     Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasPorEfectorToolStripMenuItem.Click
         list_heladeras_antiguas.ShowDialog()
     End Sub
+
+    Private Sub EmpleadosPorCursoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorCursoToolStripMenuItem.Click
+        est_empleados_con_y_sin_curso.ShowDialog()
+    End Sub
+
+    Private Sub VacunatoriosSegúnHeladeraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosSegúnHeladeraToolStripMenuItem.Click
+        est_ef_con_y_sin_heladera.ShowDialog()
+    End Sub
+
+    Private Sub EstadoDeHeladerasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasToolStripMenuItem.Click
+        est_estado_heladeras.ShowDialog()
+    End Sub
 End Class

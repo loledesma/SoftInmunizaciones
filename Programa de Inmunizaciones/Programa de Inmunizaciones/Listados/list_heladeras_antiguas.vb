@@ -35,6 +35,15 @@
             e.Cancel = True
         End If
     End Sub
+    Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamentos.SelectedValueChanged
+
+        If cmb_departamentos.SelectedIndex <> -1 Then
+            cmb_localidades.cargar("id_departamento", Me.cmb_departamentos.SelectedValue)
+            cmb_localidades.Enabled = True
+            cmb_localidades.SelectedIndex = -1
+        End If
+
+    End Sub
 
     Private Sub imprimir()
         Dim sql As String = ""
@@ -50,22 +59,19 @@
                 If txt_antiguedad.Text <> "" Then
                     sql &= " AND E.antiguedad = '" & Me.txt_antiguedad.Text & "' "
                 End If
+            ElseIf cmb_departamentos.SelectedIndex <> -1 Then
+                If txt_antiguedad.Text <> "" And txt_antiguedad.Text = "VIEJA" Or txt_antiguedad.Text = "DESCONOCIDO" Or txt_antiguedad.Text = "NUEVA" Then
+                    sql &= " AND E.antiguedad = '" & Me.txt_antiguedad.Text & "'"
+                End If
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= "WHERE L.id = " & Me.cmb_localidades.SelectedValue
-            If txt_antiguedad.Text <> "" Then
-                sql &= " AND E.antiguedad = '" & Me.txt_antiguedad.Text & "' "
-
+            sql &= " WHERE L.id = " & Me.cmb_localidades.SelectedValue
+            If txt_antiguedad.Text <> "" And txt_antiguedad.Text = "VIEJA" Or txt_antiguedad.Text = "DESCONOCIDO" Or txt_antiguedad.Text = "NUEVA" Then
+                sql &= " AND E.antiguedad = '" & Me.txt_antiguedad.Text & "'"
             End If
-        ElseIf cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= "WHERE D.id = " & Me.cmb_departamentos.SelectedValue
-            If txt_antiguedad.Text <> "" Then
-                sql &= " AND E.antiguedad = '" & Me.txt_antiguedad.Text & "' "
-            End If
-        ElseIf txt_antiguedad.Text <> "" Then
-            sql &= "WHERE E.antiguedad = '" & Me.txt_antiguedad.Text & "' "
+        ElseIf txt_antiguedad.Text <> "" And txt_antiguedad.Text = "VIEJA" Or txt_antiguedad.Text = "DESCONOCIDO" Or txt_antiguedad.Text = "NUEVA" Then
+            sql &= "WHERE E.antiguedad = '" & Me.txt_antiguedad.Text & "'"
         End If
-       
 
 
         tabla = acceso.consulta(sql)
