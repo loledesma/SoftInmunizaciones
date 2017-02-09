@@ -23,10 +23,10 @@ Partial Class Registrar_entrega_insumos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_entrega_insumos))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
         Me.txt_nombre_efector = New System.Windows.Forms.TextBox()
@@ -120,7 +120,7 @@ Partial Class Registrar_entrega_insumos
         Me.grp_datos_recordatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_recordatorio.Name = "grp_datos_recordatorio"
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(420, 397)
-        Me.grp_datos_recordatorio.TabIndex = 1
+        Me.grp_datos_recordatorio.TabIndex = 0
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Entrega y Pedido"
         '
@@ -138,17 +138,19 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_agregar_efector.TabIndex = 4
+        Me.cmd_agregar_efector.TabIndex = 5
         Me.cmd_agregar_efector.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_efector.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_efector.UseVisualStyleBackColor = False
         '
         'txt_nombre_efector
         '
-        Me.txt_nombre_efector.Location = New System.Drawing.Point(107, 77)
+        Me.txt_nombre_efector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_nombre_efector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_nombre_efector.Location = New System.Drawing.Point(108, 76)
         Me.txt_nombre_efector.Name = "txt_nombre_efector"
-        Me.txt_nombre_efector.Size = New System.Drawing.Size(274, 20)
-        Me.txt_nombre_efector.TabIndex = 3
+        Me.txt_nombre_efector.Size = New System.Drawing.Size(271, 20)
+        Me.txt_nombre_efector.TabIndex = 4
         '
         'Label7
         '
@@ -161,10 +163,12 @@ Partial Class Registrar_entrega_insumos
         '
         'txt_cuie
         '
+        Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_cuie.Location = New System.Drawing.Point(109, 105)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(78, 20)
-        Me.txt_cuie.TabIndex = 5
+        Me.txt_cuie.TabIndex = 6
         '
         'Label6
         '
@@ -180,7 +184,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_observaciones.Location = New System.Drawing.Point(109, 281)
         Me.txt_observaciones.Name = "txt_observaciones"
         Me.txt_observaciones.Size = New System.Drawing.Size(283, 103)
-        Me.txt_observaciones.TabIndex = 12
+        Me.txt_observaciones.TabIndex = 14
         Me.txt_observaciones.Text = ""
         '
         'Label5
@@ -194,10 +198,12 @@ Partial Class Registrar_entrega_insumos
         '
         'txt_apellido
         '
+        Me.txt_apellido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_apellido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_apellido.Location = New System.Drawing.Point(109, 252)
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(283, 20)
-        Me.txt_apellido.TabIndex = 11
+        Me.txt_apellido.TabIndex = 13
         '
         'Label4
         '
@@ -225,22 +231,24 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_buscar_empleado.Location = New System.Drawing.Point(214, 195)
         Me.cmd_buscar_empleado.Name = "cmd_buscar_empleado"
         Me.cmd_buscar_empleado.Size = New System.Drawing.Size(20, 20)
-        Me.cmd_buscar_empleado.TabIndex = 64
+        Me.cmd_buscar_empleado.TabIndex = 11
         Me.cmd_buscar_empleado.UseVisualStyleBackColor = True
         '
         'txt_nombre
         '
+        Me.txt_nombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_nombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_nombre.Location = New System.Drawing.Point(109, 222)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(283, 20)
-        Me.txt_nombre.TabIndex = 10
+        Me.txt_nombre.TabIndex = 12
         '
         'txt_id_empleado
         '
         Me.txt_id_empleado.Location = New System.Drawing.Point(110, 196)
         Me.txt_id_empleado.Name = "txt_id_empleado"
         Me.txt_id_empleado.Size = New System.Drawing.Size(99, 20)
-        Me.txt_id_empleado.TabIndex = 9
+        Me.txt_id_empleado.TabIndex = 10
         '
         'Label1
         '
@@ -257,7 +265,7 @@ Partial Class Registrar_entrega_insumos
         Me.txt_fecha_entrega.Mask = "00/00/0000"
         Me.txt_fecha_entrega.Name = "txt_fecha_entrega"
         Me.txt_fecha_entrega.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_entrega.TabIndex = 2
+        Me.txt_fecha_entrega.TabIndex = 3
         Me.txt_fecha_entrega.ValidatingType = GetType(Date)
         '
         'lbl_fecha_entrega
@@ -283,7 +291,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 7
+        Me.cmd_actualizar_estado.TabIndex = 8
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
@@ -308,7 +316,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmb_autorizador.Location = New System.Drawing.Point(109, 167)
         Me.cmb_autorizador.Name = "cmb_autorizador"
         Me.cmb_autorizador.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_autorizador.TabIndex = 8
+        Me.cmb_autorizador.TabIndex = 9
         '
         'lbl_autoriza
         '
@@ -337,7 +345,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmb_estado_entrega.Location = New System.Drawing.Point(109, 139)
         Me.cmb_estado_entrega.Name = "cmb_estado_entrega"
         Me.cmb_estado_entrega.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_entrega.TabIndex = 6
+        Me.cmb_estado_entrega.TabIndex = 7
         '
         'txt_id_entrega
         '
@@ -388,7 +396,7 @@ Partial Class Registrar_entrega_insumos
         Me.GroupBox1.Location = New System.Drawing.Point(12, 415)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(420, 138)
-        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detalle de Entrega y Pedido"
         '
@@ -513,7 +521,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 5
+        Me.cmd_limpiar.TabIndex = 4
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -532,7 +540,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 4
+        Me.cmd_guardar.TabIndex = 3
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -551,7 +559,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 3
+        Me.cmd_nuevo.TabIndex = 2
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -566,7 +574,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_salir.Location = New System.Drawing.Point(929, 567)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 7
+        Me.cmd_salir.TabIndex = 5
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'dgv_entrega
@@ -575,19 +583,19 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_entrega.AllowUserToDeleteRows = False
         Me.dgv_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha_pedido, Me.fecha_entrega, Me.estado, Me.autoriza, Me.id_autoriza, Me.cuie, Me.efector, Me.id_estado})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_entrega.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_entrega.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgv_entrega.Location = New System.Drawing.Point(438, 16)
         Me.dgv_entrega.Name = "dgv_entrega"
         Me.dgv_entrega.ReadOnly = True
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgv_entrega.Size = New System.Drawing.Size(559, 393)
         Me.dgv_entrega.TabIndex = 64
         '
@@ -656,19 +664,19 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_detalle_entrega.AllowUserToDeleteRows = False
         Me.dgv_detalle_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_insumo, Me.insumo, Me.cantidad})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgv_detalle_entrega.Location = New System.Drawing.Point(438, 422)
         Me.dgv_detalle_entrega.Name = "dgv_detalle_entrega"
         Me.dgv_detalle_entrega.ReadOnly = True
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.dgv_detalle_entrega.Size = New System.Drawing.Size(559, 131)
         Me.dgv_detalle_entrega.TabIndex = 6
         '
@@ -706,8 +714,9 @@ Partial Class Registrar_entrega_insumos
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.grp_datos_recordatorio)
+        Me.KeyPreview = True
         Me.Name = "Registrar_entrega_insumos"
-        Me.Text = "Entrega de Insumos"
+        Me.Text = "ENTREGA DE INSUMOS"
         Me.grp_datos_recordatorio.ResumeLayout(False)
         Me.grp_datos_recordatorio.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)

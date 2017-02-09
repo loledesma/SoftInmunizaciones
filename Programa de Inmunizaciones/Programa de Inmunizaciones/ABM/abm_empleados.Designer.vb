@@ -96,6 +96,8 @@ Partial Class abm_empleados
         Me.lbl_estado = New System.Windows.Forms.Label()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lbl_contador_empleados = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -614,7 +616,7 @@ Partial Class abm_empleados
         Me.dgv_empleados.Location = New System.Drawing.Point(461, 16)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
-        Me.dgv_empleados.Size = New System.Drawing.Size(615, 297)
+        Me.dgv_empleados.Size = New System.Drawing.Size(615, 262)
         Me.dgv_empleados.TabIndex = 9
         '
         'id_empleado
@@ -703,7 +705,7 @@ Partial Class abm_empleados
         Me.dgv_efectores.AllowUserToDeleteRows = False
         Me.dgv_efectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre_efector, Me.cargo, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
-        Me.dgv_efectores.Location = New System.Drawing.Point(461, 323)
+        Me.dgv_efectores.Location = New System.Drawing.Point(461, 324)
         Me.dgv_efectores.Name = "dgv_efectores"
         Me.dgv_efectores.ReadOnly = True
         Me.dgv_efectores.Size = New System.Drawing.Size(618, 214)
@@ -886,6 +888,29 @@ Partial Class abm_empleados
         Me.txt_usuario.Size = New System.Drawing.Size(257, 20)
         Me.txt_usuario.TabIndex = 1
         '
+        'lbl_contador_empleados
+        '
+        Me.lbl_contador_empleados.AutoSize = True
+        Me.lbl_contador_empleados.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_empleados.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_empleados.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_empleados.Location = New System.Drawing.Point(642, 290)
+        Me.lbl_contador_empleados.Name = "lbl_contador_empleados"
+        Me.lbl_contador_empleados.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_empleados.TabIndex = 55
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(460, 289)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(179, 17)
+        Me.Label22.TabIndex = 54
+        Me.Label22.Text = "Empleados registrados:"
+        '
         'abm_empleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -893,6 +918,8 @@ Partial Class abm_empleados
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1088, 644)
+        Me.Controls.Add(Me.lbl_contador_empleados)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.dgv_efectores)
         Me.Controls.Add(Me.cmd_listados)
         Me.Controls.Add(Me.cmd_estadistica)
@@ -916,6 +943,7 @@ Partial Class abm_empleados
         Me.grp_datos_sigipsa.ResumeLayout(False)
         Me.grp_datos_sigipsa.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents grp_datos_personales As System.Windows.Forms.GroupBox
@@ -990,4 +1018,6 @@ Partial Class abm_empleados
     Friend WithEvents txt_efectores As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
     Friend WithEvents lbl_cuie As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_empleados As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
 End Class
