@@ -41,6 +41,16 @@
         End If
     End Sub
 
+    Private Sub dgv_recordatorios_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_recordatorios.CellFormatting
+
+        Dim estado As String = Me.dgv_recordatorios.Rows(e.RowIndex).Cells("estado").Value
+
+        If estado = "PENDIENTE" Then
+            e.CellStyle.BackColor = Color.Yellow
+        End If
+
+    End Sub
+
     Private Sub cargar_combo()
         Dim tabla As New DataTable
         Dim sql As String = ""

@@ -227,6 +227,12 @@
     <Compile Include="Funciones\Registrar_notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Registrar_supervisiones.Designer.vb">
+      <DependentUpon>Registrar_supervisiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_supervisiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\listados_efector_loc_dpto.Designer.vb">
       <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
     </Compile>
@@ -363,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_recordatorio.resx">
       <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_supervisiones.resx">
+      <DependentUpon>Registrar_supervisiones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\listados_efector_loc_dpto.rdlc" />
     <EmbeddedResource Include="Listados\listados_efector_loc_dpto.resx">
