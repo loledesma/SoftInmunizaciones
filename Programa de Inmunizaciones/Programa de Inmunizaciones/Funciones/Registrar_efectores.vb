@@ -527,27 +527,13 @@
         acceso.ejecutar(sql)
 
     End Sub
-    Private Function validar_existencia_efector() As analizar_existencia
-        Dim tabla As New DataTable
-        Dim sql As String = ""
-
-        sql = "SELECT * FROM EMPLEADOSXEFECTOR"
-        sql &= " WHERE id_empleados = " & Me.dgv_empleados.CurrentRow.Cells("id").Value & "AND id_efector='" & Me.txt_cuie.Text & "'"
-
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Return analizar_existencia.no_existe
-        Else
-            Return analizar_existencia.existe
-        End If
-    End Function
+ 
     Private Sub modificar_empleadoXEfector()
         Dim c As Integer = 0
         Dim txt_insert As String = ""
 
         For c = 0 To dgv_empleados.Rows.Count() - 1
-            If validar_existencia_efector() = analizar_existencia.existe Then
+            If validar_existencia_empleado(Me.dgv_empleados.Rows(c).Cells("id").Value) = analizar_existencia.existe Then
                 txt_insert &= "UPDATE EMPLEADOSXEFECTOR "
                 txt_insert &= " SET id_cargo= " & Me.dgv_empleados.Rows(c).Cells("id_cargo").Value
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("id_perfil").Value) Then
@@ -560,7 +546,6 @@
 
                 acceso.ejecutar(txt_insert)
 
-                
             Else
                 acceso._nombre_tabla = "EMPLEADOSXEFECTOR"
                 txt_insert = " id_efector=" & Me.txt_cuie.Text
@@ -687,18 +672,19 @@
         Return True
     End Function
 
-    Private Function validar_existencia_empleado() As Boolean
-        Dim sql As String = ""
+    Private Function validar_existencia_empleado(ByVal id As Integer) As analizar_existencia
         Dim tabla As New DataTable
+        Dim sql As String = ""
 
-        sql &= "SELECT * FROM EMPLEADOS WHERE id = " & txt_id_empleado.Text
+        sql = "SELECT * FROM EMPLEADOSXEFECTOR"
+        sql &= " WHERE id_empleados = " & id & "AND id_efector='" & Me.txt_cuie.Text & "'"
 
         tabla = acceso.consulta(sql)
 
-        If tabla.Rows.Count = 0 Then
-            Return False
+        If tabla.Rows.Count() = 0 Then
+            Return analizar_existencia.no_existe
         Else
-            Return True
+            Return analizar_existencia.existe
         End If
     End Function
     Private Sub agregar_en_grilla_empleados()
