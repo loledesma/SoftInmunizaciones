@@ -73,8 +73,6 @@ Partial Class abm_empleados
         Me.id_tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmd_estadistica = New System.Windows.Forms.Button()
-        Me.cmd_listados = New System.Windows.Forms.Button()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -661,44 +659,6 @@ Partial Class abm_empleados
         Me.nro_doc.ReadOnly = True
         Me.nro_doc.Width = 150
         '
-        'cmd_estadistica
-        '
-        Me.cmd_estadistica.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_estadistica.BackgroundImage = CType(resources.GetObject("cmd_estadistica.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_estadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_estadistica.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_estadistica.FlatAppearance.BorderSize = 0
-        Me.cmd_estadistica.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_estadistica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_estadistica.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_estadistica.Location = New System.Drawing.Point(607, 577)
-        Me.cmd_estadistica.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_estadistica.Name = "cmd_estadistica"
-        Me.cmd_estadistica.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_estadistica.TabIndex = 7
-        Me.cmd_estadistica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_estadistica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_estadistica.UseVisualStyleBackColor = False
-        '
-        'cmd_listados
-        '
-        Me.cmd_listados.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_listados.BackgroundImage = CType(resources.GetObject("cmd_listados.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_listados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_listados.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_listados.FlatAppearance.BorderSize = 0
-        Me.cmd_listados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_listados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_listados.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_listados.Location = New System.Drawing.Point(528, 577)
-        Me.cmd_listados.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_listados.Name = "cmd_listados"
-        Me.cmd_listados.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_listados.TabIndex = 6
-        Me.cmd_listados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_listados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_listados.UseVisualStyleBackColor = False
-        '
         'dgv_efectores
         '
         Me.dgv_efectores.AllowUserToAddRows = False
@@ -921,8 +881,6 @@ Partial Class abm_empleados
         Me.Controls.Add(Me.lbl_contador_empleados)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.dgv_efectores)
-        Me.Controls.Add(Me.cmd_listados)
-        Me.Controls.Add(Me.cmd_estadistica)
         Me.Controls.Add(Me.dgv_empleados)
         Me.Controls.Add(Me.grp_datos_laborales)
         Me.Controls.Add(Me.grp_datos_sigipsa)
@@ -971,8 +929,6 @@ Partial Class abm_empleados
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
     Friend WithEvents cmb_localidades As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
-    Friend WithEvents cmd_estadistica As System.Windows.Forms.Button
-    Friend WithEvents cmd_listados As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_efector As System.Windows.Forms.Button
     Friend WithEvents cmb_perfil As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_perfil As System.Windows.Forms.Label

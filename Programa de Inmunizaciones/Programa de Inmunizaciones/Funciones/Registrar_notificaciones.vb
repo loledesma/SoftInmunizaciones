@@ -66,6 +66,7 @@
         tltp_notificaciones.SetToolTip(cmd_limpiar, "Limpiar")
     End Sub
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.condicion_click = doble_Click.desactivado
         Me.txt_id_empleado.Enabled = True
         Me.grp_datos_generales.Enabled = True
         Me.grp_datos_notificacion.Enabled = True
@@ -314,6 +315,7 @@
     End Sub
 
     Private Sub nuevo()
+        Me.condicion_click = doble_Click.desactivado
         limpiar(Controls)
         Me.condicion_estado = estado.insertar
         Dim sql As String = "SELECT * FROM NOTIFICACIONXEFECTOR"
