@@ -46,7 +46,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= "SELECT ERM.descripcion AS estado, COUNT(*) AS cantidad FROM ESTADO_RM JOIN EFECTORES E ON E.estado_rm = ERM.id "
+        sql &= "SELECT ERM.descripcion AS estado, COUNT(*) AS cantidad FROM ESTADO_RM ERM JOIN EFECTORES E ON E.estado_rm = ERM.id "
         If cmb_departamentos.SelectedIndex <> -1 Then
             sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then

@@ -8,11 +8,11 @@
         listados_efector_loc_dpto.ShowDialog()
     End Sub
 
-    Private Sub NotificacionesPorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificacionesPorToolStripMenuItem.Click
+    Private Sub NotificacionesPorToolStripMenuItem_Click(sender As Object, e As EventArgs)
         listados_notificaciones.ShowDialog()
     End Sub
 
-    Private Sub NuevaNotificaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaNotificaciónToolStripMenuItem.Click
+    Private Sub NuevaNotificaciónToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrar_notificaciones.ShowDialog()
     End Sub
 
@@ -33,7 +33,7 @@
     End Sub
 
 
-    Private Sub NuevaAtenciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaAtenciónToolStripMenuItem.Click
+    Private Sub NuevaAtenciónToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrar_atencion.ShowDialog()
     End Sub
 
@@ -65,11 +65,8 @@
         listados_referentes_y_efectores.ShowDialog()
     End Sub
 
-    Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
-        Registrar_recordatorio.ShowDialog()
-    End Sub
 
-    Private Sub RegistrarPeticionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarPeticionesToolStripMenuItem.Click
+    Private Sub RegistrarPeticionesToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrar_peticiones_desarrollos.ShowDialog()
     End Sub
 
@@ -99,5 +96,33 @@
 
     Private Sub EstadoDeHeladerasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasToolStripMenuItem.Click
         est_estado_heladeras.ShowDialog()
+    End Sub
+
+    Private Sub EmisiónDeResumenDesdeSigipsaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Click
+        est_efect_emiten_sigipsa.ShowDialog()
+    End Sub
+
+    Private Sub menu_programa_inmunizaciones_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles menu_programa_inmunizaciones.ItemClicked
+
+    End Sub
+
+    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoRecordatorioToolStripMenuItem.Click
+        Registrar_recordatorio.ShowDialog()
+    End Sub
+
+    Private Sub NuevaNotificaciónToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevaNotificaciónToolStripMenuItem1.Click
+        Registrar_notificaciones.ShowDialog()
+    End Sub
+
+    Private Sub NotificacionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificacionesRegistradasToolStripMenuItem.Click
+        listados_notificaciones.ShowDialog()
+    End Sub
+
+    Private Sub NuevaAtencónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaAtencónToolStripMenuItem.Click
+        Registrar_atencion.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarNvaPeticiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarNvaPeticiónToolStripMenuItem.Click
+        Registrar_peticiones_desarrollos.ShowDialog()
     End Sub
 End Class
