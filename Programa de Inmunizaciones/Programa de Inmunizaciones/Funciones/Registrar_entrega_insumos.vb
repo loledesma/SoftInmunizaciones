@@ -21,9 +21,9 @@
         listados_efector_loc_dpto.ShowDialog()
     End Sub
 
-    Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click
-        abm_stock_insumos.ShowDialog()
-    End Sub
+    'Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click
+    '    abm_stock_insumos.ShowDialog()
+    'End Sub
 
     Private Sub Registrar_entrega_insumos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_grilla_entregas()

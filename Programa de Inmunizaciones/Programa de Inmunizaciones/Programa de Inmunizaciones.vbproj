@@ -145,12 +145,6 @@
     <Compile Include="ABM\abm_stock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\abm_stock_insumos.Designer.vb">
-      <DependentUpon>abm_stock_insumos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ABM\abm_stock_insumos.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ABM\abm_tipos_documento.Designer.vb">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </Compile>
@@ -281,6 +275,12 @@
     <Compile Include="Listados\listado_localidadesxdpto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_efectores_emiten_resumen.Designer.vb">
+      <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efectores_emiten_resumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_efectores_x_estado.Designer.vb">
       <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
     </Compile>
@@ -366,9 +366,6 @@
     <EmbeddedResource Include="ABM\abm_stock.resx">
       <DependentUpon>abm_stock.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM\abm_stock_insumos.resx">
-      <DependentUpon>abm_stock_insumos.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
@@ -431,10 +428,14 @@
       <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
+      <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_efectores_x_estado.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_x_estado.resx">
       <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_ef_eminten_sigipsa.rdlc" />
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.rdlc" />
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.resx">
       <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>

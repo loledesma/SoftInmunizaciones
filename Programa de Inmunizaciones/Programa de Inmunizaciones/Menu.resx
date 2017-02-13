@@ -127,7 +127,7 @@
   <data name="NuevoRecordatorioToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOQAAADkAV2iedgAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOMAAADjAQ/m36cAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAACtElEQVRYR7WWzU8TQRiHe9JI6bLbihLK0YPx6+hJYjz6Z/AneOPCwRAP
         Gs+Em3cShUS7u7PdZctXA6E0Gq3fYPDEgYQCXrSEcd5tp5nOvrud7obD049pMr+ns++8MxlKqRKjDX+4
         UCXTxjr5oK86RyOrzl+t4pznlh2a89i7S1qaSw41z36V23pTwObAQAdFCjX/prFG3gdhPgtTgUlpZfvQ
@@ -156,7 +156,7 @@
   <data name="ListadosToolStripMenuItem5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN0AAADdAXBTogcAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAAC9UlEQVRYR8WXW2sTQRiGc6c/QX+EN/orPOCh9Ebq4a4iXrS22CY21ihe
         qGAShZhQlKCIkI2lF4JYsEjQQkEEFUSImiwoHrCtaWu0TZN+fu9ssu5uprszsejAEzaz3+Gd82yIiJS4
         9vbBpoSZ35ks5zLJslFgiknTWBLgWdTlMrCBrSyGDGmlk4Q5vjVZzqc5wSJDirBtPg1fWUwn0kqQLWc3
@@ -315,7 +315,7 @@
   <data name="CapacitacionesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOEAAADhAXAYHC4AAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAADQUlEQVRYR+2TWU8TURiGG/VfeOEtQW8IJkSkCdEgdKYQ6EIJSxAaFg2U
         CgQUBSub1IJhDYgYkSBGFAPGYgTFIEtY9cIFIgiUooSAWBKDlQCf5wxlMlNOYQrBKy6eSTvz9X2fnnNG
         BAB8epV+673B8J+wOhRoq0+AhurkfePzc/X2Arn6TFBfLtg3jA80BwIHAgcCwgS0SSlwNe48JFy6siVk
@@ -369,7 +369,7 @@
   <data name="AtencionesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN0AAADdAXBTogcAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAAEkklEQVRYR8WX229URRzH903/BH3zwTdSCxLBqlh98KEPxGJ79gK97NIu
         BaUUS0shWqIpXoohpDTtojEUa6sWmlDUCGqxUKEsUrDWGJMm0tIttYlkndnt4uPX+c2csz2X2XW9RB4+
         e5nzm+/3d2bm/GaOD0BhlD18Hw8UlbFA8TEWWn2RBYtnBGmTGdkmrlEMxWo1NGgb7WSq1j4oDGIsVJwS
@@ -508,12 +508,6 @@
   <data name="RegistrarEntregaToolStripMenuItem.Text" xml:space="preserve">
     <value>Registrar Entrega</value>
   </data>
-  <data name="StockDeInsumosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 24</value>
-  </data>
-  <data name="StockDeInsumosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Stock de Insumos</value>
-  </data>
   <data name="HeldareasYPCsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -649,7 +643,7 @@
     <value>None</value>
   </data>
   <data name="EfectoresPorDptoYLocalidadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 38</value>
+    <value>315, 38</value>
   </data>
   <data name="EfectoresPorDptoYLocalidadToolStripMenuItem.Text" xml:space="preserve">
     <value>Efectores Registrados</value>
@@ -680,7 +674,7 @@
     <value>None</value>
   </data>
   <data name="EfectoresPorEstadoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 38</value>
+    <value>315, 38</value>
   </data>
   <data name="EfectoresPorEstadoToolStripMenuItem.Text" xml:space="preserve">
     <value>Efectores por Estado</value>
@@ -711,7 +705,7 @@
     <value>None</value>
   </data>
   <data name="EfectoresPorReferenteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 38</value>
+    <value>315, 38</value>
   </data>
   <data name="EfectoresPorReferenteToolStripMenuItem.Text" xml:space="preserve">
     <value>Efectores por Referente</value>
@@ -742,10 +736,16 @@
     <value>None</value>
   </data>
   <data name="EstadoDeHeladerasPorEfectorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 38</value>
+    <value>315, 38</value>
   </data>
   <data name="EstadoDeHeladerasPorEfectorToolStripMenuItem.Text" xml:space="preserve">
     <value>Estado de Heladeras por Efector</value>
+  </data>
+  <data name="EfectoresPorEmisiónDeResumenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 38</value>
+  </data>
+  <data name="EfectoresPorEmisiónDeResumenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Efectores por emisión de resumen</value>
   </data>
   <data name="ListadosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7895,12 +7895,6 @@
   <data name="&gt;&gt;RegistrarEntregaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;StockDeInsumosToolStripMenuItem.Name" xml:space="preserve">
-    <value>StockDeInsumosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;StockDeInsumosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;CursosToolStripMenuItem.Name" xml:space="preserve">
     <value>CursosToolStripMenuItem</value>
   </data>
@@ -7965,6 +7959,12 @@
     <value>EstadoDeHeladerasPorEfectorToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;EstadoDeHeladerasPorEfectorToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EfectoresPorEmisiónDeResumenToolStripMenuItem.Name" xml:space="preserve">
+    <value>EfectoresPorEmisiónDeResumenToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EfectoresPorEmisiónDeResumenToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem1.Name" xml:space="preserve">
