@@ -74,9 +74,9 @@
         est_efectores_implementados.ShowDialog()
     End Sub
 
-    Private Sub StockDeInsumosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockDeInsumosToolStripMenuItem.Click
-        abm_stock_insumos.ShowDialog()
-    End Sub
+    'Private Sub StockDeInsumosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    '    abm_stock_insumos.ShowDialog()
+    'End Sub
 
     Private Sub RegistrarEntregaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarEntregaToolStripMenuItem.Click
         Registrar_entrega_insumos.ShowDialog()
@@ -124,5 +124,9 @@
 
     Private Sub RegistrarNvaPeticiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarNvaPeticiónToolStripMenuItem.Click
         Registrar_peticiones_desarrollos.ShowDialog()
+    End Sub
+
+    Private Sub EfectoresPorEmisiónDeResumenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEmisiónDeResumenToolStripMenuItem.Click
+        list_efectores_emiten_resumen.ShowDialog()
     End Sub
 End Class
