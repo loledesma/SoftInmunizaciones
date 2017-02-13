@@ -139,12 +139,6 @@
     <Compile Include="ABM\abm_perdidas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\abm_stock.Designer.vb">
-      <DependentUpon>abm_stock.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ABM\abm_stock.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ABM\abm_tipos_documento.Designer.vb">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </Compile>
@@ -201,6 +195,12 @@
       <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Registrar_entrega_insumos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_ingreso_stock.Designer.vb">
+      <DependentUpon>Registrar_ingreso_stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_ingreso_stock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.Designer.vb">
@@ -363,9 +363,6 @@
     <EmbeddedResource Include="ABM\abm_perdidas.resx">
       <DependentUpon>abm_perdidas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM\abm_stock.resx">
-      <DependentUpon>abm_stock.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_entrega_insumos.resx">
       <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_ingreso_stock.resx">
+      <DependentUpon>Registrar_ingreso_stock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>

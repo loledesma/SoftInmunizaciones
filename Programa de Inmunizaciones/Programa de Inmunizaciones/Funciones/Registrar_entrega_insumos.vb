@@ -21,9 +21,10 @@
         listados_efector_loc_dpto.ShowDialog()
     End Sub
 
-    'Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click
-    '    abm_stock_insumos.ShowDialog()
-    'End Sub
+
+    Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click
+        Registrar_ingreso_stock.ShowDialog()
+    End Su
 
     Private Sub Registrar_entrega_insumos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_grilla_entregas()
@@ -31,16 +32,20 @@
         acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_nombre_efector, "EFECTORES", "nombre")
+        acceso.autocompletar(txt_nro_serie, "STOCK_INSUMOS", "nro_serie")
+        acceso.autocompletar(txt_modelo, "STOCK_INSUMOS", "modelo")
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_entrega.Focus()
+        Me.cmb_marca.cargar()
         Me.cmb_estado_entrega.cargar()
         Me.cmb_insumos.cargar()
         cargar_combo()
         Me.cmb_autorizador.SelectedIndex = -1
         Me.cmb_estado_entrega.SelectedIndex = -1
         Me.cmb_insumos.SelectedIndex = -1
+        Me.cmb_marca.SelectedIndex = -1
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -62,6 +67,25 @@
 
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub txt_nro_serie_LostFocus(sender As Object, e As EventArgs) Handles txt_nro_serie.LostFocus
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        If Me.condicion_click = doble_Click.desactivado Then
+            sql &= "SELECT * FROM STOCK_INSUMOS WHERE nro_serie= '" & Me.txt_nro_serie.Text & "'"
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count() = 0 Then
+                MsgBox("Ese nro de serie no corresponde a un insumo registrado en stock")
+                If MessageBox.Show("¿Desea ingresar un insumo nuevo a stock?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+                    Registrar_ingreso_stock.ShowDialog()
+                Else
+                    Exit Sub
                 End If
             End If
         End If
@@ -170,11 +194,7 @@
         Me.txt_observaciones.Text = ""
     End Sub
 
-    Private Sub validar_stock()
 
-
-   
-    End Sub
 
     Private Sub registrar_entrega()
         Dim sql As String = ""
@@ -187,41 +207,47 @@
                     cmb_insumos.Focus()
                     Exit Sub
                 Else
-                    Dim c As Integer = 0
-                    For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
+                    If validar_stock() Then
+                        Dim c As Integer = 0
+                        For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
+                            sql = ""
+                            sql &= "SELECT cantidad FROM STOCK_INSUMOS WHERE id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+                            sql &= " and nro_serie= '" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value & "'"
+                            tabla = acceso.consulta(sql)
+
+                            If tabla.Rows(0)("cantidad") = 0 Then
+                                MsgBox("No hay stock para ese insumo")
+                                Exit Sub
+                            Else
+                                sql = ""
+                                sql &= "UPDATE DETALLE_ENTREGA_INSUMOS "
+                                sql &= " SET cantidad= " & Me.dgv_detalle_entrega.Rows(c).Cells("cantidad").Value
+                                sql &= " , nro_serie='" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value & "'"
+                                sql &= " , modelo='" & Me.dgv_detalle_entrega.Rows(c).Cells("modelo").Value & "'"
+                                sql &= " , id_marca= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_marca").Value
+                                sql &= " WHERE id_entrega= " & Me.txt_id_entrega.Text & " AND id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+                                acceso.ejecutar(sql)
+                            End If
+                        Next
+
                         sql = ""
-                        sql = "SELECT cantidad FROM STOCK_INSUMOS WHERE id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+                        sql &= "SELECT * FROM DETALLE_ENTREGA_INSUMOS WHERE id_entrega= " & Me.txt_id_entrega.Text
+                        tabla.Clear()
                         tabla = acceso.consulta(sql)
 
-                        If tabla.Rows(0)("cantidad") = 0 Then
-                            MsgBox("No hay stock para ese insumo")
-                            Exit Sub
-                        Else
-                            sql = ""
-                            sql &= "UPDATE DETALLE_ENTREGA_INSUMOS "
-                            sql &= " SET cantidad= " & Me.dgv_detalle_entrega.Rows(c).Cells("cantidad").Value
-                            sql &= " WHERE id_entrega= " & Me.txt_id_entrega.Text & " AND id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
-                            acceso.ejecutar(sql)
+                        sql = ""
+                        sql &= "UPDATE ENTREGA_INSUMOS "
+                        sql &= " SET id_estado_entrega= " & Me.cmb_estado_entrega.SelectedValue
+                        sql &= " , id_receptor= " & Me.txt_id_empleado.Text
+                        sql &= " , fecha_entrega= '" & Me.txt_fecha_entrega.Text & "'"
+                        If txt_observaciones.Text <> "" Then
+                            sql &= ", observaciones='" & Me.txt_observaciones.Text & "'"
                         End If
-                    Next
+                        sql &= " WHERE id= " & Me.txt_id_entrega.Text
+                        acceso.ejecutar(sql)
 
-                    sql = ""
-                    sql &= "SELECT * FROM DETALLE_ENTREGA_INSUMOS WHERE id_entrega= " & Me.txt_id_entrega.Text
-                    tabla.Clear()
-                    tabla = acceso.consulta(sql)
-
-                    sql = ""
-                    sql &= "UPDATE ENTREGA_INSUMOS "
-                    sql &= " SET id_estado_entrega= " & Me.cmb_estado_entrega.SelectedValue
-                    sql &= " , id_receptor= " & Me.txt_id_empleado.Text
-                    sql &= " , fecha_entrega= '" & Me.txt_fecha_entrega.Text & "'"
-                    If txt_observaciones.Text <> "" Then
-                        sql &= ", observaciones='" & Me.txt_observaciones.Text & "'"
+                        descontar_stock()
                     End If
-                    sql &= " WHERE id= " & Me.txt_id_entrega.Text
-                    acceso.ejecutar(sql)
-
-                    descontar_stock()
                 End If
             End If
         Else
@@ -236,18 +262,20 @@
         Dim sql As String = ""
         Dim cantidad As Integer = 0
 
-  
+
         For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
             sql = ""
             sql = "SELECT cantidad FROM STOCK_INSUMOS WHERE id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+            sql &= " AND nro_serie='" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value & "'"
             tabla = acceso.consulta(sql)
 
-            If tabla.Rows(0)("cantidad") <> 0 Then
+
+            If tabla.Rows.Count() <> 0 Then
                 cantidad = tabla.Rows(0)("cantidad") - Convert.ToInt16(dgv_detalle_entrega.Rows(c).Cells("cantidad").Value)
-                MsgBox(cantidad.ToString)
                 sql = ""
                 sql &= " UPDATE STOCK_INSUMOS SET cantidad= " & cantidad
                 sql &= " WHERE id_insumo= " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+                sql &= " and nro_serie= '" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value & "'"
                 acceso.ejecutar(sql)
             End If
 
@@ -275,6 +303,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM DETALLE_ENTREGA_INSUMOS WHERE id_entrega= " & Me.txt_id_entrega.Text
+        sql &= " AND nro_serie= '" & Me.dgv_detalle_entrega.CurrentRow.Cells("nro_serie").Value & "'"
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
@@ -283,8 +312,11 @@
         Else
             Me.cmb_insumos.SelectedValue = tabla.Rows(0)("id_insumo")
             Me.txt_cantidad.Text = tabla.Rows(0)("cantidad")
+            Me.txt_nro_serie.Text = tabla.Rows(0)("nro_serie")
+            Me.cmb_marca.SelectedValue = tabla.Rows(0)("id_marca")
+            Me.txt_modelo.Text = tabla.Rows(0)("modelo")
         End If
-       
+
     End Sub
 
     Private Sub dgv_entrega_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_entrega.CellMouseDoubleClick
@@ -302,7 +334,7 @@
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
-            MessageBox.Show("¡El empleado buscado no se encuentra registrado todavia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("¡La entrega buscada no se encuentra registrado todavia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
 
@@ -348,7 +380,7 @@
 
         sql = ""
         sql &= " SELECT DEI.id_entrega as id_entrega, DEI.id_insumo as id_insumo, DEI.cantidad as cantidad "
-        sql &= ", I.descripcion as insumo "
+        sql &= ", I.descripcion as insumo, DEI.nro_serie as nro_serie, DEI.modelo as modelo, DEI.id_marca as id_marca "
         sql &= " FROM DETALLE_ENTREGA_INSUMOS DEI JOIN INSUMOS I ON DEI.id_insumo = I.id "
         sql &= " WHERE DEI.id_entrega = " & Me.dgv_entrega.CurrentRow.Cells("id").Value
         tabla2.Clear()
@@ -367,6 +399,9 @@
                 dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = tabla2.Rows(c)("id_insumo")
                 dgv_detalle_entrega.Rows(c).Cells("insumo").Value = tabla2.Rows(c)("insumo")
                 dgv_detalle_entrega.Rows(c).Cells("cantidad").Value = tabla2.Rows(c)("cantidad")
+                dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value = tabla2.Rows(c)("nro_serie")
+                dgv_detalle_entrega.Rows(c).Cells("id_marca").Value = tabla2.Rows(c)("id_marca")
+                dgv_detalle_entrega.Rows(c).Cells("modelo").Value = tabla2.Rows(c)("modelo")
             Next
         End If
 
@@ -393,6 +428,31 @@
         Else
             Return analizar_existencia.existe
         End If
+
+        Return True
+    End Function
+
+    Private Function validar_stock() As Boolean
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        Dim c As Integer = 0
+
+        For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
+            sql = ""
+            sql &= " SELECT * FROM STOCK_INSUMOS WHERE id_insumo=" & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
+            sql &= " AND nro_serie ='" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value & "'"
+            sql &= " AND modelo='" & Me.dgv_detalle_entrega.Rows(c).Cells("modelo").Value & "'"
+            sql &= " AND id_marca=" & Me.dgv_detalle_entrega.Rows(c).Cells("id_marca").Value
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count() = 0 Then
+                MessageBox.Show("El insumo " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value & " que trata de entregar no corresponde a un insumo en stock, verifique la grilla")
+                Return False
+                Exit Function
+            End If
+        Next
+        
 
         Return True
     End Function
@@ -668,6 +728,9 @@
             sql &= "id_entrega = " & Me.txt_id_entrega.Text
             sql &= ", id_insumo = " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
             sql &= " , cantidad= " & Me.dgv_detalle_entrega.Rows(c).Cells("cantidad").Value
+            sql &= ", nro_serie=" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value
+            sql &= ", id_marca=" & Me.dgv_detalle_entrega.Rows(c).Cells("id_marca").Value
+            sql &= ", modelo=" & Me.dgv_detalle_entrega.Rows(c).Cells("modelo").Value
 
             acceso.insertar(sql)
 
@@ -683,6 +746,10 @@
     Private Sub limpiar_insumos()
         Me.cmb_insumos.SelectedIndex = -1
         Me.txt_cantidad.Text = ""
+        Me.txt_modelo.Text = ""
+        Me.cmb_insumos.SelectedIndex = -1
+        Me.cmb_marca.SelectedIndex = -1
+        Me.txt_nro_serie.Text = ""
         Me.cmd_agregar_efector.Enabled = True
         Me.cmd_eliminar_insumo.Enabled = True
     End Sub
@@ -696,10 +763,13 @@
 
         If validar_pedido() = True Then
             For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
-                If Me.cmb_insumos.SelectedValue = dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value Then
+                If Me.cmb_insumos.SelectedValue = dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value And Me.txt_nro_serie.Text = Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value Then
                     cuenta = Convert.ToInt16(txt_cantidad.Text) + Convert.ToInt16(dgv_detalle_entrega.Rows(c).Cells("cantidad").Value)
                     dgv_detalle_entrega.Rows(c).Cells("cantidad").Value = cuenta
                     dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = cmb_insumos.SelectedValue
+                    dgv_detalle_entrega.Rows(c).Cells("id_marca").Value = cmb_marca.SelectedValue
+                    dgv_detalle_entrega.Rows(c).Cells("modelo").Value = txt_modelo.Text
+                    dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value = txt_nro_serie.Text
 
                     sql = ""
                     sql &= "SELECT descripcion FROM INSUMOS WHERE id = " & cmb_insumos.SelectedValue
@@ -714,6 +784,9 @@
                 dgv_detalle_entrega.Rows.Add()
                 dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("id_insumo").Value = Me.cmb_insumos.SelectedValue
                 dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("cantidad").Value = Me.txt_cantidad.Text
+                dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("id_marca").Value = cmb_marca.SelectedValue
+                dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("modelo").Value = txt_modelo.Text
+                dgv_detalle_entrega.Rows(dgv_detalle_entrega.Rows.Count - 1).Cells("nro_serie").Value = txt_nro_serie.Text
 
                 sql = ""
                 sql &= "SELECT descripcion FROM INSUMOS WHERE id = " & cmb_insumos.SelectedValue
@@ -788,7 +861,7 @@
                 Me.dgv_entrega.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
             Next
         End If
-       
+
 
         limpiar(Me.Controls)
         Me.condicion_inicial = condicion.modificar
