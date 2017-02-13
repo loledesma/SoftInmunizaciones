@@ -24,7 +24,7 @@
 
     Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click
         Registrar_ingreso_stock.ShowDialog()
-    End Su
+    End Sub
 
     Private Sub Registrar_entrega_insumos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_grilla_entregas()
@@ -452,7 +452,7 @@
                 Exit Function
             End If
         Next
-        
+
 
         Return True
     End Function
