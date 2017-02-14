@@ -35,19 +35,16 @@ Partial Class Registrar_entrega_insumos
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_observaciones = New System.Windows.Forms.RichTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txt_apellido = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmd_buscar_empleado = New System.Windows.Forms.Button()
-        Me.txt_nombre = New System.Windows.Forms.TextBox()
-        Me.txt_id_empleado = New System.Windows.Forms.TextBox()
+        Me.txt_receptor = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_fecha_entrega = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_fecha_entrega = New System.Windows.Forms.Label()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.cmd_buscar = New System.Windows.Forms.Button()
+        Me.cmb_autorizador = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_autoriza = New System.Windows.Forms.Label()
         Me.lbl_id_notificacion = New System.Windows.Forms.Label()
+        Me.cmb_estado_entrega = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_id_entrega = New System.Windows.Forms.TextBox()
         Me.txt_fecha_pedido = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_perfil = New System.Windows.Forms.Label()
@@ -55,6 +52,7 @@ Partial Class Registrar_entrega_insumos
         Me.grp_detalle = New System.Windows.Forms.GroupBox()
         Me.txt_modelo = New System.Windows.Forms.TextBox()
         Me.txt_nro_serie = New System.Windows.Forms.TextBox()
+        Me.cmb_marca = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -64,6 +62,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_insumo = New System.Windows.Forms.Button()
         Me.txt_cantidad = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmb_insumos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
@@ -86,10 +85,6 @@ Partial Class Registrar_entrega_insumos
         Me.nro_serie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmb_marca = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_insumos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_autorizador = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_estado_entrega = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_detalle.SuspendLayout()
         CType(Me.dgv_entrega, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,12 +101,7 @@ Partial Class Registrar_entrega_insumos
         Me.grp_datos_recordatorio.Controls.Add(Me.Label6)
         Me.grp_datos_recordatorio.Controls.Add(Me.txt_observaciones)
         Me.grp_datos_recordatorio.Controls.Add(Me.Label5)
-        Me.grp_datos_recordatorio.Controls.Add(Me.txt_apellido)
-        Me.grp_datos_recordatorio.Controls.Add(Me.Label4)
-        Me.grp_datos_recordatorio.Controls.Add(Me.Label2)
-        Me.grp_datos_recordatorio.Controls.Add(Me.cmd_buscar_empleado)
-        Me.grp_datos_recordatorio.Controls.Add(Me.txt_nombre)
-        Me.grp_datos_recordatorio.Controls.Add(Me.txt_id_empleado)
+        Me.grp_datos_recordatorio.Controls.Add(Me.txt_receptor)
         Me.grp_datos_recordatorio.Controls.Add(Me.Label1)
         Me.grp_datos_recordatorio.Controls.Add(Me.txt_fecha_entrega)
         Me.grp_datos_recordatorio.Controls.Add(Me.lbl_fecha_entrega)
@@ -190,9 +180,9 @@ Partial Class Registrar_entrega_insumos
         '
         'txt_observaciones
         '
-        Me.txt_observaciones.Location = New System.Drawing.Point(109, 281)
+        Me.txt_observaciones.Location = New System.Drawing.Point(109, 243)
         Me.txt_observaciones.Name = "txt_observaciones"
-        Me.txt_observaciones.Size = New System.Drawing.Size(283, 103)
+        Me.txt_observaciones.Size = New System.Drawing.Size(283, 141)
         Me.txt_observaciones.TabIndex = 14
         Me.txt_observaciones.Text = ""
         '
@@ -205,64 +195,19 @@ Partial Class Registrar_entrega_insumos
         Me.Label5.TabIndex = 68
         Me.Label5.Text = "Observaciones"
         '
-        'txt_apellido
+        'txt_receptor
         '
-        Me.txt_apellido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_apellido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_apellido.Location = New System.Drawing.Point(109, 252)
-        Me.txt_apellido.Name = "txt_apellido"
-        Me.txt_apellido.Size = New System.Drawing.Size(283, 20)
-        Me.txt_apellido.TabIndex = 13
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(43, 259)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 13)
-        Me.Label4.TabIndex = 66
-        Me.Label4.Text = "Apellido"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(43, 225)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
-        Me.Label2.TabIndex = 65
-        Me.Label2.Text = "Nombre"
-        '
-        'cmd_buscar_empleado
-        '
-        Me.cmd_buscar_empleado.BackgroundImage = CType(resources.GetObject("cmd_buscar_empleado.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_buscar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar_empleado.Location = New System.Drawing.Point(214, 195)
-        Me.cmd_buscar_empleado.Name = "cmd_buscar_empleado"
-        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(20, 20)
-        Me.cmd_buscar_empleado.TabIndex = 11
-        Me.cmd_buscar_empleado.UseVisualStyleBackColor = True
-        '
-        'txt_nombre
-        '
-        Me.txt_nombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_nombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_nombre.Location = New System.Drawing.Point(109, 222)
-        Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(283, 20)
-        Me.txt_nombre.TabIndex = 12
-        '
-        'txt_id_empleado
-        '
-        Me.txt_id_empleado.Location = New System.Drawing.Point(110, 196)
-        Me.txt_id_empleado.Name = "txt_id_empleado"
-        Me.txt_id_empleado.Size = New System.Drawing.Size(99, 20)
-        Me.txt_id_empleado.TabIndex = 10
+        Me.txt_receptor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_receptor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_receptor.Location = New System.Drawing.Point(109, 204)
+        Me.txt_receptor.Name = "txt_receptor"
+        Me.txt_receptor.Size = New System.Drawing.Size(283, 20)
+        Me.txt_receptor.TabIndex = 13
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 196)
+        Me.Label1.Location = New System.Drawing.Point(6, 202)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(41, 13)
         Me.Label1.TabIndex = 61
@@ -316,6 +261,17 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_buscar.TabIndex = 1
         Me.cmd_buscar.UseVisualStyleBackColor = True
         '
+        'cmb_autorizador
+        '
+        Me.cmb_autorizador._descripcion = "nombres"
+        Me.cmb_autorizador._nombre_tabla = "EMPLEADOS"
+        Me.cmb_autorizador._pk = "id"
+        Me.cmb_autorizador.FormattingEnabled = True
+        Me.cmb_autorizador.Location = New System.Drawing.Point(109, 167)
+        Me.cmb_autorizador.Name = "cmb_autorizador"
+        Me.cmb_autorizador.Size = New System.Drawing.Size(279, 21)
+        Me.cmb_autorizador.TabIndex = 9
+        '
         'lbl_autoriza
         '
         Me.lbl_autoriza.AutoSize = True
@@ -333,6 +289,17 @@ Partial Class Registrar_entrega_insumos
         Me.lbl_id_notificacion.Size = New System.Drawing.Size(16, 13)
         Me.lbl_id_notificacion.TabIndex = 52
         Me.lbl_id_notificacion.Text = "Id"
+        '
+        'cmb_estado_entrega
+        '
+        Me.cmb_estado_entrega._descripcion = "descripcion"
+        Me.cmb_estado_entrega._nombre_tabla = "ESTADO_ENTREGA"
+        Me.cmb_estado_entrega._pk = "id"
+        Me.cmb_estado_entrega.FormattingEnabled = True
+        Me.cmb_estado_entrega.Location = New System.Drawing.Point(109, 139)
+        Me.cmb_estado_entrega.Name = "cmb_estado_entrega"
+        Me.cmb_estado_entrega.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_estado_entrega.TabIndex = 7
         '
         'txt_id_entrega
         '
@@ -410,6 +377,17 @@ Partial Class Registrar_entrega_insumos
         Me.txt_nro_serie.Name = "txt_nro_serie"
         Me.txt_nro_serie.Size = New System.Drawing.Size(283, 20)
         Me.txt_nro_serie.TabIndex = 2
+        '
+        'cmb_marca
+        '
+        Me.cmb_marca._descripcion = "descripcion"
+        Me.cmb_marca._nombre_tabla = "MARCA"
+        Me.cmb_marca._pk = "id"
+        Me.cmb_marca.FormattingEnabled = True
+        Me.cmb_marca.Location = New System.Drawing.Point(99, 128)
+        Me.cmb_marca.Name = "cmb_marca"
+        Me.cmb_marca.Size = New System.Drawing.Size(160, 21)
+        Me.cmb_marca.TabIndex = 4
         '
         'Label11
         '
@@ -524,6 +502,17 @@ Partial Class Registrar_entrega_insumos
         Me.Label3.Size = New System.Drawing.Size(49, 13)
         Me.Label3.TabIndex = 56
         Me.Label3.Text = "Cantidad"
+        '
+        'cmb_insumos
+        '
+        Me.cmb_insumos._descripcion = "descripcion"
+        Me.cmb_insumos._nombre_tabla = "INSUMOS"
+        Me.cmb_insumos._pk = "id"
+        Me.cmb_insumos.FormattingEnabled = True
+        Me.cmb_insumos.Location = New System.Drawing.Point(100, 19)
+        Me.cmb_insumos.Name = "cmb_insumos"
+        Me.cmb_insumos.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_insumos.TabIndex = 0
         '
         'Label8
         '
@@ -748,50 +737,6 @@ Partial Class Registrar_entrega_insumos
         Me.id_marca.ReadOnly = True
         Me.id_marca.Visible = False
         '
-        'cmb_marca
-        '
-        Me.cmb_marca._descripcion = "descripcion"
-        Me.cmb_marca._nombre_tabla = "MARCA"
-        Me.cmb_marca._pk = "id"
-        Me.cmb_marca.FormattingEnabled = True
-        Me.cmb_marca.Location = New System.Drawing.Point(99, 128)
-        Me.cmb_marca.Name = "cmb_marca"
-        Me.cmb_marca.Size = New System.Drawing.Size(160, 21)
-        Me.cmb_marca.TabIndex = 4
-        '
-        'cmb_insumos
-        '
-        Me.cmb_insumos._descripcion = "descripcion"
-        Me.cmb_insumos._nombre_tabla = "INSUMOS"
-        Me.cmb_insumos._pk = "id"
-        Me.cmb_insumos.FormattingEnabled = True
-        Me.cmb_insumos.Location = New System.Drawing.Point(100, 19)
-        Me.cmb_insumos.Name = "cmb_insumos"
-        Me.cmb_insumos.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_insumos.TabIndex = 0
-        '
-        'cmb_autorizador
-        '
-        Me.cmb_autorizador._descripcion = "nombres"
-        Me.cmb_autorizador._nombre_tabla = "EMPLEADOS"
-        Me.cmb_autorizador._pk = "id"
-        Me.cmb_autorizador.FormattingEnabled = True
-        Me.cmb_autorizador.Location = New System.Drawing.Point(109, 167)
-        Me.cmb_autorizador.Name = "cmb_autorizador"
-        Me.cmb_autorizador.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_autorizador.TabIndex = 9
-        '
-        'cmb_estado_entrega
-        '
-        Me.cmb_estado_entrega._descripcion = "descripcion"
-        Me.cmb_estado_entrega._nombre_tabla = "ESTADO_ENTREGA"
-        Me.cmb_estado_entrega._pk = "id"
-        Me.cmb_estado_entrega.FormattingEnabled = True
-        Me.cmb_estado_entrega.Location = New System.Drawing.Point(109, 139)
-        Me.cmb_estado_entrega.Name = "cmb_estado_entrega"
-        Me.cmb_estado_entrega.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_entrega.TabIndex = 7
-        '
         'Registrar_entrega_insumos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -840,12 +785,7 @@ Partial Class Registrar_entrega_insumos
     Friend WithEvents cmd_eliminar_insumo As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_insumo As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txt_apellido As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents cmd_buscar_empleado As System.Windows.Forms.Button
-    Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
-    Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
+    Friend WithEvents txt_receptor As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txt_observaciones As System.Windows.Forms.RichTextBox
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button

@@ -3,6 +3,8 @@
     Private Sub list_efectores_emiten_resumen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmb_departamentos.cargar()
         cmb_localidades.cargar()
+        cmb_emite_sigipsa.cargar()
+        cmb_emite_sigipsa.SelectedIndex = -1
         cmb_departamentos.SelectedIndex = -1
         cmb_localidades.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
@@ -80,11 +82,13 @@
 
         If cmb_departamentos.SelectedIndex <> 1000 Then ' Hola Lore, soy un Magic Number! :D 
             If Me.cmb_departamentos.SelectedIndex <> -1 Then
-                sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
+                sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
             ElseIf cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+                sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
+                sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+            ElseIf cmb_emite_sigipsa.SelectedIndex <> -1 Then
+                sql &= " WHERE EF.estado_rm = " & Me.cmb_emite_sigipsa.SelectedValue
             End If
         ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
             sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
@@ -92,14 +96,21 @@
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
                 sql &= " AND EF.cuie='" & Me.txt_cuie.Text & "'"
+            ElseIf cmb_emite_sigipsa.SelectedIndex <> -1 Then
+                sql &= " AND EF.estado_rm = " & Me.cmb_emite_sigipsa.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
                 sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
+                If cmb_emite_sigipsa.SelectedIndex <> -1 Then
+                    sql &= " AND EF.estado_rm = " & Me.cmb_emite_sigipsa.SelectedValue
+                End If
             End If
         ElseIf txt_cuie.Text <> "" Then
             sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
+        ElseIf cmb_emite_sigipsa.SelectedIndex <> -1 Then
+            sql &= " WHERE EF.estado_rm = " & Me.cmb_emite_sigipsa.SelectedValue
         End If
 
         tabla = acceso.consulta(sql)

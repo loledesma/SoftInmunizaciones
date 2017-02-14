@@ -385,6 +385,14 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!departamento.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!localidad.Value</Value>
+          </SortExpression>
+        </SortExpressions>
         <Top>0.65828cm</Top>
         <Left>1.05641cm</Left>
         <Height>1.2cm</Height>
@@ -397,13 +405,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.94792in</Height>
+    <Height>0.95833in</Height>
     <Style />
   </Body>
-  <Width>9.60417in</Width>
+  <Width>8.18092in</Width>
   <Page>
     <PageHeader>
-      <Height>2.06375cm</Height>
+      <Height>2.18432cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -441,6 +449,17 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line1">
+          <Top>1.9812cm</Top>
+          <Height>0cm</Height>
+          <Width>20.77953cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -469,7 +488,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.55245cm</Top>
-          <Left>20.68724cm</Left>
+          <Left>17.61807cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -498,7 +517,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>1.29356cm</Top>
-          <Left>20.68724cm</Left>
+          <Left>17.61807cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -516,9 +535,9 @@
           <Source>Embedded</Source>
           <Value>Proceincor4</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.14111cm</Top>
+          <Top>0.28222cm</Top>
           <Left>0.26141cm</Left>
-          <Height>2.61125cm</Height>
+          <Height>2.36431cm</Height>
           <Width>5.12479cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
@@ -527,6 +546,17 @@
             </Border>
           </Style>
         </Image>
+        <Line Name="Line2">
+          <Top>0.17639cm</Top>
+          <Height>0cm</Height>
+          <Width>20.77953cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
