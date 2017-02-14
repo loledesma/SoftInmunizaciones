@@ -256,7 +256,7 @@ Partial Class abm_cargo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(422, 404)
+        Me.ClientSize = New System.Drawing.Size(420, 400)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)

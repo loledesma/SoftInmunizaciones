@@ -73,8 +73,6 @@ Partial Class abm_empleados
         Me.id_tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmd_estadistica = New System.Windows.Forms.Button()
-        Me.cmd_listados = New System.Windows.Forms.Button()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -96,6 +94,8 @@ Partial Class abm_empleados
         Me.lbl_estado = New System.Windows.Forms.Label()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lbl_contador_empleados = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,7 +151,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_apellido.Location = New System.Drawing.Point(386, 105)
         Me.cmd_buscar_x_apellido.Name = "cmd_buscar_x_apellido"
         Me.cmd_buscar_x_apellido.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_x_apellido.TabIndex = 8
+        Me.cmd_buscar_x_apellido.TabIndex = 6
         Me.cmd_buscar_x_apellido.UseVisualStyleBackColor = True
         '
         'txt_nro_documento
@@ -189,7 +189,7 @@ Partial Class abm_empleados
         Me.txt_telefono.Mask = "999999999"
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(135, 20)
-        Me.txt_telefono.TabIndex = 7
+        Me.txt_telefono.TabIndex = 8
         '
         'Label3
         '
@@ -206,7 +206,7 @@ Partial Class abm_empleados
         Me.txt_caracteristica.Mask = "9999999"
         Me.txt_caracteristica.Name = "txt_caracteristica"
         Me.txt_caracteristica.Size = New System.Drawing.Size(67, 20)
-        Me.txt_caracteristica.TabIndex = 6
+        Me.txt_caracteristica.TabIndex = 7
         '
         'Label2
         '
@@ -340,7 +340,7 @@ Partial Class abm_empleados
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 4
+        Me.cmd_guardar.TabIndex = 3
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -359,7 +359,7 @@ Partial Class abm_empleados
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 3
+        Me.cmd_nuevo.TabIndex = 4
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -429,7 +429,7 @@ Partial Class abm_empleados
         Me.cmb_estado_empleado.Location = New System.Drawing.Point(124, 156)
         Me.cmb_estado_empleado.Name = "cmb_estado_empleado"
         Me.cmb_estado_empleado.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estado_empleado.TabIndex = 7
+        Me.cmb_estado_empleado.TabIndex = 6
         '
         'Label1
         '
@@ -536,7 +536,7 @@ Partial Class abm_empleados
         Me.cmb_perfil.Location = New System.Drawing.Point(124, 183)
         Me.cmb_perfil.Name = "cmb_perfil"
         Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_perfil.TabIndex = 6
+        Me.cmb_perfil.TabIndex = 7
         '
         'lbl_perfil
         '
@@ -611,11 +611,11 @@ Partial Class abm_empleados
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_empleado, Me.nombres, Me.apellidos, Me.id_tipo_doc, Me.tipo_doc, Me.nro_doc})
-        Me.dgv_empleados.Location = New System.Drawing.Point(461, 18)
+        Me.dgv_empleados.Location = New System.Drawing.Point(461, 16)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
-        Me.dgv_empleados.Size = New System.Drawing.Size(615, 297)
-        Me.dgv_empleados.TabIndex = 35
+        Me.dgv_empleados.Size = New System.Drawing.Size(615, 262)
+        Me.dgv_empleados.TabIndex = 9
         '
         'id_empleado
         '
@@ -659,55 +659,17 @@ Partial Class abm_empleados
         Me.nro_doc.ReadOnly = True
         Me.nro_doc.Width = 150
         '
-        'cmd_estadistica
-        '
-        Me.cmd_estadistica.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_estadistica.BackgroundImage = CType(resources.GetObject("cmd_estadistica.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_estadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_estadistica.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_estadistica.FlatAppearance.BorderSize = 0
-        Me.cmd_estadistica.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_estadistica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_estadistica.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_estadistica.Location = New System.Drawing.Point(607, 577)
-        Me.cmd_estadistica.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_estadistica.Name = "cmd_estadistica"
-        Me.cmd_estadistica.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_estadistica.TabIndex = 7
-        Me.cmd_estadistica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_estadistica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_estadistica.UseVisualStyleBackColor = False
-        '
-        'cmd_listados
-        '
-        Me.cmd_listados.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_listados.BackgroundImage = CType(resources.GetObject("cmd_listados.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_listados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_listados.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_listados.FlatAppearance.BorderSize = 0
-        Me.cmd_listados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_listados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_listados.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_listados.Location = New System.Drawing.Point(528, 577)
-        Me.cmd_listados.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_listados.Name = "cmd_listados"
-        Me.cmd_listados.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_listados.TabIndex = 6
-        Me.cmd_listados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_listados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_listados.UseVisualStyleBackColor = False
-        '
         'dgv_efectores
         '
         Me.dgv_efectores.AllowUserToAddRows = False
         Me.dgv_efectores.AllowUserToDeleteRows = False
         Me.dgv_efectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre_efector, Me.cargo, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
-        Me.dgv_efectores.Location = New System.Drawing.Point(461, 323)
+        Me.dgv_efectores.Location = New System.Drawing.Point(461, 324)
         Me.dgv_efectores.Name = "dgv_efectores"
         Me.dgv_efectores.ReadOnly = True
         Me.dgv_efectores.Size = New System.Drawing.Size(618, 214)
-        Me.dgv_efectores.TabIndex = 38
+        Me.dgv_efectores.TabIndex = 10
         '
         'cuie
         '
@@ -803,7 +765,7 @@ Partial Class abm_empleados
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha.TabIndex = 2
+        Me.txt_fecha.TabIndex = 3
         Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'grp_datos_sigipsa
@@ -835,7 +797,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_usuario.Location = New System.Drawing.Point(388, 42)
         Me.cmd_buscar_x_usuario.Name = "cmd_buscar_x_usuario"
         Me.cmd_buscar_x_usuario.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_x_usuario.TabIndex = 4
+        Me.cmd_buscar_x_usuario.TabIndex = 2
         Me.cmd_buscar_x_usuario.UseVisualStyleBackColor = True
         '
         'cmd_cambiar_estado
@@ -852,7 +814,7 @@ Partial Class abm_empleados
         Me.cmd_cambiar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cambiar_estado.Name = "cmd_cambiar_estado"
         Me.cmd_cambiar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_cambiar_estado.TabIndex = 43
+        Me.cmd_cambiar_estado.TabIndex = 5
         Me.cmd_cambiar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_cambiar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_cambiar_estado.UseVisualStyleBackColor = False
@@ -866,7 +828,7 @@ Partial Class abm_empleados
         Me.cmb_estados.Location = New System.Drawing.Point(124, 91)
         Me.cmb_estados.Name = "cmb_estados"
         Me.cmb_estados.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estados.TabIndex = 3
+        Me.cmb_estados.TabIndex = 4
         '
         'lbl_estado
         '
@@ -886,6 +848,29 @@ Partial Class abm_empleados
         Me.txt_usuario.Size = New System.Drawing.Size(257, 20)
         Me.txt_usuario.TabIndex = 1
         '
+        'lbl_contador_empleados
+        '
+        Me.lbl_contador_empleados.AutoSize = True
+        Me.lbl_contador_empleados.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_empleados.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_empleados.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_empleados.Location = New System.Drawing.Point(642, 290)
+        Me.lbl_contador_empleados.Name = "lbl_contador_empleados"
+        Me.lbl_contador_empleados.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_empleados.TabIndex = 55
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(460, 289)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(179, 17)
+        Me.Label22.TabIndex = 54
+        Me.Label22.Text = "Empleados registrados:"
+        '
         'abm_empleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -893,9 +878,9 @@ Partial Class abm_empleados
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1088, 644)
+        Me.Controls.Add(Me.lbl_contador_empleados)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.dgv_efectores)
-        Me.Controls.Add(Me.cmd_listados)
-        Me.Controls.Add(Me.cmd_estadistica)
         Me.Controls.Add(Me.dgv_empleados)
         Me.Controls.Add(Me.grp_datos_laborales)
         Me.Controls.Add(Me.grp_datos_sigipsa)
@@ -916,6 +901,7 @@ Partial Class abm_empleados
         Me.grp_datos_sigipsa.ResumeLayout(False)
         Me.grp_datos_sigipsa.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents grp_datos_personales As System.Windows.Forms.GroupBox
@@ -943,8 +929,6 @@ Partial Class abm_empleados
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
     Friend WithEvents cmb_localidades As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
-    Friend WithEvents cmd_estadistica As System.Windows.Forms.Button
-    Friend WithEvents cmd_listados As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_efector As System.Windows.Forms.Button
     Friend WithEvents cmb_perfil As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_perfil As System.Windows.Forms.Label
@@ -990,4 +974,6 @@ Partial Class abm_empleados
     Friend WithEvents txt_efectores As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
     Friend WithEvents lbl_cuie As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_empleados As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
 End Class

@@ -33,7 +33,7 @@ Partial Class list_usuarios
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tltp_usuarios = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_usuario = New System.Windows.Forms.GroupBox()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -255,7 +255,7 @@ Partial Class list_usuarios
     Friend WithEvents lbl_localidad As System.Windows.Forms.Label
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents tltp_atenciones As System.Windows.Forms.ToolTip
+    Friend WithEvents tltp_usuarios As System.Windows.Forms.ToolTip
     Friend WithEvents grp_usuario As System.Windows.Forms.GroupBox
     Friend WithEvents cmb_estados_usuarios As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label4 As System.Windows.Forms.Label

@@ -20,6 +20,7 @@
     Private Sub Registrar_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar(Me.Controls)
         Me.cargar_grilla()
+        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_apellidos, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_nombres, "EMPLEADOS", "nombres")
@@ -65,6 +66,7 @@
         tltp_notificaciones.SetToolTip(cmd_limpiar, "Limpiar")
     End Sub
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.condicion_click = doble_Click.desactivado
         Me.txt_id_empleado.Enabled = True
         Me.grp_datos_generales.Enabled = True
         Me.grp_datos_notificacion.Enabled = True
@@ -143,12 +145,32 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
-                sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
+                sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.nombre= '" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
 
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+                End If
+            End If
+        End If
+    End Sub
+ 
+    Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        If Me.condicion_click = doble_Click.desactivado Then
+            If txt_cuie.Text <> "" Then
+                sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
+                sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count() <> 0 Then
+                    txt_efectores.Text = tabla.Rows(0)("nombre")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If
@@ -293,6 +315,7 @@
     End Sub
 
     Private Sub nuevo()
+        Me.condicion_click = doble_Click.desactivado
         limpiar(Controls)
         Me.condicion_estado = estado.insertar
         Dim sql As String = "SELECT * FROM NOTIFICACIONXEFECTOR"
@@ -536,21 +559,22 @@
             sql &= " ORDER BY fecha"
             tabla = acceso.consulta(sql)
 
+
             If tabla.Rows.Count() = 0 Then
                 MessageBox.Show("¡No existe la notificación solicitada!")
                 Exit Sub
             Else
-                Dim c As Integer = 0
                 dgv_notificaciones.Rows.Clear()
+                Dim c As Integer = 0
                 For c = 0 To tabla.Rows.Count() - 1
                     dgv_notificaciones.Rows.Add()
-                    dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
-                    dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
-                    dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(0)("id_estado_stock")
-                    dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(0)("id_estado_perdidas")
-                    dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(0)("id_estado_carga")
-                    dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(0)("id_efector")
-                    
+                    dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                    dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                    dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(c)("id_estado_stock")
+                    dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(c)("id_estado_perdidas")
+                    dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(c)("id_estado_carga")
+                    dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(c)("id_efector")
+
                     sql = ""
                     sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_notificaciones.Rows(c).Cells("id_efector").Value & "'"
                     tabla2.Rows.Clear()
@@ -574,13 +598,14 @@
                     tabla2.Rows.Clear()
                     tabla2 = acceso.consulta(sql)
                     dgv_notificaciones.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
-
                 Next
             End If
         End If
-
-
         limpiar(Me.Controls)
         Me.condicion_estado = estado.modificar
+    End Sub
+
+    Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_notificaciones.CellValueChanged
+        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
     End Sub
 End Class

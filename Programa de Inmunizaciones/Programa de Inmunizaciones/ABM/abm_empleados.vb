@@ -63,9 +63,7 @@
         tltp_empleados.SetToolTip(cmd_buscar_x_apellido, "Buscar empleado por apellido")
         tltp_empleados.SetToolTip(cmd_buscar_x_documento, "Buscar empleado por documento")
         tltp_empleados.SetToolTip(cmd_buscar_x_usuario, "Buscar empleado por usuario de Sigipsa")
-        tltp_empleados.SetToolTip(cmd_listados, "Listados")
         tltp_empleados.SetToolTip(cmd_limpiar_laboral, "Limpiar datos laborales")
-        tltp_empleados.SetToolTip(cmd_estadistica, "Estadísticos")
         tltp_empleados.SetToolTip(cmd_guardar, "Guardar")
         tltp_empleados.SetToolTip(cmd_nuevo, "Nuevo")
         tltp_empleados.SetToolTip(cmd_limpiar, "Limpiar")
@@ -116,7 +114,14 @@
         Me.limpiar(Me.Controls)
         Me.condicion_estado = estado.insertar
         Me.txt_id_empleado.Focus()
+        txt_cuie.Enabled = True
+        txt_nombre.Enabled = True
         cargar_grilla()
+        Me.condicion_click = doble_Click.desactivado
+        Me.cmb_departamentos.cargar()
+        Me.cmb_departamentos.SelectedIndex = -1
+        Me.cmb_localidades.cargar()
+        Me.cmb_localidades.SelectedIndex = -1
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -233,7 +238,7 @@
             If cmb_departamentos.SelectedIndex <> -1 Then
                 cmb_localidades.cargar("id_departamento", Me.cmb_departamentos.SelectedValue)
                 cmb_localidades.Enabled = True
-                cmb_localidades.SelectedIndex = -1
+                'cmb_localidades.SelectedIndex = -1
             End If
         End If
     End Sub
@@ -254,6 +259,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
+        Dim tabla3 As New DataTable
         Dim c As Integer = 0
         If txt_nro_documento.Text = "" Then
             MessageBox.Show("Ingrese un numero de documento antes de buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -277,6 +283,7 @@
             sql &= " JOIN ESTADOS_EMPLEADOS EST ON EE.id_estado_empleado = EST.id "
             sql &= " WHERE EMP.nro_doc = " & Me.txt_nro_documento.Text
             tabla2 = acceso.consulta(sql)
+
 
 
             If tabla.Rows.Count = 0 Then
@@ -312,15 +319,15 @@
                         sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
                         sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
                         sql &= " WHERE EMP.nro_doc = " & Me.txt_nro_documento.Text
-                        tabla2.Clear()
-                        tabla2 = acceso.consulta(sql)
+                        tabla3.Clear()
+                        tabla3 = acceso.consulta(sql)
 
-                        If tabla2.Rows.Count() = 0 Then
+                        If tabla3.Rows.Count() = 0 Then
                             dgv_efectores.Rows(d).Cells("perfil").Value = ""
                             dgv_efectores.Rows(d).Cells("id_perfil").Value = ""
                         Else
-                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla2.Rows(d)("perfil")
-                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla2.Rows(d)("id_perfil")
+                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla3.Rows(d)("perfil")
+                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla3.Rows(d)("id_perfil")
                         End If
 
                     Next
@@ -555,7 +562,7 @@
         sql &= " , nro_doc= " & Me.txt_nro_documento.Text
         sql &= " , nombres= '" & Me.txt_nombre.Text & "'"
         sql &= " , apellidos= '" & Me.txt_apellido.Text & "'"
-        sql &= " , caracteristica= " & Me.txt_caracteristica.Text
+        ' sql &= " , caracteristica= " & Me.txt_caracteristica.Text
 
         If txt_telefono.Text <> "" Then
             sql &= ", telefono = " & Me.txt_telefono.Text
@@ -587,12 +594,12 @@
     End Sub
 
 
-    Private Function validar_existencia_efector() As analizar_existencia
+    Private Function validar_existencia_efector(ByVal cuie As String) As analizar_existencia
         Dim tabla As New DataTable
         Dim sql As String = ""
 
         sql = "SELECT * FROM EMPLEADOSXEFECTOR"
-        sql &= " WHERE id_empleados = " & Me.txt_id_empleado.Text & "AND id_efector='" & Me.dgv_efectores.CurrentRow.Cells("cuie").Value & "'"
+        sql &= " WHERE id_empleados = " & Me.txt_id_empleado.Text & "AND id_efector='" & cuie & "'"
 
         tabla = acceso.consulta(sql)
 
@@ -694,8 +701,7 @@
         Dim sql As String = ""
 
         sql = "SELECT * FROM EMPLEADOS"
-        sql &= " WHERE id = " & Me.txt_id_empleado.Text
-        sql &= " AND nro_doc = " & Me.txt_nro_documento.Text
+        sql &= " WHERE nro_doc = " & Me.txt_nro_documento.Text
         sql &= " AND id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
 
         tabla = acceso.consulta(sql)
@@ -733,7 +739,7 @@
         Dim txt_insert As String = ""
       
         For c = 0 To dgv_efectores.Rows.Count() - 1
-            If validar_existencia_efector() = analizar_existencia.existe Then
+            If validar_existencia_efector(dgv_efectores.Rows(c).Cells("cuie").Value) = analizar_existencia.existe Then
                 txt_insert &= "UPDATE EMPLEADOSXEFECTOR "
                 txt_insert &= " SET id_cargo= " & Me.dgv_efectores.Rows(c).Cells("id_cargo").Value
                 If IsNothing(Me.dgv_efectores.Rows(c).Cells("id_perfil").Value) Then
@@ -744,8 +750,6 @@
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
                 txt_insert &= " WHERE id_empleados= " & Me.txt_id_empleado.Text & " AND id_efector='" & Me.dgv_efectores.Rows(c).Cells("cuie").Value & "'"
                 acceso.ejecutar(txt_insert)
-
-
             Else
                 acceso._nombre_tabla = "EMPLEADOSXEFECTOR"
                 txt_insert = " id_efector=" & Me.dgv_efectores.Rows(c).Cells("cuie").Value
@@ -760,7 +764,6 @@
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
                 acceso.insertar(txt_insert)
-
             End If
             txt_insert = ""
         Next
@@ -793,6 +796,7 @@
         cmd_guardar.Enabled = True
         cmb_tipo_doc.Focus()
         Me.cmd_eliminar_efector.Enabled = True
+        cargar_grilla()
     End Sub
 
  
@@ -948,6 +952,7 @@
         End If
 
         Me.cmb_departamentos.SelectedValue = tabla.Rows(0)("dpto")
+        Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedValue = tabla.Rows(0)("localidad")
         Me.txt_efectores.Text = tabla.Rows(0)("nombre_efector")
         Me.txt_cuie.Text = tabla.Rows(0)("cuie")
@@ -959,6 +964,7 @@
         End If
 
         Me.cmb_estado_empleado.SelectedValue = tabla.Rows(0)("estado")
+
 
         grp_datos_laborales.Enabled = True
         Me.cmd_eliminar_efector.Enabled = False
@@ -1166,11 +1172,14 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
-                sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
+                sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.nombre='" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If
@@ -1181,11 +1190,14 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_cuie.Text <> "" Then
-                sql &= "SELECT E.nombre As nombre FROM EFECTORES E "
+                sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
                 sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_efectores.Text = tabla.Rows(0)("nombre")
+                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
                 End If
             End If
         End If
@@ -1217,5 +1229,8 @@
         Me.alta_estado()
     End Sub
 
+    Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
+        lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
+    End Sub
 
 End Class
