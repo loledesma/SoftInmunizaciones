@@ -65,7 +65,7 @@
     End Sub
 
     Private Sub tip()
-        tltp_atenciones.SetToolTip(cmd_ejecutar, "EJECUTAR")
+        tltp_usuarios.SetToolTip(cmd_ejecutar, "EJECUTAR")
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
@@ -99,12 +99,14 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT D.nombre as nombre_departamento, L.nombre as nombre_localidad, E.nombre as nombre_efector, EMP.usuario_sigipsa as usuario "
-        sql &= ", EU.descripcion as estado"
+        sql &= "SELECT D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, E.nombre as nombre_efector, EMP.usuario_sigipsa as usuario "
+        sql &= ", EU.descripcion as estado_usuario"
         sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EXE ON E.cuie = EXE.id_efector "
         sql &= " JOIN EMPLEADOS EMP ON EXE.id_empleados = EMP.id "
         sql &= " JOIN ESTADOXUSUARIOS EXU ON EMP.id = EXU.id_empleado "
         sql &= " JOIN ESTADOS_USUARIOS EU ON EXU.id_estado = EU.id "
+        sql &= " JOIN DEPARTAMENTOS D ON D.id = E.id_departamento "
+        sql &= " JOIN LOCALIDADES L ON L.id = E.id_localidad "
 
 
          If Me.cmb_departamentos.SelectedIndex <> -1 Then
@@ -132,7 +134,7 @@
             sql &= " WHERE EXU.id_estado= " & Me.cmb_estados_usuarios.SelectedValue
         End If
 
-            sql &= "ORDER BY fecha, nombre_efector, estado_usuario, usuario "
+        sql &= "ORDER BY nombre_efector, estado_usuario, usuario "
 
             tabla = acceso.consulta(sql)
 
@@ -141,8 +143,8 @@
                 MessageBox.Show("No hay datos para esa búsqueda")
                 Exit Sub
             End If
-
-            Me.ReportViewer1.RefreshReport()
+        Me.LIST_USUARIOSBindingSource.DataSource = tabla
+        Me.ReportViewer1.RefreshReport()
 
     End Sub
 

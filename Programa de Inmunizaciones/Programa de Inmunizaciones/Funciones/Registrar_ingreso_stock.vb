@@ -25,6 +25,7 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
+        Me.grp_stock.Enabled = False
         Me.cmb_marca.cargar()
         Me.cmb_insumos.cargar()
         Me.cmb_insumos.SelectedIndex = -1
@@ -83,6 +84,14 @@
 
     Private Sub nuevo()
         Me.limpiar(Me.Controls)
+        Me.grp_stock.Enabled = True
+        Me.cmb_insumos.Enabled = True
+        Me.txt_nro_serie.Enabled = True
+        Me.txt_modelo.Enabled = True
+        Me.cmb_marca.Enabled = True
+        Me.cmb_insumos.SelectedValue = -1
+        Me.cmb_marca.SelectedValue = -1
+        Me.cmd_guardar.Enabled = True
         Me.condicion_inicial = condicion.insertar
     End Sub
 
@@ -112,6 +121,13 @@
             tabla2 = acceso.consulta(sql)
 
             dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
+
+            sql = ""
+            sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
+            tabla2.Rows.Clear()
+            tabla2 = acceso.consulta(sql)
+
+            dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
         Next
     End Sub
 
@@ -119,7 +135,7 @@
         Dim tabla As DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT * FROM STOCK_INSUMOs WHERE id_insumo=" & Me.cmb_insumos.SelectedValue
+        sql &= "SELECT * FROM STOCK_INSUMOS WHERE id_insumo=" & Me.dgv_stock.CurrentRow.Cells("id_insumo").Value
         sql &= " AND nro_serie='" & Me.dgv_stock.CurrentRow.Cells("nro_serie").Value & "'"
         tabla = acceso.consulta(sql)
 
@@ -134,14 +150,29 @@
             Me.txt_modelo.Text = tabla.Rows(0)("modelo")
         End If
 
+        Me.grp_stock.Enabled = True
+        Me.cmb_insumos.Enabled = False
+        Me.txt_nro_serie.Enabled = False
+        Me.txt_modelo.Enabled = False
+        Me.cmb_marca.Enabled = False
+        Me.txt_cantidad.Enabled = True
         Me.condicion_inicial = condicion.modificar
+        Me.cmd_limpiar.Enabled = True
+        Me.cmd_guardar.Enabled = True
     End Sub
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.grp_stock.Enabled = True
         Me.cmd_nuevo.Enabled = True
+        Me.cmb_insumos.Enabled = True
+        Me.txt_nro_serie.Enabled = True
+        Me.txt_modelo.Enabled = True
+        Me.cmb_marca.Enabled = True
         Me.txt_cantidad.Text = ""
         Me.txt_modelo.Text = ""
         Me.txt_nro_serie.Text = ""
+        Me.cmb_insumos.SelectedValue = -1
+        Me.cmb_marca.SelectedValue = -1
         Me.condicion_inicial = condicion.insertar
     End Sub
 
@@ -149,15 +180,30 @@
         If condicion_inicial = condicion.insertar Then
             If validar_datos() Then
                 If validar_stock() = analizar_existencia.existe Then
-                    sumar()
+                    If MessageBox.Show("El insumo ya se encuentra cargado, ¿Desea sumar al stock?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                        sumar()
+                    Else
+                        Exit Sub
+                    End If
                 Else
                     insertar()
                 End If
             End If
         Else
-            modificar()
+            If MessageBox.Show("El insumo ya se encuentra cargado, ¿Desea modificar el insumo en stock?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                modificar()
+            Else
+                Exit Sub
+            End If
         End If
+        limpiar(Me.Controls)
+        Me.cmd_limpiar.Enabled = True
+        Me.cmd_nuevo.Enabled = True
+        Me.cmd_guardar.Enabled = False
+        cargar_grilla()
     End Sub
+
+
 
     Private Function validar_datos() As Boolean
         If cmb_insumos.SelectedValue = -1 Then
@@ -217,14 +263,16 @@
         sql &= ", cantidad= " & Me.txt_cantidad.Text
         sql &= ", modelo=" & Me.txt_modelo.Text
         sql &= ", id_marca =" & Me.cmb_marca.SelectedValue
+
         acceso.insertar(sql)
+
     End Sub
 
     Private Sub modificar()
         Dim sql As String = ""
 
         sql = "UPDATE STOCK_INSUMOS "
-        sql &= " SET cantidad = " & Me.txt_cantidad.Text & "'"
+        sql &= " SET cantidad = " & Me.txt_cantidad.Text
         sql &= " WHERE id_insumo = " & Me.cmb_insumos.SelectedValue & " AND nro_serie='" & Me.txt_nro_serie.Text & "'"
 
         acceso.ejecutar(sql)
@@ -249,6 +297,32 @@
             sql &= " and nro_serie= '" & Me.txt_nro_serie.Text & "'"
             acceso.ejecutar(sql)
         End If
+
     End Sub
 
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+        Dim sql As String = ""
+        If cmb_insumos.SelectedValue <> -1 Then
+            If txt_nro_serie.Text <> "" Then
+                If MessageBox.Show("¿Está seguro que desea eliminar el insumo?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                    sql = "DELETE FROM STOCK_INSUMOS "
+                    sql &= "WHERE id_insumo = " & Me.cmb_insumos.SelectedValue
+                    sql &= " AND nro_serie='" & Me.txt_nro_serie.Text & "'"
+                    acceso.ejecutar(sql)
+                End If
+            Else
+                MessageBox.Show("El elemento no existe o no ingreso el nro serie")
+                Me.txt_nro_serie.Focus()
+                Exit Sub
+            End If
+        Else
+            MessageBox.Show("El elemento no existe o no selecciono un insumo")
+            Me.cmb_insumos.Focus()
+            Exit Sub
+        End If
+
+        Me.cargar_grilla()
+        Me.limpiar(Me.Controls)
+        Me.condicion_inicial = condicion.insertar
+    End Sub
 End Class

@@ -34,7 +34,7 @@ Partial Class Registrar_ingreso_stock
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.grp_stock = New System.Windows.Forms.GroupBox()
         Me.txt_cantidad = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_modelo = New System.Windows.Forms.TextBox()
@@ -46,8 +46,9 @@ Partial Class Registrar_ingreso_stock
         Me.cmb_insumos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
+        Me.cmd_eliminar = New System.Windows.Forms.Button()
         CType(Me.dgv_stock, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        Me.grp_stock.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmd_salir
@@ -60,7 +61,7 @@ Partial Class Registrar_ingreso_stock
         Me.cmd_salir.Location = New System.Drawing.Point(912, 454)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.TabIndex = 4
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_guardar
@@ -77,7 +78,7 @@ Partial Class Registrar_ingreso_stock
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 8
+        Me.cmd_guardar.TabIndex = 2
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -96,7 +97,7 @@ Partial Class Registrar_ingreso_stock
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 7
+        Me.cmd_nuevo.TabIndex = 1
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -160,26 +161,26 @@ Partial Class Registrar_ingreso_stock
         Me.cantidad.Name = "cantidad"
         Me.cantidad.ReadOnly = True
         '
-        'GroupBox1
+        'grp_stock
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.txt_cantidad)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txt_modelo)
-        Me.GroupBox1.Controls.Add(Me.txt_nro_serie)
-        Me.GroupBox1.Controls.Add(Me.cmb_marca)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.cmb_insumos)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(430, 173)
-        Me.GroupBox1.TabIndex = 68
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Ingreso"
+        Me.grp_stock.BackColor = System.Drawing.Color.Transparent
+        Me.grp_stock.Controls.Add(Me.txt_cantidad)
+        Me.grp_stock.Controls.Add(Me.Label3)
+        Me.grp_stock.Controls.Add(Me.txt_modelo)
+        Me.grp_stock.Controls.Add(Me.txt_nro_serie)
+        Me.grp_stock.Controls.Add(Me.cmb_marca)
+        Me.grp_stock.Controls.Add(Me.Label11)
+        Me.grp_stock.Controls.Add(Me.Label10)
+        Me.grp_stock.Controls.Add(Me.Label9)
+        Me.grp_stock.Controls.Add(Me.cmb_insumos)
+        Me.grp_stock.Controls.Add(Me.Label8)
+        Me.grp_stock.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_stock.Location = New System.Drawing.Point(16, 12)
+        Me.grp_stock.Name = "grp_stock"
+        Me.grp_stock.Size = New System.Drawing.Size(430, 173)
+        Me.grp_stock.TabIndex = 0
+        Me.grp_stock.TabStop = False
+        Me.grp_stock.Text = "Ingreso"
         '
         'txt_cantidad
         '
@@ -187,7 +188,7 @@ Partial Class Registrar_ingreso_stock
         Me.txt_cantidad.Mask = "9999999"
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(98, 20)
-        Me.txt_cantidad.TabIndex = 78
+        Me.txt_cantidad.TabIndex = 4
         '
         'Label3
         '
@@ -205,7 +206,7 @@ Partial Class Registrar_ingreso_stock
         Me.txt_modelo.Location = New System.Drawing.Point(97, 76)
         Me.txt_modelo.Name = "txt_modelo"
         Me.txt_modelo.Size = New System.Drawing.Size(283, 20)
-        Me.txt_modelo.TabIndex = 77
+        Me.txt_modelo.TabIndex = 2
         '
         'txt_nro_serie
         '
@@ -214,7 +215,7 @@ Partial Class Registrar_ingreso_stock
         Me.txt_nro_serie.Location = New System.Drawing.Point(96, 47)
         Me.txt_nro_serie.Name = "txt_nro_serie"
         Me.txt_nro_serie.Size = New System.Drawing.Size(283, 20)
-        Me.txt_nro_serie.TabIndex = 76
+        Me.txt_nro_serie.TabIndex = 1
         '
         'cmb_marca
         '
@@ -225,7 +226,7 @@ Partial Class Registrar_ingreso_stock
         Me.cmb_marca.Location = New System.Drawing.Point(98, 102)
         Me.cmb_marca.Name = "cmb_marca"
         Me.cmb_marca.Size = New System.Drawing.Size(160, 21)
-        Me.cmb_marca.TabIndex = 75
+        Me.cmb_marca.TabIndex = 3
         '
         'Label11
         '
@@ -288,10 +289,29 @@ Partial Class Registrar_ingreso_stock
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 9
+        Me.cmd_limpiar.TabIndex = 3
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
+        '
+        'cmd_eliminar
+        '
+        Me.cmd_eliminar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_eliminar.BackgroundImage = CType(resources.GetObject("cmd_eliminar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_eliminar.FlatAppearance.BorderSize = 0
+        Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_eliminar.Location = New System.Drawing.Point(220, 456)
+        Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_eliminar.Name = "cmd_eliminar"
+        Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_eliminar.TabIndex = 67
+        Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
         'Registrar_ingreso_stock
         '
@@ -299,7 +319,8 @@ Partial Class Registrar_ingreso_stock
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(994, 529)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.cmd_eliminar)
+        Me.Controls.Add(Me.grp_stock)
         Me.Controls.Add(Me.dgv_stock)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
@@ -308,8 +329,8 @@ Partial Class Registrar_ingreso_stock
         Me.Name = "Registrar_ingreso_stock"
         Me.Text = "STOCK"
         CType(Me.dgv_stock, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.grp_stock.ResumeLayout(False)
+        Me.grp_stock.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -317,7 +338,7 @@ Partial Class Registrar_ingreso_stock
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents dgv_stock As System.Windows.Forms.DataGridView
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents grp_stock As System.Windows.Forms.GroupBox
     Friend WithEvents cmb_marca As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
@@ -336,4 +357,5 @@ Partial Class Registrar_ingreso_stock
     Friend WithEvents marca As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
+    Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
 End Class

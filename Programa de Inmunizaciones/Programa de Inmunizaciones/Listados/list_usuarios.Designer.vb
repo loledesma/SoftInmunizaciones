@@ -29,19 +29,23 @@ Partial Class list_usuarios
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
         Me.txt_efectores = New System.Windows.Forms.TextBox()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_vacunatorio = New System.Windows.Forms.Label()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tltp_usuarios = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_usuario = New System.Windows.Forms.GroupBox()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
-        Me.cmb_estados_usuarios = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmb_estados_usuarios = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
+        Me.LIST_USUARIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_usuario.SuspendLayout()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LIST_USUARIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grp_datos_efector
@@ -90,28 +94,6 @@ Partial Class list_usuarios
         Me.txt_efectores.Size = New System.Drawing.Size(282, 20)
         Me.txt_efectores.TabIndex = 2
         '
-        'cmb_departamentos
-        '
-        Me.cmb_departamentos._descripcion = "descripcion"
-        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamentos._pk = "id"
-        Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
-        Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
-        Me.cmb_departamentos.TabIndex = 0
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
-        Me.cmb_localidades.TabIndex = 1
-        '
         'lbl_vacunatorio
         '
         Me.lbl_vacunatorio.AutoSize = True
@@ -149,9 +131,9 @@ Partial Class list_usuarios
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Nothing
+        ReportDataSource1.Value = Me.LIST_USUARIOSBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_atenciones.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_usuarios.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(18, 150)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(967, 436)
@@ -190,6 +172,15 @@ Partial Class list_usuarios
         Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_ejecutar.UseVisualStyleBackColor = False
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(8, 53)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 13)
+        Me.Label4.TabIndex = 30
+        Me.Label4.Text = "Estado"
+        '
         'cmb_estados_usuarios
         '
         Me.cmb_estados_usuarios._descripcion = "descripcion"
@@ -201,14 +192,37 @@ Partial Class list_usuarios
         Me.cmb_estados_usuarios.Size = New System.Drawing.Size(281, 21)
         Me.cmb_estados_usuarios.TabIndex = 0
         '
-        'Label4
+        'cmb_departamentos
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(8, 53)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 13)
-        Me.Label4.TabIndex = 30
-        Me.Label4.Text = "Estado"
+        Me.cmb_departamentos._descripcion = "descripcion"
+        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamentos._pk = "id"
+        Me.cmb_departamentos.FormattingEnabled = True
+        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
+        Me.cmb_departamentos.Name = "cmb_departamentos"
+        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
+        Me.cmb_departamentos.TabIndex = 0
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
+        Me.cmb_localidades.TabIndex = 1
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LIST_USUARIOSBindingSource
+        '
+        Me.LIST_USUARIOSBindingSource.DataMember = "LIST_USUARIOS"
+        Me.LIST_USUARIOSBindingSource.DataSource = Me.Inmunizaciones
         '
         'list_usuarios
         '
@@ -225,6 +239,8 @@ Partial Class list_usuarios
         Me.grp_datos_efector.PerformLayout()
         Me.grp_usuario.ResumeLayout(False)
         Me.grp_usuario.PerformLayout()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LIST_USUARIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -239,9 +255,11 @@ Partial Class list_usuarios
     Friend WithEvents lbl_localidad As System.Windows.Forms.Label
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents tltp_atenciones As System.Windows.Forms.ToolTip
+    Friend WithEvents tltp_usuarios As System.Windows.Forms.ToolTip
     Friend WithEvents grp_usuario As System.Windows.Forms.GroupBox
     Friend WithEvents cmb_estados_usuarios As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cmd_ejecutar As System.Windows.Forms.Button
+    Friend WithEvents LIST_USUARIOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
 End Class
