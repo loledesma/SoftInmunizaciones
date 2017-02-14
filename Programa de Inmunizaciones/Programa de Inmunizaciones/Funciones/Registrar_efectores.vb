@@ -456,7 +456,6 @@
         dgv_vacunatorios.Rows.Clear()
         limpiar(Me.Controls)
         cargar_grilla_vacunatorios()
-        'VER ERROR CON CUIE AL DAR DE ALTA NUEVO EFECTOR
     End Sub
     Private Sub modificar()
         Dim sql As String = ""

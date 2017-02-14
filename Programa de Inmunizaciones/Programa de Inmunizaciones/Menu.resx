@@ -7894,6 +7894,12 @@
   <data name="&gt;&gt;RegistrarEntregaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;StockToolStripMenuItem.Name" xml:space="preserve">
+    <value>StockToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;StockToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;CursosToolStripMenuItem.Name" xml:space="preserve">
     <value>CursosToolStripMenuItem</value>
   </data>
@@ -8102,12 +8108,6 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StockToolStripMenuItem.Name" xml:space="preserve">
-    <value>StockToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;StockToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

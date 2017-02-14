@@ -28,8 +28,6 @@
 
     Private Sub Registrar_entrega_insumos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_grilla_entregas()
-        acceso.autocompletar(txt_nombre, "EMPLEADOS", "nombres")
-        acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_nombre_efector, "EFECTORES", "nombre")
         acceso.autocompletar(txt_nro_serie, "STOCK_INSUMOS", "nro_serie")
@@ -77,7 +75,7 @@
         Dim sql As String = ""
 
         If Me.condicion_click = doble_Click.desactivado Then
-            sql &= "SELECT * FROM STOCK_INSUMOS WHERE nro_serie= '" & Me.txt_nro_serie.Text & "'"
+            sql &= "SELECT * FROM STOCK_INSUMOS WHERE nro_serie='" & Me.txt_nro_serie.Text & "'"
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count() = 0 Then
@@ -238,7 +236,7 @@
                         sql = ""
                         sql &= "UPDATE ENTREGA_INSUMOS "
                         sql &= " SET id_estado_entrega= " & Me.cmb_estado_entrega.SelectedValue
-                        sql &= " , id_receptor= " & Me.txt_id_empleado.Text
+                        sql &= " , receptor= '" & Me.txt_receptor.Text & "'"
                         sql &= " , fecha_entrega= '" & Me.txt_fecha_entrega.Text & "'"
                         If txt_observaciones.Text <> "" Then
                             sql &= ", observaciones='" & Me.txt_observaciones.Text & "'"
@@ -358,18 +356,11 @@
         Me.cmb_estado_entrega.SelectedValue = tabla.Rows(0)("id_estado_entrega")
         Me.cmb_autorizador.SelectedValue = tabla.Rows(0)("id_autoriza")
 
-        If IsDBNull(tabla.Rows(0)("id_receptor")) Then
-            txt_id_empleado.Text = ""
-            txt_nombre.Text = ""
-            txt_apellido.Text = ""
+        If IsDBNull(tabla.Rows(0)("receptor")) Then
+            txt_receptor.Text = ""
+            
         Else
-            txt_id_empleado.Text = tabla.Rows(0)("id_receptor")
-
-            sql = ""
-            sql &= "SELECT * FROM EMPLEADOS WHERE id=" & Me.txt_id_empleado.Text
-            tabla2 = acceso.consulta(sql)
-            txt_nombre.Text = tabla2.Rows(0)("nombres")
-            txt_apellido.Text = tabla2.Rows(0)("apellidos")
+            txt_receptor.Text = tabla.Rows(0)("receptor")
         End If
 
         If IsDBNull(tabla.Rows(0)("observaciones")) Then
@@ -520,20 +511,10 @@
             Return False
             Me.txt_id_entrega.Focus()
             Exit Function
-        ElseIf txt_id_empleado.Text = "" Then
-            MessageBox.Show("Debe ingresar un empleado que recibe o buscar el empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf txt_receptor.Text = "" Then
+            MessageBox.Show("Debe ingresar al menos un nombre de receptor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
-            Me.txt_id_empleado.Focus()
-            Exit Function
-        ElseIf txt_nombre.Text = "" Then
-            MessageBox.Show("Debe ingresar un nombre de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_nombre.Focus()
-            Exit Function
-        ElseIf txt_apellido.Text = "" Then
-            MessageBox.Show("Debe ingresar un apellido de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_apellido.Focus()
+            Me.txt_receptor.Focus()
             Exit Function
         ElseIf IsDate(txt_fecha_entrega.Text) = False Then
             MessageBox.Show("Debe ingresar una fecha de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -630,43 +611,43 @@
             Me.dgv_entrega.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
         Next
     End Sub
-    Private Sub cmd_buscar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleado.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
-        Dim c As Integer = 0
+    'Private Sub cmd_buscar_empleado_Click(sender As Object, e As EventArgs)
+    '    Dim sql As String = ""
+    '    Dim tabla As New DataTable
+    '    Dim c As Integer = 0
 
-        If txt_cuie.Text = "" Then
-            MessageBox.Show("Debe ingresar el cuie", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_cuie.Focus()
-            Exit Sub
-        End If
-        If txt_apellido.Text = "" And txt_nombre.Text = "" Then
-            MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_nombre.Focus()
-            Exit Sub
-        ElseIf txt_apellido.Text = "" And txt_nombre.Text <> "" Then
-            MessageBox.Show("¡Ingrese un apellido para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_apellido.Focus()
-            Exit Sub
-        ElseIf txt_apellido.Text <> "" And txt_nombre.Text = "" Then
-            MessageBox.Show("¡Ingrese un nombre para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_nombre.Focus()
-            Exit Sub
-        ElseIf txt_apellido.Text <> "" And txt_nombre.Text <> "" Then
-            sql = ""
-            sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
-            sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
-            sql &= " WHERE EMP.nombres='" & Me.txt_nombre.Text & "' AND EMP.apellidos= '" & Me.txt_apellido.Text & "'"
-            sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
+    '    If txt_cuie.Text = "" Then
+    '        MessageBox.Show("Debe ingresar el cuie", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '        txt_cuie.Focus()
+    '        Exit Sub
+    '    End If
+    '    If txt_receptor.Text = "" And txt_nombre.Text = "" Then
+    '        MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '        txt_nombre.Focus()
+    '        Exit Sub
+    '    ElseIf txt_receptor.Text = "" And txt_nombre.Text <> "" Then
+    '        MessageBox.Show("¡Ingrese un apellido para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '        txt_receptor.Focus()
+    '        Exit Sub
+    '    ElseIf txt_receptor.Text <> "" And txt_nombre.Text = "" Then
+    '        MessageBox.Show("¡Ingrese un nombre para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '        txt_nombre.Focus()
+    '        Exit Sub
+    '    ElseIf txt_receptor.Text <> "" And txt_nombre.Text <> "" Then
+    '        sql = ""
+    '        sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
+    '        sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+    '        sql &= " WHERE EMP.nombres='" & Me.txt_nombre.Text & "' AND EMP.apellidos= '" & Me.txt_receptor.Text & "'"
+    '        sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
-            tabla = acceso.consulta(sql)
-            If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No se encontro id de empleado con esos datos para ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Else
-                Me.txt_id_empleado.Text = tabla.Rows(0)("id")
-            End If
-        End If
-    End Sub
+    '        tabla = acceso.consulta(sql)
+    '        If tabla.Rows.Count = 0 Then
+    '            MessageBox.Show("No se encontro id de empleado con esos datos para ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '        Else
+    '            Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+    '        End If
+    '    End If
+    'End Sub
 
     Private Sub insertar_pedido()
         Dim sql As String = ""
@@ -683,10 +664,10 @@
             sql &= ", fecha_entrega =Null"
         End If
 
-        If txt_id_empleado.Text <> "" Then
-            sql &= ", id_receptor=" & Me.txt_id_empleado.Text
+        If txt_receptor.Text <> "" Then
+            sql &= ", receptor=" & Me.txt_receptor.Text
         Else
-            sql &= ", id_receptor=Null"
+            sql &= ", receptor=Null"
         End If
 
 

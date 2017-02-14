@@ -50,6 +50,7 @@ Partial Class Menu
         Me.SupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HeldareasYPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CursosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoCursoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
@@ -85,7 +86,6 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -236,6 +236,11 @@ Partial Class Menu
         '
         Me.RegistrarEntregaToolStripMenuItem.Name = "RegistrarEntregaToolStripMenuItem"
         resources.ApplyResources(Me.RegistrarEntregaToolStripMenuItem, "RegistrarEntregaToolStripMenuItem")
+        '
+        'StockToolStripMenuItem
+        '
+        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
+        resources.ApplyResources(Me.StockToolStripMenuItem, "StockToolStripMenuItem")
         '
         'CursosToolStripMenuItem
         '
@@ -449,11 +454,6 @@ Partial Class Menu
         Me.GestiónDeBarriosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
-        '
-        'StockToolStripMenuItem
-        '
-        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
-        resources.ApplyResources(Me.StockToolStripMenuItem, "StockToolStripMenuItem")
         '
         'Menu
         '
