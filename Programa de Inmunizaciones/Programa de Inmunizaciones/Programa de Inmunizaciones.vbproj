@@ -185,6 +185,12 @@
     <Compile Include="Estadisticos\est_estado_heladeras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Inventario_cadena_de_frio.Designer.vb">
+      <DependentUpon>Inventario_cadena_de_frio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Inventario_cadena_de_frio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones\Registrar_atencion.Designer.vb">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </Compile>

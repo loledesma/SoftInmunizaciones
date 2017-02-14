@@ -125,7 +125,7 @@
         Else
             sql &= "SELECT * "
             sql &= " FROM CAPACITACIONES "
-            sql &= " WHERE fecha_programada = " & Me.txt_fecha_programada.Text
+            sql &= " WHERE fecha_programada = '" & Me.txt_fecha_programada.Text & "'"
 
             tabla = acceso.consulta(sql)
 
@@ -166,7 +166,7 @@
                     tabla2.Rows.Clear()
                     tabla2 = acceso.consulta(sql)
 
-                    dgv_capas.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+                    dgv_capas.Rows(c).Cells("localidad").Value = tabla2.Rows(0)("descripcion")
                 Next
             End If
         End If
@@ -190,7 +190,7 @@
             tabla = acceso.consulta(sql)
 
             If tabla.Rows().Count = 0 Then
-                MessageBox.Show("¡No existe una capacitacion para esa fecha!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("¡No existe una capacitacion para esa localidad!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Exit Sub
             Else
                 dgv_capas.Rows.Clear()

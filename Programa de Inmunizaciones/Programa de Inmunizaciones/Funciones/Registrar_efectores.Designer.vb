@@ -28,8 +28,7 @@ Partial Class Registrar_efectores
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_vacunatorio = New System.Windows.Forms.GroupBox()
-        Me.txt_antiguedad = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
+        Me.cmd_cadena_de_frio = New System.Windows.Forms.Button()
         Me.txt_referentes = New System.Windows.Forms.TextBox()
         Me.cmb_estado_rm = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -126,8 +125,7 @@ Partial Class Registrar_efectores
         'grp_datos_vacunatorio
         '
         Me.grp_datos_vacunatorio.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_vacunatorio.Controls.Add(Me.txt_antiguedad)
-        Me.grp_datos_vacunatorio.Controls.Add(Me.Label23)
+        Me.grp_datos_vacunatorio.Controls.Add(Me.cmd_cadena_de_frio)
         Me.grp_datos_vacunatorio.Controls.Add(Me.txt_referentes)
         Me.grp_datos_vacunatorio.Controls.Add(Me.cmb_estado_rm)
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label17)
@@ -162,29 +160,24 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.TabStop = False
         Me.grp_datos_vacunatorio.Text = "Datos del vacunatorio  "
         '
-        'txt_antiguedad
+        'cmd_cadena_de_frio
         '
-        Me.txt_antiguedad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_antiguedad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_antiguedad.Location = New System.Drawing.Point(112, 134)
-        Me.txt_antiguedad.Name = "txt_antiguedad"
-        Me.txt_antiguedad.Size = New System.Drawing.Size(208, 20)
-        Me.txt_antiguedad.TabIndex = 24
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(15, 138)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(61, 13)
-        Me.Label23.TabIndex = 23
-        Me.Label23.Text = "Antiguedad"
+        Me.cmd_cadena_de_frio.BackgroundImage = CType(resources.GetObject("cmd_cadena_de_frio.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_cadena_de_frio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_cadena_de_frio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmd_cadena_de_frio.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_cadena_de_frio.Location = New System.Drawing.Point(150, 232)
+        Me.cmd_cadena_de_frio.Name = "cmd_cadena_de_frio"
+        Me.cmd_cadena_de_frio.Size = New System.Drawing.Size(256, 19)
+        Me.cmd_cadena_de_frio.TabIndex = 33
+        Me.cmd_cadena_de_frio.Text = "ACTUALIZAR INVENTARIO CADENA DE FRIO"
+        Me.cmd_cadena_de_frio.UseVisualStyleBackColor = True
         '
         'txt_referentes
         '
         Me.txt_referentes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_referentes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_referentes.Location = New System.Drawing.Point(111, 162)
+        Me.txt_referentes.Location = New System.Drawing.Point(111, 137)
         Me.txt_referentes.Name = "txt_referentes"
         Me.txt_referentes.Size = New System.Drawing.Size(384, 20)
         Me.txt_referentes.TabIndex = 8
@@ -195,7 +188,7 @@ Partial Class Registrar_efectores
         Me.cmb_estado_rm._nombre_tabla = "ESTADO_RM"
         Me.cmb_estado_rm._pk = "id"
         Me.cmb_estado_rm.FormattingEnabled = True
-        Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 190)
+        Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 170)
         Me.cmb_estado_rm.Name = "cmb_estado_rm"
         Me.cmb_estado_rm.Size = New System.Drawing.Size(153, 21)
         Me.cmb_estado_rm.TabIndex = 10
@@ -203,7 +196,7 @@ Partial Class Registrar_efectores
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(319, 194)
+        Me.Label17.Location = New System.Drawing.Point(319, 174)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(24, 13)
         Me.Label17.TabIndex = 22
@@ -271,7 +264,7 @@ Partial Class Registrar_efectores
         Me.cmb_tipo_carga._nombre_tabla = "TIPO_CARGA"
         Me.cmb_tipo_carga._pk = "id"
         Me.cmb_tipo_carga.FormattingEnabled = True
-        Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 220)
+        Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 206)
         Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
         Me.cmb_tipo_carga.Size = New System.Drawing.Size(153, 21)
         Me.cmb_tipo_carga.TabIndex = 12
@@ -279,7 +272,7 @@ Partial Class Registrar_efectores
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(281, 224)
+        Me.Label15.Location = New System.Drawing.Point(281, 210)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(58, 13)
         Me.Label15.TabIndex = 18
@@ -291,7 +284,7 @@ Partial Class Registrar_efectores
         Me.cmb_estado_efector._nombre_tabla = "ESTADOS_EFECTOR"
         Me.cmb_estado_efector._pk = "id"
         Me.cmb_estado_efector.FormattingEnabled = True
-        Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 219)
+        Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 205)
         Me.cmb_estado_efector.Name = "cmb_estado_efector"
         Me.cmb_estado_efector.Size = New System.Drawing.Size(159, 21)
         Me.cmb_estado_efector.TabIndex = 11
@@ -299,7 +292,7 @@ Partial Class Registrar_efectores
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(18, 222)
+        Me.Label14.Location = New System.Drawing.Point(18, 208)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(40, 13)
         Me.Label14.TabIndex = 16
@@ -311,7 +304,7 @@ Partial Class Registrar_efectores
         Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
         Me.cmb_tipos_efectores._pk = "id"
         Me.cmb_tipos_efectores.FormattingEnabled = True
-        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 190)
+        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 170)
         Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
         Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
         Me.cmb_tipos_efectores.TabIndex = 9
@@ -319,7 +312,7 @@ Partial Class Registrar_efectores
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(15, 193)
+        Me.Label13.Location = New System.Drawing.Point(15, 173)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(65, 13)
         Me.Label13.TabIndex = 14
@@ -328,7 +321,7 @@ Partial Class Registrar_efectores
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(16, 165)
+        Me.Label12.Location = New System.Drawing.Point(16, 140)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(54, 13)
         Me.Label12.TabIndex = 12
@@ -396,7 +389,7 @@ Partial Class Registrar_efectores
         Me.GroupBox2.Controls.Add(Me.txt_calle)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(6, 251)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 257)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(499, 106)
         Me.GroupBox2.TabIndex = 13
@@ -544,7 +537,7 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -1170,8 +1163,6 @@ Partial Class Registrar_efectores
     Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
     Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
-    Friend WithEvents txt_antiguedad As System.Windows.Forms.TextBox
-    Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents grp_grilla_vacunatorios As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1180,4 +1171,5 @@ Partial Class Registrar_efectores
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
 End Class
