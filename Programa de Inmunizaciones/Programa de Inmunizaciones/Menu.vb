@@ -129,4 +129,8 @@
     Private Sub EfectoresPorEmisiónDeResumenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEmisiónDeResumenToolStripMenuItem.Click
         list_efectores_emiten_resumen.ShowDialog()
     End Sub
+
+    Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockToolStripMenuItem.Click
+        Registrar_ingreso_stock.ShowDialog()
+    End Sub
 End Class
