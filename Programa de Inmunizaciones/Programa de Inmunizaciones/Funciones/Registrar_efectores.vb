@@ -171,7 +171,6 @@
         Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
         Me.condicion_click = doble_Click.desactivado
         Me.txt_heladera.Text = tabla2.Rows(0)("tiene_heladera")
-        Me.txt_antiguedad.Text = tabla2.Rows(0)("antiguedad")
         Me.txt_pc.Text = tabla2.Rows(0)("tiene_internet")
 
 
@@ -513,7 +512,6 @@
         sql &= " , id_tipo_carga= " & Me.cmb_tipo_carga.SelectedValue
         sql &= ", tiene_heladera='" & Me.txt_heladera.Text & "'"
         sql &= ", tiene_internet='" & Me.txt_pc.Text & "'"
-        sql &= ", antiguedad='" & Me.txt_antiguedad.Text & "'"
 
 
         If cmb_estado_rm.SelectedValue <> -1 Then
@@ -586,7 +584,6 @@
         sql &= ", id_estado =" & Me.cmb_estado_efector.SelectedValue
         sql &= ", tiene_heladera=" & Me.txt_heladera.Text
         sql &= ", tiene_internet=" & Me.txt_pc.Text
-        sql &= ", antiguedad=" & Me.txt_antiguedad.Text
 
         If cmb_estado_rm.SelectedValue <> -1 Then
             sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
@@ -1099,5 +1096,10 @@
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
         lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
+    End Sub
+
+    
+    Private Sub cmd_cadena_de_frio_Click(sender As Object, e As EventArgs) Handles cmd_cadena_de_frio.Click
+        Inventario_cadena_de_frio.ShowDialog()
     End Sub
 End Class
