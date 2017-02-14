@@ -24,7 +24,7 @@ Partial Class list_efectores_emiten_resumen
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_efectores_emiten_resumen))
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.LIST_EMITEN_SIGIPSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
@@ -38,6 +38,8 @@ Partial Class list_efectores_emiten_resumen
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmb_emite_sigipsa = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.LIST_EMITEN_SIGIPSABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
@@ -56,6 +58,8 @@ Partial Class list_efectores_emiten_resumen
         'grp_datos_efector
         '
         Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_efector.Controls.Add(Me.cmb_emite_sigipsa)
+        Me.grp_datos_efector.Controls.Add(Me.Label1)
         Me.grp_datos_efector.Controls.Add(Me.cmd_ejecutar)
         Me.grp_datos_efector.Controls.Add(Me.txt_cuie)
         Me.grp_datos_efector.Controls.Add(Me.lbl_cuie)
@@ -109,7 +113,7 @@ Partial Class list_efectores_emiten_resumen
         Me.txt_efectores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_efectores.Location = New System.Drawing.Point(122, 75)
         Me.txt_efectores.Name = "txt_efectores"
-        Me.txt_efectores.Size = New System.Drawing.Size(388, 20)
+        Me.txt_efectores.Size = New System.Drawing.Size(387, 20)
         Me.txt_efectores.TabIndex = 2
         '
         'cmb_departamentos
@@ -163,14 +167,34 @@ Partial Class list_efectores_emiten_resumen
         '
         'ReportViewer1
         '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.LIST_EMITEN_SIGIPSABindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.LIST_EMITEN_SIGIPSABindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_ef_eminten_sigipsa.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 151)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(807, 433)
         Me.ReportViewer1.TabIndex = 6
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(247, 106)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(101, 13)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Emisión de resumen"
+        '
+        'cmb_emite_sigipsa
+        '
+        Me.cmb_emite_sigipsa._descripcion = "descripcion"
+        Me.cmb_emite_sigipsa._nombre_tabla = "ESTADO_RM"
+        Me.cmb_emite_sigipsa._pk = "id"
+        Me.cmb_emite_sigipsa.FormattingEnabled = True
+        Me.cmb_emite_sigipsa.Location = New System.Drawing.Point(354, 103)
+        Me.cmb_emite_sigipsa.Name = "cmb_emite_sigipsa"
+        Me.cmb_emite_sigipsa.Size = New System.Drawing.Size(155, 21)
+        Me.cmb_emite_sigipsa.TabIndex = 52
         '
         'list_efectores_emiten_resumen
         '
@@ -203,4 +227,6 @@ Partial Class list_efectores_emiten_resumen
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents LIST_EMITEN_SIGIPSABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents cmb_emite_sigipsa As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
