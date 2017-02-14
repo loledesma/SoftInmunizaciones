@@ -85,6 +85,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -227,7 +228,7 @@ Partial Class Menu
         '
         'HeldareasYPCsToolStripMenuItem
         '
-        Me.HeldareasYPCsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarEntregaToolStripMenuItem})
+        Me.HeldareasYPCsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarEntregaToolStripMenuItem, Me.StockToolStripMenuItem})
         resources.ApplyResources(Me.HeldareasYPCsToolStripMenuItem, "HeldareasYPCsToolStripMenuItem")
         Me.HeldareasYPCsToolStripMenuItem.Name = "HeldareasYPCsToolStripMenuItem"
         '
@@ -449,6 +450,11 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
+        'StockToolStripMenuItem
+        '
+        Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
+        resources.ApplyResources(Me.StockToolStripMenuItem, "StockToolStripMenuItem")
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -527,4 +533,5 @@ Partial Class Menu
     Friend WithEvents ListadosToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EstadisticasToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EfectoresPorEmisiónDeResumenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents StockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
