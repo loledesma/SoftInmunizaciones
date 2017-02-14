@@ -361,7 +361,7 @@ Partial Class Registrar_recordatorio
         Me.Controls.Add(Me.grp_datos_recordatorio)
         Me.Controls.Add(Me.dgv_recordatorios)
         Me.Name = "Registrar_recordatorio"
-        Me.Text = "Registrar_recordatorio"
+        Me.Text = "RECORDATORIOS"
         CType(Me.dgv_recordatorios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_descripcion.ResumeLayout(False)
         Me.grp_datos_recordatorio.ResumeLayout(False)

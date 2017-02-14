@@ -448,7 +448,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Name = "Registrar_peticiones_desarrollos"
-        Me.Text = "Peticiones Desarrollo"
+        Me.Text = "PETICIONES DESARROLLO"
         Me.grp_datos_recordatorio.ResumeLayout(False)
         Me.grp_datos_recordatorio.PerformLayout()
         Me.grp_descripcion.ResumeLayout(False)

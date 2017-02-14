@@ -655,7 +655,7 @@ Partial Class Registrar_notificaciones
         Me.Controls.Add(Me.cmd_nuevo)
         Me.KeyPreview = True
         Me.Name = "Registrar_notificaciones"
-        Me.Text = "Registro_notificaciones"
+        Me.Text = "NOTIFICACIONES"
         Me.grp_datos_generales.ResumeLayout(False)
         Me.grp_datos_generales.PerformLayout()
         Me.grp_datos_empleados.ResumeLayout(False)
