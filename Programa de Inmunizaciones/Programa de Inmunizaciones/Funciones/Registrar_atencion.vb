@@ -370,9 +370,7 @@
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
         If IsNumeric(Me.txt_id_atencion.Text) Then
-            If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
-             "Atencion", MessageBoxButtons.OKCancel, _
-            MessageBoxIcon.Question, _
+            If MessageBox.Show("¿Esta seguro que desea borrar el registro?", "Atencion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, _
             MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
                 sql = "DELETE FROM ATENCION_SOPORTE "
                 sql &= "WHERE id = " & Me.txt_id_atencion.Text
