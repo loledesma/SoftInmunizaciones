@@ -1,3 +1,0 @@
-﻿Public Class Registrar_asistencia_capacitaciones
-
-End Class

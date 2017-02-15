@@ -47,6 +47,12 @@ Partial Class Registrar_ingreso_stock
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.lbl_contador_monitores = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_contador_heladeras = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl_contador_cpu = New System.Windows.Forms.Label()
         CType(Me.dgv_stock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_stock.SuspendLayout()
         Me.SuspendLayout()
@@ -313,12 +319,81 @@ Partial Class Registrar_ingreso_stock
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
+        'lbl_contador_monitores
+        '
+        Me.lbl_contador_monitores.AutoSize = True
+        Me.lbl_contador_monitores.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_monitores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_monitores.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_monitores.Location = New System.Drawing.Point(624, 20)
+        Me.lbl_contador_monitores.Name = "lbl_contador_monitores"
+        Me.lbl_contador_monitores.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_monitores.TabIndex = 69
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(521, 18)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(89, 17)
+        Me.Label22.TabIndex = 68
+        Me.Label22.Text = "Monitores :"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(521, 98)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(92, 17)
+        Me.Label1.TabIndex = 70
+        Me.Label1.Text = "Heladeras :"
+        '
+        'lbl_contador_heladeras
+        '
+        Me.lbl_contador_heladeras.AutoSize = True
+        Me.lbl_contador_heladeras.Location = New System.Drawing.Point(619, 104)
+        Me.lbl_contador_heladeras.Name = "lbl_contador_heladeras"
+        Me.lbl_contador_heladeras.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_contador_heladeras.TabIndex = 71
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(521, 57)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(57, 17)
+        Me.Label2.TabIndex = 72
+        Me.Label2.Text = "CPUs :"
+        '
+        'lbl_contador_cpu
+        '
+        Me.lbl_contador_cpu.AutoSize = True
+        Me.lbl_contador_cpu.Location = New System.Drawing.Point(585, 59)
+        Me.lbl_contador_cpu.Name = "lbl_contador_cpu"
+        Me.lbl_contador_cpu.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_contador_cpu.TabIndex = 73
+        '
         'Registrar_ingreso_stock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(994, 529)
+        Me.Controls.Add(Me.lbl_contador_cpu)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lbl_contador_heladeras)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_contador_monitores)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.grp_stock)
         Me.Controls.Add(Me.dgv_stock)
@@ -332,6 +407,7 @@ Partial Class Registrar_ingreso_stock
         Me.grp_stock.ResumeLayout(False)
         Me.grp_stock.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
@@ -358,4 +434,10 @@ Partial Class Registrar_ingreso_stock
     Friend WithEvents cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
+    Friend WithEvents lbl_contador_monitores As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_heladeras As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_cpu As System.Windows.Forms.Label
 End Class

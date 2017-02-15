@@ -325,4 +325,14 @@
         Me.limpiar(Me.Controls)
         Me.condicion_inicial = condicion.insertar
     End Sub
+
+    Private Sub dgv_stock_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_stock.CellValueChanged
+        Dim contadorCPU As Integer = 0
+        Dim contadorMonitor As Integer = 0
+        Dim contadorHeladera As Integer = 0
+        Dim c As Integer
+        For c = 0 To dgv_stock.Rows.Count() - 1
+
+        Next
+    End Sub
 End Class
