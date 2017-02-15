@@ -357,9 +357,12 @@ Partial Class Registrar_ingreso_stock
         'lbl_contador_heladeras
         '
         Me.lbl_contador_heladeras.AutoSize = True
+        Me.lbl_contador_heladeras.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_heladeras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_heladeras.ForeColor = System.Drawing.Color.White
         Me.lbl_contador_heladeras.Location = New System.Drawing.Point(619, 104)
         Me.lbl_contador_heladeras.Name = "lbl_contador_heladeras"
-        Me.lbl_contador_heladeras.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_contador_heladeras.Size = New System.Drawing.Size(0, 16)
         Me.lbl_contador_heladeras.TabIndex = 71
         '
         'Label2
@@ -377,9 +380,12 @@ Partial Class Registrar_ingreso_stock
         'lbl_contador_cpu
         '
         Me.lbl_contador_cpu.AutoSize = True
+        Me.lbl_contador_cpu.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_cpu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl_contador_cpu.ForeColor = System.Drawing.Color.White
         Me.lbl_contador_cpu.Location = New System.Drawing.Point(585, 59)
         Me.lbl_contador_cpu.Name = "lbl_contador_cpu"
-        Me.lbl_contador_cpu.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_contador_cpu.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_cpu.TabIndex = 73
         '
         'Registrar_ingreso_stock

@@ -332,7 +332,16 @@
         Dim contadorHeladera As Integer = 0
         Dim c As Integer
         For c = 0 To dgv_stock.Rows.Count() - 1
-
+            If dgv_stock.Rows(c).Cells("id_insumo").Value = 1 Then
+                contadorHeladera = contadorHeladera + 1
+            ElseIf dgv_stock.Rows(c).Cells("id_insumo").Value = 2 Then
+                contadorMonitor = contadorMonitor + 1
+            Else
+                contadorCPU = contadorCPU + 1
+            End If
         Next
+        lbl_contador_cpu.Text = contadorCPU
+        lbl_contador_heladeras.Text = contadorHeladera
+        lbl_contador_monitores.Text = contadorMonitor
     End Sub
 End Class
