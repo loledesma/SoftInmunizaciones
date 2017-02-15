@@ -276,7 +276,7 @@
             tabla2.Rows.Clear()
             tabla2 = acceso.consulta(sql)
 
-            dgv_capas.Rows(C).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+            dgv_capas.Rows(C).Cells("localidad").Value = tabla2.Rows(0)("descripcion")
         Next
     End Sub
 

@@ -221,12 +221,6 @@
     <Compile Include="Funciones\Registrar_recordatorio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funciones\Registrar_asistencia_capacitaciones.Designer.vb">
-      <DependentUpon>Registrar_asistencia_capacitaciones.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Funciones\Registrar_asistencia_capacitaciones.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Funciones\Registrar_capacitaciones.Designer.vb">
       <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
     </Compile>
