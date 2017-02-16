@@ -28,6 +28,8 @@
         Me.cmb_estado.SelectedValue = -1
         Me.cmb_tipos_documento.cargar()
         Me.cmb_tipos_documento.SelectedValue = -1
+        Me.cmb_departamento.cargar()
+        Me.cmb_departamento.SelectedValue = -1
         
 
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
@@ -276,7 +278,7 @@
             tabla2.Rows.Clear()
             tabla2 = acceso.consulta(sql)
 
-            dgv_capas.Rows(C).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+            dgv_capas.Rows(C).Cells("localidad").Value = tabla2.Rows(0)("descripcion")
         Next
     End Sub
 
@@ -301,6 +303,16 @@
 
         Me.txt_id_capacitacion.Text = tabla2.Rows(0)("id")
         Me.cmb_tipo_capacitaciones.SelectedValue = tabla2.Rows(0)("id_tipo")
+        Me.txt_lugar.Text = tabla2.Rows(0)("lugar")
+        Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
+
+        sql = ""
+        sql &= "SELECT D.id FROM DEPARTAMENTOS D JOIN LOCALIDADES L ON D.id = L.id_departamento "
+        sql &= " WHERE L.id= " & tabla2.Rows(0)("id_localidad")
+        tabla.Clear()
+        tabla = acceso.consulta(sql)
+
+        Me.cmb_departamento.SelectedValue = tabla.Rows(0)("id")
 
         If IsDBNull(tabla2.Rows(0)("fecha_efectiva")) Then
             Me.txt_fecha_efectiva.Text = ""
@@ -318,12 +330,24 @@
             Me.txt_duracion_real.Text = tabla2.Rows(0)("duracion_real")
         End If
 
+        If IsDBNull(tabla2.Rows(0)("observaciones")) Then
+            Me.txt_observaciones.Text = ""
+        Else
+            Me.txt_observaciones.Text = tabla2.Rows(0)("observaciones")
+        End If
+
+        If IsDBNull(tabla2.Rows(0)("descripcion")) Then
+            Me.txt_descripcion.Text = ""
+        Else
+            Me.txt_descripcion.Text = tabla2.Rows(0)("descripcion")
+        End If
+
         sql = ""
-        sql &= "SELECT A.realizoEvaluacion as realizoEvaluacion, E.nombres as nombre_empleado, E.apellidos as apellido_empleado "
-        sql &= " E.tipo_doc as tipo_doc, E.nro_doc as nro_doc, EE.id_efector as cuie, A.id_empleado as id_empleado "
+        sql &= "SELECT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
+        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, EE.id_efector as cuie, A.id_empleado As id_empleado "
         sql &= " FROM ASISTENCIA A JOIN EMPLEADOS E ON A.id_empleado = E.id "
         sql &= " JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
-        sql &= " WHERE C.id_capacitacion= " & Me.txt_id_capacitacion.Text
+        sql &= " WHERE A.id_capacitacion= " & Me.txt_id_capacitacion.Text
         tabla.Rows.Clear()
         tabla = acceso.consulta(sql)
 
@@ -356,6 +380,58 @@
         End If
     End Sub
 
+    Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_empleados.CellMouseDoubleClick
+        Me.condicion_click = doble_Click.activado
+        Me.condicion_estado = condicion.modificar
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim sql As String = ""
+        Dim sql2 As String = ""
+
+        If txt_id_capacitacion.Text = "" Then
+            MsgBox("Debe ingresar un id de capacitacion")
+        End If
+
+
+        sql2 &= " SELECT * FROM ASISTENCIA "
+        sql2 &= " WHERE id_capacitacion =" & Me.txt_id_capacitacion.Text
+        sql2 &= " AND id_empleado = " & Me.dgv_empleados.CurrentRow.Cells("id").Value
+        tabla2 = acceso.consulta(sql2)
+
+        If tabla2.Rows.Count() = 0 Then
+            MessageBox.Show("¡No existe selección!")
+            Exit Sub
+        End If
+
+        Me.txt_id_empleado.Text = tabla2.Rows(0)("id_empleado")
+        Me.txt_realizoEvaluacion.Text = tabla2.Rows(0)("realizoEvaluacion")
+        Me.txt_observaciones2.Text = tabla2.Rows(0)("observaciones")
+
+        sql = ""
+        sql &= " SELECT * FROM EMPLEADOS WHERE id= " & Me.txt_id_empleado.Text
+        tabla = acceso.consulta(sql)
+
+        Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("id_tipo_doc")
+        Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
+        Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
+        Me.txt_apellido_empleado.Text = tabla.Rows(0)("apellidos")
+
+        sql = ""
+        sql &= " SELECT * FROM EMPLEADOSXEFECTOR WHERE id_empleados= " & Me.txt_id_empleado.Text
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MsgBox("El empleado no se encuentra asignado a un efector todavia")
+            Me.txt_cuie.Text = ""
+        ElseIf tabla.Rows.Count() > 1 Then
+            MsgBox("El empleado se encuentra registrado a más de un efector, no se puede especificar")
+        ElseIf tabla.Rows.Count() = 1 Then
+            Me.txt_cuie.Text = tabla.Rows(0)("id_efector")
+        End If
+
+
+    End Sub
+
     Private Sub nuevo()
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
@@ -378,11 +454,77 @@
     End Sub
 
     Private Function validar_capacitacion() As Boolean
+        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
+        If txt_id_capacitacion.Text = "" Then
+            MessageBox.Show("¡Debe ingresar un numero de capacitacion!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_id_capacitacion.Focus()
+            Return False
+            Exit Function
+        ElseIf txt_duracion_prevista.Text = "" Then
+            MessageBox.Show("¡Debe ingresar una duracion prevista!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_duracion_prevista.Focus()
+            Return False
+            Exit Function
+        ElseIf txt_hora.Text = "" Then
+            MessageBox.Show("¡Debe ingresar una Hora de realizacion!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_hora.Focus()
+            Return False
+            Exit Function
+        ElseIf cmb_localidades.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar una localidad!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_localidades.Focus()
+            Return False
+            Exit Function
+        ElseIf cmb_tipo_capacitaciones.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un tipo de capacitacion!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_tipo_capacitaciones.Focus()
+            Return False
+            Exit Function
+        ElseIf cmb_estado.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un estado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_estado.Focus()
+            Return False
+            Exit Function
+        ElseIf IsDate(txt_fecha_programada.Text) = False Then
+            MessageBox.Show("Debe ingresar una fecha programada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_programada.Focus()
+            Exit Function
+        End If
+        Return True
+    End Function
 
+    Private Function validar_post() As Boolean
+        If IsDate(txt_fecha_efectiva.Text) = False Then
+            MessageBox.Show("Debe ingresar una fecha efectiva", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_efectiva.Focus()
+            Exit Function
+        ElseIf txt_duracion_real.Text = "" Then
+            MessageBox.Show("¡Debe ingresar una duracion real!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_duracion_real.Focus()
+            Return False
+            Exit Function
+        End If
+        Return True
     End Function
 
     Private Function validar_existencia() As analizar_existencia
+        Dim tabla As New DataTable
+        Dim sql As String = ""
 
+        sql &= "SELECT * FROM CAPACITACIONES "
+        sql &= "WHERE fecha_programada = '" & Me.txt_fecha_efectiva.Text
+        sql &= " AND hora= " & Me.txt_hora.Text
+        sql &= " AND lugar='" & Me.txt_lugar.Text & "'"
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            Return analizar_existencia.no_existe
+        Else
+            Return analizar_existencia.existe
+        End If
     End Function
 
     Private Sub guardar()
@@ -392,11 +534,16 @@
                     ingresar()
                 Else
                     MessageBox.Show("Ya se encuentra registrado esta capacitacion")
-                    modificar()
                     Exit Sub
                 End If
             Else
-                modificar()
+                If MessageBox.Show("¿Desea registrar la realizacion de la capacitacion?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
+                    modificar()
+                Else
+                    If validar_post() Then
+                        modificar()
+                    End If
+                End If
             End If
         End If
 
@@ -408,11 +555,81 @@
     End Sub
 
     Private Sub modificar()
+        Dim Sql As String = ""
+        Sql = "UPDATE CAPACITACIONES "
+  
+        Sql &= "SET fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
+        If IsDate(txt_fecha_efectiva.Text) Then
+            Sql &= ", fecha_efectiva ='" & Me.txt_fecha_efectiva.Text & "'"
+        Else
+            Sql &= ", fecha_efectiva= NULL"
+        End If
+        Sql &= ", hora= " & Me.txt_hora.Text
+        Sql &= " , id_localidad= " & Me.cmb_localidades.SelectedValue
+        Sql &= ", id_estado= " & Me.cmb_estado.SelectedValue
+        Sql &= ", lugar= " & Me.txt_lugar.Text
 
+        If txt_observaciones.Text = "" Then
+            Sql &= ", observaciones= NULL "
+        Else
+            Sql &= ", observaciones= " & Me.txt_observaciones.Text
+        End If
+        If txt_descripcion.Text = "" Then
+            Sql &= ", descripcion= NULL "
+        Else
+            Sql &= ", descripcion= " & Me.txt_descripcion.Text
+        End If
+
+        Sql &= ", duracion_prevista= " & Me.txt_duracion_prevista.Text
+
+        If txt_duracion_real.Text = "" Then
+            Sql &= ", duracion_real= NULL"
+        Else
+            Sql &= ", duracion_real= " & Me.txt_duracion_real.Text
+        End If
+
+        Sql &= ", id_tipo= " & Me.cmb_tipo_capacitaciones.SelectedValue
+        Sql &= " WHERE id = " & Me.txt_id_capacitacion.Text
     End Sub
 
     Private Sub ingresar()
+        Dim sql As String = ""
+        acceso._nombre_tabla = "CAPACITACIONES"
 
+        sql &= "id = " & Me.txt_id_capacitacion.Text
+        sql &= ", fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
+        If IsDate(txt_fecha_efectiva.Text) Then
+            sql &= ", fecha_efectiva ='" & Me.txt_fecha_efectiva.Text & "'"
+        Else
+            sql &= ", fecha_efectiva= NULL"
+        End If
+        sql &= ", hora= " & Me.txt_hora.Text
+        sql &= " , id_localidad= " & Me.cmb_localidades.SelectedValue
+        sql &= ", id_estado= " & Me.cmb_estado.SelectedValue
+        sql &= ", lugar= " & Me.txt_lugar.Text
+
+        If txt_observaciones.Text = "" Then
+            sql &= ", observaciones= NULL "
+        Else
+            sql &= ", observaciones= " & Me.txt_observaciones.Text
+        End If
+        If txt_descripcion.Text = "" Then
+            sql &= ", descripcion= NULL "
+        Else
+            sql &= ", descripcion= " & Me.txt_descripcion.Text
+        End If
+
+        sql &= ", duracion_prevista= " & Me.txt_duracion_prevista.Text
+
+        If txt_duracion_real.Text = "" Then
+            sql &= ", duracion_real= NULL"
+        Else
+            sql &= ", duracion_real= " & Me.txt_duracion_real.Text
+        End If
+
+        sql &= ", id_tipo= " & Me.cmb_tipo_capacitaciones.SelectedValue
+
+        acceso.insertar(sql)
     End Sub
 
     Private Sub cmd_agregar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empleado.Click
