@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Registrar_superviciones
+Partial Class Inventario_cadena_de_frio
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -24,6 +24,6 @@ Partial Class Registrar_superviciones
     Private Sub InitializeComponent()
         components = New System.ComponentModel.Container
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Text = "Registrar_superviciones"
+        Me.Text = "Inventario_cadena_de_frio"
     End Sub
 End Class

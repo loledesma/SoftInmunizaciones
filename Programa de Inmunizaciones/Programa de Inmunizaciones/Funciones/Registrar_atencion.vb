@@ -36,6 +36,24 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
     End Sub
 
+    Private Sub dgv_atenciones_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_atenciones.CellFormatting
+
+        Dim estado As String = Me.dgv_atenciones.Rows(e.RowIndex).Cells("estado").Value
+
+        If estado = "PENDIENTE" Then
+            e.CellStyle.BackColor = Color.Yellow
+        End If
+
+    End Sub
+
+    Private Sub Registrar_atencion_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
+            nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
+        End If
+    End Sub
     Private Sub txt_nombre_LostFocus(sender As Object, e As EventArgs) Handles txt_efector.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -128,6 +146,7 @@
 
     End Sub
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        Me.txt_descripcion.Text = ""
         Me.Close()
     End Sub
 
@@ -315,16 +334,19 @@
         Else
             Exit Sub
         End If
-        Me.limpiar(Me.Controls)
-        Me.txt_descripcion.Text = ""
+        'Me.limpiar(Me.Controls)
+        'Me.txt_descripcion.Text = ""
         Me.cargar_grilla()
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
+        limpiar(Controls)
+        Me.txt_descripcion.Text = ""
     End Sub
 
     Private Sub nuevo()
         limpiar(Controls)
+        Me.txt_descripcion.Text = ""
         Me.condicion_estado = condicion.insertar
         Dim sql As String = "SELECT * FROM ATENCION_SOPORTE"
         Dim tabla As New DataTable
@@ -348,9 +370,7 @@
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
         If IsNumeric(Me.txt_id_atencion.Text) Then
-            If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
-             "Atencion", MessageBoxButtons.OKCancel, _
-            MessageBoxIcon.Question, _
+            If MessageBox.Show("¿Esta seguro que desea borrar el registro?", "Atencion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, _
             MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
                 sql = "DELETE FROM ATENCION_SOPORTE "
                 sql &= "WHERE id = " & Me.txt_id_atencion.Text
@@ -476,5 +496,6 @@
         Me.condicion_estado = condicion.insertar
         Me.txt_id_atencion.Focus()
         Me.cargar_grilla()
+        Me.txt_descripcion.Text = ""
     End Sub
 End Class

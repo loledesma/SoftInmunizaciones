@@ -145,7 +145,7 @@
         sql &= " WHERE EE.id_cargo= 2"
 
         If Me.cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            sql &= " AND E.id_departamento = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then

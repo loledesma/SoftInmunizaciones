@@ -139,12 +139,6 @@
     <Compile Include="ABM\abm_perdidas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\abm_stock.Designer.vb">
-      <DependentUpon>abm_stock.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ABM\abm_stock.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ABM\abm_tipos_documento.Designer.vb">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </Compile>
@@ -161,10 +155,58 @@
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Estadisticos\est_efectores_implementados.Designer.vb">
+      <DependentUpon>est_efectores_implementados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_efectores_implementados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_efect_emiten_sigipsa.Designer.vb">
+      <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_efect_emiten_sigipsa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.Designer.vb">
+      <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.Designer.vb">
+      <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_heladeras.Designer.vb">
+      <DependentUpon>est_estado_heladeras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_heladeras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Inventario_cadena_de_frio.Designer.vb">
+      <DependentUpon>Inventario_cadena_de_frio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Inventario_cadena_de_frio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones\Registrar_atencion.Designer.vb">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_ingreso_stock.Designer.vb">
+      <DependentUpon>Registrar_ingreso_stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_ingreso_stock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.Designer.vb">
@@ -173,10 +215,10 @@
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funciones\Registrar_superviciones.Designer.vb">
-      <DependentUpon>Registrar_superviciones.vb</DependentUpon>
+    <Compile Include="Funciones\Registrar_recordatorio.Designer.vb">
+      <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Funciones\Registrar_superviciones.vb">
+    <Compile Include="Funciones\Registrar_recordatorio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_asistencia_capacitaciones.Designer.vb">
@@ -203,6 +245,12 @@
     <Compile Include="Funciones\Registrar_notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Registrar_supervisiones.Designer.vb">
+      <DependentUpon>Registrar_supervisiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_supervisiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\listados_efector_loc_dpto.Designer.vb">
       <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
     </Compile>
@@ -219,6 +267,30 @@
       <DependentUpon>Listados_notificaciones.vb</DependentUpon>
     </Compile>
     <Compile Include="Listados\Listados_notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\listado_localidadesxdpto.Designer.vb">
+      <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listado_localidadesxdpto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_efectores_emiten_resumen.Designer.vb">
+      <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efectores_emiten_resumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_efectores_x_estado.Designer.vb">
+      <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efectores_x_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_heladeras_antiguas.Designer.vb">
+      <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_heladeras_antiguas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listados\list_usuarios.Designer.vb">
@@ -248,6 +320,9 @@
     <Compile Include="Modulos\Inmunizaciones2.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones2.vb">
       <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -288,20 +363,55 @@
     <EmbeddedResource Include="ABM\abm_perdidas.resx">
       <DependentUpon>abm_perdidas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM\abm_stock.resx">
-      <DependentUpon>abm_stock.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_con_y_sin_heladera.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efectores_implementados.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efectores_implementados.resx">
+      <DependentUpon>est_efectores_implementados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.resx">
+      <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_ef_con_y_sin_heladera.resx">
+      <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_empleados_con_curso.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_empleados_con_y_sin_curso.resx">
+      <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_estado_heladeras.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_estado_heladeras.resx">
+      <DependentUpon>est_estado_heladeras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_capacitaciones.resx">
+      <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_entrega_insumos.resx">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_ingreso_stock.resx">
+      <DependentUpon>Registrar_ingreso_stock.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
       <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_peticiones_desarrollos.resx">
+      <DependentUpon>Registrar_peticiones_desarrollos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_recordatorio.resx">
+      <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_supervisiones.resx">
+      <DependentUpon>Registrar_supervisiones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\listados_efector_loc_dpto.rdlc" />
     <EmbeddedResource Include="Listados\listados_efector_loc_dpto.resx">
@@ -314,7 +424,22 @@
     <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
       <DependentUpon>Listados_notificaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listado_localidadesxdpto.resx">
+      <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
+      <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_efectores_x_estado.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_x_estado.resx">
+      <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_ef_eminten_sigipsa.rdlc" />
+    <EmbeddedResource Include="Listados\list_heladeras_antiguas.rdlc" />
+    <EmbeddedResource Include="Listados\list_heladeras_antiguas.resx">
+      <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </EmbeddedResource>
@@ -374,9 +499,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Estadisticos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
