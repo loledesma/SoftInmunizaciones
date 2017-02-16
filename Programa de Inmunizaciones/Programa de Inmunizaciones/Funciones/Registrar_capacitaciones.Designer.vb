@@ -72,6 +72,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_guardar_asistencia = New System.Windows.Forms.Button()
         Me.cmd_nueva_asistencia = New System.Windows.Forms.Button()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
+        Me.cmd_buscar_efectores = New System.Windows.Forms.Button()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.txt_realizoEvaluacion = New System.Windows.Forms.TextBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
@@ -632,6 +633,7 @@ Partial Class Registrar_capacitaciones
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_empleados.Controls.Add(Me.cmd_buscar_efectores)
         Me.grp_datos_empleados.Controls.Add(Me.txt_cuie)
         Me.grp_datos_empleados.Controls.Add(Me.txt_realizoEvaluacion)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_actualizar_sigipsa)
@@ -659,6 +661,17 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_empleados.TabIndex = 2
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
+        '
+        'cmd_buscar_efectores
+        '
+        Me.cmd_buscar_efectores.BackgroundImage = CType(resources.GetObject("cmd_buscar_efectores.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_efectores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_efectores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_efectores.Location = New System.Drawing.Point(444, 122)
+        Me.cmd_buscar_efectores.Name = "cmd_buscar_efectores"
+        Me.cmd_buscar_efectores.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_buscar_efectores.TabIndex = 35
+        Me.cmd_buscar_efectores.UseVisualStyleBackColor = True
         '
         'txt_cuie
         '
@@ -1133,4 +1146,5 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_actualizar_estado As System.Windows.Forms.Button
+    Friend WithEvents cmd_buscar_efectores As System.Windows.Forms.Button
 End Class
