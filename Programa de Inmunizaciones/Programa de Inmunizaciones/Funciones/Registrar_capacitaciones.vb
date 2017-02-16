@@ -34,6 +34,7 @@
 
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido_empleado, "EMPLEADOS", "apellidos")
+        acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
 
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
@@ -344,7 +345,7 @@
 
         sql = ""
         sql &= "SELECT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
-        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, EE.id_efector as cuie, A.id_empleado As id_empleado "
+        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, EE.id_efector as cuie, A.id_empleado As id_empleado, A.observaciones As observaciones "
         sql &= " FROM ASISTENCIA A JOIN EMPLEADOS E ON A.id_empleado = E.id "
         sql &= " JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
         sql &= " WHERE A.id_capacitacion= " & Me.txt_id_capacitacion.Text
@@ -361,12 +362,24 @@
             For c = 0 To tabla.Rows.Count - 1
                 dgv_empleados.Rows.Add()
                 dgv_empleados.Rows(c).Cells("id").Value = tabla.Rows(c)("id_empleado")
-                dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(c)("tipo_doc")
+
+                sql = ""
+                sql &= " SELECT * FROM TIPOS_DOCUMENTO WHERE id= " & tabla.Rows(c)("tipo_doc")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+
+                dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla2.Rows(0)("descripcion")
                 dgv_empleados.Rows(c).Cells("numero").Value = tabla.Rows(c)("nro_doc")
                 dgv_empleados.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombre_empleado")
                 dgv_empleados.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellido_empleado")
                 dgv_empleados.Rows(c).Cells("cuie").Value = tabla.Rows(c)("cuie")
                 dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = tabla.Rows(c)("realizoEvaluacion")
+
+                If IsDBNull(tabla.Rows(c)("observaciones")) = False Then
+                    dgv_empleados.Rows(c).Cells("observaciones").Value = tabla.Rows(c)("observaciones")
+                Else
+                    dgv_empleados.Rows(c).Cells("observaciones").Value = "NULL"
+                End If
             Next
         End If
     End Sub
@@ -405,7 +418,13 @@
 
         Me.txt_id_empleado.Text = tabla2.Rows(0)("id_empleado")
         Me.txt_realizoEvaluacion.Text = tabla2.Rows(0)("realizoEvaluacion")
-        Me.txt_observaciones2.Text = tabla2.Rows(0)("observaciones")
+
+        If IsDBNull(tabla2.Rows(0)("observaciones")) Then
+            Me.txt_observaciones2.Text = ""
+        Else
+            Me.txt_observaciones2.Text = tabla2.Rows(0)("observaciones")
+        End If
+
 
         sql = ""
         sql &= " SELECT * FROM EMPLEADOS WHERE id= " & Me.txt_id_empleado.Text
@@ -497,8 +516,8 @@
     Private Function validar_post() As Boolean
         If IsDate(txt_fecha_efectiva.Text) = False Then
             MessageBox.Show("Debe ingresar una fecha efectiva", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
             Me.txt_fecha_efectiva.Focus()
+            Return False
             Exit Function
         ElseIf txt_duracion_real.Text = "" Then
             MessageBox.Show("¡Debe ingresar una duracion real!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -514,7 +533,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM CAPACITACIONES "
-        sql &= "WHERE fecha_programada = '" & Me.txt_fecha_efectiva.Text
+        sql &= "WHERE fecha_programada = '" & Me.txt_fecha_efectiva.Text & "'"
         sql &= " AND hora= " & Me.txt_hora.Text
         sql &= " AND lugar='" & Me.txt_lugar.Text & "'"
 
@@ -542,6 +561,8 @@
                 Else
                     If validar_post() Then
                         modificar()
+                    Else
+                        Exit Sub
                     End If
                 End If
             End If
@@ -559,25 +580,27 @@
         Sql = "UPDATE CAPACITACIONES "
   
         Sql &= "SET fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
+
         If IsDate(txt_fecha_efectiva.Text) Then
             Sql &= ", fecha_efectiva ='" & Me.txt_fecha_efectiva.Text & "'"
         Else
             Sql &= ", fecha_efectiva= NULL"
         End If
-        Sql &= ", hora= " & Me.txt_hora.Text
+
+        Sql &= ", hora=" & Me.txt_hora.Text
         Sql &= " , id_localidad= " & Me.cmb_localidades.SelectedValue
         Sql &= ", id_estado= " & Me.cmb_estado.SelectedValue
-        Sql &= ", lugar= " & Me.txt_lugar.Text
+        Sql &= ", lugar='" & Me.txt_lugar.Text & "'"
 
         If txt_observaciones.Text = "" Then
             Sql &= ", observaciones= NULL "
         Else
-            Sql &= ", observaciones= " & Me.txt_observaciones.Text
+            Sql &= ", observaciones= '" & Me.txt_observaciones.Text & "'"
         End If
         If txt_descripcion.Text = "" Then
             Sql &= ", descripcion= NULL "
         Else
-            Sql &= ", descripcion= " & Me.txt_descripcion.Text
+            Sql &= ", descripcion= '" & Me.txt_descripcion.Text & "'"
         End If
 
         Sql &= ", duracion_prevista= " & Me.txt_duracion_prevista.Text
@@ -590,6 +613,8 @@
 
         Sql &= ", id_tipo= " & Me.cmb_tipo_capacitaciones.SelectedValue
         Sql &= " WHERE id = " & Me.txt_id_capacitacion.Text
+
+        acceso.ejecutar(Sql)
     End Sub
 
     Private Sub ingresar()
@@ -598,15 +623,16 @@
 
         sql &= "id = " & Me.txt_id_capacitacion.Text
         sql &= ", fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
+
         If IsDate(txt_fecha_efectiva.Text) Then
             sql &= ", fecha_efectiva ='" & Me.txt_fecha_efectiva.Text & "'"
         Else
             sql &= ", fecha_efectiva= NULL"
         End If
         sql &= ", hora= " & Me.txt_hora.Text
-        sql &= " , id_localidad= " & Me.cmb_localidades.SelectedValue
-        sql &= ", id_estado= " & Me.cmb_estado.SelectedValue
-        sql &= ", lugar= " & Me.txt_lugar.Text
+        sql &= " , id_localidad=" & Me.cmb_localidades.SelectedValue
+        sql &= ", id_estado=" & Me.cmb_estado.SelectedValue
+        sql &= ", lugar=" & Me.txt_lugar.Text
 
         If txt_observaciones.Text = "" Then
             sql &= ", observaciones= NULL "
@@ -631,10 +657,12 @@
 
         acceso.insertar(sql)
     End Sub
+ 
 
     Private Sub cmd_agregar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empleado.Click
         agregar_en_grilla_empleados()
     End Sub
+
 
     Private Sub cmd_limpiar_empleados_Click(sender As Object, e As EventArgs) Handles cmd_limpiar_empleados.Click
         limpiar_empleados()
@@ -650,6 +678,9 @@
         Me.txt_id_empleado.Text = ""
         Me.txt_nombres_empleado.Text = ""
         Me.txt_apellido_empleado.Text = ""
+        Me.txt_cuie.Text = ""
+        Me.txt_realizoEvaluacion.Text = ""
+        Me.txt_observaciones2.Text = ""
     End Sub
 
     Private Function validar_empleado() As Boolean
@@ -678,11 +709,6 @@
             cmb_tipos_documento.Focus()
             Return False
             Exit Function
-        ElseIf txt_observaciones2.Text = "" Then
-            MessageBox.Show("¡Ingrese una observacion!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_observaciones2.Focus()
-            Return False
-            Exit Function
         ElseIf txt_cuie.Text = "" Then
             MessageBox.Show("¡Ingrese el cuie!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txt_cuie.Focus()
@@ -697,7 +723,6 @@
         Dim sql As String = ""
         Dim flag As Boolean = False
         Dim c As Integer = 0
-
 
         If validar_empleado() = True Then
             For c = 0 To dgv_empleados.Rows.Count - 1
@@ -752,14 +777,14 @@
     End Sub
 
     Private Sub cmd_limpiar_asistencia_Click(sender As Object, e As EventArgs) Handles cmd_limpiar_asistencia.Click
-        txt_id_capacitacion.Text = ""
-        cmb_departamento.SelectedValue = -1
         txt_numero_doc.Text = ""
         txt_apellido_empleado.Text = ""
         txt_nombres_empleado.Text = ""
         txt_realizoEvaluacion.Text = ""
         txt_cuie.Text = ""
         txt_observaciones2.Text = ""
+        Me.txt_id_empleado.Text = ""
+        Me.cmb_tipos_documento.SelectedValue = -1
     End Sub
 
 
@@ -806,7 +831,156 @@
         End If
     End Sub
 
-    Private Sub cmd_guardar_asistencia_Click(sender As Object, e As EventArgs) Handles cmd_guardar_asistencia.Click
+    Private Function validar_existencia_empleado(ByVal id As Integer) As analizar_existencia
+        Dim sql As String = ""
+        Dim tabla As New DataTable
 
+        sql &= " SELECT * FROM ASISTENCIA WHERE id_capacitacion= " & Me.txt_id_capacitacion.Text
+        sql &= " AND id_empleado= " & id
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            Return analizar_existencia.no_existe
+        Else
+            Return analizar_existencia.existe
+        End If
+
+    End Function
+
+    Private Sub cmd_guardar_asistencia_Click(sender As Object, e As EventArgs) Handles cmd_guardar_asistencia.Click
+        Dim c As Integer = 0
+        If txt_id_capacitacion.Text <> "" Then
+            If dgv_empleados.Rows.Count() = 0 Then
+                MsgBox("Debe ingresar los asistentes a la capacitacion")
+                Me.txt_id_empleado.Focus()
+                Exit Sub
+            Else
+                validar_grilla()
+            End If
+        Else
+            MsgBox("Debe ingresar una capacitacion para poder registrar o modificar la asistencia")
+            Exit Sub
+        End If
+
+        dgv_empleados.Rows.Clear()
+        dgv_capas.Rows.Clear()
+        limpiar_empleados()
+        cargar_grilla()
     End Sub
+
+    Private Sub validar_grilla()
+        Dim c As Integer = 0
+        Dim Sql As String = ""
+
+        For c = 0 To dgv_empleados.Rows.Count() - 1
+            If validar_existencia_empleado(Me.dgv_empleados.Rows(c).Cells("id").Value) = analizar_existencia.existe Then
+                Sql = "UPDATE ASISTENCIA"
+                Sql &= " SET realizoEvaluacion ='" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value & "'"
+
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
+                    Sql &= ", observaciones= NULL "
+                Else
+                    Sql &= ", observaciones='" & Me.dgv_empleados.Rows(c).Cells("observaciones").Value & "'"
+                End If
+
+                Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
+                Sql &= " AND id_empleado= " & dgv_empleados.Rows(c).Cells("id").Value
+                acceso.ejecutar(Sql)
+
+            Else
+                acceso._nombre_tabla = "ASISTENCIA"
+
+
+                sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
+                sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
+                sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
+
+                If txt_observaciones2.Text = "" Then
+                    sql &= ", observaciones= NULL "
+                Else
+                    sql &= ", observaciones= " & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
+                End If
+                acceso.insertar(Sql)
+            End If
+
+            Sql = ""
+        Next
+    End Sub
+
+
+    Private Sub cmd_nueva_asistencia_Click(sender As Object, e As EventArgs) Handles cmd_nueva_asistencia.Click
+        Me.limpiar(Me.Controls)
+        Me.txt_cuie.Text = ""
+        Me.txt_realizoEvaluacion.Text = ""
+        Me.txt_observaciones2.Text = ""
+
+        If txt_id_capacitacion.Text = "" Then
+            MsgBox("Recuerde que no puede cargar una asistencia si no tiene una capacitación cargada y seleccionada")
+        End If
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        Me.limpiar(Me.Controls)
+        Me.condicion_estado = condicion.insertar
+        Me.condicion_click = doble_Click.desactivado
+        Me.txt_id_capacitacion.Text = ""
+        cmb_departamento.SelectedValue = -1
+        Me.cmb_tipo_capacitaciones.SelectedValue = -1
+        Me.txt_fecha_programada.Text = ""
+        Me.txt_fecha_efectiva.Text = ""
+        Me.txt_lugar.Text = ""
+        Me.cmb_localidades.SelectedValue = -1
+        Me.txt_descripcion.Text = ""
+        Me.txt_duracion_prevista.Text = ""
+        Me.cmb_estado.SelectedValue = -1
+        Me.txt_hora.Text = ""
+    End Sub
+
+
+    Private Sub cmd_buscar_efectores_Click(sender As Object, e As EventArgs) Handles cmd_buscar_efectores.Click
+        Registrar_efectores.ShowDialog()
+    End Sub
+
+
+    Private Sub cmd_actualizar_estado_Click(sender As Object, e As EventArgs) Handles cmd_actualizar_estado.Click
+        Dim sql As String = ""
+        Dim tabla As DataTable
+
+        If txt_id_capacitacion.Text = "" Then
+            MessageBox.Show("Seleccione una capacitacion para actualizar el estado")
+            Me.txt_id_capacitacion.Focus()
+            Exit Sub
+        End If
+
+        sql &= "SELECT * FROM CAPACITACIONES WHERE id=" & Me.txt_id_capacitacion.Text
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("No se encuentra registrada la capacitacion todavia")
+            Me.txt_id_capacitacion.Focus()
+            Exit Sub
+        Else
+            If cmb_estado.SelectedValue = 3 Then
+                sql &= "UPDATE CAPACITACIONES "
+                sql &= " SET id_estado= " & Me.cmb_estado.SelectedValue
+                sql &= " WHERE id= " & Me.txt_id_capacitacion.Text
+                acceso.ejecutar(sql)
+            ElseIf cmb_estado.SelectedValue = 1 Then
+                If validar_post() Then
+                    sql &= "UPDATE CAPACITACIONES "
+                    sql &= " SET id_estado= " & Me.cmb_estado.SelectedValue
+                    sql &= " WHERE id= " & Me.txt_id_capacitacion.Text
+                    acceso.ejecutar(sql)
+
+                    modificar()
+                Else
+                    Exit Sub
+                End If
+            End If
+           
+        End If
+        cargar_grilla()
+    End Sub
+
+
 End Class
