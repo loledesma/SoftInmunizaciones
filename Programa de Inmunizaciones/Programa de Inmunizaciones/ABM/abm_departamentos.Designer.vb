@@ -43,8 +43,6 @@ Partial Class abm_departamentos
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.tltp_departamentos = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmd_listados = New System.Windows.Forms.Button()
-        Me.cmd_estadistica = New System.Windows.Forms.Button()
         Me.grp_departamentos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_departamentos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -198,7 +196,7 @@ Partial Class abm_departamentos
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(436, 409)
+        Me.cmd_salir.Location = New System.Drawing.Point(436, 339)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 33
@@ -261,53 +259,13 @@ Partial Class abm_departamentos
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
-        'cmd_listados
-        '
-        Me.cmd_listados.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_listados.BackgroundImage = CType(resources.GetObject("cmd_listados.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_listados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_listados.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_listados.FlatAppearance.BorderSize = 0
-        Me.cmd_listados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_listados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_listados.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_listados.Location = New System.Drawing.Point(128, 409)
-        Me.cmd_listados.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_listados.Name = "cmd_listados"
-        Me.cmd_listados.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_listados.TabIndex = 39
-        Me.cmd_listados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_listados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_listados.UseVisualStyleBackColor = False
-        '
-        'cmd_estadistica
-        '
-        Me.cmd_estadistica.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_estadistica.BackgroundImage = CType(resources.GetObject("cmd_estadistica.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_estadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_estadistica.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_estadistica.FlatAppearance.BorderSize = 0
-        Me.cmd_estadistica.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_estadistica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_estadistica.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_estadistica.Location = New System.Drawing.Point(207, 409)
-        Me.cmd_estadistica.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_estadistica.Name = "cmd_estadistica"
-        Me.cmd_estadistica.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_estadistica.TabIndex = 38
-        Me.cmd_estadistica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_estadistica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_estadistica.UseVisualStyleBackColor = False
-        '
         'abm_departamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(508, 481)
-        Me.Controls.Add(Me.cmd_listados)
-        Me.Controls.Add(Me.cmd_estadistica)
+        Me.ClientSize = New System.Drawing.Size(508, 411)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_eliminar)
@@ -342,6 +300,4 @@ Partial Class abm_departamentos
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents tltp_departamentos As System.Windows.Forms.ToolTip
-    Friend WithEvents cmd_listados As System.Windows.Forms.Button
-    Friend WithEvents cmd_estadistica As System.Windows.Forms.Button
 End Class
