@@ -25,8 +25,6 @@
     Private Sub tip()
         tltp_departamentos.SetToolTip(cmd_buscar_nombre, "Buscar por nombre de departamento")
         tltp_departamentos.SetToolTip(cmd_buscar, "Buscar por Id")
-        tltp_departamentos.SetToolTip(cmd_listados, "Listados")
-        tltp_departamentos.SetToolTip(cmd_estadistica, "Estadísticos")
         tltp_departamentos.SetToolTip(cmd_eliminar, "Eliminar")
         tltp_departamentos.SetToolTip(cmd_guardar, "Guardar")
         tltp_departamentos.SetToolTip(cmd_nuevo, "Nuevo")
@@ -120,11 +118,11 @@
 
     End Sub
 
-    Private Sub cmd_salir_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.Close()
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         Me.dgv_departamentos.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.txt_id_departamento.Enabled = True
@@ -195,7 +193,7 @@
         End If
 
     End Function
-    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
         Me.guardar()
     End Sub
 
@@ -241,7 +239,7 @@
         acceso.ejecutar(sql)
     End Sub
 
-    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
         If MessageBox.Show("¿Esta seguro que desea borrar el registro?", _
              "Atencion", MessageBoxButtons.OKCancel, _
@@ -295,4 +293,5 @@
             guardar()
         End If
     End Sub
+
 End Class
