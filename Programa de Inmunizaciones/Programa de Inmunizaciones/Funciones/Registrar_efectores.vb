@@ -1092,7 +1092,7 @@
         Me.condicion_estado = estado.modificar
     End Sub
 
-    Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
         lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
     End Sub
 
@@ -1100,4 +1100,6 @@
     Private Sub cmd_cadena_de_frio_Click(sender As Object, e As EventArgs) Handles cmd_cadena_de_frio.Click
         Inventario_cadena_de_frio.ShowDialog()
     End Sub
+
+
 End Class

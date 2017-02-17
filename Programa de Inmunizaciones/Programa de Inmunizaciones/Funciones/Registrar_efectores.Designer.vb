@@ -30,7 +30,6 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_cadena_de_frio = New System.Windows.Forms.Button()
         Me.txt_referentes = New System.Windows.Forms.TextBox()
-        Me.cmb_estado_rm = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txt_pc = New System.Windows.Forms.TextBox()
         Me.txt_heladera = New System.Windows.Forms.TextBox()
@@ -38,11 +37,8 @@ Partial Class Registrar_efectores
         Me.lbl_heladera = New System.Windows.Forms.Label()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.cmd_buscar_cuie = New System.Windows.Forms.Button()
-        Me.cmb_tipo_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.cmb_estado_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.cmb_tipos_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -52,11 +48,8 @@ Partial Class Registrar_efectores
         Me.txt_telefono = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmb_barrios = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_numero = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -67,12 +60,10 @@ Partial Class Registrar_efectores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
-        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_cargo = New System.Windows.Forms.Label()
         Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
-        Me.cmb_estados_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_id_empleado = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -84,7 +75,6 @@ Partial Class Registrar_efectores
         Me.txt_apellido = New System.Windows.Forms.TextBox()
         Me.label16 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
@@ -111,6 +101,16 @@ Partial Class Registrar_efectores
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estados_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_rm = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipo_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipos_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_barrios = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -178,17 +178,6 @@ Partial Class Registrar_efectores
         Me.txt_referentes.Size = New System.Drawing.Size(384, 20)
         Me.txt_referentes.TabIndex = 8
         '
-        'cmb_estado_rm
-        '
-        Me.cmb_estado_rm._descripcion = "descripcion"
-        Me.cmb_estado_rm._nombre_tabla = "ESTADO_RM"
-        Me.cmb_estado_rm._pk = "id"
-        Me.cmb_estado_rm.FormattingEnabled = True
-        Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 170)
-        Me.cmb_estado_rm.Name = "cmb_estado_rm"
-        Me.cmb_estado_rm.Size = New System.Drawing.Size(153, 21)
-        Me.cmb_estado_rm.TabIndex = 10
-        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -254,17 +243,6 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_cuie.TabIndex = 1
         Me.cmd_buscar_cuie.UseVisualStyleBackColor = True
         '
-        'cmb_tipo_carga
-        '
-        Me.cmb_tipo_carga._descripcion = "descripcion"
-        Me.cmb_tipo_carga._nombre_tabla = "TIPO_CARGA"
-        Me.cmb_tipo_carga._pk = "id"
-        Me.cmb_tipo_carga.FormattingEnabled = True
-        Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 206)
-        Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
-        Me.cmb_tipo_carga.Size = New System.Drawing.Size(153, 21)
-        Me.cmb_tipo_carga.TabIndex = 12
-        '
         'Label15
         '
         Me.Label15.AutoSize = True
@@ -274,17 +252,6 @@ Partial Class Registrar_efectores
         Me.Label15.TabIndex = 18
         Me.Label15.Text = "Tipo carga"
         '
-        'cmb_estado_efector
-        '
-        Me.cmb_estado_efector._descripcion = "descripcion"
-        Me.cmb_estado_efector._nombre_tabla = "ESTADOS_EFECTOR"
-        Me.cmb_estado_efector._pk = "id"
-        Me.cmb_estado_efector.FormattingEnabled = True
-        Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 205)
-        Me.cmb_estado_efector.Name = "cmb_estado_efector"
-        Me.cmb_estado_efector.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_estado_efector.TabIndex = 11
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -293,17 +260,6 @@ Partial Class Registrar_efectores
         Me.Label14.Size = New System.Drawing.Size(40, 13)
         Me.Label14.TabIndex = 16
         Me.Label14.Text = "Estado"
-        '
-        'cmb_tipos_efectores
-        '
-        Me.cmb_tipos_efectores._descripcion = "descripcion"
-        Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
-        Me.cmb_tipos_efectores._pk = "id"
-        Me.cmb_tipos_efectores.FormattingEnabled = True
-        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 170)
-        Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
-        Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
-        Me.cmb_tipos_efectores.TabIndex = 9
         '
         'Label13
         '
@@ -392,17 +348,6 @@ Partial Class Registrar_efectores
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ubicación"
         '
-        'cmb_departamento
-        '
-        Me.cmb_departamento._descripcion = "descripcion"
-        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamento._pk = "id"
-        Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(108, 45)
-        Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_departamento.TabIndex = 2
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -412,17 +357,6 @@ Partial Class Registrar_efectores
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Departamento"
         '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(332, 45)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(158, 21)
-        Me.cmb_localidades.TabIndex = 3
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -431,17 +365,6 @@ Partial Class Registrar_efectores
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Localidad"
-        '
-        'cmb_barrios
-        '
-        Me.cmb_barrios._descripcion = "descripcion"
-        Me.cmb_barrios._nombre_tabla = "BARRIOS"
-        Me.cmb_barrios._pk = "id"
-        Me.cmb_barrios.FormattingEnabled = True
-        Me.cmb_barrios.Location = New System.Drawing.Point(108, 72)
-        Me.cmb_barrios.Name = "cmb_barrios"
-        Me.cmb_barrios.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_barrios.TabIndex = 4
         '
         'txt_numero
         '
@@ -556,17 +479,6 @@ Partial Class Registrar_efectores
         Me.cmd_actualizar_sigipsa.Text = "ACTUALIZAR SIGIPSA"
         Me.cmd_actualizar_sigipsa.UseVisualStyleBackColor = True
         '
-        'cmb_cargo
-        '
-        Me.cmb_cargo._descripcion = "descripcion"
-        Me.cmb_cargo._nombre_tabla = "CARGO"
-        Me.cmb_cargo._pk = "id"
-        Me.cmb_cargo.FormattingEnabled = True
-        Me.cmb_cargo.Location = New System.Drawing.Point(300, 125)
-        Me.cmb_cargo.Name = "cmb_cargo"
-        Me.cmb_cargo.Size = New System.Drawing.Size(138, 21)
-        Me.cmb_cargo.TabIndex = 8
-        '
         'lbl_cargo
         '
         Me.lbl_cargo.AutoSize = True
@@ -604,17 +516,6 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_empleadoXDNI.TabIndex = 3
         Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
-        '
-        'cmb_estados_empleados
-        '
-        Me.cmb_estados_empleados._descripcion = "descripcion"
-        Me.cmb_estados_empleados._nombre_tabla = "ESTADOS_EMPLEADOS"
-        Me.cmb_estados_empleados._pk = "id"
-        Me.cmb_estados_empleados.FormattingEnabled = True
-        Me.cmb_estados_empleados.Location = New System.Drawing.Point(114, 124)
-        Me.cmb_estados_empleados.Name = "cmb_estados_empleados"
-        Me.cmb_estados_empleados.Size = New System.Drawing.Size(132, 21)
-        Me.cmb_estados_empleados.TabIndex = 7
         '
         'Label3
         '
@@ -754,17 +655,6 @@ Partial Class Registrar_efectores
         Me.Label19.Size = New System.Drawing.Size(44, 13)
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Número"
-        '
-        'cmb_tipos_documento
-        '
-        Me.cmb_tipos_documento._descripcion = "descripcion"
-        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_tipos_documento._pk = "id"
-        Me.cmb_tipos_documento.FormattingEnabled = True
-        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
-        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
-        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
-        Me.cmb_tipos_documento.TabIndex = 1
         '
         'Label18
         '
@@ -1022,6 +912,116 @@ Partial Class Registrar_efectores
         Me.localidad.Name = "localidad"
         Me.localidad.ReadOnly = True
         Me.localidad.Width = 165
+        '
+        'cmb_cargo
+        '
+        Me.cmb_cargo._descripcion = "descripcion"
+        Me.cmb_cargo._nombre_tabla = "CARGO"
+        Me.cmb_cargo._pk = "id"
+        Me.cmb_cargo.FormattingEnabled = True
+        Me.cmb_cargo.Location = New System.Drawing.Point(300, 125)
+        Me.cmb_cargo.Name = "cmb_cargo"
+        Me.cmb_cargo.Size = New System.Drawing.Size(138, 21)
+        Me.cmb_cargo.TabIndex = 8
+        '
+        'cmb_estados_empleados
+        '
+        Me.cmb_estados_empleados._descripcion = "descripcion"
+        Me.cmb_estados_empleados._nombre_tabla = "ESTADOS_EMPLEADOS"
+        Me.cmb_estados_empleados._pk = "id"
+        Me.cmb_estados_empleados.FormattingEnabled = True
+        Me.cmb_estados_empleados.Location = New System.Drawing.Point(114, 124)
+        Me.cmb_estados_empleados.Name = "cmb_estados_empleados"
+        Me.cmb_estados_empleados.Size = New System.Drawing.Size(132, 21)
+        Me.cmb_estados_empleados.TabIndex = 7
+        '
+        'cmb_tipos_documento
+        '
+        Me.cmb_tipos_documento._descripcion = "descripcion"
+        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_tipos_documento._pk = "id"
+        Me.cmb_tipos_documento.FormattingEnabled = True
+        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
+        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
+        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
+        Me.cmb_tipos_documento.TabIndex = 1
+        '
+        'cmb_estado_rm
+        '
+        Me.cmb_estado_rm._descripcion = "descripcion"
+        Me.cmb_estado_rm._nombre_tabla = "ESTADO_RM"
+        Me.cmb_estado_rm._pk = "id"
+        Me.cmb_estado_rm.FormattingEnabled = True
+        Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 170)
+        Me.cmb_estado_rm.Name = "cmb_estado_rm"
+        Me.cmb_estado_rm.Size = New System.Drawing.Size(153, 21)
+        Me.cmb_estado_rm.TabIndex = 10
+        '
+        'cmb_tipo_carga
+        '
+        Me.cmb_tipo_carga._descripcion = "descripcion"
+        Me.cmb_tipo_carga._nombre_tabla = "TIPO_CARGA"
+        Me.cmb_tipo_carga._pk = "id"
+        Me.cmb_tipo_carga.FormattingEnabled = True
+        Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 206)
+        Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
+        Me.cmb_tipo_carga.Size = New System.Drawing.Size(153, 21)
+        Me.cmb_tipo_carga.TabIndex = 12
+        '
+        'cmb_estado_efector
+        '
+        Me.cmb_estado_efector._descripcion = "descripcion"
+        Me.cmb_estado_efector._nombre_tabla = "ESTADOS_EFECTOR"
+        Me.cmb_estado_efector._pk = "id"
+        Me.cmb_estado_efector.FormattingEnabled = True
+        Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 205)
+        Me.cmb_estado_efector.Name = "cmb_estado_efector"
+        Me.cmb_estado_efector.Size = New System.Drawing.Size(159, 21)
+        Me.cmb_estado_efector.TabIndex = 11
+        '
+        'cmb_tipos_efectores
+        '
+        Me.cmb_tipos_efectores._descripcion = "descripcion"
+        Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
+        Me.cmb_tipos_efectores._pk = "id"
+        Me.cmb_tipos_efectores.FormattingEnabled = True
+        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 170)
+        Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
+        Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
+        Me.cmb_tipos_efectores.TabIndex = 9
+        '
+        'cmb_departamento
+        '
+        Me.cmb_departamento._descripcion = "descripcion"
+        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamento._pk = "id"
+        Me.cmb_departamento.FormattingEnabled = True
+        Me.cmb_departamento.Location = New System.Drawing.Point(108, 45)
+        Me.cmb_departamento.Name = "cmb_departamento"
+        Me.cmb_departamento.Size = New System.Drawing.Size(159, 21)
+        Me.cmb_departamento.TabIndex = 2
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(332, 45)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(158, 21)
+        Me.cmb_localidades.TabIndex = 3
+        '
+        'cmb_barrios
+        '
+        Me.cmb_barrios._descripcion = "descripcion"
+        Me.cmb_barrios._nombre_tabla = "BARRIOS"
+        Me.cmb_barrios._pk = "id"
+        Me.cmb_barrios.FormattingEnabled = True
+        Me.cmb_barrios.Location = New System.Drawing.Point(108, 72)
+        Me.cmb_barrios.Name = "cmb_barrios"
+        Me.cmb_barrios.Size = New System.Drawing.Size(159, 21)
+        Me.cmb_barrios.TabIndex = 4
         '
         'Registrar_efectores
         '
