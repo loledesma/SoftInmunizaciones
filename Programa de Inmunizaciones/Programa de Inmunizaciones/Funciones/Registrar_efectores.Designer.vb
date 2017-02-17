@@ -65,20 +65,6 @@ Partial Class Registrar_efectores
         Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.grp_grilla_empleados = New System.Windows.Forms.GroupBox()
-        Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
         Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -105,20 +91,30 @@ Partial Class Registrar_efectores
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
-        Me.grp_grilla_vacunatorios = New System.Windows.Forms.GroupBox()
+        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.dgv_empleados = New System.Windows.Forms.DataGridView()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_vacunatorios = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.grp_grilla_empleados.SuspendLayout()
-        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_empleados.SuspendLayout()
-        Me.grp_grilla_vacunatorios.SuspendLayout()
+        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -516,125 +512,6 @@ Partial Class Registrar_efectores
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CUIE"
         '
-        'grp_grilla_empleados
-        '
-        Me.grp_grilla_empleados.BackColor = System.Drawing.Color.Transparent
-        Me.grp_grilla_empleados.Controls.Add(Me.dgv_empleados)
-        Me.grp_grilla_empleados.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_grilla_empleados.Location = New System.Drawing.Point(529, 320)
-        Me.grp_grilla_empleados.Name = "grp_grilla_empleados"
-        Me.grp_grilla_empleados.Size = New System.Drawing.Size(714, 279)
-        Me.grp_grilla_empleados.TabIndex = 6
-        Me.grp_grilla_empleados.TabStop = False
-        Me.grp_grilla_empleados.Text = "Empleados"
-        '
-        'dgv_empleados
-        '
-        Me.dgv_empleados.AllowUserToAddRows = False
-        Me.dgv_empleados.AllowUserToDeleteRows = False
-        Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv_empleados.Location = New System.Drawing.Point(6, 19)
-        Me.dgv_empleados.Name = "dgv_empleados"
-        Me.dgv_empleados.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_empleados.Size = New System.Drawing.Size(702, 245)
-        Me.dgv_empleados.TabIndex = 0
-        '
-        'id
-        '
-        Me.id.HeaderText = "ID"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'tipo_doc
-        '
-        Me.tipo_doc.HeaderText = "Tipo Doc"
-        Me.tipo_doc.Name = "tipo_doc"
-        Me.tipo_doc.ReadOnly = True
-        Me.tipo_doc.Width = 30
-        '
-        'numero
-        '
-        Me.numero.HeaderText = "Número"
-        Me.numero.Name = "numero"
-        Me.numero.ReadOnly = True
-        Me.numero.Width = 75
-        '
-        'nombres
-        '
-        Me.nombres.HeaderText = "Nombre"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Width = 180
-        '
-        'apellidos
-        '
-        Me.apellidos.HeaderText = "Apellidos"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Width = 180
-        '
-        'cargo
-        '
-        Me.cargo.HeaderText = "Cargo"
-        Me.cargo.Name = "cargo"
-        Me.cargo.ReadOnly = True
-        '
-        'usuario
-        '
-        Me.usuario.HeaderText = "Usuario Sigipsa"
-        Me.usuario.Name = "usuario"
-        Me.usuario.ReadOnly = True
-        Me.usuario.Width = 150
-        '
-        'perfil
-        '
-        Me.perfil.HeaderText = "Perfil Sigipsa"
-        Me.perfil.Name = "perfil"
-        Me.perfil.ReadOnly = True
-        '
-        'estado_empleado
-        '
-        Me.estado_empleado.HeaderText = "Estado Empleado"
-        Me.estado_empleado.Name = "estado_empleado"
-        Me.estado_empleado.ReadOnly = True
-        '
-        'id_cargo
-        '
-        Me.id_cargo.HeaderText = "ID Cargo"
-        Me.id_cargo.Name = "id_cargo"
-        Me.id_cargo.ReadOnly = True
-        '
-        'id_perfil
-        '
-        Me.id_perfil.HeaderText = "ID Perfil"
-        Me.id_perfil.Name = "id_perfil"
-        Me.id_perfil.ReadOnly = True
-        Me.id_perfil.Visible = False
-        '
-        'id_estado
-        '
-        Me.id_estado.HeaderText = "ID Estado"
-        Me.id_estado.Name = "id_estado"
-        Me.id_estado.ReadOnly = True
-        Me.id_estado.Visible = False
-        '
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
@@ -968,17 +845,135 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
-        'grp_grilla_vacunatorios
+        'lbl_contador_efectores
         '
-        Me.grp_grilla_vacunatorios.BackColor = System.Drawing.Color.Transparent
-        Me.grp_grilla_vacunatorios.Controls.Add(Me.dgv_vacunatorios)
-        Me.grp_grilla_vacunatorios.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_grilla_vacunatorios.Location = New System.Drawing.Point(534, 10)
-        Me.grp_grilla_vacunatorios.Name = "grp_grilla_vacunatorios"
-        Me.grp_grilla_vacunatorios.Size = New System.Drawing.Size(714, 270)
-        Me.grp_grilla_vacunatorios.TabIndex = 50
-        Me.grp_grilla_vacunatorios.TabStop = False
-        Me.grp_grilla_vacunatorios.Text = "Vacunatorios"
+        Me.lbl_contador_efectores.AutoSize = True
+        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_efectores.Location = New System.Drawing.Point(715, 296)
+        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
+        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_efectores.TabIndex = 53
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(534, 295)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(169, 17)
+        Me.Label22.TabIndex = 52
+        Me.Label22.Text = "Efectores registrados:"
+        '
+        'dgv_empleados
+        '
+        Me.dgv_empleados.AllowUserToAddRows = False
+        Me.dgv_empleados.AllowUserToDeleteRows = False
+        Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_empleados.Location = New System.Drawing.Point(534, 328)
+        Me.dgv_empleados.Name = "dgv_empleados"
+        Me.dgv_empleados.ReadOnly = True
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_empleados.Size = New System.Drawing.Size(702, 271)
+        Me.dgv_empleados.TabIndex = 54
+        '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo Doc"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.ReadOnly = True
+        Me.tipo_doc.Width = 30
+        '
+        'numero
+        '
+        Me.numero.HeaderText = "Número"
+        Me.numero.Name = "numero"
+        Me.numero.ReadOnly = True
+        Me.numero.Width = 75
+        '
+        'nombres
+        '
+        Me.nombres.HeaderText = "Nombre"
+        Me.nombres.Name = "nombres"
+        Me.nombres.ReadOnly = True
+        Me.nombres.Width = 180
+        '
+        'apellidos
+        '
+        Me.apellidos.HeaderText = "Apellidos"
+        Me.apellidos.Name = "apellidos"
+        Me.apellidos.ReadOnly = True
+        Me.apellidos.Width = 180
+        '
+        'cargo
+        '
+        Me.cargo.HeaderText = "Cargo"
+        Me.cargo.Name = "cargo"
+        Me.cargo.ReadOnly = True
+        '
+        'usuario
+        '
+        Me.usuario.HeaderText = "Usuario Sigipsa"
+        Me.usuario.Name = "usuario"
+        Me.usuario.ReadOnly = True
+        Me.usuario.Width = 150
+        '
+        'perfil
+        '
+        Me.perfil.HeaderText = "Perfil Sigipsa"
+        Me.perfil.Name = "perfil"
+        Me.perfil.ReadOnly = True
+        '
+        'estado_empleado
+        '
+        Me.estado_empleado.HeaderText = "Estado Empleado"
+        Me.estado_empleado.Name = "estado_empleado"
+        Me.estado_empleado.ReadOnly = True
+        '
+        'id_cargo
+        '
+        Me.id_cargo.HeaderText = "ID Cargo"
+        Me.id_cargo.Name = "id_cargo"
+        Me.id_cargo.ReadOnly = True
+        '
+        'id_perfil
+        '
+        Me.id_perfil.HeaderText = "ID Perfil"
+        Me.id_perfil.Name = "id_perfil"
+        Me.id_perfil.ReadOnly = True
+        Me.id_perfil.Visible = False
+        '
+        'id_estado
+        '
+        Me.id_estado.HeaderText = "ID Estado"
+        Me.id_estado.Name = "id_estado"
+        Me.id_estado.ReadOnly = True
+        Me.id_estado.Visible = False
         '
         'dgv_vacunatorios
         '
@@ -994,11 +989,11 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_vacunatorios.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_vacunatorios.Location = New System.Drawing.Point(6, 16)
+        Me.dgv_vacunatorios.Location = New System.Drawing.Point(526, 14)
         Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
         Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(702, 247)
-        Me.dgv_vacunatorios.TabIndex = 0
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(702, 265)
+        Me.dgv_vacunatorios.TabIndex = 55
         '
         'cuie
         '
@@ -1028,29 +1023,6 @@ Partial Class Registrar_efectores
         Me.localidad.ReadOnly = True
         Me.localidad.Width = 165
         '
-        'lbl_contador_efectores
-        '
-        Me.lbl_contador_efectores.AutoSize = True
-        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_efectores.Location = New System.Drawing.Point(715, 296)
-        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
-        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
-        Me.lbl_contador_efectores.TabIndex = 53
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(534, 295)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(169, 17)
-        Me.Label22.TabIndex = 52
-        Me.Label22.Text = "Efectores registrados:"
-        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1058,15 +1030,15 @@ Partial Class Registrar_efectores
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1255, 669)
+        Me.Controls.Add(Me.dgv_vacunatorios)
+        Me.Controls.Add(Me.dgv_empleados)
         Me.Controls.Add(Me.lbl_contador_efectores)
         Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.grp_grilla_vacunatorios)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.grp_datos_empleados)
-        Me.Controls.Add(Me.grp_grilla_empleados)
         Me.Controls.Add(Me.grp_datos_vacunatorio)
         Me.KeyPreview = True
         Me.Name = "Registrar_efectores"
@@ -1075,11 +1047,9 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.grp_grilla_empleados.ResumeLayout(False)
-        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_empleados.ResumeLayout(False)
         Me.grp_datos_empleados.PerformLayout()
-        Me.grp_grilla_vacunatorios.ResumeLayout(False)
+        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1115,7 +1085,6 @@ Partial Class Registrar_efectores
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents cmd_buscar_cuie As System.Windows.Forms.Button
-    Friend WithEvents grp_grilla_empleados As System.Windows.Forms.GroupBox
     Friend WithEvents grp_datos_empleados As System.Windows.Forms.GroupBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents cmb_tipos_documento As Programa_de_Inmunizaciones.ComboBoxV1
@@ -1131,7 +1100,6 @@ Partial Class Registrar_efectores
     Friend WithEvents cmd_limpiar_empleados As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_empleado As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_empleado As System.Windows.Forms.Button
-    Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
     Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
@@ -1147,6 +1115,14 @@ Partial Class Registrar_efectores
     Friend WithEvents txt_heladera As System.Windows.Forms.TextBox
     Friend WithEvents lbl_pc As System.Windows.Forms.Label
     Friend WithEvents lbl_heladera As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
+    Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
+    Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1159,17 +1135,9 @@ Partial Class Registrar_efectores
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
-    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
-    Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
-    Friend WithEvents grp_grilla_vacunatorios As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents referente As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
 End Class
