@@ -905,8 +905,8 @@
                     dgv_efectores.Rows(c).Cells("perfil").Value = ""
                     dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
                 Else
-                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(c)("perfil")
-                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(c)("id_perfil")
+                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(0)("perfil")
+                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
                 End If
             Next
         End If
