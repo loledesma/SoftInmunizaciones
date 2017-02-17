@@ -326,8 +326,8 @@
                             dgv_efectores.Rows(d).Cells("perfil").Value = ""
                             dgv_efectores.Rows(d).Cells("id_perfil").Value = ""
                         Else
-                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla3.Rows(d)("perfil")
-                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla3.Rows(d)("id_perfil")
+                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla3.Rows(0)("perfil")
+                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla3.Rows(0)("id_perfil")
                         End If
 
                     Next
