@@ -284,7 +284,7 @@
         End If
 
     End Sub
-    Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_empleados.CellMouseDoubleClick
+    Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
         condicion_click = doble_Click.activado
         Dim tabla As DataTable
         Dim sql As String = ""
@@ -905,8 +905,6 @@
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         Me.txt_id_empleado.Enabled = True
-        Me.grp_grilla_empleados.Enabled = True
-        Me.grp_grilla_vacunatorios.Enabled = True
         Me.grp_datos_vacunatorio.Enabled = True
         Me.grp_datos_empleados.Enabled = True
         Me.limpiar(Me.Controls)
@@ -1094,7 +1092,7 @@
         Me.condicion_estado = estado.modificar
     End Sub
 
-    Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
+    Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
         lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
     End Sub
 

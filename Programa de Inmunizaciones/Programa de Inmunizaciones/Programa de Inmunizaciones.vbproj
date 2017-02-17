@@ -380,6 +380,9 @@
     <EmbeddedResource Include="Estadisticos\est_estado_heladeras.resx">
       <DependentUpon>est_estado_heladeras.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Inventario_cadena_de_frio.resx">
+      <DependentUpon>Inventario_cadena_de_frio.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
