@@ -26,6 +26,7 @@ Partial Class Registrar_capacitaciones
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Capacitacion = New System.Windows.Forms.TabPage()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
@@ -43,20 +44,17 @@ Partial Class Registrar_capacitaciones
         Me.grp_descripcion = New System.Windows.Forms.GroupBox()
         Me.txt_observaciones = New System.Windows.Forms.RichTextBox()
         Me.grp_datos_generales = New System.Windows.Forms.GroupBox()
-        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.txt_lugar = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.grp_datos_capacitacion = New System.Windows.Forms.GroupBox()
-        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_duracion_real = New System.Windows.Forms.MaskedTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt_duracion_prevista = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmb_estado = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_hora = New System.Windows.Forms.MaskedTextBox()
         Me.txt_fecha_efectiva = New System.Windows.Forms.MaskedTextBox()
@@ -68,10 +66,15 @@ Partial Class Registrar_capacitaciones
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_perdidas = New System.Windows.Forms.Label()
         Me.Asistencia = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txt_observaciones2 = New System.Windows.Forms.RichTextBox()
         Me.cmd_limpiar_asistencia = New System.Windows.Forms.Button()
         Me.cmd_guardar_asistencia = New System.Windows.Forms.Button()
         Me.cmd_nueva_asistencia = New System.Windows.Forms.Button()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
+        Me.cmd_buscar_efectores = New System.Windows.Forms.Button()
+        Me.txt_cuie = New System.Windows.Forms.TextBox()
+        Me.txt_realizoEvaluacion = New System.Windows.Forms.TextBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
         Me.lbl_cargo = New System.Windows.Forms.Label()
         Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
@@ -88,14 +91,8 @@ Partial Class Registrar_capacitaciones
         Me.txt_apellido_empleado = New System.Windows.Forms.TextBox()
         Me.label16 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.txt_realizoEvaluacion = New System.Windows.Forms.TextBox()
-        Me.txt_cuie = New System.Windows.Forms.TextBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.txt_observaciones2 = New System.Windows.Forms.RichTextBox()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -104,7 +101,12 @@ Partial Class Registrar_capacitaciones
         Me.realizoEvaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
+        Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,9 +115,9 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_capacitacion.SuspendLayout()
         Me.Asistencia.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -207,16 +209,24 @@ Partial Class Registrar_capacitaciones
         '
         Me.dgv_capas.AllowUserToAddRows = False
         Me.dgv_capas.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_capas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_capas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_capas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_capacitacion, Me.tipo, Me.estado, Me.fecha_programada, Me.fecha_efectiva, Me.localidad})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_capas.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GrayText
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_capas.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_capas.Location = New System.Drawing.Point(7, 355)
         Me.dgv_capas.Name = "dgv_capas"
         Me.dgv_capas.ReadOnly = True
@@ -316,17 +326,6 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_generales.TabStop = False
         Me.grp_datos_generales.Text = "Ubicacion"
         '
-        'cmb_departamento
-        '
-        Me.cmb_departamento._descripcion = "descripcion"
-        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamento._pk = "id"
-        Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(118, 42)
-        Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(268, 21)
-        Me.cmb_departamento.TabIndex = 61
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -335,17 +334,6 @@ Partial Class Registrar_capacitaciones
         Me.Label8.Size = New System.Drawing.Size(74, 13)
         Me.Label8.TabIndex = 62
         Me.Label8.Text = "Departamento"
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(118, 68)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_localidades.TabIndex = 32
         '
         'lbl_localidad
         '
@@ -401,16 +389,24 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_capacitacion.TabStop = False
         Me.grp_datos_capacitacion.Text = "Datos "
         '
-        'cmb_tipo_capacitaciones
+        'cmd_actualizar_estado
         '
-        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
-        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
-        Me.cmb_tipo_capacitaciones._pk = "id"
-        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
-        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(111, 50)
-        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
-        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_tipo_capacitaciones.TabIndex = 64
+        Me.cmd_actualizar_estado.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_actualizar_estado.BackgroundImage = CType(resources.GetObject("cmd_actualizar_estado.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_actualizar_estado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_actualizar_estado.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.cmd_actualizar_estado.FlatAppearance.BorderSize = 0
+        Me.cmd_actualizar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_actualizar_estado.Location = New System.Drawing.Point(359, 189)
+        Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
+        Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_actualizar_estado.TabIndex = 65
+        Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -452,17 +448,6 @@ Partial Class Registrar_capacitaciones
         Me.Label3.Size = New System.Drawing.Size(91, 13)
         Me.Label3.TabIndex = 59
         Me.Label3.Text = "Duracion Prevista"
-        '
-        'cmb_estado
-        '
-        Me.cmb_estado._descripcion = "descripcion"
-        Me.cmb_estado._nombre_tabla = "ESTADO_CAPACITACIONES"
-        Me.cmb_estado._pk = "id"
-        Me.cmb_estado.FormattingEnabled = True
-        Me.cmb_estado.Location = New System.Drawing.Point(112, 192)
-        Me.cmb_estado.Name = "cmb_estado"
-        Me.cmb_estado.Size = New System.Drawing.Size(224, 21)
-        Me.cmb_estado.TabIndex = 56
         '
         'Label1
         '
@@ -568,6 +553,26 @@ Partial Class Registrar_capacitaciones
         Me.Asistencia.TabIndex = 1
         Me.Asistencia.Text = "Asistencia"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.txt_observaciones2)
+        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox2.Location = New System.Drawing.Point(536, 24)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(331, 207)
+        Me.GroupBox2.TabIndex = 12
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Observaciones"
+        '
+        'txt_observaciones2
+        '
+        Me.txt_observaciones2.Location = New System.Drawing.Point(8, 20)
+        Me.txt_observaciones2.Name = "txt_observaciones2"
+        Me.txt_observaciones2.Size = New System.Drawing.Size(303, 174)
+        Me.txt_observaciones2.TabIndex = 0
+        Me.txt_observaciones2.Text = ""
+        '
         'cmd_limpiar_asistencia
         '
         Me.cmd_limpiar_asistencia.BackColor = System.Drawing.Color.Transparent
@@ -628,6 +633,7 @@ Partial Class Registrar_capacitaciones
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_empleados.Controls.Add(Me.cmd_buscar_efectores)
         Me.grp_datos_empleados.Controls.Add(Me.txt_cuie)
         Me.grp_datos_empleados.Controls.Add(Me.txt_realizoEvaluacion)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_actualizar_sigipsa)
@@ -655,6 +661,36 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_empleados.TabIndex = 2
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
+        '
+        'cmd_buscar_efectores
+        '
+        Me.cmd_buscar_efectores.BackgroundImage = CType(resources.GetObject("cmd_buscar_efectores.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_efectores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_efectores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_efectores.Location = New System.Drawing.Point(444, 122)
+        Me.cmd_buscar_efectores.Name = "cmd_buscar_efectores"
+        Me.cmd_buscar_efectores.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_buscar_efectores.TabIndex = 35
+        Me.cmd_buscar_efectores.UseVisualStyleBackColor = True
+        '
+        'txt_cuie
+        '
+        Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_cuie.Location = New System.Drawing.Point(300, 124)
+        Me.txt_cuie.Name = "txt_cuie"
+        Me.txt_cuie.Size = New System.Drawing.Size(139, 20)
+        Me.txt_cuie.TabIndex = 34
+        '
+        'txt_realizoEvaluacion
+        '
+        Me.txt_realizoEvaluacion.AutoCompleteCustomSource.AddRange(New String() {"Si", "No"})
+        Me.txt_realizoEvaluacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_realizoEvaluacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_realizoEvaluacion.Location = New System.Drawing.Point(114, 124)
+        Me.txt_realizoEvaluacion.Name = "txt_realizoEvaluacion"
+        Me.txt_realizoEvaluacion.Size = New System.Drawing.Size(126, 20)
+        Me.txt_realizoEvaluacion.TabIndex = 33
         '
         'cmd_actualizar_sigipsa
         '
@@ -846,17 +882,6 @@ Partial Class Registrar_capacitaciones
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Número"
         '
-        'cmb_tipos_documento
-        '
-        Me.cmb_tipos_documento._descripcion = "descripcion"
-        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_tipos_documento._pk = "id"
-        Me.cmb_tipos_documento.FormattingEnabled = True
-        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
-        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
-        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
-        Me.cmb_tipos_documento.TabIndex = 1
-        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -872,79 +897,27 @@ Partial Class Registrar_capacitaciones
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.realizoEvaluacion, Me.cuie, Me.observaciones})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_empleados.Location = New System.Drawing.Point(20, 267)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_empleados.Size = New System.Drawing.Size(847, 245)
         Me.dgv_empleados.TabIndex = 1
-        '
-        'cmd_salir
-        '
-        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(845, 672)
-        Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 6
-        Me.cmd_salir.UseVisualStyleBackColor = False
-        '
-        'txt_realizoEvaluacion
-        '
-        Me.txt_realizoEvaluacion.AutoCompleteCustomSource.AddRange(New String() {"Si", "No"})
-        Me.txt_realizoEvaluacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_realizoEvaluacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_realizoEvaluacion.Location = New System.Drawing.Point(114, 124)
-        Me.txt_realizoEvaluacion.Name = "txt_realizoEvaluacion"
-        Me.txt_realizoEvaluacion.Size = New System.Drawing.Size(126, 20)
-        Me.txt_realizoEvaluacion.TabIndex = 33
-        '
-        'txt_cuie
-        '
-        Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_cuie.Location = New System.Drawing.Point(300, 124)
-        Me.txt_cuie.Name = "txt_cuie"
-        Me.txt_cuie.Size = New System.Drawing.Size(139, 20)
-        Me.txt_cuie.TabIndex = 34
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox2.Controls.Add(Me.txt_observaciones2)
-        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(536, 24)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(331, 207)
-        Me.GroupBox2.TabIndex = 12
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Observaciones"
-        '
-        'txt_observaciones2
-        '
-        Me.txt_observaciones2.Location = New System.Drawing.Point(8, 20)
-        Me.txt_observaciones2.Name = "txt_observaciones2"
-        Me.txt_observaciones2.Size = New System.Drawing.Size(303, 174)
-        Me.txt_observaciones2.TabIndex = 0
-        Me.txt_observaciones2.Text = ""
         '
         'id
         '
@@ -998,31 +971,80 @@ Partial Class Registrar_capacitaciones
         Me.observaciones.Name = "observaciones"
         Me.observaciones.ReadOnly = True
         '
-        'cmd_actualizar_estado
+        'cmd_salir
         '
-        Me.cmd_actualizar_estado.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_actualizar_estado.BackgroundImage = CType(resources.GetObject("cmd_actualizar_estado.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_actualizar_estado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_actualizar_estado.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.cmd_actualizar_estado.FlatAppearance.BorderSize = 0
-        Me.cmd_actualizar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_actualizar_estado.Location = New System.Drawing.Point(359, 189)
-        Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
-        Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 65
-        Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
+        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_salir.FlatAppearance.BorderSize = 0
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.Location = New System.Drawing.Point(845, 672)
+        Me.cmd_salir.Name = "cmd_salir"
+        Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.UseVisualStyleBackColor = False
+        '
+        'cmb_departamento
+        '
+        Me.cmb_departamento._descripcion = "descripcion"
+        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamento._pk = "id"
+        Me.cmb_departamento.FormattingEnabled = True
+        Me.cmb_departamento.Location = New System.Drawing.Point(118, 42)
+        Me.cmb_departamento.Name = "cmb_departamento"
+        Me.cmb_departamento.Size = New System.Drawing.Size(268, 21)
+        Me.cmb_departamento.TabIndex = 61
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(118, 68)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_localidades.TabIndex = 32
+        '
+        'cmb_tipo_capacitaciones
+        '
+        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
+        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
+        Me.cmb_tipo_capacitaciones._pk = "id"
+        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
+        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(111, 50)
+        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
+        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_tipo_capacitaciones.TabIndex = 64
+        '
+        'cmb_estado
+        '
+        Me.cmb_estado._descripcion = "descripcion"
+        Me.cmb_estado._nombre_tabla = "ESTADO_CAPACITACIONES"
+        Me.cmb_estado._pk = "id"
+        Me.cmb_estado.FormattingEnabled = True
+        Me.cmb_estado.Location = New System.Drawing.Point(112, 192)
+        Me.cmb_estado.Name = "cmb_estado"
+        Me.cmb_estado.Size = New System.Drawing.Size(224, 21)
+        Me.cmb_estado.TabIndex = 56
+        '
+        'cmb_tipos_documento
+        '
+        Me.cmb_tipos_documento._descripcion = "descripcion"
+        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_tipos_documento._pk = "id"
+        Me.cmb_tipos_documento.FormattingEnabled = True
+        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
+        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
+        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
+        Me.cmb_tipos_documento.TabIndex = 1
         '
         'Registrar_capacitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(923, 746)
+        Me.ClientSize = New System.Drawing.Size(923, 741)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.TabControl1)
         Me.KeyPreview = True
@@ -1038,10 +1060,10 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_capacitacion.ResumeLayout(False)
         Me.grp_datos_capacitacion.PerformLayout()
         Me.Asistencia.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
         Me.grp_datos_empleados.ResumeLayout(False)
         Me.grp_datos_empleados.PerformLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1124,4 +1146,5 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_actualizar_estado As System.Windows.Forms.Button
+    Friend WithEvents cmd_buscar_efectores As System.Windows.Forms.Button
 End Class

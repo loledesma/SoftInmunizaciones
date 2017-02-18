@@ -524,7 +524,7 @@
         acceso.ejecutar(sql)
 
     End Sub
- 
+
     Private Sub modificar_empleadoXEfector()
         Dim c As Integer = 0
         Dim txt_insert As String = ""
@@ -764,8 +764,8 @@
 
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("estado_empleado").Value = tabla.Rows(0)("descripcion")
 
-                    End if
                 End If
+            End If
         End If
 
         limpiar_empleados()
@@ -905,8 +905,6 @@
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         Me.txt_id_empleado.Enabled = True
-        Me.grp_grilla_empleados.Enabled = True
-        Me.grp_grilla_vacunatorios.Enabled = True
         Me.grp_datos_vacunatorio.Enabled = True
         Me.grp_datos_empleados.Enabled = True
         Me.limpiar(Me.Controls)
@@ -1098,8 +1096,10 @@
         lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
     End Sub
 
-    
+
     Private Sub cmd_cadena_de_frio_Click(sender As Object, e As EventArgs) Handles cmd_cadena_de_frio.Click
         Inventario_cadena_de_frio.ShowDialog()
     End Sub
+
+
 End Class

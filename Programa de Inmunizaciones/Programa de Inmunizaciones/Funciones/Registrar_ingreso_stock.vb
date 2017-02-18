@@ -325,4 +325,29 @@
         Me.limpiar(Me.Controls)
         Me.condicion_inicial = condicion.insertar
     End Sub
+
+    Private Sub dgv_stock_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_stock.CellValueChanged
+        Dim contadorCPU As Integer = 0
+        Dim contadorMonitor As Integer = 0
+        Dim contadorHeladera As Integer = 0
+        Dim c As Integer
+        For c = 0 To dgv_stock.Rows.Count() - 1
+            If dgv_stock.Rows(c).Cells("id_insumo").Value = 1 Then
+                contadorHeladera = contadorHeladera + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
+            ElseIf dgv_stock.Rows(c).Cells("id_insumo").Value = 2 Then
+                contadorMonitor = contadorMonitor + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
+            Else
+                contadorCPU = contadorCPU + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
+            End If
+        Next
+        lbl_contador_cpu.Text = contadorCPU
+        lbl_contador_heladeras.Text = contadorHeladera
+        lbl_contador_monitores.Text = contadorMonitor
+
+        If dgv_stock.Rows.Count() = 0 Then
+            lbl_contador_cpu.Text = 0
+            lbl_contador_heladeras.Text = 0
+            lbl_contador_monitores.Text = 0
+        End If
+    End Sub
 End Class
