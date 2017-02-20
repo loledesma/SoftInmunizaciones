@@ -464,36 +464,6 @@
                     dgv_empleados.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
 
                 Next
-
-                If tabla2.Rows.Count = 0 Then
-                    MessageBox.Show("El empleado buscado no tiene efectores asignados", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Else
-                    For c = 0 To tabla2.Rows.Count - 1
-                        dgv_efectores.Rows.Add()
-                        dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                        dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                        dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                        dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
-
-                        sql = ""
-                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
-                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
-                        sql &= " WHERE EMP.id = '" & Me.txt_usuario.Text & "'"
-                        tabla2.Clear()
-                        tabla2 = acceso.consulta(sql)
-
-                        If tabla2.Rows.Count() = 0 Then
-                            dgv_efectores.Rows(c).Cells("perfil").Value = ""
-                            dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
-                        Else
-                            dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
-                            dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
-                        End If
-                        dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
-                        dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
-                    Next
-                End If
             End If
         End If
         limpiar(Controls)
