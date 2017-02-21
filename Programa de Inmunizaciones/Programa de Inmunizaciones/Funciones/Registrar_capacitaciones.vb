@@ -454,6 +454,7 @@
     Private Sub nuevo()
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
+        Me.txt_observaciones.Text = ""
         Me.condicion_estado = condicion.insertar
         Dim sql As String = "SELECT * FROM CAPACITACIONES "
         Dim tabla As New DataTable
@@ -931,6 +932,7 @@
         Me.txt_lugar.Text = ""
         Me.cmb_localidades.SelectedValue = -1
         Me.txt_descripcion.Text = ""
+        Me.txt_observaciones.Text = ""
         Me.txt_duracion_prevista.Text = ""
         Me.cmb_estado.SelectedValue = -1
         Me.txt_hora.Text = ""

@@ -34,6 +34,7 @@
         tip()
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
+        acceso.autocompletar(txt_nombres_empleado, "EMPLEADOS", "nombres")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_nombre, "EFECTORES", "nombre")
         acceso.autocompletar(txt_referentes, "EFECTORES", "nombre")
@@ -836,24 +837,28 @@
         Dim tabla As New DataTable
         txt_id_empleado.Enabled = False
 
-
-        sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
-        sql &= " FROM EMPLEADOS E "
-        sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue
-
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows().Count = 0 Then
-            MessageBox.Show("No existe ningún empleado con el DNI ingresado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
+        If txt_numero_doc.Text = "" Or cmb_tipos_documento.SelectedValue = -1 Then
+            MsgBox("Debe seleccionar un tipo e ingresar un documento")
         Else
-            Me.txt_id_empleado.Text = tabla.Rows(0)("id_empleado")
-            Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("id_tipo_doc")
-            Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
-            Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
-            Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
+            sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
+            sql &= " FROM EMPLEADOS E "
+            sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue
 
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows().Count = 0 Then
+                MessageBox.Show("No existe ningún empleado con el DNI ingresado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            Else
+                Me.txt_id_empleado.Text = tabla.Rows(0)("id_empleado")
+                Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("id_tipo_doc")
+                Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
+                Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
+                Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
+
+            End If
         End If
+
     End Sub
 
     Private Sub cmd_agregar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empleado.Click
