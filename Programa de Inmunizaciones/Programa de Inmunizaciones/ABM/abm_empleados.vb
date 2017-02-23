@@ -869,6 +869,7 @@
                 sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
                 sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
                 sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
+                sql &= " AND EE.id_efector='" & tabla2.Rows(c)("cuie") & "'"
                 tabla.Clear()
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() = 0 Then
@@ -1036,13 +1037,6 @@
             Return False
             Me.cmb_estado_empleado.Focus()
             Exit Function
-        ElseIf txt_usuario.Text <> "" Then
-            If cmb_perfil.SelectedIndex = -1 Then
-                MessageBox.Show("Debe seleccionar un perfil", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Return False
-                Me.cmb_perfil.Focus()
-                Exit Function
-            End If
         End If
         Return True
     End Function
