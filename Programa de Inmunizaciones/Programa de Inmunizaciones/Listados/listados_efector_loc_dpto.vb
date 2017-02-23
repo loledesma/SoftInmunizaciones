@@ -55,9 +55,13 @@
         Next obj
     End Sub
 
-    Private Sub Listados_notificaciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        
-
+    Private Sub listados_efector_loc_dpto_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+            Me.limpiar(Me.Controls)
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
     End Sub
 
     'Private Function validar_fecha() As Boolean

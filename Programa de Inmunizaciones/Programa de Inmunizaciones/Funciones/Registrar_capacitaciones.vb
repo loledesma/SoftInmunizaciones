@@ -380,6 +380,14 @@
                 Else
                     dgv_empleados.Rows(c).Cells("observaciones").Value = "NULL"
                 End If
+
+                sql = ""
+                sql &= "SELECT mail_contacto FROM EMPLEADOS WHERE id= " & tabla.Rows(c)("id_empleado")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+
+                dgv_empleados.Rows(c).Cells("mail").Value = tabla2.Rows(0)("mail_contacto")
+
             Next
         End If
     End Sub
@@ -454,6 +462,7 @@
     Private Sub nuevo()
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
+        Me.txt_observaciones.Text = ""
         Me.condicion_estado = condicion.insertar
         Dim sql As String = "SELECT * FROM CAPACITACIONES "
         Dim tabla As New DataTable
@@ -639,6 +648,8 @@
         Else
             sql &= ", observaciones= " & Me.txt_observaciones.Text
         End If
+
+
         If txt_descripcion.Text = "" Then
             sql &= ", descripcion= NULL "
         Else
@@ -895,10 +906,10 @@
                 sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
                 sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
 
-                If txt_observaciones2.Text = "" Then
-                    sql &= ", observaciones= NULL "
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
+                    Sql &= ", observaciones= NULL "
                 Else
-                    sql &= ", observaciones= " & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
+                    Sql &= ", observaciones= " & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
                 End If
                 acceso.insertar(Sql)
             End If
@@ -931,6 +942,7 @@
         Me.txt_lugar.Text = ""
         Me.cmb_localidades.SelectedValue = -1
         Me.txt_descripcion.Text = ""
+        Me.txt_observaciones.Text = ""
         Me.txt_duracion_prevista.Text = ""
         Me.cmb_estado.SelectedValue = -1
         Me.txt_hora.Text = ""
@@ -983,4 +995,6 @@
     End Sub
 
 
+ 
+  
 End Class
