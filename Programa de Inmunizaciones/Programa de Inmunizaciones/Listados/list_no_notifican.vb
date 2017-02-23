@@ -64,8 +64,6 @@
         sql &= " WHERE EF.id_estado= 3 AND (EF.id_perfil = 3 OR EF.id_perfil= 2) AND WHERE EF.cuie NOT IN= "
         sql &= "(SELECT id_efector FROM NOTIFICACIONXEFECTOR ) "
 
-       
-
 
         sql &= "ORDER BY nombre_vacunatorio, nombre_referente, mail_contacto "
 

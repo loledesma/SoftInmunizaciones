@@ -473,6 +473,7 @@
         dgv_entrega.Rows.Clear()
         Me.limpiar(Me.Controls)
         Me.cargar_grilla_entregas()
+        Me.txt_observaciones.Text = ""
         Me.txt_id_entrega.Enabled = True
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
