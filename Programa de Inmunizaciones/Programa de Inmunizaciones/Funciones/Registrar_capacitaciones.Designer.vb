@@ -98,7 +98,6 @@ Partial Class Registrar_capacitaciones
         Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -108,6 +107,7 @@ Partial Class Registrar_capacitaciones
         Me.realizoEvaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -963,7 +963,6 @@ Partial Class Registrar_capacitaciones
         Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_empleados.Location = New System.Drawing.Point(20, 267)
         Me.dgv_empleados.Name = "dgv_empleados"
-        Me.dgv_empleados.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -974,6 +973,57 @@ Partial Class Registrar_capacitaciones
         Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_empleados.Size = New System.Drawing.Size(847, 245)
         Me.dgv_empleados.TabIndex = 1
+        '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        Me.id.Width = 50
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo Doc"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.Width = 30
+        '
+        'numero
+        '
+        Me.numero.HeaderText = "Número"
+        Me.numero.Name = "numero"
+        Me.numero.Width = 75
+        '
+        'nombres
+        '
+        Me.nombres.HeaderText = "Nombre"
+        Me.nombres.Name = "nombres"
+        Me.nombres.Width = 180
+        '
+        'apellidos
+        '
+        Me.apellidos.HeaderText = "Apellidos"
+        Me.apellidos.Name = "apellidos"
+        Me.apellidos.Width = 180
+        '
+        'mail
+        '
+        Me.mail.HeaderText = "E-mail"
+        Me.mail.Name = "mail"
+        Me.mail.Width = 150
+        '
+        'realizoEvaluacion
+        '
+        Me.realizoEvaluacion.HeaderText = "Realizo Evaluacion"
+        Me.realizoEvaluacion.Name = "realizoEvaluacion"
+        '
+        'cuie
+        '
+        Me.cuie.HeaderText = "Cuie"
+        Me.cuie.Name = "cuie"
+        '
+        'observaciones
+        '
+        Me.observaciones.HeaderText = "observaciones"
+        Me.observaciones.Name = "observaciones"
         '
         'cmd_salir
         '
@@ -987,66 +1037,6 @@ Partial Class Registrar_capacitaciones
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 6
         Me.cmd_salir.UseVisualStyleBackColor = False
-        '
-        'id
-        '
-        Me.id.HeaderText = "ID"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Width = 50
-        '
-        'tipo_doc
-        '
-        Me.tipo_doc.HeaderText = "Tipo Doc"
-        Me.tipo_doc.Name = "tipo_doc"
-        Me.tipo_doc.ReadOnly = True
-        Me.tipo_doc.Width = 30
-        '
-        'numero
-        '
-        Me.numero.HeaderText = "Número"
-        Me.numero.Name = "numero"
-        Me.numero.ReadOnly = True
-        Me.numero.Width = 75
-        '
-        'nombres
-        '
-        Me.nombres.HeaderText = "Nombre"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Width = 180
-        '
-        'apellidos
-        '
-        Me.apellidos.HeaderText = "Apellidos"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Width = 180
-        '
-        'mail
-        '
-        Me.mail.HeaderText = "E-mail"
-        Me.mail.Name = "mail"
-        Me.mail.ReadOnly = True
-        Me.mail.Width = 150
-        '
-        'realizoEvaluacion
-        '
-        Me.realizoEvaluacion.HeaderText = "Realizo Evaluacion"
-        Me.realizoEvaluacion.Name = "realizoEvaluacion"
-        Me.realizoEvaluacion.ReadOnly = True
-        '
-        'cuie
-        '
-        Me.cuie.HeaderText = "Cuie"
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        '
-        'observaciones
-        '
-        Me.observaciones.HeaderText = "observaciones"
-        Me.observaciones.Name = "observaciones"
-        Me.observaciones.ReadOnly = True
         '
         'Registrar_capacitaciones
         '
