@@ -86,6 +86,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EfectoresQueNoNotificanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -137,7 +138,7 @@ Partial Class Menu
         '
         'ListadosToolStripMenuItem4
         '
-        Me.ListadosToolStripMenuItem4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificacionesRegistradasToolStripMenuItem})
+        Me.ListadosToolStripMenuItem4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificacionesRegistradasToolStripMenuItem, Me.EfectoresQueNoNotificanToolStripMenuItem})
         Me.ListadosToolStripMenuItem4.Name = "ListadosToolStripMenuItem4"
         resources.ApplyResources(Me.ListadosToolStripMenuItem4, "ListadosToolStripMenuItem4")
         '
@@ -455,6 +456,11 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
+        'EfectoresQueNoNotificanToolStripMenuItem
+        '
+        Me.EfectoresQueNoNotificanToolStripMenuItem.Name = "EfectoresQueNoNotificanToolStripMenuItem"
+        resources.ApplyResources(Me.EfectoresQueNoNotificanToolStripMenuItem, "EfectoresQueNoNotificanToolStripMenuItem")
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -534,4 +540,5 @@ Partial Class Menu
     Friend WithEvents EstadisticasToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EfectoresPorEmisiónDeResumenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EfectoresQueNoNotificanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
