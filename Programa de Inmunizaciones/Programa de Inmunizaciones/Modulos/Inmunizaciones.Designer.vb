@@ -1043,6 +1043,10 @@ Partial Public Class Inmunizaciones
 
         Private columnnombre_efector As Global.System.Data.DataColumn
 
+        Private columnhorario_desde As Global.System.Data.DataColumn
+
+        Private columnhorario_hasta As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -1119,6 +1123,22 @@ Partial Public Class Inmunizaciones
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property horario_desdeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhorario_desde
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property horario_hastaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhorario_hasta
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -1155,9 +1175,9 @@ Partial Public Class Inmunizaciones
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddLIST_EFECTOR_X_LOC_X_DPTORow(ByVal nombre_departamento As String, ByVal nombre_localidad As String, ByVal tipo_efector As String, ByVal cuie As String, ByVal nombre_efector As String) As LIST_EFECTOR_X_LOC_X_DPTORow
+        Public Overloads Function AddLIST_EFECTOR_X_LOC_X_DPTORow(ByVal nombre_departamento As String, ByVal nombre_localidad As String, ByVal tipo_efector As String, ByVal cuie As String, ByVal nombre_efector As String, ByVal horario_desde As String, ByVal horario_hasta As String) As LIST_EFECTOR_X_LOC_X_DPTORow
             Dim rowLIST_EFECTOR_X_LOC_X_DPTORow As LIST_EFECTOR_X_LOC_X_DPTORow = CType(Me.NewRow, LIST_EFECTOR_X_LOC_X_DPTORow)
-            Dim columnValuesArray() As Object = New Object() {nombre_departamento, nombre_localidad, tipo_efector, cuie, nombre_efector}
+            Dim columnValuesArray() As Object = New Object() {nombre_departamento, nombre_localidad, tipo_efector, cuie, nombre_efector, horario_desde, horario_hasta}
             rowLIST_EFECTOR_X_LOC_X_DPTORow.ItemArray = columnValuesArray
             Me.Rows.Add(rowLIST_EFECTOR_X_LOC_X_DPTORow)
             Return rowLIST_EFECTOR_X_LOC_X_DPTORow
@@ -1185,6 +1205,8 @@ Partial Public Class Inmunizaciones
             Me.columntipo_efector = MyBase.Columns("tipo_efector")
             Me.columncuie = MyBase.Columns("cuie")
             Me.columnnombre_efector = MyBase.Columns("nombre_efector")
+            Me.columnhorario_desde = MyBase.Columns("horario_desde")
+            Me.columnhorario_hasta = MyBase.Columns("horario_hasta")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -1200,6 +1222,10 @@ Partial Public Class Inmunizaciones
             MyBase.Columns.Add(Me.columncuie)
             Me.columnnombre_efector = New Global.System.Data.DataColumn("nombre_efector", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre_efector)
+            Me.columnhorario_desde = New Global.System.Data.DataColumn("horario_desde", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhorario_desde)
+            Me.columnhorario_hasta = New Global.System.Data.DataColumn("horario_hasta", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhorario_hasta)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -5031,6 +5057,38 @@ Partial Public Class Inmunizaciones
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property horario_desde() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_desdeColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'horario_desde' de la tabla 'LIST_EFECTOR_X_LOC_X_DPTO' es" & _
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_desdeColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property horario_hasta() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_hastaColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'horario_hasta' de la tabla 'LIST_EFECTOR_X_LOC_X_DPTO' es" & _
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_hastaColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function Isnombre_departamentoNull() As Boolean
             Return Me.IsNull(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.nombre_departamentoColumn)
         End Function
@@ -5087,6 +5145,30 @@ Partial Public Class Inmunizaciones
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub Setnombre_efectorNull()
             Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.nombre_efectorColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Ishorario_desdeNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_desdeColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Sethorario_desdeNull()
+            Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_desdeColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Ishorario_hastaNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_hastaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Sethorario_hastaNull()
+            Me(Me.tableLIST_EFECTOR_X_LOC_X_DPTO.horario_hastaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
 

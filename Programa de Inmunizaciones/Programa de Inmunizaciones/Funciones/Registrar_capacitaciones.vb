@@ -305,15 +305,16 @@
         Me.txt_id_capacitacion.Text = tabla2.Rows(0)("id")
         Me.cmb_tipo_capacitaciones.SelectedValue = tabla2.Rows(0)("id_tipo")
         Me.txt_lugar.Text = tabla2.Rows(0)("lugar")
-        Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
 
         sql = ""
         sql &= "SELECT D.id FROM DEPARTAMENTOS D JOIN LOCALIDADES L ON D.id = L.id_departamento "
         sql &= " WHERE L.id= " & tabla2.Rows(0)("id_localidad")
         tabla.Clear()
         tabla = acceso.consulta(sql)
-
         Me.cmb_departamento.SelectedValue = tabla.Rows(0)("id")
+        Me.cmb_localidades.cargar()
+        Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
+
 
         If IsDBNull(tabla2.Rows(0)("fecha_efectiva")) Then
             Me.txt_fecha_efectiva.Text = ""
@@ -390,6 +391,7 @@
 
             Next
         End If
+        Me.condicion_click = doble_Click.desactivado
     End Sub
     Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamento.SelectedValueChanged
         If Me.condicion_click = doble_Click.desactivado Then
