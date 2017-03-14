@@ -113,7 +113,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, TE.descripcion as tipo_efector, "
-        sql &= " EF.cuie as cuie, EF.nombre as nombre_efector "
+        sql &= " EF.cuie as cuie, EF.nombre as nombre_efector, EF.horario_desde as horario_desde, EF.horario_hasta as horario_hasta "
         sql &= " FROM EFECTORES EF JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
         sql &= " JOIN LOCALIDADES L ON EF.id_localidad= L.id "
         sql &= " JOIN TIPOS_EFECTORES TE ON EF.id_tipo = TE.id "
