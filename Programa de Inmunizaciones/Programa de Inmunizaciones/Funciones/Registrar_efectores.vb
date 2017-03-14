@@ -20,6 +20,7 @@
         cmb_tipos_documento.cargar()
         cmb_barrios.cargar()
         cmb_estado_rm.cargar()
+
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
