@@ -722,11 +722,6 @@
             cmb_tipos_documento.Focus()
             Return False
             Exit Function
-        ElseIf txt_cuie.Text = "" Then
-            MessageBox.Show("¡Ingrese el cuie!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_cuie.Focus()
-            Return False
-            Exit Function
         End If
         Return True
     End Function
@@ -745,7 +740,6 @@
                     dgv_empleados.Rows(c).Cells("nombres").Value = txt_nombres_empleado.Text
                     dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido_empleado.Text
                     dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                    dgv_empleados.Rows(c).Cells("cuie").Value = txt_cuie.Text
                     dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
 
                     sql = ""
