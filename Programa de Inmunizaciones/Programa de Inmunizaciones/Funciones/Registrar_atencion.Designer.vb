@@ -25,6 +25,8 @@ Partial Class Registrar_atencion
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_atencion))
         Me.grp_datos_atencion = New System.Windows.Forms.GroupBox()
+        Me.txt_asunto = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
@@ -41,15 +43,6 @@ Partial Class Registrar_atencion
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_estado = New System.Windows.Forms.Label()
         Me.dgv_atenciones = New System.Windows.Forms.DataGridView()
-        Me.grp_descripcion = New System.Windows.Forms.GroupBox()
-        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
-        Me.cmd_limpiar = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.tltp_atencion = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,7 +53,14 @@ Partial Class Registrar_atencion
         Me.administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.asunto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txt_asunto = New System.Windows.Forms.TextBox()
+        Me.grp_descripcion = New System.Windows.Forms.GroupBox()
+        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.tltp_atencion = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.grp_datos_atencion.SuspendLayout()
         CType(Me.dgv_atenciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_descripcion.SuspendLayout()
@@ -94,6 +94,24 @@ Partial Class Registrar_atencion
         Me.grp_datos_atencion.TabStop = False
         Me.grp_datos_atencion.Text = "Datos Atención"
         '
+        'txt_asunto
+        '
+        Me.txt_asunto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_asunto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_asunto.Location = New System.Drawing.Point(109, 77)
+        Me.txt_asunto.Name = "txt_asunto"
+        Me.txt_asunto.Size = New System.Drawing.Size(262, 20)
+        Me.txt_asunto.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 80)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.TabIndex = 59
+        Me.Label2.Text = "Asunto"
+        '
         'cmd_efector_nuevo
         '
         Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
@@ -108,7 +126,7 @@ Partial Class Registrar_atencion
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
         Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
-        Me.cmd_efector_nuevo.TabIndex = 7
+        Me.cmd_efector_nuevo.TabIndex = 8
         Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
@@ -127,7 +145,7 @@ Partial Class Registrar_atencion
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 4
+        Me.cmd_actualizar_estado.TabIndex = 5
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
@@ -139,7 +157,7 @@ Partial Class Registrar_atencion
         Me.txt_cuie.Location = New System.Drawing.Point(111, 206)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(150, 20)
-        Me.txt_cuie.TabIndex = 7
+        Me.txt_cuie.TabIndex = 9
         '
         'lbl_cuie
         '
@@ -157,7 +175,7 @@ Partial Class Registrar_atencion
         Me.txt_efector.Location = New System.Drawing.Point(111, 177)
         Me.txt_efector.Name = "txt_efector"
         Me.txt_efector.Size = New System.Drawing.Size(262, 20)
-        Me.txt_efector.TabIndex = 6
+        Me.txt_efector.TabIndex = 7
         '
         'lbl_efector
         '
@@ -176,7 +194,7 @@ Partial Class Registrar_atencion
         Me.cmd_buscar.Location = New System.Drawing.Point(353, 16)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(37, 36)
-        Me.cmd_buscar.TabIndex = 2
+        Me.cmd_buscar.TabIndex = 1
         Me.cmd_buscar.UseVisualStyleBackColor = True
         '
         'cmb_empleados
@@ -188,7 +206,7 @@ Partial Class Registrar_atencion
         Me.cmb_empleados.Location = New System.Drawing.Point(111, 140)
         Me.cmb_empleados.Name = "cmb_empleados"
         Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 5
+        Me.cmb_empleados.TabIndex = 6
         '
         'Label1
         '
@@ -217,7 +235,7 @@ Partial Class Registrar_atencion
         Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 108)
         Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
         Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_atencion.TabIndex = 3
+        Me.cmb_estado_atencion.TabIndex = 4
         '
         'txt_id_atencion
         '
@@ -232,7 +250,7 @@ Partial Class Registrar_atencion
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha.TabIndex = 1
+        Me.txt_fecha.TabIndex = 2
         Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'lbl_perfil
@@ -264,6 +282,74 @@ Partial Class Registrar_atencion
         Me.dgv_atenciones.ReadOnly = True
         Me.dgv_atenciones.Size = New System.Drawing.Size(656, 515)
         Me.dgv_atenciones.TabIndex = 7
+        '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'fecha
+        '
+        Me.fecha.HeaderText = "Fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        '
+        'estado
+        '
+        Me.estado.HeaderText = "Estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        '
+        'id_estado
+        '
+        Me.id_estado.HeaderText = "id_estado"
+        Me.id_estado.Name = "id_estado"
+        Me.id_estado.ReadOnly = True
+        Me.id_estado.Visible = False
+        '
+        'efector
+        '
+        Me.efector.HeaderText = "Efector"
+        Me.efector.Name = "efector"
+        Me.efector.ReadOnly = True
+        Me.efector.Width = 200
+        '
+        'cuie
+        '
+        Me.cuie.HeaderText = "CUIE"
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        Me.cuie.Visible = False
+        '
+        'id_administrador
+        '
+        Me.id_administrador.HeaderText = "id_administrador"
+        Me.id_administrador.Name = "id_administrador"
+        Me.id_administrador.ReadOnly = True
+        Me.id_administrador.Visible = False
+        '
+        'administrador
+        '
+        Me.administrador.HeaderText = "Administrador"
+        Me.administrador.Name = "administrador"
+        Me.administrador.ReadOnly = True
+        Me.administrador.Visible = False
+        Me.administrador.Width = 150
+        '
+        'asunto
+        '
+        Me.asunto.HeaderText = "Asunto"
+        Me.asunto.Name = "asunto"
+        Me.asunto.ReadOnly = True
+        Me.asunto.Width = 150
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripcion"
+        Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
+        Me.descripcion.Width = 200
         '
         'grp_descripcion
         '
@@ -373,92 +459,6 @@ Partial Class Registrar_atencion
         Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 80)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(40, 13)
-        Me.Label2.TabIndex = 59
-        Me.Label2.Text = "Asunto"
-        '
-        'id
-        '
-        Me.id.HeaderText = "ID"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'fecha
-        '
-        Me.fecha.HeaderText = "Fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        '
-        'estado
-        '
-        Me.estado.HeaderText = "Estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        '
-        'id_estado
-        '
-        Me.id_estado.HeaderText = "id_estado"
-        Me.id_estado.Name = "id_estado"
-        Me.id_estado.ReadOnly = True
-        Me.id_estado.Visible = False
-        '
-        'efector
-        '
-        Me.efector.HeaderText = "Efector"
-        Me.efector.Name = "efector"
-        Me.efector.ReadOnly = True
-        Me.efector.Width = 200
-        '
-        'cuie
-        '
-        Me.cuie.HeaderText = "CUIE"
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        Me.cuie.Visible = False
-        '
-        'id_administrador
-        '
-        Me.id_administrador.HeaderText = "id_administrador"
-        Me.id_administrador.Name = "id_administrador"
-        Me.id_administrador.ReadOnly = True
-        Me.id_administrador.Visible = False
-        '
-        'administrador
-        '
-        Me.administrador.HeaderText = "Administrador"
-        Me.administrador.Name = "administrador"
-        Me.administrador.ReadOnly = True
-        Me.administrador.Visible = False
-        Me.administrador.Width = 150
-        '
-        'asunto
-        '
-        Me.asunto.HeaderText = "Asunto"
-        Me.asunto.Name = "asunto"
-        Me.asunto.ReadOnly = True
-        Me.asunto.Width = 150
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripcion"
-        Me.descripcion.Name = "descripcion"
-        Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 200
-        '
-        'txt_asunto
-        '
-        Me.txt_asunto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_asunto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_asunto.Location = New System.Drawing.Point(109, 77)
-        Me.txt_asunto.Name = "txt_asunto"
-        Me.txt_asunto.Size = New System.Drawing.Size(262, 20)
-        Me.txt_asunto.TabIndex = 60
         '
         'Registrar_atencion
         '

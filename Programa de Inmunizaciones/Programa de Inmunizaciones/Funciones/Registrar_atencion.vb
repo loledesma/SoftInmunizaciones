@@ -306,6 +306,7 @@
         sql &= "id = " & Me.txt_id_atencion.Text
         sql &= ", fecha ='" & Me.txt_fecha.Text & "'"
         sql &= ", id_estados_atencion= " & Me.cmb_estado_atencion.SelectedValue
+        sql &= ", asunto= " & Me.txt_asunto.Text
         sql &= ", id_efector=" & Me.txt_cuie.Text
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
