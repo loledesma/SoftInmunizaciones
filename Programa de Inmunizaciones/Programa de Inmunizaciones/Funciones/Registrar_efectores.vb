@@ -444,12 +444,15 @@
                     End If
                 Else
                     MessageBox.Show("Ya se encuentra registrado este efector")
+                    Me.txt_cuie.Focus()
                     Exit Sub
                 End If
             Else
                 Me.modificar()
                 modificar_empleadoXEfector()
             End If
+        Else
+            Exit Sub
         End If
 
 
