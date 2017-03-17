@@ -108,6 +108,8 @@ Partial Class Registrar_capacitaciones
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.lbl_asistentes = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -586,6 +588,8 @@ Partial Class Registrar_capacitaciones
         'Asistencia
         '
         Me.Asistencia.BackColor = System.Drawing.Color.Navy
+        Me.Asistencia.Controls.Add(Me.lbl_asistentes)
+        Me.Asistencia.Controls.Add(Me.Label22)
         Me.Asistencia.Controls.Add(Me.GroupBox2)
         Me.Asistencia.Controls.Add(Me.cmd_limpiar_asistencia)
         Me.Asistencia.Controls.Add(Me.cmd_guardar_asistencia)
@@ -1039,6 +1043,29 @@ Partial Class Registrar_capacitaciones
         Me.cmd_salir.TabIndex = 6
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
+        'lbl_asistentes
+        '
+        Me.lbl_asistentes.AutoSize = True
+        Me.lbl_asistentes.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_asistentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_asistentes.ForeColor = System.Drawing.Color.White
+        Me.lbl_asistentes.Location = New System.Drawing.Point(742, 529)
+        Me.lbl_asistentes.Name = "lbl_asistentes"
+        Me.lbl_asistentes.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_asistentes.TabIndex = 55
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(636, 528)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(88, 17)
+        Me.Label22.TabIndex = 54
+        Me.Label22.Text = "Asistentes:"
+        '
         'Registrar_capacitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1060,6 +1087,7 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_capacitacion.ResumeLayout(False)
         Me.grp_datos_capacitacion.PerformLayout()
         Me.Asistencia.ResumeLayout(False)
+        Me.Asistencia.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.grp_datos_empleados.ResumeLayout(False)
         Me.grp_datos_empleados.PerformLayout()
@@ -1148,4 +1176,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents fecha_programada As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents fecha_efectiva As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lbl_asistentes As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
 End Class
