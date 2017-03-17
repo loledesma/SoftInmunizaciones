@@ -991,6 +991,9 @@
     End Sub
 
 
+    Private Sub dgv_empleados_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
+        lbl_asistentes.Text = Me.dgv_empleados.Rows.Count()
+    End Sub
  
   
 End Class
