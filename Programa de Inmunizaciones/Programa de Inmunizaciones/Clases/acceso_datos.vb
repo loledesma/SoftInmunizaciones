@@ -256,7 +256,7 @@
         Dim cmd As OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
 
-        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LILI;Integrated Security=SSPI;Initial Catalog=INMUNIZACIONES")
         conexion.Open()
 
         cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
