@@ -49,6 +49,7 @@
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -287,6 +288,12 @@
     <Compile Include="Listados\list_heladeras_antiguas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_no_notifican.Designer.vb">
+      <DependentUpon>list_no_notifican.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_no_notifican.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_usuarios.Designer.vb">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </Compile>
@@ -436,6 +443,10 @@
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.rdlc" />
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.resx">
       <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_no_notifican.rdlc" />
+    <EmbeddedResource Include="Listados\list_no_notifican.resx">
+      <DependentUpon>list_no_notifican.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>

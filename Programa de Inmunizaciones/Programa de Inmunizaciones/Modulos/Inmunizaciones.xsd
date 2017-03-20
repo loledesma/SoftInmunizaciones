@@ -33,6 +33,8 @@
               <xs:element name="tipo_efector" msprop:Generator_ColumnVarNameInTable="columntipo_efector" msprop:Generator_ColumnPropNameInRow="tipo_efector" msprop:Generator_ColumnPropNameInTable="tipo_efectorColumn" msprop:Generator_UserColumnName="tipo_efector" type="xs:string" minOccurs="0" />
               <xs:element name="cuie" msprop:Generator_ColumnVarNameInTable="columncuie" msprop:Generator_ColumnPropNameInRow="cuie" msprop:Generator_ColumnPropNameInTable="cuieColumn" msprop:Generator_UserColumnName="cuie" type="xs:string" minOccurs="0" />
               <xs:element name="nombre_efector" msprop:Generator_ColumnVarNameInTable="columnnombre_efector" msprop:Generator_ColumnPropNameInRow="nombre_efector" msprop:Generator_ColumnPropNameInTable="nombre_efectorColumn" msprop:Generator_UserColumnName="nombre_efector" type="xs:string" minOccurs="0" />
+              <xs:element name="horario_desde" msprop:Generator_ColumnVarNameInTable="columnhorario_desde" msprop:Generator_ColumnPropNameInRow="horario_desde" msprop:Generator_ColumnPropNameInTable="horario_desdeColumn" msprop:Generator_UserColumnName="horario_desde" type="xs:string" minOccurs="0" />
+              <xs:element name="horario_hasta" msprop:Generator_ColumnVarNameInTable="columnhorario_hasta" msprop:Generator_ColumnPropNameInRow="horario_hasta" msprop:Generator_ColumnPropNameInTable="horario_hastaColumn" msprop:Generator_UserColumnName="horario_hasta" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -149,6 +151,15 @@
               <xs:element name="emite_sigipsa" msprop:Generator_ColumnVarNameInTable="columnemite_sigipsa" msprop:Generator_ColumnPropNameInRow="emite_sigipsa" msprop:Generator_ColumnPropNameInTable="emite_sigipsaColumn" msprop:Generator_UserColumnName="emite_sigipsa" type="xs:string" minOccurs="0" />
               <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" type="xs:string" minOccurs="0" />
               <xs:element name="localidad" msprop:Generator_ColumnVarNameInTable="columnlocalidad" msprop:Generator_ColumnPropNameInRow="localidad" msprop:Generator_ColumnPropNameInTable="localidadColumn" msprop:Generator_UserColumnName="localidad" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LIST_NO_NOTIFICA" msprop:Generator_TableClassName="LIST_NO_NOTIFICADataTable" msprop:Generator_TableVarName="tableLIST_NO_NOTIFICA" msprop:Generator_RowChangedName="LIST_NO_NOTIFICARowChanged" msprop:Generator_TablePropName="LIST_NO_NOTIFICA" msprop:Generator_RowDeletingName="LIST_NO_NOTIFICARowDeleting" msprop:Generator_RowChangingName="LIST_NO_NOTIFICARowChanging" msprop:Generator_RowEvHandlerName="LIST_NO_NOTIFICARowChangeEventHandler" msprop:Generator_RowDeletedName="LIST_NO_NOTIFICARowDeleted" msprop:Generator_RowClassName="LIST_NO_NOTIFICARow" msprop:Generator_UserTableName="LIST_NO_NOTIFICA" msprop:Generator_RowEvArgName="LIST_NO_NOTIFICARowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_vacunatorio" msprop:Generator_ColumnVarNameInTable="columnnombre_vacunatorio" msprop:Generator_ColumnPropNameInRow="nombre_vacunatorio" msprop:Generator_ColumnPropNameInTable="nombre_vacunatorioColumn" msprop:Generator_UserColumnName="nombre_vacunatorio" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_referente" msprop:Generator_ColumnVarNameInTable="columnnombre_referente" msprop:Generator_ColumnPropNameInRow="nombre_referente" msprop:Generator_ColumnPropNameInTable="nombre_referenteColumn" msprop:Generator_UserColumnName="nombre_referente" type="xs:string" minOccurs="0" />
+              <xs:element name="mail_contacto" msprop:Generator_ColumnVarNameInTable="columnmail_contacto" msprop:Generator_ColumnPropNameInRow="mail_contacto" msprop:Generator_ColumnPropNameInTable="mail_contactoColumn" msprop:Generator_UserColumnName="mail_contacto" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

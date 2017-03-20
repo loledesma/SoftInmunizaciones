@@ -55,9 +55,13 @@
         Next obj
     End Sub
 
-    Private Sub Listados_notificaciones_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        
-
+    Private Sub listados_efector_loc_dpto_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+            Me.limpiar(Me.Controls)
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
     End Sub
 
     'Private Function validar_fecha() As Boolean
@@ -109,7 +113,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, TE.descripcion as tipo_efector, "
-        sql &= " EF.cuie as cuie, EF.nombre as nombre_efector "
+        sql &= " EF.cuie as cuie, EF.nombre as nombre_efector, EF.horario_desde as horario_desde, EF.horario_hasta as horario_hasta "
         sql &= " FROM EFECTORES EF JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
         sql &= " JOIN LOCALIDADES L ON EF.id_localidad= L.id "
         sql &= " JOIN TIPOS_EFECTORES TE ON EF.id_tipo = TE.id "
