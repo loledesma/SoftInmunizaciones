@@ -55,21 +55,7 @@
 
     Private Sub insertar()
         Dim sql As String = ""
-        Dim id As Integer = 0
-        Dim sqlId = ""
-        Dim tablaId As New DataTable
-
-        sqlId = "SELECT * FROM LOCALIDADES"
-        tablaId = acceso.consulta(sqlId)
-
-        If tablaId.Rows.Count = 0 Then
-            id = 1
-            txt_id_localidad.Text = id
-        Else
-            Dim ultimo As Integer = tablaId.Rows.Count() - 1
-            id = tablaId.Rows(ultimo)("id") + 1
-            txt_id_localidad.Text = id
-        End If
+        Dim id As Integer = obtenerId()
 
         sql &= "INSERT INTO LOCALIDADES VALUES ( " & id & ",'" & Me.txt_descripcion.Text & "' , " & Me.txt_cod_postal.Text & ", " & Me.cmb_dptos.SelectedValue & ")"
         acceso.ejecutar(sql)
@@ -360,8 +346,7 @@
         txt_descripcion.Focus()
 
     End Sub
-
-    Private Sub guardar()
+    Private Function obtenerId()
         Dim id As Integer = 0
         Dim sqlId = ""
         Dim tablaId As New DataTable
@@ -377,6 +362,10 @@
             id = tablaId.Rows(ultimo)("id") + 1
             txt_id_localidad.Text = id
         End If
+        Return id
+    End Function
+    Private Sub guardar()
+        obtenerId()
         If Me.validar_campos() = True Then
             If condicion = estado.insertar Then
                 If validar_existencia() = analizar_existencia.no_existe Then
