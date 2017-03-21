@@ -1110,5 +1110,4 @@
         Inventario_cadena_de_frio.ShowDialog()
     End Sub
 
-
 End Class
