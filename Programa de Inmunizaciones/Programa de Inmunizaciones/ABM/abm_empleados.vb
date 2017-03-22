@@ -488,8 +488,27 @@
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
         guardar()
     End Sub
-  
+
+    Private Function obtenerId()
+        Dim id As Integer = 0
+        Dim sqlId = ""
+        Dim tablaId As New DataTable
+
+        sqlId = "SELECT * FROM EMPLEADOS"
+        tablaId = acceso.consulta(sqlId)
+
+        If tablaId.Rows.Count = 0 Then
+            id = 1
+            txt_id_empleado.Text = id
+        Else
+            Dim ultimo As Integer = tablaId.Rows.Count() - 1
+            id = tablaId.Rows(ultimo)("id") + 1
+            txt_id_empleado.Text = id
+        End If
+        Return id
+    End Function
     Private Sub guardar()
+        obtenerId()
         If Me.validar_empleado() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
@@ -585,9 +604,9 @@
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         acceso._nombre_tabla = "EMPLEADOS"
+        Dim id As Integer = obtenerId()
 
-
-        sql = "id = " & Me.txt_id_empleado.Text
+        sql = "id = " & id
         sql &= ", id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
         sql &= ", nro_doc = " & Me.txt_nro_documento.Text
         sql &= ", nombres=" & Me.txt_nombre.Text
@@ -748,12 +767,12 @@
         limpiar(Controls)
         condicion_estado = estado.insertar
         tabla = acceso.consulta(sql)
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_empleado.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_empleado.Text = tabla.Rows(ultimo)("id") + 1
-        End If
+        'If tabla.Rows.Count() = 0 Then
+        '    Me.txt_id_empleado.Text = 1
+        'Else
+        '    Dim ultimo As Integer = tabla.Rows.Count() - 1
+        '    Me.txt_id_empleado.Text = tabla.Rows(ultimo)("id") + 1
+        'End If
         grp_datos_laborales.Enabled = True
         grp_datos_personales.Enabled = True
         grp_datos_sigipsa.Enabled = True
@@ -948,7 +967,7 @@
 
     Private Function validar_empleado() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If txt_id_empleado.Text = "" Then
+        If txt_id_empleado.Text = "..." Then
             MessageBox.Show("Debe seleccionar un id de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_id_empleado.Focus()
