@@ -55,10 +55,10 @@
 
     Private Sub insertar()
         Dim sql As String = ""
+        Dim id As Integer = obtenerId()
 
-        sql &= "INSERT INTO LOCALIDADES VALUES ( " & Me.txt_id_localidad.Text & ",'" & Me.txt_descripcion.Text & "' , " & Me.txt_cod_postal.Text & ", " & Me.cmb_dptos.SelectedValue & ")"
+        sql &= "INSERT INTO LOCALIDADES VALUES ( " & id & ",'" & Me.txt_descripcion.Text & "' , " & Me.txt_cod_postal.Text & ", " & Me.cmb_dptos.SelectedValue & ")"
         acceso.ejecutar(sql)
-
     End Sub
 
     Private Sub modificar()
@@ -75,12 +75,12 @@
     End Sub
 
     Private Function validar_campos() As Boolean
-        If txt_id_localidad.Text = "" Then
-            MessageBox.Show("El campo ID está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_id_localidad.Focus()
-            Exit Function
-        End If
+        'If txt_id_localidad.Text = "" Then
+        '    MessageBox.Show("El campo ID está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        '    Return False
+        '    Me.txt_id_localidad.Focus()
+        '    Exit Function
+        'End If
         If txt_descripcion.Text = "" Then
             MessageBox.Show("El campo DESCRIPCIÓN está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
@@ -335,8 +335,8 @@
         Dim tabla As New DataTable
         limpiar(Controls)
         tabla = acceso.consulta(sql)
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
-        Me.txt_id_localidad.Text = tabla.Rows(ultimo)("id") + 1
+        'Dim ultimo As Integer = tabla.Rows.Count() - 1
+        'Me.txt_id_localidad.Text = tabla.Rows(ultimo)("id") + 1
         txt_id_localidad.Enabled = False
         cmd_eliminar.Enabled = False
         cmd_nuevo.Enabled = False
@@ -346,8 +346,26 @@
         txt_descripcion.Focus()
 
     End Sub
+    Private Function obtenerId()
+        Dim id As Integer = 0
+        Dim sqlId = ""
+        Dim tablaId As New DataTable
 
+        sqlId = "SELECT * FROM LOCALIDADES"
+        tablaId = acceso.consulta(sqlId)
+
+        If tablaId.Rows.Count = 0 Then
+            id = 1
+            txt_id_localidad.Text = id
+        Else
+            Dim ultimo As Integer = tablaId.Rows.Count() - 1
+            id = tablaId.Rows(ultimo)("id") + 1
+            txt_id_localidad.Text = id
+        End If
+        Return id
+    End Function
     Private Sub guardar()
+        obtenerId()
         If Me.validar_campos() = True Then
             If condicion = estado.insertar Then
                 If validar_existencia() = analizar_existencia.no_existe Then
