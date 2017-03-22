@@ -251,25 +251,58 @@
         Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor & " OR " & nom_col2 & " = " & valor2)
     End Function
 
-    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
+    'Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
+    '    Dim conexion As OleDb.OleDbConnection
+    '    Dim cmd As OleDb.OleDbCommand
+    '    Dim res As OleDb.OleDbDataReader
+
+    '    conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+    '    conexion.Open()
+
+    '    cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+    '    res = cmd.ExecuteReader()
+
+    '    While res.Read()
+    '        If IsDBNull(res.Item(descripcion)) = False Then
+    '            textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
+    '        End If
+    '    End While
+    '    res.Close()
+
+    'End Sub
+
+    Public Function autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String) As AutoCompleteStringCollection
         Dim conexion As OleDb.OleDbConnection
         Dim cmd As OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
+        Dim Coleccion As New AutoCompleteStringCollection
+        
 
         conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
-        conexion.Open()
 
-        cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
-        res = cmd.ExecuteReader()
+        Using conexion
+            conexion.Open()
 
-        While res.Read()
-            If IsDBNull(res.Item(descripcion)) = False Then
-                textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
-            End If
-        End While
-        res.Close()
+            cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+            res = cmd.ExecuteReader()
 
-    End Sub
+            'While res.Read()
+            '    Coleccion.AddRange(New String() {res(0)})
+            'End While
+
+            'For Each s As String In res.Item(descripcion)
+            '    If IsDBNull(res.Item(descripcion)) = False Then
+            '        If s.Contains(textbx.Text) Then
+            '            Coleccion.AddRange(New String() {res(0)})
+            '        End If
+            '    End If
+            'Next
+
+            res.Close()
+        End Using
+        Return Coleccion
+    End Function
+
 
 
 End Class
