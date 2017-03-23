@@ -300,7 +300,7 @@
         Dim sqlId = ""
         Dim tablaId As New DataTable
 
-        sqlId = "SELECT * FROM NOTIFICACIONESXEFECTOR"
+        sqlId = "SELECT * FROM NOTIFICACIONXEFECTOR"
         tablaId = acceso.consulta(sqlId)
 
         If tablaId.Rows.Count = 0 Then
