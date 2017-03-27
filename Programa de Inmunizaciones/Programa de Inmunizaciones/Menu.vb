@@ -141,4 +141,8 @@
     Private Sub EfectoresQueNoNotificanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresQueNoNotificanToolStripMenuItem.Click
         list_no_notifican.ShowDialog()
     End Sub
+
+    Private Sub EfectoresConInternetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresConInternetToolStripMenuItem.Click
+        list_efect_internet.ShowDialog()
+    End Sub
 End Class
