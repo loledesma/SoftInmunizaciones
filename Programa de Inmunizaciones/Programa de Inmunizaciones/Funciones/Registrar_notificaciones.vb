@@ -264,10 +264,12 @@
 
     Private Sub insertar()
         Dim sql As String = ""
+        Dim id As Integer = 0
+        id = obtenerId()
         acceso._nombre_tabla = "NOTIFICACIONXEFECTOR"
 
 
-        sql &= "id = " & Me.txt_id_notificacion.Text
+        sql &= "id = " & id
         sql &= ", fecha = '" & Me.txt_fecha.Text & "'"
         sql &= ", id_estado_carga = " & Me.cmb_carga.SelectedValue
         sql &= ", id_estado_stock = " & Me.cmb_stock.SelectedValue
@@ -292,7 +294,27 @@
 
         acceso.ejecutar(sql)
     End Sub
+
+    Private Function obtenerId()
+        Dim id As Integer = 0
+        Dim sqlId = ""
+        Dim tablaId As New DataTable
+
+        sqlId = "SELECT * FROM NOTIFICACIONXEFECTOR"
+        tablaId = acceso.consulta(sqlId)
+
+        If tablaId.Rows.Count = 0 Then
+            id = 1
+            txt_id_notificacion.Text = id
+        Else
+            Dim ultimo As Integer = tablaId.Rows.Count() - 1
+            id = tablaId.Rows(ultimo)("id") + 1
+            txt_id_notificacion.Text = id
+        End If
+        Return id
+    End Function
     Private Sub guardar()
+        obtenerId()
         If Me.validar() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
@@ -322,12 +344,12 @@
         Dim tabla As New DataTable
         tabla = acceso.consulta(sql)
 
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_notificacion.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_notificacion.Text = tabla.Rows(ultimo)("id") + 1
-        End If
+        'If tabla.Rows.Count() = 0 Then
+        '    Me.txt_id_notificacion.Text = 1
+        'Else
+        '    Dim ultimo As Integer = tabla.Rows.Count() - 1
+        '    Me.txt_id_notificacion.Text = tabla.Rows(ultimo)("id") + 1
+        'End If
 
         Me.txt_id_notificacion.Enabled = False
         Me.cmb_departamentos.Enabled = True
