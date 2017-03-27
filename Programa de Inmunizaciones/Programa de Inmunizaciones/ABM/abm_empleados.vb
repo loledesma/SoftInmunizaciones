@@ -326,8 +326,8 @@
                             dgv_efectores.Rows(d).Cells("perfil").Value = ""
                             dgv_efectores.Rows(d).Cells("id_perfil").Value = ""
                         Else
-                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla3.Rows(d)("perfil")
-                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla3.Rows(d)("id_perfil")
+                            dgv_efectores.Rows(d).Cells("perfil").Value = tabla3.Rows(0)("perfil")
+                            dgv_efectores.Rows(d).Cells("id_perfil").Value = tabla3.Rows(0)("id_perfil")
                         End If
 
                     Next
@@ -464,36 +464,6 @@
                     dgv_empleados.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
 
                 Next
-
-                If tabla2.Rows.Count = 0 Then
-                    MessageBox.Show("El empleado buscado no tiene efectores asignados", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Else
-                    For c = 0 To tabla2.Rows.Count - 1
-                        dgv_efectores.Rows.Add()
-                        dgv_efectores.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                        dgv_efectores.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(c)("nombre_efector")
-                        dgv_efectores.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                        dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
-
-                        sql = ""
-                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
-                        sql &= "FROM EMPLEADO EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
-                        sql &= " WHERE EMP.id = '" & Me.txt_usuario.Text & "'"
-                        tabla2.Clear()
-                        tabla2 = acceso.consulta(sql)
-
-                        If tabla2.Rows.Count() = 0 Then
-                            dgv_efectores.Rows(c).Cells("perfil").Value = ""
-                            dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
-                        Else
-                            dgv_efectores.Rows(c).Cells("perfil").Value = tabla2.Rows(c)("perfil")
-                            dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla2.Rows(c)("id_perfil")
-                        End If
-                        dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
-                        dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
-                    Next
-                End If
             End If
         End If
         limpiar(Controls)
@@ -518,8 +488,27 @@
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
         guardar()
     End Sub
-  
+
+    Private Function obtenerId()
+        Dim id As Integer = 0
+        Dim sqlId = ""
+        Dim tablaId As New DataTable
+
+        sqlId = "SELECT * FROM EMPLEADOS"
+        tablaId = acceso.consulta(sqlId)
+
+        If tablaId.Rows.Count = 0 Then
+            id = 1
+            txt_id_empleado.Text = id
+        Else
+            Dim ultimo As Integer = tablaId.Rows.Count() - 1
+            id = tablaId.Rows(ultimo)("id") + 1
+            txt_id_empleado.Text = id
+        End If
+        Return id
+    End Function
     Private Sub guardar()
+        obtenerId()
         If Me.validar_empleado() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
@@ -615,9 +604,9 @@
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         acceso._nombre_tabla = "EMPLEADOS"
+        Dim id As Integer = obtenerId()
 
-
-        sql = "id = " & Me.txt_id_empleado.Text
+        sql = "id = " & id
         sql &= ", id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
         sql &= ", nro_doc = " & Me.txt_nro_documento.Text
         sql &= ", nombres=" & Me.txt_nombre.Text
@@ -778,12 +767,12 @@
         limpiar(Controls)
         condicion_estado = estado.insertar
         tabla = acceso.consulta(sql)
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_empleado.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_empleado.Text = tabla.Rows(ultimo)("id") + 1
-        End If
+        'If tabla.Rows.Count() = 0 Then
+        '    Me.txt_id_empleado.Text = 1
+        'Else
+        '    Dim ultimo As Integer = tabla.Rows.Count() - 1
+        '    Me.txt_id_empleado.Text = tabla.Rows(ultimo)("id") + 1
+        'End If
         grp_datos_laborales.Enabled = True
         grp_datos_personales.Enabled = True
         grp_datos_sigipsa.Enabled = True
@@ -899,14 +888,15 @@
                 sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
                 sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
                 sql &= " WHERE EMP.id = " & Me.dgv_empleados.CurrentRow.Cells("id_empleado").Value
+                sql &= " AND EE.id_efector='" & tabla2.Rows(c)("cuie") & "'"
                 tabla.Clear()
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() = 0 Then
                     dgv_efectores.Rows(c).Cells("perfil").Value = ""
                     dgv_efectores.Rows(c).Cells("id_perfil").Value = ""
                 Else
-                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(c)("perfil")
-                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(c)("id_perfil")
+                    dgv_efectores.Rows(c).Cells("perfil").Value = tabla.Rows(0)("perfil")
+                    dgv_efectores.Rows(c).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
                 End If
             Next
         End If
@@ -977,7 +967,7 @@
 
     Private Function validar_empleado() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If txt_id_empleado.Text = "" Then
+        If txt_id_empleado.Text = "..." Then
             MessageBox.Show("Debe seleccionar un id de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_id_empleado.Focus()
@@ -1066,13 +1056,6 @@
             Return False
             Me.cmb_estado_empleado.Focus()
             Exit Function
-        ElseIf txt_usuario.Text <> "" Then
-            If cmb_perfil.SelectedIndex = -1 Then
-                MessageBox.Show("Debe seleccionar un perfil", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Return False
-                Me.cmb_perfil.Focus()
-                Exit Function
-            End If
         End If
         Return True
     End Function

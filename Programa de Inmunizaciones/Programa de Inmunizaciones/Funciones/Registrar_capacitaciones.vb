@@ -34,7 +34,7 @@
 
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido_empleado, "EMPLEADOS", "apellidos")
-        acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
+
 
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
@@ -305,15 +305,16 @@
         Me.txt_id_capacitacion.Text = tabla2.Rows(0)("id")
         Me.cmb_tipo_capacitaciones.SelectedValue = tabla2.Rows(0)("id_tipo")
         Me.txt_lugar.Text = tabla2.Rows(0)("lugar")
-        Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
 
         sql = ""
         sql &= "SELECT D.id FROM DEPARTAMENTOS D JOIN LOCALIDADES L ON D.id = L.id_departamento "
         sql &= " WHERE L.id= " & tabla2.Rows(0)("id_localidad")
         tabla.Clear()
         tabla = acceso.consulta(sql)
-
         Me.cmb_departamento.SelectedValue = tabla.Rows(0)("id")
+        Me.cmb_localidades.cargar()
+        Me.cmb_localidades.SelectedValue = tabla2.Rows(0)("id_localidad")
+
 
         If IsDBNull(tabla2.Rows(0)("fecha_efectiva")) Then
             Me.txt_fecha_efectiva.Text = ""
@@ -345,7 +346,7 @@
 
         sql = ""
         sql &= "SELECT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
-        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, EE.id_efector as cuie, A.id_empleado As id_empleado, A.observaciones As observaciones "
+        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, A.id_empleado As id_empleado, A.observaciones As observaciones "
         sql &= " FROM ASISTENCIA A JOIN EMPLEADOS E ON A.id_empleado = E.id "
         sql &= " JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
         sql &= " WHERE A.id_capacitacion= " & Me.txt_id_capacitacion.Text
@@ -372,7 +373,6 @@
                 dgv_empleados.Rows(c).Cells("numero").Value = tabla.Rows(c)("nro_doc")
                 dgv_empleados.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombre_empleado")
                 dgv_empleados.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellido_empleado")
-                dgv_empleados.Rows(c).Cells("cuie").Value = tabla.Rows(c)("cuie")
                 dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = tabla.Rows(c)("realizoEvaluacion")
 
                 If IsDBNull(tabla.Rows(c)("observaciones")) = False Then
@@ -380,8 +380,17 @@
                 Else
                     dgv_empleados.Rows(c).Cells("observaciones").Value = "NULL"
                 End If
+
+                sql = ""
+                sql &= "SELECT mail_contacto FROM EMPLEADOS WHERE id= " & tabla.Rows(c)("id_empleado")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+
+                dgv_empleados.Rows(c).Cells("mail").Value = tabla2.Rows(0)("mail_contacto")
+
             Next
         End If
+        Me.condicion_click = doble_Click.desactivado
     End Sub
     Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamento.SelectedValueChanged
         If Me.condicion_click = doble_Click.desactivado Then
@@ -435,25 +444,13 @@
         Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
         Me.txt_apellido_empleado.Text = tabla.Rows(0)("apellidos")
 
-        sql = ""
-        sql &= " SELECT * FROM EMPLEADOSXEFECTOR WHERE id_empleados= " & Me.txt_id_empleado.Text
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            MsgBox("El empleado no se encuentra asignado a un efector todavia")
-            Me.txt_cuie.Text = ""
-        ElseIf tabla.Rows.Count() > 1 Then
-            MsgBox("El empleado se encuentra registrado a más de un efector, no se puede especificar")
-        ElseIf tabla.Rows.Count() = 1 Then
-            Me.txt_cuie.Text = tabla.Rows(0)("id_efector")
-        End If
-
 
     End Sub
 
     Private Sub nuevo()
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
+        Me.txt_observaciones.Text = ""
         Me.condicion_estado = condicion.insertar
         Dim sql As String = "SELECT * FROM CAPACITACIONES "
         Dim tabla As New DataTable
@@ -639,6 +636,8 @@
         Else
             sql &= ", observaciones= " & Me.txt_observaciones.Text
         End If
+
+
         If txt_descripcion.Text = "" Then
             sql &= ", descripcion= NULL "
         Else
@@ -678,7 +677,6 @@
         Me.txt_id_empleado.Text = ""
         Me.txt_nombres_empleado.Text = ""
         Me.txt_apellido_empleado.Text = ""
-        Me.txt_cuie.Text = ""
         Me.txt_realizoEvaluacion.Text = ""
         Me.txt_observaciones2.Text = ""
     End Sub
@@ -709,11 +707,6 @@
             cmb_tipos_documento.Focus()
             Return False
             Exit Function
-        ElseIf txt_cuie.Text = "" Then
-            MessageBox.Show("¡Ingrese el cuie!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_cuie.Focus()
-            Return False
-            Exit Function
         End If
         Return True
     End Function
@@ -732,7 +725,6 @@
                     dgv_empleados.Rows(c).Cells("nombres").Value = txt_nombres_empleado.Text
                     dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido_empleado.Text
                     dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                    dgv_empleados.Rows(c).Cells("cuie").Value = txt_cuie.Text
                     dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
 
                     sql = ""
@@ -753,7 +745,6 @@
                 dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombres").Value = txt_nombres_empleado.Text
                 dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido_empleado.Text
                 dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("cuie").Value = txt_cuie.Text
                 dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones2.Text
 
                 sql = ""
@@ -781,7 +772,6 @@
         txt_apellido_empleado.Text = ""
         txt_nombres_empleado.Text = ""
         txt_realizoEvaluacion.Text = ""
-        txt_cuie.Text = ""
         txt_observaciones2.Text = ""
         Me.txt_id_empleado.Text = ""
         Me.cmb_tipos_documento.SelectedValue = -1
@@ -895,10 +885,10 @@
                 sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
                 sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
 
-                If txt_observaciones2.Text = "" Then
-                    sql &= ", observaciones= NULL "
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
+                    Sql &= ", observaciones= NULL "
                 Else
-                    sql &= ", observaciones= " & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
+                    Sql &= ", observaciones= " & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
                 End If
                 acceso.insertar(Sql)
             End If
@@ -910,7 +900,6 @@
 
     Private Sub cmd_nueva_asistencia_Click(sender As Object, e As EventArgs) Handles cmd_nueva_asistencia.Click
         Me.limpiar(Me.Controls)
-        Me.txt_cuie.Text = ""
         Me.txt_realizoEvaluacion.Text = ""
         Me.txt_observaciones2.Text = ""
 
@@ -931,13 +920,14 @@
         Me.txt_lugar.Text = ""
         Me.cmb_localidades.SelectedValue = -1
         Me.txt_descripcion.Text = ""
+        Me.txt_observaciones.Text = ""
         Me.txt_duracion_prevista.Text = ""
         Me.cmb_estado.SelectedValue = -1
         Me.txt_hora.Text = ""
     End Sub
 
 
-    Private Sub cmd_buscar_efectores_Click(sender As Object, e As EventArgs) Handles cmd_buscar_efectores.Click
+    Private Sub cmd_buscar_efectores_Click(sender As Object, e As EventArgs)
         Registrar_efectores.ShowDialog()
     End Sub
 
@@ -983,4 +973,9 @@
     End Sub
 
 
+    Private Sub dgv_empleados_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
+        lbl_asistentes.Text = Me.dgv_empleados.Rows.Count()
+    End Sub
+ 
+  
 End Class

@@ -20,6 +20,7 @@
         cmb_tipos_documento.cargar()
         cmb_barrios.cargar()
         cmb_estado_rm.cargar()
+
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
@@ -34,6 +35,7 @@
         tip()
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
+        acceso.autocompletar(txt_nombres_empleado, "EMPLEADOS", "nombres")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_nombre, "EFECTORES", "nombre")
         acceso.autocompletar(txt_referentes, "EFECTORES", "nombre")
@@ -442,12 +444,15 @@
                     End If
                 Else
                     MessageBox.Show("Ya se encuentra registrado este efector")
+                    Me.txt_cuie.Focus()
                     Exit Sub
                 End If
             Else
                 Me.modificar()
                 modificar_empleadoXEfector()
             End If
+        Else
+            Exit Sub
         End If
 
 
@@ -524,7 +529,7 @@
         acceso.ejecutar(sql)
 
     End Sub
- 
+
     Private Sub modificar_empleadoXEfector()
         Dim c As Integer = 0
         Dim txt_insert As String = ""
@@ -764,8 +769,8 @@
 
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("estado_empleado").Value = tabla.Rows(0)("descripcion")
 
-                    End if
                 End If
+            End If
         End If
 
         limpiar_empleados()
@@ -836,24 +841,28 @@
         Dim tabla As New DataTable
         txt_id_empleado.Enabled = False
 
-
-        sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
-        sql &= " FROM EMPLEADOS E "
-        sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue
-
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows().Count = 0 Then
-            MessageBox.Show("No existe ningún empleado con el DNI ingresado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
+        If txt_numero_doc.Text = "" Or cmb_tipos_documento.SelectedValue = -1 Then
+            MsgBox("Debe seleccionar un tipo e ingresar un documento")
         Else
-            Me.txt_id_empleado.Text = tabla.Rows(0)("id_empleado")
-            Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("id_tipo_doc")
-            Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
-            Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
-            Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
+            sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
+            sql &= " FROM EMPLEADOS E "
+            sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue
 
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows().Count = 0 Then
+                MessageBox.Show("No existe ningún empleado con el DNI ingresado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            Else
+                Me.txt_id_empleado.Text = tabla.Rows(0)("id_empleado")
+                Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("id_tipo_doc")
+                Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
+                Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
+                Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
+
+            End If
         End If
+
     End Sub
 
     Private Sub cmd_agregar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empleado.Click
@@ -905,8 +914,6 @@
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         Me.txt_id_empleado.Enabled = True
-        Me.grp_grilla_empleados.Enabled = True
-        Me.grp_grilla_vacunatorios.Enabled = True
         Me.grp_datos_vacunatorio.Enabled = True
         Me.grp_datos_empleados.Enabled = True
         Me.limpiar(Me.Controls)
@@ -1098,8 +1105,9 @@
         lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
     End Sub
 
-    
+
     Private Sub cmd_cadena_de_frio_Click(sender As Object, e As EventArgs) Handles cmd_cadena_de_frio.Click
         Inventario_cadena_de_frio.ShowDialog()
     End Sub
+
 End Class

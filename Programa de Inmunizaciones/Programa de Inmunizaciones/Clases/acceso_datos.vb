@@ -256,7 +256,7 @@
         Dim cmd As OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
 
-        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
         conexion.Open()
 
         cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
@@ -270,6 +270,39 @@
         res.Close()
 
     End Sub
+
+    'Public Function autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String) As AutoCompleteStringCollection
+    '    Dim conexion As OleDb.OleDbConnection
+    '    Dim cmd As OleDb.OleDbCommand
+    '    Dim res As OleDb.OleDbDataReader
+    '    Dim Coleccion As New AutoCompleteStringCollection
+
+
+    '    conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+
+    '    Using conexion
+    '        conexion.Open()
+
+    '        cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+    '        res = cmd.ExecuteReader()
+
+    '        'While res.Read()
+    '        '    Coleccion.AddRange(New String() {res(0)})
+    '        'End While
+
+    '        'For Each s As String In res.Item(descripcion)
+    '        '    If IsDBNull(res.Item(descripcion)) = False Then
+    '        '        If s.Contains(textbx.Text) Then
+    '        '            Coleccion.AddRange(New String() {res(0)})
+    '        '        End If
+    '        '    End If
+    '        'Next
+
+    '        res.Close()
+    '    End Using
+    '    Return Coleccion
+    'End Function
+
 
 
 End Class

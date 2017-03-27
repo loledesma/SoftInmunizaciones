@@ -137,4 +137,8 @@
     Private Sub RegistrarNuevaCapacitaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarNuevaCapacitaciónToolStripMenuItem.Click
         Registrar_capacitaciones.ShowDialog()
     End Sub
+
+    Private Sub EfectoresQueNoNotificanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresQueNoNotificanToolStripMenuItem.Click
+        list_no_notifican.ShowDialog()
+    End Sub
 End Class

@@ -103,7 +103,7 @@
         Dim tabla2 As New DataTable
 
         sql &= "SELECT A.id as id, A.fecha as fecha, A.id_estados_atencion as id_estado, A.id_efector as cuie, A.descripcion as descripcion "
-        sql &= " , A.id_administrador as id_administrador "
+        sql &= " , A.id_administrador as id_administrador, A.asunto as asunto "
         sql &= " FROM ATENCION_SOPORTE A "
         tabla = acceso.consulta(sql)
 
@@ -118,6 +118,7 @@
             dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("cuie")
             dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
             dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("cuie")
+            dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
             dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
             dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
 
@@ -199,6 +200,7 @@
         Me.cmb_estado_atencion.SelectedValue = tabla.Rows(0)("id_estados_atencion")
         Me.cmb_empleados.SelectedValue = tabla.Rows(0)("id_administrador")
         Me.txt_cuie.Text = tabla.Rows(0)("id_efector")
+        Me.txt_asunto.Text = tabla.Rows(0)("asunto")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
 
         sql = ""
@@ -261,6 +263,11 @@
             Return False
             Me.txt_fecha.Focus()
             Exit Function
+        ElseIf txt_asunto.Text = "" Then
+            MessageBox.Show("Debe ingresar un asunto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_asunto.Focus()
+            Exit Function
         End If
         Return True
     End Function
@@ -299,6 +306,7 @@
         sql &= "id = " & Me.txt_id_atencion.Text
         sql &= ", fecha ='" & Me.txt_fecha.Text & "'"
         sql &= ", id_estados_atencion= " & Me.cmb_estado_atencion.SelectedValue
+        sql &= ", asunto= " & Me.txt_asunto.Text
         sql &= ", id_efector=" & Me.txt_cuie.Text
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
@@ -312,6 +320,7 @@
         sql &= " SET fecha = '" & Me.txt_fecha.Text & "'"
         sql &= ", id_estados_atencion = " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", id_efector='" & Me.txt_cuie.Text & "'"
+        sql &= ", asunto='" & Me.txt_asunto.Text & "'"
         sql &= ", descripcion ='" & Me.txt_descripcion.Text & "'"
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         sql &= " WHERE id = " & Me.txt_id_atencion.Text
@@ -459,6 +468,7 @@
                     dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(0)("id_efector")
                     dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estados_atencion")
                     dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
+                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(0)("asunto")
                     dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
 
                     sql = ""

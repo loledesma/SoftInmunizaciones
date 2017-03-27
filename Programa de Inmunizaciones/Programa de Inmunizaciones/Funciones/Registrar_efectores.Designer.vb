@@ -30,7 +30,6 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_cadena_de_frio = New System.Windows.Forms.Button()
         Me.txt_referentes = New System.Windows.Forms.TextBox()
-        Me.cmb_estado_rm = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txt_pc = New System.Windows.Forms.TextBox()
         Me.txt_heladera = New System.Windows.Forms.TextBox()
@@ -38,11 +37,8 @@ Partial Class Registrar_efectores
         Me.lbl_heladera = New System.Windows.Forms.Label()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.cmd_buscar_cuie = New System.Windows.Forms.Button()
-        Me.cmb_tipo_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.cmb_estado_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.cmb_tipos_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -52,11 +48,8 @@ Partial Class Registrar_efectores
         Me.txt_telefono = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmb_barrios = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_numero = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -65,7 +58,31 @@ Partial Class Registrar_efectores
         Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.grp_grilla_empleados = New System.Windows.Forms.GroupBox()
+        Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
+        Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
+        Me.lbl_cargo = New System.Windows.Forms.Label()
+        Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txt_id_empleado = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.cmd_limpiar_empleados = New System.Windows.Forms.Button()
+        Me.cmd_eliminar_empleado = New System.Windows.Forms.Button()
+        Me.cmd_agregar_empleado = New System.Windows.Forms.Button()
+        Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
+        Me.txt_numero_doc = New System.Windows.Forms.TextBox()
+        Me.txt_apellido = New System.Windows.Forms.TextBox()
+        Me.label16 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -79,46 +96,25 @@ Partial Class Registrar_efectores
         Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
-        Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
-        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.lbl_cargo = New System.Windows.Forms.Label()
-        Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
-        Me.cmb_estados_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txt_id_empleado = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.cmd_limpiar_empleados = New System.Windows.Forms.Button()
-        Me.cmd_eliminar_empleado = New System.Windows.Forms.Button()
-        Me.cmd_agregar_empleado = New System.Windows.Forms.Button()
-        Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
-        Me.txt_numero_doc = New System.Windows.Forms.TextBox()
-        Me.txt_apellido = New System.Windows.Forms.TextBox()
-        Me.label16 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.cmd_limpiar = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
-        Me.grp_grilla_vacunatorios = New System.Windows.Forms.GroupBox()
         Me.dgv_vacunatorios = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
+        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estados_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_rm = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipo_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipos_efectores = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_barrios = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.grp_grilla_empleados.SuspendLayout()
-        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_empleados.SuspendLayout()
-        Me.grp_grilla_vacunatorios.SuspendLayout()
+        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -181,17 +177,6 @@ Partial Class Registrar_efectores
         Me.txt_referentes.Name = "txt_referentes"
         Me.txt_referentes.Size = New System.Drawing.Size(384, 20)
         Me.txt_referentes.TabIndex = 8
-        '
-        'cmb_estado_rm
-        '
-        Me.cmb_estado_rm._descripcion = "descripcion"
-        Me.cmb_estado_rm._nombre_tabla = "ESTADO_RM"
-        Me.cmb_estado_rm._pk = "id"
-        Me.cmb_estado_rm.FormattingEnabled = True
-        Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 170)
-        Me.cmb_estado_rm.Name = "cmb_estado_rm"
-        Me.cmb_estado_rm.Size = New System.Drawing.Size(153, 21)
-        Me.cmb_estado_rm.TabIndex = 10
         '
         'Label17
         '
@@ -258,17 +243,6 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_cuie.TabIndex = 1
         Me.cmd_buscar_cuie.UseVisualStyleBackColor = True
         '
-        'cmb_tipo_carga
-        '
-        Me.cmb_tipo_carga._descripcion = "descripcion"
-        Me.cmb_tipo_carga._nombre_tabla = "TIPO_CARGA"
-        Me.cmb_tipo_carga._pk = "id"
-        Me.cmb_tipo_carga.FormattingEnabled = True
-        Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 206)
-        Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
-        Me.cmb_tipo_carga.Size = New System.Drawing.Size(153, 21)
-        Me.cmb_tipo_carga.TabIndex = 12
-        '
         'Label15
         '
         Me.Label15.AutoSize = True
@@ -278,17 +252,6 @@ Partial Class Registrar_efectores
         Me.Label15.TabIndex = 18
         Me.Label15.Text = "Tipo carga"
         '
-        'cmb_estado_efector
-        '
-        Me.cmb_estado_efector._descripcion = "descripcion"
-        Me.cmb_estado_efector._nombre_tabla = "ESTADOS_EFECTOR"
-        Me.cmb_estado_efector._pk = "id"
-        Me.cmb_estado_efector.FormattingEnabled = True
-        Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 205)
-        Me.cmb_estado_efector.Name = "cmb_estado_efector"
-        Me.cmb_estado_efector.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_estado_efector.TabIndex = 11
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -297,17 +260,6 @@ Partial Class Registrar_efectores
         Me.Label14.Size = New System.Drawing.Size(40, 13)
         Me.Label14.TabIndex = 16
         Me.Label14.Text = "Estado"
-        '
-        'cmb_tipos_efectores
-        '
-        Me.cmb_tipos_efectores._descripcion = "descripcion"
-        Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
-        Me.cmb_tipos_efectores._pk = "id"
-        Me.cmb_tipos_efectores.FormattingEnabled = True
-        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 170)
-        Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
-        Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
-        Me.cmb_tipos_efectores.TabIndex = 9
         '
         'Label13
         '
@@ -396,17 +348,6 @@ Partial Class Registrar_efectores
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ubicación"
         '
-        'cmb_departamento
-        '
-        Me.cmb_departamento._descripcion = "descripcion"
-        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamento._pk = "id"
-        Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(108, 45)
-        Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_departamento.TabIndex = 2
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -416,17 +357,6 @@ Partial Class Registrar_efectores
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Departamento"
         '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(332, 45)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(158, 21)
-        Me.cmb_localidades.TabIndex = 3
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -435,17 +365,6 @@ Partial Class Registrar_efectores
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Localidad"
-        '
-        'cmb_barrios
-        '
-        Me.cmb_barrios._descripcion = "descripcion"
-        Me.cmb_barrios._nombre_tabla = "BARRIOS"
-        Me.cmb_barrios._pk = "id"
-        Me.cmb_barrios.FormattingEnabled = True
-        Me.cmb_barrios.Location = New System.Drawing.Point(108, 72)
-        Me.cmb_barrios.Name = "cmb_barrios"
-        Me.cmb_barrios.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_barrios.TabIndex = 4
         '
         'txt_numero
         '
@@ -516,125 +435,6 @@ Partial Class Registrar_efectores
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CUIE"
         '
-        'grp_grilla_empleados
-        '
-        Me.grp_grilla_empleados.BackColor = System.Drawing.Color.Transparent
-        Me.grp_grilla_empleados.Controls.Add(Me.dgv_empleados)
-        Me.grp_grilla_empleados.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_grilla_empleados.Location = New System.Drawing.Point(529, 320)
-        Me.grp_grilla_empleados.Name = "grp_grilla_empleados"
-        Me.grp_grilla_empleados.Size = New System.Drawing.Size(714, 279)
-        Me.grp_grilla_empleados.TabIndex = 6
-        Me.grp_grilla_empleados.TabStop = False
-        Me.grp_grilla_empleados.Text = "Empleados"
-        '
-        'dgv_empleados
-        '
-        Me.dgv_empleados.AllowUserToAddRows = False
-        Me.dgv_empleados.AllowUserToDeleteRows = False
-        Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv_empleados.Location = New System.Drawing.Point(6, 19)
-        Me.dgv_empleados.Name = "dgv_empleados"
-        Me.dgv_empleados.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_empleados.Size = New System.Drawing.Size(702, 245)
-        Me.dgv_empleados.TabIndex = 0
-        '
-        'id
-        '
-        Me.id.HeaderText = "ID"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'tipo_doc
-        '
-        Me.tipo_doc.HeaderText = "Tipo Doc"
-        Me.tipo_doc.Name = "tipo_doc"
-        Me.tipo_doc.ReadOnly = True
-        Me.tipo_doc.Width = 30
-        '
-        'numero
-        '
-        Me.numero.HeaderText = "Número"
-        Me.numero.Name = "numero"
-        Me.numero.ReadOnly = True
-        Me.numero.Width = 75
-        '
-        'nombres
-        '
-        Me.nombres.HeaderText = "Nombre"
-        Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
-        Me.nombres.Width = 180
-        '
-        'apellidos
-        '
-        Me.apellidos.HeaderText = "Apellidos"
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
-        Me.apellidos.Width = 180
-        '
-        'cargo
-        '
-        Me.cargo.HeaderText = "Cargo"
-        Me.cargo.Name = "cargo"
-        Me.cargo.ReadOnly = True
-        '
-        'usuario
-        '
-        Me.usuario.HeaderText = "Usuario Sigipsa"
-        Me.usuario.Name = "usuario"
-        Me.usuario.ReadOnly = True
-        Me.usuario.Width = 150
-        '
-        'perfil
-        '
-        Me.perfil.HeaderText = "Perfil Sigipsa"
-        Me.perfil.Name = "perfil"
-        Me.perfil.ReadOnly = True
-        '
-        'estado_empleado
-        '
-        Me.estado_empleado.HeaderText = "Estado Empleado"
-        Me.estado_empleado.Name = "estado_empleado"
-        Me.estado_empleado.ReadOnly = True
-        '
-        'id_cargo
-        '
-        Me.id_cargo.HeaderText = "ID Cargo"
-        Me.id_cargo.Name = "id_cargo"
-        Me.id_cargo.ReadOnly = True
-        '
-        'id_perfil
-        '
-        Me.id_perfil.HeaderText = "ID Perfil"
-        Me.id_perfil.Name = "id_perfil"
-        Me.id_perfil.ReadOnly = True
-        Me.id_perfil.Visible = False
-        '
-        'id_estado
-        '
-        Me.id_estado.HeaderText = "ID Estado"
-        Me.id_estado.Name = "id_estado"
-        Me.id_estado.ReadOnly = True
-        Me.id_estado.Visible = False
-        '
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
@@ -679,17 +479,6 @@ Partial Class Registrar_efectores
         Me.cmd_actualizar_sigipsa.Text = "ACTUALIZAR SIGIPSA"
         Me.cmd_actualizar_sigipsa.UseVisualStyleBackColor = True
         '
-        'cmb_cargo
-        '
-        Me.cmb_cargo._descripcion = "descripcion"
-        Me.cmb_cargo._nombre_tabla = "CARGO"
-        Me.cmb_cargo._pk = "id"
-        Me.cmb_cargo.FormattingEnabled = True
-        Me.cmb_cargo.Location = New System.Drawing.Point(300, 125)
-        Me.cmb_cargo.Name = "cmb_cargo"
-        Me.cmb_cargo.Size = New System.Drawing.Size(138, 21)
-        Me.cmb_cargo.TabIndex = 8
-        '
         'lbl_cargo
         '
         Me.lbl_cargo.AutoSize = True
@@ -727,17 +516,6 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_empleadoXDNI.TabIndex = 3
         Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
-        '
-        'cmb_estados_empleados
-        '
-        Me.cmb_estados_empleados._descripcion = "descripcion"
-        Me.cmb_estados_empleados._nombre_tabla = "ESTADOS_EMPLEADOS"
-        Me.cmb_estados_empleados._pk = "id"
-        Me.cmb_estados_empleados.FormattingEnabled = True
-        Me.cmb_estados_empleados.Location = New System.Drawing.Point(114, 124)
-        Me.cmb_estados_empleados.Name = "cmb_estados_empleados"
-        Me.cmb_estados_empleados.Size = New System.Drawing.Size(132, 21)
-        Me.cmb_estados_empleados.TabIndex = 7
         '
         'Label3
         '
@@ -878,17 +656,6 @@ Partial Class Registrar_efectores
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Número"
         '
-        'cmb_tipos_documento
-        '
-        Me.cmb_tipos_documento._descripcion = "descripcion"
-        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_tipos_documento._pk = "id"
-        Me.cmb_tipos_documento.FormattingEnabled = True
-        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
-        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
-        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
-        Me.cmb_tipos_documento.TabIndex = 1
-        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -968,17 +735,135 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
-        'grp_grilla_vacunatorios
+        'lbl_contador_efectores
         '
-        Me.grp_grilla_vacunatorios.BackColor = System.Drawing.Color.Transparent
-        Me.grp_grilla_vacunatorios.Controls.Add(Me.dgv_vacunatorios)
-        Me.grp_grilla_vacunatorios.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_grilla_vacunatorios.Location = New System.Drawing.Point(534, 10)
-        Me.grp_grilla_vacunatorios.Name = "grp_grilla_vacunatorios"
-        Me.grp_grilla_vacunatorios.Size = New System.Drawing.Size(714, 270)
-        Me.grp_grilla_vacunatorios.TabIndex = 50
-        Me.grp_grilla_vacunatorios.TabStop = False
-        Me.grp_grilla_vacunatorios.Text = "Vacunatorios"
+        Me.lbl_contador_efectores.AutoSize = True
+        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_efectores.Location = New System.Drawing.Point(715, 296)
+        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
+        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_efectores.TabIndex = 53
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(534, 295)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(169, 17)
+        Me.Label22.TabIndex = 52
+        Me.Label22.Text = "Efectores registrados:"
+        '
+        'dgv_empleados
+        '
+        Me.dgv_empleados.AllowUserToAddRows = False
+        Me.dgv_empleados.AllowUserToDeleteRows = False
+        Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_empleados.Location = New System.Drawing.Point(534, 328)
+        Me.dgv_empleados.Name = "dgv_empleados"
+        Me.dgv_empleados.ReadOnly = True
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_empleados.Size = New System.Drawing.Size(702, 271)
+        Me.dgv_empleados.TabIndex = 54
+        '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo Doc"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.ReadOnly = True
+        Me.tipo_doc.Width = 30
+        '
+        'numero
+        '
+        Me.numero.HeaderText = "Número"
+        Me.numero.Name = "numero"
+        Me.numero.ReadOnly = True
+        Me.numero.Width = 75
+        '
+        'nombres
+        '
+        Me.nombres.HeaderText = "Nombre"
+        Me.nombres.Name = "nombres"
+        Me.nombres.ReadOnly = True
+        Me.nombres.Width = 180
+        '
+        'apellidos
+        '
+        Me.apellidos.HeaderText = "Apellidos"
+        Me.apellidos.Name = "apellidos"
+        Me.apellidos.ReadOnly = True
+        Me.apellidos.Width = 180
+        '
+        'cargo
+        '
+        Me.cargo.HeaderText = "Cargo"
+        Me.cargo.Name = "cargo"
+        Me.cargo.ReadOnly = True
+        '
+        'usuario
+        '
+        Me.usuario.HeaderText = "Usuario Sigipsa"
+        Me.usuario.Name = "usuario"
+        Me.usuario.ReadOnly = True
+        Me.usuario.Width = 150
+        '
+        'perfil
+        '
+        Me.perfil.HeaderText = "Perfil Sigipsa"
+        Me.perfil.Name = "perfil"
+        Me.perfil.ReadOnly = True
+        '
+        'estado_empleado
+        '
+        Me.estado_empleado.HeaderText = "Estado Empleado"
+        Me.estado_empleado.Name = "estado_empleado"
+        Me.estado_empleado.ReadOnly = True
+        '
+        'id_cargo
+        '
+        Me.id_cargo.HeaderText = "ID Cargo"
+        Me.id_cargo.Name = "id_cargo"
+        Me.id_cargo.ReadOnly = True
+        '
+        'id_perfil
+        '
+        Me.id_perfil.HeaderText = "ID Perfil"
+        Me.id_perfil.Name = "id_perfil"
+        Me.id_perfil.ReadOnly = True
+        Me.id_perfil.Visible = False
+        '
+        'id_estado
+        '
+        Me.id_estado.HeaderText = "ID Estado"
+        Me.id_estado.Name = "id_estado"
+        Me.id_estado.ReadOnly = True
+        Me.id_estado.Visible = False
         '
         'dgv_vacunatorios
         '
@@ -994,11 +879,11 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_vacunatorios.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_vacunatorios.Location = New System.Drawing.Point(6, 16)
+        Me.dgv_vacunatorios.Location = New System.Drawing.Point(526, 14)
         Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
         Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(702, 247)
-        Me.dgv_vacunatorios.TabIndex = 0
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(702, 265)
+        Me.dgv_vacunatorios.TabIndex = 55
         '
         'cuie
         '
@@ -1028,28 +913,115 @@ Partial Class Registrar_efectores
         Me.localidad.ReadOnly = True
         Me.localidad.Width = 165
         '
-        'lbl_contador_efectores
+        'cmb_cargo
         '
-        Me.lbl_contador_efectores.AutoSize = True
-        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_efectores.Location = New System.Drawing.Point(715, 296)
-        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
-        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
-        Me.lbl_contador_efectores.TabIndex = 53
+        Me.cmb_cargo._descripcion = "descripcion"
+        Me.cmb_cargo._nombre_tabla = "CARGO"
+        Me.cmb_cargo._pk = "id"
+        Me.cmb_cargo.FormattingEnabled = True
+        Me.cmb_cargo.Location = New System.Drawing.Point(300, 125)
+        Me.cmb_cargo.Name = "cmb_cargo"
+        Me.cmb_cargo.Size = New System.Drawing.Size(138, 21)
+        Me.cmb_cargo.TabIndex = 8
         '
-        'Label22
+        'cmb_estados_empleados
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(534, 295)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(169, 17)
-        Me.Label22.TabIndex = 52
-        Me.Label22.Text = "Efectores registrados:"
+        Me.cmb_estados_empleados._descripcion = "descripcion"
+        Me.cmb_estados_empleados._nombre_tabla = "ESTADOS_EMPLEADOS"
+        Me.cmb_estados_empleados._pk = "id"
+        Me.cmb_estados_empleados.FormattingEnabled = True
+        Me.cmb_estados_empleados.Location = New System.Drawing.Point(114, 124)
+        Me.cmb_estados_empleados.Name = "cmb_estados_empleados"
+        Me.cmb_estados_empleados.Size = New System.Drawing.Size(132, 21)
+        Me.cmb_estados_empleados.TabIndex = 7
+        '
+        'cmb_tipos_documento
+        '
+        Me.cmb_tipos_documento._descripcion = "descripcion"
+        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_tipos_documento._pk = "id"
+        Me.cmb_tipos_documento.FormattingEnabled = True
+        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
+        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
+        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
+        Me.cmb_tipos_documento.TabIndex = 1
+        '
+        'cmb_estado_rm
+        '
+        Me.cmb_estado_rm._descripcion = "descripcion"
+        Me.cmb_estado_rm._nombre_tabla = "ESTADO_RM"
+        Me.cmb_estado_rm._pk = "id"
+        Me.cmb_estado_rm.FormattingEnabled = True
+        Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 170)
+        Me.cmb_estado_rm.Name = "cmb_estado_rm"
+        Me.cmb_estado_rm.Size = New System.Drawing.Size(153, 21)
+        Me.cmb_estado_rm.TabIndex = 10
+        '
+        'cmb_tipo_carga
+        '
+        Me.cmb_tipo_carga._descripcion = "descripcion"
+        Me.cmb_tipo_carga._nombre_tabla = "TIPO_CARGA"
+        Me.cmb_tipo_carga._pk = "id"
+        Me.cmb_tipo_carga.FormattingEnabled = True
+        Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 206)
+        Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
+        Me.cmb_tipo_carga.Size = New System.Drawing.Size(153, 21)
+        Me.cmb_tipo_carga.TabIndex = 12
+        '
+        'cmb_estado_efector
+        '
+        Me.cmb_estado_efector._descripcion = "descripcion"
+        Me.cmb_estado_efector._nombre_tabla = "ESTADOS_EFECTOR"
+        Me.cmb_estado_efector._pk = "id"
+        Me.cmb_estado_efector.FormattingEnabled = True
+        Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 205)
+        Me.cmb_estado_efector.Name = "cmb_estado_efector"
+        Me.cmb_estado_efector.Size = New System.Drawing.Size(159, 21)
+        Me.cmb_estado_efector.TabIndex = 11
+        '
+        'cmb_tipos_efectores
+        '
+        Me.cmb_tipos_efectores._descripcion = "descripcion"
+        Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
+        Me.cmb_tipos_efectores._pk = "id"
+        Me.cmb_tipos_efectores.FormattingEnabled = True
+        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 170)
+        Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
+        Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
+        Me.cmb_tipos_efectores.TabIndex = 9
+        '
+        'cmb_departamento
+        '
+        Me.cmb_departamento._descripcion = "descripcion"
+        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamento._pk = "id"
+        Me.cmb_departamento.FormattingEnabled = True
+        Me.cmb_departamento.Location = New System.Drawing.Point(108, 45)
+        Me.cmb_departamento.Name = "cmb_departamento"
+        Me.cmb_departamento.Size = New System.Drawing.Size(159, 21)
+        Me.cmb_departamento.TabIndex = 2
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(332, 45)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(158, 21)
+        Me.cmb_localidades.TabIndex = 3
+        '
+        'cmb_barrios
+        '
+        Me.cmb_barrios._descripcion = "descripcion"
+        Me.cmb_barrios._nombre_tabla = "BARRIOS"
+        Me.cmb_barrios._pk = "id"
+        Me.cmb_barrios.FormattingEnabled = True
+        Me.cmb_barrios.Location = New System.Drawing.Point(108, 72)
+        Me.cmb_barrios.Name = "cmb_barrios"
+        Me.cmb_barrios.Size = New System.Drawing.Size(159, 21)
+        Me.cmb_barrios.TabIndex = 4
         '
         'Registrar_efectores
         '
@@ -1058,15 +1030,15 @@ Partial Class Registrar_efectores
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1255, 669)
+        Me.Controls.Add(Me.dgv_vacunatorios)
+        Me.Controls.Add(Me.dgv_empleados)
         Me.Controls.Add(Me.lbl_contador_efectores)
         Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.grp_grilla_vacunatorios)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.grp_datos_empleados)
-        Me.Controls.Add(Me.grp_grilla_empleados)
         Me.Controls.Add(Me.grp_datos_vacunatorio)
         Me.KeyPreview = True
         Me.Name = "Registrar_efectores"
@@ -1075,11 +1047,9 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.grp_grilla_empleados.ResumeLayout(False)
-        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_empleados.ResumeLayout(False)
         Me.grp_datos_empleados.PerformLayout()
-        Me.grp_grilla_vacunatorios.ResumeLayout(False)
+        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1115,7 +1085,6 @@ Partial Class Registrar_efectores
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents cmd_buscar_cuie As System.Windows.Forms.Button
-    Friend WithEvents grp_grilla_empleados As System.Windows.Forms.GroupBox
     Friend WithEvents grp_datos_empleados As System.Windows.Forms.GroupBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents cmb_tipos_documento As Programa_de_Inmunizaciones.ComboBoxV1
@@ -1131,7 +1100,6 @@ Partial Class Registrar_efectores
     Friend WithEvents cmd_limpiar_empleados As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_empleado As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_empleado As System.Windows.Forms.Button
-    Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
     Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
@@ -1147,6 +1115,14 @@ Partial Class Registrar_efectores
     Friend WithEvents txt_heladera As System.Windows.Forms.TextBox
     Friend WithEvents lbl_pc As System.Windows.Forms.Label
     Friend WithEvents lbl_heladera As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
+    Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
+    Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1159,17 +1135,9 @@ Partial Class Registrar_efectores
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
-    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
-    Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
-    Friend WithEvents grp_grilla_vacunatorios As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents referente As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
 End Class
