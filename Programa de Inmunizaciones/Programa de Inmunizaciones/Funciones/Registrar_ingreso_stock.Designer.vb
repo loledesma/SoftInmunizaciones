@@ -39,11 +39,9 @@ Partial Class Registrar_ingreso_stock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_modelo = New System.Windows.Forms.TextBox()
         Me.txt_nro_serie = New System.Windows.Forms.TextBox()
-        Me.cmb_marca = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.cmb_insumos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
@@ -53,6 +51,10 @@ Partial Class Registrar_ingreso_stock
         Me.lbl_contador_heladeras = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_contador_cpu = New System.Windows.Forms.Label()
+        Me.cmd_buscar_marca = New System.Windows.Forms.Button()
+        Me.cmb_buscar_tipo = New System.Windows.Forms.Button()
+        Me.cmb_marca = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_insumos = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.dgv_stock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_stock.SuspendLayout()
         Me.SuspendLayout()
@@ -170,6 +172,8 @@ Partial Class Registrar_ingreso_stock
         'grp_stock
         '
         Me.grp_stock.BackColor = System.Drawing.Color.Transparent
+        Me.grp_stock.Controls.Add(Me.cmb_buscar_tipo)
+        Me.grp_stock.Controls.Add(Me.cmd_buscar_marca)
         Me.grp_stock.Controls.Add(Me.txt_cantidad)
         Me.grp_stock.Controls.Add(Me.Label3)
         Me.grp_stock.Controls.Add(Me.txt_modelo)
@@ -223,17 +227,6 @@ Partial Class Registrar_ingreso_stock
         Me.txt_nro_serie.Size = New System.Drawing.Size(283, 20)
         Me.txt_nro_serie.TabIndex = 1
         '
-        'cmb_marca
-        '
-        Me.cmb_marca._descripcion = "descripcion"
-        Me.cmb_marca._nombre_tabla = "MARCA"
-        Me.cmb_marca._pk = "id"
-        Me.cmb_marca.FormattingEnabled = True
-        Me.cmb_marca.Location = New System.Drawing.Point(98, 102)
-        Me.cmb_marca.Name = "cmb_marca"
-        Me.cmb_marca.Size = New System.Drawing.Size(160, 21)
-        Me.cmb_marca.TabIndex = 3
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -260,17 +253,6 @@ Partial Class Registrar_ingreso_stock
         Me.Label9.Size = New System.Drawing.Size(66, 13)
         Me.Label9.TabIndex = 57
         Me.Label9.Text = "Nro de Serie"
-        '
-        'cmb_insumos
-        '
-        Me.cmb_insumos._descripcion = "descripcion"
-        Me.cmb_insumos._nombre_tabla = "INSUMOS"
-        Me.cmb_insumos._pk = "id"
-        Me.cmb_insumos.FormattingEnabled = True
-        Me.cmb_insumos.Location = New System.Drawing.Point(96, 19)
-        Me.cmb_insumos.Name = "cmb_insumos"
-        Me.cmb_insumos.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_insumos.TabIndex = 0
         '
         'Label8
         '
@@ -360,7 +342,7 @@ Partial Class Registrar_ingreso_stock
         Me.lbl_contador_heladeras.BackColor = System.Drawing.Color.Transparent
         Me.lbl_contador_heladeras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_contador_heladeras.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_heladeras.Location = New System.Drawing.Point(619, 104)
+        Me.lbl_contador_heladeras.Location = New System.Drawing.Point(619, 100)
         Me.lbl_contador_heladeras.Name = "lbl_contador_heladeras"
         Me.lbl_contador_heladeras.Size = New System.Drawing.Size(0, 16)
         Me.lbl_contador_heladeras.TabIndex = 71
@@ -387,6 +369,50 @@ Partial Class Registrar_ingreso_stock
         Me.lbl_contador_cpu.Name = "lbl_contador_cpu"
         Me.lbl_contador_cpu.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_cpu.TabIndex = 73
+        '
+        'cmd_buscar_marca
+        '
+        Me.cmd_buscar_marca.BackgroundImage = CType(resources.GetObject("cmd_buscar_marca.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_marca.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_marca.Location = New System.Drawing.Point(263, 100)
+        Me.cmd_buscar_marca.Name = "cmd_buscar_marca"
+        Me.cmd_buscar_marca.Size = New System.Drawing.Size(25, 27)
+        Me.cmd_buscar_marca.TabIndex = 74
+        Me.cmd_buscar_marca.UseVisualStyleBackColor = True
+        '
+        'cmb_buscar_tipo
+        '
+        Me.cmb_buscar_tipo.BackgroundImage = CType(resources.GetObject("cmb_buscar_tipo.BackgroundImage"), System.Drawing.Image)
+        Me.cmb_buscar_tipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmb_buscar_tipo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmb_buscar_tipo.Location = New System.Drawing.Point(354, 16)
+        Me.cmb_buscar_tipo.Name = "cmb_buscar_tipo"
+        Me.cmb_buscar_tipo.Size = New System.Drawing.Size(25, 27)
+        Me.cmb_buscar_tipo.TabIndex = 80
+        Me.cmb_buscar_tipo.UseVisualStyleBackColor = True
+        '
+        'cmb_marca
+        '
+        Me.cmb_marca._descripcion = "descripcion"
+        Me.cmb_marca._nombre_tabla = "MARCA"
+        Me.cmb_marca._pk = "id"
+        Me.cmb_marca.FormattingEnabled = True
+        Me.cmb_marca.Location = New System.Drawing.Point(98, 102)
+        Me.cmb_marca.Name = "cmb_marca"
+        Me.cmb_marca.Size = New System.Drawing.Size(160, 21)
+        Me.cmb_marca.TabIndex = 3
+        '
+        'cmb_insumos
+        '
+        Me.cmb_insumos._descripcion = "descripcion"
+        Me.cmb_insumos._nombre_tabla = "INSUMOS"
+        Me.cmb_insumos._pk = "id"
+        Me.cmb_insumos.FormattingEnabled = True
+        Me.cmb_insumos.Location = New System.Drawing.Point(96, 19)
+        Me.cmb_insumos.Name = "cmb_insumos"
+        Me.cmb_insumos.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_insumos.TabIndex = 0
         '
         'Registrar_ingreso_stock
         '
@@ -446,4 +472,6 @@ Partial Class Registrar_ingreso_stock
     Friend WithEvents lbl_contador_heladeras As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lbl_contador_cpu As System.Windows.Forms.Label
+    Friend WithEvents cmd_buscar_marca As System.Windows.Forms.Button
+    Friend WithEvents cmb_buscar_tipo As System.Windows.Forms.Button
 End Class
