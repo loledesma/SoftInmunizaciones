@@ -282,6 +282,12 @@
     <Compile Include="Listados\list_efectores_x_estado.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_efect_internet.Designer.vb">
+      <DependentUpon>list_efect_internet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efect_internet.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_heladeras_antiguas.Designer.vb">
       <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
     </Compile>
@@ -432,12 +438,16 @@
       <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_con_internet.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
       <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_efectores_x_estado.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_x_estado.resx">
       <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_efect_internet.resx">
+      <DependentUpon>list_efect_internet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_ef_eminten_sigipsa.rdlc" />
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.rdlc" />

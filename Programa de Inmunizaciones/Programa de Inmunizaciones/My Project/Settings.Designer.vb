@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("""Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;Use"& _ 
-            "r ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88""")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=L"& _ 
+            "ORE;Initial Catalog=INMUNIZACIONES;password = lore88")>  _
         Public ReadOnly Property Setting() As String
             Get
                 Return CType(Me("Setting"),String)
