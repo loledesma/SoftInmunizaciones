@@ -33,6 +33,7 @@ Partial Class Menu
         Me.NuevaNotificaciónToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesRegistradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EfectoresQueNoNotificanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapacitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNuevaCapacitaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,7 +87,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EfectoresQueNoNotificanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EfectoresConInternetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -146,6 +147,11 @@ Partial Class Menu
         '
         Me.NotificacionesRegistradasToolStripMenuItem.Name = "NotificacionesRegistradasToolStripMenuItem"
         resources.ApplyResources(Me.NotificacionesRegistradasToolStripMenuItem, "NotificacionesRegistradasToolStripMenuItem")
+        '
+        'EfectoresQueNoNotificanToolStripMenuItem
+        '
+        Me.EfectoresQueNoNotificanToolStripMenuItem.Name = "EfectoresQueNoNotificanToolStripMenuItem"
+        resources.ApplyResources(Me.EfectoresQueNoNotificanToolStripMenuItem, "EfectoresQueNoNotificanToolStripMenuItem")
         '
         'EstadisticasToolStripMenuItem5
         '
@@ -284,7 +290,7 @@ Partial Class Menu
         'ListadosToolStripMenuItem
         '
         Me.ListadosToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.ListadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EfectoresPorDptoYLocalidadToolStripMenuItem, Me.EfectoresPorEstadoToolStripMenuItem, Me.EfectoresPorReferenteToolStripMenuItem, Me.EstadoDeHeladerasPorEfectorToolStripMenuItem, Me.EfectoresPorEmisiónDeResumenToolStripMenuItem})
+        Me.ListadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EfectoresPorDptoYLocalidadToolStripMenuItem, Me.EfectoresPorEstadoToolStripMenuItem, Me.EfectoresPorReferenteToolStripMenuItem, Me.EstadoDeHeladerasPorEfectorToolStripMenuItem, Me.EfectoresPorEmisiónDeResumenToolStripMenuItem, Me.EfectoresConInternetToolStripMenuItem})
         Me.ListadosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.ListadosToolStripMenuItem, "ListadosToolStripMenuItem")
         Me.ListadosToolStripMenuItem.Name = "ListadosToolStripMenuItem"
@@ -312,8 +318,8 @@ Partial Class Menu
         '
         'EfectoresPorEmisiónDeResumenToolStripMenuItem
         '
-        Me.EfectoresPorEmisiónDeResumenToolStripMenuItem.Name = "EfectoresPorEmisiónDeResumenToolStripMenuItem"
         resources.ApplyResources(Me.EfectoresPorEmisiónDeResumenToolStripMenuItem, "EfectoresPorEmisiónDeResumenToolStripMenuItem")
+        Me.EfectoresPorEmisiónDeResumenToolStripMenuItem.Name = "EfectoresPorEmisiónDeResumenToolStripMenuItem"
         '
         'EstadisticasToolStripMenuItem1
         '
@@ -456,10 +462,10 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
-        'EfectoresQueNoNotificanToolStripMenuItem
+        'EfectoresConInternetToolStripMenuItem
         '
-        Me.EfectoresQueNoNotificanToolStripMenuItem.Name = "EfectoresQueNoNotificanToolStripMenuItem"
-        resources.ApplyResources(Me.EfectoresQueNoNotificanToolStripMenuItem, "EfectoresQueNoNotificanToolStripMenuItem")
+        resources.ApplyResources(Me.EfectoresConInternetToolStripMenuItem, "EfectoresConInternetToolStripMenuItem")
+        Me.EfectoresConInternetToolStripMenuItem.Name = "EfectoresConInternetToolStripMenuItem"
         '
         'Menu
         '
@@ -541,4 +547,5 @@ Partial Class Menu
     Friend WithEvents EfectoresPorEmisiónDeResumenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EfectoresQueNoNotificanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EfectoresConInternetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
