@@ -266,18 +266,28 @@
         Dim conexion2 As OleDb.OleDbConnection
         Dim cmd As OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
+
         conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
         conexion2 = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
 
+
         Try
             conexion.Open()
+            cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+            res = cmd.ExecuteReader()
+
         Catch ex As Exception
-            conexion2.Open()
+            Try
+                conexion2.Open()
+                cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion2)
+                res = cmd.ExecuteReader()
+
+            Catch ex2 As Exception
+                MessageBox.Show("Error al intentar conectar", "Error grave")
+                Me.ultimo_error = ex.Message
+            End Try
+
         End Try
-
-
-        cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
-        res = cmd.ExecuteReader()
 
         While res.Read()
             If IsDBNull(res.Item(descripcion)) = False Then
