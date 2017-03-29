@@ -263,10 +263,18 @@
 
     Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
         Dim conexion As OleDb.OleDbConnection
+        Dim conexion2 As OleDb.OleDbConnection
         Dim cmd As OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
         conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
-        conexion.Open()
+        conexion2 = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+
+        Try
+            conexion.Open()
+        Catch ex As Exception
+            conexion2.Open()
+        End Try
+
 
         cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
         res = cmd.ExecuteReader()
