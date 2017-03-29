@@ -13,211 +13,211 @@
             fallido
         End Enum
 
-        Dim control_transaccion As resultado = resultado.ok
-        Dim ultimo_error As String = ""
-        Dim configurar_conexion As tipo_conexion = tipo_conexion.simple
-        Dim transcacion As Object
-        Dim cadena_conexion As String = ""
-        Dim conexion As Object
-        Dim cmd As Object
-        Dim motor As motores = motores.sqlServer
-        Dim nombre_tabla As String = ""
+    Dim control_transaccion As resultado = resultado.ok
+    Dim ultimo_error As String = ""
+    Dim configurar_conexion As tipo_conexion = tipo_conexion.simple
+    Dim transcacion As Object
+    Dim cadena_conexion As String = ""
+    Dim conexion As Object
+    Dim cmd As Object
+    Dim motor As motores = motores.sqlServer
+    Dim nombre_tabla As String = ""
 
 
-        Public Property _nombre_tabla As String
-            Get
-                Return nombre_tabla
-            End Get
-            Set(value As String)
-                nombre_tabla = value
-            End Set
-        End Property
+    Public Property _nombre_tabla As String
+        Get
+            Return nombre_tabla
+        End Get
+        Set(value As String)
+            nombre_tabla = value
+        End Set
+    End Property
 
-        Public Property _cadena_conexion As String
-            Get
-                Return cadena_conexion
-            End Get
-            Set(value As String)
-                cadena_conexion = value
-            End Set
-        End Property
+    Public Property _cadena_conexion As String
+        Get
+            Return cadena_conexion
+        End Get
+        Set(value As String)
+            cadena_conexion = value
+        End Set
+    End Property
 
-        Public Property _motor As motores
-            Get
-                Return motor
-            End Get
-            Set(value As motores)
-                motor = value
-            End Set
-        End Property
+    Public Property _motor As motores
+        Get
+            Return motor
+        End Get
+        Set(value As motores)
+            motor = value
+        End Set
+    End Property
 
-        Public Sub New()
-            Select Case Me.motor
-                Case motores.sqlServer
-                    Me.conexion = New OleDb.OleDbConnection
-                    Me.cmd = New OleDb.OleDbCommand
-            End Select
-        End Sub
+    Public Sub New()
+        Select Case Me.motor
+            Case motores.sqlServer
+                Me.conexion = New OleDb.OleDbConnection
+                Me.cmd = New OleDb.OleDbCommand
+        End Select
+    End Sub
 
-        Private Function conectar() As resultado
+    Private Function conectar() As resultado
 
-            If conexion.state.ToString <> "Open" Then
-                conexion.ConnectionString = cadena_conexion
+        If conexion.state.ToString <> "Open" Then
+            conexion.ConnectionString = cadena_conexion
 
-                Try
-                    conexion.Open()
-                Catch ex As Exception
-                    MessageBox.Show("Error al intentar conectar", "Error grave")
-                    Me.ultimo_error = ex.Message
-                    Return resultado.fallido
-                End Try
+            Try
+                conexion.Open()
+            Catch ex As Exception
+                MessageBox.Show("Error al intentar conectar", "Error grave")
+                Me.ultimo_error = ex.Message
+                Return resultado.fallido
+            End Try
 
-                cmd.Connection = conexion
-                cmd.CommandType = CommandType.Text
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
 
-                If Me.configurar_conexion = tipo_conexion.transaccion Then
-                    Me.transcacion = conexion.BeginTransaction()
-                    cmd.Transaction = Me.transcacion
-                End If
+            If Me.configurar_conexion = tipo_conexion.transaccion Then
+                Me.transcacion = conexion.BeginTransaction()
+                cmd.Transaction = Me.transcacion
             End If
-            Return resultado.ok
-        End Function
+        End If
+        Return resultado.ok
+    End Function
 
-        Public Sub conexion_con_transaccion()
-            Me.configurar_conexion = tipo_conexion.transaccion
-            Me.control_transaccion = resultado.ok
-        End Sub
+    Public Sub conexion_con_transaccion()
+        Me.configurar_conexion = tipo_conexion.transaccion
+        Me.control_transaccion = resultado.ok
+    End Sub
 
-        Public Sub cerrar_con_transaccion()
-            If control_transaccion = resultado.ok Then
-                Me.transcacion.Commit()
+    Public Sub cerrar_con_transaccion()
+        If control_transaccion = resultado.ok Then
+            Me.transcacion.Commit()
+        Else
+            Me.transcacion.Rollback()
+        End If
+
+        Me.conexion.Close()
+        Me.configurar_conexion = tipo_conexion.simple
+    End Sub
+
+    Private Sub cerrar()
+        If configurar_conexion = tipo_conexion.simple Then
+            Me.conexion.close()
+        End If
+    End Sub
+
+    Public Function consulta(ByRef sql As String) As DataTable
+        Dim tabla As New DataTable
+        Me.conectar()
+        Me.cmd.CommandText = sql
+        Try
+            tabla.Load(cmd.ExecuteReader())
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Me.cerrar()
+        Return tabla
+    End Function
+
+    Public Sub ejecutar(ByVal comando As String)
+        Me.conectar()
+        Me.cmd.CommandText = comando
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Me.cerrar()
+    End Sub
+
+    Public Function insertar(ByVal datos As String) As resultado
+        Dim igual, coma, columna As Integer
+        Dim valor As String
+        Dim str As String = datos.ToUpper
+        Dim tabla As DataTable
+        Dim nom_col As String
+        Dim cabecera As String = ""
+        Dim paquete_datos As String = ""
+        Dim tipo_dato As String = ""
+        Dim sql_insert As String = ""
+
+        tabla = Me.estructura_tabla()
+
+        Dim c As Integer
+
+        For c = 0 To tabla.Columns.Count() - 1
+            nom_col = tabla.Columns(c).Caption.ToUpper 'Caption es el nombre de la tabla
+            columna = str.IndexOf(nom_col) 'Verifica si el nombre de la columna se encuentra en el string
+            If columna = -1 Then
+                Continue For 'Es un next forzado. Toda la programación siguiente la saltea
+            End If
+            igual = str.IndexOf("=", columna) 'Busca el igual condicionado después de columna, que ya se encontró
+            coma = str.IndexOf(",", columna)
+
+            If coma = -1 Then
+                valor = str.Substring(igual + 1)
             Else
-                Me.transcacion.Rollback()
+                valor = str.Substring(igual + 1, coma - igual - 1)
             End If
 
-            Me.conexion.Close()
-            Me.configurar_conexion = tipo_conexion.simple
-        End Sub
+            tipo_dato = tabla.Columns(c).DataType.Name
 
-        Private Sub cerrar()
-            If configurar_conexion = tipo_conexion.simple Then
-                Me.conexion.close()
+            If cabecera = "" Then
+                cabecera += nom_col
+                paquete_datos += Me.formatear(valor, tipo_dato)
+            Else
+                cabecera += "," + nom_col
+                paquete_datos += "," + Me.formatear(valor, tipo_dato)
             End If
-        End Sub
+        Next
 
-        Public Function consulta(ByRef sql As String) As DataTable
-            Dim tabla As New DataTable
-            Me.conectar()
-            Me.cmd.CommandText = sql
+        sql_insert = "INSERT INTO " & Me.nombre_tabla
+        sql_insert &= "(" & cabecera & ") VALUES ("
+        sql_insert &= paquete_datos & ")"
+
+        If resultado.ok = Me.conectar() Then
+            Me.cmd.CommandText = sql_insert
             Try
-                tabla.Load(cmd.ExecuteReader())
+                Me.cmd.ExecuteNonQuery()
             Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-
-            Me.cerrar()
-            Return tabla
-        End Function
-
-        Public Sub ejecutar(ByVal comando As String)
-            Me.conectar()
-            Me.cmd.CommandText = comando
-
-            Try
-                cmd.ExecuteNonQuery()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-
-            Me.cerrar()
-        End Sub
-
-        Public Function insertar(ByVal datos As String) As resultado
-            Dim igual, coma, columna As Integer
-            Dim valor As String
-            Dim str As String = datos.ToUpper
-            Dim tabla As DataTable
-            Dim nom_col As String
-            Dim cabecera As String = ""
-            Dim paquete_datos As String = ""
-            Dim tipo_dato As String = ""
-            Dim sql_insert As String = ""
-
-            tabla = Me.estructura_tabla()
-
-            Dim c As Integer
-
-            For c = 0 To tabla.Columns.Count() - 1
-                nom_col = tabla.Columns(c).Caption.ToUpper 'Caption es el nombre de la tabla
-                columna = str.IndexOf(nom_col) 'Verifica si el nombre de la columna se encuentra en el string
-                If columna = -1 Then
-                    Continue For 'Es un next forzado. Toda la programación siguiente la saltea
-                End If
-                igual = str.IndexOf("=", columna) 'Busca el igual condicionado después de columna, que ya se encontró
-                coma = str.IndexOf(",", columna)
-
-                If coma = -1 Then
-                    valor = str.Substring(igual + 1)
-                Else
-                    valor = str.Substring(igual + 1, coma - igual - 1)
-                End If
-
-                tipo_dato = tabla.Columns(c).DataType.Name
-
-                If cabecera = "" Then
-                    cabecera += nom_col
-                    paquete_datos += Me.formatear(valor, tipo_dato)
-                Else
-                    cabecera += "," + nom_col
-                    paquete_datos += "," + Me.formatear(valor, tipo_dato)
-                End If
-            Next
-
-            sql_insert = "INSERT INTO " & Me.nombre_tabla
-            sql_insert &= "(" & cabecera & ") VALUES ("
-            sql_insert &= paquete_datos & ")"
-
-            If resultado.ok = Me.conectar() Then
-                Me.cmd.CommandText = sql_insert
-                Try
-                    Me.cmd.ExecuteNonQuery()
-                Catch ex As Exception
-                    Me.control_transaccion = resultado.fallido
-                    Me.cerrar()
-                    Return resultado.fallido
-                End Try
+                Me.control_transaccion = resultado.fallido
                 Me.cerrar()
-                Return resultado.ok
-            End If
+                Return resultado.fallido
+            End Try
+            Me.cerrar()
+            Return resultado.ok
+        End If
 
-        End Function
+    End Function
 
-        Private Function formatear(ByVal dato As String, ByVal tipo_dato As String) As String
-            Select Case tipo_dato
-                Case "String"
-                    Return "'" + dato + "'"
-                Case Else
-                    Return dato
-            End Select
-        End Function
+    Private Function formatear(ByVal dato As String, ByVal tipo_dato As String) As String
+        Select Case tipo_dato
+            Case "String"
+                Return "'" + dato + "'"
+            Case Else
+                Return dato
+        End Select
+    End Function
 
-        Private Function estructura_tabla() As DataTable
-            Dim sql As String = ""
-            sql = "SELECT TOP 1 * FROM " & Me.nombre_tabla 'Devuelve la primer fila de la tabla
-            Select Case Me.motor
-                Case motores.sqlServer
-                    Return Me.consulta(sql)
-            End Select
+    Private Function estructura_tabla() As DataTable
+        Dim sql As String = ""
+        sql = "SELECT TOP 1 * FROM " & Me.nombre_tabla 'Devuelve la primer fila de la tabla
+        Select Case Me.motor
+            Case motores.sqlServer
+                Return Me.consulta(sql)
+        End Select
 
-            Return New DataTable
-        End Function
+        Return New DataTable
+    End Function
 
-        Public Sub borrar(ByVal tabla As String, ByVal restriccion As String)
-            Dim sql As String = ""
+    Public Sub borrar(ByVal tabla As String, ByVal restriccion As String)
+        Dim sql As String = ""
 
-            sql &= "DELETE FROM " & tabla
-            sql &= " WHERE " & restriccion
-            acceso.ejecutar(sql)
+        sql &= "DELETE FROM " & tabla
+        sql &= " WHERE " & restriccion
+        acceso.ejecutar(sql)
 
     End Sub
 
