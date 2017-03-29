@@ -1,17 +1,20 @@
 ﻿Public Class acceso_datos
-        Enum motores
-            sqlServer
-            mySql
-            oracle
-        End Enum
-        Enum tipo_conexion
-            simple
-            transaccion
-        End Enum
-        Enum resultado
-            ok
-            fallido
-        End Enum
+    Enum motores
+        sqlServer
+        mySql
+        oracle
+    End Enum
+
+    Enum tipo_conexion
+        simple
+        transaccion
+    End Enum
+
+    Enum resultado
+        ok
+        fallido
+    End Enum
+
 
     Dim control_transaccion As resultado = resultado.ok
     Dim ultimo_error As String = ""
@@ -67,9 +70,16 @@
             Try
                 conexion.Open()
             Catch ex As Exception
-                MessageBox.Show("Error al intentar conectar", "Error grave")
-                Me.ultimo_error = ex.Message
-                Return resultado.fallido
+                Try
+                    cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                    conexion.ConnectionString = cadena_conexion
+                    conexion.Open()
+                Catch ex2 As Exception
+                    MessageBox.Show("Error al intentar conectar", "Error grave")
+                    Me.ultimo_error = ex.Message
+                    Return resultado.fallido
+                End Try
+              
             End Try
 
             cmd.Connection = conexion
