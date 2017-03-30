@@ -294,6 +294,7 @@
                 textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
             End If
         End While
+
         res.Close()
     End Sub
 
