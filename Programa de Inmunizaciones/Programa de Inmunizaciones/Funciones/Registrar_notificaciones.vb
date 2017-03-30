@@ -314,10 +314,11 @@
         Return id
     End Function
     Private Sub guardar()
-        obtenerId()
+
         If Me.validar() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
+                    obtenerId()
                     Me.insertar()
                 Else
                     MessageBox.Show("Ya se encuentra cargada esta notificación")
