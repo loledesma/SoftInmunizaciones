@@ -1,17 +1,20 @@
 ﻿Public Class acceso_datos
-        Enum motores
-            sqlServer
-            mySql
-            oracle
-        End Enum
-        Enum tipo_conexion
-            simple
-            transaccion
-        End Enum
-        Enum resultado
-            ok
-            fallido
-        End Enum
+    Enum motores
+        sqlServer
+        mySql
+        oracle
+    End Enum
+
+    Enum tipo_conexion
+        simple
+        transaccion
+    End Enum
+
+    Enum resultado
+        ok
+        fallido
+    End Enum
+
 
     Dim control_transaccion As resultado = resultado.ok
     Dim ultimo_error As String = ""
@@ -67,9 +70,16 @@
             Try
                 conexion.Open()
             Catch ex As Exception
-                MessageBox.Show("Error al intentar conectar", "Error grave")
-                Me.ultimo_error = ex.Message
-                Return resultado.fallido
+                Try
+                    cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                    conexion.ConnectionString = cadena_conexion
+                    conexion.Open()
+                Catch ex2 As Exception
+                    MessageBox.Show("Error al intentar conectar", "Error grave")
+                    Me.ultimo_error = ex.Message
+                    Return resultado.fallido
+                End Try
+              
             End Try
 
             cmd.Connection = conexion
@@ -253,19 +263,38 @@
 
     Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
         Dim conexion As OleDb.OleDbConnection
+        Dim conexion2 As OleDb.OleDbConnection
         Dim cmd As OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
-        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
-        conexion.Open()
 
-        cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
-        res = cmd.ExecuteReader()
+        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        conexion2 = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+
+
+        Try
+            conexion.Open()
+            cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+            res = cmd.ExecuteReader()
+
+        Catch ex As Exception
+            Try
+                conexion2.Open()
+                cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion2)
+                res = cmd.ExecuteReader()
+
+            Catch ex2 As Exception
+                MessageBox.Show("Error al intentar conectar", "Error grave")
+                Me.ultimo_error = ex.Message
+            End Try
+
+        End Try
 
         While res.Read()
             If IsDBNull(res.Item(descripcion)) = False Then
                 textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
             End If
         End While
+
         res.Close()
     End Sub
 
