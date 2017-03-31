@@ -1,4 +1,7 @@
-﻿Public Class acceso_datos
+﻿Imports System.Data
+Imports System.Data.SqlClient
+
+Public Class acceso_datos
     Enum motores
         sqlServer
         mySql
@@ -14,7 +17,6 @@
         ok
         fallido
     End Enum
-
 
     Dim control_transaccion As resultado = resultado.ok
     Dim ultimo_error As String = ""
@@ -65,22 +67,47 @@
     Private Function conectar() As resultado
 
         If conexion.state.ToString <> "Open" Then
-            conexion.ConnectionString = cadena_conexion
-
-            Try
-                conexion.Open()
-            Catch ex As Exception
+            If validacion_conexion = conexion_hamachi.vacio Then
+                conexion.ConnectionString = cadena_conexion
                 Try
-                    cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
-                    conexion.ConnectionString = cadena_conexion
                     conexion.Open()
-                Catch ex2 As Exception
-                    MessageBox.Show("Error al intentar conectar", "Error grave")
-                    Me.ultimo_error = ex.Message
-                    Return resultado.fallido
+                    validacion_conexion = conexion_hamachi.hamachi
+                Catch ex As Exception
+                    Try
+                        cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                        conexion.ConnectionString = cadena_conexion
+                        validacion_conexion = conexion_hamachi.interno
+                        conexion.Open()
+                    Catch ex2 As Exception
+                        MessageBox.Show("Error al intentar conectar", "Error grave")
+                        Me.ultimo_error = ex2.Message
+                        Return resultado.fallido
+                    End Try
                 End Try
-              
-            End Try
+            Else
+                If validacion_conexion = conexion_hamachi.hamachi Then
+                    conexion.ConnectionString = cadena_conexion
+                    Try
+                        conexion.Open()
+                        validacion_conexion = conexion_hamachi.hamachi
+                    Catch ex2 As Exception
+                        MessageBox.Show("Error al intentar conectar", "Error grave")
+                        Me.ultimo_error = ex2.Message
+                        Return resultado.fallido
+                    End Try
+                    If validacion_conexion = conexion_hamachi.interno Then
+                        Try
+                            cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                            conexion.ConnectionString = cadena_conexion
+                            conexion.Open()
+                        Catch ex3 As Exception
+                            MessageBox.Show("Error al intentar conectar", "Error grave")
+                            Me.ultimo_error = ex3.Message
+                            Return resultado.fallido
+                        End Try
+                    End If
+                End If
+            End If
 
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
@@ -89,6 +116,7 @@
                 Me.transcacion = conexion.BeginTransaction()
                 cmd.Transaction = Me.transcacion
             End If
+
         End If
         Return resultado.ok
     End Function
@@ -261,41 +289,82 @@
         Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor & " OR " & nom_col2 & " = " & valor2)
     End Function
 
-    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
-        Dim conexion As OleDb.OleDbConnection
-        Dim conexion2 As OleDb.OleDbConnection
-        Dim cmd As OleDb.OleDbCommand
+    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As KeyPressEventArgs)
+        Dim cmd As New OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
+        Dim sql As String = ""
 
-        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
-        conexion2 = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+        sql &= "SELECT TOP 10 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & e.KeyChar & "%'"
 
-
-        Try
-            conexion.Open()
-            cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
-            res = cmd.ExecuteReader()
-
-        Catch ex As Exception
+        If conectar() = resultado.ok Then
             Try
-                conexion2.Open()
-                cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion2)
-                res = cmd.ExecuteReader()
+                If e.KeyChar <> "" Then
+                    cmd.CommandText = sql
+                    cmd = New OleDb.OleDbCommand(sql, conexion)
+                    res = cmd.ExecuteReader
+                    If res.HasRows() = True Then
+                        While res.Read()
+                            If IsDBNull(res.Item(descripcion)) = False Then
+                                textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
+                                'textbx.AutoCompleteCustomSource = res.Item(descripcion)
+                                'textbx.AutoCompleteMode = AutoCompleteMode.Append
+                                'textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+                            End If
+                        End While
 
-            Catch ex2 As Exception
+                    End If
+
+                Else
+                    Exit Sub
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error al intentar conectar", "Error grave")
+                Me.ultimo_error = ex.Message
+            End Try
+        End If
+
+        cerrar()
+    End Sub
+
+    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
+        Dim cmd As New OleDb.OleDbCommand
+        Dim res As OleDb.OleDbDataReader
+        Dim sql As String = ""
+
+        sql &= "SELECT TOP 10 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & textbx.Text & "%'"
+
+
+        If conectar() = resultado.ok Then
+            Try
+                If textbx.Text <> "" Then
+                    cmd.CommandText = sql
+                    cmd = New OleDb.OleDbCommand(sql, conexion)
+                    res = cmd.ExecuteReader()
+                    
+                Else
+                    Exit Sub
+                End If
+            Catch ex As Exception
                 MessageBox.Show("Error al intentar conectar", "Error grave")
                 Me.ultimo_error = ex.Message
             End Try
 
-        End Try
-
-        While res.Read()
-            If IsDBNull(res.Item(descripcion)) = False Then
-                textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
+            If res.HasRows() = True Then
+                While res.Read()
+                    If IsDBNull(res.Item(descripcion)) = False Then
+                        textbx.AutoCompleteCustomSource.Clear()
+                        textbx.AutoCompleteCustomSource.Add(res.Item(descripcion).ToString)
+                        'textbx.AutoCompleteCustomSource = res.Item(descripcion)
+                        'textbx.AutoCompleteMode = AutoCompleteMode.Append
+                        'textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+                    End If
+                End While
+                res.Close()
             End If
-        End While
+        End If
 
-        res.Close()
     End Sub
 
+
 End Class
+
