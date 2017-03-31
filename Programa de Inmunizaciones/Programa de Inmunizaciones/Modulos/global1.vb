@@ -20,5 +20,13 @@ Module global1
     '    End Try
     'End Function
 
+    Enum conexion_hamachi
+        vacio
+        hamachi
+        interno
+    End Enum
+
+    Public validacion_conexion As conexion_hamachi = conexion_hamachi.vacio
+
 End Module
 

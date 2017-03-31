@@ -1220,4 +1220,18 @@
         lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
     End Sub
 
+    'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged
+    '    acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
+    'End Sub da memoria dañada
+
+    Private Sub txt_nro_documento_KeyUp(sender As Object, e As KeyEventArgs) Handles txt_nro_documento.KeyUp
+        acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
+
+    End Sub
+
+    'Private Sub txt_nro_documento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_nro_documento.KeyPress
+    '    acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc", e)
+    'End Sub
+
+  
 End Class
