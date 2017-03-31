@@ -508,7 +508,7 @@
         Return id
     End Function
     Private Sub guardar()
-        obtenerId()
+
         If Me.validar_empleado() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
@@ -517,9 +517,11 @@
                             Me.cmb_departamentos.Focus()
                             Exit Sub
                         Else
+                            obtenerId()
                             Me.insertar_empleado()
                         End If
                     End If
+                    obtenerId()
                     Me.insertar_empleado()
                     grabar_empleadoxefector()
                 Else
@@ -731,11 +733,13 @@
             If validar_existencia_efector(dgv_efectores.Rows(c).Cells("cuie").Value) = analizar_existencia.existe Then
                 txt_insert &= "UPDATE EMPLEADOSXEFECTOR "
                 txt_insert &= " SET id_cargo= " & Me.dgv_efectores.Rows(c).Cells("id_cargo").Value
+
                 If IsNothing(Me.dgv_efectores.Rows(c).Cells("id_perfil").Value) Then
                     txt_insert &= ", id_perfil= Null"
                 Else
                     txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
                 End If
+
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
                 txt_insert &= " WHERE id_empleados= " & Me.txt_id_empleado.Text & " AND id_efector='" & Me.dgv_efectores.Rows(c).Cells("cuie").Value & "'"
                 acceso.ejecutar(txt_insert)
@@ -1216,4 +1220,18 @@
         lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
     End Sub
 
+    'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged
+    '    acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
+    'End Sub da memoria dañada
+
+    Private Sub txt_nro_documento_KeyUp(sender As Object, e As KeyEventArgs) Handles txt_nro_documento.KeyUp
+        acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
+
+    End Sub
+
+    'Private Sub txt_nro_documento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_nro_documento.KeyPress
+    '    acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc", e)
+    'End Sub
+
+  
 End Class

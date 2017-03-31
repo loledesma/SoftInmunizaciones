@@ -16,8 +16,6 @@
 
     Dim condicion_inicial As condicion = condicion.insertar
     Dim condicion_click As doble_Click = doble_Click.desactivado
-
-
     Private Sub Registrar_ingreso_stock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_grilla()
         acceso.autocompletar(txt_nro_serie, "STOCK_INSUMOS", "nro_serie")
@@ -25,7 +23,7 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
-        Me.grp_stock.Enabled = False
+        Me.grp_stock.Enabled = True
         Me.cmb_marca.cargar()
         Me.cmb_insumos.cargar()
         Me.cmb_insumos.SelectedIndex = -1
@@ -37,7 +35,6 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyGroupSeparator = ","
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
-
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
@@ -129,6 +126,7 @@
 
             dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
         Next
+       
     End Sub
 
     Private Sub dgv_stock_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_stock.CellMouseDoubleClick
@@ -349,5 +347,98 @@
             lbl_contador_heladeras.Text = 0
             lbl_contador_monitores.Text = 0
         End If
+    End Sub
+
+    Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar_marca.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim c As Integer = 0
+        If cmb_marca.SelectedValue = -1 Then
+            MessageBox.Show("Ingrese una marca para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmb_marca.Focus()
+            Exit Sub
+        Else
+            sql &= "SELECT * FROM STOCK_INSUMOS WHERE id_marca = " & Me.cmb_marca.SelectedValue
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count = 0 Then
+                MessageBox.Show("No se encontró la marca: " & Me.cmb_marca.DisplayMember, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                dgv_stock.Rows.Clear()
+
+                For c = 0 To tabla.Rows.Count - 1
+                    dgv_stock.Rows.Add()
+                    dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
+                    dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
+                    dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
+                    dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
+                    dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+
+                    dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+
+                    dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+
+                Next
+            End If
+        End If
+        limpiar(Me.Controls)
+        cmb_insumos.Focus()
+    End Sub
+
+    Private Sub cmb_buscar_tipo_Click(sender As Object, e As EventArgs) Handles cmb_buscar_tipo.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim c As Integer = 0
+        If cmb_insumos.SelectedValue = -1 Then
+            MessageBox.Show("Ingrese un insumo para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmb_marca.Focus()
+            Exit Sub
+        Else
+            sql &= "SELECT * FROM STOCK_INSUMOS WHERE id_insumo = " & Me.cmb_insumos.SelectedValue
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count = 0 Then
+                MessageBox.Show("No se encontró el insumo: " & Me.cmb_insumos.DisplayMember, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                dgv_stock.Rows.Clear()
+
+                For c = 0 To tabla.Rows.Count - 1
+                    dgv_stock.Rows.Add()
+                    dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
+                    dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
+                    dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
+                    dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
+                    dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+
+                    dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+
+                    dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+                Next
+            End If
+        End If
+        limpiar(Me.Controls)
+        cmb_insumos.Focus()
     End Sub
 End Class

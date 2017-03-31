@@ -156,7 +156,7 @@ Partial Class abm_empleados
         '
         'txt_nro_documento
         '
-        Me.txt_nro_documento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_nro_documento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txt_nro_documento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_nro_documento.Location = New System.Drawing.Point(265, 50)
         Me.txt_nro_documento.Name = "txt_nro_documento"

@@ -196,12 +196,8 @@
 
     Private Function validar() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If Me.txt_id_notificacion.Text = "" Then
-            MessageBox.Show("El id está vacío", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_id_notificacion.Focus()
-            Return False
-            Exit Function
-        ElseIf IsNumeric(Me.txt_id_notificacion.Text) = False Then
+       
+        If IsNumeric(Me.txt_id_notificacion.Text) = False Then
             MessageBox.Show("No se admiten caracteres en el ID", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_id_notificacion.Focus()
             Return False
@@ -314,10 +310,11 @@
         Return id
     End Function
     Private Sub guardar()
-        obtenerId()
+
         If Me.validar() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
+                    obtenerId()
                     Me.insertar()
                 Else
                     MessageBox.Show("Ya se encuentra cargada esta notificación")
