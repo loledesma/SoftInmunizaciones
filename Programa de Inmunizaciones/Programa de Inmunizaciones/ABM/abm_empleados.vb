@@ -517,13 +517,14 @@
                             Me.cmb_departamentos.Focus()
                             Exit Sub
                         Else
-                            obtenerId()
                             Me.insertar_empleado()
                         End If
+
+                    Else
+                        Me.insertar_empleado()
+                        grabar_empleadoxefector()
                     End If
-                    obtenerId()
-                    Me.insertar_empleado()
-                    grabar_empleadoxefector()
+                    
                 Else
                     MessageBox.Show("Ya se encuentra registrado este empleado")
                     Exit Sub
