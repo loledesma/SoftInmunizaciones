@@ -1,7 +1,10 @@
-﻿Public Class Menu
+﻿Imports System.Data
+Imports System.Data.SqlClient
+Public Class Menu
 
     Private Sub GestiónDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeEmpleadosToolStripMenuItem.Click
         abm_empleados.ShowDialog()
+
     End Sub
 
     Private Sub EfectoresPorDptoYLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorDptoYLocalidadToolStripMenuItem.Click

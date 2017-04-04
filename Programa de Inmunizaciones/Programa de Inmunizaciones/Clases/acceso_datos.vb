@@ -289,32 +289,36 @@ Public Class acceso_datos
         Return Me.consulta("SELECT * FROM " & nom_tabla & " WHERE " & nom_col & "= " & valor & " OR " & nom_col2 & " = " & valor2)
     End Function
 
-    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As KeyPressEventArgs)
+    Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As Char)
         Dim cmd As New OleDb.OleDbCommand
         Dim res As OleDb.OleDbDataReader
         Dim sql As String = ""
+        Dim coleccion As New AutoCompleteStringCollection
 
-        sql &= "SELECT TOP 10 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & e.KeyChar & "%'"
+        sql &= "SELECT TOP 5 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & e & "%'"
 
         If conectar() = resultado.ok Then
             Try
-                If e.KeyChar <> "" Then
+                If e <> "" Then
                     cmd.CommandText = sql
                     cmd = New OleDb.OleDbCommand(sql, conexion)
                     res = cmd.ExecuteReader
                     If res.HasRows() = True Then
+                        textbx.AutoCompleteSource = AutoCompleteSource.None
+                        textbx.AutoCompleteCustomSource = Nothing
                         While res.Read()
                             If IsDBNull(res.Item(descripcion)) = False Then
-                                textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
-                                'textbx.AutoCompleteCustomSource = res.Item(descripcion)
-                                'textbx.AutoCompleteMode = AutoCompleteMode.Append
-                                'textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+                                coleccion.Add(res.Item(descripcion).ToString)
                             End If
                         End While
-
+                        textbx.AutoCompleteMode = AutoCompleteMode.Suggest
+                        textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+                        textbx.AutoCompleteCustomSource = coleccion
                     End If
-
                 Else
+                    textbx.AutoCompleteMode = AutoCompleteMode.None
+                    textbx.AutoCompleteSource = AutoCompleteSource.None
+                    textbx.AutoCompleteCustomSource = Nothing
                     Exit Sub
                 End If
             Catch ex As Exception
@@ -328,43 +332,130 @@ Public Class acceso_datos
 
     Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
         Dim cmd As New OleDb.OleDbCommand
-        Dim res As OleDb.OleDbDataReader
+        Dim res As DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT TOP 10 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & textbx.Text & "%'"
+        sql &= "SELECT top 10 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '" & textbx.Text & "%'"
 
 
         If conectar() = resultado.ok Then
             Try
                 If textbx.Text <> "" Then
-                    cmd.CommandText = sql
-                    cmd = New OleDb.OleDbCommand(sql, conexion)
-                    res = cmd.ExecuteReader()
-                    
-                Else
-                    Exit Sub
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Error al intentar conectar", "Error grave")
-                Me.ultimo_error = ex.Message
-            End Try
-
-            If res.HasRows() = True Then
-                While res.Read()
-                    If IsDBNull(res.Item(descripcion)) = False Then
-                        textbx.AutoCompleteCustomSource.Clear()
-                        textbx.AutoCompleteCustomSource.Add(res.Item(descripcion).ToString)
-                        'textbx.AutoCompleteCustomSource = res.Item(descripcion)
-                        'textbx.AutoCompleteMode = AutoCompleteMode.Append
-                        'textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+                    res = acceso.consulta(sql)
+                    If res.Rows.Count() <> 0 Then
+                        textbx.AutoCompleteSource = AutoCompleteSource.None
+                        If res.Rows.Count() <> 0 Then
+                            Dim c As Integer = 0
+                            For c = 0 To res.Rows.Count() - 1
+                                textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+                                textbx.AutoCompleteMode = AutoCompleteMode.Suggest
+                                textbx.AutoCompleteCustomSource.Add(res.Rows(c).ToString)
+                                'textbx.AutoCompleteCustomSource = res.Item(descripcion)
+                            Next
+                        End If
                     End If
-                End While
-                res.Close()
-            End If
+                End If
+                
+
+            Catch ex As Exception
+            MessageBox.Show("Error al intentar conectar", "Error grave")
+            Me.ultimo_error = ex.Message
+        End Try
+
+
         End If
 
     End Sub
 
+    'Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As Char)
+    '    Dim cmd As OleDb.OleDbCommand
+    '    Dim res As OleDb.OleDbDataReader
+    '    Dim adaptador As SqlDataAdapter
+    '    Dim sql As String = ""
+
+    '    Try
+    '        sql &= "SELECT TOP 5 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & e & "%'"
+    '        If conectar() = resultado.ok Then
+    '            cmd = New OleDb.OleDbCommand(sql, conexion)
+    '            res = cmd.ExecuteReader()
+
+    '            While res.Read
+    '                textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
+    '            End While
+    '            res.Close()
+    '        End If
+    '    Catch ex As Exception
+    '        MsgBox(ex.ToString)
+    '    End Try
+
+    'End Sub
+
+    'Public Function autocompletar2(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As Char) As AutoCompleteStringCollection
+    '    Dim cmd As New OleDb.OleDbCommand
+    '    Dim res As OleDb.OleDbDataReader
+    '    Dim sql As String = ""
+    '    Dim coleccion As New AutoCompleteStringCollection
+
+    '    sql &= "SELECT TOP 5 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & e & "%'"
+
+    '    If conectar() = resultado.ok Then
+    '        Try
+    '            If e <> "" Then
+    '                cmd.CommandText = sql
+    '                cmd = New OleDb.OleDbCommand(sql, conexion)
+    '                res = cmd.ExecuteReader
+    '                If res.HasRows() = True Then
+    '                    textbx.AutoCompleteCustomSource.Clear()
+    '                    While res.Read()
+    '                        If IsDBNull(res.Item(descripcion)) = False Then
+    '                            coleccion.Add(res.Item(descripcion))
+    '                        End If
+    '                    End While
+    '                    textbx.AutoCompleteMode = AutoCompleteMode.Append
+    '                    textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+    '                    textbx.AutoCompleteCustomSource = coleccion
+    '                End If
+
+    '            Else
+    '                textbx.AutoCompleteMode = AutoCompleteMode.None
+    '                textbx.AutoCompleteSource = AutoCompleteSource.None
+    '                textbx.AutoCompleteCustomSource = Nothing
+    '            End If
+    '        Catch ex As Exception
+    '            MessageBox.Show("Error al intentar conectar", "Error grave")
+    '            Me.ultimo_error = ex.Message
+    '        End Try
+    '    End If
+    '    Return coleccion
+    '    cerrar()
+    'End Function
+
+    'Public Sub autocompletar3(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As String)
+    '    Dim command As OleDb.OleDbCommand
+    '    Dim adapter As New OleDb.OleDbDataAdapter
+    '    Dim ds As New DataSet()
+    '    Dim dataCollection As New AutoCompleteStringCollection
+
+    '    Dim sql As String = "SELECT TOP 5 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '%" & e & "%'"
+
+    '    Try
+    '        conectar()
+    '        command = New OleDb.OleDbCommand(sql, conexion)
+    '        adapter.SelectCommand = command
+    '        adapter.Fill(ds)
+    '        adapter.Dispose()
+    '        command.Dispose()
+    '        cerrar()
+    '        For Each row As DataRow In ds.Tables(0).Rows
+    '            dataCollection.Add(row(0).ToString())
+    '        Next
+    '        textbx.AutoCompleteMode = AutoCompleteMode.Suggest
+    '        textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
+    '        textbx.AutoCompleteCustomSource = dataCollection
+    '    Catch ex As Exception
+    '        MessageBox.Show("Can not open connection ! ")
+    '    End Try
+    'End Sub
 
 End Class
 
