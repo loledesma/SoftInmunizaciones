@@ -255,7 +255,7 @@
         acceso._nombre_tabla = "NOTIFICACIONXEFECTOR"
 
 
-        sql &= "id =" & id
+        sql &= "id = " & id
         sql &= ", fecha = '" & Me.txt_fecha.Text & "'"
         sql &= ", id_estado_carga = " & Me.cmb_carga.SelectedValue
         sql &= ", id_estado_stock = " & Me.cmb_stock.SelectedValue
