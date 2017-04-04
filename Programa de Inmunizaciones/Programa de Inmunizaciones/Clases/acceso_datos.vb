@@ -95,6 +95,7 @@ Public Class acceso_datos
                         Me.ultimo_error = ex2.Message
                         Return resultado.fallido
                     End Try
+                Else
                     If validacion_conexion = conexion_hamachi.interno Then
                         Try
                             cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
@@ -331,40 +332,29 @@ Public Class acceso_datos
     End Sub
 
     Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String)
-        Dim cmd As New OleDb.OleDbCommand
-        Dim res As DataTable
-        Dim sql As String = ""
-
-        sql &= "SELECT top 10 " & descripcion & " FROM " & tabla & " WHERE " & descripcion & " LIKE '" & textbx.Text & "%'"
-
+        Dim cmd As OleDb.OleDbCommand
+        Dim res As OleDb.OleDbDataReader
 
         If conectar() = resultado.ok Then
             Try
-                If textbx.Text <> "" Then
-                    res = acceso.consulta(sql)
-                    If res.Rows.Count() <> 0 Then
-                        textbx.AutoCompleteSource = AutoCompleteSource.None
-                        If res.Rows.Count() <> 0 Then
-                            Dim c As Integer = 0
-                            For c = 0 To res.Rows.Count() - 1
-                                textbx.AutoCompleteSource = AutoCompleteSource.CustomSource
-                                textbx.AutoCompleteMode = AutoCompleteMode.Suggest
-                                textbx.AutoCompleteCustomSource.Add(res.Rows(c).ToString)
-                                'textbx.AutoCompleteCustomSource = res.Item(descripcion)
-                            Next
-                        End If
-                    End If
+                cmd = New OleDb.OleDbCommand("SELECT " & descripcion & " FROM " & tabla, conexion)
+                res = cmd.ExecuteReader()
+
+            Catch ex2 As Exception
+                MessageBox.Show("Error al intentar conectar", "Error grave")
+                Me.ultimo_error = ex2.Message
+            End Try
+
+            While res.Read()
+                If IsDBNull(res.Item(descripcion)) = False Then
+                    textbx.AutoCompleteCustomSource.Add(res.Item(descripcion))
                 End If
-                
-
-            Catch ex As Exception
-            MessageBox.Show("Error al intentar conectar", "Error grave")
-            Me.ultimo_error = ex.Message
-        End Try
-
+            End While
+            res.Close()
 
         End If
 
+       
     End Sub
 
     'Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As Char)

@@ -511,7 +511,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram2.cd" />
     <None Include="Modulos\Inmunizaciones.xsc">
       <DependentUpon>Inmunizaciones.xsd</DependentUpon>
     </None>
