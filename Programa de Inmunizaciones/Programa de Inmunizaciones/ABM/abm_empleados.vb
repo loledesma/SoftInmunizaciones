@@ -22,11 +22,11 @@
 
     Private Sub abm_empleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_grilla()
-        acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
-        acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
-        acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
-        acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
-        acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
+        'acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
+        ''acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
+        'acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
+        'acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
+        'acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
@@ -1220,18 +1220,12 @@
         lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
     End Sub
 
-    'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged
-    '    acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
-    'End Sub da memoria dañada
-
-    Private Sub txt_nro_documento_KeyUp(sender As Object, e As KeyEventArgs) Handles txt_nro_documento.KeyUp
+    Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged
         acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
-
     End Sub
 
-    'Private Sub txt_nro_documento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_nro_documento.KeyPress
-    '    acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc", e)
-    'End Sub
-
-  
+    Private Sub txt_apelldo_TextChanged(sender As Object, e As EventArgs) Handles txt_apellido.TextChanged
+        acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
+    End Sub
+    
 End Class
