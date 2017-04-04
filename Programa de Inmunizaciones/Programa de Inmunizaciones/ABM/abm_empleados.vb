@@ -521,6 +521,7 @@
                         End If
 
                     Else
+
                         Me.insertar_empleado()
                         grabar_empleadoxefector()
                     End If
