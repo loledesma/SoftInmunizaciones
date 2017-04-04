@@ -777,16 +777,17 @@
 
     End Sub
     Private Sub nuevo()
-
+        
         limpiar(Controls)
         condicion_estado = estado.insertar
-        dgv_empleados.Rows.Clear()
         grp_datos_empleados.Enabled = True
         grp_datos_vacunatorio.Enabled = True
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
         txt_cuie.Focus()
-
+        Me.dgv_empleados.Rows.Clear()
+        Me.dgv_vacunatorios.Rows.Clear()
+        cargar_grilla_vacunatorios()
     End Sub
 
     Private Sub grabar_empleadoxefector()
@@ -871,6 +872,7 @@
 
     Private Sub cmd_limpiar_empleados_Click(sender As Object, e As EventArgs) Handles cmd_limpiar_empleados.Click
         limpiar_empleados()
+
     End Sub
 
     Private Sub limpiar_empleados()
@@ -920,6 +922,8 @@
         Me.condicion_estado = estado.insertar
         Me.txt_cuie.Focus()
         Me.cmd_guardar.Enabled = True
+        Me.dgv_empleados.Rows.Clear()
+        Me.dgv_vacunatorios.Rows.Clear()
         cargar_grilla_vacunatorios()
     End Sub
 
