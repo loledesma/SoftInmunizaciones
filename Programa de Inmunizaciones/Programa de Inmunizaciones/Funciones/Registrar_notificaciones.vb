@@ -197,17 +197,7 @@
     Private Function validar() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
        
-        If IsNumeric(Me.txt_id_notificacion.Text) = False Then
-            MessageBox.Show("No se admiten caracteres en el ID", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_id_notificacion.Focus()
-            Return False
-            Exit Function
-        ElseIf Me.txt_id_empleado.Text = "" Then
-            MessageBox.Show("Debe seleccionar un id de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Me.txt_id_empleado.Focus()
-            Return False
-            Exit Function
-        ElseIf Me.cmb_carga.SelectedIndex = -1 Then
+        If  Me.cmb_carga.SelectedIndex = -1 Then
             MessageBox.Show("Debe seleccionar un estado de carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.cmb_carga.Focus()
             Return False
