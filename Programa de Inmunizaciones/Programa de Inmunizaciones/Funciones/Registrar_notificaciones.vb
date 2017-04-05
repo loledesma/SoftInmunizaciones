@@ -236,7 +236,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
-        sql &= "WHERE id = " & Me.txt_id_notificacion.Text
+        sql &= "WHERE id_efector = '" & Me.txt_cuie.Text & "' AND fecha= '" & txt_fecha.Text & "'"
 
         tabla = acceso.consulta(sql)
 
@@ -286,7 +286,7 @@
         Dim sqlId = ""
         Dim tablaId As New DataTable
 
-        sqlId = "SELECT * FROM NOTIFICACIONXEFECTOR"
+        sqlId = "SELECT * FROM NOTIFICACIONXEFECTOR "
         tablaId = acceso.consulta(sqlId)
 
         If tablaId.Rows.Count = 0 Then
