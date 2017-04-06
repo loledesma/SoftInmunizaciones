@@ -54,28 +54,82 @@
         End If
     End Sub
 
+    Private Function validar_fecha()
+        If txt_fecha_desde.Text = "" Then
+            MessageBox.Show("¡Debe ingresar una fecha desde !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_fecha_desde.Focus()
+            Return False
+            Exit Function
+        ElseIf txt_fecha_hasta.Text = "" Then
+            MessageBox.Show("¡Debe ingresar una fecha hasta!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_fecha_hasta.Focus()
+            Return False
+            Exit Function
+            'ElseIf Convert.ToDateTime(txt_fecha_desde).Year <> Convert.ToDateTime(txt_fecha_hasta).Year Then
+            '    MessageBox.Show("¡Debe ingresar periodos del mismo año!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    txt_fecha_desde.Focus()
+            '    Return False
+            '    Exit Function
+            'ElseIf DateDiff(DateInterval.Month, Convert.ToDateTime(txt_fecha_hasta), Convert.ToDateTime(txt_fecha_desde)) <> 3 Then
+            '    MessageBox.Show("¡Debe ingresar el nombre del vacunatorio!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    txt_fecha_desde.Focus()
+            '    Return False
+            '    Exit Function
+        End If
+    End Function
+
     Private Sub imprimir()
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT EF.nombre as nombre_vacunatorio, E.nombres as nombre_referente, E.mail_contacto as mail_contacto "
-        sql &= " FROM EFECTORES EF JOIN EMPLEADOSXEFECTOR EE ON EF.cuie = EE.id_efector "
-        sql &= " JOIN EMPLEADOS E ON EE.id_empleados = E.id "
-        sql &= " WHERE EF.id_estado= 3 AND (EF.id_perfil = 3 OR EF.id_perfil= 2) AND WHERE EF.cuie NOT IN= "
-        sql &= "(SELECT id_efector FROM NOTIFICACIONXEFECTOR ) "
+        If validar_fecha() = True Then
 
+            sql &= " SELECT D.descripcion, L.descripcion, E.cuie, E.nombre "
+            sql &= " FROM EFECTORES E JOIN DEPARTAMENTOS D ON E.id_departamento = D.id "
+            sql &= " JOIN LOCALIDADES L ON E.id_localidad = L.id "
 
-        sql &= "ORDER BY nombre_vacunatorio, nombre_referente, mail_contacto "
+            If Me.cmb_departamentos.SelectedIndex <> -1 Then
+                sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
+                sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "
+                sql &= " (SELECT NE.id_efector as Cuie "
+                sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+                sql &= " WHERE NE.fecha BETWEEN " & Me.txt_fecha_desde.Text & " AND " & Me.txt_fecha_hasta.Text
+                sql &= " GROUP BY NE.id_efector "
+                sql &= " HAVING COUNT(NE.id_efector)>= 10) "
+                sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre """
+                If cmb_localidades.SelectedIndex <> -1 Then
+                    sql &= " AND L.id = " & Me.cmb_localidades.SelectedValue
+                    sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "
+                    sql &= " (SELECT NE.id_efector as Cuie "
+                    sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+                    sql &= " WHERE NE.fecha BETWEEN " & Me.txt_fecha_desde.Text & " AND " & Me.txt_fecha_hasta.Text
+                    sql &= " GROUP BY NE.id_efector "
+                    sql &= " HAVING COUNT(NE.id_efector)>= 10) "
+                    sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre "
+                End If
+            Else
+                sql &= " WHERE E.id_estado= 3 AND E.cuie NOT IN "
+                sql &= " (SELECT NE.id_efector as Cuie "
+                sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+                sql &= " WHERE NE.fecha BETWEEN " & Me.txt_fecha_desde.Text & " AND " & Me.txt_fecha_hasta.Text
+                sql &= " GROUP BY NE.id_efector "
+                sql &= " HAVING COUNT(NE.id_efector)>= 10) "
+                sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre "
+            End If
 
-        tabla = acceso.consulta(sql)
+            tabla = acceso.consulta(sql)
 
-        If tabla.Rows.Count() = 0 Then
-            Me.ReportViewer1.Clear()
-            MessageBox.Show("No hay datos para esa búsqueda")
-            Exit Sub
+            If tabla.Rows.Count() = 0 Then
+                Me.ReportViewer1.Clear()
+                MessageBox.Show("No hay datos para esa búsqueda")
+                Exit Sub
+            End If
+
+            LISTNONOTIFICABindingSource.DataSource = tabla
+            Me.ReportViewer1.RefreshReport()
         End If
-        LIST_NO_NOTIFICABindingSource.DataSource = tabla
-        Me.ReportViewer1.RefreshReport()
+
+        
     End Sub
 
 
