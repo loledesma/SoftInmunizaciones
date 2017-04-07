@@ -54,17 +54,23 @@
         End If
     End Sub
 
-    Private Function validar_fecha()
-        If txt_fecha_desde.Text = "" Then
-            MessageBox.Show("¡Debe ingresar una fecha desde !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    Private Function validar_fecha() As Boolean
+
+        If IsDate(txt_fecha_desde.Text) = False Then
+            MessageBox.Show("¡Debe ingresar una fecha desde!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txt_fecha_desde.Focus()
             Return False
             Exit Function
-        ElseIf txt_fecha_hasta.Text = "" Then
+        ElseIf IsDate(txt_fecha_hasta.Text) = False Then
             MessageBox.Show("¡Debe ingresar una fecha hasta!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txt_fecha_hasta.Focus()
             Return False
             Exit Function
+            'ElseIf desde > fecha Then
+            '    MessageBox.Show("La fecha ingresada (desde) es inválida", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '    Me.txt_fecha_desde.Focus()
+            '    Return False
+            '    Exit Function
             'ElseIf Convert.ToDateTime(txt_fecha_desde).Year <> Convert.ToDateTime(txt_fecha_hasta).Year Then
             '    MessageBox.Show("¡Debe ingresar periodos del mismo año!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             '    txt_fecha_desde.Focus()
@@ -76,6 +82,7 @@
             '    Return False
             '    Exit Function
         End If
+            Return True
     End Function
 
     Private Sub imprimir()
@@ -84,25 +91,28 @@
 
         If validar_fecha() = True Then
 
-            sql &= " SELECT D.descripcion, L.descripcion, E.cuie, E.nombre "
+            sql &= " SELECT D.descripcion As departamento, L.descripcion as localidad, E.cuie as cuie, E.nombre As nombre_vacunatorio"
             sql &= " FROM EFECTORES E JOIN DEPARTAMENTOS D ON E.id_departamento = D.id "
             sql &= " JOIN LOCALIDADES L ON E.id_localidad = L.id "
 
             If Me.cmb_departamentos.SelectedIndex <> -1 Then
                 sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
-                sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "
-                sql &= " (SELECT NE.id_efector as Cuie "
-                sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
-                sql &= " WHERE NE.fecha BETWEEN " & Me.txt_fecha_desde.Text & " AND " & Me.txt_fecha_hasta.Text
-                sql &= " GROUP BY NE.id_efector "
-                sql &= " HAVING COUNT(NE.id_efector)>= 10) "
-                sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre """
+               
+
                 If cmb_localidades.SelectedIndex <> -1 Then
                     sql &= " AND L.id = " & Me.cmb_localidades.SelectedValue
                     sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "
                     sql &= " (SELECT NE.id_efector as Cuie "
                     sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
-                    sql &= " WHERE NE.fecha BETWEEN " & Me.txt_fecha_desde.Text & " AND " & Me.txt_fecha_hasta.Text
+                    sql &= " WHERE NE.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
+                    sql &= " GROUP BY NE.id_efector "
+                    sql &= " HAVING COUNT(NE.id_efector)>= 10) "
+                    sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre "
+                Else
+                    sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "
+                    sql &= " (SELECT NE.id_efector as Cuie "
+                    sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+                    sql &= " WHERE NE.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
                     sql &= " GROUP BY NE.id_efector "
                     sql &= " HAVING COUNT(NE.id_efector)>= 10) "
                     sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre "
@@ -111,7 +121,7 @@
                 sql &= " WHERE E.id_estado= 3 AND E.cuie NOT IN "
                 sql &= " (SELECT NE.id_efector as Cuie "
                 sql &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
-                sql &= " WHERE NE.fecha BETWEEN " & Me.txt_fecha_desde.Text & " AND " & Me.txt_fecha_hasta.Text
+                sql &= " WHERE NE.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
                 sql &= " GROUP BY NE.id_efector "
                 sql &= " HAVING COUNT(NE.id_efector)>= 10) "
                 sql &= " ORDER BY D.descripcion, L.descripcion, E.nombre "
@@ -135,11 +145,9 @@
 
     Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         Me.ReportViewer1.Width = Me.Width - 50
-        Me.ReportViewer1.Height = Me.Height - 200
-
+        Me.ReportViewer1.Height = Me.Height - 2
 
     End Sub
-
     Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
         Me.imprimir()
     End Sub
