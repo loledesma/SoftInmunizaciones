@@ -197,17 +197,7 @@
     Private Function validar() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
        
-        If IsNumeric(Me.txt_id_notificacion.Text) = False Then
-            MessageBox.Show("No se admiten caracteres en el ID", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.txt_id_notificacion.Focus()
-            Return False
-            Exit Function
-        ElseIf Me.txt_id_empleado.Text = "" Then
-            MessageBox.Show("Debe seleccionar un id de empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Me.txt_id_empleado.Focus()
-            Return False
-            Exit Function
-        ElseIf Me.cmb_carga.SelectedIndex = -1 Then
+        If  Me.cmb_carga.SelectedIndex = -1 Then
             MessageBox.Show("Debe seleccionar un estado de carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.cmb_carga.Focus()
             Return False
@@ -246,7 +236,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
-        sql &= "WHERE id = " & Me.txt_id_notificacion.Text
+        sql &= "WHERE id_efector = '" & Me.txt_cuie.Text & "' AND fecha= '" & txt_fecha.Text & "'"
 
         tabla = acceso.consulta(sql)
 
@@ -296,7 +286,7 @@
         Dim sqlId = ""
         Dim tablaId As New DataTable
 
-        sqlId = "SELECT * FROM NOTIFICACIONXEFECTOR"
+        sqlId = "SELECT * FROM NOTIFICACIONXEFECTOR "
         tablaId = acceso.consulta(sqlId)
 
         If tablaId.Rows.Count = 0 Then
@@ -314,7 +304,6 @@
         If Me.validar() = True Then
             If condicion_estado = estado.insertar Then
                 If Me.validar_existencia() = analizar_existencia.no_existe Then
-                    obtenerId()
                     Me.insertar()
                 Else
                     MessageBox.Show("Ya se encuentra cargada esta notificación")
