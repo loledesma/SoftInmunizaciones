@@ -132,7 +132,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_efector.FlatAppearance.BorderSize = 0
         Me.cmd_agregar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_agregar_efector.Location = New System.Drawing.Point(388, 74)
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
@@ -240,7 +240,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_actualizar_estado.FlatAppearance.BorderSize = 0
         Me.cmd_actualizar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_estado.Location = New System.Drawing.Point(365, 135)
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
@@ -254,7 +254,8 @@ Partial Class Registrar_entrega_insumos
         '
         Me.cmd_buscar.BackgroundImage = CType(resources.GetObject("cmd_buscar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar.Location = New System.Drawing.Point(252, 14)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(36, 33)
@@ -352,6 +353,7 @@ Partial Class Registrar_entrega_insumos
         Me.grp_detalle.Controls.Add(Me.Label3)
         Me.grp_detalle.Controls.Add(Me.cmb_insumos)
         Me.grp_detalle.Controls.Add(Me.Label8)
+        Me.grp_detalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.grp_detalle.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_detalle.Location = New System.Drawing.Point(12, 415)
         Me.grp_detalle.Name = "grp_detalle"
@@ -418,10 +420,11 @@ Partial Class Registrar_entrega_insumos
         '
         'cmd_ver_stock
         '
-        Me.cmd_ver_stock.BackgroundImage = CType(resources.GetObject("cmd_ver_stock.BackgroundImage"), System.Drawing.Image)
         Me.cmd_ver_stock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_ver_stock.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmd_ver_stock.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_ver_stock.FlatAppearance.BorderSize = 0
+        Me.cmd_ver_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_ver_stock.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_ver_stock.Location = New System.Drawing.Point(133, 165)
         Me.cmd_ver_stock.Name = "cmd_ver_stock"
         Me.cmd_ver_stock.Size = New System.Drawing.Size(130, 37)
@@ -438,7 +441,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar_insumo.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar_insumo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_insumo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar_insumo.Location = New System.Drawing.Point(325, 150)
         Me.cmd_limpiar_insumo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_insumo.Name = "cmd_limpiar_insumo"
@@ -457,7 +460,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_eliminar_insumo.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar_insumo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_insumo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_eliminar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_eliminar_insumo.Location = New System.Drawing.Point(388, 150)
         Me.cmd_eliminar_insumo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_insumo.Name = "cmd_eliminar_insumo"
@@ -476,7 +479,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_insumo.FlatAppearance.BorderSize = 0
         Me.cmd_agregar_insumo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_insumo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_agregar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_agregar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_agregar_insumo.Location = New System.Drawing.Point(357, 150)
         Me.cmd_agregar_insumo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_insumo.Name = "cmd_agregar_insumo"
@@ -532,7 +535,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Location = New System.Drawing.Point(157, 649)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
@@ -551,7 +554,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(89, 647)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -570,7 +573,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(21, 647)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -586,7 +589,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Location = New System.Drawing.Point(937, 648)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
@@ -742,6 +745,7 @@ Partial Class Registrar_entrega_insumos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1007, 714)
         Me.Controls.Add(Me.dgv_detalle_entrega)
         Me.Controls.Add(Me.dgv_entrega)

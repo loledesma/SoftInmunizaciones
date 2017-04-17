@@ -138,7 +138,7 @@ Partial Class est_estado_heladeras
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "est_estado_heladeras"
-        Me.Text = "est_estado_heladeras"
+        Me.Text = "Efectores por estado de heladera"
         CType(Me.EST_ESTADO_HELADERASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

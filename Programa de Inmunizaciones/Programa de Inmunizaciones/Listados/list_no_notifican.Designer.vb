@@ -25,6 +25,8 @@ Partial Class list_no_notifican
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_no_notifican))
+        Me.LISTNONOTIFICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -32,18 +34,26 @@ Partial Class list_no_notifican
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_hasta = New System.Windows.Forms.Label()
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.LISTNONOTIFICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
+        CType(Me.LISTNONOTIFICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_datos_notificacion.SuspendLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LISTNONOTIFICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'LISTNONOTIFICABindingSource
+        '
+        Me.LISTNONOTIFICABindingSource.DataMember = "LIST_NO_NOTIFICA"
+        Me.LISTNONOTIFICABindingSource.DataSource = Me.Inmunizaciones
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'grp_datos_efector
         '
@@ -129,25 +139,6 @@ Partial Class list_no_notifican
         Me.grp_datos_notificacion.TabStop = False
         Me.grp_datos_notificacion.Text = "Datos Notificacion"
         '
-        'cmd_ejecutar
-        '
-        Me.cmd_ejecutar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_ejecutar.BackgroundImage = CType(resources.GetObject("cmd_ejecutar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_ejecutar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
-        Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(339, 20)
-        Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_ejecutar.Name = "cmd_ejecutar"
-        Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_ejecutar.TabIndex = 10
-        Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_ejecutar.UseVisualStyleBackColor = False
-        '
         'txt_fecha_hasta
         '
         Me.txt_fecha_hasta.Location = New System.Drawing.Point(232, 38)
@@ -184,33 +175,43 @@ Partial Class list_no_notifican
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "Desde"
         '
-        'Inmunizaciones
+        'cmd_ejecutar
         '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LISTNONOTIFICABindingSource
-        '
-        Me.LISTNONOTIFICABindingSource.DataMember = "LIST_NO_NOTIFICA"
-        Me.LISTNONOTIFICABindingSource.DataSource = Me.Inmunizaciones
+        Me.cmd_ejecutar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_ejecutar.BackgroundImage = CType(resources.GetObject("cmd_ejecutar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_ejecutar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
+        Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(339, 20)
+        Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_ejecutar.Name = "cmd_ejecutar"
+        Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_ejecutar.TabIndex = 10
+        Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_ejecutar.UseVisualStyleBackColor = False
         '
         'list_no_notifican
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(995, 528)
         Me.Controls.Add(Me.grp_datos_notificacion)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "list_no_notifican"
         Me.Text = "EFECTORES QUE NO NOTIFICAN"
+        CType(Me.LISTNONOTIFICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
         Me.grp_datos_notificacion.ResumeLayout(False)
         Me.grp_datos_notificacion.PerformLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LISTNONOTIFICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
