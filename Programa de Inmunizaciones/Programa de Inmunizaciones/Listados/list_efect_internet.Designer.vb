@@ -23,7 +23,7 @@ Partial Class list_efect_internet
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_efect_internet))
         Me.LIST_EFECTORES_CON_INTERNETBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
@@ -57,9 +57,9 @@ Partial Class list_efect_internet
         '
         'ReportViewer1
         '
-        ReportDataSource4.Name = "DataSet1"
-        ReportDataSource4.Value = Me.LIST_EFECTORES_CON_INTERNETBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.LIST_EFECTORES_CON_INTERNETBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_efectores_con_internet.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 173)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -185,8 +185,9 @@ Partial Class list_efect_internet
         Me.cmd_ejecutar.BackgroundImage = CType(resources.GetObject("cmd_ejecutar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
+        Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(594, 46)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(574, 26)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
         Me.cmd_ejecutar.TabIndex = 51

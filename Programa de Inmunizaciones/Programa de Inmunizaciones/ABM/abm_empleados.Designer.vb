@@ -25,6 +25,7 @@ Partial Class abm_empleados
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_empleados))
         Me.grp_datos_personales = New System.Windows.Forms.GroupBox()
+        Me.txt_nro_documento = New System.Windows.Forms.TextBox()
         Me.cmd_buscar_x_documento = New System.Windows.Forms.Button()
         Me.cmd_buscar_x_apellido = New System.Windows.Forms.Button()
         Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -95,7 +96,6 @@ Partial Class abm_empleados
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl_contador_empleados = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.txt_nro_documento = New System.Windows.Forms.TextBox()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,11 +132,21 @@ Partial Class abm_empleados
         Me.grp_datos_personales.TabStop = False
         Me.grp_datos_personales.Text = "Datos Personales"
         '
+        'txt_nro_documento
+        '
+        Me.txt_nro_documento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txt_nro_documento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_nro_documento.Location = New System.Drawing.Point(263, 50)
+        Me.txt_nro_documento.Name = "txt_nro_documento"
+        Me.txt_nro_documento.Size = New System.Drawing.Size(170, 20)
+        Me.txt_nro_documento.TabIndex = 3
+        '
         'cmd_buscar_x_documento
         '
         Me.cmd_buscar_x_documento.BackgroundImage = CType(resources.GetObject("cmd_buscar_x_documento.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_x_documento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_x_documento.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_x_documento.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_x_documento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_x_documento.Location = New System.Drawing.Point(282, 19)
         Me.cmd_buscar_x_documento.Name = "cmd_buscar_x_documento"
         Me.cmd_buscar_x_documento.Size = New System.Drawing.Size(25, 25)
@@ -147,7 +157,8 @@ Partial Class abm_empleados
         '
         Me.cmd_buscar_x_apellido.BackgroundImage = CType(resources.GetObject("cmd_buscar_x_apellido.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_x_apellido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_x_apellido.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_x_apellido.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_x_apellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_x_apellido.Location = New System.Drawing.Point(386, 105)
         Me.cmd_buscar_x_apellido.Name = "cmd_buscar_x_apellido"
         Me.cmd_buscar_x_apellido.Size = New System.Drawing.Size(25, 25)
@@ -291,7 +302,7 @@ Partial Class abm_empleados
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Location = New System.Drawing.Point(1019, 581)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
@@ -307,7 +318,7 @@ Partial Class abm_empleados
         Me.cmd_limpiar.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Location = New System.Drawing.Point(149, 578)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
@@ -326,7 +337,7 @@ Partial Class abm_empleados
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(81, 578)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -345,7 +356,7 @@ Partial Class abm_empleados
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(13, 578)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -440,7 +451,7 @@ Partial Class abm_empleados
         Me.cmd_limpiar_laboral.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar_laboral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_laboral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar_laboral.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar_laboral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar_laboral.Location = New System.Drawing.Point(346, 184)
         Me.cmd_limpiar_laboral.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_laboral.Name = "cmd_limpiar_laboral"
@@ -470,7 +481,7 @@ Partial Class abm_empleados
         Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_efector_nuevo.Location = New System.Drawing.Point(411, 71)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
@@ -489,7 +500,7 @@ Partial Class abm_empleados
         Me.cmd_eliminar_efector.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_eliminar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_eliminar_efector.Location = New System.Drawing.Point(411, 184)
         Me.cmd_eliminar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_efector.Name = "cmd_eliminar_efector"
@@ -508,7 +519,7 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.FlatAppearance.BorderSize = 0
         Me.cmd_agregar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_agregar_efector.Location = New System.Drawing.Point(378, 184)
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
@@ -784,7 +795,8 @@ Partial Class abm_empleados
         '
         Me.cmd_buscar_x_usuario.BackgroundImage = CType(resources.GetObject("cmd_buscar_x_usuario.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_x_usuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_x_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_x_usuario.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_x_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_x_usuario.Location = New System.Drawing.Point(388, 42)
         Me.cmd_buscar_x_usuario.Name = "cmd_buscar_x_usuario"
         Me.cmd_buscar_x_usuario.Size = New System.Drawing.Size(25, 25)
@@ -800,7 +812,7 @@ Partial Class abm_empleados
         Me.cmd_cambiar_estado.FlatAppearance.BorderSize = 0
         Me.cmd_cambiar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_cambiar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_cambiar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_cambiar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_cambiar_estado.Location = New System.Drawing.Point(272, 91)
         Me.cmd_cambiar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cambiar_estado.Name = "cmd_cambiar_estado"
@@ -861,15 +873,6 @@ Partial Class abm_empleados
         Me.Label22.Size = New System.Drawing.Size(179, 17)
         Me.Label22.TabIndex = 54
         Me.Label22.Text = "Empleados registrados:"
-        '
-        'txt_nro_documento
-        '
-        Me.txt_nro_documento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.txt_nro_documento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_nro_documento.Location = New System.Drawing.Point(263, 50)
-        Me.txt_nro_documento.Name = "txt_nro_documento"
-        Me.txt_nro_documento.Size = New System.Drawing.Size(170, 20)
-        Me.txt_nro_documento.TabIndex = 3
         '
         'abm_empleados
         '

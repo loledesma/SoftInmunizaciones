@@ -24,13 +24,13 @@ Partial Class listado_localidadesxdpto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(listado_localidadesxdpto))
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.LIST_LOCALIDADES_X_DPTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmd_generar_listado = New System.Windows.Forms.Button()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmb_dptos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.LIST_LOCALIDADES_X_DPTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -64,23 +64,13 @@ Partial Class listado_localidadesxdpto
         Me.cmd_generar_listado.BackColor = System.Drawing.Color.Transparent
         Me.cmd_generar_listado.BackgroundImage = CType(resources.GetObject("cmd_generar_listado.BackgroundImage"), System.Drawing.Image)
         Me.cmd_generar_listado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_generar_listado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_generar_listado.FlatAppearance.BorderSize = 0
+        Me.cmd_generar_listado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_generar_listado.Location = New System.Drawing.Point(336, 10)
         Me.cmd_generar_listado.Name = "cmd_generar_listado"
         Me.cmd_generar_listado.Size = New System.Drawing.Size(50, 50)
         Me.cmd_generar_listado.TabIndex = 1
         Me.cmd_generar_listado.UseVisualStyleBackColor = False
-        '
-        'ReportViewer1
-        '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.LIST_LOCALIDADES_X_DPTOBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_localidad_x_dpto.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(6, 84)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(886, 343)
-        Me.ReportViewer1.TabIndex = 1
         '
         'cmb_dptos
         '
@@ -92,6 +82,17 @@ Partial Class listado_localidadesxdpto
         Me.cmb_dptos.Name = "cmb_dptos"
         Me.cmb_dptos.Size = New System.Drawing.Size(295, 21)
         Me.cmb_dptos.TabIndex = 0
+        '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.LIST_LOCALIDADES_X_DPTOBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_localidad_x_dpto.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(6, 84)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(886, 343)
+        Me.ReportViewer1.TabIndex = 1
         '
         'listado_localidadesxdpto
         '

@@ -25,21 +25,31 @@ Partial Class list_heladeras_antiguas
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_heladeras_antiguas))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txt_antiguedad = New System.Windows.Forms.TextBox()
         Me.LIST_HELADERAS_ANTIGUASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txt_antiguedad = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.GroupBox1.SuspendLayout()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.LIST_HELADERAS_ANTIGUASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'LIST_HELADERAS_ANTIGUASBindingSource
+        '
+        Me.LIST_HELADERAS_ANTIGUASBindingSource.DataMember = "LIST_HELADERAS_ANTIGUAS"
+        Me.LIST_HELADERAS_ANTIGUASBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -59,23 +69,21 @@ Partial Class list_heladeras_antiguas
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos"
         '
-        'Label1
+        'txt_antiguedad
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 28)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Departamento"
+        Me.txt_antiguedad.Location = New System.Drawing.Point(86, 79)
+        Me.txt_antiguedad.Name = "txt_antiguedad"
+        Me.txt_antiguedad.Size = New System.Drawing.Size(251, 20)
+        Me.txt_antiguedad.TabIndex = 6
         '
-        'Label2
+        'Label3
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 55)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Localidad"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 82)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(61, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Antigüedad"
         '
         'cmd_ejecutar
         '
@@ -88,43 +96,6 @@ Partial Class list_heladeras_antiguas
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
         Me.cmd_ejecutar.TabIndex = 4
         Me.cmd_ejecutar.UseVisualStyleBackColor = True
-        '
-        'ReportViewer1
-        '
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LIST_HELADERAS_ANTIGUASBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_heladeras_antiguas.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 129)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(776, 414)
-        Me.ReportViewer1.TabIndex = 1
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 82)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Antigüedad"
-        '
-        'txt_antiguedad
-        '
-        Me.txt_antiguedad.Location = New System.Drawing.Point(86, 79)
-        Me.txt_antiguedad.Name = "txt_antiguedad"
-        Me.txt_antiguedad.Size = New System.Drawing.Size(251, 20)
-        Me.txt_antiguedad.TabIndex = 6
-        '
-        'LIST_HELADERAS_ANTIGUASBindingSource
-        '
-        Me.LIST_HELADERAS_ANTIGUASBindingSource.DataMember = "LIST_HELADERAS_ANTIGUAS"
-        Me.LIST_HELADERAS_ANTIGUASBindingSource.DataSource = Me.Inmunizaciones
-        '
-        'Inmunizaciones
-        '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'cmb_localidades
         '
@@ -148,6 +119,35 @@ Partial Class list_heladeras_antiguas
         Me.cmb_departamentos.Size = New System.Drawing.Size(251, 21)
         Me.cmb_departamentos.TabIndex = 2
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 55)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Localidad"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 28)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Departamento"
+        '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.LIST_HELADERAS_ANTIGUASBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_heladeras_antiguas.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 129)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(776, 414)
+        Me.ReportViewer1.TabIndex = 1
+        '
         'list_heladeras_antiguas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -158,11 +158,11 @@ Partial Class list_heladeras_antiguas
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "list_heladeras_antiguas"
-        Me.Text = "list_heladeras_antiguas"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.Text = "Heladeras por antiguedad"
         CType(Me.LIST_HELADERAS_ANTIGUASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
