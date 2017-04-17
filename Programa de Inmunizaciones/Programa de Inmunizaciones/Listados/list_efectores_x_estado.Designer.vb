@@ -164,7 +164,7 @@ Partial Class list_efectores_x_estado
         Me.Controls.Add(Me.GroupBox1)
         Me.KeyPreview = True
         Me.Name = "list_efectores_x_estado"
-        Me.Text = "list_efectores_x_estado"
+        Me.Text = "Efectores por estado"
         CType(Me.LIST_EFECTOR_X_ESTADOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

@@ -138,7 +138,7 @@ Partial Class est_efect_emiten_sigipsa
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "est_efect_emiten_sigipsa"
-        Me.Text = "est_efect_emiten_sigipsa"
+        Me.Text = "Efectores por emisión de resumen"
         CType(Me.EST_EF_EMITEN_SIGIPSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

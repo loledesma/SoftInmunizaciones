@@ -179,7 +179,10 @@ Partial Class Inventario_cadena_de_frio
         '
         Me.cmd_buscar_cuie.BackgroundImage = CType(resources.GetObject("cmd_buscar_cuie.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_cuie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_cuie.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_cuie.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_cuie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_buscar_cuie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_buscar_cuie.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_cuie.Location = New System.Drawing.Point(440, 15)
         Me.cmd_buscar_cuie.Name = "cmd_buscar_cuie"
         Me.cmd_buscar_cuie.Size = New System.Drawing.Size(62, 56)
@@ -449,6 +452,7 @@ Partial Class Inventario_cadena_de_frio
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(823, 461)
         Me.Controls.Add(Me.grp_datos_vacunatorio)
         Me.Name = "Inventario_cadena_de_frio"

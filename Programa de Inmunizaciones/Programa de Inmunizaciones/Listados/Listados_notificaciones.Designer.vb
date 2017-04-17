@@ -85,7 +85,7 @@ Partial Class listados_notificaciones
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_ejecutar.Location = New System.Drawing.Point(430, 34)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
