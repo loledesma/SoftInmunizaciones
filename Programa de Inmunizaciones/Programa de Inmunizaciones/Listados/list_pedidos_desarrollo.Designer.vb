@@ -27,10 +27,10 @@ Partial Class list_pedidos_desarrollo
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.LIST_PEDIDOS_DESARROLLOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
+        Me.grp_pedidos_desarrollo = New System.Windows.Forms.GroupBox()
         Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -38,7 +38,7 @@ Partial Class list_pedidos_desarrollo
         Me.cmb_estado_pedido = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.LIST_PEDIDOS_DESARROLLOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        Me.grp_pedidos_desarrollo.SuspendLayout()
         Me.SuspendLayout()
         '
         'LIST_PEDIDOS_DESARROLLOBindingSource
@@ -51,24 +51,44 @@ Partial Class list_pedidos_desarrollo
         Me.Inmunizaciones.DataSetName = "Inmunizaciones"
         Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'GroupBox1
+        'grp_pedidos_desarrollo
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.cmd_ejecutar)
-        Me.GroupBox1.Controls.Add(Me.txt_fecha_hasta)
-        Me.GroupBox1.Controls.Add(Me.txt_fecha_desde)
-        Me.GroupBox1.Controls.Add(Me.cmb_estado_pedido)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(180, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(457, 95)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Flitros"
+        Me.grp_pedidos_desarrollo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grp_pedidos_desarrollo.BackColor = System.Drawing.Color.Transparent
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.txt_fecha_hasta)
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.txt_fecha_desde)
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.cmb_estado_pedido)
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.cmd_ejecutar)
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.Label3)
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.Label2)
+        Me.grp_pedidos_desarrollo.Controls.Add(Me.Label1)
+        Me.grp_pedidos_desarrollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.grp_pedidos_desarrollo.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_pedidos_desarrollo.Location = New System.Drawing.Point(178, 12)
+        Me.grp_pedidos_desarrollo.Name = "grp_pedidos_desarrollo"
+        Me.grp_pedidos_desarrollo.Size = New System.Drawing.Size(472, 95)
+        Me.grp_pedidos_desarrollo.TabIndex = 0
+        Me.grp_pedidos_desarrollo.TabStop = False
+        Me.grp_pedidos_desarrollo.Text = "Flitros"
+        '
+        'txt_fecha_hasta
+        '
+        Me.txt_fecha_hasta.Location = New System.Drawing.Point(284, 52)
+        Me.txt_fecha_hasta.Mask = "00/00/0000"
+        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
+        Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha_hasta.TabIndex = 55
+        Me.txt_fecha_hasta.ValidatingType = GetType(Date)
+        '
+        'txt_fecha_desde
+        '
+        Me.txt_fecha_desde.Location = New System.Drawing.Point(98, 52)
+        Me.txt_fecha_desde.Mask = "00/00/0000"
+        Me.txt_fecha_desde.Name = "txt_fecha_desde"
+        Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha_desde.TabIndex = 54
+        Me.txt_fecha_desde.ValidatingType = GetType(Date)
         '
         'cmd_ejecutar
         '
@@ -77,25 +97,11 @@ Partial Class list_pedidos_desarrollo
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(386, 19)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(387, 19)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
         Me.cmd_ejecutar.TabIndex = 52
         Me.cmd_ejecutar.UseVisualStyleBackColor = True
-        '
-        'txt_fecha_hasta
-        '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(280, 55)
-        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
-        Me.txt_fecha_hasta.Size = New System.Drawing.Size(100, 20)
-        Me.txt_fecha_hasta.TabIndex = 5
-        '
-        'txt_fecha_desde
-        '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(102, 55)
-        Me.txt_fecha_desde.Name = "txt_fecha_desde"
-        Me.txt_fecha_desde.Size = New System.Drawing.Size(100, 20)
-        Me.txt_fecha_desde.TabIndex = 4
         '
         'Label3
         '
@@ -141,12 +147,11 @@ Partial Class list_pedidos_desarrollo
         Me.cmb_estado_pedido._descripcion = "descripcion"
         Me.cmb_estado_pedido._nombre_tabla = "ESTADOS_PEDIDOS"
         Me.cmb_estado_pedido._pk = "id"
-        Me.cmb_estado_pedido.BackColor = System.Drawing.SystemColors.Window
         Me.cmb_estado_pedido.FormattingEnabled = True
-        Me.cmb_estado_pedido.Location = New System.Drawing.Point(102, 26)
+        Me.cmb_estado_pedido.Location = New System.Drawing.Point(98, 27)
         Me.cmb_estado_pedido.Name = "cmb_estado_pedido"
-        Me.cmb_estado_pedido.Size = New System.Drawing.Size(278, 21)
-        Me.cmb_estado_pedido.TabIndex = 3
+        Me.cmb_estado_pedido.Size = New System.Drawing.Size(284, 21)
+        Me.cmb_estado_pedido.TabIndex = 53
         '
         'list_pedidos_desarrollo
         '
@@ -156,21 +161,17 @@ Partial Class list_pedidos_desarrollo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(804, 606)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.grp_pedidos_desarrollo)
         Me.Name = "list_pedidos_desarrollo"
         Me.Text = "Pedidos de desarrollo "
-        Me.TransparencyKey = System.Drawing.Color.Transparent
         CType(Me.LIST_PEDIDOS_DESARROLLOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.grp_pedidos_desarrollo.ResumeLayout(False)
+        Me.grp_pedidos_desarrollo.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents txt_fecha_hasta As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents txt_fecha_desde As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents cmb_estado_pedido As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents grp_pedidos_desarrollo As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -178,4 +179,7 @@ Partial Class list_pedidos_desarrollo
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents LIST_PEDIDOS_DESARROLLOBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents cmb_estado_pedido As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents txt_fecha_hasta As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_fecha_desde As System.Windows.Forms.MaskedTextBox
 End Class
