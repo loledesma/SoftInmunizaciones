@@ -405,16 +405,22 @@
     <value>Atenciones</value>
   </data>
   <data name="RegistrarNvaPeticiónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 24</value>
+    <value>269, 24</value>
   </data>
   <data name="RegistrarNvaPeticiónToolStripMenuItem.Text" xml:space="preserve">
     <value>Peticiones de desarrollo</value>
   </data>
   <data name="RegistrarPedidoDeUsuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 24</value>
+    <value>269, 24</value>
   </data>
   <data name="RegistrarPedidoDeUsuariosToolStripMenuItem.Text" xml:space="preserve">
     <value>Pedidos de usuarios</value>
+  </data>
+  <data name="ListadoPedidosDeDesarrolloToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 24</value>
+  </data>
+  <data name="ListadoPedidosDeDesarrolloToolStripMenuItem.Text" xml:space="preserve">
+    <value>Listado Pedidos de desarrollo</value>
   </data>
   <data name="DesarrollosSigipsaToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -745,23 +751,23 @@
   </data>
   <data name="EfectoresPorEmisiónDeResumenToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="EfectoresPorEmisiónDeResumenToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -775,23 +781,23 @@
   </data>
   <data name="EfectoresConInternetToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="EfectoresConInternetToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -8021,6 +8027,12 @@
   <data name="&gt;&gt;EfectoresPorEmisiónDeResumenToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;EfectoresConInternetToolStripMenuItem.Name" xml:space="preserve">
+    <value>EfectoresConInternetToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EfectoresConInternetToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem1.Name" xml:space="preserve">
     <value>EstadisticasToolStripMenuItem1</value>
   </data>
@@ -8159,10 +8171,10 @@
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;EfectoresConInternetToolStripMenuItem.Name" xml:space="preserve">
-    <value>EfectoresConInternetToolStripMenuItem</value>
+  <data name="&gt;&gt;ListadoPedidosDeDesarrolloToolStripMenuItem.Name" xml:space="preserve">
+    <value>ListadoPedidosDeDesarrolloToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;EfectoresConInternetToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ListadoPedidosDeDesarrolloToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

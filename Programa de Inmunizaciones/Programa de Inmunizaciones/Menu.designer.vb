@@ -64,6 +64,7 @@ Partial Class Menu
         Me.EfectoresPorReferenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadoDeHeladerasPorEfectorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EfectoresPorEmisiónDeResumenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EfectoresConInternetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosPorLocalidadYDepartamentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosImplementadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,7 +88,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EfectoresConInternetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadoPedidosDeDesarrolloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -208,7 +209,7 @@ Partial Class Menu
         '
         'DesarrollosSigipsaToolStripMenuItem
         '
-        Me.DesarrollosSigipsaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNvaPeticiónToolStripMenuItem, Me.RegistrarPedidoDeUsuariosToolStripMenuItem})
+        Me.DesarrollosSigipsaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNvaPeticiónToolStripMenuItem, Me.RegistrarPedidoDeUsuariosToolStripMenuItem, Me.ListadoPedidosDeDesarrolloToolStripMenuItem})
         resources.ApplyResources(Me.DesarrollosSigipsaToolStripMenuItem, "DesarrollosSigipsaToolStripMenuItem")
         Me.DesarrollosSigipsaToolStripMenuItem.Name = "DesarrollosSigipsaToolStripMenuItem"
         '
@@ -320,6 +321,11 @@ Partial Class Menu
         '
         resources.ApplyResources(Me.EfectoresPorEmisiónDeResumenToolStripMenuItem, "EfectoresPorEmisiónDeResumenToolStripMenuItem")
         Me.EfectoresPorEmisiónDeResumenToolStripMenuItem.Name = "EfectoresPorEmisiónDeResumenToolStripMenuItem"
+        '
+        'EfectoresConInternetToolStripMenuItem
+        '
+        resources.ApplyResources(Me.EfectoresConInternetToolStripMenuItem, "EfectoresConInternetToolStripMenuItem")
+        Me.EfectoresConInternetToolStripMenuItem.Name = "EfectoresConInternetToolStripMenuItem"
         '
         'EstadisticasToolStripMenuItem1
         '
@@ -462,10 +468,10 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
-        'EfectoresConInternetToolStripMenuItem
+        'ListadoPedidosDeDesarrolloToolStripMenuItem
         '
-        resources.ApplyResources(Me.EfectoresConInternetToolStripMenuItem, "EfectoresConInternetToolStripMenuItem")
-        Me.EfectoresConInternetToolStripMenuItem.Name = "EfectoresConInternetToolStripMenuItem"
+        Me.ListadoPedidosDeDesarrolloToolStripMenuItem.Name = "ListadoPedidosDeDesarrolloToolStripMenuItem"
+        resources.ApplyResources(Me.ListadoPedidosDeDesarrolloToolStripMenuItem, "ListadoPedidosDeDesarrolloToolStripMenuItem")
         '
         'Menu
         '
@@ -548,4 +554,5 @@ Partial Class Menu
     Friend WithEvents StockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EfectoresQueNoNotificanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EfectoresConInternetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListadoPedidosDeDesarrolloToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -327,6 +327,12 @@
     <Compile Include="Listados\list_no_notifican.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_pedidos_desarrollo.Designer.vb">
+      <DependentUpon>list_pedidos_desarrollo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_pedidos_desarrollo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_usuarios.Designer.vb">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </Compile>
@@ -477,6 +483,7 @@
       <DependentUpon>list_efect_internet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_ef_eminten_sigipsa.rdlc" />
+    <EmbeddedResource Include="Listados\list_pedidos_desarrollo.rdlc" />
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.rdlc" />
     <EmbeddedResource Include="Listados\list_heladeras_antiguas.resx">
       <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
@@ -484,6 +491,9 @@
     <EmbeddedResource Include="Listados\list_no_notifican.rdlc" />
     <EmbeddedResource Include="Listados\list_no_notifican.resx">
       <DependentUpon>list_no_notifican.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_pedidos_desarrollo.resx">
+      <DependentUpon>list_pedidos_desarrollo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>
