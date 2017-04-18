@@ -41,11 +41,11 @@
         sql &= "FROM PEDIDO_DESARROLLO PD JOIN ESTADOS_PEDIDOS EP ON EP.id = PD.id_estados_pedidos "
         If cmb_estado_pedido.SelectedIndex <> -1 Then
             sql &= "WHERE EP.id = " & Me.cmb_estado_pedido.SelectedValue
-            If txt_fecha_desde.Text <> "" And txt_fecha_hasta.Text <> "" Then
-                sql &= " AND PD.fecha_pedido between '" & Me.txt_fecha_desde.Text & "'AND '" & Me.txt_fecha_hasta.Text & "'"
 
+            If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) Then
+                sql &= " AND PD.fecha_pedido between '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
             End If
-        ElseIf txt_fecha_desde.Text <> "" And txt_fecha_hasta.Text <> "" Then
+        ElseIf IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) Then
             sql &= "WHERE PD.fecha_pedido BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
         End If
 
@@ -62,4 +62,11 @@
             imprimir()
         End If
     End Sub
+
+    Private Sub list_pedidos_desarrollo_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        Me.ReportViewer1.Width = Me.Width - 50
+        Me.ReportViewer1.Height = Me.Height - 2
+
+    End Sub
+
 End Class
