@@ -158,8 +158,9 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre_vacunatorio" msprop:Generator_ColumnVarNameInTable="columnnombre_vacunatorio" msprop:Generator_ColumnPropNameInRow="nombre_vacunatorio" msprop:Generator_ColumnPropNameInTable="nombre_vacunatorioColumn" msprop:Generator_UserColumnName="nombre_vacunatorio" type="xs:string" minOccurs="0" />
-              <xs:element name="nombre_referente" msprop:Generator_ColumnVarNameInTable="columnnombre_referente" msprop:Generator_ColumnPropNameInRow="nombre_referente" msprop:Generator_ColumnPropNameInTable="nombre_referenteColumn" msprop:Generator_UserColumnName="nombre_referente" type="xs:string" minOccurs="0" />
-              <xs:element name="mail_contacto" msprop:Generator_ColumnVarNameInTable="columnmail_contacto" msprop:Generator_ColumnPropNameInRow="mail_contacto" msprop:Generator_ColumnPropNameInTable="mail_contactoColumn" msprop:Generator_UserColumnName="mail_contacto" type="xs:string" minOccurs="0" />
+              <xs:element name="cuie" msprop:Generator_ColumnVarNameInTable="columncuie" msprop:Generator_ColumnPropNameInRow="cuie" msprop:Generator_ColumnPropNameInTable="cuieColumn" msprop:Generator_UserColumnName="cuie" type="xs:string" minOccurs="0" />
+              <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" type="xs:string" minOccurs="0" />
+              <xs:element name="localidad" msprop:Generator_ColumnVarNameInTable="columnlocalidad" msprop:Generator_ColumnPropNameInRow="localidad" msprop:Generator_ColumnPropNameInTable="localidadColumn" msprop:Generator_UserColumnName="localidad" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -171,6 +172,18 @@
               <xs:element name="cuie" msprop:Generator_ColumnVarNameInTable="columncuie" msprop:Generator_ColumnPropNameInRow="cuie" msprop:Generator_ColumnPropNameInTable="cuieColumn" msprop:Generator_UserColumnName="cuie" type="xs:string" minOccurs="0" />
               <xs:element name="nombre_efector" msprop:Generator_ColumnVarNameInTable="columnnombre_efector" msprop:Generator_ColumnPropNameInRow="nombre_efector" msprop:Generator_ColumnPropNameInTable="nombre_efectorColumn" msprop:Generator_UserColumnName="nombre_efector" type="xs:string" minOccurs="0" />
               <xs:element name="tiene_conexion" msprop:Generator_ColumnVarNameInTable="columntiene_conexion" msprop:Generator_ColumnPropNameInRow="tiene_conexion" msprop:Generator_ColumnPropNameInTable="tiene_conexionColumn" msprop:Generator_UserColumnName="tiene_conexion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LIST_PEDIDOS_DESARROLLO" msprop:Generator_TableClassName="LIST_PEDIDOS_DESARROLLODataTable" msprop:Generator_TableVarName="tableLIST_PEDIDOS_DESARROLLO" msprop:Generator_TablePropName="LIST_PEDIDOS_DESARROLLO" msprop:Generator_RowDeletingName="LIST_PEDIDOS_DESARROLLORowDeleting" msprop:Generator_RowChangingName="LIST_PEDIDOS_DESARROLLORowChanging" msprop:Generator_RowEvHandlerName="LIST_PEDIDOS_DESARROLLORowChangeEventHandler" msprop:Generator_RowDeletedName="LIST_PEDIDOS_DESARROLLORowDeleted" msprop:Generator_UserTableName="LIST_PEDIDOS_DESARROLLO" msprop:Generator_RowChangedName="LIST_PEDIDOS_DESARROLLORowChanged" msprop:Generator_RowEvArgName="LIST_PEDIDOS_DESARROLLORowChangeEvent" msprop:Generator_RowClassName="LIST_PEDIDOS_DESARROLLORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fecha_pedido" msprop:Generator_ColumnVarNameInTable="columnfecha_pedido" msprop:Generator_ColumnPropNameInRow="fecha_pedido" msprop:Generator_ColumnPropNameInTable="fecha_pedidoColumn" msprop:Generator_UserColumnName="fecha_pedido" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha_solucion" msprop:Generator_ColumnVarNameInTable="columnfecha_solucion" msprop:Generator_ColumnPropNameInRow="fecha_solucion" msprop:Generator_ColumnPropNameInTable="fecha_solucionColumn" msprop:Generator_UserColumnName="fecha_solucion" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_pedido" msprop:Generator_ColumnVarNameInTable="columnestado_pedido" msprop:Generator_ColumnPropNameInRow="estado_pedido" msprop:Generator_ColumnPropNameInTable="estado_pedidoColumn" msprop:Generator_UserColumnName="estado_pedido" type="xs:string" minOccurs="0" />
+              <xs:element name="desarrollador" msprop:Generator_ColumnVarNameInTable="columndesarrollador" msprop:Generator_ColumnPropNameInRow="desarrollador" msprop:Generator_ColumnPropNameInTable="desarrolladorColumn" msprop:Generator_UserColumnName="desarrollador" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcionSolicitud" msprop:Generator_ColumnVarNameInTable="columndescripcionSolicitud" msprop:Generator_ColumnPropNameInRow="descripcionSolicitud" msprop:Generator_ColumnPropNameInTable="descripcionSolicitudColumn" msprop:Generator_UserColumnName="descripcionSolicitud" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcionRespuesta" msprop:Generator_ColumnVarNameInTable="columndescripcionRespuesta" msprop:Generator_ColumnPropNameInRow="descripcionRespuesta" msprop:Generator_ColumnPropNameInTable="descripcionRespuestaColumn" msprop:Generator_UserColumnName="descripcionRespuesta" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

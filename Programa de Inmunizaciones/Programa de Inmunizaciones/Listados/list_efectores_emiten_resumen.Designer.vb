@@ -28,6 +28,8 @@ Partial Class list_efectores_emiten_resumen
         Me.LIST_EMITEN_SIGIPSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
+        Me.cmb_emite_sigipsa = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
@@ -38,8 +40,6 @@ Partial Class list_efectores_emiten_resumen
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmb_emite_sigipsa = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.LIST_EMITEN_SIGIPSABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
@@ -77,13 +77,33 @@ Partial Class list_efectores_emiten_resumen
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
         '
+        'cmb_emite_sigipsa
+        '
+        Me.cmb_emite_sigipsa._descripcion = "descripcion"
+        Me.cmb_emite_sigipsa._nombre_tabla = "ESTADO_RM"
+        Me.cmb_emite_sigipsa._pk = "id"
+        Me.cmb_emite_sigipsa.FormattingEnabled = True
+        Me.cmb_emite_sigipsa.Location = New System.Drawing.Point(354, 103)
+        Me.cmb_emite_sigipsa.Name = "cmb_emite_sigipsa"
+        Me.cmb_emite_sigipsa.Size = New System.Drawing.Size(155, 21)
+        Me.cmb_emite_sigipsa.TabIndex = 52
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(247, 106)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(101, 13)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Emisión de resumen"
+        '
         'cmd_ejecutar
         '
         Me.cmd_ejecutar.BackgroundImage = CType(resources.GetObject("cmd_ejecutar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(515, 27)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(515, 35)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
         Me.cmd_ejecutar.TabIndex = 50
@@ -176,26 +196,6 @@ Partial Class list_efectores_emiten_resumen
         Me.ReportViewer1.Size = New System.Drawing.Size(807, 433)
         Me.ReportViewer1.TabIndex = 6
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(247, 106)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 13)
-        Me.Label1.TabIndex = 51
-        Me.Label1.Text = "Emisión de resumen"
-        '
-        'cmb_emite_sigipsa
-        '
-        Me.cmb_emite_sigipsa._descripcion = "descripcion"
-        Me.cmb_emite_sigipsa._nombre_tabla = "ESTADO_RM"
-        Me.cmb_emite_sigipsa._pk = "id"
-        Me.cmb_emite_sigipsa.FormattingEnabled = True
-        Me.cmb_emite_sigipsa.Location = New System.Drawing.Point(354, 103)
-        Me.cmb_emite_sigipsa.Name = "cmb_emite_sigipsa"
-        Me.cmb_emite_sigipsa.Size = New System.Drawing.Size(155, 21)
-        Me.cmb_emite_sigipsa.TabIndex = 52
-        '
         'list_efectores_emiten_resumen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -206,7 +206,7 @@ Partial Class list_efectores_emiten_resumen
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "list_efectores_emiten_resumen"
-        Me.Text = "list_efectores_emiten_resumen"
+        Me.Text = "Efectores por emisión de resumen"
         CType(Me.LIST_EMITEN_SIGIPSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)

@@ -25,6 +25,8 @@ Partial Class list_no_notifican
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_no_notifican))
+        Me.LISTNONOTIFICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -32,18 +34,26 @@ Partial Class list_no_notifican
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.grp_datos_notificacion = New System.Windows.Forms.GroupBox()
-        Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_hasta = New System.Windows.Forms.Label()
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_desde = New System.Windows.Forms.Label()
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.LIST_NO_NOTIFICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmd_ejecutar = New System.Windows.Forms.Button()
+        CType(Me.LISTNONOTIFICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_datos_notificacion.SuspendLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LIST_NO_NOTIFICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'LISTNONOTIFICABindingSource
+        '
+        Me.LISTNONOTIFICABindingSource.DataMember = "LIST_NO_NOTIFICA"
+        Me.LISTNONOTIFICABindingSource.DataSource = Me.Inmunizaciones
+        '
+        'Inmunizaciones
+        '
+        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
+        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'grp_datos_efector
         '
@@ -105,7 +115,7 @@ Partial Class list_no_notifican
         'ReportViewer1
         '
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LIST_NO_NOTIFICABindingSource
+        ReportDataSource1.Value = Me.LISTNONOTIFICABindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_no_notifican.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(29, 135)
@@ -116,11 +126,11 @@ Partial Class list_no_notifican
         'grp_datos_notificacion
         '
         Me.grp_datos_notificacion.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_notificacion.Controls.Add(Me.cmd_ejecutar)
         Me.grp_datos_notificacion.Controls.Add(Me.txt_fecha_hasta)
         Me.grp_datos_notificacion.Controls.Add(Me.lbl_hasta)
         Me.grp_datos_notificacion.Controls.Add(Me.txt_fecha_desde)
-        Me.grp_datos_notificacion.Controls.Add(Me.lbl_desde)
+        Me.grp_datos_notificacion.Controls.Add(Me.Label1)
+        Me.grp_datos_notificacion.Controls.Add(Me.cmd_ejecutar)
         Me.grp_datos_notificacion.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_notificacion.Location = New System.Drawing.Point(528, 12)
         Me.grp_datos_notificacion.Name = "grp_datos_notificacion"
@@ -128,6 +138,42 @@ Partial Class list_no_notifican
         Me.grp_datos_notificacion.TabIndex = 6
         Me.grp_datos_notificacion.TabStop = False
         Me.grp_datos_notificacion.Text = "Datos Notificacion"
+        '
+        'txt_fecha_hasta
+        '
+        Me.txt_fecha_hasta.Location = New System.Drawing.Point(232, 38)
+        Me.txt_fecha_hasta.Mask = "00/00/0000"
+        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
+        Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha_hasta.TabIndex = 43
+        Me.txt_fecha_hasta.ValidatingType = GetType(Date)
+        '
+        'lbl_hasta
+        '
+        Me.lbl_hasta.AutoSize = True
+        Me.lbl_hasta.Location = New System.Drawing.Point(187, 42)
+        Me.lbl_hasta.Name = "lbl_hasta"
+        Me.lbl_hasta.Size = New System.Drawing.Size(35, 13)
+        Me.lbl_hasta.TabIndex = 42
+        Me.lbl_hasta.Text = "Hasta"
+        '
+        'txt_fecha_desde
+        '
+        Me.txt_fecha_desde.Location = New System.Drawing.Point(67, 38)
+        Me.txt_fecha_desde.Mask = "00/00/0000"
+        Me.txt_fecha_desde.Name = "txt_fecha_desde"
+        Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha_desde.TabIndex = 40
+        Me.txt_fecha_desde.ValidatingType = GetType(Date)
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(10, 41)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(38, 13)
+        Me.Label1.TabIndex = 41
+        Me.Label1.Text = "Desde"
         '
         'cmd_ejecutar
         '
@@ -138,8 +184,8 @@ Partial Class list_no_notifican
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(336, 20)
+        Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(339, 20)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -148,69 +194,24 @@ Partial Class list_no_notifican
         Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_ejecutar.UseVisualStyleBackColor = False
         '
-        'txt_fecha_hasta
-        '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(232, 34)
-        Me.txt_fecha_hasta.Mask = "00/00/0000"
-        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
-        Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_hasta.TabIndex = 35
-        Me.txt_fecha_hasta.ValidatingType = GetType(Date)
-        '
-        'lbl_hasta
-        '
-        Me.lbl_hasta.AutoSize = True
-        Me.lbl_hasta.Location = New System.Drawing.Point(187, 38)
-        Me.lbl_hasta.Name = "lbl_hasta"
-        Me.lbl_hasta.Size = New System.Drawing.Size(35, 13)
-        Me.lbl_hasta.TabIndex = 34
-        Me.lbl_hasta.Text = "Hasta"
-        '
-        'txt_fecha_desde
-        '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(67, 34)
-        Me.txt_fecha_desde.Mask = "00/00/0000"
-        Me.txt_fecha_desde.Name = "txt_fecha_desde"
-        Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_desde.TabIndex = 2
-        Me.txt_fecha_desde.ValidatingType = GetType(Date)
-        '
-        'lbl_desde
-        '
-        Me.lbl_desde.AutoSize = True
-        Me.lbl_desde.Location = New System.Drawing.Point(10, 37)
-        Me.lbl_desde.Name = "lbl_desde"
-        Me.lbl_desde.Size = New System.Drawing.Size(38, 13)
-        Me.lbl_desde.TabIndex = 33
-        Me.lbl_desde.Text = "Desde"
-        '
-        'Inmunizaciones
-        '
-        Me.Inmunizaciones.DataSetName = "Inmunizaciones"
-        Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LIST_NO_NOTIFICABindingSource
-        '
-        Me.LIST_NO_NOTIFICABindingSource.DataMember = "LIST_NO_NOTIFICA"
-        Me.LIST_NO_NOTIFICABindingSource.DataSource = Me.Inmunizaciones
-        '
         'list_no_notifican
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(995, 528)
         Me.Controls.Add(Me.grp_datos_notificacion)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "list_no_notifican"
         Me.Text = "EFECTORES QUE NO NOTIFICAN"
+        CType(Me.LISTNONOTIFICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
         Me.grp_datos_notificacion.ResumeLayout(False)
         Me.grp_datos_notificacion.PerformLayout()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LIST_NO_NOTIFICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -225,7 +226,7 @@ Partial Class list_no_notifican
     Friend WithEvents txt_fecha_hasta As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lbl_hasta As System.Windows.Forms.Label
     Friend WithEvents txt_fecha_desde As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lbl_desde As System.Windows.Forms.Label
-    Friend WithEvents LIST_NO_NOTIFICABindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents LISTNONOTIFICABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
 End Class

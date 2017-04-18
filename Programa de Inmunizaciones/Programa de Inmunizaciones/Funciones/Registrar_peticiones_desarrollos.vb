@@ -484,4 +484,11 @@
         Me.cargar_grilla()
     End Sub
 
+    Private Sub grp_datos_recordatorio_Enter(sender As Object, e As EventArgs) Handles grp_datos_recordatorio.Enter
+
+    End Sub
+
+    Private Sub dgv_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_pedidos.CellContentClick
+
+    End Sub
 End Class
