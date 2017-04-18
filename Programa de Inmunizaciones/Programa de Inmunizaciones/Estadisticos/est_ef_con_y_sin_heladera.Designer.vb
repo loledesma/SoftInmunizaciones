@@ -31,9 +31,9 @@ Partial Class est_ef_con_y_sin_heladera
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.EST_EFECTORES_CON_Y_SIN_HELADERABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -95,17 +95,6 @@ Partial Class est_ef_con_y_sin_heladera
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Departamento"
         '
-        'ReportViewer1
-        '
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.EST_EFECTORES_CON_Y_SIN_HELADERABindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_con_y_sin_heladera.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 110)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 523)
-        Me.ReportViewer1.TabIndex = 1
-        '
         'cmb_localidades
         '
         Me.cmb_localidades._descripcion = "descripcion"
@@ -128,6 +117,17 @@ Partial Class est_ef_con_y_sin_heladera
         Me.cmb_departamentos.Size = New System.Drawing.Size(309, 21)
         Me.cmb_departamentos.TabIndex = 0
         '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.EST_EFECTORES_CON_Y_SIN_HELADERABindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_con_y_sin_heladera.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 110)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 523)
+        Me.ReportViewer1.TabIndex = 1
+        '
         'est_ef_con_y_sin_heladera
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -138,7 +138,7 @@ Partial Class est_ef_con_y_sin_heladera
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "est_ef_con_y_sin_heladera"
-        Me.Text = "est_ef_con_y_sin_heladera"
+        Me.Text = "Efectores por heladeras"
         CType(Me.EST_EFECTORES_CON_Y_SIN_HELADERABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

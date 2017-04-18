@@ -23,17 +23,17 @@ Partial Class est_efectores_implementados
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(est_efectores_implementados))
         Me.EST_EFECTORES_IMPLEMENTADOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones2 = New Programa_de_Inmunizaciones.Inmunizaciones2()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmd_generar = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.EST_EFECTORES_IMPLEMENTADOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -51,9 +51,9 @@ Partial Class est_efectores_implementados
         '
         'ReportViewer1
         '
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.EST_EFECTORES_IMPLEMENTADOSBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.EST_EFECTORES_IMPLEMENTADOSBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_efectores_implementados.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(5, 107)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -88,24 +88,6 @@ Partial Class est_efectores_implementados
         Me.cmd_generar.TabIndex = 4
         Me.cmd_generar.UseVisualStyleBackColor = True
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 55)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Localidad"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 27)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Departamento"
-        '
         'cmb_localidades
         '
         Me.cmb_localidades._descripcion = "descripcion"
@@ -129,6 +111,24 @@ Partial Class est_efectores_implementados
         Me.cmb_departamentos.Size = New System.Drawing.Size(278, 21)
         Me.cmb_departamentos.TabIndex = 2
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 55)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Localidad"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 27)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Departamento"
+        '
         'est_efectores_implementados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -139,7 +139,7 @@ Partial Class est_efectores_implementados
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "est_efectores_implementados"
-        Me.Text = "est_efectores_implementados"
+        Me.Text = "Efectores por implementación"
         CType(Me.EST_EFECTORES_IMPLEMENTADOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

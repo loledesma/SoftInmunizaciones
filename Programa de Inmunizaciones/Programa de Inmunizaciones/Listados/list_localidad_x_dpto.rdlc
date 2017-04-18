@@ -41,6 +41,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -74,6 +75,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -111,6 +113,7 @@
                         <Border>
                           <Style>Dotted</Style>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -143,6 +146,7 @@
                         <Border>
                           <Style>Dotted</Style>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -188,7 +192,7 @@
         </Style>
       </Tablix>
       <Line Name="Line3">
-        <Top>3.37785cm</Top>
+        <Top>2.29306cm</Top>
         <Height>0cm</Height>
         <Width>23.31953cm</Width>
         <ZIndex>1</ZIndex>
@@ -199,7 +203,7 @@
         </Style>
       </Line>
     </ReportItems>
-    <Height>1.34375in</Height>
+    <Height>0.90278in</Height>
     <Style>
       <BackgroundColor>White</BackgroundColor>
     </Style>
@@ -207,7 +211,7 @@
   <Width>9.18092in</Width>
   <Page>
     <PageHeader>
-      <Height>2.44891cm</Height>
+      <Height>2.2637cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>

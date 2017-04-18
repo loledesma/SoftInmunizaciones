@@ -91,7 +91,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_limpiar.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Location = New System.Drawing.Point(212, 463)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
@@ -110,7 +110,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(76, 463)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -129,7 +129,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_eliminar.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_eliminar.Location = New System.Drawing.Point(144, 463)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
@@ -148,7 +148,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(8, 463)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -164,7 +164,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Location = New System.Drawing.Point(993, 463)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
@@ -227,7 +227,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_efector_nuevo.Location = New System.Drawing.Point(338, 95)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
@@ -316,7 +316,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_empleado_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(339, 108)
         Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
@@ -330,10 +330,11 @@ Partial Class Registrar_notificaciones
         '
         Me.cmd_buscar_empleado.BackgroundImage = CType(resources.GetObject("cmd_buscar_empleado.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_empleado.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_empleado.Location = New System.Drawing.Point(337, 78)
         Me.cmd_buscar_empleado.Name = "cmd_buscar_empleado"
-        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(31, 23)
+        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(22, 23)
         Me.cmd_buscar_empleado.TabIndex = 5
         Me.cmd_buscar_empleado.UseVisualStyleBackColor = True
         '
@@ -511,7 +512,8 @@ Partial Class Registrar_notificaciones
         '
         Me.cmd_buscar_notificaciones.BackgroundImage = CType(resources.GetObject("cmd_buscar_notificaciones.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_notificaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_notificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_notificaciones.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_notificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_notificaciones.Location = New System.Drawing.Point(341, 19)
         Me.cmd_buscar_notificaciones.Name = "cmd_buscar_notificaciones"
         Me.cmd_buscar_notificaciones.Size = New System.Drawing.Size(40, 40)
