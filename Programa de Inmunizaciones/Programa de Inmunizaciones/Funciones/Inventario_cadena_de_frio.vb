@@ -187,7 +187,7 @@
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No hay inventario para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("No hay inventario de heladera para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 txt_empleado_nombre.Text = tabla.Rows(0)("nombres")
                 txt_empleado_apellido.Text = tabla.Rows(0)("apellidos")
@@ -247,10 +247,57 @@
     Private Sub cargar_inventario_termo()
         Dim sql As String = ""
         Dim tabla As New DataTable
+
+
+
+        sql &= "SELECT id, fecha, cantidad, tipo_termo, observaciones "
+        sql &= " FROM INVENTARIO_CF_TERMOS "
+        sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+        tabla.Rows.Clear()
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("No hay inventario de termo para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_termos.Rows.Clear()
+                dgv_termos.Rows.Add()
+                dgv_termos.Rows(c).Cells("id_termo").Value = tabla.Rows(c)("id")
+                dgv_heladeras.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_heladeras.Rows(c).Cells("tipo_termo").Value = tabla.Rows(c)("tipo_termo")
+                dgv_heladeras.Rows(c).Cells("observaciones_termo").Value = tabla.Rows(c)("observaciones")
+                dgv_heladeras.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+            Next
+
+        End If
+        
+
     End Sub
 
     Private Sub cargar_inventario_termometro()
         Dim sql As String = ""
         Dim tabla As New DataTable
+
+        sql &= "SELECT id, cantidad, tipo_termometro, observaciones "
+        sql &= " FROM INVENTARIO_CF_TERMOMETRO "
+        sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+        tabla.Rows.Clear()
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("No hay inventario de termometro para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_termos.Rows.Clear()
+                dgv_termos.Rows.Add()
+                dgv_termos.Rows(c).Cells("id_termometro").Value = tabla.Rows(c)("id")
+                dgv_heladeras.Rows(c).Cells("fecha_termometro").Value = tabla.Rows(c)("fecha")
+                dgv_heladeras.Rows(c).Cells("tipo_termometro").Value = tabla.Rows(c)("tipo_termometro")
+                dgv_heladeras.Rows(c).Cells("observaciones_termometro").Value = tabla.Rows(c)("observaciones")
+                dgv_heladeras.Rows(c).Cells("cantidad_termometro").Value = tabla.Rows(c)("cantidad")
+            Next
+        End If
     End Sub
+
+
 End Class

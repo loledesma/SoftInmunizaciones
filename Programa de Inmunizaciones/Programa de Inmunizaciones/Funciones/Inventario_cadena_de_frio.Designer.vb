@@ -124,8 +124,6 @@ Partial Class Inventario_cadena_de_frio
         Me.observaciones_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txt_tipo_termometro = New System.Windows.Forms.TextBox()
-        Me.txt_fecha_termometro = New System.Windows.Forms.MaskedTextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.txt_id_termometro = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.txt_observaciones_termometro = New System.Windows.Forms.RichTextBox()
@@ -136,6 +134,8 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_eliminar_termometro = New System.Windows.Forms.Button()
         Me.cmd_agregar_termometro = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.txt_fecha_termometro = New System.Windows.Forms.MaskedTextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.Heladera.SuspendLayout()
@@ -1202,24 +1202,6 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_tipo_termometro.Size = New System.Drawing.Size(139, 20)
         Me.txt_tipo_termometro.TabIndex = 75
         '
-        'txt_fecha_termometro
-        '
-        Me.txt_fecha_termometro.Location = New System.Drawing.Point(330, 82)
-        Me.txt_fecha_termometro.Mask = "00/00/0000"
-        Me.txt_fecha_termometro.Name = "txt_fecha_termometro"
-        Me.txt_fecha_termometro.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_termometro.TabIndex = 52
-        Me.txt_fecha_termometro.ValidatingType = GetType(Date)
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(231, 84)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(92, 13)
-        Me.Label17.TabIndex = 53
-        Me.Label17.Text = "Fecha Recepcion"
-        '
         'txt_id_termometro
         '
         Me.txt_id_termometro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -1338,6 +1320,24 @@ Partial Class Inventario_cadena_de_frio
         Me.Label25.Size = New System.Drawing.Size(63, 13)
         Me.Label25.TabIndex = 30
         Me.Label25.Text = "Tipo/Marca"
+        '
+        'txt_fecha_termometro
+        '
+        Me.txt_fecha_termometro.Location = New System.Drawing.Point(330, 82)
+        Me.txt_fecha_termometro.Mask = "00/00/0000"
+        Me.txt_fecha_termometro.Name = "txt_fecha_termometro"
+        Me.txt_fecha_termometro.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha_termometro.TabIndex = 52
+        Me.txt_fecha_termometro.ValidatingType = GetType(Date)
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(231, 84)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(92, 13)
+        Me.Label17.TabIndex = 53
+        Me.Label17.Text = "Fecha Recepcion"
         '
         'Inventario_cadena_de_frio
         '
@@ -1466,8 +1466,6 @@ Partial Class Inventario_cadena_de_frio
     Friend WithEvents observaciones_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents txt_tipo_termometro As System.Windows.Forms.TextBox
-    Friend WithEvents txt_fecha_termometro As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents txt_id_termometro As System.Windows.Forms.TextBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents txt_observaciones_termometro As System.Windows.Forms.RichTextBox
@@ -1479,4 +1477,6 @@ Partial Class Inventario_cadena_de_frio
     Friend WithEvents cmd_agregar_termometro As System.Windows.Forms.Button
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents cmd_buscar_empleado As System.Windows.Forms.Button
+    Friend WithEvents txt_fecha_termometro As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
 End Class
