@@ -777,7 +777,7 @@
 
     End Sub
     Private Sub nuevo()
-        
+
         limpiar(Controls)
         condicion_estado = estado.insertar
         grp_datos_empleados.Enabled = True
@@ -1135,7 +1135,7 @@
 
             End If
 
-            End If
+        End If
 
         limpiar(Me.Controls)
         txt_nombre.Focus()
