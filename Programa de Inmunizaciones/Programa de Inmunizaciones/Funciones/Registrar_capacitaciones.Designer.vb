@@ -158,7 +158,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_limpiar.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Location = New System.Drawing.Point(153, 534)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
@@ -177,7 +177,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(77, 534)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -196,7 +196,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(9, 533)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -422,7 +422,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_actualizar_estado.FlatAppearance.BorderSize = 0
         Me.cmd_actualizar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_estado.Location = New System.Drawing.Point(359, 189)
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
@@ -524,7 +524,8 @@ Partial Class Registrar_capacitaciones
         '
         Me.cmd_buscar_capacitaciones.BackgroundImage = CType(resources.GetObject("cmd_buscar_capacitaciones.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_capacitaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_capacitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_capacitaciones.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_capacitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_capacitaciones.Location = New System.Drawing.Point(341, 19)
         Me.cmd_buscar_capacitaciones.Name = "cmd_buscar_capacitaciones"
         Me.cmd_buscar_capacitaciones.Size = New System.Drawing.Size(40, 40)
@@ -655,7 +656,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_limpiar_asistencia.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar_asistencia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_asistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar_asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar_asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar_asistencia.Location = New System.Drawing.Point(160, 542)
         Me.cmd_limpiar_asistencia.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_asistencia.Name = "cmd_limpiar_asistencia"
@@ -674,7 +675,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_guardar_asistencia.FlatAppearance.BorderSize = 0
         Me.cmd_guardar_asistencia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar_asistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar_asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar_asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar_asistencia.Location = New System.Drawing.Point(92, 543)
         Me.cmd_guardar_asistencia.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar_asistencia.Name = "cmd_guardar_asistencia"
@@ -693,7 +694,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_nueva_asistencia.FlatAppearance.BorderSize = 0
         Me.cmd_nueva_asistencia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nueva_asistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nueva_asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nueva_asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nueva_asistencia.Location = New System.Drawing.Point(24, 543)
         Me.cmd_nueva_asistencia.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nueva_asistencia.Name = "cmd_nueva_asistencia"
@@ -744,10 +745,10 @@ Partial Class Registrar_capacitaciones
         '
         'cmd_actualizar_sigipsa
         '
-        Me.cmd_actualizar_sigipsa.BackgroundImage = CType(resources.GetObject("cmd_actualizar_sigipsa.BackgroundImage"), System.Drawing.Image)
         Me.cmd_actualizar_sigipsa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_actualizar_sigipsa.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmd_actualizar_sigipsa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_actualizar_sigipsa.FlatAppearance.BorderSize = 0
+        Me.cmd_actualizar_sigipsa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(155, 159)
         Me.cmd_actualizar_sigipsa.Name = "cmd_actualizar_sigipsa"
         Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(168, 35)
@@ -777,7 +778,8 @@ Partial Class Registrar_capacitaciones
         '
         Me.cmd_buscar_empleadoXDNI.BackgroundImage = CType(resources.GetObject("cmd_buscar_empleadoXDNI.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar_empleadoXDNI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_empleadoXDNI.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_empleadoXDNI.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_empleadoXDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar_empleadoXDNI.Location = New System.Drawing.Point(442, 42)
         Me.cmd_buscar_empleadoXDNI.Name = "cmd_buscar_empleadoXDNI"
         Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(25, 25)
@@ -820,7 +822,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_limpiar_empleados.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar_empleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_empleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar_empleados.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_limpiar_empleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(417, 157)
         Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_empleados.Name = "cmd_limpiar_empleados"
@@ -839,7 +841,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_eliminar_empleado.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(480, 157)
         Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
@@ -858,7 +860,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_agregar_empleado.FlatAppearance.BorderSize = 0
         Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_agregar_empleado.Location = New System.Drawing.Point(449, 157)
         Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
@@ -877,7 +879,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_empleado_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(474, 42)
         Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
@@ -1022,7 +1024,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Location = New System.Drawing.Point(845, 672)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)

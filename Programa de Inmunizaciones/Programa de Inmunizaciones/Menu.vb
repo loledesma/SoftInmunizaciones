@@ -146,4 +146,8 @@ Public Class Menu
     Private Sub EfectoresConInternetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresConInternetToolStripMenuItem.Click
         list_efect_internet.ShowDialog()
     End Sub
+
+    Private Sub ListadoPedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListadoPedidosDeDesarrolloToolStripMenuItem.Click
+        list_pedidos_desarrollo.ShowDialog()
+    End Sub
 End Class

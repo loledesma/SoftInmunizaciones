@@ -58,7 +58,7 @@ Partial Class Registrar_supervisiones
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(861, 311)
+        Me.TabPage2.Size = New System.Drawing.Size(861, 381)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -72,8 +72,8 @@ Partial Class Registrar_supervisiones
         Me.cmd_limpiar.FlatAppearance.BorderSize = 0
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_limpiar.Location = New System.Drawing.Point(161, 444)
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_limpiar.Location = New System.Drawing.Point(161, 442)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
@@ -91,7 +91,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(93, 442)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
@@ -110,7 +110,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_nuevo.FlatAppearance.BorderSize = 0
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(25, 442)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
@@ -126,7 +126,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Location = New System.Drawing.Point(837, 444)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
@@ -138,6 +138,7 @@ Partial Class Registrar_supervisiones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(940, 517)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
