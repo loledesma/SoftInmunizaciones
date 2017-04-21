@@ -140,7 +140,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
+        sql &= "SELECT TOP 10 T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
         sql &= "FROM EMPLEADOS E JOIN TIPOS_DOCUMENTO T ON E.id_tipo_doc = T.id "
         sql &= "ORDER BY E.id"
         tabla = acceso.consulta(sql)
@@ -1219,7 +1219,16 @@
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
-        lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
+
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * "
+        sql &= "FROM EMPLEADOS  "
+
+        tabla = acceso.consulta(sql)
+
+        lbl_contador_empleados.Text = tabla.Rows.Count()
     End Sub
 
     'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged

@@ -139,7 +139,7 @@ Partial Class abm_empleados
         Me.txt_nro_documento.Location = New System.Drawing.Point(263, 50)
         Me.txt_nro_documento.Name = "txt_nro_documento"
         Me.txt_nro_documento.Size = New System.Drawing.Size(170, 20)
-        Me.txt_nro_documento.TabIndex = 3
+        Me.txt_nro_documento.TabIndex = 2
         '
         'cmd_buscar_x_documento
         '
@@ -191,7 +191,7 @@ Partial Class abm_empleados
         Me.txt_telefono.Mask = "999999999"
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(135, 20)
-        Me.txt_telefono.TabIndex = 7
+        Me.txt_telefono.TabIndex = 6
         '
         'Label3
         '
@@ -208,7 +208,7 @@ Partial Class abm_empleados
         Me.txt_caracteristica.Mask = "9999999"
         Me.txt_caracteristica.Name = "txt_caracteristica"
         Me.txt_caracteristica.Size = New System.Drawing.Size(67, 20)
-        Me.txt_caracteristica.TabIndex = 6
+        Me.txt_caracteristica.TabIndex = 5
         '
         'Label2
         '
@@ -235,7 +235,7 @@ Partial Class abm_empleados
         Me.txt_apellido.Location = New System.Drawing.Point(124, 105)
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(256, 20)
-        Me.txt_apellido.TabIndex = 5
+        Me.txt_apellido.TabIndex = 4
         '
         'lbl_apellido
         '
@@ -260,7 +260,7 @@ Partial Class abm_empleados
         Me.txt_nombre.Location = New System.Drawing.Point(124, 79)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(256, 20)
-        Me.txt_nombre.TabIndex = 4
+        Me.txt_nombre.TabIndex = 3
         '
         'lbl_documento
         '
@@ -306,7 +306,7 @@ Partial Class abm_empleados
         Me.cmd_salir.Location = New System.Drawing.Point(1019, 581)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 8
+        Me.cmd_salir.TabIndex = 6
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_limpiar
@@ -323,7 +323,7 @@ Partial Class abm_empleados
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 4
+        Me.cmd_limpiar.TabIndex = 5
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -342,7 +342,7 @@ Partial Class abm_empleados
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 3
+        Me.cmd_guardar.TabIndex = 4
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -361,7 +361,7 @@ Partial Class abm_empleados
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 2
+        Me.cmd_nuevo.TabIndex = 3
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -391,7 +391,7 @@ Partial Class abm_empleados
         Me.grp_datos_laborales.Location = New System.Drawing.Point(12, 317)
         Me.grp_datos_laborales.Name = "grp_datos_laborales"
         Me.grp_datos_laborales.Size = New System.Drawing.Size(443, 220)
-        Me.grp_datos_laborales.TabIndex = 1
+        Me.grp_datos_laborales.TabIndex = 2
         Me.grp_datos_laborales.TabStop = False
         Me.grp_datos_laborales.Text = "Datos Laborales"
         '
@@ -505,7 +505,7 @@ Partial Class abm_empleados
         Me.cmd_eliminar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_efector.Name = "cmd_eliminar_efector"
         Me.cmd_eliminar_efector.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_eliminar_efector.TabIndex = 10
+        Me.cmd_eliminar_efector.TabIndex = 9
         Me.cmd_eliminar_efector.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar_efector.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar_efector.UseVisualStyleBackColor = False
@@ -767,7 +767,7 @@ Partial Class abm_empleados
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha.TabIndex = 3
+        Me.txt_fecha.TabIndex = 2
         Me.txt_fecha.ValidatingType = GetType(Date)
         '
         'grp_datos_sigipsa
@@ -831,7 +831,7 @@ Partial Class abm_empleados
         Me.cmb_estados.Location = New System.Drawing.Point(124, 91)
         Me.cmb_estados.Name = "cmb_estados"
         Me.cmb_estados.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estados.TabIndex = 4
+        Me.cmb_estados.TabIndex = 3
         '
         'lbl_estado
         '
