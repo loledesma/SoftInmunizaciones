@@ -129,7 +129,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT EF.cuie, EF.nombre, E.nombre AS nombre_referente, L.descripcion AS nombre_loc FROM "
+        sql &= "SELECT TOP 10 EF.cuie, EF.nombre, E.nombre AS nombre_referente, L.descripcion AS nombre_loc FROM "
         sql &= "EFECTORES EF JOIN EFECTORES E ON EF.id_referente = E.cuie JOIN LOCALIDADES L on L.id = EF.id_localidad "
         sql &= " ORDER BY EF.id_referente desc "
 
@@ -777,7 +777,7 @@
 
     End Sub
     Private Sub nuevo()
-        
+
         limpiar(Controls)
         condicion_estado = estado.insertar
         grp_datos_empleados.Enabled = True
@@ -1135,7 +1135,7 @@
 
             End If
 
-            End If
+        End If
 
         limpiar(Me.Controls)
         txt_nombre.Focus()
@@ -1143,7 +1143,15 @@
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
-        lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * "
+        sql &= "FROM EFECTORES  "
+
+        tabla = acceso.consulta(sql)
+
+        lbl_contador_efectores.Text = tabla.Rows.Count()
     End Sub
 
 
