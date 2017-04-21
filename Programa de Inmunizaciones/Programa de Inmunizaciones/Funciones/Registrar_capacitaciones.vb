@@ -98,7 +98,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
-        Dim c As Integer = 0
+
         If IsDate(txt_fecha_efectiva.Text) = False Then
             If cmb_localidades.SelectedValue = -1 Then
                 MessageBox.Show("Debe ingresar una fecha o una localidad para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -448,7 +448,7 @@
     End Sub
 
     Private Sub nuevo()
-        limpiar(Controls)
+        Me.limpiar(Me.Controls)
         Me.txt_descripcion.Text = ""
         Me.txt_observaciones.Text = ""
         Me.condicion_estado = condicion.insertar

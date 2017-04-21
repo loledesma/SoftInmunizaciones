@@ -20,7 +20,6 @@
     Private Sub Registrar_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar(Me.Controls)
         Me.cargar_grilla()
-        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_apellidos, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_nombres, "EMPLEADOS", "nombres")
@@ -82,6 +81,7 @@
         Me.Close()
     End Sub
     Private Sub cargar_grilla()
+        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         Dim sql As String = ""
 
@@ -92,7 +92,8 @@
         sql &= " JOIN CARGA C ON NE.id_estado_carga = C.id"
         sql &= " JOIN STOCK S ON NE.id_estado_stock = S.id"
         sql &= " JOIN PERDIDAS P ON NE.id_estado_perdidas = P.id "
-        sql &= "ORDER BY NE.fecha"
+        sql &= " WHERE NE.fecha= '" & hoy & "'"
+        sql &= " ORDER BY E.nombre "
         tabla = acceso.consulta(sql)
 
         Me.dgv_notificaciones.Rows.Clear()
@@ -614,6 +615,20 @@
     End Sub
 
     Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_notificaciones.CellValueChanged
-        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * "
+        sql &= "FROM NOTIFICACIONXEFECTOR  "
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() <> 0 Then
+            lbl_contador_notif.Text = tabla.Rows.Count()
+        Else
+            lbl_contador_notif.Text = "0"
+        End If
+
+        lbl_contador_hoy.Text = Me.dgv_notificaciones.Rows.Count()
     End Sub
 End Class
