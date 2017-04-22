@@ -73,11 +73,11 @@
 
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        Me.nuevo()
+        'Me.nuevo()
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
-        guardar()
+        'guardar()
     End Sub
 
     Private Sub limpiar(ByVal de_donde As Object)
