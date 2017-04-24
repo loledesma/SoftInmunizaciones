@@ -47,6 +47,7 @@ Partial Class Menu
         Me.DesarrollosSigipsaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNvaPeticiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarPedidoDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadoPedidosDeDesarrolloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecordatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HeldareasYPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -88,7 +89,7 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListadoPedidosDeDesarrolloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventarioDeCadenaDeFrioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -223,6 +224,11 @@ Partial Class Menu
         Me.RegistrarPedidoDeUsuariosToolStripMenuItem.Name = "RegistrarPedidoDeUsuariosToolStripMenuItem"
         resources.ApplyResources(Me.RegistrarPedidoDeUsuariosToolStripMenuItem, "RegistrarPedidoDeUsuariosToolStripMenuItem")
         '
+        'ListadoPedidosDeDesarrolloToolStripMenuItem
+        '
+        Me.ListadoPedidosDeDesarrolloToolStripMenuItem.Name = "ListadoPedidosDeDesarrolloToolStripMenuItem"
+        resources.ApplyResources(Me.ListadoPedidosDeDesarrolloToolStripMenuItem, "ListadoPedidosDeDesarrolloToolStripMenuItem")
+        '
         'RecordatoriosToolStripMenuItem
         '
         Me.RecordatoriosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SupervisionesToolStripMenuItem, Me.HeldareasYPCsToolStripMenuItem, Me.CursosToolStripMenuItem})
@@ -276,7 +282,7 @@ Partial Class Menu
         Me.VacunatoriosToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
         Me.VacunatoriosToolStripMenuItem.Checked = True
         Me.VacunatoriosToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.VacunatoriosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestiónDeVacunatoriosToolStripMenuItem, Me.ListadosToolStripMenuItem, Me.EstadisticasToolStripMenuItem1})
+        Me.VacunatoriosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestiónDeVacunatoriosToolStripMenuItem, Me.InventarioDeCadenaDeFrioToolStripMenuItem, Me.ListadosToolStripMenuItem, Me.EstadisticasToolStripMenuItem1})
         Me.VacunatoriosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         resources.ApplyResources(Me.VacunatoriosToolStripMenuItem, "VacunatoriosToolStripMenuItem")
         Me.VacunatoriosToolStripMenuItem.Name = "VacunatoriosToolStripMenuItem"
@@ -468,10 +474,10 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
-        'ListadoPedidosDeDesarrolloToolStripMenuItem
+        'InventarioDeCadenaDeFrioToolStripMenuItem
         '
-        Me.ListadoPedidosDeDesarrolloToolStripMenuItem.Name = "ListadoPedidosDeDesarrolloToolStripMenuItem"
-        resources.ApplyResources(Me.ListadoPedidosDeDesarrolloToolStripMenuItem, "ListadoPedidosDeDesarrolloToolStripMenuItem")
+        Me.InventarioDeCadenaDeFrioToolStripMenuItem.Name = "InventarioDeCadenaDeFrioToolStripMenuItem"
+        resources.ApplyResources(Me.InventarioDeCadenaDeFrioToolStripMenuItem, "InventarioDeCadenaDeFrioToolStripMenuItem")
         '
         'Menu
         '
@@ -555,4 +561,5 @@ Partial Class Menu
     Friend WithEvents EfectoresQueNoNotificanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EfectoresConInternetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadoPedidosDeDesarrolloToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents InventarioDeCadenaDeFrioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

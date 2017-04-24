@@ -1159,4 +1159,7 @@
         Inventario_cadena_de_frio.ShowDialog()
     End Sub
 
+    Private Sub cmd_notificar_Click(sender As Object, e As EventArgs) Handles cmd_notificar.Click
+        Registrar_notificaciones.ShowDialog()
+    End Sub
 End Class
