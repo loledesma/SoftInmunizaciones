@@ -468,6 +468,7 @@
             MessageBox.Show("Debe actualizar el estado si desea realizar algun cambio")
         End If
 
+        actualizar_inventario()
 
         dgv_detalle_entrega.Rows.Clear()
         dgv_entrega.Rows.Clear()
@@ -478,6 +479,11 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
+    End Sub
+
+    Private Sub actualizar_inventario()
+        MessageBox.Show("No se olvide de actualizar el inventario de cadena de frio")
+        Inventario_cadena_de_frio.ShowDialog()
     End Sub
 
 
