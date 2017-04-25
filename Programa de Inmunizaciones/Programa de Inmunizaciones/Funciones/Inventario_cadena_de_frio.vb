@@ -23,6 +23,14 @@
         Me.cmb_localidades.SelectedValue = -1
         Me.cmb_departamento.cargar()
         Me.cmb_departamento.SelectedValue = -1
+        Me.cmb_tipos_efectores.cargar()
+        Me.cmb_tipos_efectores.SelectedValue = -1
+        Me.cmb_tipo_heladera.cargar()
+        Me.cmb_tipo_heladera.SelectedValue = -1
+        Me.cmb_funcionamiento_heladera.cargar()
+        Me.cmb_funcionamiento_heladera.SelectedValue = -1
+        Me.cmb_marca_heladera.cargar()
+        Me.cmb_marca_heladera.SelectedValue = -1
 
 
         acceso.autocompletar(txt_efector, "EFECTORES", "nombre")
@@ -39,6 +47,16 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
 
+    End Sub
+
+    Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamento.SelectedValueChanged
+        If Me.condicion_click = doble_Click.desactivado Then
+            If cmb_departamento.SelectedIndex <> -1 Then
+                cmb_localidades.cargar("id_departamento", Me.cmb_departamento.SelectedValue)
+                cmb_localidades.Enabled = True
+                cmb_localidades.SelectedIndex = -1
+            End If
+        End If
     End Sub
 
     Private Sub txt_nombre_LostFocus(sender As Object, e As EventArgs) Handles txt_efector.LostFocus
@@ -162,6 +180,7 @@
     End Sub
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
+        condicion_click = doble_Click.activado
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
@@ -172,38 +191,44 @@
             Exit Sub
         Else
             sql &= "SELECT EF.cuie as cuie, EF.nombre as nombre, EF.id_localidad as id_localidad, EF.id_departamento as id_departamento "
-            sql &= ", EF.tipo as tipo_efector "
+            sql &= ", EF.id_tipo as tipo_efector "
             sql &= " FROM EFECTORES EF "
             sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
 
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No se encontró el efector: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("No se encontró el efector ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 cmb_departamento.SelectedValue = tabla.Rows(0)("id_departamento")
+                Me.cmb_localidades.cargar()
                 cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+                Me.condicion_click = doble_Click.desactivado
                 cmb_tipos_efectores.SelectedValue = tabla.Rows(0)("tipo_efector")
+
+                sql = ""
+                sql &= "SELECT IH.fecha_info as fecha_info, E.nombres as nombres, E.apellidos as apellidos "
+                sql &= "FROM EMPLEADOS E JOIN INVENTARIO_CF_HELADERA IH ON E.id = IH.id_empleado "
+                sql &= " WHERE IH.id_efector='" & Me.txt_cuie.Text & "'"
+                tabla.Rows.Clear()
+                tabla = acceso.consulta(sql)
+
+                If tabla.Rows.Count = 0 Then
+                    MessageBox.Show("No hay inventario de heladera para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                Else
+                    txt_empleado_nombre.Text = tabla.Rows(0)("nombres")
+                    txt_empleado_apellido.Text = tabla.Rows(0)("apellidos")
+                    txt_fecha_info.Text = tabla.Rows(0)("fecha_info")
+                    cargar_inventario_heladera()
+                    cargar_inventario_termo()
+                    cargar_inventario_termometro()
+                End If
             End If
 
-            sql &= "SELECT E.nombres as nombres, E.apellidos as apellidos"
-            sql &= "FROM EMPLEADOS E JOIN INVENTARIO_CF_HELADERA IH JOIN E.id = IH.id_empleado "
-            sql &= " WHERE IH.id_efector='" & Me.txt_cuie.Text & "'"
-            tabla.Rows.Clear()
-            tabla = acceso.consulta(sql)
 
-            If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No hay inventario de heladera para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Else
-                txt_empleado_nombre.Text = tabla.Rows(0)("nombres")
-                txt_empleado_apellido.Text = tabla.Rows(0)("apellidos")
-                cargar_inventario_heladera()
-                cargar_inventario_termo()
-                cargar_inventario_termometro()
-            End If
 
         End If
-        limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
     End Sub
 
@@ -214,8 +239,8 @@
 
         sql &= "SELECT IH.id as id,IH.fecha_info as fecha_info, IH.fecha as fecha, IH.modelo as modelo, IH.nro_serie as nro_serie, "
         sql &= " IH.capacidad as capacidad, IH.medidas as medidas, IH.motivo as motivo, IH.observaciones as observaciones "
-        sql &= " M.descripcion as marca, F.descripcion as funcionamiento, TH.descripcion as tipo_heladera "
-        sql &= " TH.id as id_tipo_heladera, M.id as id_marca, F.id as id_funcionamiento "
+        sql &= " , M.descripcion as marca, F.descripcion as funcionamiento, TH.descripcion as tipo_heladera "
+        sql &= ", TH.id as id_tipo_heladera, M.id as id_marca, F.id as id_funcionamiento "
         sql &= "FROM INVENTARIO_CF_HELADERA IH JOIN TIPO_HELADERA TH ON IH.id_tipo_heladera = TH.id "
         sql &= " JOIN MARCA M ON IH.id_marca = M.id JOIN FUNCIONAMIENTO F ON IH.id_funcionamiento = F.id "
         sql &= " WHERE IH.id_efector='" & Me.txt_cuie.Text & "'"
@@ -235,10 +260,11 @@
             dgv_heladeras.Rows(c).Cells("capacidad").Value = tabla.Rows(c)("capacidad")
             dgv_heladeras.Rows(c).Cells("medidas").Value = tabla.Rows(c)("medidas")
             dgv_heladeras.Rows(c).Cells("motivo").Value = tabla.Rows(c)("motivo")
-            dgv_heladeras.Rows(c).Cells("observaciones").Value = tabla.Rows(c)("observaciones")
+            dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value = tabla.Rows(c)("observaciones")
             dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value = tabla.Rows(c)("id_funcionamiento")
             dgv_heladeras.Rows(c).Cells("funcionamiento").Value = tabla.Rows(c)("funcionamiento")
             dgv_heladeras.Rows(c).Cells("fecha_info").Value = tabla.Rows(c)("fecha_info")
+            dgv_heladeras.Rows(c).Cells("fecha_heladera").Value = tabla.Rows(c)("fecha")
             dgv_heladeras.Rows(c).Cells("antiguedad").Value = calcular_antiguedad(tabla.Rows(c)("fecha"))
 
         Next
@@ -248,7 +274,7 @@
     Private Function calcular_antiguedad(ByRef fecha As String) As String
         Dim hoy As Date = Date.Today
         Dim comparador As Date = fecha
-        Dim antiguedad As String = DateDiff(DateInterval.Year, hoy, comparador).ToString
+        Dim antiguedad As String = DateDiff(DateInterval.Year, comparador, hoy).ToString
 
         Return antiguedad
     End Function
@@ -265,6 +291,7 @@
 
         If tabla.Rows.Count() = 0 Then
             MessageBox.Show("No hay inventario de termo para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
         Else
             For c = 0 To tabla.Rows.Count - 1
                 dgv_termos.Rows.Clear()
@@ -275,7 +302,6 @@
                 dgv_termos.Rows(c).Cells("observaciones_termo").Value = tabla.Rows(c)("observaciones")
                 dgv_termos.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
             Next
-
         End If
         
 
@@ -293,6 +319,7 @@
 
         If tabla.Rows.Count() = 0 Then
             MessageBox.Show("No hay inventario de termometro para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
         Else
             For c = 0 To tabla.Rows.Count - 1
                 dgv_termometros.Rows.Clear()
@@ -317,7 +344,7 @@
         Else
             sql &= " SELECT * FROM INVENTARIO_CF_HELADERA "
             sql &= " WHERE id_efector= '" & Me.txt_cuie.Text & "'"
-            sql &= " AND id = " & Me.dgv_heladeras.CurrentRow.Cells("id").Value
+            sql &= " AND id = " & Me.dgv_heladeras.CurrentRow.Cells("id_heladera").Value
             tabla = acceso.consulta(sql)
         End If
 
@@ -336,6 +363,7 @@
             Me.cmb_funcionamiento_heladera.SelectedValue = tabla.Rows(0)("id_funcionamiento")
             Me.txt_motivo_heladera.Text = tabla.Rows(0)("motivo")
             Me.txt_observaciones_heladera.Text = tabla.Rows(0)("observaciones")
+            Me.txt_antiguedad_heladera.Text = calcular_antiguedad(tabla.Rows(0)("fecha"))
         End If
     End Sub
 
@@ -350,7 +378,7 @@
         Else
             sql &= " SELECT * FROM INVENTARIO_CF_TERMOS "
             sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
-            sql &= " AND id = " & Me.dgv_termos.CurrentRow.Cells("id").Value
+            sql &= " AND id = " & Me.dgv_termos.CurrentRow.Cells("id_termo").Value
             tabla = acceso.consulta(sql)
         End If
 
@@ -377,7 +405,7 @@
         Else
             sql &= " SELECT * FROM INVENTARIO_CF_TERMOMETRO "
             sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
-            sql &= " AND id = " & Me.dgv_termos.CurrentRow.Cells("id").Value
+            sql &= " AND id = " & Me.dgv_termos.CurrentRow.Cells("id_termometro").Value
             tabla = acceso.consulta(sql)
         End If
 
@@ -415,7 +443,7 @@
 
     Private Function validar_cabecera() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If IsDate(txt_fecha_info.Text) Then
+        If IsDate(txt_fecha_info.Text) = False Then
             MessageBox.Show("Debe ingresar una fecha de recepcion de la info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_fecha_info.Focus()
@@ -499,42 +527,52 @@
         If validar_cabecera() = True Then
             If validar_heladera() = True Then
                 For c = 0 To dgv_heladeras.Rows.Count - 1
-                    If Me.txt_id_heladera.Text = dgv_heladeras.Rows(c).Cells("id_heladera").Value Then
-                        dgv_heladeras.Rows(c).Cells("id_heladera").Value = txt_id_heladera.Text
-                        dgv_heladeras.Rows(c).Cells("tipo_heladera").Value = cmb_tipo_heladera.SelectedText
+                    If Me.txt_nro_serie_heladera.Text = dgv_heladeras.Rows(c).Cells("nro_serie").Value Then
+                        If txt_id_heladera.Text = "" Then
+                            dgv_heladeras.Rows(c).Cells("id_heladera").Value = "Null"
+                        Else
+                            dgv_heladeras.Rows(c).Cells("id_heladera").Value = txt_id_heladera.Text
+                        End If
+                        dgv_heladeras.Rows(c).Cells("tipo_heladera").Value = cmb_tipo_heladera.Text
                         dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value = cmb_tipo_heladera.SelectedValue
-                        dgv_heladeras.Rows(c).Cells("marca").Value = cmb_marca_heladera.SelectedText
+                        dgv_heladeras.Rows(c).Cells("marca").Value = cmb_marca_heladera.Text
                         dgv_heladeras.Rows(c).Cells("id_marca").Value = cmb_marca_heladera.SelectedValue
                         dgv_heladeras.Rows(c).Cells("modelo").Value = txt_modelo_heladera.Text
                         dgv_heladeras.Rows(c).Cells("nro_serie").Value = txt_nro_serie_heladera.Text
                         dgv_heladeras.Rows(c).Cells("capacidad").Value = txt_capacidad_heladra.Text
                         dgv_heladeras.Rows(c).Cells("medidas").Value = txt_medidas_heladera.Text
                         dgv_heladeras.Rows(c).Cells("motivo").Value = txt_motivo_heladera.Text
-                        dgv_heladeras.Rows(c).Cells("observaciones").Value = txt_observaciones_heladera.Text
+                        dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value = txt_observaciones_heladera.Text
                         dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value = cmb_funcionamiento_heladera.SelectedValue
-                        dgv_heladeras.Rows(c).Cells("funcionamiento").Value = cmb_funcionamiento_heladera.SelectedText
+                        dgv_heladeras.Rows(c).Cells("funcionamiento").Value = cmb_funcionamiento_heladera.Text
                         dgv_heladeras.Rows(c).Cells("fecha_info").Value = txt_fecha_info.Text
-                        dgv_heladeras.Rows(c).Cells("antiguedad").Value = calcular_antiguedad(txt_fecha_info.Text)
+                        dgv_heladeras.Rows(c).Cells("fecha_heladera").Value = txt_fecha_heladera.Text
+                        dgv_heladeras.Rows(c).Cells("antiguedad").Value = calcular_antiguedad(txt_fecha_heladera.Text)
                         flag = True
                     End If
                 Next
                 If flag = False Then
                     dgv_heladeras.Rows.Add()
-                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_heladera").Value = txt_id_heladera.Text
-                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("tipo_heladera").Value = cmb_tipo_heladera.SelectedText
+                    If txt_id_heladera.Text = "" Then
+                        dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_heladera").Value = "Null"
+                    Else
+                        dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_heladera").Value = txt_id_heladera.Text
+                    End If
+                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("tipo_heladera").Value = cmb_tipo_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_tipo_heladera").Value = cmb_tipo_heladera.SelectedValue
-                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("marca").Value = cmb_marca_heladera.SelectedText
+                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("marca").Value = cmb_marca_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_marca").Value = cmb_marca_heladera.SelectedValue
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("modelo").Value = txt_modelo_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("nro_serie").Value = txt_nro_serie_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("capacidad").Value = txt_capacidad_heladra.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("medidas").Value = txt_medidas_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("motivo").Value = txt_motivo_heladera.Text
-                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones_heladera.Text
+                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("observaciones_heladera").Value = txt_observaciones_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_funcionamiento").Value = cmb_funcionamiento_heladera.SelectedValue
-                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("funcionamiento").Value = cmb_funcionamiento_heladera.SelectedText
+                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("funcionamiento").Value = cmb_funcionamiento_heladera.Text
                     dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("fecha_info").Value = txt_fecha_info.Text
-                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("antiguedad").Value = calcular_antiguedad(txt_fecha_info.Text)
+                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("fecha_heladera").Value = txt_fecha_heladera.Text
+                    dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("antiguedad").Value = calcular_antiguedad(txt_fecha_heladera.Text)
                 End If
             End If
         End If
@@ -548,6 +586,7 @@
 
     Private Sub limpiar_heladeras()
         txt_id_heladera.Text = ""
+        txt_id_heladera.Enabled = False
         cmb_tipo_heladera.SelectedValue = -1
         cmb_localidades.SelectedValue = -1
         cmb_marca_heladera.SelectedValue = -1
@@ -581,6 +620,7 @@
 
     Private Sub limpiar_termos()
         txt_id_termos.Text = ""
+        txt_id_termos.Enabled = False
         txt_tipo_termo.Text = ""
         txt_cantidad_termo.Text = ""
         txt_observaciones_termo.Text = ""
@@ -619,10 +659,15 @@
         If validar_cabecera() = True Then
             If validar_termo() = True Then
                 For c = 0 To dgv_termos.Rows.Count - 1
-                    If Me.txt_id_termos.Text = dgv_heladeras.Rows(c).Cells("id_termo").Value Then
-                        dgv_termos.Rows(c).Cells("id_termo").Value = txt_id_termometro.Text
-                        dgv_termos.Rows(c).Cells("fecha").Value = txt_fecha_termometro.Text
-                        dgv_termos.Rows(c).Cells("tipo_termo").Value = txt_tipo_termometro.Text
+                    If (Me.txt_fecha_termo.Text = dgv_termos.Rows(c).Cells("fecha").Value) & (txt_tipo_termo.Text = dgv_termos.Rows(c).Cells("tipo_termo").Value) Then
+                        If txt_id_termos.Text = "" Then
+                            dgv_termos.Rows(c).Cells("id_termo").Value = "Null"
+                        Else
+                            dgv_termos.Rows(c).Cells("id_termo").Value = txt_id_termos.Text
+                        End If
+
+                        dgv_termos.Rows(c).Cells("fecha").Value = txt_fecha_termo.Text
+                        dgv_termos.Rows(c).Cells("tipo_termo").Value = txt_tipo_termo.Text
 
                         If txt_observaciones_termometro.Text = "" Then
                             dgv_termos.Rows(c).Cells("observaciones_termo").Value = "No hay datos"
@@ -636,9 +681,14 @@
                 Next
                 If flag = False Then
                     dgv_termos.Rows.Add()
-                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("id_termo").Value = txt_id_termometro.Text
-                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("fecha").Value = txt_fecha_termometro.Text
-                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("tipo_termo").Value = txt_tipo_termometro.Text
+
+                    If txt_id_termos.Text = "" Then
+                        dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("id_termo").Value = "Null"
+                    Else
+                        dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("id_termo").Value = txt_id_termos.Text
+                    End If
+                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("fecha").Value = txt_fecha_termo.Text
+                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("tipo_termo").Value = txt_tipo_termo.Text
 
                     If txt_observaciones_termometro.Text = "" Then
                         dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("observaciones_termo").Value = "No hay datos"
@@ -665,39 +715,37 @@
  
     Private Sub guardar()
 
-        If condicion_estado = condicion.insertar Then
-            If validar_cabecera() = True Then
-                If dgv_heladeras.Rows.Count() = 0 Then
-                    If dgv_termometros.Rows.Count() = 0 Then
-                        If dgv_termos.Rows.Count() = 0 Then
-                            MessageBox.Show("No hay nada cargado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        Else
-                            grabar_termos()
-                        End If
+
+        If validar_cabecera() = True Then
+            If dgv_heladeras.Rows.Count() = 0 Then
+                If dgv_termometros.Rows.Count() = 0 Then
+                    If dgv_termos.Rows.Count() = 0 Then
+                        MessageBox.Show("No hay nada cargado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
-                        grabar_termometros()
-                        If dgv_termos.Rows.Count() <> 0 Then
-                            grabar_termos()
-                        End If
+                        grabar_termos()
                     End If
                 Else
-                    grabar_heladeras()
-                    If dgv_termometros.Rows.Count() = 0 Then
-                        If dgv_termos.Rows.Count() = 0 Then
-                            MessageBox.Show("No hay nada cargado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        Else
-                            grabar_termos()
-                        End If
-                    Else
-                        grabar_termometros()
-                        If dgv_termos.Rows.Count() <> 0 Then
-                            grabar_termos()
-                        End If
+                    grabar_termometros()
+                    If dgv_termos.Rows.Count() <> 0 Then
+                        grabar_termos()
+                    End If
+                End If
+            Else
+                grabar_heladeras()
+                If dgv_termometros.Rows.Count() = 0 Then
+                    If dgv_termos.Rows.Count() <> 0 Then
+                        grabar_termos()
+                    End If
+                Else
+                    grabar_termometros()
+                    If dgv_termos.Rows.Count() <> 0 Then
+                        grabar_termos()
                     End If
                 End If
             End If
         End If
-       
+
+
 
         dgv_heladeras.Rows.Clear()
         dgv_termometros.Rows.Clear()
@@ -726,90 +774,179 @@
 
     End Function
 
+    Private Function ObtenerId(ByVal tabla As String)
+        Dim id As Integer = 0
+        Dim sqlId = ""
+        Dim tablaId As New DataTable
+
+        sqlId = "SELECT * FROM " & tabla
+        tablaId = acceso.consulta(sqlId)
+
+        If tablaId.Rows.Count = 0 Then
+            id = 1
+        Else
+            Dim ultimo As Integer = tablaId.Rows.Count() - 1
+            id = tablaId.Rows(ultimo)("id") + 1
+        End If
+        Return id
+    End Function
+
     Private Sub grabar_termos()
         Dim c As Integer = 0
         Dim Sql As String = ""
+        Dim id As Integer = 0
 
         For c = 0 To dgv_termos.Rows.Count() - 1
-            If validar_existencia(Me.dgv_termos.Rows(c).Cells("id_termo").Value, "INVENTARIO_CF_TERMOS") = analizar_existencia.existe Then
+            If dgv_termos.Rows(c).Cells("id_termo").Value <> "Null" Then
                 Sql = "UPDATE INVENTARIO_CF_TERMOS"
                 Sql &= " SET fecha ='" & Me.dgv_termos.Rows(c).Cells("fecha").Value & "'"
                 Sql &= ", cantidad= " & Me.dgv_termos.Rows(c).Cells("cantidad").Value
-                Sql &= ", tipo_termo= " & Me.dgv_termos.Rows(c).Cells("tipo_termo").Value
+                Sql &= ", tipo_termo='" & Me.dgv_termos.Rows(c).Cells("tipo_termo").Value & "'"
 
-                If IsNothing(Me.dgv_termos.Rows(c).Cells("observaciones").Value) Then
+                If IsNothing(Me.dgv_termos.Rows(c).Cells("observaciones_termo").Value) Then
                     Sql &= ", observaciones= No hay datos "
                 Else
-                    Sql &= ", observaciones='" & Me.dgv_termos.Rows(c).Cells("observaciones").Value & "'"
+                    Sql &= ", observaciones='" & Me.dgv_termos.Rows(c).Cells("observaciones_termo").Value & "'"
                 End If
 
-                Sql &= " WHERE id_efector =' " & Me.txt_cuie.Text & "'"
+                Sql &= " WHERE id_efector ='" & Me.txt_cuie.Text & "'"
                 Sql &= " AND id = " & dgv_termos.Rows(c).Cells("id_termo").Value
                 acceso.ejecutar(Sql)
-
             Else
+
+                id = ObtenerId("INVENTARIO_CF_TERMOS")
                 acceso._nombre_tabla = "INVENTARIO_CF_TERMOS"
 
-
-                Sql &= "id = " & dgv_termos.Rows(c).Cells("id_termo").Value
+                Sql &= "id = " & id
+                Sql &= ", fecha= '" & Me.dgv_termos.Rows(c).Cells("fecha").Value & "'"
                 Sql &= ", id_efector =" & txt_cuie.Text
                 Sql &= ", cantidad=" & Me.dgv_termos.Rows(c).Cells("cantidad").Value
                 Sql &= ", tipo_termo=" & Me.dgv_termos.Rows(c).Cells("tipo_termo").Value
 
-                If IsNothing(Me.dgv_termos.Rows(c).Cells("observaciones").Value) Then
+                If IsNothing(Me.dgv_termos.Rows(c).Cells("observaciones_termo").Value) Then
                     Sql &= ", observaciones= No hay datos "
                 Else
-                    Sql &= ", observaciones= " & Me.dgv_termos.Rows(c).Cells("observaciones").Value
+                    Sql &= ", observaciones= " & Me.dgv_termos.Rows(c).Cells("observaciones_termo").Value
                 End If
                 acceso.insertar(Sql)
             End If
             Sql = ""
+            
         Next
     End Sub
 
     Private Sub grabar_termometros()
         Dim c As Integer = 0
         Dim Sql As String = ""
+        Dim id As Integer = 0
 
         For c = 0 To dgv_termometros.Rows.Count() - 1
-            If validar_existencia(Me.dgv_termometros.Rows(c).Cells("id_termometro").Value, "INVENTARIO_CF_TERMOMETRO") = analizar_existencia.existe Then
-                Sql = "UPDATE INVENTARIO_CF_TERMOMETRO"
-                Sql &= " SET fecha ='" & Me.dgv_termometros.Rows(c).Cells("fecha").Value & "'"
-                Sql &= ", cantidad= " & Me.dgv_termometros.Rows(c).Cells("cantidad").Value
-                Sql &= ", tipo_termo= " & Me.dgv_termometros.Rows(c).Cells("tipo_termometro").Value
 
-                If IsNothing(Me.dgv_termometros.Rows(c).Cells("observaciones").Value) Then
+            If dgv_termometros.Rows(c).Cells("id_termometro").Value <> "Null" Then
+                Sql = "UPDATE INVENTARIO_CF_TERMOMETRO"
+                Sql &= " SET fecha ='" & Me.dgv_termometros.Rows(c).Cells("fecha_termometro").Value & "'"
+                Sql &= ", cantidad= " & Me.dgv_termometros.Rows(c).Cells("cantidad").Value
+                Sql &= ", tipo_termometro='" & Me.dgv_termometros.Rows(c).Cells("tipo_termometro").Value & "'"
+
+                If IsNothing(Me.dgv_termometros.Rows(c).Cells("observaciones_termometro").Value) Then
                     Sql &= ", observaciones= No hay datos "
                 Else
-                    Sql &= ", observaciones='" & Me.dgv_termometros.Rows(c).Cells("observaciones").Value & "'"
+                    Sql &= ", observaciones='" & Me.dgv_termometros.Rows(c).Cells("observaciones_termometro").Value & "'"
                 End If
 
-                Sql &= " WHERE id_efector =' " & Me.txt_cuie.Text & "'"
+                Sql &= " WHERE id_efector ='" & Me.txt_cuie.Text & "'"
                 Sql &= " AND id = " & dgv_termometros.Rows(c).Cells("id_termometro").Value
                 acceso.ejecutar(Sql)
 
             Else
                 acceso._nombre_tabla = "INVENTARIO_CF_TERMOMETRO"
+                id = ObtenerId("INVENTARIO_CF_TERMOMETRO")
 
-
-                Sql &= "id = " & dgv_termos.Rows(c).Cells("id_termometro").Value
+                Sql &= "id = " & id
                 Sql &= ", id_efector =" & txt_cuie.Text
-                Sql &= ", cantidad=" & Me.dgv_termos.Rows(c).Cells("cantidad").Value
-                Sql &= ", tipo_termometro=" & Me.dgv_termos.Rows(c).Cells("tipo_termometro").Value
+                Sql &= ", fecha= '" & Me.dgv_termometros.Rows(c).Cells("fecha_termometro").Value & "'"
+                Sql &= ", cantidad=" & Me.dgv_termometros.Rows(c).Cells("cantidad").Value
+                Sql &= ", tipo_termometro=" & Me.dgv_termometros.Rows(c).Cells("tipo_termometro").Value
 
-                If IsNothing(Me.dgv_termos.Rows(c).Cells("observaciones").Value) Then
+                If IsNothing(Me.dgv_termometros.Rows(c).Cells("observaciones_termometro").Value) Then
                     Sql &= ", observaciones= No hay datos "
                 Else
-                    Sql &= ", observaciones= " & Me.dgv_termos.Rows(c).Cells("observaciones").Value
+                    Sql &= ", observaciones= " & Me.dgv_termometros.Rows(c).Cells("observaciones_termometro").Value
                 End If
                 acceso.insertar(Sql)
             End If
+            
             Sql = ""
         Next
     End Sub
 
     Private Sub grabar_heladeras()
+        Dim c As Integer = 0
+        Dim Sql As String = ""
+        Dim id As Integer = 0
 
+        For c = 0 To dgv_heladeras.Rows.Count() - 1
+
+            If dgv_heladeras.Rows(c).Cells("id_heladera").Value <> "Null" Then
+                Sql = "UPDATE INVENTARIO_CF_HELADERA"
+                Sql &= " SET fecha ='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
+                Sql &= ", id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
+                Sql &= ", modelo= '" & Me.dgv_heladeras.Rows(c).Cells("modelo").Value & "'"
+                Sql &= ", id_marca= " & Me.dgv_heladeras.Rows(c).Cells("id_marca").Value
+                Sql &= ", nro_serie= '" & Me.dgv_heladeras.Rows(c).Cells("nro_serie").Value & "'"
+                Sql &= ", medidas= '" & Me.dgv_heladeras.Rows(c).Cells("medidas").Value & "'"
+                Sql &= ", capacidad= '" & Me.dgv_heladeras.Rows(c).Cells("capacidad").Value & "'"
+                Sql &= ", id_funcionamiento= " & Me.dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value
+                Sql &= ", fecha_info= '" & Me.dgv_heladeras.Rows(c).Cells("fecha_info").Value & "'"
+
+                If IsNothing(Me.dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value) Then
+                    Sql &= ", observaciones= No hay datos "
+                Else
+                    Sql &= ", observaciones='" & Me.dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value & "'"
+                End If
+
+                If IsNothing(Me.dgv_heladeras.Rows(c).Cells("motivo").Value) Then
+                    Sql &= ", motivo= No hay datos "
+                Else
+                    Sql &= ", motivo='" & Me.dgv_heladeras.Rows(c).Cells("motivo").Value & "'"
+                End If
+
+                Sql &= " WHERE id_efector ='" & Me.txt_cuie.Text & "'"
+                Sql &= " AND id = " & dgv_heladeras.Rows(c).Cells("id_heladera").Value
+                acceso.ejecutar(Sql)
+
+            Else
+                acceso._nombre_tabla = "INVENTARIO_CF_TERMOMETRO"
+                id = ObtenerId("INVENTARIO_CF_HELADERA")
+
+                Sql &= "id = " & id
+                Sql &= ", id_efector =" & txt_cuie.Text
+                Sql &= " fecha ='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
+                Sql &= ", id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
+                Sql &= ", modelo= " & Me.dgv_heladeras.Rows(c).Cells("modelo").Value
+                Sql &= ", id_marca= " & Me.dgv_heladeras.Rows(c).Cells("id_marca").Value
+                Sql &= ", nro_serie= " & Me.dgv_heladeras.Rows(c).Cells("nro_serie").Value
+                Sql &= ", medidas= " & Me.dgv_heladeras.Rows(c).Cells("medidas").Value
+                Sql &= ", capacidad= " & Me.dgv_heladeras.Rows(c).Cells("capacidad").Value
+                Sql &= ", id_funcionamiento= " & Me.dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value
+                Sql &= ", fecha_info= '" & Me.dgv_heladeras.Rows(c).Cells("fecha_info").Value & "'"
+
+                If IsNothing(Me.dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value) Then
+                    Sql &= ", observaciones= No hay datos "
+                Else
+                    Sql &= ", observaciones=" & Me.dgv_heladeras.Rows(c).Cells("observaciones_heladra").Value
+                End If
+
+                If IsNothing(Me.dgv_heladeras.Rows(c).Cells("motivo").Value) Then
+                    Sql &= ", motivo= No hay datos "
+                Else
+                    Sql &= ", motivo= " & Me.dgv_heladeras.Rows(c).Cells("motivo").Value
+                End If
+                acceso.insertar(Sql)
+            End If
+
+            Sql = ""
+        Next
     End Sub
 
     Private Function validar_termometro()
@@ -839,6 +976,7 @@
 
     Private Sub limpiar_termometros()
         txt_id_termometro.Text = ""
+        txt_id_termometro.Enabled = False
         txt_tipo_termometro.Text = ""
         txt_cantidad_termometros.Text = ""
         txt_observaciones_termometro.Text = ""
@@ -856,15 +994,19 @@
         If validar_cabecera() = True Then
             If validar_termometro() = True Then
                 For c = 0 To dgv_termometros.Rows.Count - 1
-                    If Me.txt_id_termometro.Text = dgv_termometros.Rows(c).Cells("id_termometro").Value Then
-                        dgv_termometros.Rows(c).Cells("id_termometro").Value = txt_id_termometro.Text
+                    If (Me.txt_fecha_termometro.Text = dgv_termometros.Rows(c).Cells("fecha_termometro").Value) & (txt_tipo_termometro.Text = dgv_termometros.Rows(c).Cells("tipo_termometro").Value) Then
+                        If txt_id_termometro.Text = "" Then
+                            dgv_termometros.Rows(c).Cells("id_termometro").Value = "Null"
+                        Else
+                            dgv_termometros.Rows(c).Cells("id_termometro").Value = txt_id_termometro.Text
+                        End If
                         dgv_termometros.Rows(c).Cells("fecha").Value = txt_fecha_termometro.Text
                         dgv_termometros.Rows(c).Cells("tipo_termo").Value = txt_tipo_termometro.Text
 
                         If txt_observaciones_termometro.Text = "" Then
-                            dgv_termometros.Rows(c).Cells("observaciones_termo").Value = "No hay datos"
+                            dgv_termometros.Rows(c).Cells("observaciones_termometro").Value = "No hay datos"
                         Else
-                            dgv_termometros.Rows(c).Cells("observaciones_termo").Value = txt_observaciones_termometro.Text
+                            dgv_termometros.Rows(c).Cells("observaciones_termometro").Value = txt_observaciones_termometro.Text
                         End If
 
                         dgv_termometros.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
@@ -873,14 +1015,18 @@
                 Next
                 If flag = False Then
                     dgv_termometros.Rows.Add()
-                    dgv_termometros.Rows(dgv_termos.Rows.Count - 1).Cells("id_termo").Value = txt_id_termometro.Text
-                    dgv_termometros.Rows(dgv_termos.Rows.Count - 1).Cells("fecha").Value = txt_fecha_termometro.Text
-                    dgv_termometros.Rows(dgv_termos.Rows.Count - 1).Cells("tipo_termo").Value = txt_tipo_termometro.Text
+                    If txt_id_termometro.Text = "" Then
+                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("id_termometro").Value = "Null"
+                    Else
+                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("id_termometro").Value = txt_id_termometro.Text
+                    End If
+                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("fecha").Value = txt_fecha_termometro.Text
+                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("tipo_termo").Value = txt_tipo_termometro.Text
 
                     If txt_observaciones_termometro.Text = "" Then
                         dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termo").Value = "No hay datos"
                     Else
-                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termo").Value = txt_observaciones_termo.Text
+                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termo").Value = txt_observaciones_termometro.Text
                     End If
 
                     dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
