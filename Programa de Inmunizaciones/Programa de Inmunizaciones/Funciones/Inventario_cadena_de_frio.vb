@@ -18,7 +18,7 @@
     Dim condicion_click As doble_Click = doble_Click.desactivado
 
     Private Sub Inventario_cadena_de_frio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        limpiar(Me.Controls)
+
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedValue = -1
         Me.cmb_departamento.cargar()
@@ -126,6 +126,7 @@
     Private Sub Inventario_cadena_de_frio_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
             e.Cancel = True
+            limpiar(Me.Controls)
         Else
             e.Cancel = False
         End If
