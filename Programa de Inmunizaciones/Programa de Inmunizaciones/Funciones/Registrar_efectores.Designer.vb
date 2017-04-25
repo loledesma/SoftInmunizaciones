@@ -111,6 +111,7 @@ Partial Class Registrar_efectores
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_notificar = New System.Windows.Forms.Button()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -1037,6 +1038,25 @@ Partial Class Registrar_efectores
         Me.localidad.ReadOnly = True
         Me.localidad.Width = 165
         '
+        'cmd_notificar
+        '
+        Me.cmd_notificar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_notificar.BackgroundImage = CType(resources.GetObject("cmd_notificar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_notificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_notificar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_notificar.FlatAppearance.BorderSize = 0
+        Me.cmd_notificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_notificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_notificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_notificar.Location = New System.Drawing.Point(217, 605)
+        Me.cmd_notificar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_notificar.Name = "cmd_notificar"
+        Me.cmd_notificar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_notificar.TabIndex = 56
+        Me.cmd_notificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_notificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_notificar.UseVisualStyleBackColor = False
+        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1044,6 +1064,7 @@ Partial Class Registrar_efectores
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1255, 669)
+        Me.Controls.Add(Me.cmd_notificar)
         Me.Controls.Add(Me.dgv_vacunatorios)
         Me.Controls.Add(Me.dgv_empleados)
         Me.Controls.Add(Me.lbl_contador_efectores)
@@ -1154,4 +1175,5 @@ Partial Class Registrar_efectores
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents referente As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_notificar As System.Windows.Forms.Button
 End Class
