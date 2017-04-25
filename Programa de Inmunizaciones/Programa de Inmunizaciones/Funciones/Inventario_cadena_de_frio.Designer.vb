@@ -23,12 +23,12 @@ Partial Class Inventario_cadena_de_frio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inventario_cadena_de_frio))
-        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_vacunatorio = New System.Windows.Forms.GroupBox()
         Me.txt_fecha_info = New System.Windows.Forms.MaskedTextBox()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -106,10 +106,9 @@ Partial Class Inventario_cadena_de_frio
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.dgv_termometros = New System.Windows.Forms.DataGridView()
         Me.id_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones_termometro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txt_tipo_termometro = New System.Windows.Forms.TextBox()
@@ -126,14 +125,15 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_agregar_termometro = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.id_heladera = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro_serie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_heladera = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_tipo_heladera = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro_serie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.capacidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.medidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha_heladera = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.antiguedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.funcionamiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_funcionamiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -177,7 +177,7 @@ Partial Class Inventario_cadena_de_frio
         Me.grp_datos_vacunatorio.Location = New System.Drawing.Point(21, 5)
         Me.grp_datos_vacunatorio.Name = "grp_datos_vacunatorio"
         Me.grp_datos_vacunatorio.Size = New System.Drawing.Size(867, 153)
-        Me.grp_datos_vacunatorio.TabIndex = 1
+        Me.grp_datos_vacunatorio.TabIndex = 0
         Me.grp_datos_vacunatorio.TabStop = False
         Me.grp_datos_vacunatorio.Text = "Datos del vacunatorio  "
         '
@@ -187,7 +187,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_fecha_info.Mask = "00/00/0000"
         Me.txt_fecha_info.Name = "txt_fecha_info"
         Me.txt_fecha_info.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_info.TabIndex = 54
+        Me.txt_fecha_info.TabIndex = 9
         Me.txt_fecha_info.ValidatingType = GetType(Date)
         '
         'Label26
@@ -195,9 +195,9 @@ Partial Class Inventario_cadena_de_frio
         Me.Label26.AutoSize = True
         Me.Label26.Location = New System.Drawing.Point(13, 127)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(92, 13)
+        Me.Label26.Size = New System.Drawing.Size(95, 13)
         Me.Label26.TabIndex = 55
-        Me.Label26.Text = "Fecha Recepcion"
+        Me.Label26.Text = "Fecha Informacion"
         '
         'cmd_buscar_empleado
         '
@@ -210,7 +210,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_buscar_empleado.Location = New System.Drawing.Point(640, 84)
         Me.cmd_buscar_empleado.Name = "cmd_buscar_empleado"
         Me.cmd_buscar_empleado.Size = New System.Drawing.Size(37, 36)
-        Me.cmd_buscar_empleado.TabIndex = 24
+        Me.cmd_buscar_empleado.TabIndex = 8
         Me.cmd_buscar_empleado.UseVisualStyleBackColor = True
         '
         'cmb_departamento
@@ -219,10 +219,10 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
         Me.cmb_departamento._pk = "id"
         Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(170, 11)
+        Me.cmb_departamento.Location = New System.Drawing.Point(162, 38)
         Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_departamento.TabIndex = 2
+        Me.cmb_departamento.Size = New System.Drawing.Size(277, 21)
+        Me.cmb_departamento.TabIndex = 3
         '
         'txt_empleado_apellido
         '
@@ -231,12 +231,12 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_empleado_apellido.Location = New System.Drawing.Point(378, 94)
         Me.txt_empleado_apellido.Name = "txt_empleado_apellido"
         Me.txt_empleado_apellido.Size = New System.Drawing.Size(259, 20)
-        Me.txt_empleado_apellido.TabIndex = 23
+        Me.txt_empleado_apellido.TabIndex = 7
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 17)
+        Me.Label8.Location = New System.Drawing.Point(13, 44)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(74, 13)
         Me.Label8.TabIndex = 11
@@ -248,15 +248,15 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
         Me.cmb_localidades._pk = "id"
         Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(409, 13)
+        Me.cmb_localidades.Location = New System.Drawing.Point(504, 39)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(158, 21)
-        Me.cmb_localidades.TabIndex = 3
+        Me.cmb_localidades.Size = New System.Drawing.Size(278, 21)
+        Me.cmb_localidades.TabIndex = 4
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(350, 16)
+        Me.Label7.Location = New System.Drawing.Point(445, 42)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 9
@@ -284,10 +284,10 @@ Partial Class Inventario_cadena_de_frio
         '
         Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_cuie.Location = New System.Drawing.Point(647, 39)
+        Me.txt_cuie.Location = New System.Drawing.Point(640, 13)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(142, 20)
-        Me.txt_cuie.TabIndex = 0
+        Me.txt_cuie.TabIndex = 1
         '
         'cmd_buscar
         '
@@ -300,7 +300,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_buscar.Location = New System.Drawing.Point(794, 11)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(62, 56)
-        Me.cmd_buscar.TabIndex = 1
+        Me.cmd_buscar.TabIndex = 2
         Me.cmd_buscar.UseVisualStyleBackColor = True
         '
         'cmb_tipos_efectores
@@ -309,10 +309,10 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
         Me.cmb_tipos_efectores._pk = "id"
         Me.cmb_tipos_efectores.FormattingEnabled = True
-        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(170, 66)
+        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(162, 66)
         Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
         Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
-        Me.cmb_tipos_efectores.TabIndex = 9
+        Me.cmb_tipos_efectores.TabIndex = 5
         '
         'Label13
         '
@@ -327,15 +327,15 @@ Partial Class Inventario_cadena_de_frio
         '
         Me.txt_efector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_efector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_efector.Location = New System.Drawing.Point(170, 40)
+        Me.txt_efector.Location = New System.Drawing.Point(163, 12)
         Me.txt_efector.Name = "txt_efector"
         Me.txt_efector.Size = New System.Drawing.Size(434, 20)
-        Me.txt_efector.TabIndex = 2
+        Me.txt_efector.TabIndex = 0
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 42)
+        Me.Label2.Location = New System.Drawing.Point(15, 17)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 13)
         Me.Label2.TabIndex = 1
@@ -344,7 +344,7 @@ Partial Class Inventario_cadena_de_frio
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(609, 43)
+        Me.Label1.Location = New System.Drawing.Point(602, 17)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 0
@@ -364,7 +364,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 9
+        Me.cmd_limpiar.TabIndex = 4
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -383,7 +383,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 8
+        Me.cmd_guardar.TabIndex = 3
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -402,7 +402,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 7
+        Me.cmd_nuevo.TabIndex = 2
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -417,7 +417,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_salir.Location = New System.Drawing.Point(821, 649)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 10
+        Me.cmd_salir.TabIndex = 5
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'TabControl1
@@ -429,7 +429,7 @@ Partial Class Inventario_cadena_de_frio
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(857, 455)
-        Me.TabControl1.TabIndex = 12
+        Me.TabControl1.TabIndex = 0
         '
         'Heladera
         '
@@ -449,20 +449,20 @@ Partial Class Inventario_cadena_de_frio
         Me.dgv_heladeras.AllowUserToAddRows = False
         Me.dgv_heladeras.AllowUserToDeleteRows = False
         Me.dgv_heladeras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_heladeras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_heladera, Me.tipo_heladera, Me.id_tipo_heladera, Me.marca, Me.id_marca, Me.modelo, Me.nro_serie, Me.capacidad, Me.medidas, Me.antiguedad, Me.funcionamiento, Me.id_funcionamiento, Me.motivo, Me.observaciones_heladera, Me.fecha_info})
-        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle39.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_heladeras.DefaultCellStyle = DataGridViewCellStyle39
+        Me.dgv_heladeras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_heladera, Me.nro_serie, Me.tipo_heladera, Me.id_tipo_heladera, Me.marca, Me.id_marca, Me.modelo, Me.capacidad, Me.medidas, Me.fecha_heladera, Me.antiguedad, Me.funcionamiento, Me.id_funcionamiento, Me.motivo, Me.observaciones_heladera, Me.fecha_info})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_heladeras.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_heladeras.Location = New System.Drawing.Point(14, 246)
         Me.dgv_heladeras.Name = "dgv_heladeras"
         Me.dgv_heladeras.ReadOnly = True
-        DataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black
-        Me.dgv_heladeras.RowsDefaultCellStyle = DataGridViewCellStyle40
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.dgv_heladeras.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_heladeras.Size = New System.Drawing.Size(818, 160)
         Me.dgv_heladeras.TabIndex = 7
         '
@@ -501,7 +501,7 @@ Partial Class Inventario_cadena_de_frio
         Me.grp_detalle.Location = New System.Drawing.Point(10, 10)
         Me.grp_detalle.Name = "grp_detalle"
         Me.grp_detalle.Size = New System.Drawing.Size(822, 217)
-        Me.grp_detalle.TabIndex = 2
+        Me.grp_detalle.TabIndex = 0
         Me.grp_detalle.TabStop = False
         Me.grp_detalle.Text = "Inventario Cadena de Frio Heladera"
         '
@@ -512,7 +512,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_antiguedad_heladera.Location = New System.Drawing.Point(669, 82)
         Me.txt_antiguedad_heladera.Name = "txt_antiguedad_heladera"
         Me.txt_antiguedad_heladera.Size = New System.Drawing.Size(139, 20)
-        Me.txt_antiguedad_heladera.TabIndex = 74
+        Me.txt_antiguedad_heladera.TabIndex = 8
         '
         'Label16
         '
@@ -529,7 +529,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_fecha_heladera.Mask = "00/00/0000"
         Me.txt_fecha_heladera.Name = "txt_fecha_heladera"
         Me.txt_fecha_heladera.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_heladera.TabIndex = 52
+        Me.txt_fecha_heladera.TabIndex = 7
         Me.txt_fecha_heladera.ValidatingType = GetType(Date)
         '
         'lbl_perfil
@@ -561,10 +561,10 @@ Partial Class Inventario_cadena_de_frio
         '
         'txt_observaciones_heladera
         '
-        Me.txt_observaciones_heladera.Location = New System.Drawing.Point(455, 110)
+        Me.txt_observaciones_heladera.Location = New System.Drawing.Point(454, 110)
         Me.txt_observaciones_heladera.Name = "txt_observaciones_heladera"
         Me.txt_observaciones_heladera.Size = New System.Drawing.Size(193, 97)
-        Me.txt_observaciones_heladera.TabIndex = 70
+        Me.txt_observaciones_heladera.TabIndex = 10
         Me.txt_observaciones_heladera.Text = ""
         '
         'Label14
@@ -581,7 +581,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_motivo_heladera.Location = New System.Drawing.Point(99, 109)
         Me.txt_motivo_heladera.Name = "txt_motivo_heladera"
         Me.txt_motivo_heladera.Size = New System.Drawing.Size(193, 97)
-        Me.txt_motivo_heladera.TabIndex = 68
+        Me.txt_motivo_heladera.TabIndex = 9
         Me.txt_motivo_heladera.Text = ""
         '
         'Label12
@@ -602,7 +602,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_funcionamiento_heladera.Location = New System.Drawing.Point(99, 82)
         Me.cmb_funcionamiento_heladera.Name = "cmb_funcionamiento_heladera"
         Me.cmb_funcionamiento_heladera.Size = New System.Drawing.Size(160, 21)
-        Me.cmb_funcionamiento_heladera.TabIndex = 64
+        Me.cmb_funcionamiento_heladera.TabIndex = 6
         '
         'Label6
         '
@@ -620,7 +620,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_medidas_heladera.Location = New System.Drawing.Point(668, 51)
         Me.txt_medidas_heladera.Name = "txt_medidas_heladera"
         Me.txt_medidas_heladera.Size = New System.Drawing.Size(139, 20)
-        Me.txt_medidas_heladera.TabIndex = 63
+        Me.txt_medidas_heladera.TabIndex = 5
         '
         'Label5
         '
@@ -638,7 +638,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_capacidad_heladra.Location = New System.Drawing.Point(453, 52)
         Me.txt_capacidad_heladra.Name = "txt_capacidad_heladra"
         Me.txt_capacidad_heladra.Size = New System.Drawing.Size(139, 20)
-        Me.txt_capacidad_heladra.TabIndex = 61
+        Me.txt_capacidad_heladra.TabIndex = 4
         '
         'Label3
         '
@@ -656,7 +656,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_modelo_heladera.Location = New System.Drawing.Point(667, 20)
         Me.txt_modelo_heladera.Name = "txt_modelo_heladera"
         Me.txt_modelo_heladera.Size = New System.Drawing.Size(139, 20)
-        Me.txt_modelo_heladera.TabIndex = 3
+        Me.txt_modelo_heladera.TabIndex = 2
         '
         'txt_nro_serie_heladera
         '
@@ -665,7 +665,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_nro_serie_heladera.Location = New System.Drawing.Point(99, 52)
         Me.txt_nro_serie_heladera.Name = "txt_nro_serie_heladera"
         Me.txt_nro_serie_heladera.Size = New System.Drawing.Size(283, 20)
-        Me.txt_nro_serie_heladera.TabIndex = 2
+        Me.txt_nro_serie_heladera.TabIndex = 3
         '
         'cmb_marca_heladera
         '
@@ -676,7 +676,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_marca_heladera.Location = New System.Drawing.Point(453, 18)
         Me.cmb_marca_heladera.Name = "cmb_marca_heladera"
         Me.cmb_marca_heladera.Size = New System.Drawing.Size(140, 21)
-        Me.cmb_marca_heladera.TabIndex = 4
+        Me.cmb_marca_heladera.TabIndex = 1
         '
         'Label11
         '
@@ -719,7 +719,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_limpiar_heladera.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_heladera.Name = "cmd_limpiar_heladera"
         Me.cmd_limpiar_heladera.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_limpiar_heladera.TabIndex = 5
+        Me.cmd_limpiar_heladera.TabIndex = 11
         Me.cmd_limpiar_heladera.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar_heladera.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar_heladera.UseVisualStyleBackColor = False
@@ -738,7 +738,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_eliminar_heladera.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_heladera.Name = "cmd_eliminar_heladera"
         Me.cmd_eliminar_heladera.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_eliminar_heladera.TabIndex = 7
+        Me.cmd_eliminar_heladera.TabIndex = 13
         Me.cmd_eliminar_heladera.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar_heladera.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar_heladera.UseVisualStyleBackColor = False
@@ -757,7 +757,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_agregar_heladera.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_heladera.Name = "cmd_agregar_heladera"
         Me.cmd_agregar_heladera.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_agregar_heladera.TabIndex = 6
+        Me.cmd_agregar_heladera.TabIndex = 12
         Me.cmd_agregar_heladera.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_heladera.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_heladera.UseVisualStyleBackColor = False
@@ -801,19 +801,19 @@ Partial Class Inventario_cadena_de_frio
         Me.dgv_termos.AllowUserToDeleteRows = False
         Me.dgv_termos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_termos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_termo, Me.fecha, Me.cantidad, Me.tipo_termo, Me.observaciones_termo})
-        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle41.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_termos.DefaultCellStyle = DataGridViewCellStyle41
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_termos.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_termos.Location = New System.Drawing.Point(17, 252)
         Me.dgv_termos.Name = "dgv_termos"
         Me.dgv_termos.ReadOnly = True
-        DataGridViewCellStyle42.ForeColor = System.Drawing.Color.Black
-        Me.dgv_termos.RowsDefaultCellStyle = DataGridViewCellStyle42
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.dgv_termos.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_termos.Size = New System.Drawing.Size(818, 160)
         Me.dgv_termos.TabIndex = 9
         '
@@ -874,7 +874,7 @@ Partial Class Inventario_cadena_de_frio
         Me.GroupBox1.Location = New System.Drawing.Point(10, 16)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(576, 217)
-        Me.GroupBox1.TabIndex = 8
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Inventario Cadena de Frio Termos"
         '
@@ -885,7 +885,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_tipo_termo.Location = New System.Drawing.Point(72, 52)
         Me.txt_tipo_termo.Name = "txt_tipo_termo"
         Me.txt_tipo_termo.Size = New System.Drawing.Size(139, 20)
-        Me.txt_tipo_termo.TabIndex = 75
+        Me.txt_tipo_termo.TabIndex = 1
         '
         'txt_fecha_termo
         '
@@ -893,7 +893,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_fecha_termo.Mask = "00/00/0000"
         Me.txt_fecha_termo.Name = "txt_fecha_termo"
         Me.txt_fecha_termo.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_termo.TabIndex = 52
+        Me.txt_fecha_termo.TabIndex = 3
         Me.txt_fecha_termo.ValidatingType = GetType(Date)
         '
         'Label18
@@ -912,7 +912,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_id_termos.Location = New System.Drawing.Point(71, 22)
         Me.txt_id_termos.Name = "txt_id_termos"
         Me.txt_id_termos.Size = New System.Drawing.Size(44, 20)
-        Me.txt_id_termos.TabIndex = 72
+        Me.txt_id_termos.TabIndex = 0
         '
         'Label19
         '
@@ -928,7 +928,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_observaciones_termo.Location = New System.Drawing.Point(96, 114)
         Me.txt_observaciones_termo.Name = "txt_observaciones_termo"
         Me.txt_observaciones_termo.Size = New System.Drawing.Size(331, 97)
-        Me.txt_observaciones_termo.TabIndex = 70
+        Me.txt_observaciones_termo.TabIndex = 4
         Me.txt_observaciones_termo.Text = ""
         '
         'Label20
@@ -947,7 +947,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_cantidad_termo.Location = New System.Drawing.Point(72, 82)
         Me.txt_cantidad_termo.Name = "txt_cantidad_termo"
         Me.txt_cantidad_termo.Size = New System.Drawing.Size(139, 20)
-        Me.txt_cantidad_termo.TabIndex = 61
+        Me.txt_cantidad_termo.TabIndex = 2
         '
         'Label24
         '
@@ -1042,20 +1042,20 @@ Partial Class Inventario_cadena_de_frio
         Me.dgv_termometros.AllowUserToAddRows = False
         Me.dgv_termometros.AllowUserToDeleteRows = False
         Me.dgv_termometros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_termometros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_termometro, Me.marca_termometro, Me.fecha_termometro, Me.cantidad_termometro, Me.tipo_termometro, Me.observaciones_termometro})
-        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle37.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_termometros.DefaultCellStyle = DataGridViewCellStyle37
+        Me.dgv_termometros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_termometro, Me.fecha_termometro, Me.tipo_termometro, Me.cantidad_termometro, Me.observaciones_termometro})
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_termometros.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgv_termometros.Location = New System.Drawing.Point(19, 252)
         Me.dgv_termometros.Name = "dgv_termometros"
         Me.dgv_termometros.ReadOnly = True
-        DataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black
-        Me.dgv_termometros.RowsDefaultCellStyle = DataGridViewCellStyle38
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        Me.dgv_termometros.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgv_termometros.Size = New System.Drawing.Size(818, 160)
         Me.dgv_termometros.TabIndex = 11
         '
@@ -1067,13 +1067,6 @@ Partial Class Inventario_cadena_de_frio
         Me.id_termometro.Visible = False
         Me.id_termometro.Width = 200
         '
-        'marca_termometro
-        '
-        Me.marca_termometro.HeaderText = "Marca"
-        Me.marca_termometro.Name = "marca_termometro"
-        Me.marca_termometro.ReadOnly = True
-        Me.marca_termometro.Width = 200
-        '
         'fecha_termometro
         '
         Me.fecha_termometro.FillWeight = 200.0!
@@ -1081,18 +1074,18 @@ Partial Class Inventario_cadena_de_frio
         Me.fecha_termometro.Name = "fecha_termometro"
         Me.fecha_termometro.ReadOnly = True
         '
-        'cantidad_termometro
-        '
-        Me.cantidad_termometro.HeaderText = "Cantidad"
-        Me.cantidad_termometro.Name = "cantidad_termometro"
-        Me.cantidad_termometro.ReadOnly = True
-        '
         'tipo_termometro
         '
         Me.tipo_termometro.HeaderText = "Tipo Termometro"
         Me.tipo_termometro.Name = "tipo_termometro"
         Me.tipo_termometro.ReadOnly = True
-        Me.tipo_termometro.Width = 150
+        Me.tipo_termometro.Width = 200
+        '
+        'cantidad_termometro
+        '
+        Me.cantidad_termometro.HeaderText = "Cantidad"
+        Me.cantidad_termometro.Name = "cantidad_termometro"
+        Me.cantidad_termometro.ReadOnly = True
         '
         'observaciones_termometro
         '
@@ -1122,7 +1115,7 @@ Partial Class Inventario_cadena_de_frio
         Me.GroupBox2.Location = New System.Drawing.Point(12, 16)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(576, 217)
-        Me.GroupBox2.TabIndex = 10
+        Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Inventario Cadena de Frio Termometro"
         '
@@ -1133,7 +1126,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_tipo_termometro.Location = New System.Drawing.Point(72, 52)
         Me.txt_tipo_termometro.Name = "txt_tipo_termometro"
         Me.txt_tipo_termometro.Size = New System.Drawing.Size(139, 20)
-        Me.txt_tipo_termometro.TabIndex = 75
+        Me.txt_tipo_termometro.TabIndex = 1
         '
         'txt_fecha_termometro
         '
@@ -1141,7 +1134,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_fecha_termometro.Mask = "00/00/0000"
         Me.txt_fecha_termometro.Name = "txt_fecha_termometro"
         Me.txt_fecha_termometro.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_termometro.TabIndex = 52
+        Me.txt_fecha_termometro.TabIndex = 3
         Me.txt_fecha_termometro.ValidatingType = GetType(Date)
         '
         'Label17
@@ -1160,7 +1153,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_id_termometro.Location = New System.Drawing.Point(71, 22)
         Me.txt_id_termometro.Name = "txt_id_termometro"
         Me.txt_id_termometro.Size = New System.Drawing.Size(44, 20)
-        Me.txt_id_termometro.TabIndex = 72
+        Me.txt_id_termometro.TabIndex = 0
         '
         'Label21
         '
@@ -1176,7 +1169,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_observaciones_termometro.Location = New System.Drawing.Point(96, 114)
         Me.txt_observaciones_termometro.Name = "txt_observaciones_termometro"
         Me.txt_observaciones_termometro.Size = New System.Drawing.Size(331, 97)
-        Me.txt_observaciones_termometro.TabIndex = 70
+        Me.txt_observaciones_termometro.TabIndex = 4
         Me.txt_observaciones_termometro.Text = ""
         '
         'Label22
@@ -1195,7 +1188,7 @@ Partial Class Inventario_cadena_de_frio
         Me.txt_cantidad_termometros.Location = New System.Drawing.Point(72, 82)
         Me.txt_cantidad_termometros.Name = "txt_cantidad_termometros"
         Me.txt_cantidad_termometros.Size = New System.Drawing.Size(139, 20)
-        Me.txt_cantidad_termometros.TabIndex = 61
+        Me.txt_cantidad_termometros.TabIndex = 2
         '
         'Label23
         '
@@ -1280,13 +1273,20 @@ Partial Class Inventario_cadena_de_frio
         Me.id_heladera.Visible = False
         Me.id_heladera.Width = 200
         '
+        'nro_serie
+        '
+        Me.nro_serie.HeaderText = "Numero de Serie"
+        Me.nro_serie.Name = "nro_serie"
+        Me.nro_serie.ReadOnly = True
+        Me.nro_serie.Width = 150
+        '
         'tipo_heladera
         '
         Me.tipo_heladera.FillWeight = 200.0!
         Me.tipo_heladera.HeaderText = "Tipo Heladera"
         Me.tipo_heladera.Name = "tipo_heladera"
         Me.tipo_heladera.ReadOnly = True
-        Me.tipo_heladera.Width = 250
+        Me.tipo_heladera.Width = 200
         '
         'id_tipo_heladera
         '
@@ -1314,13 +1314,6 @@ Partial Class Inventario_cadena_de_frio
         Me.modelo.Name = "modelo"
         Me.modelo.ReadOnly = True
         '
-        'nro_serie
-        '
-        Me.nro_serie.HeaderText = "nro_serie"
-        Me.nro_serie.Name = "nro_serie"
-        Me.nro_serie.ReadOnly = True
-        Me.nro_serie.Visible = False
-        '
         'capacidad
         '
         Me.capacidad.HeaderText = "capacidad"
@@ -1334,6 +1327,13 @@ Partial Class Inventario_cadena_de_frio
         Me.medidas.Name = "medidas"
         Me.medidas.ReadOnly = True
         Me.medidas.Visible = False
+        '
+        'fecha_heladera
+        '
+        Me.fecha_heladera.HeaderText = "fecha_heladera"
+        Me.fecha_heladera.Name = "fecha_heladera"
+        Me.fecha_heladera.ReadOnly = True
+        Me.fecha_heladera.Visible = False
         '
         'antiguedad
         '
@@ -1500,20 +1500,20 @@ Partial Class Inventario_cadena_de_frio
     Friend WithEvents txt_fecha_info As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents id_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents marca_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents fecha_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cantidad_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cantidad_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones_termometro As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_heladera As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nro_serie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_heladera As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_tipo_heladera As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents marca As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_marca As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents modelo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nro_serie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents capacidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents medidas As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents fecha_heladera As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents antiguedad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents funcionamiento As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_funcionamiento As System.Windows.Forms.DataGridViewTextBoxColumn
