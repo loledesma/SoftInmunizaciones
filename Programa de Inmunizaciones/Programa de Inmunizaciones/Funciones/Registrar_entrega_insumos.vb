@@ -451,7 +451,7 @@
     Private Function existe_inventario() As Boolean
         Dim c As Integer = 0
         For c = 0 To dgv_detalle_entrega.Rows.Count - 1
-            If dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 1 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 2 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 3 Then
+            If dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 1 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 4 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 5 Then
                 Return True
             Else
                 Return False
