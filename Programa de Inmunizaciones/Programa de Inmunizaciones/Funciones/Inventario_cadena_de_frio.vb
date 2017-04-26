@@ -199,7 +199,7 @@
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No se encontró el efector ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("No se encontró el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 cmb_departamento.SelectedValue = tabla.Rows(0)("id_departamento")
                 Me.cmb_localidades.cargar()
