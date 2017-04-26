@@ -1208,6 +1208,8 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_estado_empleado.SelectedIndex = -1
+        Me.txt_cuie.Text = ""
+        Me.txt_cuie.Enabled = True
         Me.cmb_perfil.SelectedIndex = -1
         Me.cmb_cargo.SelectedIndex = -1
         Me.cmd_efector_nuevo.Enabled = True
