@@ -139,7 +139,7 @@ Partial Class abm_empleados
         Me.txt_nro_documento.Location = New System.Drawing.Point(263, 50)
         Me.txt_nro_documento.Name = "txt_nro_documento"
         Me.txt_nro_documento.Size = New System.Drawing.Size(170, 20)
-        Me.txt_nro_documento.TabIndex = 2
+        Me.txt_nro_documento.TabIndex = 3
         '
         'cmd_buscar_x_documento
         '
@@ -162,7 +162,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_apellido.Location = New System.Drawing.Point(386, 105)
         Me.cmd_buscar_x_apellido.Name = "cmd_buscar_x_apellido"
         Me.cmd_buscar_x_apellido.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_x_apellido.TabIndex = 8
+        Me.cmd_buscar_x_apellido.TabIndex = 6
         Me.cmd_buscar_x_apellido.UseVisualStyleBackColor = True
         '
         'cmb_tipo_doc
@@ -191,7 +191,7 @@ Partial Class abm_empleados
         Me.txt_telefono.Mask = "999999999"
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(135, 20)
-        Me.txt_telefono.TabIndex = 6
+        Me.txt_telefono.TabIndex = 8
         '
         'Label3
         '
@@ -208,7 +208,7 @@ Partial Class abm_empleados
         Me.txt_caracteristica.Mask = "9999999"
         Me.txt_caracteristica.Name = "txt_caracteristica"
         Me.txt_caracteristica.Size = New System.Drawing.Size(67, 20)
-        Me.txt_caracteristica.TabIndex = 5
+        Me.txt_caracteristica.TabIndex = 7
         '
         'Label2
         '
@@ -235,7 +235,7 @@ Partial Class abm_empleados
         Me.txt_apellido.Location = New System.Drawing.Point(124, 105)
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(256, 20)
-        Me.txt_apellido.TabIndex = 4
+        Me.txt_apellido.TabIndex = 5
         '
         'lbl_apellido
         '
@@ -260,7 +260,7 @@ Partial Class abm_empleados
         Me.txt_nombre.Location = New System.Drawing.Point(124, 79)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(256, 20)
-        Me.txt_nombre.TabIndex = 3
+        Me.txt_nombre.TabIndex = 4
         '
         'lbl_documento
         '
