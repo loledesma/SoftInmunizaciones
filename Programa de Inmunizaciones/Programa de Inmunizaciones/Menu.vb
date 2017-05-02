@@ -147,11 +147,11 @@ Public Class Menu
         list_efect_internet.ShowDialog()
     End Sub
 
-    Private Sub ListadoPedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListadoPedidosDeDesarrolloToolStripMenuItem.Click
-        list_pedidos_desarrollo.ShowDialog()
+    Private Sub InventarioDeCadenaDeFrioToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles InventarioDeCadenaDeFrioToolStripMenuItem.Click
+        Inventario_cadena_de_frio.ShowDialog()
     End Sub
 
-    Private Sub InventarioDeCadenaDeFrioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventarioDeCadenaDeFrioToolStripMenuItem.Click
-        Inventario_cadena_de_frio.ShowDialog()
+    Private Sub PedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosDeDesarrolloToolStripMenuItem.Click
+        list_pedidos_desarrollo.ShowDialog()
     End Sub
 End Class
