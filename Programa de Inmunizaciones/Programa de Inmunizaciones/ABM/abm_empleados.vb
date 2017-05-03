@@ -789,6 +789,7 @@
         dgv_efectores.Rows.Clear()
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
+        Me.cmb_tipo_doc.SelectedValue = 1
         txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = True
         cargar_grilla()
