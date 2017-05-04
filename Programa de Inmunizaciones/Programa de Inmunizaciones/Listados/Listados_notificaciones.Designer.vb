@@ -241,7 +241,7 @@ Partial Class listados_notificaciones
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_notificaciones.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
+        Me.ReportViewer1.Size = New System.Drawing.Size(974, 429)
         Me.ReportViewer1.TabIndex = 4
         '
         'listados_notificaciones
@@ -251,7 +251,7 @@ Partial Class listados_notificaciones
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1017, 565)
+        Me.ClientSize = New System.Drawing.Size(1017, 606)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Controls.Add(Me.grp_datos_notificacion)
