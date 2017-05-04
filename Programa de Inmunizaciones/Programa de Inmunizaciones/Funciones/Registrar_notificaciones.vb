@@ -173,7 +173,7 @@
             End If
         End If
     End Sub
- 
+
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -212,8 +212,8 @@
 
     Private Function validar() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-       
-        If  Me.cmb_carga.SelectedIndex = -1 Then
+
+        If Me.cmb_carga.SelectedIndex = -1 Then
             MessageBox.Show("Debe seleccionar un estado de carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.cmb_carga.Focus()
             Return False
@@ -461,7 +461,7 @@
         ElseIf carga = "NO INFORMA" Or stock = "NO INFORMA" Or perdidas = "NO INFORMA" Then
             e.CellStyle.BackColor = Color.Yellow
         End If
-       
+
 
         'If perdidas = "AL DIA" Then
         '    Me.dgv_notificaciones.CurrentRow.Cells("perdidas").Style.BackColor = Color.GreenYellow
