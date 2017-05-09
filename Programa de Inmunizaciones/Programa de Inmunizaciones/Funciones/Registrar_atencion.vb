@@ -311,19 +311,20 @@
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         acceso.insertar(sql)
+
     End Sub
 
     Private Sub modificar()
         Dim sql As String = ""
 
         sql = "UPDATE ATENCION_SOPORTE "
-        sql &= " SET fecha = '" & Me.txt_fecha.Text & "'"
-        sql &= ", id_estados_atencion = " & Me.cmb_estado_atencion.SelectedValue
+        sql &= " SET fecha ='" & Me.txt_fecha.Text & "'"
+        sql &= ", id_estados_atencion =" & Me.cmb_estado_atencion.SelectedValue
         sql &= ", id_efector='" & Me.txt_cuie.Text & "'"
         sql &= ", asunto='" & Me.txt_asunto.Text & "'"
         sql &= ", descripcion ='" & Me.txt_descripcion.Text & "'"
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
-        sql &= " WHERE id = " & Me.txt_id_atencion.Text
+        sql &= " WHERE id =" & Me.txt_id_atencion.Text
 
         acceso.ejecutar(sql)
     End Sub
@@ -491,8 +492,6 @@
                 Next
             End If
         End If
-
-
         limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
     End Sub

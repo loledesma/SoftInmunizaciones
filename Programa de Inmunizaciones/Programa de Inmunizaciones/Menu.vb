@@ -51,11 +51,11 @@ Public Class Menu
 
     End Sub
     Private Sub LocalidadesPorDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesPorDepartamentosToolStripMenuItem.Click
-        listado_localidadesxdpto.Show()
+        listado_localidadesxdpto.ShowDialog()
     End Sub
 
     Private Sub EfectoresPorReferenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorReferenteToolStripMenuItem.Click
-
+        listados_referentes_y_efectores.ShowDialog()
     End Sub
 
     Private Sub EfectoresPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEstadoToolStripMenuItem.Click
