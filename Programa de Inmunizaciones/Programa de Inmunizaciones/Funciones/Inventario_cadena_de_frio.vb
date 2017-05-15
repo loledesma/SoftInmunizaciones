@@ -18,7 +18,7 @@
     Dim condicion_click As doble_Click = doble_Click.desactivado
 
     Private Sub Inventario_cadena_de_frio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        limpiar(Me.Controls)
+
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedValue = -1
         Me.cmb_departamento.cargar()
@@ -126,6 +126,7 @@
     Private Sub Inventario_cadena_de_frio_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
             e.Cancel = True
+            limpiar(Me.Controls)
         Else
             e.Cancel = False
         End If
@@ -198,7 +199,7 @@
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No se encontró el efector ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("No se encontró el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 cmb_departamento.SelectedValue = tabla.Rows(0)("id_departamento")
                 Me.cmb_localidades.cargar()
@@ -247,8 +248,9 @@
         tabla.Rows.Clear()
         tabla = acceso.consulta(sql)
 
+        dgv_heladeras.Rows.Clear()
+        Dim c As Integer = 0
         For c = 0 To tabla.Rows.Count - 1
-            dgv_heladeras.Rows.Clear()
             dgv_heladeras.Rows.Add()
             dgv_heladeras.Rows(c).Cells("id_heladera").Value = tabla.Rows(c)("id")
             dgv_heladeras.Rows(c).Cells("tipo_heladera").Value = tabla.Rows(c)("tipo_heladera")
@@ -266,7 +268,6 @@
             dgv_heladeras.Rows(c).Cells("fecha_info").Value = tabla.Rows(c)("fecha_info")
             dgv_heladeras.Rows(c).Cells("fecha_heladera").Value = tabla.Rows(c)("fecha")
             dgv_heladeras.Rows(c).Cells("antiguedad").Value = calcular_antiguedad(tabla.Rows(c)("fecha"))
-
         Next
 
     End Sub
@@ -293,8 +294,9 @@
             MessageBox.Show("No hay inventario de termo para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         Else
+            dgv_termos.Rows.Clear()
             For c = 0 To tabla.Rows.Count - 1
-                dgv_termos.Rows.Clear()
+
                 dgv_termos.Rows.Add()
                 dgv_termos.Rows(c).Cells("id_termo").Value = tabla.Rows(c)("id")
                 dgv_termos.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
@@ -311,7 +313,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= "SELECT id, cantidad, tipo_termometro, observaciones "
+        sql &= "SELECT id, fecha,cantidad, tipo_termometro, observaciones "
         sql &= " FROM INVENTARIO_CF_TERMOMETRO "
         sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
         tabla.Rows.Clear()
@@ -321,8 +323,9 @@
             MessageBox.Show("No hay inventario de termometro para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         Else
+            dgv_termometros.Rows.Clear()
             For c = 0 To tabla.Rows.Count - 1
-                dgv_termometros.Rows.Clear()
+
                 dgv_termometros.Rows.Add()
                 dgv_termometros.Rows(c).Cells("id_termometro").Value = tabla.Rows(c)("id")
                 dgv_termometros.Rows(c).Cells("fecha_termometro").Value = tabla.Rows(c)("fecha")
@@ -405,7 +408,7 @@
         Else
             sql &= " SELECT * FROM INVENTARIO_CF_TERMOMETRO "
             sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
-            sql &= " AND id = " & Me.dgv_termos.CurrentRow.Cells("id_termometro").Value
+            sql &= " AND id = " & Me.dgv_termometros.CurrentRow.Cells("id_termometro").Value
             tabla = acceso.consulta(sql)
         End If
 
@@ -415,7 +418,7 @@
         Else
             Me.txt_id_termometro.Text = tabla.Rows(0)("id")
             Me.txt_fecha_termometro.Text = tabla.Rows(0)("fecha")
-            Me.txt_tipo_termometro.Text = tabla.Rows(0)("tipo_termo")
+            Me.txt_tipo_termometro.Text = tabla.Rows(0)("tipo_termometro")
             Me.txt_cantidad_termometros.Text = tabla.Rows(0)("cantidad")
             Me.txt_observaciones_termometro.Text = tabla.Rows(0)("observaciones")
         End If
@@ -553,6 +556,7 @@
                 Next
                 If flag = False Then
                     dgv_heladeras.Rows.Add()
+
                     If txt_id_heladera.Text = "" Then
                         dgv_heladeras.Rows(dgv_heladeras.Rows.Count - 1).Cells("id_heladera").Value = "Null"
                     Else
@@ -659,7 +663,8 @@
         If validar_cabecera() = True Then
             If validar_termo() = True Then
                 For c = 0 To dgv_termos.Rows.Count - 1
-                    If (Me.txt_fecha_termo.Text = dgv_termos.Rows(c).Cells("fecha").Value) & (txt_tipo_termo.Text = dgv_termos.Rows(c).Cells("tipo_termo").Value) Then
+                    If txt_tipo_termo.Text = dgv_termos.Rows(c).Cells("tipo_termo").Value Then
+
                         If txt_id_termos.Text = "" Then
                             dgv_termos.Rows(c).Cells("id_termo").Value = "Null"
                         Else
@@ -669,13 +674,13 @@
                         dgv_termos.Rows(c).Cells("fecha").Value = txt_fecha_termo.Text
                         dgv_termos.Rows(c).Cells("tipo_termo").Value = txt_tipo_termo.Text
 
-                        If txt_observaciones_termometro.Text = "" Then
+                        If txt_observaciones_termo.Text = "" Then
                             dgv_termos.Rows(c).Cells("observaciones_termo").Value = "No hay datos"
                         Else
                             dgv_termos.Rows(c).Cells("observaciones_termo").Value = txt_observaciones_termo.Text
                         End If
 
-                        dgv_termos.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+                        dgv_termos.Rows(c).Cells("cantidad").Value = txt_cantidad_termo.Text
                         flag = True
                     End If
                 Next
@@ -690,16 +695,18 @@
                     dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("fecha").Value = txt_fecha_termo.Text
                     dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("tipo_termo").Value = txt_tipo_termo.Text
 
-                    If txt_observaciones_termometro.Text = "" Then
+                    If txt_observaciones_termo.Text = "" Then
                         dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("observaciones_termo").Value = "No hay datos"
                     Else
                         dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("observaciones_termo").Value = txt_observaciones_termo.Text
                     End If
 
-                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+                    dgv_termos.Rows(dgv_termos.Rows.Count - 1).Cells("cantidad").Value = txt_cantidad_termo.Text
                 End If
             End If
         End If
+
+        limpiar_termos()
     End Sub
 
     Private Sub cmd_eliminar_termo_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_termo.Click
@@ -797,7 +804,7 @@
         Dim id As Integer = 0
 
         For c = 0 To dgv_termos.Rows.Count() - 1
-            If dgv_termos.Rows(c).Cells("id_termo").Value <> "Null" Then
+            If dgv_termos.Rows(c).Cells("id_termo").Value.ToString() <> "Null" Then
                 Sql = "UPDATE INVENTARIO_CF_TERMOS"
                 Sql &= " SET fecha ='" & Me.dgv_termos.Rows(c).Cells("fecha").Value & "'"
                 Sql &= ", cantidad= " & Me.dgv_termos.Rows(c).Cells("cantidad").Value
@@ -842,10 +849,10 @@
 
         For c = 0 To dgv_termometros.Rows.Count() - 1
 
-            If dgv_termometros.Rows(c).Cells("id_termometro").Value <> "Null" Then
+            If dgv_termometros.Rows(c).Cells("id_termometro").Value.ToString() <> "Null" Then
                 Sql = "UPDATE INVENTARIO_CF_TERMOMETRO"
                 Sql &= " SET fecha ='" & Me.dgv_termometros.Rows(c).Cells("fecha_termometro").Value & "'"
-                Sql &= ", cantidad= " & Me.dgv_termometros.Rows(c).Cells("cantidad").Value
+                Sql &= ", cantidad= " & Me.dgv_termometros.Rows(c).Cells("cantidad_termometro").Value
                 Sql &= ", tipo_termometro='" & Me.dgv_termometros.Rows(c).Cells("tipo_termometro").Value & "'"
 
                 If IsNothing(Me.dgv_termometros.Rows(c).Cells("observaciones_termometro").Value) Then
@@ -865,7 +872,7 @@
                 Sql &= "id = " & id
                 Sql &= ", id_efector =" & txt_cuie.Text
                 Sql &= ", fecha= '" & Me.dgv_termometros.Rows(c).Cells("fecha_termometro").Value & "'"
-                Sql &= ", cantidad=" & Me.dgv_termometros.Rows(c).Cells("cantidad").Value
+                Sql &= ", cantidad=" & Me.dgv_termometros.Rows(c).Cells("cantidad_termometro").Value
                 Sql &= ", tipo_termometro=" & Me.dgv_termometros.Rows(c).Cells("tipo_termometro").Value
 
                 If IsNothing(Me.dgv_termometros.Rows(c).Cells("observaciones_termometro").Value) Then
@@ -883,11 +890,16 @@
     Private Sub grabar_heladeras()
         Dim c As Integer = 0
         Dim Sql As String = ""
+        Dim tabla As New DataTable
+        Dim sql_insert As String = ""
         Dim id As Integer = 0
 
-        For c = 0 To dgv_heladeras.Rows.Count() - 1
+        sql_insert = "SELECT id FROM EMPLEADOS WHERE nombres='" & Me.txt_empleado_nombre.Text & "'"
+        sql_insert &= " AND apellidos= '" & Me.txt_empleado_apellido.Text & "'"
+        tabla = acceso.consulta(sql_insert)
 
-            If dgv_heladeras.Rows(c).Cells("id_heladera").Value <> "Null" Then
+        For c = 0 To dgv_heladeras.Rows.Count() - 1
+            If dgv_heladeras.Rows(c).Cells("id_heladera").Value.ToString() <> "Null" Then
                 Sql = "UPDATE INVENTARIO_CF_HELADERA"
                 Sql &= " SET fecha ='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
                 Sql &= ", id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
@@ -916,25 +928,25 @@
                 acceso.ejecutar(Sql)
 
             Else
-                acceso._nombre_tabla = "INVENTARIO_CF_TERMOMETRO"
+                acceso._nombre_tabla = "INVENTARIO_CF_HELADERA"
                 id = ObtenerId("INVENTARIO_CF_HELADERA")
 
                 Sql &= "id = " & id
                 Sql &= ", id_efector =" & txt_cuie.Text
-                Sql &= " fecha ='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
+                Sql &= ", id_empleado=" & tabla.Rows(0)("id")
+                Sql &= ", fecha='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
                 Sql &= ", id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
-                Sql &= ", modelo= " & Me.dgv_heladeras.Rows(c).Cells("modelo").Value
                 Sql &= ", id_marca= " & Me.dgv_heladeras.Rows(c).Cells("id_marca").Value
+                Sql &= ", modelo= " & Me.dgv_heladeras.Rows(c).Cells("modelo").Value
                 Sql &= ", nro_serie= " & Me.dgv_heladeras.Rows(c).Cells("nro_serie").Value
-                Sql &= ", medidas= " & Me.dgv_heladeras.Rows(c).Cells("medidas").Value
                 Sql &= ", capacidad= " & Me.dgv_heladeras.Rows(c).Cells("capacidad").Value
+                Sql &= ", medidas= " & Me.dgv_heladeras.Rows(c).Cells("medidas").Value
                 Sql &= ", id_funcionamiento= " & Me.dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value
-                Sql &= ", fecha_info= '" & Me.dgv_heladeras.Rows(c).Cells("fecha_info").Value & "'"
 
                 If IsNothing(Me.dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value) Then
                     Sql &= ", observaciones= No hay datos "
                 Else
-                    Sql &= ", observaciones=" & Me.dgv_heladeras.Rows(c).Cells("observaciones_heladra").Value
+                    Sql &= ", observaciones=" & Me.dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value
                 End If
 
                 If IsNothing(Me.dgv_heladeras.Rows(c).Cells("motivo").Value) Then
@@ -942,6 +954,9 @@
                 Else
                     Sql &= ", motivo= " & Me.dgv_heladeras.Rows(c).Cells("motivo").Value
                 End If
+
+                Sql &= ", fecha_info='" & Me.dgv_heladeras.Rows(c).Cells("fecha_info").Value & "'"
+
                 acceso.insertar(Sql)
             End If
 
@@ -994,14 +1009,15 @@
         If validar_cabecera() = True Then
             If validar_termometro() = True Then
                 For c = 0 To dgv_termometros.Rows.Count - 1
-                    If (Me.txt_fecha_termometro.Text = dgv_termometros.Rows(c).Cells("fecha_termometro").Value) & (txt_tipo_termometro.Text = dgv_termometros.Rows(c).Cells("tipo_termometro").Value) Then
+                    If txt_tipo_termometro.Text = dgv_termometros.Rows(c).Cells("tipo_termometro").Value Then
                         If txt_id_termometro.Text = "" Then
                             dgv_termometros.Rows(c).Cells("id_termometro").Value = "Null"
                         Else
                             dgv_termometros.Rows(c).Cells("id_termometro").Value = txt_id_termometro.Text
                         End If
-                        dgv_termometros.Rows(c).Cells("fecha").Value = txt_fecha_termometro.Text
-                        dgv_termometros.Rows(c).Cells("tipo_termo").Value = txt_tipo_termometro.Text
+
+                        dgv_termometros.Rows(c).Cells("fecha_termometro").Value = txt_fecha_termometro.Text
+                        dgv_termometros.Rows(c).Cells("tipo_termometro").Value = txt_tipo_termometro.Text
 
                         If txt_observaciones_termometro.Text = "" Then
                             dgv_termometros.Rows(c).Cells("observaciones_termometro").Value = "No hay datos"
@@ -1009,30 +1025,34 @@
                             dgv_termometros.Rows(c).Cells("observaciones_termometro").Value = txt_observaciones_termometro.Text
                         End If
 
-                        dgv_termometros.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+                        dgv_termometros.Rows(c).Cells("cantidad_termometro").Value = txt_cantidad_termometros.Text
                         flag = True
                     End If
                 Next
                 If flag = False Then
                     dgv_termometros.Rows.Add()
+
                     If txt_id_termometro.Text = "" Then
                         dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("id_termometro").Value = "Null"
                     Else
                         dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("id_termometro").Value = txt_id_termometro.Text
                     End If
-                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("fecha").Value = txt_fecha_termometro.Text
-                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("tipo_termo").Value = txt_tipo_termometro.Text
+
+                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("fecha_termometro").Value = txt_fecha_termometro.Text
+                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("tipo_termometro").Value = txt_tipo_termometro.Text
 
                     If txt_observaciones_termometro.Text = "" Then
-                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termo").Value = "No hay datos"
+                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termometro").Value = "No hay datos"
                     Else
-                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termo").Value = txt_observaciones_termometro.Text
+                        dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("observaciones_termometro").Value = txt_observaciones_termometro.Text
                     End If
 
-                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+                    dgv_termometros.Rows(dgv_termometros.Rows.Count - 1).Cells("cantidad_termometro").Value = txt_cantidad_termometros.Text
                 End If
             End If
         End If
+
+        limpiar_termometros()
     End Sub
 
     Private Sub cmd_eliminar_termometro_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_termometro.Click

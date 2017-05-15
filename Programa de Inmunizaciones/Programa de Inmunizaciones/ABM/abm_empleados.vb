@@ -789,7 +789,8 @@
         dgv_efectores.Rows.Clear()
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
-        cmb_tipo_doc.Focus()
+        Me.cmb_tipo_doc.SelectedValue = 1
+        txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = True
         cargar_grilla()
     End Sub
@@ -1208,6 +1209,8 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_estado_empleado.SelectedIndex = -1
+        Me.txt_cuie.Text = ""
+        Me.txt_cuie.Enabled = True
         Me.cmb_perfil.SelectedIndex = -1
         Me.cmb_cargo.SelectedIndex = -1
         Me.cmd_efector_nuevo.Enabled = True

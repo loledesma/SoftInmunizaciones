@@ -145,7 +145,7 @@
 
     Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         Me.ReportViewer1.Width = Me.Width - 50
-        Me.ReportViewer1.Height = Me.Height - 2
+        Me.ReportViewer1.Height = Me.Height - 100
 
     End Sub
     Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click

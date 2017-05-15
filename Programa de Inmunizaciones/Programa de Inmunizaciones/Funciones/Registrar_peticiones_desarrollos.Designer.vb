@@ -174,7 +174,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.grp_datos_recordatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_recordatorio.Name = "grp_datos_recordatorio"
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 197)
-        Me.grp_datos_recordatorio.TabIndex = 22
+        Me.grp_datos_recordatorio.TabIndex = 0
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Peticiones de Desarrollo"
         '
@@ -183,7 +183,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.txt_desarrollador.Location = New System.Drawing.Point(109, 103)
         Me.txt_desarrollador.Name = "txt_desarrollador"
         Me.txt_desarrollador.Size = New System.Drawing.Size(280, 20)
-        Me.txt_desarrollador.TabIndex = 57
+        Me.txt_desarrollador.TabIndex = 4
         '
         'Label2
         '
@@ -200,7 +200,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.txt_fecha_solucion.Mask = "00/00/0000"
         Me.txt_fecha_solucion.Name = "txt_fecha_solucion"
         Me.txt_fecha_solucion.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_solucion.TabIndex = 55
+        Me.txt_fecha_solucion.TabIndex = 3
         Me.txt_fecha_solucion.ValidatingType = GetType(Date)
         '
         'lbl_fecha_solucion
@@ -226,7 +226,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 4
+        Me.cmd_actualizar_estado.TabIndex = 6
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
@@ -252,7 +252,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.cmb_empleados.Location = New System.Drawing.Point(111, 166)
         Me.cmb_empleados.Name = "cmb_empleados"
         Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 5
+        Me.cmb_empleados.TabIndex = 7
         '
         'Label1
         '
@@ -281,7 +281,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.cmb_estado_pedido.Location = New System.Drawing.Point(111, 134)
         Me.cmb_estado_pedido.Name = "cmb_estado_pedido"
         Me.cmb_estado_pedido.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_pedido.TabIndex = 3
+        Me.cmb_estado_pedido.TabIndex = 5
         '
         'txt_id_desarrollo
         '
