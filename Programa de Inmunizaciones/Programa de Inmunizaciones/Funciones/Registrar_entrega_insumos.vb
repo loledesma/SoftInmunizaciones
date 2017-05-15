@@ -447,6 +447,17 @@
 
         Return True
     End Function
+
+    Private Function existe_inventario() As Boolean
+        Dim c As Integer = 0
+        For c = 0 To dgv_detalle_entrega.Rows.Count - 1
+            If dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 1 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 4 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 5 Then
+                Return True
+            Else
+                Return False
+            End If
+        Next
+    End Function
     Private Sub guardar()
         If condicion_inicial = condicion.insertar Then
             If Me.validar_pedido() = True Then
@@ -457,6 +468,11 @@
                     Else
                         Me.insertar_pedido()
                         Me.insertar_detalle_entrega()
+
+                        If existe_inventario() = True Then
+                            actualizar_inventario()
+                        End If
+
                     End If
                 Else
                     MessageBox.Show("Ya se encuentra registrado este pedido, debe cambiar el estado")
@@ -469,6 +485,7 @@
         End If
 
 
+
         dgv_detalle_entrega.Rows.Clear()
         dgv_entrega.Rows.Clear()
         Me.limpiar(Me.Controls)
@@ -478,6 +495,34 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
+    End Sub
+
+    Private Sub actualizar_inventario()
+        MessageBox.Show("No se olvide de actualizar el inventario de cadena de frio")
+        Inventario_cadena_de_frio.txt_cuie.Text = Me.txt_cuie.Text
+        Inventario_cadena_de_frio.txt_efector.Text = Me.txt_nombre_efector.Text
+        If txt_fecha_entrega.Text <> "" Then
+            Inventario_cadena_de_frio.txt_fecha_info.Text = Me.txt_fecha_entrega.Text
+        End If
+
+        'Dim c As Integer = 0
+        'For c = 0 To dgv_detalle_entrega.Rows.Count - 1
+        '    If dgv_detalle_entrega.Rows.Count() <> 0 Then
+        '        If dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 1 Then
+        '            Inventario_cadena_de_frio.cmb_marca_heladera.SelectedValue = dgv_detalle_entrega.Rows(c).Cells("id_marca").Value
+        '            Inventario_cadena_de_frio.txt_nro_serie_heladera.Text = dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value
+        '            Inventario_cadena_de_frio.txt_modelo_heladera.Text = dgv_detalle_entrega.Rows(c).Cells("modelo").Value
+        '            Inventario_cadena_de_frio.cmb_tipo_heladera.Focus()
+        '        ElseIf dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 4 Then
+        '            Inventario_cadena_de_frio.txt_tipo_termo.Text = dgv_detalle_entrega.Rows(c).Cells("modelo").Value
+        '        ElseIf dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 5 Then
+
+        '        End If
+        '    End If
+
+        'Next
+
+        Inventario_cadena_de_frio.ShowDialog()
     End Sub
 
 
@@ -564,7 +609,12 @@
             Me.txt_fecha_pedido.Focus()
             Exit Function
         ElseIf IsDate(txt_fecha_pedido.Text) = False Then
-            MessageBox.Show("Debe ingresar una fecha de pedido para ese usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Debe ingresar una fecha de pedido valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_pedido.Focus()
+            Exit Function
+        ElseIf IsDate(txt_fecha_entrega.Text) = False Then
+            MessageBox.Show("Debe ingresar una fecha de entrega valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_fecha_pedido.Focus()
             Exit Function

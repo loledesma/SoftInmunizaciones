@@ -140,7 +140,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
+        sql &= "SELECT TOP 10 T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
         sql &= "FROM EMPLEADOS E JOIN TIPOS_DOCUMENTO T ON E.id_tipo_doc = T.id "
         sql &= "ORDER BY E.id"
         tabla = acceso.consulta(sql)
@@ -789,7 +789,8 @@
         dgv_efectores.Rows.Clear()
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
-        cmb_tipo_doc.Focus()
+        Me.cmb_tipo_doc.SelectedValue = 1
+        txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = True
         cargar_grilla()
     End Sub
@@ -1208,6 +1209,8 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_estado_empleado.SelectedIndex = -1
+        Me.txt_cuie.Text = ""
+        Me.txt_cuie.Enabled = True
         Me.cmb_perfil.SelectedIndex = -1
         Me.cmb_cargo.SelectedIndex = -1
         Me.cmd_efector_nuevo.Enabled = True
@@ -1219,7 +1222,16 @@
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
-        lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
+
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * "
+        sql &= "FROM EMPLEADOS  "
+
+        tabla = acceso.consulta(sql)
+
+        lbl_contador_empleados.Text = tabla.Rows.Count()
     End Sub
 
     'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged

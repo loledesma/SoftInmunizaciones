@@ -118,9 +118,9 @@ Partial Class list_no_notifican
         ReportDataSource1.Value = Me.LISTNONOTIFICABindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_no_notifican.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(29, 135)
+        Me.ReportViewer1.Location = New System.Drawing.Point(29, 112)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(943, 370)
+        Me.ReportViewer1.Size = New System.Drawing.Size(943, 481)
         Me.ReportViewer1.TabIndex = 5
         '
         'grp_datos_notificacion
@@ -200,7 +200,7 @@ Partial Class list_no_notifican
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(995, 528)
+        Me.ClientSize = New System.Drawing.Size(995, 605)
         Me.Controls.Add(Me.grp_datos_notificacion)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)

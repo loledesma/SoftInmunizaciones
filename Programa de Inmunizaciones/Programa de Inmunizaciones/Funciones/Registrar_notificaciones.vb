@@ -16,11 +16,13 @@
         desactivado
     End Enum
 
+
+
     Dim condicion_click As doble_Click = doble_Click.desactivado
     Private Sub Registrar_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar(Me.Controls)
+        Me.rdio_todas.Checked = True
         Me.cargar_grilla()
-        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_apellidos, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_nombres, "EMPLEADOS", "nombres")
@@ -82,17 +84,31 @@
         Me.Close()
     End Sub
     Private Sub cargar_grilla()
+        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
-        sql &= ", C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas, C.id As id_carga, E.cuie As cuie "
-        sql &= ", S.id As id_stock, P.id As id_perdidas "
-        sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
-        sql &= " JOIN CARGA C ON NE.id_estado_carga = C.id"
-        sql &= " JOIN STOCK S ON NE.id_estado_stock = S.id"
-        sql &= " JOIN PERDIDAS P ON NE.id_estado_perdidas = P.id "
-        sql &= "ORDER BY NE.fecha"
+        If rdio_hoy.Checked = True Then
+            sql &= "SELECT NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
+            sql &= ", C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas, C.id As id_carga, E.cuie As cuie "
+            sql &= ", S.id As id_stock, P.id As id_perdidas "
+            sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+            sql &= " JOIN CARGA C ON NE.id_estado_carga = C.id"
+            sql &= " JOIN STOCK S ON NE.id_estado_stock = S.id"
+            sql &= " JOIN PERDIDAS P ON NE.id_estado_perdidas = P.id "
+            sql &= " WHERE NE.fecha= '" & hoy & "'"
+            sql &= " ORDER BY E.nombre "
+        ElseIf rdio_todas.Checked = True Then
+            sql &= "SELECT TOP 20 NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
+            sql &= ", C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas, C.id As id_carga, E.cuie As cuie "
+            sql &= ", S.id As id_stock, P.id As id_perdidas "
+            sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+            sql &= " JOIN CARGA C ON NE.id_estado_carga = C.id"
+            sql &= " JOIN STOCK S ON NE.id_estado_stock = S.id"
+            sql &= " JOIN PERDIDAS P ON NE.id_estado_perdidas = P.id "
+            sql &= " ORDER BY fecha desc "
+        End If
+
         tabla = acceso.consulta(sql)
 
         Me.dgv_notificaciones.Rows.Clear()
@@ -157,7 +173,7 @@
             End If
         End If
     End Sub
- 
+
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -196,8 +212,8 @@
 
     Private Function validar() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-       
-        If  Me.cmb_carga.SelectedIndex = -1 Then
+
+        If Me.cmb_carga.SelectedIndex = -1 Then
             MessageBox.Show("Debe seleccionar un estado de carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.cmb_carga.Focus()
             Return False
@@ -445,7 +461,7 @@
         ElseIf carga = "NO INFORMA" Or stock = "NO INFORMA" Or perdidas = "NO INFORMA" Then
             e.CellStyle.BackColor = Color.Yellow
         End If
-       
+
 
         'If perdidas = "AL DIA" Then
         '    Me.dgv_notificaciones.CurrentRow.Cells("perdidas").Style.BackColor = Color.GreenYellow
@@ -569,7 +585,7 @@
 
 
             If tabla.Rows.Count() = 0 Then
-                MessageBox.Show("¡No existe la notificación solicitada!")
+                MessageBox.Show("¡No tiene notificacion!")
                 Exit Sub
             Else
                 dgv_notificaciones.Rows.Clear()
@@ -614,6 +630,42 @@
     End Sub
 
     Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_notificaciones.CellValueChanged
-        lbl_contador_notif.Text = dgv_notificaciones.Rows.Count()
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim sql As String = ""
+        Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
+
+        sql &= "SELECT * "
+        sql &= "FROM NOTIFICACIONXEFECTOR  "
+
+        tabla = acceso.consulta(sql)
+
+        sql = "SELECT * "
+        sql &= "FROM NOTIFICACIONXEFECTOR WHERE fecha='" & hoy & "'"
+        tabla2 = acceso.consulta(sql)
+
+        If rdio_hoy.Checked = True Then
+            lbl_contador_hoy.Text = Me.dgv_notificaciones.Rows.Count()
+            If tabla.Rows.Count() <> 0 Then
+                lbl_contador_notif.Text = tabla.Rows.Count()
+            Else
+                lbl_contador_notif.Text = "0"
+            End If
+        ElseIf rdio_todas.Checked = True Then
+            lbl_contador_notif.Text = tabla.Rows.Count()
+            If tabla2.Rows.Count() <> 0 Then
+                lbl_contador_hoy.Text = tabla2.Rows.Count()
+            Else
+                lbl_contador_hoy.Text = "0"
+            End If
+        End If
+    End Sub
+
+    Private Sub rdio_todas_CheckedChanged(sender As Object, e As EventArgs) Handles rdio_todas.CheckedChanged
+        cargar_grilla()
+    End Sub
+
+    Private Sub rdio_hoy_CheckedChanged(sender As Object, e As EventArgs) Handles rdio_hoy.CheckedChanged
+        cargar_grilla()
     End Sub
 End Class
