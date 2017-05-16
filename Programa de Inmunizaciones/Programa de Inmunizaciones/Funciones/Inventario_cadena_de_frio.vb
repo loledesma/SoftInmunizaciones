@@ -89,6 +89,21 @@
         End If
     End Sub
 
+    Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
+        If MessageBox.Show("¿Desea agregar un efector nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+            Registrar_efectores.ShowDialog()
+        Else
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
+        If MessageBox.Show("¿Desea agregar un empleado nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+            abm_empleados.ShowDialog()
+        Else
+            Exit Sub
+        End If
+    End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         Me.nuevo()
@@ -98,7 +113,7 @@
         Me.limpiar(Me.Controls)
         Me.condicion_estado = condicion.insertar
 
-        Me.cmb_departamento.Focus()
+        Me.txt_efector.Focus()
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
     End Sub
@@ -436,6 +451,9 @@
         Me.txt_fecha_info.Text = ""
         Me.txt_empleado_apellido.Text = ""
         Me.txt_empleado_nombre.Text = ""
+        Me.dgv_termometros.Rows.Clear()
+        Me.dgv_termos.Rows.Clear()
+        Me.dgv_heladeras.Rows.Clear()
     End Sub
    
 
