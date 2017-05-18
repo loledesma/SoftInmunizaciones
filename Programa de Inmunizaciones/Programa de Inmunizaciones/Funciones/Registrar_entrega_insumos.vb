@@ -469,6 +469,11 @@
                         Me.insertar_pedido()
                         Me.insertar_detalle_entrega()
 
+                        If cmb_estado_entrega.SelectedValue = 1 Then
+                            registrar_entrega()
+                        End If
+
+
                         If existe_inventario() = True Then
                             actualizar_inventario()
                         End If
@@ -527,7 +532,7 @@
 
 
     Private Sub nuevo()
-        limpiar(Controls)
+        limpiar(Me.Controls)
         Me.txt_observaciones.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_fecha_entrega.Text = ""
@@ -768,6 +773,9 @@
 
             sql = ""
         Next
+
+
+
     End Sub
 
 
