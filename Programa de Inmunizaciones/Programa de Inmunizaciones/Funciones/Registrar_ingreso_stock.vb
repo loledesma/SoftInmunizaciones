@@ -105,26 +105,31 @@
         dgv_stock.Rows.Clear()
 
         For c = 0 To tabla.Rows.Count - 1
-            dgv_stock.Rows.Add()
-            dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
-            dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
-            dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
-            dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
-            dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+            If tabla.Rows(c)("cantidad") <> 0 Then
+                dgv_stock.Rows.Add()
+                dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
+                dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
+                dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
+                dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
+                dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
 
-            sql = ""
-            sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
-            tabla2.Rows.Clear()
-            tabla2 = acceso.consulta(sql)
+                sql = ""
+                sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
 
-            dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
+                dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
 
-            sql = ""
-            sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
-            tabla2.Rows.Clear()
-            tabla2 = acceso.consulta(sql)
+                sql = ""
+                sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
 
-            dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+                dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+            Else
+                c = c - 1
+            End If
+            
         Next
        
     End Sub
@@ -368,26 +373,29 @@
                 dgv_stock.Rows.Clear()
 
                 For c = 0 To tabla.Rows.Count - 1
-                    dgv_stock.Rows.Add()
-                    dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
-                    dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
-                    dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
-                    dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
-                    dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+                    If tabla.Rows(c)("cantidad") <> 0 Then
+                        dgv_stock.Rows.Add()
+                        dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
+                        dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
+                        dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
+                        dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
+                        dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
+                        sql = ""
+                        sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
 
-                    dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
+                        dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
+                        sql = ""
+                        sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
 
-                    dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+                        dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+                    End If
+                    
 
                 Next
             End If
@@ -415,26 +423,29 @@
                 dgv_stock.Rows.Clear()
 
                 For c = 0 To tabla.Rows.Count - 1
-                    dgv_stock.Rows.Add()
-                    dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
-                    dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
-                    dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
-                    dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
-                    dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
+                    If tabla.Rows(c)("cantidad") <> 0 Then
+                        dgv_stock.Rows.Add()
+                        dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
+                        dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
+                        dgv_stock.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
+                        dgv_stock.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
+                        dgv_stock.Rows(c).Cells("cantidad").Value = tabla.Rows(c)("cantidad")
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
+                        sql = ""
+                        sql &= "SELECT descripcion FROM MARCA WHERE id = " & tabla.Rows(c)("id_marca")
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
 
-                    dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
+                        dgv_stock.Rows(c).Cells("marca").Value = tabla2.Rows(0)("descripcion")
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
+                        sql = ""
+                        sql &= "SELECT descripcion FROM INSUMOS WHERE id= " & tabla.Rows(c)("id_insumo")
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
 
-                    dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+                        dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
+                    End If
+                    
                 Next
             End If
         End If
