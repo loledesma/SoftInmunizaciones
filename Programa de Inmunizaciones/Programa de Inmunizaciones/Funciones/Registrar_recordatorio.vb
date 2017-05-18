@@ -70,9 +70,11 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+        sql &= "SELECT TOP 5 R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
         sql &= " , R.id_administrador as id_administrador "
         sql &= " FROM RECORDATORIOS R "
+        sql &= " WHERE id_estado= 2"
+        sql &= " ORDER BY fecha "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -403,6 +405,25 @@
         Me.txt_id_recordatorio.Focus()
         Me.cargar_grilla()
         Me.txt_descripcion.Text = ""
+    End Sub
+
+    Private Sub dgv_recordatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_recordatorios.CellValueChanged
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
+        Dim sql As String = ""
+
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM RECORDATORIOS "
+
+        valor1 = acceso.contadores(sql)
+
+        sql = "SELECT COUNT(*) "
+        sql &= "FROM RECORDATORIOS WHERE id_estado = 2"
+        valor2 = acceso.contadores(sql)
+
+        lbl_contador_pendientes.Text = valor2
+        lbl_contador_total.Text = valor1
     End Sub
 
 End Class
