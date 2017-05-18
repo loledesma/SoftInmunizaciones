@@ -55,7 +55,7 @@ Public Class Menu
     End Sub
 
     Private Sub EfectoresPorReferenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorReferenteToolStripMenuItem.Click
-        listados_referentes_y_efectores.ShowDialog()
+        listados_efector_x_refe.ShowDialog()
     End Sub
 
     Private Sub EfectoresPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEstadoToolStripMenuItem.Click

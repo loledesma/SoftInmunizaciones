@@ -1143,15 +1143,15 @@
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
-        Dim tabla As New DataTable
+        Dim valor As Integer
         Dim sql As String = ""
 
-        sql &= "SELECT * "
-        sql &= "FROM EFECTORES  "
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM EFECTORES"
 
-        tabla = acceso.consulta(sql)
+        valor = acceso.contadores(sql)
 
-        lbl_contador_efectores.Text = tabla.Rows.Count()
+        lbl_contador_efectores.Text = valor
     End Sub
 
 

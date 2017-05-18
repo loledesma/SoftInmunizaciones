@@ -58,6 +58,10 @@ Partial Class Registrar_peticiones_desarrollos
         Me.administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.solicitado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.respuesta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lbl_contador_pendientes = New System.Windows.Forms.Label()
+        Me.lbl_registradas_hoy = New System.Windows.Forms.Label()
+        Me.lbl_contador_total = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_descripcion.SuspendLayout()
         Me.grp_respuesta.SuspendLayout()
@@ -433,6 +437,52 @@ Partial Class Registrar_peticiones_desarrollos
         Me.respuesta.Name = "respuesta"
         Me.respuesta.ReadOnly = True
         '
+        'lbl_contador_pendientes
+        '
+        Me.lbl_contador_pendientes.AutoSize = True
+        Me.lbl_contador_pendientes.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_pendientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_pendientes.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_pendientes.Location = New System.Drawing.Point(700, 533)
+        Me.lbl_contador_pendientes.Name = "lbl_contador_pendientes"
+        Me.lbl_contador_pendientes.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_pendientes.TabIndex = 58
+        '
+        'lbl_registradas_hoy
+        '
+        Me.lbl_registradas_hoy.AutoSize = True
+        Me.lbl_registradas_hoy.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_registradas_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_registradas_hoy.ForeColor = System.Drawing.Color.White
+        Me.lbl_registradas_hoy.Location = New System.Drawing.Point(453, 533)
+        Me.lbl_registradas_hoy.Name = "lbl_registradas_hoy"
+        Me.lbl_registradas_hoy.Size = New System.Drawing.Size(157, 17)
+        Me.lbl_registradas_hoy.TabIndex = 57
+        Me.lbl_registradas_hoy.Text = "Pedidos Pendientes:"
+        '
+        'lbl_contador_total
+        '
+        Me.lbl_contador_total.AutoSize = True
+        Me.lbl_contador_total.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_total.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_total.Location = New System.Drawing.Point(658, 496)
+        Me.lbl_contador_total.Name = "lbl_contador_total"
+        Me.lbl_contador_total.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_total.TabIndex = 56
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(453, 496)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(50, 17)
+        Me.Label3.TabIndex = 55
+        Me.Label3.Text = "Total:"
+        '
         'Registrar_peticiones_desarrollos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -440,6 +490,10 @@ Partial Class Registrar_peticiones_desarrollos
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1011, 564)
+        Me.Controls.Add(Me.lbl_contador_pendientes)
+        Me.Controls.Add(Me.lbl_registradas_hoy)
+        Me.Controls.Add(Me.lbl_contador_total)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.dgv_pedidos)
         Me.Controls.Add(Me.grp_respuesta)
         Me.Controls.Add(Me.grp_descripcion)
@@ -457,6 +511,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.grp_respuesta.ResumeLayout(False)
         CType(Me.dgv_pedidos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
@@ -494,4 +549,8 @@ Partial Class Registrar_peticiones_desarrollos
     Friend WithEvents administrador As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents solicitado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents respuesta As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lbl_contador_pendientes As System.Windows.Forms.Label
+    Friend WithEvents lbl_registradas_hoy As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_total As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

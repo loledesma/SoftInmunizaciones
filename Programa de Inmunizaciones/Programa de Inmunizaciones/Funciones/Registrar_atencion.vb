@@ -102,9 +102,11 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT A.id as id, A.fecha as fecha, A.id_estados_atencion as id_estado, A.id_efector as cuie, A.descripcion as descripcion "
+        sql &= "SELECT  A.id as id, A.fecha as fecha, A.id_estados_atencion as id_estado, A.id_efector as cuie, A.descripcion as descripcion "
         sql &= " , A.id_administrador as id_administrador, A.asunto as asunto "
         sql &= " FROM ATENCION_SOPORTE A "
+        sql &= " WHERE id_estados_atencion = 2 "
+        sql &= " ORDER BY fecha desc "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -464,13 +466,13 @@
                 dgv_atenciones.Rows.Clear()
                 For c = 0 To tabla.Rows.Count() - 1
                     dgv_atenciones.Rows.Add()
-                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
-                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
-                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(0)("id_efector")
-                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estados_atencion")
-                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
-                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(0)("asunto")
-                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
+                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
 
                     sql = ""
                     sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
@@ -491,6 +493,49 @@
                     dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
                 Next
             End If
+        Else
+            If cmb_estado_atencion.SelectedValue <> -1 Then
+                sql &= "SELECT * FROM ATENCION_SOPORTE "
+                sql &= " WHERE id_estados_atencion=" & Me.cmb_estado_atencion.SelectedValue
+                sql &= " ORDER BY fecha"
+                tabla = acceso.consulta(sql)
+
+                If tabla.Rows.Count() = 0 Then
+                    MessageBox.Show("¡No existe atenciones con ese estado!")
+                    Exit Sub
+                Else
+                    Dim c As Integer = 0
+                    dgv_atenciones.Rows.Clear()
+                    For c = 0 To tabla.Rows.Count() - 1
+                        dgv_atenciones.Rows.Add()
+                        dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                        dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                        dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+                        dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
+                        dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                        dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                        dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_atenciones.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT nombres FROM EMPLEADOS WHERE id= " & Me.dgv_atenciones.Rows(c).Cells("id_administrador").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_atenciones.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                        sql = ""
+                        sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_atenciones.Rows(c).Cells("cuie").Value & "'"
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
+                    Next
+                End If
+            End If
         End If
         limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
@@ -506,5 +551,24 @@
         Me.txt_id_atencion.Focus()
         Me.cargar_grilla()
         Me.txt_descripcion.Text = ""
+    End Sub
+
+    Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_atenciones.CellValueChanged
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
+        Dim sql As String = ""
+
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM ATENCION_SOPORTE "
+
+        valor1 = acceso.contadores(sql)
+
+        sql = "SELECT COUNT(*) "
+        sql &= "FROM ATENCION_SOPORTE WHERE id_estados_atencion = 2"
+        valor2 = acceso.contadores(sql)
+
+        lbl_contador_pendientes.Text = valor2
+        lbl_contador_total.Text = valor1
     End Sub
 End Class

@@ -97,7 +97,7 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT * FROM STOCK_INSUMOS ORDER BY id_insumo "
+        sql &= "SELECT * FROM STOCK_INSUMOS WHERE cantidad !=0 ORDER BY id_insumo "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -105,7 +105,6 @@
         dgv_stock.Rows.Clear()
 
         For c = 0 To tabla.Rows.Count - 1
-            If tabla.Rows(c)("cantidad") <> 0 Then
                 dgv_stock.Rows.Add()
                 dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
                 dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
@@ -126,9 +125,6 @@
                 tabla2 = acceso.consulta(sql)
 
                 dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
-            Else
-                c = c - 1
-            End If
             
         Next
        
@@ -365,6 +361,7 @@
             Exit Sub
         Else
             sql &= "SELECT * FROM STOCK_INSUMOS WHERE id_marca = " & Me.cmb_marca.SelectedValue
+            sql &= " AND cantidad != 0 "
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
@@ -373,7 +370,6 @@
                 dgv_stock.Rows.Clear()
 
                 For c = 0 To tabla.Rows.Count - 1
-                    If tabla.Rows(c)("cantidad") <> 0 Then
                         dgv_stock.Rows.Add()
                         dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
                         dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
@@ -394,8 +390,8 @@
                         tabla2 = acceso.consulta(sql)
 
                         dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
-                    End If
-                    
+
+
 
                 Next
             End If
@@ -415,6 +411,7 @@
             Exit Sub
         Else
             sql &= "SELECT * FROM STOCK_INSUMOS WHERE id_insumo = " & Me.cmb_insumos.SelectedValue
+            sql &= "and cantidad != 0"
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count = 0 Then
@@ -423,7 +420,6 @@
                 dgv_stock.Rows.Clear()
 
                 For c = 0 To tabla.Rows.Count - 1
-                    If tabla.Rows(c)("cantidad") <> 0 Then
                         dgv_stock.Rows.Add()
                         dgv_stock.Rows(c).Cells("id_insumo").Value = tabla.Rows(c)("id_insumo")
                         dgv_stock.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
@@ -444,7 +440,6 @@
                         tabla2 = acceso.consulta(sql)
 
                         dgv_stock.Rows(c).Cells("insumo").Value = tabla2.Rows(0)("descripcion")
-                    End If
                     
                 Next
             End If

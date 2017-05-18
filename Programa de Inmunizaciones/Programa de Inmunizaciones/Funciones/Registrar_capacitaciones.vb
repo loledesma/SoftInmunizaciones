@@ -30,11 +30,14 @@
         Me.cmb_tipos_documento.SelectedValue = -1
         Me.cmb_departamento.cargar()
         Me.cmb_departamento.SelectedValue = -1
+        Me.cmb_doc_buscar.cargar()
+        Me.cmb_doc_buscar.SelectedValue = -1
         
 
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
         acceso.autocompletar(txt_apellido_empleado, "EMPLEADOS", "apellidos")
-
+        acceso.autocompletar(txt_apellido_buscar, "EMPLEADOS", "apellidos")
+        acceso.autocompletar(txt_nombres_buscar, "EMPLEADOS", "nombres")
 
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
@@ -145,9 +148,10 @@
                     dgv_capas.Rows(c).Cells("fecha_programada").Value = tabla.Rows(c)("fecha_programada")
 
                     If IsDBNull(tabla.Rows(c)("fecha_efectiva")) Then
-                        dgv_capas.Rows(c).Cells("fecha_efectiva").Value = tabla.Rows(c)("fecha_efectiva")
-                    Else
                         dgv_capas.Rows(c).Cells("fecha_efectiva").Value = " "
+                    Else
+                        dgv_capas.Rows(c).Cells("fecha_efectiva").Value = tabla.Rows(c)("fecha_efectiva")
+
                     End If
 
                     sql = ""
@@ -205,9 +209,9 @@
                     dgv_capas.Rows(c).Cells("fecha_programada").Value = tabla.Rows(c)("fecha_programada")
 
                     If IsDBNull(tabla.Rows(c)("fecha_efectiva")) Then
-                        dgv_capas.Rows(c).Cells("fecha_efectiva").Value = tabla.Rows(c)("fecha_efectiva")
-                    Else
                         dgv_capas.Rows(c).Cells("fecha_efectiva").Value = " "
+                    Else
+                        dgv_capas.Rows(c).Cells("fecha_efectiva").Value = tabla.Rows(c)("fecha_efectiva")
                     End If
 
                     sql = ""
@@ -229,7 +233,7 @@
                     tabla2.Rows.Clear()
                     tabla2 = acceso.consulta(sql)
 
-                    dgv_capas.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+                    dgv_capas.Rows(c).Cells("localidad").Value = tabla2.Rows(0)("descripcion")
                 Next
             End If
         End If
@@ -451,6 +455,7 @@
         Me.limpiar(Me.Controls)
         Me.txt_descripcion.Text = ""
         Me.txt_observaciones.Text = ""
+        Me.txt_duracion_real.Text = ""
         Me.condicion_estado = condicion.insertar
         Dim sql As String = "SELECT * FROM CAPACITACIONES "
         Dim tabla As New DataTable
@@ -862,8 +867,10 @@
         Dim c As Integer = 0
         Dim Sql As String = ""
 
+        
         For c = 0 To dgv_empleados.Rows.Count() - 1
             If validar_existencia_empleado(Me.dgv_empleados.Rows(c).Cells("id").Value) = analizar_existencia.existe Then
+                Sql = ""
                 Sql = "UPDATE ASISTENCIA"
                 Sql &= " SET realizoEvaluacion ='" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value & "'"
 
@@ -879,11 +886,10 @@
 
             Else
                 acceso._nombre_tabla = "ASISTENCIA"
-
-
-                sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
-                sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
-                sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
+                Sql = ""
+                Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
+                Sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
+                Sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
 
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
                     Sql &= ", observaciones= NULL "
@@ -908,7 +914,7 @@
         End If
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+    Private Sub limpiar_todo()
         Me.limpiar(Me.Controls)
         Me.condicion_estado = condicion.insertar
         Me.condicion_click = doble_Click.desactivado
@@ -924,6 +930,15 @@
         Me.txt_duracion_prevista.Text = ""
         Me.cmb_estado.SelectedValue = -1
         Me.txt_hora.Text = ""
+        Me.txt_apellido_buscar.Text = ""
+        Me.txt_nombres_buscar.Text = ""
+        Me.txt_doc_buscar.Text = ""
+        Me.cmb_doc_buscar.SelectedValue = -1
+        cargar_grilla()
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar_todo()
     End Sub
 
 
@@ -976,6 +991,96 @@
     Private Sub dgv_empleados_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
         lbl_asistentes.Text = Me.dgv_empleados.Rows.Count()
     End Sub
+
+    Private Sub buscarCapaPorDoc()
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        txt_id_capacitacion.Enabled = False
+
+        sql &= "SELECT C.id as id, C.fecha_programada as fecha_programada, C.fecha_efectiva as fecha_efectiva "
+        sql &= ", C.hora as hora, C.id_tipo as id_tipo, C.id_estado as id_estado, C.id_localidad as id_localidad "
+        sql &= " FROM CAPACITACIONES C JOIN ASISTENCIA A ON C.id = A.id_capacitacion"
+        sql &= " JOIN EMPLEADOS E ON E.id = A.id_empleado "
+        sql &= " WHERE E.id_tipo_doc = " & Me.cmb_doc_buscar.SelectedValue & " AND E.nro_doc= " & Me.txt_doc_buscar.Text
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows().Count = 0 Then
+            MessageBox.Show("¡El empleado no asistio a capacitaciones!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        Else
+            dgv_capas.Rows.Clear()
+
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_capas.Rows.Add()
+
+                dgv_capas.Rows(c).Cells("id_capacitacion").Value = tabla.Rows(c)("id")
+                dgv_capas.Rows(c).Cells("fecha_programada").Value = tabla.Rows(c)("fecha_programada")
+
+                If IsDBNull(tabla.Rows(c)("fecha_efectiva")) Then
+                    dgv_capas.Rows(c).Cells("fecha_efectiva").Value = " "
+                Else
+                    dgv_capas.Rows(c).Cells("fecha_efectiva").Value = tabla.Rows(c)("fecha_efectiva")
+                End If
+
+                sql = ""
+                sql &= "SELECT descripcion FROM TIPO_CAPACITACIONES WHERE id= " & tabla.Rows(c)("id_tipo")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+
+                dgv_capas.Rows(c).Cells("tipo").Value = tabla2.Rows(0)("descripcion")
+
+                sql = ""
+                sql &= "SELECT descripcion FROM ESTADO_CAPACITACIONES WHERE id= " & tabla.Rows(c)("id_estado")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+
+                dgv_capas.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+
+
+                sql = ""
+                sql &= "SELECT descripcion FROM LOCALIDADES WHERE id= " & tabla.Rows(c)("id_localidad")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+
+                dgv_capas.Rows(c).Cells("localidad").Value = tabla2.Rows(0)("descripcion")
+
+            Next
+        End If
+    End Sub
  
-  
+    Private Sub cmd_buscar_capas_empleado_Click(sender As Object, e As EventArgs) Handles cmd_buscar_capas_empleado.Click
+        If txt_apellido_buscar.Text = "" Or txt_nombres_buscar.Text = "" Then
+            If cmb_doc_buscar.SelectedValue = -1 Or txt_doc_buscar.Text = "" Then
+                MsgBox("La busqueda es por documento o por nombre y apellido. Seleccione alguno")
+                Exit Sub
+            Else
+                buscarCapaPorDoc()
+            End If
+        Else
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim tabla2 As New DataTable
+            txt_id_capacitacion.Enabled = False
+
+            sql &= "SELECT id_tipo_doc, nro_doc "
+            sql &= " FROM EMPLEADOS "
+            sql &= " WHERE nombres='" & Me.txt_nombres_buscar.Text & "' AND apellidos='" & Me.txt_apellido_buscar.Text & "'"
+
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows().Count = 0 Then
+                MessageBox.Show("¡El empleado no existe en la base!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            ElseIf tabla.Rows().Count > 1 Then
+                MessageBox.Show("Existe mas de un empleado con esos datos ingrese el documento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            ElseIf tabla.Rows().Count() = 1 Then
+                txt_doc_buscar.Text = tabla.Rows(0)("nro_doc")
+                cmb_doc_buscar.SelectedValue = tabla.Rows(0)("id_tipo_doc")
+                buscarCapaPorDoc()
+            End If
+        End If
+    End Sub
 End Class
