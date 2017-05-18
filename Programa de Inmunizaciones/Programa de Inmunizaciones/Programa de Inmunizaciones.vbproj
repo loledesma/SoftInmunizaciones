@@ -279,6 +279,12 @@
     <Compile Include="Listados\listados_efector_loc_dpto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\listados_efector_x_refe.Designer.vb">
+      <DependentUpon>listados_efector_x_refe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listados_efector_x_refe.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\listados_referentes_y_efectores.Designer.vb">
       <DependentUpon>listados_referentes_y_efectores.vb</DependentUpon>
     </Compile>
@@ -460,6 +466,9 @@
     <EmbeddedResource Include="Listados\listados_efector_loc_dpto.resx">
       <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_efector_x_refe.resx">
+      <DependentUpon>listados_efector_x_refe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\listados_referentes_y_efectores.resx">
       <DependentUpon>listados_referentes_y_efectores.vb</DependentUpon>
     </EmbeddedResource>
@@ -470,6 +479,7 @@
     <EmbeddedResource Include="Listados\listado_localidadesxdpto.resx">
       <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listado_efector_x_refe.rdlc" />
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_con_internet.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
