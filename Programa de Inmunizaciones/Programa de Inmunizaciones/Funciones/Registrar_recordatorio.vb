@@ -357,23 +357,23 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM RECORDATORIOS "
-        sql &= " WHERE fecha= " & Me.txt_fecha.Text
+        sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
         sql &= " ORDER BY id_administrador"
         tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count() = 0 Then
-                MessageBox.Show("¡No existe el recordatorio solicitada!")
+            MessageBox.Show("¡No existe el recordatorio solicitado!")
                 Exit Sub
             Else
                 Dim c As Integer = 0
             dgv_recordatorios.Rows.Clear()
             For c = 0 To tabla.Rows.Count() - 1
                 dgv_recordatorios.Rows.Add()
-                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
-                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
-                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estado")
-                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
-                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
+                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
 
                 sql = ""
                 sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_recordatorios.Rows(c).Cells("id_estado").Value
@@ -386,7 +386,6 @@
                 tabla2.Rows.Clear()
                 tabla2 = acceso.consulta(sql)
                 dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
-
             Next
             End If
 
