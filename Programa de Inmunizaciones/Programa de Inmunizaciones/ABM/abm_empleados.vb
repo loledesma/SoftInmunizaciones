@@ -525,7 +525,7 @@
                         Me.insertar_empleado()
                         grabar_empleadoxefector()
                     End If
-                    
+
                 Else
                     MessageBox.Show("Ya se encuentra registrado este empleado")
                     Exit Sub
@@ -670,7 +670,7 @@
 
             acceso.insertar(sql)
         End If
-        
+
     End Sub
 
     Private Function validar_existencia_estado() As analizar_existencia
@@ -730,7 +730,7 @@
     Private Sub modificar_empleadoxefector()
         Dim c As Integer = 0
         Dim txt_insert As String = ""
-      
+
         For c = 0 To dgv_efectores.Rows.Count() - 1
             If validar_existencia_efector(dgv_efectores.Rows(c).Cells("cuie").Value) = analizar_existencia.existe Then
                 txt_insert &= "UPDATE EMPLEADOSXEFECTOR "
@@ -795,7 +795,7 @@
         cargar_grilla()
     End Sub
 
- 
+
     Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_empleados.CellMouseDoubleClick
         dgv_efectores.Rows.Clear()
         limpiar(Controls)
@@ -1085,7 +1085,7 @@
                         tabla1.Clear()
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(c).Cells("cargo").Value = tabla1.Rows(0)("descripcion")
-                       
+
                         sql = ""
                         sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                         sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
@@ -1134,7 +1134,7 @@
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
                     End If
-                 
+
                     sql = ""
                     sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                     sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
@@ -1223,15 +1223,15 @@
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
 
-        Dim tabla As New DataTable
+        Dim valor1 As Integer
         Dim sql As String = ""
 
-        sql &= "SELECT * "
+        sql &= "SELECT COUNT(*) "
         sql &= "FROM EMPLEADOS  "
 
-        tabla = acceso.consulta(sql)
+        valor1 = acceso.contadores(sql)
 
-        lbl_contador_empleados.Text = tabla.Rows.Count()
+        lbl_contador_empleados.Text = valor1
     End Sub
 
     'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged
@@ -1242,5 +1242,5 @@
     '    acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
     'End Sub
 
-   
+
 End Class

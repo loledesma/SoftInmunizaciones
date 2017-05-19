@@ -61,6 +61,10 @@ Partial Class Registrar_atencion
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.tltp_atencion = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.lbl_contador_pendientes = New System.Windows.Forms.Label()
+        Me.lbl_registradas_hoy = New System.Windows.Forms.Label()
+        Me.lbl_contador_total = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.grp_datos_atencion.SuspendLayout()
         CType(Me.dgv_atenciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_descripcion.SuspendLayout()
@@ -461,12 +465,62 @@ Partial Class Registrar_atencion
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
+        'lbl_contador_pendientes
+        '
+        Me.lbl_contador_pendientes.AutoSize = True
+        Me.lbl_contador_pendientes.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_pendientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_pendientes.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_pendientes.Location = New System.Drawing.Point(687, 571)
+        Me.lbl_contador_pendientes.Name = "lbl_contador_pendientes"
+        Me.lbl_contador_pendientes.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_pendientes.TabIndex = 54
+        '
+        'lbl_registradas_hoy
+        '
+        Me.lbl_registradas_hoy.AutoSize = True
+        Me.lbl_registradas_hoy.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_registradas_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_registradas_hoy.ForeColor = System.Drawing.Color.White
+        Me.lbl_registradas_hoy.Location = New System.Drawing.Point(440, 571)
+        Me.lbl_registradas_hoy.Name = "lbl_registradas_hoy"
+        Me.lbl_registradas_hoy.Size = New System.Drawing.Size(179, 17)
+        Me.lbl_registradas_hoy.TabIndex = 53
+        Me.lbl_registradas_hoy.Text = "Atenciones Pendientes:"
+        '
+        'lbl_contador_total
+        '
+        Me.lbl_contador_total.AutoSize = True
+        Me.lbl_contador_total.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_total.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_total.Location = New System.Drawing.Point(645, 534)
+        Me.lbl_contador_total.Name = "lbl_contador_total"
+        Me.lbl_contador_total.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_total.TabIndex = 52
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(440, 534)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(93, 17)
+        Me.Label3.TabIndex = 51
+        Me.Label3.Text = "Atenciones:"
+        '
         'Registrar_atencion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1113, 621)
+        Me.Controls.Add(Me.lbl_contador_pendientes)
+        Me.Controls.Add(Me.lbl_registradas_hoy)
+        Me.Controls.Add(Me.lbl_contador_total)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
@@ -483,6 +537,7 @@ Partial Class Registrar_atencion
         CType(Me.dgv_atenciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_descripcion.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents grp_datos_atencion As System.Windows.Forms.GroupBox
@@ -522,4 +577,8 @@ Partial Class Registrar_atencion
     Friend WithEvents administrador As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents asunto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lbl_contador_pendientes As System.Windows.Forms.Label
+    Friend WithEvents lbl_registradas_hoy As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_total As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

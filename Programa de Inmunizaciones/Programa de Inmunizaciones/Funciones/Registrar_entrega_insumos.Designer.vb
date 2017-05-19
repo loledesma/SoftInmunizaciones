@@ -85,6 +85,7 @@ Partial Class Registrar_entrega_insumos
         Me.nro_serie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_devolucion = New System.Windows.Forms.Button()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_detalle.SuspendLayout()
         CType(Me.dgv_entrega, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -740,6 +741,25 @@ Partial Class Registrar_entrega_insumos
         Me.id_marca.ReadOnly = True
         Me.id_marca.Visible = False
         '
+        'cmd_devolucion
+        '
+        Me.cmd_devolucion.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_devolucion.BackgroundImage = CType(resources.GetObject("cmd_devolucion.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_devolucion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_devolucion.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_devolucion.FlatAppearance.BorderSize = 0
+        Me.cmd_devolucion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_devolucion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_devolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_devolucion.Location = New System.Drawing.Point(226, 649)
+        Me.cmd_devolucion.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_devolucion.Name = "cmd_devolucion"
+        Me.cmd_devolucion.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_devolucion.TabIndex = 65
+        Me.cmd_devolucion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_devolucion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_devolucion.UseVisualStyleBackColor = False
+        '
         'Registrar_entrega_insumos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -747,6 +767,7 @@ Partial Class Registrar_entrega_insumos
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1007, 714)
+        Me.Controls.Add(Me.cmd_devolucion)
         Me.Controls.Add(Me.dgv_detalle_entrega)
         Me.Controls.Add(Me.dgv_entrega)
         Me.Controls.Add(Me.cmd_salir)
@@ -825,4 +846,5 @@ Partial Class Registrar_entrega_insumos
     Friend WithEvents id_marca As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txt_modelo As System.Windows.Forms.TextBox
     Friend WithEvents txt_nro_serie As System.Windows.Forms.TextBox
+    Friend WithEvents cmd_devolucion As System.Windows.Forms.Button
 End Class

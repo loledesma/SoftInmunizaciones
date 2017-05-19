@@ -99,7 +99,7 @@
             sql &= " WHERE NE.fecha= '" & hoy & "'"
             sql &= " ORDER BY E.nombre "
         ElseIf rdio_todas.Checked = True Then
-            sql &= "SELECT TOP 20 NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
+            sql &= "SELECT TOP 10 NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
             sql &= ", C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas, C.id As id_carga, E.cuie As cuie "
             sql &= ", S.id As id_stock, P.id As id_perdidas "
             sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
@@ -630,34 +630,27 @@
     End Sub
 
     Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_notificaciones.CellValueChanged
-        Dim tabla As New DataTable
-        Dim tabla2 As New DataTable
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
         Dim sql As String = ""
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
 
-        sql &= "SELECT * "
+        sql &= "SELECT COUNT(*) "
         sql &= "FROM NOTIFICACIONXEFECTOR  "
 
-        tabla = acceso.consulta(sql)
+        valor1 = acceso.contadores(sql)
 
-        sql = "SELECT * "
+        sql = "SELECT COUNT(*) "
         sql &= "FROM NOTIFICACIONXEFECTOR WHERE fecha='" & hoy & "'"
-        tabla2 = acceso.consulta(sql)
+        valor2 = acceso.contadores(sql)
 
         If rdio_hoy.Checked = True Then
             lbl_contador_hoy.Text = Me.dgv_notificaciones.Rows.Count()
-            If tabla.Rows.Count() <> 0 Then
-                lbl_contador_notif.Text = tabla.Rows.Count()
-            Else
-                lbl_contador_notif.Text = "0"
-            End If
+            lbl_contador_notif.Text = valor1
+
         ElseIf rdio_todas.Checked = True Then
-            lbl_contador_notif.Text = tabla.Rows.Count()
-            If tabla2.Rows.Count() <> 0 Then
-                lbl_contador_hoy.Text = tabla2.Rows.Count()
-            Else
-                lbl_contador_hoy.Text = "0"
-            End If
+            lbl_contador_notif.Text = valor1
+            lbl_contador_hoy.Text = valor2
         End If
     End Sub
 
