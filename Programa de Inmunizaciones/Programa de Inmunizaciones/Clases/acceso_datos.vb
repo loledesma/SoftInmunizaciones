@@ -158,6 +158,21 @@ Public Class acceso_datos
         Return tabla
     End Function
 
+    Public Function contadores(ByVal comando As String) As Integer
+        Me.conectar()
+        Me.cmd.CommandText = comando
+        Dim contador As Integer = 0
+
+        Try
+            contador = CInt(cmd.ExecuteScalar())
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Me.cerrar()
+        Return contador
+    End Function
+
     Public Sub ejecutar(ByVal comando As String)
         Me.conectar()
         Me.cmd.CommandText = comando
@@ -170,6 +185,7 @@ Public Class acceso_datos
 
         Me.cerrar()
     End Sub
+
 
     Public Function insertar(ByVal datos As String) As resultado
         Dim igual, coma, columna As Integer

@@ -60,8 +60,10 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT * "
+        sql &= "SELECT TOP 5 * "
         sql &= " FROM PEDIDO_DESARROLLO "
+        sql &= " WHERE id_estados_pedidos= 2"
+        sql &= " ORDER BY fecha_pedido desc "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -490,5 +492,24 @@
 
     Private Sub dgv_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_pedidos.CellContentClick
 
+    End Sub
+
+    Private Sub dgv_pedidos_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_pedidos.CellValueChanged
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
+        Dim sql As String = ""
+
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM PEDIDO_DESARROLLO "
+
+        valor1 = acceso.contadores(sql)
+
+        sql = "SELECT COUNT(*) "
+        sql &= "FROM PEDIDO_DESARROLLO WHERE id_estados_pdidos = 2"
+        valor2 = acceso.contadores(sql)
+
+        lbl_contador_pendientes.Text = valor2
+        lbl_contador_total.Text = valor1
     End Sub
 End Class

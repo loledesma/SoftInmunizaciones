@@ -185,6 +185,8 @@
                 registrar_entrega()
             ElseIf Me.cmb_estado_entrega.SelectedValue = 3 Then
                 registrar_rechazo()
+            ElseIf Me.cmb_estado_entrega.SelectedValue = 4 Then
+                MsgBox("Debe usar el boton de devolucion para cambiar el estado a modificad/devuelto")
             End If
         End If
         cargar_grilla_entregas()
@@ -469,6 +471,11 @@
                         Me.insertar_pedido()
                         Me.insertar_detalle_entrega()
 
+                        If cmb_estado_entrega.SelectedValue = 1 Then
+                            registrar_entrega()
+                        End If
+
+
                         If existe_inventario() = True Then
                             actualizar_inventario()
                         End If
@@ -527,7 +534,7 @@
 
 
     Private Sub nuevo()
-        limpiar(Controls)
+        limpiar(Me.Controls)
         Me.txt_observaciones.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_fecha_entrega.Text = ""
@@ -768,6 +775,9 @@
 
             sql = ""
         Next
+
+
+
     End Sub
 
 
@@ -897,5 +907,78 @@
 
         limpiar(Me.Controls)
         Me.condicion_inicial = condicion.modificar
+    End Sub
+
+    Private Function validar_detalle() As Boolean
+        If IsNumeric(txt_id_entrega.Text) = False Then
+            MessageBox.Show("Debe ingresar un pedido para modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_cantidad.Focus()
+            Exit Function
+        ElseIf IsNumeric(txt_cantidad.Text) = False Then
+            MessageBox.Show("Debe ingresar un numero en la cantidad o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_cantidad.Focus()
+            Exit Function
+        ElseIf txt_nro_serie.Text = "" Then
+            MessageBox.Show("Debe ingresar un efector o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_nro_serie.Focus()
+            Exit Function
+        ElseIf txt_modelo.Text = "" Then
+            MessageBox.Show("Debe ingresar un modelo o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_modelo.Focus()
+            Exit Function
+        ElseIf cmb_insumos.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar un insumo o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_insumos.Focus()
+            Exit Function
+        ElseIf cmb_marca.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar una marca o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_estado_entrega.Focus()
+            Exit Function
+        End If
+        Return True
+    End Function
+
+    Private Sub devolver_stock()
+        Dim sql As String = ""
+        acceso._nombre_tabla = "STOCK_INSUMOS"
+
+        sql &= "id_insumo = " & Me.cmb_insumos.SelectedValue
+        sql &= ", nro_serie =" & Me.txt_nro_serie.Text
+        sql &= ", cantidad= " & Me.txt_cantidad.Text
+        sql &= ", modelo=" & Me.txt_modelo.Text
+        sql &= ", id_marca =" & Me.cmb_marca.SelectedValue
+
+        acceso.insertar(sql)
+
+    End Sub
+    Private Sub cmd_devolucion_Click(sender As Object, e As EventArgs) Handles cmd_devolucion.Click
+        Dim sql As String = ""
+        If MessageBox.Show("¿Desea registrar el reingreso de un insumo al stock?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+            If validar_detalle() Then
+                devolver_stock()
+                MsgBox("No olvide registrar en observaciones cual fue la devolucion realizada")
+                If txt_observaciones.Text = "" Then
+                    MsgBox("Debe registrar en observaciones cual fue la devolucion realizada")
+                Else
+                    sql = ""
+                    sql &= "UPDATE ENTREGA_INSUMOS "
+                    sql &= " SET observaciones='" & Me.txt_observaciones.Text & "'"
+                    sql &= ", id_estado_entrega= 4"
+                    sql &= " WHERE id= " & txt_id_entrega.Text
+                  
+                    acceso.ejecutar(sql)
+                    MsgBox("Devolucion Realizada")
+                    cargar_grilla_entregas()
+                End If
+            End If
+        Else
+            Exit Sub
+        End If
     End Sub
 End Class
