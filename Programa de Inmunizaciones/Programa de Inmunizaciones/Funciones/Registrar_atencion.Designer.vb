@@ -94,7 +94,7 @@ Partial Class Registrar_atencion
         Me.grp_datos_atencion.Location = New System.Drawing.Point(22, 12)
         Me.grp_datos_atencion.Name = "grp_datos_atencion"
         Me.grp_datos_atencion.Size = New System.Drawing.Size(403, 240)
-        Me.grp_datos_atencion.TabIndex = 1
+        Me.grp_datos_atencion.TabIndex = 0
         Me.grp_datos_atencion.TabStop = False
         Me.grp_datos_atencion.Text = "Datos Atención"
         '
