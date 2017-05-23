@@ -506,7 +506,7 @@
         valor1 = acceso.contadores(sql)
 
         sql = "SELECT COUNT(*) "
-        sql &= "FROM PEDIDO_DESARROLLO WHERE id_estados_pdidos = 2"
+        sql &= "FROM PEDIDO_DESARROLLO WHERE id_estados_pedidos = 2"
         valor2 = acceso.contadores(sql)
 
         lbl_contador_pendientes.Text = valor2
