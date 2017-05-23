@@ -254,7 +254,7 @@ Partial Class abm_carga
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(425, 406)
+        Me.ClientSize = New System.Drawing.Size(415, 406)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.grp_grilla_carga)
         Me.Controls.Add(Me.cmd_guardar)
