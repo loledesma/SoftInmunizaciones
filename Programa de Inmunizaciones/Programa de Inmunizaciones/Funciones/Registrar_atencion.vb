@@ -352,7 +352,7 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
-        limpiar(Controls)
+        limpiar_todo()
         Me.txt_descripcion.Text = ""
     End Sub
 
@@ -424,6 +424,7 @@
             sql &= " WHERE id= " & Me.txt_id_atencion.Text
             acceso.ejecutar(sql)
         End If
+        limpiar_todo()
         cargar_grilla()
     End Sub
 
@@ -541,7 +542,7 @@
         Me.condicion_estado = condicion.modificar
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+    Private Sub limpiar_todo()
         Me.txt_id_atencion.Enabled = True
         Me.grp_datos_atencion.Enabled = True
         Me.grp_descripcion.Enabled = True
@@ -551,6 +552,10 @@
         Me.txt_id_atencion.Focus()
         Me.cargar_grilla()
         Me.txt_descripcion.Text = ""
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar_todo()
     End Sub
 
     Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_atenciones.CellValueChanged
