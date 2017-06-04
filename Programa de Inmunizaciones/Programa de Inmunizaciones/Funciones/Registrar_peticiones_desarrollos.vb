@@ -260,8 +260,7 @@
         Dim sql As String = ""
         acceso._nombre_tabla = "PEDIDO_DESARROLLO"
 
-        sql &= "id = " & Me.txt_id_desarrollo.Text
-        sql &= ", fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
+        sql &= "fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
 
         If IsDate(txt_fecha_solucion.Text) Then
             sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
@@ -314,12 +313,7 @@
     Private Sub guardar()
         If Me.validar() = True Then
             If condicion_estado = condicion.insertar Then
-                If Me.validar_existencia() = analizar_existencia.no_existe Then
-                    Me.insertar()
-                Else
-                    MessageBox.Show("Ya se encuentra cargada la peticion")
-                    Exit Sub
-                End If
+                Me.insertar()
             Else
                 Me.modificar()
             End If
@@ -342,17 +336,6 @@
         Me.txt_respuesta.Text = ""
         Me.txt_solicitado.Text = ""
         Me.condicion_estado = condicion.insertar
-        Dim sql As String = "SELECT * FROM PEDIDO_DESARROLLO"
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_desarrollo.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_desarrollo.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
         Me.txt_id_desarrollo.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_pedido.Enabled = True

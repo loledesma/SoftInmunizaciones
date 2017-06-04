@@ -79,11 +79,14 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_cuie.Text <> "" Then
-                sql &= "SELECT E.nombre As nombre FROM EFECTORES E "
+                sql &= "SELECT * FROM EFECTORES E "
                 sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count <> 0 Then
                     txt_efector.Text = tabla.Rows(0)("nombre")
+                    cmb_departamento.SelectedValue = tabla.Rows(0)("id_departamento")
+                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+                    cmb_tipos_efectores.SelectedValue = tabla.Rows(0)("id_tipo")
                 End If
             End If
         End If
@@ -112,10 +115,12 @@
     Private Sub nuevo()
         Me.limpiar(Me.Controls)
         Me.condicion_estado = condicion.insertar
-
         Me.txt_efector.Focus()
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
+        limpiar_heladeras()
+        limpiar_termometros()
+        limpiar_termos()
     End Sub
 
   
@@ -223,15 +228,16 @@
                 cmb_tipos_efectores.SelectedValue = tabla.Rows(0)("tipo_efector")
 
                 sql = ""
-                sql &= "SELECT IH.fecha_info as fecha_info, E.nombres as nombres, E.apellidos as apellidos "
-                sql &= "FROM EMPLEADOS E JOIN INVENTARIO_CF_HELADERA IH ON E.id = IH.id_empleado "
+                sql &= "SELECT IH.fecha as fecha_info, E.nombres as nombres, E.apellidos as apellidos "
+                sql &= "FROM EMPLEADOS E JOIN INVENTARIO_CF IH ON E.id = IH.id_empleado "
                 sql &= " WHERE IH.id_efector='" & Me.txt_cuie.Text & "'"
                 tabla.Rows.Clear()
                 tabla = acceso.consulta(sql)
 
                 If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No hay inventario de heladera para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("No hay inventario para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
+
                 Else
                     txt_empleado_nombre.Text = tabla.Rows(0)("nombres")
                     txt_empleado_apellido.Text = tabla.Rows(0)("apellidos")
@@ -253,7 +259,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= "SELECT IH.id as id,IH.fecha_info as fecha_info, IH.fecha as fecha, IH.modelo as modelo, IH.nro_serie as nro_serie, "
+        sql &= "SELECT IH.id as id, IH.fecha as fecha, IH.modelo as modelo, IH.nro_serie as nro_serie, "
         sql &= " IH.capacidad as capacidad, IH.medidas as medidas, IH.motivo as motivo, IH.observaciones as observaciones "
         sql &= " , M.descripcion as marca, F.descripcion as funcionamiento, TH.descripcion as tipo_heladera "
         sql &= ", TH.id as id_tipo_heladera, M.id as id_marca, F.id as id_funcionamiento "
@@ -263,27 +269,34 @@
         tabla.Rows.Clear()
         tabla = acceso.consulta(sql)
 
-        dgv_heladeras.Rows.Clear()
-        Dim c As Integer = 0
-        For c = 0 To tabla.Rows.Count - 1
-            dgv_heladeras.Rows.Add()
-            dgv_heladeras.Rows(c).Cells("id_heladera").Value = tabla.Rows(c)("id")
-            dgv_heladeras.Rows(c).Cells("tipo_heladera").Value = tabla.Rows(c)("tipo_heladera")
-            dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value = tabla.Rows(c)("id_tipo_heladera")
-            dgv_heladeras.Rows(c).Cells("marca").Value = tabla.Rows(c)("marca")
-            dgv_heladeras.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
-            dgv_heladeras.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
-            dgv_heladeras.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
-            dgv_heladeras.Rows(c).Cells("capacidad").Value = tabla.Rows(c)("capacidad")
-            dgv_heladeras.Rows(c).Cells("medidas").Value = tabla.Rows(c)("medidas")
-            dgv_heladeras.Rows(c).Cells("motivo").Value = tabla.Rows(c)("motivo")
-            dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value = tabla.Rows(c)("observaciones")
-            dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value = tabla.Rows(c)("id_funcionamiento")
-            dgv_heladeras.Rows(c).Cells("funcionamiento").Value = tabla.Rows(c)("funcionamiento")
-            dgv_heladeras.Rows(c).Cells("fecha_info").Value = tabla.Rows(c)("fecha_info")
-            dgv_heladeras.Rows(c).Cells("fecha_heladera").Value = tabla.Rows(c)("fecha")
-            dgv_heladeras.Rows(c).Cells("antiguedad").Value = calcular_antiguedad(tabla.Rows(c)("fecha"))
-        Next
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("No hay inventario de heladera para el efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+
+        Else
+            dgv_heladeras.Rows.Clear()
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_heladeras.Rows.Add()
+                dgv_heladeras.Rows(c).Cells("id_heladera").Value = tabla.Rows(c)("id")
+                dgv_heladeras.Rows(c).Cells("tipo_heladera").Value = tabla.Rows(c)("tipo_heladera")
+                dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value = tabla.Rows(c)("id_tipo_heladera")
+                dgv_heladeras.Rows(c).Cells("marca").Value = tabla.Rows(c)("marca")
+                dgv_heladeras.Rows(c).Cells("id_marca").Value = tabla.Rows(c)("id_marca")
+                dgv_heladeras.Rows(c).Cells("modelo").Value = tabla.Rows(c)("modelo")
+                dgv_heladeras.Rows(c).Cells("nro_serie").Value = tabla.Rows(c)("nro_serie")
+                dgv_heladeras.Rows(c).Cells("capacidad").Value = tabla.Rows(c)("capacidad")
+                dgv_heladeras.Rows(c).Cells("medidas").Value = tabla.Rows(c)("medidas")
+                dgv_heladeras.Rows(c).Cells("motivo").Value = tabla.Rows(c)("motivo")
+                dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value = tabla.Rows(c)("observaciones")
+                dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value = tabla.Rows(c)("id_funcionamiento")
+                dgv_heladeras.Rows(c).Cells("funcionamiento").Value = tabla.Rows(c)("funcionamiento")
+                dgv_heladeras.Rows(c).Cells("fecha_heladera").Value = tabla.Rows(c)("fecha")
+                dgv_heladeras.Rows(c).Cells("antiguedad").Value = calcular_antiguedad(tabla.Rows(c)("fecha"))
+            Next
+        End If
+
+        
 
     End Sub
 
@@ -739,23 +752,24 @@
 
  
     Private Sub guardar()
-
-
         If validar_cabecera() = True Then
             If dgv_heladeras.Rows.Count() = 0 Then
                 If dgv_termometros.Rows.Count() = 0 Then
                     If dgv_termos.Rows.Count() = 0 Then
                         MessageBox.Show("No hay nada cargado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
+                        grabar_cabecera()
                         grabar_termos()
                     End If
                 Else
+                    grabar_cabecera()
                     grabar_termometros()
                     If dgv_termos.Rows.Count() <> 0 Then
                         grabar_termos()
                     End If
                 End If
             Else
+                grabar_cabecera()
                 grabar_heladeras()
                 If dgv_termometros.Rows.Count() = 0 Then
                     If dgv_termos.Rows.Count() <> 0 Then
@@ -839,11 +853,9 @@
                 acceso.ejecutar(Sql)
             Else
 
-                id = ObtenerId("INVENTARIO_CF_TERMOS")
                 acceso._nombre_tabla = "INVENTARIO_CF_TERMOS"
 
-                Sql &= "id = " & id
-                Sql &= ", fecha= '" & Me.dgv_termos.Rows(c).Cells("fecha").Value & "'"
+                Sql &= " fecha= '" & Me.dgv_termos.Rows(c).Cells("fecha").Value & "'"
                 Sql &= ", id_efector =" & txt_cuie.Text
                 Sql &= ", cantidad=" & Me.dgv_termos.Rows(c).Cells("cantidad").Value
                 Sql &= ", tipo_termo=" & Me.dgv_termos.Rows(c).Cells("tipo_termo").Value
@@ -885,10 +897,8 @@
 
             Else
                 acceso._nombre_tabla = "INVENTARIO_CF_TERMOMETRO"
-                id = ObtenerId("INVENTARIO_CF_TERMOMETRO")
 
-                Sql &= "id = " & id
-                Sql &= ", id_efector =" & txt_cuie.Text
+                Sql &= "id_efector =" & txt_cuie.Text
                 Sql &= ", fecha= '" & Me.dgv_termometros.Rows(c).Cells("fecha_termometro").Value & "'"
                 Sql &= ", cantidad=" & Me.dgv_termometros.Rows(c).Cells("cantidad_termometro").Value
                 Sql &= ", tipo_termometro=" & Me.dgv_termometros.Rows(c).Cells("tipo_termometro").Value
@@ -904,7 +914,40 @@
             Sql = ""
         Next
     End Sub
+    Private Sub grabar_cabecera()
+        Dim Sql As String = ""
+        Dim tabla As New DataTable
+        Dim sql_insert As String = ""
+        Dim id As Integer = 0
 
+        sql_insert = "SELECT id FROM EMPLEADOS WHERE nombres='" & Me.txt_empleado_nombre.Text & "'"
+        sql_insert &= " AND apellidos= '" & Me.txt_empleado_apellido.Text & "'"
+        id = acceso.contadores(sql_insert)
+
+        Sql = ""
+        Sql = "SELECT * FROM INVENTARIO_CF WHERE id_efector= '" & Me.txt_cuie.Text & "'"
+        tabla = acceso.consulta(Sql)
+
+        If tabla.Rows.Count() = 0 Then
+            acceso._nombre_tabla = "INVENTARIO_CF"
+
+            Sql = ""
+            Sql &= "id_efector =" & txt_cuie.Text
+            Sql &= ",id_empleado= " & id
+            Sql &= ", fecha= '" & Me.txt_fecha_info.Text & "'"
+
+            acceso.insertar(Sql)
+        Else
+            Sql = "UPDATE INVENTARIO_CF_HELADERA"
+            Sql &= " SET id_empleado= " & tabla.Rows(0)("id")
+            Sql &= ", fecha= '" & Me.txt_fecha_info.Text & "'"
+            Sql &= " WHERE id_efector= '" & Me.txt_cuie.Text & "'"
+        End If
+
+
+        
+
+    End Sub
     Private Sub grabar_heladeras()
         Dim c As Integer = 0
         Dim Sql As String = ""
@@ -919,15 +962,14 @@
         For c = 0 To dgv_heladeras.Rows.Count() - 1
             If dgv_heladeras.Rows(c).Cells("id_heladera").Value.ToString() <> "Null" Then
                 Sql = "UPDATE INVENTARIO_CF_HELADERA"
-                Sql &= " SET fecha ='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
-                Sql &= ", id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
+                Sql &= " SET id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
                 Sql &= ", modelo= '" & Me.dgv_heladeras.Rows(c).Cells("modelo").Value & "'"
                 Sql &= ", id_marca= " & Me.dgv_heladeras.Rows(c).Cells("id_marca").Value
                 Sql &= ", nro_serie= '" & Me.dgv_heladeras.Rows(c).Cells("nro_serie").Value & "'"
                 Sql &= ", medidas= '" & Me.dgv_heladeras.Rows(c).Cells("medidas").Value & "'"
                 Sql &= ", capacidad= '" & Me.dgv_heladeras.Rows(c).Cells("capacidad").Value & "'"
                 Sql &= ", id_funcionamiento= " & Me.dgv_heladeras.Rows(c).Cells("id_funcionamiento").Value
-                Sql &= ", fecha_info= '" & Me.dgv_heladeras.Rows(c).Cells("fecha_info").Value & "'"
+
 
                 If IsNothing(Me.dgv_heladeras.Rows(c).Cells("observaciones_heladera").Value) Then
                     Sql &= ", observaciones= No hay datos "
@@ -947,11 +989,9 @@
 
             Else
                 acceso._nombre_tabla = "INVENTARIO_CF_HELADERA"
-                id = ObtenerId("INVENTARIO_CF_HELADERA")
 
-                Sql &= "id = " & id
-                Sql &= ", id_efector =" & txt_cuie.Text
-                Sql &= ", id_empleado=" & tabla.Rows(0)("id")
+                Sql &= "id_efector =" & txt_cuie.Text
+
                 Sql &= ", fecha='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
                 Sql &= ", id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
                 Sql &= ", id_marca= " & Me.dgv_heladeras.Rows(c).Cells("id_marca").Value
@@ -972,8 +1012,6 @@
                 Else
                     Sql &= ", motivo= " & Me.dgv_heladeras.Rows(c).Cells("motivo").Value
                 End If
-
-                Sql &= ", fecha_info='" & Me.dgv_heladeras.Rows(c).Cells("fecha_info").Value & "'"
 
                 acceso.insertar(Sql)
             End If
