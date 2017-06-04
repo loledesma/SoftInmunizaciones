@@ -267,12 +267,10 @@
     Private Sub insertar()
         Dim sql As String = ""
         Dim id As Integer = 0
-        id = obtenerId()
+
         acceso._nombre_tabla = "NOTIFICACIONXEFECTOR"
 
-
-        sql &= "id = " & id
-        sql &= ", fecha = '" & Me.txt_fecha.Text & "'"
+        sql &= " fecha = '" & Me.txt_fecha.Text & "'"
         sql &= ", id_estado_carga = " & Me.cmb_carga.SelectedValue
         sql &= ", id_estado_stock = " & Me.cmb_stock.SelectedValue
         sql &= ", id_estado_perdidas = " & Me.cmb_perdidas.SelectedValue
