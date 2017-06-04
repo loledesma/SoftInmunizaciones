@@ -608,10 +608,10 @@
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         acceso._nombre_tabla = "EMPLEADOS"
-        Dim id As Integer = obtenerId()
 
-        sql = "id = " & id
-        sql &= ", id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
+
+
+        sql = " id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
         sql &= ", nro_doc = " & Me.txt_nro_documento.Text
         sql &= ", nombres=" & Me.txt_nombre.Text
         sql &= ", apellidos=" & Me.txt_apellido.Text
@@ -643,12 +643,16 @@
         acceso.insertar(sql)
 
         sql = ""
-        sql = "SELECT * FROM EMPLEADOS WHERE id= " & Me.txt_id_empleado.Text
+        sql = "SELECT id FROM EMPLEADOS WHERE id_tipo_doc= " & Me.cmb_tipo_doc.SelectedValue & " AND nro_doc= " & Me.txt_nro_documento.Text
 
         tabla = acceso.consulta(sql)
 
+
         If tabla.Rows.Count() <> 0 Then
-            alta_estado()
+            Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+            If cmb_estado_empleado.SelectedValue <> -1 Then
+                alta_estado()
+            End If
         End If
 
     End Sub

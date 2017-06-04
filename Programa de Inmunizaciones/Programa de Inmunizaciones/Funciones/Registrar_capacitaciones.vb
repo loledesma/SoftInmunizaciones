@@ -457,17 +457,6 @@
         Me.txt_observaciones.Text = ""
         Me.txt_duracion_real.Text = ""
         Me.condicion_estado = condicion.insertar
-        Dim sql As String = "SELECT * FROM CAPACITACIONES "
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_capacitacion.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_capacitacion.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
         Me.txt_id_capacitacion.Enabled = False
         Me.cmb_tipo_capacitaciones.Focus()
         Me.cmd_guardar.Enabled = True
@@ -476,12 +465,7 @@
 
     Private Function validar_capacitacion() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If txt_id_capacitacion.Text = "" Then
-            MessageBox.Show("¡Debe ingresar un numero de capacitacion!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txt_id_capacitacion.Focus()
-            Return False
-            Exit Function
-        ElseIf txt_duracion_prevista.Text = "" Then
+        If txt_duracion_prevista.Text = "" Then
             MessageBox.Show("¡Debe ingresar una duracion prevista!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txt_duracion_prevista.Focus()
             Return False
@@ -535,8 +519,8 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM CAPACITACIONES "
-        sql &= "WHERE fecha_programada = '" & Me.txt_fecha_efectiva.Text & "'"
-        sql &= " AND hora= " & Me.txt_hora.Text
+        sql &= "WHERE fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
+        sql &= " AND hora='" & Me.txt_hora.Text & "'"
         sql &= " AND lugar='" & Me.txt_lugar.Text & "'"
 
         tabla = acceso.consulta(sql)
@@ -558,7 +542,7 @@
                     Exit Sub
                 End If
             Else
-                If MessageBox.Show("¿Desea registrar la realizacion de la capacitacion?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
+                If MessageBox.Show("¿Desea registrar la realizacion de la ultima capacitacion guardada?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
                     modificar()
                 Else
                     If validar_post() Then
@@ -574,6 +558,7 @@
         dgv_empleados.Rows.Clear()
         dgv_capas.Rows.Clear()
         limpiar(Me.Controls)
+        limpiar_todo()
         cargar_grilla()
     End Sub
 
@@ -623,8 +608,7 @@
         Dim sql As String = ""
         acceso._nombre_tabla = "CAPACITACIONES"
 
-        sql &= "id = " & Me.txt_id_capacitacion.Text
-        sql &= ", fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
+        sql &= " fecha_programada ='" & Me.txt_fecha_programada.Text & "'"
 
         If IsDate(txt_fecha_efectiva.Text) Then
             sql &= ", fecha_efectiva ='" & Me.txt_fecha_efectiva.Text & "'"
