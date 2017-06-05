@@ -305,8 +305,8 @@
         Dim sql As String = ""
         acceso._nombre_tabla = "ATENCION_SOPORTE"
 
-        sql &= "id = " & Me.txt_id_atencion.Text
-        sql &= ", fecha ='" & Me.txt_fecha.Text & "'"
+
+        sql &= " fecha ='" & Me.txt_fecha.Text & "'"
         sql &= ", id_estados_atencion= " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", asunto= " & Me.txt_asunto.Text
         sql &= ", id_efector=" & Me.txt_cuie.Text
@@ -334,12 +334,7 @@
     Private Sub guardar()
         If Me.validar() = True Then
             If condicion_estado = condicion.insertar Then
-                If Me.validar_existencia() = analizar_existencia.no_existe Then
-                    Me.insertar()
-                Else
-                    MessageBox.Show("Ya se encuentra cargada esta atención")
-                    Exit Sub
-                End If
+                Me.insertar()
             Else
                 Me.modificar()
             End If
@@ -360,17 +355,7 @@
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
         Me.condicion_estado = condicion.insertar
-        Dim sql As String = "SELECT * FROM ATENCION_SOPORTE"
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_atencion.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_atencion.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
+     
         Me.txt_id_atencion.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_atencion.Enabled = True

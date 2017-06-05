@@ -538,15 +538,14 @@
         Me.txt_observaciones.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_fecha_entrega.Text = ""
-        Dim sql As String = "SELECT * FROM ENTREGA_INSUMOS "
+        Dim sql As String = "SELECT MAX(id) as maximo FROM ENTREGA_INSUMOS "
         Dim tabla As New DataTable
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
             Me.txt_id_entrega.Text = 1
         Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_entrega.Text = tabla.Rows(ultimo)("id") + 1
+            Me.txt_id_entrega.Text = tabla.Rows(0)("maximo") + 1
         End If
 
         Me.dgv_detalle_entrega.Rows.Clear()
