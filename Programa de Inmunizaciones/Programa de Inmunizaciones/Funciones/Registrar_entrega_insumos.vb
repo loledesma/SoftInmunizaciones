@@ -360,7 +360,7 @@
 
         If IsDBNull(tabla.Rows(0)("receptor")) Then
             txt_receptor.Text = ""
-            
+
         Else
             txt_receptor.Text = tabla.Rows(0)("receptor")
         End If
@@ -413,6 +413,7 @@
         sql &= " WHERE fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
         sql &= " AND id_efector= '" & Me.txt_cuie.Text & "'"
         sql &= " AND id_estado_entrega= 2"
+
 
         tabla = acceso.consulta(sql)
 
@@ -471,18 +472,13 @@
                         Me.insertar_pedido()
                         Me.insertar_detalle_entrega()
 
-                        If cmb_estado_entrega.SelectedValue = 1 Then
-                            registrar_entrega()
-                        End If
-
-
                         If existe_inventario() = True Then
                             actualizar_inventario()
                         End If
 
                     End If
                 Else
-                    MessageBox.Show("Ya se encuentra registrado este pedido, debe cambiar el estado")
+                    MessageBox.Show("Ya se encuentra registrado este pedido, cargue todas las entregas en un solo pedido")
                 End If
             Else
                 Exit Sub
@@ -505,7 +501,7 @@
     End Sub
 
     Private Sub actualizar_inventario()
-        MessageBox.Show("No se olvide de actualizar el inventario de cadena de frio")
+        MessageBox.Show("No se olvide de actualizar el inventario de cadena de frio si corresponde")
         Inventario_cadena_de_frio.txt_cuie.Text = Me.txt_cuie.Text
         Inventario_cadena_de_frio.txt_efector.Text = Me.txt_nombre_efector.Text
         If txt_fecha_entrega.Text <> "" Then
@@ -538,16 +534,6 @@
         Me.txt_observaciones.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_fecha_entrega.Text = ""
-        Dim sql As String = "SELECT MAX(id) as maximo FROM ENTREGA_INSUMOS "
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_entrega.Text = 1
-        Else
-            Me.txt_id_entrega.Text = tabla.Rows(0)("maximo") + 1
-        End If
-
         Me.dgv_detalle_entrega.Rows.Clear()
         Me.txt_id_entrega.Enabled = False
         Me.cmb_estado_entrega.Enabled = True
@@ -558,12 +544,7 @@
 
     Private Function validar_entrega() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If txt_id_entrega.Text = "" Then
-            MessageBox.Show("Debe ingresar el id de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_id_entrega.Focus()
-            Exit Function
-        ElseIf txt_receptor.Text = "" Then
+        If txt_receptor.Text = "" Then
             MessageBox.Show("Debe ingresar al menos un nombre de receptor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_receptor.Focus()
@@ -584,12 +565,7 @@
 
     Private Function validar_pedido() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If IsNumeric(txt_id_entrega.Text) = False Then
-            MessageBox.Show("Debe ingresar un numero de entrega valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_id_entrega.Focus()
-            Exit Function
-        ElseIf txt_nombre_efector.Text = "" Then
+        If txt_nombre_efector.Text = "" Then
             MessageBox.Show("Debe ingresar un efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_nombre_efector.Focus()
@@ -710,10 +686,10 @@
         Dim sql As String = ""
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
+
         acceso._nombre_tabla = "ENTREGA_INSUMOS"
 
-        sql = "id = " & Me.txt_id_entrega.Text
-        sql &= ", fecha_pedido='" & Me.txt_fecha_pedido.Text & "'"
+        sql = "fecha_pedido='" & Me.txt_fecha_pedido.Text & "'"
 
         If IsDate(txt_fecha_entrega.Text) Then
             sql &= ", fecha_entrega ='" & Me.txt_fecha_entrega.Text & "'"
@@ -738,21 +714,9 @@
             sql &= ", observaciones = NULL"
         End If
 
-
-
         acceso.insertar(sql)
 
-        sql = ""
-        sql = "SELECT * FROM ENTREGA_INSUMOS WHERE id= " & Me.txt_id_entrega.Text
 
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() <> 0 Then
-            sql = ""
-            sql &= "UPDATE ENTREGA_INSUMOS "
-            sql &= " SET id_estado_entrega= 2"
-            sql &= " WHERE id= " & Me.txt_id_entrega.Text
-        End If
     End Sub
 
     Private Sub insertar_detalle_entrega()
@@ -760,6 +724,13 @@
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         acceso._nombre_tabla = "DETALLE_ENTREGA_INSUMOS"
+        Dim id As Integer = 0
+
+        sql = ""
+        sql = "SELECT MAX(id) FROM ENTREGA_INSUMOS"
+        id = acceso.contadores(sql)
+
+        Me.txt_id_entrega.Text = id
 
         Dim c As Integer
         For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
@@ -970,7 +941,7 @@
                     sql &= " SET observaciones='" & Me.txt_observaciones.Text & "'"
                     sql &= ", id_estado_entrega= 4"
                     sql &= " WHERE id= " & txt_id_entrega.Text
-                  
+
                     acceso.ejecutar(sql)
                     MsgBox("Devolucion Realizada")
                     cargar_grilla_entregas()
