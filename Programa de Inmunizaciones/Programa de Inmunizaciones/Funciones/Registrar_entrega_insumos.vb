@@ -89,6 +89,16 @@
         End If
     End Sub
 
+    Private Sub limpiar_todo()
+        Me.txt_fecha_entrega.Text = ""
+        Me.txt_fecha_pedido.Text = ""
+        Me.txt_cuie.Text = ""
+        Me.txt_nombre_efector.Text = ""
+        Me.cmb_estado_entrega.SelectedValue = -1
+        Me.txt_observaciones.Text = ""
+        Me.cmb_autorizador.SelectedValue = -1
+        Me.txt_receptor.Text = ""
+    End Sub
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -537,7 +547,7 @@
         Me.dgv_detalle_entrega.Rows.Clear()
         Me.txt_id_entrega.Enabled = False
         Me.cmb_estado_entrega.Enabled = True
-        Me.txt_fecha_entrega.Focus()
+        Me.txt_fecha_pedido.Focus()
         Me.cmd_guardar.Enabled = True
         Me.cmd_actualizar_estado.Enabled = False
     End Sub
@@ -950,5 +960,9 @@
         Else
             Exit Sub
         End If
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar_todo()
     End Sub
 End Class
