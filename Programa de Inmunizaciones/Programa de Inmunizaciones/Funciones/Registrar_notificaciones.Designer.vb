@@ -201,7 +201,7 @@ Partial Class Registrar_notificaciones
         Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_cuie.Location = New System.Drawing.Point(114, 96)
         Me.txt_cuie.Name = "txt_cuie"
-        Me.txt_cuie.Size = New System.Drawing.Size(217, 20)
+        Me.txt_cuie.Size = New System.Drawing.Size(242, 20)
         Me.txt_cuie.TabIndex = 3
         '
         'lbl_cuie
@@ -219,7 +219,7 @@ Partial Class Registrar_notificaciones
         Me.txt_efectores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_efectores.Location = New System.Drawing.Point(114, 72)
         Me.txt_efectores.Name = "txt_efectores"
-        Me.txt_efectores.Size = New System.Drawing.Size(269, 20)
+        Me.txt_efectores.Size = New System.Drawing.Size(243, 20)
         Me.txt_efectores.TabIndex = 2
         '
         'cmd_efector_nuevo
@@ -232,7 +232,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(338, 95)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(363, 96)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
         Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
@@ -249,7 +249,7 @@ Partial Class Registrar_notificaciones
         Me.cmb_departamentos.FormattingEnabled = True
         Me.cmb_departamentos.Location = New System.Drawing.Point(115, 19)
         Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_departamentos.Size = New System.Drawing.Size(241, 21)
         Me.cmb_departamentos.TabIndex = 0
         '
         'cmb_localidades
@@ -260,7 +260,7 @@ Partial Class Registrar_notificaciones
         Me.cmb_localidades.FormattingEnabled = True
         Me.cmb_localidades.Location = New System.Drawing.Point(115, 46)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(241, 21)
         Me.cmb_localidades.TabIndex = 1
         '
         'lbl_vacunatorio
