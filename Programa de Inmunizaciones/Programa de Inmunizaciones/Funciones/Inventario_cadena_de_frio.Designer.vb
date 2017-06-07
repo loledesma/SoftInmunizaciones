@@ -22,14 +22,17 @@ Partial Class Inventario_cadena_de_frio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inventario_cadena_de_frio))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inventario_cadena_de_frio))
         Me.grp_datos_vacunatorio = New System.Windows.Forms.GroupBox()
+        Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.txt_fecha_info = New System.Windows.Forms.MaskedTextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.cmd_buscar_empleado = New System.Windows.Forms.Button()
@@ -140,8 +143,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_eliminar_termometro = New System.Windows.Forms.Button()
         Me.cmd_agregar_termometro = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
+        Me.tltp_inventario_cadena_frio = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.Heladera.SuspendLayout()
@@ -184,6 +186,44 @@ Partial Class Inventario_cadena_de_frio
         Me.grp_datos_vacunatorio.TabIndex = 0
         Me.grp_datos_vacunatorio.TabStop = False
         Me.grp_datos_vacunatorio.Text = "Datos del vacunatorio  "
+        '
+        'cmd_empleado_nuevo
+        '
+        Me.cmd_empleado_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_empleado_nuevo.BackgroundImage = CType(resources.GetObject("cmd_empleado_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_empleado_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_empleado_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_empleado_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(684, 93)
+        Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
+        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_empleado_nuevo.TabIndex = 57
+        Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_empleado_nuevo.UseVisualStyleBackColor = False
+        '
+        'cmd_efector_nuevo
+        '
+        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(789, 13)
+        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_efector_nuevo.TabIndex = 56
+        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
         '
         'txt_fecha_info
         '
@@ -438,6 +478,7 @@ Partial Class Inventario_cadena_de_frio
         'Heladera
         '
         Me.Heladera.BackgroundImage = CType(resources.GetObject("Heladera.BackgroundImage"), System.Drawing.Image)
+        Me.Heladera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Heladera.Controls.Add(Me.dgv_heladeras)
         Me.Heladera.Controls.Add(Me.grp_detalle)
         Me.Heladera.Location = New System.Drawing.Point(4, 22)
@@ -1380,44 +1421,6 @@ Partial Class Inventario_cadena_de_frio
         Me.Label25.TabIndex = 30
         Me.Label25.Text = "Tipo/Marca"
         '
-        'cmd_efector_nuevo
-        '
-        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(789, 13)
-        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
-        Me.cmd_efector_nuevo.TabIndex = 56
-        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_empleado_nuevo
-        '
-        Me.cmd_empleado_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_empleado_nuevo.BackgroundImage = CType(resources.GetObject("cmd_empleado_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_empleado_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_empleado_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_empleado_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(684, 93)
-        Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
-        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(20, 20)
-        Me.cmd_empleado_nuevo.TabIndex = 57
-        Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_empleado_nuevo.UseVisualStyleBackColor = False
-        '
         'Inventario_cadena_de_frio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1564,4 +1567,5 @@ Partial Class Inventario_cadena_de_frio
     Friend WithEvents fecha_info As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_empleado_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_efector_nuevo As System.Windows.Forms.Button
+    Friend WithEvents tltp_inventario_cadena_frio As System.Windows.Forms.ToolTip
 End Class
