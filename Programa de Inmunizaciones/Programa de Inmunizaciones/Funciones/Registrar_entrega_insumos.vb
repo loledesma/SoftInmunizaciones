@@ -98,6 +98,7 @@
         Me.txt_observaciones.Text = ""
         Me.cmb_autorizador.SelectedValue = -1
         Me.txt_receptor.Text = ""
+        Me.txt_id_entrega.Text = ""
     End Sub
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
@@ -408,7 +409,7 @@
             Next
         End If
 
-        cmd_guardar.Enabled = True
+        cmd_guardar.Enabled = False
         cmd_nuevo.Enabled = True
         cmd_agregar_insumo.Enabled = True
         cmd_eliminar_insumo.Enabled = False
@@ -486,6 +487,9 @@
                             actualizar_inventario()
                         End If
 
+                        If cmb_estado_entrega.SelectedValue = 1 Then
+                            registrar_entrega()
+                        End If
                     End If
                 Else
                     MessageBox.Show("Ya se encuentra registrado este pedido, cargue todas las entregas en un solo pedido")
