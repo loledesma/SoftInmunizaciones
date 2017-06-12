@@ -1162,4 +1162,5 @@
     Private Sub cmd_notificar_Click(sender As Object, e As EventArgs) Handles cmd_notificar.Click
         Registrar_notificaciones.ShowDialog()
     End Sub
+
 End Class
