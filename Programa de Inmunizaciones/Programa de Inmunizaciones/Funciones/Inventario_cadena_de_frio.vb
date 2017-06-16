@@ -307,6 +307,16 @@
 
         Return antiguedad
     End Function
+
+
+    Private Sub inventario_cadena_de_frio_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
+            nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
+        End If
+    End Sub
     Private Sub cargar_inventario_termo()
         Dim sql As String = ""
         Dim tabla As New DataTable
