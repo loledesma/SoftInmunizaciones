@@ -307,6 +307,16 @@
 
         Return antiguedad
     End Function
+
+
+    Private Sub inventario_cadena_de_frio_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "N" Then
+            nuevo()
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar()
+        End If
+    End Sub
     Private Sub cargar_inventario_termo()
         Dim sql As String = ""
         Dim tabla As New DataTable
@@ -1119,5 +1129,27 @@
                 Exit For
             End If
         Next
+    End Sub
+
+ 
+    Private Sub txt_efector_MouseEnter(sender As Object, e As EventArgs) Handles txt_efector.MouseEnter
+        If txt_efector.Text <> "" Then
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim efectores As String = ""
+            sql &= "SELECT  EF.nombre as nombre "
+            sql &= " FROM EFECTORES EF "
+            sql &= " WHERE EF.nombre LIKE '%" & txt_efector.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                efectores += tabla.Rows(c)("nombre") & vbCrLf
+            Next
+
+            tltp_inventario_cadena_frio.SetToolTip(txt_efector, efectores)
+        Else
+            Exit Sub
+        End If
     End Sub
 End Class

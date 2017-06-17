@@ -303,6 +303,12 @@
     <Compile Include="Listados\listado_localidadesxdpto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_inventario.Designer.vb">
+      <DependentUpon>list_inventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_inventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_efectores_emiten_resumen.Designer.vb">
       <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
     </Compile>
@@ -481,6 +487,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\listado_efector_x_refe.rdlc" />
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario.resx">
+      <DependentUpon>list_inventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_inventario.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_con_internet.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
       <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>

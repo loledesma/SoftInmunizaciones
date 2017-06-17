@@ -26,15 +26,12 @@ Partial Class Menu
         Me.menu_programa_inmunizaciones = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecordatoriosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NuevoRecordatorioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadisticasToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaNotificaciónToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesRegistradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EfectoresQueNoNotificanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadisticasToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapacitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNuevaCapacitaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,7 +40,6 @@ Partial Class Menu
         Me.NuevaAtencónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtencionesRegistradasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadisticasToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DesarrollosSigipsaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNvaPeticiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadoPedidosDeDesarrolloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -109,28 +105,18 @@ Partial Class Menu
         '
         'RecordatoriosToolStripMenuItem1
         '
-        Me.RecordatoriosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoRecordatorioToolStripMenuItem, Me.ListadosToolStripMenuItem5, Me.EstadisticasToolStripMenuItem6})
+        Me.RecordatoriosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListadosToolStripMenuItem5})
         resources.ApplyResources(Me.RecordatoriosToolStripMenuItem1, "RecordatoriosToolStripMenuItem1")
         Me.RecordatoriosToolStripMenuItem1.Name = "RecordatoriosToolStripMenuItem1"
-        '
-        'NuevoRecordatorioToolStripMenuItem
-        '
-        resources.ApplyResources(Me.NuevoRecordatorioToolStripMenuItem, "NuevoRecordatorioToolStripMenuItem")
-        Me.NuevoRecordatorioToolStripMenuItem.Name = "NuevoRecordatorioToolStripMenuItem"
         '
         'ListadosToolStripMenuItem5
         '
         resources.ApplyResources(Me.ListadosToolStripMenuItem5, "ListadosToolStripMenuItem5")
         Me.ListadosToolStripMenuItem5.Name = "ListadosToolStripMenuItem5"
         '
-        'EstadisticasToolStripMenuItem6
-        '
-        resources.ApplyResources(Me.EstadisticasToolStripMenuItem6, "EstadisticasToolStripMenuItem6")
-        Me.EstadisticasToolStripMenuItem6.Name = "EstadisticasToolStripMenuItem6"
-        '
         'NotificacionesToolStripMenuItem
         '
-        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaNotificaciónToolStripMenuItem1, Me.ListadosToolStripMenuItem4, Me.EstadisticasToolStripMenuItem5})
+        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaNotificaciónToolStripMenuItem1, Me.ListadosToolStripMenuItem4})
         resources.ApplyResources(Me.NotificacionesToolStripMenuItem, "NotificacionesToolStripMenuItem")
         Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
         '
@@ -155,11 +141,6 @@ Partial Class Menu
         resources.ApplyResources(Me.EfectoresQueNoNotificanToolStripMenuItem, "EfectoresQueNoNotificanToolStripMenuItem")
         Me.EfectoresQueNoNotificanToolStripMenuItem.Name = "EfectoresQueNoNotificanToolStripMenuItem"
         '
-        'EstadisticasToolStripMenuItem5
-        '
-        resources.ApplyResources(Me.EstadisticasToolStripMenuItem5, "EstadisticasToolStripMenuItem5")
-        Me.EstadisticasToolStripMenuItem5.Name = "EstadisticasToolStripMenuItem5"
-        '
         'CapacitacionesToolStripMenuItem
         '
         Me.CapacitacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNuevaCapacitaciónToolStripMenuItem, Me.ListadosToolStripMenuItem2, Me.EstadisticasToolStripMenuItem3})
@@ -183,7 +164,7 @@ Partial Class Menu
         '
         'AtencionesToolStripMenuItem
         '
-        Me.AtencionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaAtencónToolStripMenuItem, Me.ListadosToolStripMenuItem6, Me.EstadisticasToolStripMenuItem7})
+        Me.AtencionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaAtencónToolStripMenuItem, Me.ListadosToolStripMenuItem6})
         resources.ApplyResources(Me.AtencionesToolStripMenuItem, "AtencionesToolStripMenuItem")
         Me.AtencionesToolStripMenuItem.Name = "AtencionesToolStripMenuItem"
         '
@@ -202,11 +183,6 @@ Partial Class Menu
         '
         resources.ApplyResources(Me.AtencionesRegistradasToolStripMenuItem1, "AtencionesRegistradasToolStripMenuItem1")
         Me.AtencionesRegistradasToolStripMenuItem1.Name = "AtencionesRegistradasToolStripMenuItem1"
-        '
-        'EstadisticasToolStripMenuItem7
-        '
-        resources.ApplyResources(Me.EstadisticasToolStripMenuItem7, "EstadisticasToolStripMenuItem7")
-        Me.EstadisticasToolStripMenuItem7.Name = "EstadisticasToolStripMenuItem7"
         '
         'DesarrollosSigipsaToolStripMenuItem
         '
@@ -486,6 +462,7 @@ Partial Class Menu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSkyBlue
         Me.Controls.Add(Me.menu_programa_inmunizaciones)
+        Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.MainMenuStrip = Me.menu_programa_inmunizaciones
         Me.Name = "Menu"
@@ -533,14 +510,11 @@ Partial Class Menu
     Friend WithEvents EmisiónDeResumenDesdeSigipsaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RecordatoriosToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NuevoRecordatorioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadosToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EstadisticasToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NotificacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NuevaNotificaciónToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadosToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NotificacionesRegistradasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EstadisticasToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CapacitacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistrarNuevaCapacitaciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadosToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
@@ -549,7 +523,6 @@ Partial Class Menu
     Friend WithEvents NuevaAtencónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadosToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AtencionesRegistradasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EstadisticasToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DesarrollosSigipsaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistrarNvaPeticiónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CursosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

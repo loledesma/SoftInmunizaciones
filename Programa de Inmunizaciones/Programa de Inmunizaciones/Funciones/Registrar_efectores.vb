@@ -330,7 +330,7 @@
         condicion_click = doble_Click.desactivado
     End Sub
 
-    Private Sub abm_empleados_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub registrar_efectores_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control And e.KeyCode.ToString = "N" Then
             nuevo()
         End If
@@ -1162,4 +1162,5 @@
     Private Sub cmd_notificar_Click(sender As Object, e As EventArgs) Handles cmd_notificar.Click
         Registrar_notificaciones.ShowDialog()
     End Sub
+
 End Class
