@@ -331,7 +331,7 @@ Partial Class Registrar_entrega_insumos
         'lbl_estado
         '
         Me.lbl_estado.AutoSize = True
-        Me.lbl_estado.Location = New System.Drawing.Point(6, 143)
+        Me.lbl_estado.Location = New System.Drawing.Point(5, 143)
         Me.lbl_estado.Name = "lbl_estado"
         Me.lbl_estado.Size = New System.Drawing.Size(76, 13)
         Me.lbl_estado.TabIndex = 30

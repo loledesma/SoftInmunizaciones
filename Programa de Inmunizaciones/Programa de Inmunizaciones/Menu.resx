@@ -150,7 +150,7 @@
     <value>None</value>
   </data>
   <data name="ListadosToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+    <value>148, 38</value>
   </data>
   <data name="ListadosToolStripMenuItem5.Text" xml:space="preserve">
     <value>Listados</value>
@@ -360,6 +360,12 @@
   </data>
   <data name="RegistrarNuevaCapacitaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Registrar nueva capacitación</value>
+  </data>
+  <data name="CapacitacionesRegistradasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 24</value>
+  </data>
+  <data name="CapacitacionesRegistradasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Capacitaciones Registradas</value>
   </data>
   <data name="ListadosToolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -573,7 +579,7 @@
   <data name="RegistrarNvaPeticiónToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOoAAADqAfkrNSYAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOgAAADoAYbV9q8AAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAAEE0lEQVRYR8VXSU9TURTub5Cdv0F/ACu3DNLXB5SW0jK1tGAFJBqJcYis
         TNQQFoaFQ0RcuCJoIkFNRBwgsCBiBMJY24KoFBBL0RATjve79F5e29fyqCQsTnp7hu/77nnDPc9ERKaj
         tCMlx8YPJMBsrz2uVvjqFaf3iVrhfWup8M7BsN71+eqRc5COGhKglvtyGckAI9thRvvYDnJRY0RIRgFq
@@ -805,7 +811,7 @@
   <data name="StockToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAXoAAAF6ATK5yPwAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAXkAAAF5AZ8A6ZEAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAAEuklEQVRYR72XX0xbVRzHedMHY+Kbvu2BxDj6D8oyM6eSLCY6s41MIszx
         IP4DkSlqUJmAG2EapIW1W2kLAhtZQDIZFphsBtbe/qEtMoob4AJVmMCWbToQRzKN8es5h96b2/bc0hn0
         4Zt7T8/p+X3u7/x+v3NOCoCUZJRqnrkvsyn8XKY9bMu0zQh628w0ef5OFXkXWB8ZQ8cmMycds65xvX3q
@@ -2176,7 +2182,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfMAAAFfCAYAAABa0SXeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
         AAA9lElEQVR4Xu2dPa8lu3Wm/ZdvOumEcupQkQGnkxpw5NCGg4FvYEC2gwFk2IAhAS359lxLPTpz3rOb
         3XXq1K56+Vn8eApoXEGndhWLfLkecq1F8s9++LtPL/yjDtAAGkADaAANjKuBP6Pxxm082o62QwNoAA2g
         AWkAmOOZwDODBtAAGkADg2sAmA/egIzKxxqV/49/+B1Gkz6HBtBAcQ0Ac0RVXFQMMJ4PMP7qXz9T3/Q5
@@ -8691,6 +8697,12 @@
     <value>ListadosToolStripMenuItem2</value>
   </data>
   <data name="&gt;&gt;ListadosToolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CapacitacionesRegistradasToolStripMenuItem.Name" xml:space="preserve">
+    <value>CapacitacionesRegistradasToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;CapacitacionesRegistradasToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem3.Name" xml:space="preserve">

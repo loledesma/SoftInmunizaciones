@@ -35,6 +35,7 @@ Partial Class Menu
         Me.CapacitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNuevaCapacitaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapacitacionesRegistradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtencionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaAtencónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -154,8 +155,14 @@ Partial Class Menu
         '
         'ListadosToolStripMenuItem2
         '
+        Me.ListadosToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapacitacionesRegistradasToolStripMenuItem})
         resources.ApplyResources(Me.ListadosToolStripMenuItem2, "ListadosToolStripMenuItem2")
         Me.ListadosToolStripMenuItem2.Name = "ListadosToolStripMenuItem2"
+        '
+        'CapacitacionesRegistradasToolStripMenuItem
+        '
+        Me.CapacitacionesRegistradasToolStripMenuItem.Name = "CapacitacionesRegistradasToolStripMenuItem"
+        resources.ApplyResources(Me.CapacitacionesRegistradasToolStripMenuItem, "CapacitacionesRegistradasToolStripMenuItem")
         '
         'EstadisticasToolStripMenuItem3
         '
@@ -536,4 +543,5 @@ Partial Class Menu
     Friend WithEvents ListadoPedidosDeDesarrolloToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InventarioDeCadenaDeFrioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PedidosDeDesarrolloToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CapacitacionesRegistradasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
