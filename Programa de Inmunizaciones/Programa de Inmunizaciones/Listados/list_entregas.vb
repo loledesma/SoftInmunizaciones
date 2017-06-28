@@ -1,4 +1,4 @@
-﻿Public Class list_atenciones
+﻿Public Class list_entregas
 
     Enum doble_Click
         activado
@@ -7,7 +7,7 @@
 
     Dim condicion_click = doble_Click.desactivado
 
-    Private Sub list_atenciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub list_entregas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cmb_departamentos.cargar()
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
@@ -16,7 +16,6 @@
         Me.cmb_insumos.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
-        tip()
         Me.cmb_departamentos.Focus()
         Me.ReportViewer1.Clear()
 
@@ -146,7 +145,7 @@
         sql &= " JOIN INSUMOS I ON DEI.id_insumo = I.id "
         sql &= " JOIN MARCA M ON DEI.id_marca = M.id "
         sql &= " JOIN ESTADO_ENTREGA EE On EE.id = EI.id_estado_entrega "
-    
+
         If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
             MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_fecha_hasta.Focus()
