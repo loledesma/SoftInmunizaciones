@@ -10,6 +10,8 @@
         Me.cmb_departamentos.cargar()
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
+        Me.cmb_estado_efector.cargar()
+        Me.cmb_estado_efector.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
@@ -142,6 +144,8 @@
         sql &= " , EMP.caracteristica as caracteristica, EMP.telefono as telefono, EMP.mail_contacto as mail "
         sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EE ON E.cuie = EE.id_efector "
         sql &= " JOIN EMPLEADOS EMP ON EMP.id = EE.id_empleados "
+        sql &= " JOIN ESTADOS_EFECTOR EF ON E.id_estado = EF.id "
+
         sql &= " WHERE EE.id_cargo= 2"
 
         If Me.cmb_departamentos.SelectedIndex <> -1 Then
@@ -150,15 +154,25 @@
                 sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
             ElseIf txt_cuie.Text <> "" Then
                 sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
+            ElseIf cmb_estado_efector.SelectedIndex <> -1 Then
+                sql &= " AND EF.id = " & Me.cmb_estado_efector.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
             sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
             If txt_cuie.Text <> "" Then
                 sql &= " AND cuie ='" & Me.txt_cuie.Text & "'"
+            ElseIf cmb_estado_efector.SelectedIndex <> -1 Then
+                sql &= " AND EF.id = " & Me.cmb_estado_efector.SelectedValue
             End If
         ElseIf txt_cuie.Text <> "" Then
             sql &= " WHERE cuie ='" & Me.txt_cuie.Text & "'"
+            If cmb_estado_efector.SelectedIndex <> -1 Then
+                sql &= " AND EF.id = " & Me.cmb_estado_efector.SelectedValue
+            End If
+        ElseIf cmb_estado_efector.SelectedIndex <> -1 Then
+            sql &= " AND EF.id = " & Me.cmb_estado_efector.SelectedValue
         End If
+
 
         sql &= "ORDER BY cuie "
 

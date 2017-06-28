@@ -303,6 +303,18 @@
     <Compile Include="Listados\listado_localidadesxdpto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_entregas.Designer.vb">
+      <DependentUpon>list_entregas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_entregas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_capacitaciones.Designer.vb">
+      <DependentUpon>list_capacitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_capacitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_inventario.Designer.vb">
       <DependentUpon>list_inventario.vb</DependentUpon>
     </Compile>
@@ -367,6 +379,9 @@
     <Compile Include="Modulos\Inmunizaciones.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones.vb">
       <DependentUpon>Inmunizaciones.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Inmunizaciones2.Designer.vb">
@@ -487,10 +502,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\listado_efector_x_refe.rdlc" />
     <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_entregas.resx">
+      <DependentUpon>list_entregas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_entregas.rdlc" />
+    <EmbeddedResource Include="Listados\list_atenciones.rdlc" />
+    <EmbeddedResource Include="Listados\list_capacitaciones.resx">
+      <DependentUpon>list_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_inventario.resx">
       <DependentUpon>list_inventario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\list_inventario.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf _termos.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf_termometro.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf_heladera.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_con_internet.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
       <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
@@ -518,11 +543,10 @@
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\list_atenciones.rdlc" />
+    <EmbeddedResource Include="Listados\list_capacitaciones.rdlc" />
     <EmbeddedResource Include="Listados\list_atenciones.resx">
       <DependentUpon>list_atenciones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\list_capacitaciones.rdlc" />
     <EmbeddedResource Include="Listados\list_empleados.rdlc" />
     <EmbeddedResource Include="Listados\list_empleados_x_estado.rdlc" />
     <EmbeddedResource Include="Listados\list_localidad_x_dpto.rdlc" />

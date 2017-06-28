@@ -23,7 +23,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.75876cm</Height>
+              <Height>0.67938cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -218,7 +218,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.67938cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -419,9 +419,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.3175cm</Top>
+        <Top>0.86995cm</Top>
         <Left>0.57891cm</Left>
-        <Height>1.43813cm</Height>
+        <Height>1.27938cm</Height>
         <Width>34.51334cm</Width>
         <Style>
           <Border>
@@ -447,23 +447,21 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>ATENCIONES</Value>
+                  <Value>INVENTARIO HELADERA</Value>
                   <Style>
                     <FontSize>40pt</FontSize>
                     <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
+              <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
           <Top>0.3175cm</Top>
-          <Left>11.96829cm</Left>
+          <Left>6.38558cm</Left>
           <Height>1.65833cm</Height>
-          <Width>13.82417cm</Width>
+          <Width>17.26375cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -492,8 +490,8 @@
           <Sizing>FitProportional</Sizing>
           <Top>0.14111cm</Top>
           <Left>0.57891cm</Left>
-          <Height>2.25255cm</Height>
-          <Width>4.30458cm</Width>
+          <Height>2.32021cm</Height>
+          <Width>4.48979cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -560,38 +558,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox8">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=CountRows()</Value>
-                  <Style>
-                    <Format>0;(0)</Format>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>1.79366cm</Top>
-          <Left>32.59225cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -625,31 +591,91 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="fecha">
-          <DataField>fecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="estado">
-          <DataField>estado</DataField>
+        <Field Name="nombre_vacunatorio">
+          <DataField>nombre_vacunatorio</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nombre_efector">
-          <DataField>nombre_efector</DataField>
+        <Field Name="cuie">
+          <DataField>cuie</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="administrador">
-          <DataField>administrador</DataField>
+        <Field Name="nombre_informante">
+          <DataField>nombre_informante</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="descripcion">
-          <DataField>descripcion</DataField>
+        <Field Name="apellido_informante">
+          <DataField>apellido_informante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fecha_informacion">
+          <DataField>fecha_informacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipo_heladera">
+          <DataField>tipo_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marca_heladera">
+          <DataField>marca_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="modelo_heladera">
+          <DataField>modelo_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nro_serie">
+          <DataField>nro_serie</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="capacidad_heladera">
+          <DataField>capacidad_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="antiguedad">
+          <DataField>antiguedad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="funciona">
+          <DataField>funciona</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="motivo">
+          <DataField>motivo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones">
+          <DataField>observaciones</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cantidad_termos">
+          <DataField>cantidad_termos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marca_termos">
+          <DataField>marca_termos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones_termos">
+          <DataField>observaciones_termos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cantidad_termometros">
+          <DataField>cantidad_termometros</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marca_termometros">
+          <DataField>marca_termometros</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones_termometros">
+          <DataField>observaciones_termometros</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Inmunizaciones</rd:DataSetName>
         <rd:SchemaPath>C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Modulos\Inmunizaciones.xsd</rd:SchemaPath>
-        <rd:TableName>LIST_ATENCIONES</rd:TableName>
+        <rd:TableName>LIST_INVENTARIO</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />

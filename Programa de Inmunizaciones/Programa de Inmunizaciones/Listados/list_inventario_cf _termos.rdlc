@@ -9,13 +9,13 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.79646cm</Width>
-            </TablixColumn>
-            <TablixColumn>
               <Width>6.49521cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>5.43687cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.43146cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>16.2848cm</Width>
@@ -23,18 +23,18 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.75876cm</Height>
+              <Height>0.67938cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha</Value>
+                              <Value>Cuie</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -48,45 +48,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox3">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Estado</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>12pt</FontSize>
-                                <FontWeight>SemiBold</FontWeight>
-                                <TextDecoration>None</TextDecoration>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -148,7 +110,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Administrador</Value>
+                              <Value>Nombre Empleado</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -163,6 +125,44 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Apellido Empleado</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>SemiBold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -218,18 +218,18 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.67938cm</Height>
+              <Height>0.80545cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="fecha">
+                    <Textbox Name="cuie">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fecha.Value</Value>
+                              <Value>=Fields!cuie.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -241,7 +241,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>fecha</rd:DefaultName>
+                      <rd:DefaultName>cuie</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -257,14 +257,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="estado">
+                    <Textbox Name="nombre_vacunatorio">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!estado.Value</Value>
+                              <Value>=Fields!nombre_vacunatorio.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -276,7 +276,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>estado</rd:DefaultName>
+                      <rd:DefaultName>nombre_vacunatorio</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -292,14 +292,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre_efector">
+                    <Textbox Name="nombre_informante">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre_efector.Value</Value>
+                              <Value>=Fields!nombre_informante.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -311,7 +311,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre_efector</rd:DefaultName>
+                      <rd:DefaultName>nombre_informante</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -327,14 +327,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="administrador">
+                    <Textbox Name="apellido_informante">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!administrador.Value</Value>
+                              <Value>=Fields!apellido_informante.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -346,7 +346,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>administrador</rd:DefaultName>
+                      <rd:DefaultName>apellido_informante</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -419,10 +419,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.3175cm</Top>
+        <Top>0.49953cm</Top>
         <Left>0.57891cm</Left>
-        <Height>1.43813cm</Height>
-        <Width>34.51334cm</Width>
+        <Height>1.48483cm</Height>
+        <Width>35.14834cm</Width>
         <Style>
           <Border>
             <Style>Double</Style>
@@ -447,23 +447,21 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>ATENCIONES</Value>
+                  <Value>INVENTARIO TERMOS</Value>
                   <Style>
                     <FontSize>40pt</FontSize>
                     <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
+              <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
           <Top>0.3175cm</Top>
-          <Left>11.96829cm</Left>
+          <Left>6.38558cm</Left>
           <Height>1.65833cm</Height>
-          <Width>13.82417cm</Width>
+          <Width>17.26375cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -492,8 +490,8 @@
           <Sizing>FitProportional</Sizing>
           <Top>0.14111cm</Top>
           <Left>0.57891cm</Left>
-          <Height>2.25255cm</Height>
-          <Width>4.30458cm</Width>
+          <Height>2.32021cm</Height>
+          <Width>4.48979cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -560,38 +558,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox8">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=CountRows()</Value>
-                  <Style>
-                    <Format>0;(0)</Format>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>1.79366cm</Top>
-          <Left>32.59225cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -625,31 +591,91 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="fecha">
-          <DataField>fecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="estado">
-          <DataField>estado</DataField>
+        <Field Name="nombre_vacunatorio">
+          <DataField>nombre_vacunatorio</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nombre_efector">
-          <DataField>nombre_efector</DataField>
+        <Field Name="cuie">
+          <DataField>cuie</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="administrador">
-          <DataField>administrador</DataField>
+        <Field Name="nombre_informante">
+          <DataField>nombre_informante</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="descripcion">
-          <DataField>descripcion</DataField>
+        <Field Name="apellido_informante">
+          <DataField>apellido_informante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fecha_informacion">
+          <DataField>fecha_informacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipo_heladera">
+          <DataField>tipo_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marca_heladera">
+          <DataField>marca_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="modelo_heladera">
+          <DataField>modelo_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nro_serie">
+          <DataField>nro_serie</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="capacidad_heladera">
+          <DataField>capacidad_heladera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="antiguedad">
+          <DataField>antiguedad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="funciona">
+          <DataField>funciona</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="motivo">
+          <DataField>motivo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones">
+          <DataField>observaciones</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cantidad_termos">
+          <DataField>cantidad_termos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marca_termos">
+          <DataField>marca_termos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones_termos">
+          <DataField>observaciones_termos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cantidad_termometros">
+          <DataField>cantidad_termometros</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="marca_termometros">
+          <DataField>marca_termometros</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones_termometros">
+          <DataField>observaciones_termometros</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Inmunizaciones</rd:DataSetName>
         <rd:SchemaPath>C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Modulos\Inmunizaciones.xsd</rd:SchemaPath>
-        <rd:TableName>LIST_ATENCIONES</rd:TableName>
+        <rd:TableName>LIST_INVENTARIO</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
