@@ -122,6 +122,7 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedIndex = -1
+        Me.cmb_tipo_doc.SelectedValue = 1
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -140,7 +141,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
+        sql &= "SELECT TOP 10 T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
         sql &= "FROM EMPLEADOS E JOIN TIPOS_DOCUMENTO T ON E.id_tipo_doc = T.id "
         sql &= "ORDER BY E.id"
         tabla = acceso.consulta(sql)
@@ -525,7 +526,7 @@
                         Me.insertar_empleado()
                         grabar_empleadoxefector()
                     End If
-                    
+
                 Else
                     MessageBox.Show("Ya se encuentra registrado este empleado")
                     Exit Sub
@@ -608,10 +609,10 @@
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         acceso._nombre_tabla = "EMPLEADOS"
-        Dim id As Integer = obtenerId()
 
-        sql = "id = " & id
-        sql &= ", id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
+
+
+        sql = " id_tipo_doc = " & Me.cmb_tipo_doc.SelectedValue
         sql &= ", nro_doc = " & Me.txt_nro_documento.Text
         sql &= ", nombres=" & Me.txt_nombre.Text
         sql &= ", apellidos=" & Me.txt_apellido.Text
@@ -643,12 +644,16 @@
         acceso.insertar(sql)
 
         sql = ""
-        sql = "SELECT * FROM EMPLEADOS WHERE id= " & Me.txt_id_empleado.Text
+        sql = "SELECT id FROM EMPLEADOS WHERE id_tipo_doc= " & Me.cmb_tipo_doc.SelectedValue & " AND nro_doc= " & Me.txt_nro_documento.Text
 
         tabla = acceso.consulta(sql)
 
+
         If tabla.Rows.Count() <> 0 Then
-            alta_estado()
+            Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+            If cmb_estado_empleado.SelectedValue <> -1 Then
+                alta_estado()
+            End If
         End If
 
     End Sub
@@ -670,7 +675,7 @@
 
             acceso.insertar(sql)
         End If
-        
+
     End Sub
 
     Private Function validar_existencia_estado() As analizar_existencia
@@ -730,7 +735,7 @@
     Private Sub modificar_empleadoxefector()
         Dim c As Integer = 0
         Dim txt_insert As String = ""
-      
+
         For c = 0 To dgv_efectores.Rows.Count() - 1
             If validar_existencia_efector(dgv_efectores.Rows(c).Cells("cuie").Value) = analizar_existencia.existe Then
                 txt_insert &= "UPDATE EMPLEADOSXEFECTOR "
@@ -789,12 +794,13 @@
         dgv_efectores.Rows.Clear()
         cmd_nuevo.Enabled = False
         cmd_guardar.Enabled = True
-        cmb_tipo_doc.Focus()
+        Me.cmb_tipo_doc.SelectedValue = 1
+        txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = True
         cargar_grilla()
     End Sub
 
- 
+
     Private Sub dgv_empleados_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_empleados.CellMouseDoubleClick
         dgv_efectores.Rows.Clear()
         limpiar(Controls)
@@ -1084,7 +1090,7 @@
                         tabla1.Clear()
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(c).Cells("cargo").Value = tabla1.Rows(0)("descripcion")
-                       
+
                         sql = ""
                         sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                         sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
@@ -1133,7 +1139,7 @@
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
                     End If
-                 
+
                     sql = ""
                     sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                     sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
@@ -1208,6 +1214,8 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_estado_empleado.SelectedIndex = -1
+        Me.txt_cuie.Text = ""
+        Me.txt_cuie.Enabled = True
         Me.cmb_perfil.SelectedIndex = -1
         Me.cmb_cargo.SelectedIndex = -1
         Me.cmd_efector_nuevo.Enabled = True
@@ -1219,7 +1227,16 @@
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellValueChanged
-        lbl_contador_empleados.Text = Me.dgv_empleados.Rows.Count()
+
+        Dim valor1 As Integer
+        Dim sql As String = ""
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM EMPLEADOS  "
+
+        valor1 = acceso.contadores(sql)
+
+        lbl_contador_empleados.Text = valor1
     End Sub
 
     'Private Sub txt_nro_documento_TextChanged(sender As Object, e As EventArgs) Handles txt_nro_documento.TextChanged
@@ -1230,5 +1247,5 @@
     '    acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
     'End Sub
 
-   
+
 End Class

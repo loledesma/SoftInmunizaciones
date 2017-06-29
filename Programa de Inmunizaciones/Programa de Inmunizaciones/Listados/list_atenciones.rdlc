@@ -23,7 +23,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.67938cm</Height>
+              <Height>0.75876cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -218,7 +218,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.67938cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -419,9 +419,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.86995cm</Top>
+        <Top>0.3175cm</Top>
         <Left>0.57891cm</Left>
-        <Height>1.27938cm</Height>
+        <Height>1.43813cm</Height>
         <Width>34.51334cm</Width>
         <Style>
           <Border>
@@ -454,14 +454,16 @@
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
           <Top>0.3175cm</Top>
-          <Left>11.59787cm</Left>
+          <Left>11.96829cm</Left>
           <Height>1.65833cm</Height>
-          <Width>9.51146cm</Width>
+          <Width>13.82417cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -490,8 +492,8 @@
           <Sizing>FitProportional</Sizing>
           <Top>0.14111cm</Top>
           <Left>0.57891cm</Left>
-          <Height>2.32021cm</Height>
-          <Width>4.48979cm</Width>
+          <Height>2.25255cm</Height>
+          <Width>4.30458cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -548,6 +550,38 @@
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=CountRows()</Value>
+                  <Style>
+                    <Format>0;(0)</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>1.79366cm</Top>
+          <Left>32.59225cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

@@ -102,9 +102,11 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT A.id as id, A.fecha as fecha, A.id_estados_atencion as id_estado, A.id_efector as cuie, A.descripcion as descripcion "
+        sql &= "SELECT  A.id as id, A.fecha as fecha, A.id_estados_atencion as id_estado, A.id_efector as cuie, A.descripcion as descripcion "
         sql &= " , A.id_administrador as id_administrador, A.asunto as asunto "
         sql &= " FROM ATENCION_SOPORTE A "
+        sql &= " WHERE id_estados_atencion = 2 "
+        sql &= " ORDER BY fecha desc "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -303,27 +305,28 @@
         Dim sql As String = ""
         acceso._nombre_tabla = "ATENCION_SOPORTE"
 
-        sql &= "id = " & Me.txt_id_atencion.Text
-        sql &= ", fecha ='" & Me.txt_fecha.Text & "'"
+
+        sql &= " fecha ='" & Me.txt_fecha.Text & "'"
         sql &= ", id_estados_atencion= " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", asunto= " & Me.txt_asunto.Text
         sql &= ", id_efector=" & Me.txt_cuie.Text
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         acceso.insertar(sql)
+
     End Sub
 
     Private Sub modificar()
         Dim sql As String = ""
 
         sql = "UPDATE ATENCION_SOPORTE "
-        sql &= " SET fecha = '" & Me.txt_fecha.Text & "'"
-        sql &= ", id_estados_atencion = " & Me.cmb_estado_atencion.SelectedValue
+        sql &= " SET fecha ='" & Me.txt_fecha.Text & "'"
+        sql &= ", id_estados_atencion =" & Me.cmb_estado_atencion.SelectedValue
         sql &= ", id_efector='" & Me.txt_cuie.Text & "'"
         sql &= ", asunto='" & Me.txt_asunto.Text & "'"
         sql &= ", descripcion ='" & Me.txt_descripcion.Text & "'"
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
-        sql &= " WHERE id = " & Me.txt_id_atencion.Text
+        sql &= " WHERE id =" & Me.txt_id_atencion.Text
 
         acceso.ejecutar(sql)
     End Sub
@@ -331,12 +334,7 @@
     Private Sub guardar()
         If Me.validar() = True Then
             If condicion_estado = condicion.insertar Then
-                If Me.validar_existencia() = analizar_existencia.no_existe Then
-                    Me.insertar()
-                Else
-                    MessageBox.Show("Ya se encuentra cargada esta atención")
-                    Exit Sub
-                End If
+                Me.insertar()
             Else
                 Me.modificar()
             End If
@@ -349,7 +347,7 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
-        limpiar(Controls)
+        limpiar_todo()
         Me.txt_descripcion.Text = ""
     End Sub
 
@@ -357,17 +355,7 @@
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
         Me.condicion_estado = condicion.insertar
-        Dim sql As String = "SELECT * FROM ATENCION_SOPORTE"
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_atencion.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_atencion.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
+     
         Me.txt_id_atencion.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_atencion.Enabled = True
@@ -421,6 +409,7 @@
             sql &= " WHERE id= " & Me.txt_id_atencion.Text
             acceso.ejecutar(sql)
         End If
+        limpiar_todo()
         cargar_grilla()
     End Sub
 
@@ -463,13 +452,13 @@
                 dgv_atenciones.Rows.Clear()
                 For c = 0 To tabla.Rows.Count() - 1
                     dgv_atenciones.Rows.Add()
-                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
-                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
-                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(0)("id_efector")
-                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estados_atencion")
-                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
-                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(0)("asunto")
-                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
+                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
 
                     sql = ""
                     sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
@@ -490,14 +479,55 @@
                     dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
                 Next
             End If
+        Else
+            If cmb_estado_atencion.SelectedValue <> -1 Then
+                sql &= "SELECT * FROM ATENCION_SOPORTE "
+                sql &= " WHERE id_estados_atencion=" & Me.cmb_estado_atencion.SelectedValue
+                sql &= " ORDER BY fecha"
+                tabla = acceso.consulta(sql)
+
+                If tabla.Rows.Count() = 0 Then
+                    MessageBox.Show("¡No existe atenciones con ese estado!")
+                    Exit Sub
+                Else
+                    Dim c As Integer = 0
+                    dgv_atenciones.Rows.Clear()
+                    For c = 0 To tabla.Rows.Count() - 1
+                        dgv_atenciones.Rows.Add()
+                        dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                        dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                        dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+                        dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
+                        dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                        dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                        dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_atenciones.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT nombres FROM EMPLEADOS WHERE id= " & Me.dgv_atenciones.Rows(c).Cells("id_administrador").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_atenciones.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                        sql = ""
+                        sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_atenciones.Rows(c).Cells("cuie").Value & "'"
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
+                    Next
+                End If
+            End If
         End If
-
-
         limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+    Private Sub limpiar_todo()
         Me.txt_id_atencion.Enabled = True
         Me.grp_datos_atencion.Enabled = True
         Me.grp_descripcion.Enabled = True
@@ -507,5 +537,28 @@
         Me.txt_id_atencion.Focus()
         Me.cargar_grilla()
         Me.txt_descripcion.Text = ""
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar_todo()
+    End Sub
+
+    Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_atenciones.CellValueChanged
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
+        Dim sql As String = ""
+
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM ATENCION_SOPORTE "
+
+        valor1 = acceso.contadores(sql)
+
+        sql = "SELECT COUNT(*) "
+        sql &= "FROM ATENCION_SOPORTE WHERE id_estados_atencion = 2"
+        valor2 = acceso.contadores(sql)
+
+        lbl_contador_pendientes.Text = valor2
+        lbl_contador_total.Text = valor1
     End Sub
 End Class

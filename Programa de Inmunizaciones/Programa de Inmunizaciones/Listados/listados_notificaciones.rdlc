@@ -706,7 +706,7 @@
         <Width>45.90771cm</Width>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Double</Style>
           </Border>
         </Style>
       </Tablix>

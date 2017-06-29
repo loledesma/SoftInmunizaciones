@@ -22,11 +22,12 @@ Partial Class Registrar_entrega_insumos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_entrega_insumos))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
         Me.txt_nombre_efector = New System.Windows.Forms.TextBox()
@@ -85,6 +86,8 @@ Partial Class Registrar_entrega_insumos
         Me.nro_serie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_devolucion = New System.Windows.Forms.Button()
+        Me.tltp_efector = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_detalle.SuspendLayout()
         CType(Me.dgv_entrega, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -330,7 +333,7 @@ Partial Class Registrar_entrega_insumos
         'lbl_estado
         '
         Me.lbl_estado.AutoSize = True
-        Me.lbl_estado.Location = New System.Drawing.Point(6, 143)
+        Me.lbl_estado.Location = New System.Drawing.Point(5, 143)
         Me.lbl_estado.Name = "lbl_estado"
         Me.lbl_estado.Size = New System.Drawing.Size(76, 13)
         Me.lbl_estado.TabIndex = 30
@@ -602,19 +605,19 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_entrega.AllowUserToDeleteRows = False
         Me.dgv_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha_pedido, Me.fecha_entrega, Me.estado, Me.autoriza, Me.id_autoriza, Me.cuie, Me.efector, Me.id_estado})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_entrega.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_entrega.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgv_entrega.Location = New System.Drawing.Point(438, 16)
         Me.dgv_entrega.Name = "dgv_entrega"
         Me.dgv_entrega.ReadOnly = True
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgv_entrega.Size = New System.Drawing.Size(559, 393)
         Me.dgv_entrega.TabIndex = 64
         '
@@ -683,19 +686,19 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_detalle_entrega.AllowUserToDeleteRows = False
         Me.dgv_detalle_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_insumo, Me.insumo, Me.cantidad, Me.nro_serie, Me.modelo, Me.id_marca})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgv_detalle_entrega.Location = New System.Drawing.Point(438, 420)
         Me.dgv_detalle_entrega.Name = "dgv_detalle_entrega"
         Me.dgv_detalle_entrega.ReadOnly = True
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.dgv_detalle_entrega.Size = New System.Drawing.Size(559, 210)
         Me.dgv_detalle_entrega.TabIndex = 6
         '
@@ -740,6 +743,28 @@ Partial Class Registrar_entrega_insumos
         Me.id_marca.ReadOnly = True
         Me.id_marca.Visible = False
         '
+        'cmd_devolucion
+        '
+        Me.cmd_devolucion.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_devolucion.BackgroundImage = CType(resources.GetObject("cmd_devolucion.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_devolucion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_devolucion.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_devolucion.FlatAppearance.BorderSize = 0
+        Me.cmd_devolucion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_devolucion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_devolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_devolucion.Location = New System.Drawing.Point(226, 649)
+        Me.cmd_devolucion.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_devolucion.Name = "cmd_devolucion"
+        Me.cmd_devolucion.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_devolucion.TabIndex = 65
+        Me.cmd_devolucion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_devolucion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_devolucion.UseVisualStyleBackColor = False
+        '
+        'tltp_efector
+        '
+        '
         'Registrar_entrega_insumos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -747,6 +772,7 @@ Partial Class Registrar_entrega_insumos
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1007, 714)
+        Me.Controls.Add(Me.cmd_devolucion)
         Me.Controls.Add(Me.dgv_detalle_entrega)
         Me.Controls.Add(Me.dgv_entrega)
         Me.Controls.Add(Me.cmd_salir)
@@ -825,4 +851,6 @@ Partial Class Registrar_entrega_insumos
     Friend WithEvents id_marca As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txt_modelo As System.Windows.Forms.TextBox
     Friend WithEvents txt_nro_serie As System.Windows.Forms.TextBox
+    Friend WithEvents cmd_devolucion As System.Windows.Forms.Button
+    Friend WithEvents tltp_efector As System.Windows.Forms.ToolTip
 End Class

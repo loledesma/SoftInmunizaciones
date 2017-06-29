@@ -89,6 +89,17 @@
         End If
     End Sub
 
+    Private Sub limpiar_todo()
+        Me.txt_fecha_entrega.Text = ""
+        Me.txt_fecha_pedido.Text = ""
+        Me.txt_cuie.Text = ""
+        Me.txt_nombre_efector.Text = ""
+        Me.cmb_estado_entrega.SelectedValue = -1
+        Me.txt_observaciones.Text = ""
+        Me.cmb_autorizador.SelectedValue = -1
+        Me.txt_receptor.Text = ""
+        Me.txt_id_entrega.Text = ""
+    End Sub
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -185,6 +196,8 @@
                 registrar_entrega()
             ElseIf Me.cmb_estado_entrega.SelectedValue = 3 Then
                 registrar_rechazo()
+            ElseIf Me.cmb_estado_entrega.SelectedValue = 4 Then
+                MsgBox("Debe usar el boton de devolucion para cambiar el estado a modificad/devuelto")
             End If
         End If
         cargar_grilla_entregas()
@@ -358,7 +371,7 @@
 
         If IsDBNull(tabla.Rows(0)("receptor")) Then
             txt_receptor.Text = ""
-            
+
         Else
             txt_receptor.Text = tabla.Rows(0)("receptor")
         End If
@@ -396,7 +409,7 @@
             Next
         End If
 
-        cmd_guardar.Enabled = True
+        cmd_guardar.Enabled = False
         cmd_nuevo.Enabled = True
         cmd_agregar_insumo.Enabled = True
         cmd_eliminar_insumo.Enabled = False
@@ -411,6 +424,7 @@
         sql &= " WHERE fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
         sql &= " AND id_efector= '" & Me.txt_cuie.Text & "'"
         sql &= " AND id_estado_entrega= 2"
+
 
         tabla = acceso.consulta(sql)
 
@@ -438,7 +452,7 @@
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count() = 0 Then
-                MessageBox.Show("El insumo " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value & " que trata de entregar no corresponde a un insumo en stock, verifique la grilla")
+                MessageBox.Show("El insumo que trata de entregar no corresponde a un insumo en stock, verifique la grilla")
                 Return False
                 Exit Function
             End If
@@ -446,6 +460,17 @@
 
 
         Return True
+    End Function
+
+    Private Function existe_inventario() As Boolean
+        Dim c As Integer = 0
+        For c = 0 To dgv_detalle_entrega.Rows.Count - 1
+            If dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 1 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 4 Or dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 5 Then
+                Return True
+            Else
+                Return False
+            End If
+        Next
     End Function
     Private Sub guardar()
         If condicion_inicial = condicion.insertar Then
@@ -457,9 +482,17 @@
                     Else
                         Me.insertar_pedido()
                         Me.insertar_detalle_entrega()
+
+                        If existe_inventario() = True Then
+                            actualizar_inventario()
+                        End If
+
+                        If cmb_estado_entrega.SelectedValue = 1 Then
+                            registrar_entrega()
+                        End If
                     End If
                 Else
-                    MessageBox.Show("Ya se encuentra registrado este pedido, debe cambiar el estado")
+                    MessageBox.Show("Ya se encuentra registrado este pedido, cargue todas las entregas en un solo pedido")
                 End If
             Else
                 Exit Sub
@@ -467,6 +500,7 @@
         Else
             MessageBox.Show("Debe actualizar el estado si desea realizar algun cambio")
         End If
+
 
 
         dgv_detalle_entrega.Rows.Clear()
@@ -480,39 +514,51 @@
         Me.cmd_limpiar.Enabled = True
     End Sub
 
+    Private Sub actualizar_inventario()
+        MessageBox.Show("No se olvide de actualizar el inventario de cadena de frio si corresponde")
+        Inventario_cadena_de_frio.txt_cuie.Text = Me.txt_cuie.Text
+        Inventario_cadena_de_frio.txt_efector.Text = Me.txt_nombre_efector.Text
+        If txt_fecha_entrega.Text <> "" Then
+            Inventario_cadena_de_frio.txt_fecha_info.Text = Me.txt_fecha_entrega.Text
+        End If
+
+        'Dim c As Integer = 0
+        'For c = 0 To dgv_detalle_entrega.Rows.Count - 1
+        '    If dgv_detalle_entrega.Rows.Count() <> 0 Then
+        '        If dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 1 Then
+        '            Inventario_cadena_de_frio.cmb_marca_heladera.SelectedValue = dgv_detalle_entrega.Rows(c).Cells("id_marca").Value
+        '            Inventario_cadena_de_frio.txt_nro_serie_heladera.Text = dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value
+        '            Inventario_cadena_de_frio.txt_modelo_heladera.Text = dgv_detalle_entrega.Rows(c).Cells("modelo").Value
+        '            Inventario_cadena_de_frio.cmb_tipo_heladera.Focus()
+        '        ElseIf dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 4 Then
+        '            Inventario_cadena_de_frio.txt_tipo_termo.Text = dgv_detalle_entrega.Rows(c).Cells("modelo").Value
+        '        ElseIf dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value = 5 Then
+
+        '        End If
+        '    End If
+
+        'Next
+
+        Inventario_cadena_de_frio.ShowDialog()
+    End Sub
+
 
     Private Sub nuevo()
-        limpiar(Controls)
+        limpiar(Me.Controls)
         Me.txt_observaciones.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_fecha_entrega.Text = ""
-        Dim sql As String = "SELECT * FROM ENTREGA_INSUMOS "
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_entrega.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_entrega.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
         Me.dgv_detalle_entrega.Rows.Clear()
         Me.txt_id_entrega.Enabled = False
         Me.cmb_estado_entrega.Enabled = True
-        Me.txt_fecha_entrega.Focus()
+        Me.txt_fecha_pedido.Focus()
         Me.cmd_guardar.Enabled = True
         Me.cmd_actualizar_estado.Enabled = False
     End Sub
 
     Private Function validar_entrega() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If txt_id_entrega.Text = "" Then
-            MessageBox.Show("Debe ingresar el id de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_id_entrega.Focus()
-            Exit Function
-        ElseIf txt_receptor.Text = "" Then
+        If txt_receptor.Text = "" Then
             MessageBox.Show("Debe ingresar al menos un nombre de receptor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_receptor.Focus()
@@ -533,12 +579,7 @@
 
     Private Function validar_pedido() As Boolean
         Dim hoy As Date = Date.Today.ToString("dd/MM/yyyy")
-        If IsNumeric(txt_id_entrega.Text) = False Then
-            MessageBox.Show("Debe ingresar un numero de entrega valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_id_entrega.Focus()
-            Exit Function
-        ElseIf txt_nombre_efector.Text = "" Then
+        If txt_nombre_efector.Text = "" Then
             MessageBox.Show("Debe ingresar un efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_nombre_efector.Focus()
@@ -564,7 +605,12 @@
             Me.txt_fecha_pedido.Focus()
             Exit Function
         ElseIf IsDate(txt_fecha_pedido.Text) = False Then
-            MessageBox.Show("Debe ingresar una fecha de pedido para ese usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Debe ingresar una fecha de pedido valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_fecha_pedido.Focus()
+            Exit Function
+        ElseIf IsDate(txt_fecha_entrega.Text) = False Then
+            MessageBox.Show("Debe ingresar una fecha de entrega valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_fecha_pedido.Focus()
             Exit Function
@@ -654,10 +700,10 @@
         Dim sql As String = ""
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
+
         acceso._nombre_tabla = "ENTREGA_INSUMOS"
 
-        sql = "id = " & Me.txt_id_entrega.Text
-        sql &= ", fecha_pedido='" & Me.txt_fecha_pedido.Text & "'"
+        sql = "fecha_pedido='" & Me.txt_fecha_pedido.Text & "'"
 
         If IsDate(txt_fecha_entrega.Text) Then
             sql &= ", fecha_entrega ='" & Me.txt_fecha_entrega.Text & "'"
@@ -682,21 +728,9 @@
             sql &= ", observaciones = NULL"
         End If
 
-
-
         acceso.insertar(sql)
 
-        sql = ""
-        sql = "SELECT * FROM ENTREGA_INSUMOS WHERE id= " & Me.txt_id_entrega.Text
 
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() <> 0 Then
-            sql = ""
-            sql &= "UPDATE ENTREGA_INSUMOS "
-            sql &= " SET id_estado_entrega= 2"
-            sql &= " WHERE id= " & Me.txt_id_entrega.Text
-        End If
     End Sub
 
     Private Sub insertar_detalle_entrega()
@@ -704,6 +738,13 @@
         Dim fecha As Date = Date.Today.ToString("dd/MM/yyyy")
         Dim tabla As New DataTable
         acceso._nombre_tabla = "DETALLE_ENTREGA_INSUMOS"
+        Dim id As Integer = 0
+
+        sql = ""
+        sql = "SELECT MAX(id) FROM ENTREGA_INSUMOS"
+        id = acceso.contadores(sql)
+
+        Me.txt_id_entrega.Text = id
 
         Dim c As Integer
         For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
@@ -718,6 +759,9 @@
 
             sql = ""
         Next
+
+
+
     End Sub
 
 
@@ -847,5 +891,102 @@
 
         limpiar(Me.Controls)
         Me.condicion_inicial = condicion.modificar
+    End Sub
+
+    Private Function validar_detalle() As Boolean
+        If IsNumeric(txt_id_entrega.Text) = False Then
+            MessageBox.Show("Debe ingresar un pedido para modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_cantidad.Focus()
+            Exit Function
+        ElseIf IsNumeric(txt_cantidad.Text) = False Then
+            MessageBox.Show("Debe ingresar un numero en la cantidad o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_cantidad.Focus()
+            Exit Function
+        ElseIf txt_nro_serie.Text = "" Then
+            MessageBox.Show("Debe ingresar un efector o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_nro_serie.Focus()
+            Exit Function
+        ElseIf txt_modelo.Text = "" Then
+            MessageBox.Show("Debe ingresar un modelo o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.txt_modelo.Focus()
+            Exit Function
+        ElseIf cmb_insumos.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar un insumo o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_insumos.Focus()
+            Exit Function
+        ElseIf cmb_marca.SelectedIndex = -1 Then
+            MessageBox.Show("Debe seleccionar una marca o seleccionar un insumo de un pedido de la grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+            Me.cmb_estado_entrega.Focus()
+            Exit Function
+        End If
+        Return True
+    End Function
+
+    Private Sub devolver_stock()
+        Dim sql As String = ""
+        acceso._nombre_tabla = "STOCK_INSUMOS"
+
+        sql &= "id_insumo = " & Me.cmb_insumos.SelectedValue
+        sql &= ", nro_serie =" & Me.txt_nro_serie.Text
+        sql &= ", cantidad= " & Me.txt_cantidad.Text
+        sql &= ", modelo=" & Me.txt_modelo.Text
+        sql &= ", id_marca =" & Me.cmb_marca.SelectedValue
+
+        acceso.insertar(sql)
+
+    End Sub
+    Private Sub cmd_devolucion_Click(sender As Object, e As EventArgs) Handles cmd_devolucion.Click
+        Dim sql As String = ""
+        If MessageBox.Show("¿Desea registrar el reingreso de un insumo al stock?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+            If validar_detalle() Then
+                devolver_stock()
+                MsgBox("No olvide registrar en observaciones cual fue la devolucion realizada")
+                If txt_observaciones.Text = "" Then
+                    MsgBox("Debe registrar en observaciones cual fue la devolucion realizada")
+                Else
+                    sql = ""
+                    sql &= "UPDATE ENTREGA_INSUMOS "
+                    sql &= " SET observaciones='" & Me.txt_observaciones.Text & "'"
+                    sql &= ", id_estado_entrega= 4"
+                    sql &= " WHERE id= " & txt_id_entrega.Text
+
+                    acceso.ejecutar(sql)
+                    MsgBox("Devolucion Realizada")
+                    cargar_grilla_entregas()
+                End If
+            End If
+        Else
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar_todo()
+    End Sub
+    Private Sub txt_nombre_efector_MouseEnter(sender As Object, e As EventArgs) Handles txt_nombre_efector.MouseEnter
+        If txt_nombre_efector.Text <> "" Then
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim efectores As String = ""
+            sql &= "SELECT  EF.nombre as nombre "
+            sql &= " FROM EFECTORES EF "
+            sql &= " WHERE EF.nombre LIKE '%" & txt_nombre_efector.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                efectores += tabla.Rows(c)("nombre") & vbCrLf
+            Next
+
+            tltp_efector.SetToolTip(txt_nombre_efector, efectores)
+        Else
+            Exit Sub
+        End If
     End Sub
 End Class

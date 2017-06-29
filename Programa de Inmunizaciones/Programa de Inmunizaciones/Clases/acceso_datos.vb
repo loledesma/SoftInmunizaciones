@@ -74,7 +74,7 @@ Public Class acceso_datos
                     validacion_conexion = conexion_hamachi.hamachi
                 Catch ex As Exception
                     Try
-                        cadena_conexion = "Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                        cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES; password= lore88"
                         conexion.ConnectionString = cadena_conexion
                         validacion_conexion = conexion_hamachi.interno
                         conexion.Open()
@@ -158,6 +158,21 @@ Public Class acceso_datos
         Return tabla
     End Function
 
+    Public Function contadores(ByVal comando As String) As Integer
+        Me.conectar()
+        Me.cmd.CommandText = comando
+        Dim contador As Integer = 0
+
+        Try
+            contador = CInt(cmd.ExecuteScalar())
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Me.cerrar()
+        Return contador
+    End Function
+
     Public Sub ejecutar(ByVal comando As String)
         Me.conectar()
         Me.cmd.CommandText = comando
@@ -170,6 +185,7 @@ Public Class acceso_datos
 
         Me.cerrar()
     End Sub
+
 
     Public Function insertar(ByVal datos As String) As resultado
         Dim igual, coma, columna As Integer
@@ -202,13 +218,14 @@ Public Class acceso_datos
             End If
 
             tipo_dato = tabla.Columns(c).DataType.Name
-
-            If cabecera = "" Then
-                cabecera += nom_col
-                paquete_datos += Me.formatear(valor, tipo_dato)
-            Else
-                cabecera += "," + nom_col
-                paquete_datos += "," + Me.formatear(valor, tipo_dato)
+            If nom_col <> "ID" Then
+                If cabecera = "" Then
+                    cabecera += nom_col
+                    paquete_datos += Me.formatear(valor, tipo_dato)
+                Else
+                    cabecera += "," + nom_col
+                    paquete_datos += "," + Me.formatear(valor, tipo_dato)
+                End If
             End If
         Next
 

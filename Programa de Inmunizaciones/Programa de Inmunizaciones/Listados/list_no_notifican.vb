@@ -98,7 +98,6 @@
             If Me.cmb_departamentos.SelectedIndex <> -1 Then
                 sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
                
-
                 If cmb_localidades.SelectedIndex <> -1 Then
                     sql &= " AND L.id = " & Me.cmb_localidades.SelectedValue
                     sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "
@@ -145,7 +144,7 @@
 
     Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         Me.ReportViewer1.Width = Me.Width - 50
-        Me.ReportViewer1.Height = Me.Height - 2
+        Me.ReportViewer1.Height = Me.Height - 100
 
     End Sub
     Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click

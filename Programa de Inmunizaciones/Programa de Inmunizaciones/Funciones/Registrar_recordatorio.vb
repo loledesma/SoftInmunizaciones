@@ -70,9 +70,11 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+        sql &= "SELECT TOP 5 R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
         sql &= " , R.id_administrador as id_administrador "
         sql &= " FROM RECORDATORIOS R "
+        sql &= " WHERE id_estado= 2"
+        sql &= " ORDER BY fecha "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -226,8 +228,8 @@
         Dim sql As String = ""
         acceso._nombre_tabla = "RECORDATORIOS"
 
-        sql &= "id = " & Me.txt_id_recordatorio.Text
-        sql &= ", fecha ='" & Me.txt_fecha.Text & "'"
+
+        sql &= " fecha ='" & Me.txt_fecha.Text & "'"
         sql &= ", id_estado = " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
@@ -250,12 +252,7 @@
     Private Sub guardar()
         If Me.validar() = True Then
             If condicion_estado = condicion.insertar Then
-                If Me.validar_existencia() = analizar_existencia.no_existe Then
-                    Me.insertar()
-                Else
-                    MessageBox.Show("Ya se encuentra cargada esta atención")
-                    Exit Sub
-                End If
+                Me.insertar()
             Else
                 Me.modificar()
             End If
@@ -276,17 +273,6 @@
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
         Me.condicion_estado = condicion.insertar
-        Dim sql As String = "SELECT * FROM RECORDATORIOS"
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_recordatorio.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_recordatorio.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
         Me.txt_id_recordatorio.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_atencion.Enabled = True
@@ -355,23 +341,23 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM RECORDATORIOS "
-        sql &= " WHERE fecha= " & Me.txt_fecha.Text
+        sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
         sql &= " ORDER BY id_administrador"
         tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count() = 0 Then
-                MessageBox.Show("¡No existe el recordatorio solicitada!")
+            MessageBox.Show("¡No existe el recordatorio solicitado!")
                 Exit Sub
             Else
                 Dim c As Integer = 0
             dgv_recordatorios.Rows.Clear()
             For c = 0 To tabla.Rows.Count() - 1
                 dgv_recordatorios.Rows.Add()
-                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(0)("id")
-                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(0)("fecha")
-                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(0)("id_estado")
-                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(0)("id_administrador")
-                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(0)("descripcion")
+                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
+                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
 
                 sql = ""
                 sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_recordatorios.Rows(c).Cells("id_estado").Value
@@ -384,7 +370,6 @@
                 tabla2.Rows.Clear()
                 tabla2 = acceso.consulta(sql)
                 dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
-
             Next
             End If
 
@@ -403,6 +388,25 @@
         Me.txt_id_recordatorio.Focus()
         Me.cargar_grilla()
         Me.txt_descripcion.Text = ""
+    End Sub
+
+    Private Sub dgv_recordatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_recordatorios.CellValueChanged
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
+        Dim sql As String = ""
+
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM RECORDATORIOS "
+
+        valor1 = acceso.contadores(sql)
+
+        sql = "SELECT COUNT(*) "
+        sql &= "FROM RECORDATORIOS WHERE id_estado = 2"
+        valor2 = acceso.contadores(sql)
+
+        lbl_contador_pendientes.Text = valor2
+        lbl_contador_total.Text = valor1
     End Sub
 
 End Class

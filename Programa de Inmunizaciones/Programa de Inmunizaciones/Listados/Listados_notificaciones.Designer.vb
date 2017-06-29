@@ -72,7 +72,7 @@ Partial Class listados_notificaciones
         Me.grp_datos_notificacion.Location = New System.Drawing.Point(481, 12)
         Me.grp_datos_notificacion.Name = "grp_datos_notificacion"
         Me.grp_datos_notificacion.Size = New System.Drawing.Size(514, 133)
-        Me.grp_datos_notificacion.TabIndex = 2
+        Me.grp_datos_notificacion.TabIndex = 1
         Me.grp_datos_notificacion.TabStop = False
         Me.grp_datos_notificacion.Text = "Datos Notificacion"
         '
@@ -90,7 +90,7 @@ Partial Class listados_notificaciones
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_ejecutar.TabIndex = 10
+        Me.cmd_ejecutar.TabIndex = 2
         Me.cmd_ejecutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_ejecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_ejecutar.UseVisualStyleBackColor = False
@@ -101,7 +101,7 @@ Partial Class listados_notificaciones
         Me.txt_fecha_hasta.Mask = "00/00/0000"
         Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
         Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_hasta.TabIndex = 35
+        Me.txt_fecha_hasta.TabIndex = 1
         Me.txt_fecha_hasta.ValidatingType = GetType(Date)
         '
         'lbl_hasta
@@ -119,7 +119,7 @@ Partial Class listados_notificaciones
         Me.txt_fecha_desde.Mask = "00/00/0000"
         Me.txt_fecha_desde.Name = "txt_fecha_desde"
         Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_desde.TabIndex = 2
+        Me.txt_fecha_desde.TabIndex = 0
         Me.txt_fecha_desde.ValidatingType = GetType(Date)
         '
         'lbl_desde
@@ -146,7 +146,7 @@ Partial Class listados_notificaciones
         Me.grp_datos_efector.Location = New System.Drawing.Point(21, 12)
         Me.grp_datos_efector.Name = "grp_datos_efector"
         Me.grp_datos_efector.Size = New System.Drawing.Size(436, 133)
-        Me.grp_datos_efector.TabIndex = 3
+        Me.grp_datos_efector.TabIndex = 0
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
         '
@@ -157,7 +157,7 @@ Partial Class listados_notificaciones
         Me.txt_cuie.Location = New System.Drawing.Point(122, 103)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(184, 20)
-        Me.txt_cuie.TabIndex = 4
+        Me.txt_cuie.TabIndex = 3
         '
         'lbl_cuie
         '
@@ -241,7 +241,7 @@ Partial Class listados_notificaciones
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_notificaciones.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(21, 163)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(974, 388)
+        Me.ReportViewer1.Size = New System.Drawing.Size(974, 429)
         Me.ReportViewer1.TabIndex = 4
         '
         'listados_notificaciones
@@ -251,7 +251,7 @@ Partial Class listados_notificaciones
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1017, 565)
+        Me.ClientSize = New System.Drawing.Size(1017, 606)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Controls.Add(Me.grp_datos_notificacion)

@@ -76,6 +76,10 @@ Partial Class Registrar_notificaciones
         Me.lbl_carga = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_contador_notif = New System.Windows.Forms.Label()
+        Me.lbl_contador_hoy = New System.Windows.Forms.Label()
+        Me.lbl_registradas_hoy = New System.Windows.Forms.Label()
+        Me.rdio_hoy = New System.Windows.Forms.RadioButton()
+        Me.rdio_todas = New System.Windows.Forms.RadioButton()
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_notificaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -197,7 +201,7 @@ Partial Class Registrar_notificaciones
         Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_cuie.Location = New System.Drawing.Point(114, 96)
         Me.txt_cuie.Name = "txt_cuie"
-        Me.txt_cuie.Size = New System.Drawing.Size(217, 20)
+        Me.txt_cuie.Size = New System.Drawing.Size(242, 20)
         Me.txt_cuie.TabIndex = 3
         '
         'lbl_cuie
@@ -215,7 +219,7 @@ Partial Class Registrar_notificaciones
         Me.txt_efectores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_efectores.Location = New System.Drawing.Point(114, 72)
         Me.txt_efectores.Name = "txt_efectores"
-        Me.txt_efectores.Size = New System.Drawing.Size(269, 20)
+        Me.txt_efectores.Size = New System.Drawing.Size(243, 20)
         Me.txt_efectores.TabIndex = 2
         '
         'cmd_efector_nuevo
@@ -228,7 +232,7 @@ Partial Class Registrar_notificaciones
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(338, 95)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(363, 96)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
         Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
@@ -245,7 +249,7 @@ Partial Class Registrar_notificaciones
         Me.cmb_departamentos.FormattingEnabled = True
         Me.cmb_departamentos.Location = New System.Drawing.Point(115, 19)
         Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_departamentos.Size = New System.Drawing.Size(241, 21)
         Me.cmb_departamentos.TabIndex = 0
         '
         'cmb_localidades
@@ -256,7 +260,7 @@ Partial Class Registrar_notificaciones
         Me.cmb_localidades.FormattingEnabled = True
         Me.cmb_localidades.Location = New System.Drawing.Point(115, 46)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(241, 21)
         Me.cmb_localidades.TabIndex = 1
         '
         'lbl_vacunatorio
@@ -632,10 +636,59 @@ Partial Class Registrar_notificaciones
         Me.lbl_contador_notif.BackColor = System.Drawing.Color.Transparent
         Me.lbl_contador_notif.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_contador_notif.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_notif.Location = New System.Drawing.Point(622, 448)
+        Me.lbl_contador_notif.Location = New System.Drawing.Point(627, 448)
         Me.lbl_contador_notif.Name = "lbl_contador_notif"
         Me.lbl_contador_notif.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_notif.TabIndex = 48
+        '
+        'lbl_contador_hoy
+        '
+        Me.lbl_contador_hoy.AutoSize = True
+        Me.lbl_contador_hoy.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_hoy.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_hoy.Location = New System.Drawing.Point(669, 485)
+        Me.lbl_contador_hoy.Name = "lbl_contador_hoy"
+        Me.lbl_contador_hoy.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_hoy.TabIndex = 50
+        '
+        'lbl_registradas_hoy
+        '
+        Me.lbl_registradas_hoy.AutoSize = True
+        Me.lbl_registradas_hoy.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_registradas_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_registradas_hoy.ForeColor = System.Drawing.Color.White
+        Me.lbl_registradas_hoy.Location = New System.Drawing.Point(422, 485)
+        Me.lbl_registradas_hoy.Name = "lbl_registradas_hoy"
+        Me.lbl_registradas_hoy.Size = New System.Drawing.Size(238, 17)
+        Me.lbl_registradas_hoy.TabIndex = 49
+        Me.lbl_registradas_hoy.Text = "Notificaciones registradas hoy: "
+        '
+        'rdio_hoy
+        '
+        Me.rdio_hoy.AutoSize = True
+        Me.rdio_hoy.BackColor = System.Drawing.Color.Transparent
+        Me.rdio_hoy.ForeColor = System.Drawing.Color.White
+        Me.rdio_hoy.Location = New System.Drawing.Point(902, 482)
+        Me.rdio_hoy.Name = "rdio_hoy"
+        Me.rdio_hoy.Size = New System.Drawing.Size(44, 17)
+        Me.rdio_hoy.TabIndex = 51
+        Me.rdio_hoy.TabStop = True
+        Me.rdio_hoy.Text = "Hoy"
+        Me.rdio_hoy.UseVisualStyleBackColor = False
+        '
+        'rdio_todas
+        '
+        Me.rdio_todas.AutoSize = True
+        Me.rdio_todas.BackColor = System.Drawing.Color.Transparent
+        Me.rdio_todas.ForeColor = System.Drawing.Color.White
+        Me.rdio_todas.Location = New System.Drawing.Point(902, 451)
+        Me.rdio_todas.Name = "rdio_todas"
+        Me.rdio_todas.Size = New System.Drawing.Size(55, 17)
+        Me.rdio_todas.TabIndex = 52
+        Me.rdio_todas.TabStop = True
+        Me.rdio_todas.Text = "Todas"
+        Me.rdio_todas.UseVisualStyleBackColor = False
         '
         'Registrar_notificaciones
         '
@@ -644,6 +697,10 @@ Partial Class Registrar_notificaciones
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 530)
+        Me.Controls.Add(Me.rdio_todas)
+        Me.Controls.Add(Me.rdio_hoy)
+        Me.Controls.Add(Me.lbl_contador_hoy)
+        Me.Controls.Add(Me.lbl_registradas_hoy)
         Me.Controls.Add(Me.lbl_contador_notif)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.grp_datos_notificacion)
@@ -721,4 +778,8 @@ Partial Class Registrar_notificaciones
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lbl_contador_notif As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_hoy As System.Windows.Forms.Label
+    Friend WithEvents lbl_registradas_hoy As System.Windows.Forms.Label
+    Friend WithEvents rdio_hoy As System.Windows.Forms.RadioButton
+    Friend WithEvents rdio_todas As System.Windows.Forms.RadioButton
 End Class

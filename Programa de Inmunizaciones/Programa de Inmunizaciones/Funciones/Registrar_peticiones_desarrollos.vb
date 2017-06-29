@@ -62,6 +62,8 @@
 
         sql &= "SELECT * "
         sql &= " FROM PEDIDO_DESARROLLO "
+        sql &= " WHERE id_estados_pedidos= 2"
+        sql &= " ORDER BY fecha_pedido desc "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -243,7 +245,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM PEDIDO_DESARROLLO "
-        sql &= "WHERE id = " & Me.txt_id_desarrollo.Text
+        sql &= "WHERE id =" & Me.txt_id_desarrollo.Text
 
         tabla = acceso.consulta(sql)
 
@@ -258,8 +260,7 @@
         Dim sql As String = ""
         acceso._nombre_tabla = "PEDIDO_DESARROLLO"
 
-        sql &= "id = " & Me.txt_id_desarrollo.Text
-        sql &= ", fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
+        sql &= "fecha_pedido ='" & Me.txt_fecha_pedido.Text & "'"
 
         If IsDate(txt_fecha_solucion.Text) Then
             sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
@@ -312,12 +313,7 @@
     Private Sub guardar()
         If Me.validar() = True Then
             If condicion_estado = condicion.insertar Then
-                If Me.validar_existencia() = analizar_existencia.no_existe Then
-                    Me.insertar()
-                Else
-                    MessageBox.Show("Ya se encuentra cargada la peticion")
-                    Exit Sub
-                End If
+                Me.insertar()
             Else
                 Me.modificar()
             End If
@@ -340,17 +336,6 @@
         Me.txt_respuesta.Text = ""
         Me.txt_solicitado.Text = ""
         Me.condicion_estado = condicion.insertar
-        Dim sql As String = "SELECT * FROM PEDIDO_DESARROLLO"
-        Dim tabla As New DataTable
-        tabla = acceso.consulta(sql)
-
-        If tabla.Rows.Count() = 0 Then
-            Me.txt_id_desarrollo.Text = 1
-        Else
-            Dim ultimo As Integer = tabla.Rows.Count() - 1
-            Me.txt_id_desarrollo.Text = tabla.Rows(ultimo)("id") + 1
-        End If
-
         Me.txt_id_desarrollo.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_pedido.Enabled = True
@@ -404,6 +389,11 @@
         Else
             sql &= "UPDATE PEDIDO_DESARROLLO"
             sql &= " SET id_estados_pedidos= " & Me.cmb_estado_pedido.SelectedValue
+            If txt_fecha_solucion.Text <> "" Then
+                sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
+            Else
+                sql &= ", fecha_solucion= NULL"
+            End If
             sql &= " WHERE id= " & Me.txt_id_desarrollo.Text
             acceso.ejecutar(sql)
         End If
@@ -420,7 +410,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM PEDIDO_DESARROLLO "
-        sql &= " WHERE fecha_pedido= " & Me.txt_fecha_pedido.Text
+        sql &= " WHERE fecha_pedido BETWEEN &'" & Me.txt_fecha_pedido.Text & "' AND '" & Me.txt_fecha_solucion.Text & "'"
         sql &= " ORDER BY id_administrador"
         tabla = acceso.consulta(sql)
 
@@ -490,5 +480,24 @@
 
     Private Sub dgv_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_pedidos.CellContentClick
 
+    End Sub
+
+    Private Sub dgv_pedidos_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_pedidos.CellValueChanged
+        Dim valor1 As Integer = 0
+        Dim valor2 As Integer = 0
+        Dim sql As String = ""
+
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM PEDIDO_DESARROLLO "
+
+        valor1 = acceso.contadores(sql)
+
+        sql = "SELECT COUNT(*) "
+        sql &= "FROM PEDIDO_DESARROLLO WHERE id_estados_pedidos = 2"
+        valor2 = acceso.contadores(sql)
+
+        lbl_contador_pendientes.Text = valor2
+        lbl_contador_total.Text = valor1
     End Sub
 End Class

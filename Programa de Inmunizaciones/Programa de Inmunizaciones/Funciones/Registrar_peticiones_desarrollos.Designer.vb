@@ -58,6 +58,10 @@ Partial Class Registrar_peticiones_desarrollos
         Me.administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.solicitado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.respuesta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lbl_contador_pendientes = New System.Windows.Forms.Label()
+        Me.lbl_registradas_hoy = New System.Windows.Forms.Label()
+        Me.lbl_contador_total = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_descripcion.SuspendLayout()
         Me.grp_respuesta.SuspendLayout()
@@ -174,7 +178,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.grp_datos_recordatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_recordatorio.Name = "grp_datos_recordatorio"
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 197)
-        Me.grp_datos_recordatorio.TabIndex = 22
+        Me.grp_datos_recordatorio.TabIndex = 0
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Peticiones de Desarrollo"
         '
@@ -183,7 +187,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.txt_desarrollador.Location = New System.Drawing.Point(109, 103)
         Me.txt_desarrollador.Name = "txt_desarrollador"
         Me.txt_desarrollador.Size = New System.Drawing.Size(280, 20)
-        Me.txt_desarrollador.TabIndex = 57
+        Me.txt_desarrollador.TabIndex = 4
         '
         'Label2
         '
@@ -200,7 +204,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.txt_fecha_solucion.Mask = "00/00/0000"
         Me.txt_fecha_solucion.Name = "txt_fecha_solucion"
         Me.txt_fecha_solucion.Size = New System.Drawing.Size(97, 20)
-        Me.txt_fecha_solucion.TabIndex = 55
+        Me.txt_fecha_solucion.TabIndex = 3
         Me.txt_fecha_solucion.ValidatingType = GetType(Date)
         '
         'lbl_fecha_solucion
@@ -226,7 +230,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 4
+        Me.cmd_actualizar_estado.TabIndex = 6
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
@@ -252,7 +256,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.cmb_empleados.Location = New System.Drawing.Point(111, 166)
         Me.cmb_empleados.Name = "cmb_empleados"
         Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 5
+        Me.cmb_empleados.TabIndex = 7
         '
         'Label1
         '
@@ -281,7 +285,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.cmb_estado_pedido.Location = New System.Drawing.Point(111, 134)
         Me.cmb_estado_pedido.Name = "cmb_estado_pedido"
         Me.cmb_estado_pedido.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_pedido.TabIndex = 3
+        Me.cmb_estado_pedido.TabIndex = 5
         '
         'txt_id_desarrollo
         '
@@ -433,6 +437,52 @@ Partial Class Registrar_peticiones_desarrollos
         Me.respuesta.Name = "respuesta"
         Me.respuesta.ReadOnly = True
         '
+        'lbl_contador_pendientes
+        '
+        Me.lbl_contador_pendientes.AutoSize = True
+        Me.lbl_contador_pendientes.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_pendientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_pendientes.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_pendientes.Location = New System.Drawing.Point(700, 533)
+        Me.lbl_contador_pendientes.Name = "lbl_contador_pendientes"
+        Me.lbl_contador_pendientes.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_pendientes.TabIndex = 58
+        '
+        'lbl_registradas_hoy
+        '
+        Me.lbl_registradas_hoy.AutoSize = True
+        Me.lbl_registradas_hoy.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_registradas_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_registradas_hoy.ForeColor = System.Drawing.Color.White
+        Me.lbl_registradas_hoy.Location = New System.Drawing.Point(453, 533)
+        Me.lbl_registradas_hoy.Name = "lbl_registradas_hoy"
+        Me.lbl_registradas_hoy.Size = New System.Drawing.Size(157, 17)
+        Me.lbl_registradas_hoy.TabIndex = 57
+        Me.lbl_registradas_hoy.Text = "Pedidos Pendientes:"
+        '
+        'lbl_contador_total
+        '
+        Me.lbl_contador_total.AutoSize = True
+        Me.lbl_contador_total.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_total.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_total.Location = New System.Drawing.Point(658, 496)
+        Me.lbl_contador_total.Name = "lbl_contador_total"
+        Me.lbl_contador_total.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_total.TabIndex = 56
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(453, 496)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(50, 17)
+        Me.Label3.TabIndex = 55
+        Me.Label3.Text = "Total:"
+        '
         'Registrar_peticiones_desarrollos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -440,6 +490,10 @@ Partial Class Registrar_peticiones_desarrollos
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1011, 564)
+        Me.Controls.Add(Me.lbl_contador_pendientes)
+        Me.Controls.Add(Me.lbl_registradas_hoy)
+        Me.Controls.Add(Me.lbl_contador_total)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.dgv_pedidos)
         Me.Controls.Add(Me.grp_respuesta)
         Me.Controls.Add(Me.grp_descripcion)
@@ -457,6 +511,7 @@ Partial Class Registrar_peticiones_desarrollos
         Me.grp_respuesta.ResumeLayout(False)
         CType(Me.dgv_pedidos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
@@ -494,4 +549,8 @@ Partial Class Registrar_peticiones_desarrollos
     Friend WithEvents administrador As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents solicitado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents respuesta As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lbl_contador_pendientes As System.Windows.Forms.Label
+    Friend WithEvents lbl_registradas_hoy As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_total As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

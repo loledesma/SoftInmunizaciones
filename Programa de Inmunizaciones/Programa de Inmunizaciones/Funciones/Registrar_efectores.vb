@@ -129,7 +129,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT EF.cuie, EF.nombre, E.nombre AS nombre_referente, L.descripcion AS nombre_loc FROM "
+        sql &= "SELECT TOP 10 EF.cuie, EF.nombre, E.nombre AS nombre_referente, L.descripcion AS nombre_loc FROM "
         sql &= "EFECTORES EF JOIN EFECTORES E ON EF.id_referente = E.cuie JOIN LOCALIDADES L on L.id = EF.id_localidad "
         sql &= " ORDER BY EF.id_referente desc "
 
@@ -330,7 +330,7 @@
         condicion_click = doble_Click.desactivado
     End Sub
 
-    Private Sub abm_empleados_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub registrar_efectores_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control And e.KeyCode.ToString = "N" Then
             nuevo()
         End If
@@ -777,7 +777,7 @@
 
     End Sub
     Private Sub nuevo()
-        
+
         limpiar(Controls)
         condicion_estado = estado.insertar
         grp_datos_empleados.Enabled = True
@@ -1017,101 +1017,150 @@
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
         Dim c As Integer = 0
-        If txt_cuie.Text = "" Then
-            MessageBox.Show("Ingrese un un numero de cuie para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_cuie.Focus()
+        If txt_nombre.Text = "" Then
+            MessageBox.Show("Ingrese una institucion a buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_nombre.Focus()
             Exit Sub
         Else
-            sql &= "SELECT EF.cuie as cuie, EF.nombre as nombre, EF.id_localidad as id_localidad, EF.id_referente as id_referente "
-            sql &= " FROM EFECTORES EF "
-            sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
-            tabla = acceso.consulta(sql)
+            If txt_cuie.Text = "" Then
+                sql &= "SELECT EF.cuie as cuie, EF.nombre as nombre, EF.id_localidad as id_localidad, EF.id_referente as id_referente "
+                sql &= " FROM EFECTORES EF "
+                sql &= " WHERE EF.nombre LIKE '%" & txt_nombre.Text & "%'"
+                tabla = acceso.consulta(sql)
 
-            If tabla.Rows.Count = 0 Then
-                MessageBox.Show("No se encontró un efector con el numero: " & Me.txt_cuie.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Else
-                dgv_vacunatorios.Rows.Clear()
-
-                For c = 0 To tabla.Rows.Count - 1
-                    dgv_vacunatorios.Rows.Add()
-
-                    dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla.Rows(c)("CUIE")
-                    dgv_vacunatorios.Rows(c).Cells("nombre").Value = tabla.Rows(c)("nombre")
-
-                    sql = ""
-                    sql = " SELECT descripcion as nombre_loc FROM LOCALIDADES WHERE id= " & tabla.Rows(c)("id_localidad")
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
-
-                    dgv_vacunatorios.Rows(c).Cells("localidad").Value = tabla2.Rows(0)("nombre_loc")
-                    sql = ""
-                    sql = " SELECT nombre as nombre_referente FROM EFECTORES WHERE cuie='" & tabla.Rows(c)("id_referente") & "'"
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
-                    dgv_vacunatorios.Rows(c).Cells("referente").Value = tabla2.Rows(0)("nombre_referente")
-                Next
-
-                sql = ""
-                sql &= "SELECT EM.id AS id_empleado, EM.nro_doc as nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, "
-                sql &= " C.descripcion AS cargo, EM.usuario_sigipsa as usuario_sigipsa, EE.id_cargo as id_cargo, EE.id_perfil as id_perfil, TD.descripcion AS tipo_doc, "
-                sql &= " ESTXEMPL.descripcion AS estado_empleado, EE.id_estado_empleado as id_estado "
-                sql &= " FROM EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados "
-                sql &= " JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id "
-                sql &= " JOIN CARGO C ON C.id = EE.id_cargo "
-                sql &= " JOIN ESTADOS_EMPLEADOS ESTXEMPL ON ESTXEMPL.id = EE.id_estado_empleado  "
-                sql &= "WHERE EE.id_efector='" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
-                tabla2.Rows.Clear()
-                tabla2 = acceso.consulta(sql)
-
-                If tabla2.Rows.Count() = 0 Then
-                    MessageBox.Show("El efector seleccionado no tiene empleados asignados!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    Exit Sub
+                If tabla.Rows.Count = 0 Then
+                    MessageBox.Show("No se encontró el efector: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
-                    dgv_empleados.Rows.Clear()
-                    For c = 0 To tabla2.Rows.Count - 1
-                        dgv_empleados.Rows.Add()
-                        dgv_empleados.Rows(c).Cells("id").Value = tabla2.Rows(c)("id_empleado")
-                        dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla2.Rows(c)("tipo_doc")
-                        dgv_empleados.Rows(c).Cells("numero").Value = tabla2.Rows(c)("nro_doc")
-                        dgv_empleados.Rows(c).Cells("nombres").Value = tabla2.Rows(c)("nombre_empleado")
-                        dgv_empleados.Rows(c).Cells("apellidos").Value = tabla2.Rows(c)("apellido_empleado")
-                        dgv_empleados.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
-                        dgv_empleados.Rows(c).Cells("usuario").Value = tabla2.Rows(c)("usuario_sigipsa")
-                        dgv_empleados.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
-                        dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado_empleado")
-                        dgv_empleados.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
+                    dgv_vacunatorios.Rows.Clear()
+
+                    For c = 0 To tabla.Rows.Count - 1
+                        dgv_vacunatorios.Rows.Add()
+
+                        dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla.Rows(c)("CUIE")
+                        dgv_vacunatorios.Rows(c).Cells("nombre").Value = tabla.Rows(c)("nombre")
 
                         sql = ""
-                        sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
-                        sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
-                        sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
-                        sql &= " WHERE EMP.id = " & dgv_empleados.Rows(c).Cells("id").Value & " AND EE.id_efector='" & Me.txt_cuie.Text & "'"
-                        tabla.Clear()
-                        tabla = acceso.consulta(sql)
+                        sql = " SELECT descripcion as nombre_loc FROM LOCALIDADES WHERE id= " & tabla.Rows(c)("id_localidad")
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
 
-                        If tabla.Rows.Count() = 0 Then
-                            dgv_empleados.Rows(c).Cells("perfil").Value = "NULL"
-                            dgv_empleados.Rows(c).Cells("id_perfil").Value = "NULL"
-                        Else
-                            dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("perfil")
-                            dgv_empleados.Rows(c).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
-                        End If
+                        dgv_vacunatorios.Rows(c).Cells("localidad").Value = tabla2.Rows(0)("nombre_loc")
+                        sql = ""
+                        sql = " SELECT nombre as nombre_referente FROM EFECTORES WHERE cuie='" & tabla.Rows(c)("id_referente") & "'"
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_vacunatorios.Rows(c).Cells("referente").Value = tabla2.Rows(0)("nombre_referente")
                     Next
                 End If
+
+            Else
+                sql &= "SELECT EF.cuie as cuie, EF.nombre as nombre, EF.id_localidad as id_localidad, EF.id_referente as id_referente "
+                sql &= " FROM EFECTORES EF "
+                sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
+
+                tabla = acceso.consulta(sql)
+
+                If tabla.Rows.Count = 0 Then
+                    MessageBox.Show("No se encontró el efector: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Else
+                    dgv_vacunatorios.Rows.Clear()
+
+                    For c = 0 To tabla.Rows.Count - 1
+                        dgv_vacunatorios.Rows.Add()
+
+                        dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla.Rows(c)("CUIE")
+                        dgv_vacunatorios.Rows(c).Cells("nombre").Value = tabla.Rows(c)("nombre")
+
+                        sql = ""
+                        sql = " SELECT descripcion as nombre_loc FROM LOCALIDADES WHERE id= " & tabla.Rows(c)("id_localidad")
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+
+                        dgv_vacunatorios.Rows(c).Cells("localidad").Value = tabla2.Rows(0)("nombre_loc")
+                        sql = ""
+                        sql = " SELECT nombre as nombre_referente FROM EFECTORES WHERE cuie='" & tabla.Rows(c)("id_referente") & "'"
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_vacunatorios.Rows(c).Cells("referente").Value = tabla2.Rows(0)("nombre_referente")
+                    Next
+
+                    sql = ""
+                    sql &= "SELECT EM.id AS id_empleado, EM.nro_doc as nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, "
+                    sql &= " C.descripcion AS cargo, EM.usuario_sigipsa as usuario_sigipsa, EE.id_cargo as id_cargo, EE.id_perfil as id_perfil, TD.descripcion AS tipo_doc, "
+                    sql &= " ESTXEMPL.descripcion AS estado_empleado, EE.id_estado_empleado as id_estado "
+                    sql &= " FROM EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados "
+                    sql &= " JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id "
+                    sql &= " JOIN CARGO C ON C.id = EE.id_cargo "
+                    sql &= " JOIN ESTADOS_EMPLEADOS ESTXEMPL ON ESTXEMPL.id = EE.id_estado_empleado  "
+                    sql &= "WHERE EE.id_efector='" & Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value & "'"
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+
+                    If tabla2.Rows.Count() = 0 Then
+                        MessageBox.Show("El efector seleccionado no tiene empleados asignados!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Exit Sub
+                    Else
+                        dgv_empleados.Rows.Clear()
+                        For c = 0 To tabla2.Rows.Count - 1
+                            dgv_empleados.Rows.Add()
+                            dgv_empleados.Rows(c).Cells("id").Value = tabla2.Rows(c)("id_empleado")
+                            dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla2.Rows(c)("tipo_doc")
+                            dgv_empleados.Rows(c).Cells("numero").Value = tabla2.Rows(c)("nro_doc")
+                            dgv_empleados.Rows(c).Cells("nombres").Value = tabla2.Rows(c)("nombre_empleado")
+                            dgv_empleados.Rows(c).Cells("apellidos").Value = tabla2.Rows(c)("apellido_empleado")
+                            dgv_empleados.Rows(c).Cells("cargo").Value = tabla2.Rows(c)("cargo")
+                            dgv_empleados.Rows(c).Cells("usuario").Value = tabla2.Rows(c)("usuario_sigipsa")
+                            dgv_empleados.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
+                            dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado_empleado")
+                            dgv_empleados.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
+
+                            sql = ""
+                            sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
+                            sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
+                            sql &= " JOIN PERFILES_SIGIPSA P ON EE.id_perfil = P.id "
+                            sql &= " WHERE EMP.id = " & dgv_empleados.Rows(c).Cells("id").Value & " AND EE.id_efector='" & Me.txt_cuie.Text & "'"
+                            tabla.Clear()
+                            tabla = acceso.consulta(sql)
+
+                            If tabla.Rows.Count() = 0 Then
+                                dgv_empleados.Rows(c).Cells("perfil").Value = "NULL"
+                                dgv_empleados.Rows(c).Cells("id_perfil").Value = "NULL"
+                            Else
+                                dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("perfil")
+                                dgv_empleados.Rows(c).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
+                            End If
+                        Next
+                    End If
+                End If
+
             End If
+
         End If
+
         limpiar(Me.Controls)
         txt_nombre.Focus()
         Me.condicion_estado = estado.modificar
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
-        lbl_contador_efectores.Text = Me.dgv_vacunatorios.Rows.Count()
+        Dim valor As Integer
+        Dim sql As String = ""
+
+        sql &= "SELECT COUNT(*) "
+        sql &= "FROM EFECTORES"
+
+        valor = acceso.contadores(sql)
+
+        lbl_contador_efectores.Text = valor
     End Sub
 
 
     Private Sub cmd_cadena_de_frio_Click(sender As Object, e As EventArgs) Handles cmd_cadena_de_frio.Click
         Inventario_cadena_de_frio.ShowDialog()
+    End Sub
+
+    Private Sub cmd_notificar_Click(sender As Object, e As EventArgs) Handles cmd_notificar.Click
+        Registrar_notificaciones.ShowDialog()
     End Sub
 
 End Class

@@ -51,11 +51,11 @@ Public Class Menu
 
     End Sub
     Private Sub LocalidadesPorDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesPorDepartamentosToolStripMenuItem.Click
-        listado_localidadesxdpto.Show()
+        listado_localidadesxdpto.ShowDialog()
     End Sub
 
     Private Sub EfectoresPorReferenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorReferenteToolStripMenuItem.Click
-
+        listados_efector_x_refe.ShowDialog()
     End Sub
 
     Private Sub EfectoresPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEstadoToolStripMenuItem.Click
@@ -107,7 +107,7 @@ Public Class Menu
 
     End Sub
 
-    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoRecordatorioToolStripMenuItem.Click
+    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrar_recordatorio.ShowDialog()
     End Sub
 
@@ -147,7 +147,19 @@ Public Class Menu
         list_efect_internet.ShowDialog()
     End Sub
 
-    Private Sub ListadoPedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListadoPedidosDeDesarrolloToolStripMenuItem.Click
+    Private Sub InventarioDeCadenaDeFrioToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles InventarioDeCadenaDeFrioToolStripMenuItem.Click
+        Inventario_cadena_de_frio.ShowDialog()
+    End Sub
+
+    Private Sub PedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosDeDesarrolloToolStripMenuItem.Click
         list_pedidos_desarrollo.ShowDialog()
+    End Sub
+
+    Private Sub CapacitacionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapacitacionesRegistradasToolStripMenuItem.Click
+        list_capacitaciones.ShowDialog()
+    End Sub
+
+    Private Sub AtencionesRegistradasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem1.Click
+        list_atenciones.ShowDialog()
     End Sub
 End Class
