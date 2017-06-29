@@ -107,7 +107,7 @@ Public Class Menu
 
     End Sub
 
-    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoRecordatorioToolStripMenuItem.Click
+    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrar_recordatorio.ShowDialog()
     End Sub
 
@@ -153,5 +153,13 @@ Public Class Menu
 
     Private Sub PedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosDeDesarrolloToolStripMenuItem.Click
         list_pedidos_desarrollo.ShowDialog()
+    End Sub
+
+    Private Sub CapacitacionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapacitacionesRegistradasToolStripMenuItem.Click
+        list_capacitaciones.ShowDialog()
+    End Sub
+
+    Private Sub AtencionesRegistradasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem1.Click
+        list_atenciones.ShowDialog()
     End Sub
 End Class

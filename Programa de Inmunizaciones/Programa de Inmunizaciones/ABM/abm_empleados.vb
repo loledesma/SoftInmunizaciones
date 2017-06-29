@@ -122,6 +122,7 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedIndex = -1
+        Me.cmb_tipo_doc.SelectedValue = 1
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
