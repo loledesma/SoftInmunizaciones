@@ -110,7 +110,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre Empleado</Value>
+                              <Value>Marcas</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -148,7 +148,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Apellido Empleado</Value>
+                              <Value>Cantidad</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -186,7 +186,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Descripcion</Value>
+                              <Value>Observaciones</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -292,14 +292,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre_informante">
+                    <Textbox Name="marca_termos">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre_informante.Value</Value>
+                              <Value>=Fields!marca_termos.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -311,7 +311,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre_informante</rd:DefaultName>
+                      <rd:DefaultName>marca_termos</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -327,14 +327,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="apellido_informante">
+                    <Textbox Name="cantidad_termometros">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!apellido_informante.Value</Value>
+                              <Value>=Fields!cantidad_termometros.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -346,7 +346,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>apellido_informante</rd:DefaultName>
+                      <rd:DefaultName>cantidad_termometros</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -362,14 +362,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="descripcion">
+                    <Textbox Name="observaciones_termometros">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!descripcion.Value</Value>
+                              <Value>=Fields!observaciones_termometros.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -381,7 +381,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>descripcion</rd:DefaultName>
+                      <rd:DefaultName>observaciones_termometros</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
