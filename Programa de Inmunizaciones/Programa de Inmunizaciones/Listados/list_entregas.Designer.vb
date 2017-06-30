@@ -24,6 +24,7 @@ Partial Class list_entregas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_entregas))
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
@@ -46,10 +47,12 @@ Partial Class list_entregas
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.LISTENTREGASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LIST_ENTREGASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_datos_atenciones.SuspendLayout()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LISTENTREGASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LIST_ENTREGASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grp_datos_efector
@@ -271,7 +274,10 @@ Partial Class list_entregas
         Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_atenciones.rdlc"
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.LIST_ENTREGASBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_entregas.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(18, 150)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(967, 436)
@@ -287,7 +293,12 @@ Partial Class list_entregas
         Me.LISTENTREGASBindingSource.DataMember = "LIST_ENTREGAS"
         Me.LISTENTREGASBindingSource.DataSource = Me.Inmunizaciones
         '
-        'list_atenciones
+        'LIST_ENTREGASBindingSource
+        '
+        Me.LIST_ENTREGASBindingSource.DataMember = "LIST_ENTREGAS"
+        Me.LIST_ENTREGASBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'list_entregas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -297,14 +308,15 @@ Partial Class list_entregas
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_atenciones)
         Me.Controls.Add(Me.grp_datos_efector)
-        Me.Name = "list_atenciones"
-        Me.Text = "ATENCIONES"
+        Me.Name = "list_entregas"
+        Me.Text = "ENTREGAS"
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
         Me.grp_datos_atenciones.ResumeLayout(False)
         Me.grp_datos_atenciones.PerformLayout()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LISTENTREGASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LIST_ENTREGASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -331,4 +343,5 @@ Partial Class list_entregas
     Friend WithEvents lbl_estado As System.Windows.Forms.Label
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
     Friend WithEvents LISTENTREGASBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents LIST_ENTREGASBindingSource As System.Windows.Forms.BindingSource
 End Class

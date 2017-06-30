@@ -87,6 +87,11 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadosToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntregasRealizadasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarInventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadosToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventariosRegistradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -226,7 +231,7 @@ Partial Class Menu
         '
         'HeldareasYPCsToolStripMenuItem
         '
-        Me.HeldareasYPCsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarEntregaToolStripMenuItem, Me.StockToolStripMenuItem})
+        Me.HeldareasYPCsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarEntregaToolStripMenuItem, Me.StockToolStripMenuItem, Me.ListadosToolStripMenuItem7})
         resources.ApplyResources(Me.HeldareasYPCsToolStripMenuItem, "HeldareasYPCsToolStripMenuItem")
         Me.HeldareasYPCsToolStripMenuItem.Name = "HeldareasYPCsToolStripMenuItem"
         '
@@ -263,6 +268,7 @@ Partial Class Menu
         '
         'InventarioDeCadenaDeFrioToolStripMenuItem
         '
+        Me.InventarioDeCadenaDeFrioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarInventarioToolStripMenuItem, Me.ListadosToolStripMenuItem8})
         resources.ApplyResources(Me.InventarioDeCadenaDeFrioToolStripMenuItem, "InventarioDeCadenaDeFrioToolStripMenuItem")
         Me.InventarioDeCadenaDeFrioToolStripMenuItem.Name = "InventarioDeCadenaDeFrioToolStripMenuItem"
         '
@@ -463,6 +469,33 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
+        'ListadosToolStripMenuItem7
+        '
+        Me.ListadosToolStripMenuItem7.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntregasRealizadasToolStripMenuItem})
+        resources.ApplyResources(Me.ListadosToolStripMenuItem7, "ListadosToolStripMenuItem7")
+        Me.ListadosToolStripMenuItem7.Name = "ListadosToolStripMenuItem7"
+        '
+        'EntregasRealizadasToolStripMenuItem
+        '
+        resources.ApplyResources(Me.EntregasRealizadasToolStripMenuItem, "EntregasRealizadasToolStripMenuItem")
+        Me.EntregasRealizadasToolStripMenuItem.Name = "EntregasRealizadasToolStripMenuItem"
+        '
+        'RegistrarInventarioToolStripMenuItem
+        '
+        resources.ApplyResources(Me.RegistrarInventarioToolStripMenuItem, "RegistrarInventarioToolStripMenuItem")
+        Me.RegistrarInventarioToolStripMenuItem.Name = "RegistrarInventarioToolStripMenuItem"
+        '
+        'ListadosToolStripMenuItem8
+        '
+        Me.ListadosToolStripMenuItem8.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InventariosRegistradosToolStripMenuItem})
+        resources.ApplyResources(Me.ListadosToolStripMenuItem8, "ListadosToolStripMenuItem8")
+        Me.ListadosToolStripMenuItem8.Name = "ListadosToolStripMenuItem8"
+        '
+        'InventariosRegistradosToolStripMenuItem
+        '
+        resources.ApplyResources(Me.InventariosRegistradosToolStripMenuItem, "InventariosRegistradosToolStripMenuItem")
+        Me.InventariosRegistradosToolStripMenuItem.Name = "InventariosRegistradosToolStripMenuItem"
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -544,4 +577,9 @@ Partial Class Menu
     Friend WithEvents InventarioDeCadenaDeFrioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PedidosDeDesarrolloToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CapacitacionesRegistradasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListadosToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EntregasRealizadasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistrarInventarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListadosToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents InventariosRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

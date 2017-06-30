@@ -514,6 +514,7 @@
       <DependentUpon>list_inventario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_inventario_cf _termos.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf.rdlc" />
     <EmbeddedResource Include="Listados\list_inventario_cf_termometro.rdlc" />
     <EmbeddedResource Include="Listados\list_inventario_cf_heladera.rdlc" />
     <EmbeddedResource Include="Listados\list_efectores_con_internet.rdlc" />

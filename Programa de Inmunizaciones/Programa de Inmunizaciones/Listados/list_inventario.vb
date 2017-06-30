@@ -19,6 +19,10 @@
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
+        Me.ReportViewer4.RefreshReport()
+        Me.ReportViewer1.RefreshReport()
+        Me.ReportViewer2.RefreshReport()
+        Me.ReportViewer3.RefreshReport()
     End Sub
 
 
@@ -90,106 +94,202 @@
     End Sub
 
 
+    Private Sub imprimir()
+        Dim inventario As New DataTable
+        Dim heladera As New DataTable
+        Dim termos As New DataTable
+        Dim termometro As New DataTable
+        Dim sql As String = ""
 
-    ''Private Function validar() As Boolean
-    ''    If cmb_departamentos.SelectedIndex <> -1 Then
-    ''        If cmb_localidades.SelectedIndex = -1 Then
-    ''            MessageBox.Show("Debe seleccionar la localidad", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    ''            Me.cmb_localidades.Focus()
-    ''            Return False
-    ''            Exit Function
-    ''        ElseIf txt_cuie.Text = "" Then
-    ''            MessageBox.Show("Debe ingresar el cuie", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    ''            Me.txt_cuie.Focus()
-    ''            Return False
-    ''            Exit Function
-    ''        ElseIf txt_efectores.Text = "" Then
-    ''            MessageBox.Show("Debe ingresar el efector", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    ''            Me.txt_efectores.Focus()
-    ''            Return False
-    ''            Exit Function
-    ''        End If
-    ''    End If
-    ''    Return True
-    ''End Function
+        inventario = imprimir_inventario()
+        termos = imprimir_termos()
+        termometro = imprimir_termometro()
+        heladera = imprimir_heladera()
 
-    'Private Sub imprimir()
-    '    Dim tabla As New DataTable
-    '    Dim sql As String = ""
+        If inventario.Rows.Count() = 0 Then
+            MessageBox.Show("No hay datos para esa búsqueda")
+            Exit Sub
+        Else
+            If termos.Rows.Count() = 0 Then
+                MessageBox.Show("No hay datos de termos")
+            ElseIf termometro.Rows.Count() = 0 Then
+                MessageBox.Show("No hay datos de termometros")
+            ElseIf heladera.Rows.Count() = 0 Then
+                MessageBox.Show("No hay datos de heladera")
+            End If
 
-    '    sql &= "SELECT A.fecha as fecha, A.descripcion as descripcion, E.nombres as administrador, EF.nombre as nombre_efector "
-    '    sql &= " , EA.descripcion as estado "
-    '    sql &= " FROM ATENCION_SOPORTE A JOIN EMPLEADOS E ON A.id_administrador = E.id "
-    '    sql &= " JOIN EFECTORES EF ON A.id_efector = EF.cuie"
-    '    sql &= " JOIN ESTADOS_ATENCION EA ON EA.id = A.id_estados_atencion "
-    '    sql &= " JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
-    '    sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id "
+            LISTINVENTARIOBindingSource.DataSource = inventario
+            LISTINVENTHELADERABindingSource.DataSource = heladera
+            LISTINVENTTERMOMETROSBindingSource.DataSource = termometro
+            LISTINVENTTERMOSBindingSource.DataSource = termos
 
-    '    If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
-    '        MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '        Me.txt_fecha_hasta.Focus()
-    '        Exit Sub
-    '    ElseIf IsDate(txt_fecha_hasta.Text) And IsDate(txt_fecha_desde.Text) = False Then
-    '        MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '        Me.txt_fecha_desde.Focus()
-    '        Exit Sub
-    '    End If
-
-    '    If IsDate(Me.txt_fecha_desde.Text) And IsDate(Me.txt_fecha_hasta.Text) Then
-    '        If Me.validar_fecha() = False Then
-    '            Exit Sub
-    '        Else
-    '            sql &= " WHERE fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
-    '        End If
-    '        If Me.cmb_departamentos.SelectedIndex <> -1 Then
-    '            sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
-    '        ElseIf cmb_localidades.SelectedIndex <> -1 Then
-    '            sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-    '        ElseIf txt_cuie.Text <> "" Then
-    '            sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
-    '        End If
-    '    ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
-    '        sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
-    '        If cmb_localidades.SelectedIndex <> -1 Then
-    '            sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-    '        ElseIf txt_cuie.Text <> "" Then
-    '            sql &= " AND EF.cuie='" & Me.txt_cuie.Text & "'"
-    '        End If
-    '    ElseIf cmb_localidades.SelectedIndex <> -1 Then
-    '        sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
-    '        If txt_cuie.Text <> "" Then
-    '            sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
-    '        End If
-    '    ElseIf txt_cuie.Text <> "" Then
-    '        sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
-    '    End If
-
-    '    sql &= "ORDER BY fecha, nombre_efector, estado "
-
-    '    tabla = acceso.consulta(sql)
-
-    '    If tabla.Rows.Count() = 0 Then
-    '        Me.ReportViewer1.Clear()
-    '        MessageBox.Show("No hay datos para esa búsqueda")
-    '        Exit Sub
-    '    End If
-
-    '    Me.LISTATENCIONESBindingSource.DataSource = tabla
-    '    Me.ReportViewer1.RefreshReport()
-
-    'End Sub
-
-    'Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs)
-    '    Me.imprimir()
-    'End Sub
+            Me.ReportViewer4.RefreshReport()
+            Me.ReportViewer1.RefreshReport()
+            Me.ReportViewer2.RefreshReport()
+            Me.ReportViewer3.RefreshReport()
+        End If
+    End Sub
 
 
-    'Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-    '    Me.ReportViewer1.Width = Me.Width - 50
-    '    Me.ReportViewer1.Height = Me.Height - 200
 
-    '    'Me.ReportViewer1.Anchor = AnchorStyles.Left
-    '    'Me.ReportViewer1.Anchor = AnchorStyles.Right
-    '    'Me.ReportViewer1.PerformAutoScale()
-    'End Sub
+    Private Function imprimir_inventario() As DataTable
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT IC.id_efector as cuie, E.nombre as nombre_vacunatorio, EMP.nombres as nombre_informante "
+        sql &= ", EMP.apellidos as apellido_informante, IC.fecha as fecha_informacion "
+        sql &= " FROM INVENTARIO_CF IC "
+        sql &= " JOIN EFECTORES E ON E.cuie = IC.id_efector "
+        sql &= " JOIN EMPLEADOS EMP ON IC.id_empleado = EMP.id "
+
+        If Me.cmb_departamentos.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            ElseIf txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf cmb_localidades.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            If txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf txt_cuie.Text <> "" Then
+            sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        End If
+
+        sql &= "ORDER BY nombre_vacunatorio "
+
+        tabla = acceso.consulta(sql)
+
+        Return tabla
+    End Function
+
+    Private Function imprimir_heladera() As DataTable
+        Dim hoy As Date = Date.Today
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT IC.id_efector as cuie, E.nombre as nombre_vacunatorio, TH.descripcion as tipo_heladera "
+        sql &= " , M.descripcion as marca_heladera, ICT.modelo as modelo, ICT.nro_serie as nro_serie "
+        sql &= " , ICT.capacidad as capacidad_heladera, ICT.medidas as medidas, antiguedad = DateDiff(YEAR, ICT.fecha, '" & hoy & "') "
+        sql &= " , FUN.descripcion as funciona "
+        sql &= " , ICT.motivo as motivo, ICT.observaciones as observaciones "
+        sql &= " FROM INVENTARIO_CF_HELADERA ICT JOIN INVENTARIO_CF IC ON ICT.id_efector = IC.id_efector "
+        sql &= " JOIN EFECTORES E ON E.cuie = IC.id_efector "
+        sql &= " JOIN TIPO_HELADERA TH ON TH.id = ICT.id_tipo_heladera "
+        sql &= " JOIN MARCA M ON M.id = ICT.id_marca "
+        sql &= " JOIN FUNCIONAMIENTO FUN ON ICT.id_funcionamiento = FUN.id "
+
+
+        If Me.cmb_departamentos.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            ElseIf txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf cmb_localidades.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            If txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf txt_cuie.Text <> "" Then
+            sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        End If
+
+        sql &= "ORDER BY nombre_vacunatorio "
+
+        tabla = acceso.consulta(sql)
+
+        Return tabla
+    End Function
+
+    Private Function imprimir_termos() As DataTable
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT IC.id_efector as cuie, E.nombre as nombre_vacunatorio, ICT.tipo_termo as marca_termos, ICT.cantidad as cantidad_termos "
+        sql &= " , ICT.observaciones as observaciones_termos "
+        sql &= " FROM INVENTARIO_CF_TERMOS ICT JOIN INVENTARIO_CF IC ON ICT.id_efector = IC.id_efector "
+        sql &= " JOIN EFECTORES E ON E.cuie = IC.id_efector "
+
+
+
+        If Me.cmb_departamentos.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            ElseIf txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf cmb_localidades.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            If txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf txt_cuie.Text <> "" Then
+            sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        End If
+
+        sql &= "ORDER BY nombre_vacunatorio "
+
+        tabla = acceso.consulta(sql)
+
+        Return tabla
+    End Function
+
+    Private Function imprimir_termometro() As DataTable
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT IC.id_efector as cuie, E.nombre as nombre_vacunatorio, ICT.tipo_termometro as marca_termometros, ICT.cantidad as cantidad_termometros "
+        sql &= " , ICT.observaciones as observaciones_termometros "
+        sql &= " FROM INVENTARIO_CF_TERMOMETRO ICT JOIN INVENTARIO_CF IC ON ICT.id_efector = IC.id_efector "
+        sql &= " JOIN EFECTORES E ON E.cuie = IC.id_efector "
+
+
+
+        If Me.cmb_departamentos.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sql &= " AND E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            ElseIf txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf cmb_localidades.SelectedIndex <> -1 Then
+            sql &= " WHERE E.id_localidad= " & Me.cmb_localidades.SelectedValue
+            If txt_cuie.Text <> "" Then
+                sql &= " AND E.cuie='" & Me.txt_cuie.Text & "'"
+            End If
+        ElseIf txt_cuie.Text <> "" Then
+            sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        End If
+
+        sql &= "ORDER BY nombre_vacunatorio "
+
+        tabla = acceso.consulta(sql)
+
+        Return tabla
+    End Function
+
+
+    Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
+        Me.imprimir()
+    End Sub
+
+
+    Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        Me.ReportViewer1.Width = Me.Width - 50
+        Me.ReportViewer1.Height = Me.Height - 200
+
+        'Me.ReportViewer1.Anchor = AnchorStyles.Left
+        'Me.ReportViewer1.Anchor = AnchorStyles.Right
+        'Me.ReportViewer1.PerformAutoScale()
+
+        Me.TabControl1.Width = Me.Width - 50
+        Me.TabControl1.Height = Me.Height - 200
+
+    End Sub
+
 End Class
