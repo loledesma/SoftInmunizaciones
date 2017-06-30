@@ -270,9 +270,9 @@ Partial Class list_inventario
         ReportDataSource2.Value = Me.LISTINVENTHELADERABindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_inventario_cf_heladera.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(6, 17)
+        Me.ReportViewer1.Location = New System.Drawing.Point(6, 8)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(937, 362)
+        Me.ReportViewer1.Size = New System.Drawing.Size(953, 381)
         Me.ReportViewer1.TabIndex = 7
         '
         'TabPage2
