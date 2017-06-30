@@ -162,4 +162,16 @@ Public Class Menu
     Private Sub AtencionesRegistradasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem1.Click
         list_atenciones.ShowDialog()
     End Sub
+
+    Private Sub EntregasRealizadasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntregasRealizadasToolStripMenuItem.Click
+        list_entregas.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarInventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarInventarioToolStripMenuItem.Click
+        Inventario_cadena_de_frio.ShowDialog()
+    End Sub
+
+    Private Sub InventariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventariosRegistradosToolStripMenuItem.Click
+        list_inventario.ShowDialog()
+    End Sub
 End Class

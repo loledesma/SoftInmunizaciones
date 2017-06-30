@@ -579,7 +579,7 @@
   <data name="RegistrarNvaPeticiónToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOgAAADoAYbV9q8AAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOcAAADnAfAbWLUAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAAEE0lEQVRYR8VXSU9TURTub5Cdv0F/ACu3DNLXB5SW0jK1tGAFJBqJcYis
         TNQQFoaFQ0RcuCJoIkFNRBwgsCBiBMJY24KoFBBL0RATjve79F5e29fyqCQsTnp7hu/77nnDPc9ERKaj
         tCMlx8YPJMBsrz2uVvjqFaf3iVrhfWup8M7BsN71+eqRc5COGhKglvtyGckAI9thRvvYDnJRY0RIRgFq
@@ -844,6 +844,66 @@
   <data name="StockToolStripMenuItem.Text" xml:space="preserve">
     <value>Stock</value>
   </data>
+  <data name="EntregasRealizadasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADUElEQVRYR8WX204TURSGudNH0IfwQXwLb7zzzksuJdGEKFUiB70AL+Qw
+        DUYwgWhQIZ6qqUSDAm2hRcqpY4G206HTmba/+9+0tR1mOkXGdJKVTGbWXv83e6+99pouAF3t2IPY7IW+
+        zeDVQGJyKJBQFoVFA5uKJo338tnkEH3o205M+niK921OXQ4kgoNCICcMbZrwDQ5yrBeIK8BIYuTi/bjS
+        IwT1NkWd4HTGYCw3EEeAhwnlkhANnUPYDhNiTCeIUwD3NpQrYl2TPoqfwIiYjG2HaAKQX24Tv9Z/Swa4
+        /vg2elfHcGPsLnrCo7g53Y/u18PSeM9nfEcf+nJMbWz9Y0Rs+0zUAbhO9mn/sL2C7t4hGKaJOwNPkD7K
+        4NH4c0TiW5iae4uF0JI03vMZ39GHvhzDsYxhm81QY07UAaoJ1+S8nU1jOZJAqVTG2kYShmEivrWHrKYj
+        uadCTWek8T6X1+U7+tCXYziWMezLSa3aUkiAk612Ots5+LyXEwC1altUAlT3+SlSR4D1lTMxuQAIreCg
+        LESsWm5FhoMrFUA/NqSVlsPAu5c+ASg5aovpZ3l1rnAEMIomzMhPVMLvYczPSPE9A3j1290aCd1nQAG1
+        xfTL2u5YYusA2SzweUEk2rGMrRaBxYNmK5adJ6YVALUFgDxYXAEqYg20fEGKm1ZJqpTFshSEYKO5rUtr
+        AGWRADzJXAGaAjMh3rzwKweoGe2qHqeuAKVyGTntWJgOa2Yc2PkFTUzEuu5u7eYAtT0BmITWjyVgYhj5
+        2JqM7S+AxxIUTQuaXoChpmQu8NoVu2BWbTbjn5KQS+CRhBS0RPIxAZmQKFl+5gCTsPU2pBp1pbgmtuOz
+        UR8BxDb0KkT88tx+CnlVhTnxGCga/hYir1IskzAeBZ4OQDs8kl/PopMWxajRxPw4Xi3qwEkpFqNaHkaW
+        OFZ5/LIQ6QWRfeI6NIGvmWazbAQ8lnl+xA/2XRrZ6mFEAL+P40xOx27qEMndNOZj3xyb1abjmBBuDcmZ
+        Mq7qnGKTIsS/r25hLhL2bkgI4NaSFURrxfbqLLajHuDLWgwfVyKYjn5qryUjhFNT6mt33KopJQCto215
+        DaKjPyY1iI7+mtUg/m7RDvycNkLw/n/9nv8BnQ4cf7A7aLMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="EntregasRealizadasToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="EntregasRealizadasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 38</value>
+  </data>
+  <data name="EntregasRealizadasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Entregas Realizadas</value>
+  </data>
+  <data name="ListadosToolStripMenuItem7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADUElEQVRYR8WX204TURSGudNH0IfwQXwLb7zzzksuJdGEKFUiB70AL+Qw
+        DUYwgWhQIZ6qqUSDAm2hRcqpY4G206HTmba/+9+0tR1mOkXGdJKVTGbWXv83e6+99pouAF3t2IPY7IW+
+        zeDVQGJyKJBQFoVFA5uKJo338tnkEH3o205M+niK921OXQ4kgoNCICcMbZrwDQ5yrBeIK8BIYuTi/bjS
+        IwT1NkWd4HTGYCw3EEeAhwnlkhANnUPYDhNiTCeIUwD3NpQrYl2TPoqfwIiYjG2HaAKQX24Tv9Z/Swa4
+        /vg2elfHcGPsLnrCo7g53Y/u18PSeM9nfEcf+nJMbWz9Y0Rs+0zUAbhO9mn/sL2C7t4hGKaJOwNPkD7K
+        4NH4c0TiW5iae4uF0JI03vMZ39GHvhzDsYxhm81QY07UAaoJ1+S8nU1jOZJAqVTG2kYShmEivrWHrKYj
+        uadCTWek8T6X1+U7+tCXYziWMezLSa3aUkiAk612Ots5+LyXEwC1altUAlT3+SlSR4D1lTMxuQAIreCg
+        LESsWm5FhoMrFUA/NqSVlsPAu5c+ASg5aovpZ3l1rnAEMIomzMhPVMLvYczPSPE9A3j1290aCd1nQAG1
+        xfTL2u5YYusA2SzweUEk2rGMrRaBxYNmK5adJ6YVALUFgDxYXAEqYg20fEGKm1ZJqpTFshSEYKO5rUtr
+        AGWRADzJXAGaAjMh3rzwKweoGe2qHqeuAKVyGTntWJgOa2Yc2PkFTUzEuu5u7eYAtT0BmITWjyVgYhj5
+        2JqM7S+AxxIUTQuaXoChpmQu8NoVu2BWbTbjn5KQS+CRhBS0RPIxAZmQKFl+5gCTsPU2pBp1pbgmtuOz
+        UR8BxDb0KkT88tx+CnlVhTnxGCga/hYir1IskzAeBZ4OQDs8kl/PopMWxajRxPw4Xi3qwEkpFqNaHkaW
+        OFZ5/LIQ6QWRfeI6NIGvmWazbAQ8lnl+xA/2XRrZ6mFEAL+P40xOx27qEMndNOZj3xyb1abjmBBuDcmZ
+        Mq7qnGKTIsS/r25hLhL2bkgI4NaSFURrxfbqLLajHuDLWgwfVyKYjn5qryUjhFNT6mt33KopJQCto215
+        DaKjPyY1iI7+mtUg/m7RDvycNkLw/n/9nv8BnQ4cf7A7aLMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ListadosToolStripMenuItem7.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ListadosToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 38</value>
+  </data>
+  <data name="ListadosToolStripMenuItem7.Text" xml:space="preserve">
+    <value>Listados</value>
+  </data>
   <data name="HeldareasYPCsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
@@ -998,6 +1058,90 @@
   </data>
   <data name="CursosToolStripMenuItem.Text" xml:space="preserve">
     <value>Cursos</value>
+  </data>
+  <data name="RegistrarInventarioToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOQAAADkAV2iedgAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAAB60lEQVRYR8WXv07DMBDGs8EjwM7KQKNKsLHyHLwK4hXoxgANfx6ABbUh
+        TBUDO6wZq0qlaSoxtOa+2I5Km+QuyMiVrEbK+e6Xz+c7O1BKBZJx8PS0czS4P+sMox6NpDOIPuk/K4Z+
+        TvAONrCV+IQNGzx8vdkP4/4VOZ/RUMIxwxzM5UBqAU7j6136sovOsJ8Lg1bA0VzyAV91IJUA3fhxj4KO
+        /h54S6kRfFZBbAGEye1hOIzSquDn78/q8uOtccCmai58wvcmxC8AUNYF78Z36nu5pPnNP9jAtg5iU4kS
+        oFjzBtmPXx642OV72DYs32g9J0oAnXD1We4QQCGWXYoCANuFy3YLkGUZqwSjAKnTz+0W1QB6nzfucTjN
+        81ylaeoAIFKIWRQiVC1JkQHAarVSk8nECQBiInZgyitb4ZzmgFEbsQNT21mAE1LgazoVDdhyS2re9wCA
+        JsJOsArk87mrJUDMJDCdTASwWCycJWHx0dRFoQBaqghgSVVuPB67VCBrBcBGNgZ8HSg/mAD0YUKkgHMA
+        swStklAC0UIBSkJ9xPKjAMX2X4jalGKJ/LARLoEuxW2akUuAshm1bccSCF6BjXYMCK8HEgB4P5IBwuuh
+        1J7RvB7LLYTXi4mF8Ho1sxB2i3q5nK5D4Pm/ruc/8jaesC2LtRsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="RegistrarInventarioToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="RegistrarInventarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 38</value>
+  </data>
+  <data name="RegistrarInventarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Registrar Inventario</value>
+  </data>
+  <data name="InventariosRegistradosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADUElEQVRYR8WX204TURSGudNH0IfwQXwLb7zzzksuJdGEKFUiB70AL+Qw
+        DUYwgWhQIZ6qqUSDAm2hRcqpY4G206HTmba/+9+0tR1mOkXGdJKVTGbWXv83e6+99pouAF3t2IPY7IW+
+        zeDVQGJyKJBQFoVFA5uKJo338tnkEH3o205M+niK921OXQ4kgoNCICcMbZrwDQ5yrBeIK8BIYuTi/bjS
+        IwT1NkWd4HTGYCw3EEeAhwnlkhANnUPYDhNiTCeIUwD3NpQrYl2TPoqfwIiYjG2HaAKQX24Tv9Z/Swa4
+        /vg2elfHcGPsLnrCo7g53Y/u18PSeM9nfEcf+nJMbWz9Y0Rs+0zUAbhO9mn/sL2C7t4hGKaJOwNPkD7K
+        4NH4c0TiW5iae4uF0JI03vMZ39GHvhzDsYxhm81QY07UAaoJ1+S8nU1jOZJAqVTG2kYShmEivrWHrKYj
+        uadCTWek8T6X1+U7+tCXYziWMezLSa3aUkiAk612Ots5+LyXEwC1altUAlT3+SlSR4D1lTMxuQAIreCg
+        LESsWm5FhoMrFUA/NqSVlsPAu5c+ASg5aovpZ3l1rnAEMIomzMhPVMLvYczPSPE9A3j1290aCd1nQAG1
+        xfTL2u5YYusA2SzweUEk2rGMrRaBxYNmK5adJ6YVALUFgDxYXAEqYg20fEGKm1ZJqpTFshSEYKO5rUtr
+        AGWRADzJXAGaAjMh3rzwKweoGe2qHqeuAKVyGTntWJgOa2Yc2PkFTUzEuu5u7eYAtT0BmITWjyVgYhj5
+        2JqM7S+AxxIUTQuaXoChpmQu8NoVu2BWbTbjn5KQS+CRhBS0RPIxAZmQKFl+5gCTsPU2pBp1pbgmtuOz
+        UR8BxDb0KkT88tx+CnlVhTnxGCga/hYir1IskzAeBZ4OQDs8kl/PopMWxajRxPw4Xi3qwEkpFqNaHkaW
+        OFZ5/LIQ6QWRfeI6NIGvmWazbAQ8lnl+xA/2XRrZ6mFEAL+P40xOx27qEMndNOZj3xyb1abjmBBuDcmZ
+        Mq7qnGKTIsS/r25hLhL2bkgI4NaSFURrxfbqLLajHuDLWgwfVyKYjn5qryUjhFNT6mt33KopJQCto215
+        DaKjPyY1iI7+mtUg/m7RDvycNkLw/n/9nv8BnQ4cf7A7aLMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="InventariosRegistradosToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="InventariosRegistradosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 38</value>
+  </data>
+  <data name="InventariosRegistradosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Inventarios Registrados</value>
+  </data>
+  <data name="ListadosToolStripMenuItem8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        bmtzY2FwZS5vcmeb7jwaAAADUElEQVRYR8WX204TURSGudNH0IfwQXwLb7zzzksuJdGEKFUiB70AL+Qw
+        DUYwgWhQIZ6qqUSDAm2hRcqpY4G206HTmba/+9+0tR1mOkXGdJKVTGbWXv83e6+99pouAF3t2IPY7IW+
+        zeDVQGJyKJBQFoVFA5uKJo338tnkEH3o205M+niK921OXQ4kgoNCICcMbZrwDQ5yrBeIK8BIYuTi/bjS
+        IwT1NkWd4HTGYCw3EEeAhwnlkhANnUPYDhNiTCeIUwD3NpQrYl2TPoqfwIiYjG2HaAKQX24Tv9Z/Swa4
+        /vg2elfHcGPsLnrCo7g53Y/u18PSeM9nfEcf+nJMbWz9Y0Rs+0zUAbhO9mn/sL2C7t4hGKaJOwNPkD7K
+        4NH4c0TiW5iae4uF0JI03vMZ39GHvhzDsYxhm81QY07UAaoJ1+S8nU1jOZJAqVTG2kYShmEivrWHrKYj
+        uadCTWek8T6X1+U7+tCXYziWMezLSa3aUkiAk612Ots5+LyXEwC1altUAlT3+SlSR4D1lTMxuQAIreCg
+        LESsWm5FhoMrFUA/NqSVlsPAu5c+ASg5aovpZ3l1rnAEMIomzMhPVMLvYczPSPE9A3j1290aCd1nQAG1
+        xfTL2u5YYusA2SzweUEk2rGMrRaBxYNmK5adJ6YVALUFgDxYXAEqYg20fEGKm1ZJqpTFshSEYKO5rUtr
+        AGWRADzJXAGaAjMh3rzwKweoGe2qHqeuAKVyGTntWJgOa2Yc2PkFTUzEuu5u7eYAtT0BmITWjyVgYhj5
+        2JqM7S+AxxIUTQuaXoChpmQu8NoVu2BWbTbjn5KQS+CRhBS0RPIxAZmQKFl+5gCTsPU2pBp1pbgmtuOz
+        UR8BxDb0KkT88tx+CnlVhTnxGCga/hYir1IskzAeBZ4OQDs8kl/PopMWxajRxPw4Xi3qwEkpFqNaHkaW
+        OFZ5/LIQ6QWRfeI6NIGvmWazbAQ8lnl+xA/2XRrZ6mFEAL+P40xOx27qEMndNOZj3xyb1abjmBBuDcmZ
+        Mq7qnGKTIsS/r25hLhL2bkgI4NaSFURrxfbqLLajHuDLWgwfVyKYjn5qryUjhFNT6mt33KopJQCto215
+        DaKjPyY1iI7+mtUg/m7RDvycNkLw/n/9nv8BnQ4cf7A7aLMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ListadosToolStripMenuItem8.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ListadosToolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 38</value>
+  </data>
+  <data name="ListadosToolStripMenuItem8.Text" xml:space="preserve">
+    <value>Listados</value>
   </data>
   <data name="InventarioDeCadenaDeFrioToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2182,7 +2326,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfMAAAFfCAYAAABa0SXeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
         AAA9lElEQVR4Xu2dPa8lu3Wm/ZdvOumEcupQkQGnkxpw5NCGg4FvYEC2gwFk2IAhAS359lxLPTpz3rOb
         3XXq1K56+Vn8eApoXEGndhWLfLkecq1F8s9++LtPL/yjDtAAGkADaAANjKuBP6Pxxm082o62QwNoAA2g
         AWkAmOOZwDODBtAAGkADg2sAmA/egIzKxxqV/49/+B1Gkz6HBtBAcQ0Ac0RVXFQMMJ4PMP7qXz9T3/Q5
@@ -9009,6 +9153,36 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem7.Name" xml:space="preserve">
+    <value>ListadosToolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EntregasRealizadasToolStripMenuItem.Name" xml:space="preserve">
+    <value>EntregasRealizadasToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EntregasRealizadasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarInventarioToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarInventarioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarInventarioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem8.Name" xml:space="preserve">
+    <value>ListadosToolStripMenuItem8</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InventariosRegistradosToolStripMenuItem.Name" xml:space="preserve">
+    <value>InventariosRegistradosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;InventariosRegistradosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

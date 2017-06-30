@@ -14,6 +14,8 @@
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_insumos.cargar()
         Me.cmb_insumos.SelectedIndex = -1
+        Me.cmb_estado_entrega.cargar()
+        Me.cmb_estado_entrega.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         Me.cmb_departamentos.Focus()
@@ -137,7 +139,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT EI.fecha_pedido as fecha_pedido, EI.fecha_entrega as fecha_entrega, EST.descripcion as estado, "
+        sql &= "SELECT EI.fecha_pedido as fecha_pedido, EI.fecha_entrega as fecha_entrega, EE.descripcion as estado, "
         sql &= " E.cuie as cuie,E.nombre as nombre_vacunatorio, EI.receptor as receptor, I.descripcion as insumo "
         sql &= ", DEI.nro_serie as nro_serie, DEI.modelo as modelo, M.descripcion as marca "
         sql &= " FROM ENTREGA_INSUMOS EI JOIN DETALLE_ENTREGA_INSUMOS DEI ON EI.id = DEI.id_entrega "
@@ -219,7 +221,8 @@
             Exit Sub
         End If
 
-        Me.LISTENTREGASBindingSource.DataSource = tabla
+
+        Me.LIST_ENTREGASBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
 
     End Sub
