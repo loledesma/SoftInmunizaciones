@@ -15,7 +15,7 @@
               <Width>5.43687cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.92333cm</Width>
+              <Width>2.76458cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>16.2848cm</Width>
@@ -422,7 +422,7 @@
         <Top>0.86995cm</Top>
         <Left>0.57891cm</Left>
         <Height>1.27938cm</Height>
-        <Width>33.64021cm</Width>
+        <Width>33.48146cm</Width>
         <Style>
           <Border>
             <Style>Double</Style>
@@ -591,76 +591,12 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="nombre_vacunatorio">
-          <DataField>nombre_vacunatorio</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="cuie">
           <DataField>cuie</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nombre_informante">
-          <DataField>nombre_informante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="apellido_informante">
-          <DataField>apellido_informante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fecha_informacion">
-          <DataField>fecha_informacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tipo_heladera">
-          <DataField>tipo_heladera</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="marca_heladera">
-          <DataField>marca_heladera</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="modelo_heladera">
-          <DataField>modelo_heladera</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nro_serie">
-          <DataField>nro_serie</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="capacidad_heladera">
-          <DataField>capacidad_heladera</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="antiguedad">
-          <DataField>antiguedad</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="funciona">
-          <DataField>funciona</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="motivo">
-          <DataField>motivo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="observaciones">
-          <DataField>observaciones</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cantidad_termos">
-          <DataField>cantidad_termos</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="marca_termos">
-          <DataField>marca_termos</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="observaciones_termos">
-          <DataField>observaciones_termos</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cantidad_termometros">
-          <DataField>cantidad_termometros</DataField>
+        <Field Name="nombre_vacunatorio">
+          <DataField>nombre_vacunatorio</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="marca_termometros">
@@ -671,11 +607,15 @@
           <DataField>observaciones_termometros</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="cantidad_termometros">
+          <DataField>cantidad_termometros</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Inmunizaciones</rd:DataSetName>
         <rd:SchemaPath>C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Modulos\Inmunizaciones.xsd</rd:SchemaPath>
-        <rd:TableName>LIST_INVENTARIO</rd:TableName>
+        <rd:TableName>LIST_INVENT_TERMOMETROS</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
