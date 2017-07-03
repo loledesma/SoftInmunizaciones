@@ -15,6 +15,8 @@
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         Me.cmb_departamentos.Focus()
+        Me.ReportViewer1.AutoScroll = True
+        Me.ReportViewer4.AutoScroll = True
 
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
@@ -280,8 +282,8 @@
 
 
     Private Sub listados_notificaciones_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        Me.ReportViewer1.Width = Me.Width - 50
-        Me.ReportViewer1.Height = Me.Height - 200
+        'Me.ReportViewer1.Width = Me.Width - 50
+        'Me.ReportViewer1.Height = Me.Height - 200
 
         'Me.ReportViewer1.Anchor = AnchorStyles.Left
         'Me.ReportViewer1.Anchor = AnchorStyles.Right
@@ -290,6 +292,9 @@
         Me.TabControl1.Width = Me.Width - 50
         Me.TabControl1.Height = Me.Height - 200
 
+
+
     End Sub
 
+   
 End Class

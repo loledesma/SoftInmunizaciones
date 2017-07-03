@@ -421,7 +421,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.3175cm</Top>
         <Left>0.57891cm</Left>
-        <Height>1.43813cm</Height>
+        <Height>1.43814cm</Height>
         <Width>34.51334cm</Width>
         <Style>
           <Border>
@@ -430,7 +430,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.92708in</Height>
+    <Height>0.84375in</Height>
     <Style />
   </Body>
   <Width>14.39583in</Width>
