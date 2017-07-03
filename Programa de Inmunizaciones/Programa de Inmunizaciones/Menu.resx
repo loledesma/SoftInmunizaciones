@@ -587,7 +587,7 @@
   <data name="RegistrarNvaPeticiónToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOUAAADlAY/lmzwAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOQAAADkAV2iedgAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAAEC0lEQVRYR8WXTW9TRxSG/RuaHb+B/oCsugXS5NoJiR3HzpcdO9QEGrUq
         qvqhsqrUVohFxaIfKoUFqwgqgShI0JQ2ESxQU5VEEMC1HZrSONDUcVqhSjmdZ+KZXF9PQqBAFq8yc857
         3vfM+F77JCQi2wpn8EXCGdwIbbHBHZGe7LCXyJyK9GS+D/dkbgPWa7HsMBxX7UZwBoOIdGeblcllZbaq
@@ -2331,23 +2331,26 @@
   <data name="&gt;&gt;menu_programa_inmunizaciones.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="Label1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold, Underline</value>
+    <value>Calibri, 14pt, style=Bold</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>887, 449</value>
+    <value>940, 449</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 20</value>
+    <value>226, 23</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
-    <value>GeVac © Equipo de Sistemas 2017</value>
+    <value>GeVac ©JL Soluciones 2017</value>
   </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
@@ -2373,7 +2376,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfMAAAFfCAYAAABa0SXeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
         AAAuQ0lEQVR4Xu2dvc/sOHpn91/edNMN7dShIwNONzXgyOEuNli4AwP+CBYYwwYWM4DHnvZ4pj137+n3
         sltXl6V6KJEUSZ0HOLjdRb1VKkrF3/Ml6b/81//5L59ERERkXhRzERGRyVHMRUREJkcxF+nIf/vfv86+
         LiJyBcVcpCN//g/fZ18XEbmCYi7SEcVcRFqgmIt0ghT7n/zNb7JjIiJXUMxFOvGnf/sba+Yi0gTFXKQT
@@ -8756,7 +8759,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>GeVac © Equipo de Sistemas 2017</value>
+    <value>GeVac ©JL Soluciones 2017</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
     <value>ToolStripMenuItem1</value>

@@ -591,5 +591,5 @@ Partial Class Menu
     Friend WithEvents RegistrarInventarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadosToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InventariosRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Public WithEvents Label1 As System.Windows.Forms.Label
 End Class
