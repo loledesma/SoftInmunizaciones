@@ -56,6 +56,7 @@
                       <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                           <Width>1.25pt</Width>
                         </Border>
@@ -93,6 +94,7 @@
                       <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                           <Width>1.25pt</Width>
                         </Border>
@@ -130,6 +132,7 @@
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                           <Width>1.25pt</Width>
                         </Border>
@@ -167,6 +170,7 @@
                       <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                           <Width>1.25pt</Width>
                         </Border>
@@ -208,18 +212,9 @@
                           <Style>Solid</Style>
                           <Width>1.25pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                        </TopBorder>
                         <BottomBorder>
                           <Style>None</Style>
                         </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                        </RightBorder>
                         <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -258,18 +253,9 @@
                           <Style>Solid</Style>
                           <Width>1.25pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                        </TopBorder>
                         <BottomBorder>
                           <Style>None</Style>
                         </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                        </RightBorder>
                         <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -309,7 +295,8 @@
                       <rd:DefaultName>cuie1</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -344,7 +331,8 @@
                       <rd:DefaultName>nombre_efector1</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -379,7 +367,8 @@
                       <rd:DefaultName>tipo_efector</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -414,7 +403,8 @@
                       <rd:DefaultName>nombre_localidad</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -449,7 +439,8 @@
                       <rd:DefaultName>nombre_departamento</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -484,7 +475,8 @@
                       <rd:DefaultName>horario_desde</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -519,7 +511,8 @@
                       <rd:DefaultName>horario_hasta</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Dashed</Style>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -562,18 +555,19 @@
             <Value>=Fields!nombre_departamento.Value</Value>
           </SortExpression>
         </SortExpressions>
-        <Top>1.24037cm</Top>
+        <Top>0.55245cm</Top>
         <Left>1.14448cm</Left>
         <Height>1.2cm</Height>
         <Width>28.01196cm</Width>
         <Style>
           <Border>
+            <Color>White</Color>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.11703in</Height>
+    <Height>0.9087in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -584,7 +578,7 @@
   <Width>13.04024in</Width>
   <Page>
     <PageHeader>
-      <Height>2.61938cm</Height>
+      <Height>2.43417cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -608,13 +602,13 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox80</rd:DefaultName>
-          <Top>0.79375cm</Top>
-          <Left>2.95569cm</Left>
+          <Top>0.49361cm</Top>
+          <Left>5.78673cm</Left>
           <Height>1.44667cm</Height>
           <Width>17.32343cm</Width>
           <Style>
             <Border>
-              <Style>Dashed</Style>
+              <Style>Double</Style>
               <Width>2.25pt</Width>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>

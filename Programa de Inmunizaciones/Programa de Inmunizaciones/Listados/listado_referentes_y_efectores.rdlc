@@ -53,11 +53,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -67,6 +68,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -88,11 +90,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -102,6 +105,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -123,11 +127,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -137,6 +142,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -158,11 +164,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -172,6 +179,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -193,11 +201,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -207,6 +216,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -228,11 +238,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -242,6 +253,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -263,11 +275,12 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox20</rd:DefaultName>
@@ -277,6 +290,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -302,11 +316,12 @@
                               <Value>=Fields!cuie.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>cuie</rd:DefaultName>
@@ -316,6 +331,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -336,11 +352,12 @@
                               <Value>=Fields!nombre_efector.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nombre_efector</rd:DefaultName>
@@ -350,6 +367,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -370,11 +388,12 @@
                               <Value>=Fields!nombre_referente_empleado.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nombre_referente_empleado</rd:DefaultName>
@@ -384,6 +403,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -404,11 +424,12 @@
                               <Value>=Fields!apellido_referente_empleado.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>apellido_referente_empleado</rd:DefaultName>
@@ -418,6 +439,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -438,11 +460,12 @@
                               <Value>=Fields!caracteristica.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>caracteristica</rd:DefaultName>
@@ -452,6 +475,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -472,11 +496,12 @@
                               <Value>=Fields!telefono.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>telefono</rd:DefaultName>
@@ -486,6 +511,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -506,11 +532,12 @@
                               <Value>=Fields!mail.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>mail</rd:DefaultName>
@@ -520,6 +547,7 @@
                           <Style>Double</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -577,7 +605,8 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>7.22058cm</Top>
+        <Top>2.511cm</Top>
+        <Left>0.43985cm</Left>
         <Height>0cm</Height>
         <Width>33.70792cm</Width>
         <ZIndex>3</ZIndex>
@@ -589,17 +618,17 @@
         </Style>
       </Line>
     </ReportItems>
-    <Height>2.84275in</Height>
+    <Height>0.98858in</Height>
     <Style>
       <Border>
         <Color>White</Color>
         <Style>Double</Style>
         <Width>2pt</Width>
       </Border>
-      <BackgroundColor>LightSeaGreen</BackgroundColor>
+      <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>13.27083in</Width>
+  <Width>13.444in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -617,7 +646,6 @@
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>40pt</FontSize>
-                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -633,8 +661,7 @@
           <Width>27.64218cm</Width>
           <Style>
             <Border>
-              <Color>White</Color>
-              <Style>Dashed</Style>
+              <Style>Double</Style>
               <Width>2.25pt</Width>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
@@ -650,7 +677,7 @@
           <Style>Double</Style>
           <Width>2pt</Width>
         </Border>
-        <BackgroundColor>LightSeaGreen</BackgroundColor>
+        <BackgroundColor>White</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
@@ -668,7 +695,6 @@
                   <Value>=Globals!ExecutionTime</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
-                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -676,7 +702,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.12401cm</Top>
+          <Top>0.17639cm</Top>
           <Left>28.91578cm</Left>
           <Height>0.6cm</Height>
           <Width>4.00812cm</Width>
@@ -716,7 +742,7 @@
           <Style>Double</Style>
           <Width>2pt</Width>
         </Border>
-        <BackgroundColor>LightSeaGreen</BackgroundColor>
+        <BackgroundColor>White</BackgroundColor>
       </Style>
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>

@@ -174,4 +174,5 @@ Public Class Menu
     Private Sub InventariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventariosRegistradosToolStripMenuItem.Click
         list_inventario.ShowDialog()
     End Sub
+
 End Class
