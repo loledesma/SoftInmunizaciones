@@ -232,10 +232,10 @@ Partial Class Registrar_notificaciones
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(363, 96)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(362, 94)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(25, 25)
         Me.cmd_efector_nuevo.TabIndex = 4
         Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -321,10 +321,10 @@ Partial Class Registrar_notificaciones
         Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(339, 108)
+        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(337, 105)
         Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
-        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(25, 25)
         Me.cmd_empleado_nuevo.TabIndex = 4
         Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -336,9 +336,9 @@ Partial Class Registrar_notificaciones
         Me.cmd_buscar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_empleado.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_empleado.Location = New System.Drawing.Point(337, 78)
+        Me.cmd_buscar_empleado.Location = New System.Drawing.Point(355, 14)
         Me.cmd_buscar_empleado.Name = "cmd_buscar_empleado"
-        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(22, 23)
+        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(40, 35)
         Me.cmd_buscar_empleado.TabIndex = 5
         Me.cmd_buscar_empleado.UseVisualStyleBackColor = True
         '

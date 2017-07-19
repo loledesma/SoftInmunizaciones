@@ -551,11 +551,7 @@
     End Sub
 
     Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
-        If MessageBox.Show("¿Desea agregar un empleado nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
-            abm_empleados.ShowDialog()
-        Else
-            Exit Sub
-        End If
+        abm_empleados.ShowDialog()
     End Sub
 
     Private Function validar_cuie() As Boolean
