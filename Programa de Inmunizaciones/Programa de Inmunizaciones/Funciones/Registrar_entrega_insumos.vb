@@ -17,9 +17,6 @@
 
     Dim condicion_inicial As condicion = condicion.insertar
     Dim condicion_click As doble_Click = doble_Click.desactivado
-    Private Sub cmd_busca_efector_Click(sender As Object, e As EventArgs)
-        listados_efector_loc_dpto.ShowDialog()
-    End Sub
 
 
     Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click

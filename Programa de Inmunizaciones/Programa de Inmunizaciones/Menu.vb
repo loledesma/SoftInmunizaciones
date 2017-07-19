@@ -83,7 +83,7 @@ Public Class Menu
         Registrar_entrega_insumos.ShowDialog()
     End Sub
 
-    Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasPorEfectorToolStripMenuItem.Click
+    Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs)
         list_heladeras_antiguas.ShowDialog()
     End Sub
 
@@ -175,4 +175,9 @@ Public Class Menu
         list_inventario.ShowDialog()
     End Sub
 
+    Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
+        Registrar_recordatorio.ShowDialog()
+    End Sub
+
+    
 End Class

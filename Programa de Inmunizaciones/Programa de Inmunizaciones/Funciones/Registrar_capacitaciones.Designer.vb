@@ -29,6 +29,16 @@ Partial Class Registrar_capacitaciones
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Capacitacion = New System.Windows.Forms.TabPage()
+        Me.grp_buscar_empleado = New System.Windows.Forms.GroupBox()
+        Me.txt_nombres_buscar = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txt_apellido_buscar = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txt_doc_buscar = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmb_doc_buscar = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmd_buscar_capas_empleado = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
@@ -44,17 +54,21 @@ Partial Class Registrar_capacitaciones
         Me.grp_descripcion = New System.Windows.Forms.GroupBox()
         Me.txt_observaciones = New System.Windows.Forms.RichTextBox()
         Me.grp_datos_generales = New System.Windows.Forms.GroupBox()
+        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.txt_lugar = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.grp_datos_capacitacion = New System.Windows.Forms.GroupBox()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
+        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_duracion_real = New System.Windows.Forms.MaskedTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt_duracion_prevista = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmb_estado = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_hora = New System.Windows.Forms.MaskedTextBox()
         Me.txt_fecha_efectiva = New System.Windows.Forms.MaskedTextBox()
@@ -90,6 +104,7 @@ Partial Class Registrar_capacitaciones
         Me.txt_apellido_empleado = New System.Windows.Forms.TextBox()
         Me.label16 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -101,23 +116,9 @@ Partial Class Registrar_capacitaciones
         Me.realizoEvaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.grp_buscar_empleado = New System.Windows.Forms.GroupBox()
-        Me.cmd_buscar_capas_empleado = New System.Windows.Forms.Button()
-        Me.txt_doc_buscar = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txt_apellido_buscar = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txt_nombres_buscar = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.cmb_doc_buscar = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_departamento = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_estado = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
+        Me.grp_buscar_empleado.SuspendLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.grp_descripcion.SuspendLayout()
@@ -127,7 +128,6 @@ Partial Class Registrar_capacitaciones
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grp_buscar_empleado.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -160,6 +160,112 @@ Partial Class Registrar_capacitaciones
         Me.Capacitacion.Size = New System.Drawing.Size(891, 643)
         Me.Capacitacion.TabIndex = 0
         Me.Capacitacion.Text = "Capacitacion"
+        '
+        'grp_buscar_empleado
+        '
+        Me.grp_buscar_empleado.BackColor = System.Drawing.Color.Transparent
+        Me.grp_buscar_empleado.Controls.Add(Me.txt_nombres_buscar)
+        Me.grp_buscar_empleado.Controls.Add(Me.Label10)
+        Me.grp_buscar_empleado.Controls.Add(Me.txt_apellido_buscar)
+        Me.grp_buscar_empleado.Controls.Add(Me.Label11)
+        Me.grp_buscar_empleado.Controls.Add(Me.txt_doc_buscar)
+        Me.grp_buscar_empleado.Controls.Add(Me.Label2)
+        Me.grp_buscar_empleado.Controls.Add(Me.cmb_doc_buscar)
+        Me.grp_buscar_empleado.Controls.Add(Me.Label9)
+        Me.grp_buscar_empleado.Controls.Add(Me.cmd_buscar_capas_empleado)
+        Me.grp_buscar_empleado.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_buscar_empleado.Location = New System.Drawing.Point(7, 321)
+        Me.grp_buscar_empleado.Name = "grp_buscar_empleado"
+        Me.grp_buscar_empleado.Size = New System.Drawing.Size(843, 67)
+        Me.grp_buscar_empleado.TabIndex = 0
+        Me.grp_buscar_empleado.TabStop = False
+        Me.grp_buscar_empleado.Text = "Busqueda de Capacitaciones de Empleado"
+        '
+        'txt_nombres_buscar
+        '
+        Me.txt_nombres_buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_nombres_buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_nombres_buscar.Location = New System.Drawing.Point(547, 15)
+        Me.txt_nombres_buscar.Name = "txt_nombres_buscar"
+        Me.txt_nombres_buscar.Size = New System.Drawing.Size(250, 20)
+        Me.txt_nombres_buscar.TabIndex = 2
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(451, 17)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(49, 13)
+        Me.Label10.TabIndex = 34
+        Me.Label10.Text = "Nombres"
+        '
+        'txt_apellido_buscar
+        '
+        Me.txt_apellido_buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_apellido_buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_apellido_buscar.Location = New System.Drawing.Point(547, 41)
+        Me.txt_apellido_buscar.Name = "txt_apellido_buscar"
+        Me.txt_apellido_buscar.Size = New System.Drawing.Size(250, 20)
+        Me.txt_apellido_buscar.TabIndex = 3
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(450, 44)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(49, 13)
+        Me.Label11.TabIndex = 31
+        Me.Label11.Text = "Apellidos"
+        '
+        'txt_doc_buscar
+        '
+        Me.txt_doc_buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_doc_buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_doc_buscar.Location = New System.Drawing.Point(209, 27)
+        Me.txt_doc_buscar.Name = "txt_doc_buscar"
+        Me.txt_doc_buscar.Size = New System.Drawing.Size(216, 20)
+        Me.txt_doc_buscar.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(159, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.TabIndex = 16
+        Me.Label2.Text = "Número"
+        '
+        'cmb_doc_buscar
+        '
+        Me.cmb_doc_buscar._descripcion = "descripcion"
+        Me.cmb_doc_buscar._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_doc_buscar._pk = "id"
+        Me.cmb_doc_buscar.FormattingEnabled = True
+        Me.cmb_doc_buscar.Location = New System.Drawing.Point(100, 27)
+        Me.cmb_doc_buscar.Name = "cmb_doc_buscar"
+        Me.cmb_doc_buscar.Size = New System.Drawing.Size(53, 21)
+        Me.cmb_doc_buscar.TabIndex = 0
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(5, 30)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(51, 13)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "Tipo Doc"
+        '
+        'cmd_buscar_capas_empleado
+        '
+        Me.cmd_buscar_capas_empleado.BackgroundImage = CType(resources.GetObject("cmd_buscar_capas_empleado.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_capas_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_capas_empleado.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_capas_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_buscar_capas_empleado.Location = New System.Drawing.Point(803, 25)
+        Me.cmd_buscar_capas_empleado.Name = "cmd_buscar_capas_empleado"
+        Me.cmd_buscar_capas_empleado.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_buscar_capas_empleado.TabIndex = 4
+        Me.cmd_buscar_capas_empleado.UseVisualStyleBackColor = True
         '
         'cmd_limpiar
         '
@@ -340,6 +446,17 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_generales.TabStop = False
         Me.grp_datos_generales.Text = "Ubicacion"
         '
+        'cmb_departamento
+        '
+        Me.cmb_departamento._descripcion = "descripcion"
+        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamento._pk = "id"
+        Me.cmb_departamento.FormattingEnabled = True
+        Me.cmb_departamento.Location = New System.Drawing.Point(118, 42)
+        Me.cmb_departamento.Name = "cmb_departamento"
+        Me.cmb_departamento.Size = New System.Drawing.Size(268, 21)
+        Me.cmb_departamento.TabIndex = 1
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -348,6 +465,17 @@ Partial Class Registrar_capacitaciones
         Me.Label8.Size = New System.Drawing.Size(74, 13)
         Me.Label8.TabIndex = 62
         Me.Label8.Text = "Departamento"
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(118, 68)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_localidades.TabIndex = 2
         '
         'lbl_localidad
         '
@@ -422,6 +550,17 @@ Partial Class Registrar_capacitaciones
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
         '
+        'cmb_tipo_capacitaciones
+        '
+        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
+        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
+        Me.cmb_tipo_capacitaciones._pk = "id"
+        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
+        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(111, 50)
+        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
+        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_tipo_capacitaciones.TabIndex = 1
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -462,6 +601,17 @@ Partial Class Registrar_capacitaciones
         Me.Label3.Size = New System.Drawing.Size(91, 13)
         Me.Label3.TabIndex = 59
         Me.Label3.Text = "Duracion Prevista"
+        '
+        'cmb_estado
+        '
+        Me.cmb_estado._descripcion = "descripcion"
+        Me.cmb_estado._nombre_tabla = "ESTADO_CAPACITACIONES"
+        Me.cmb_estado._pk = "id"
+        Me.cmb_estado.FormattingEnabled = True
+        Me.cmb_estado.Location = New System.Drawing.Point(112, 192)
+        Me.cmb_estado.Name = "cmb_estado"
+        Me.cmb_estado.Size = New System.Drawing.Size(224, 21)
+        Me.cmb_estado.TabIndex = 5
         '
         'Label1
         '
@@ -893,6 +1043,17 @@ Partial Class Registrar_capacitaciones
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Número"
         '
+        'cmb_tipos_documento
+        '
+        Me.cmb_tipos_documento._descripcion = "descripcion"
+        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_tipos_documento._pk = "id"
+        Me.cmb_tipos_documento.FormattingEnabled = True
+        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
+        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
+        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
+        Me.cmb_tipos_documento.TabIndex = 1
+        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -988,167 +1149,6 @@ Partial Class Registrar_capacitaciones
         Me.cmd_salir.TabIndex = 6
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
-        'grp_buscar_empleado
-        '
-        Me.grp_buscar_empleado.BackColor = System.Drawing.Color.Transparent
-        Me.grp_buscar_empleado.Controls.Add(Me.txt_nombres_buscar)
-        Me.grp_buscar_empleado.Controls.Add(Me.Label10)
-        Me.grp_buscar_empleado.Controls.Add(Me.txt_apellido_buscar)
-        Me.grp_buscar_empleado.Controls.Add(Me.Label11)
-        Me.grp_buscar_empleado.Controls.Add(Me.txt_doc_buscar)
-        Me.grp_buscar_empleado.Controls.Add(Me.Label2)
-        Me.grp_buscar_empleado.Controls.Add(Me.cmb_doc_buscar)
-        Me.grp_buscar_empleado.Controls.Add(Me.Label9)
-        Me.grp_buscar_empleado.Controls.Add(Me.cmd_buscar_capas_empleado)
-        Me.grp_buscar_empleado.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_buscar_empleado.Location = New System.Drawing.Point(7, 321)
-        Me.grp_buscar_empleado.Name = "grp_buscar_empleado"
-        Me.grp_buscar_empleado.Size = New System.Drawing.Size(843, 67)
-        Me.grp_buscar_empleado.TabIndex = 0
-        Me.grp_buscar_empleado.TabStop = False
-        Me.grp_buscar_empleado.Text = "Busqueda de Capacitaciones de Empleado"
-        '
-        'cmd_buscar_capas_empleado
-        '
-        Me.cmd_buscar_capas_empleado.BackgroundImage = CType(resources.GetObject("cmd_buscar_capas_empleado.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_buscar_capas_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_capas_empleado.FlatAppearance.BorderSize = 0
-        Me.cmd_buscar_capas_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_capas_empleado.Location = New System.Drawing.Point(803, 25)
-        Me.cmd_buscar_capas_empleado.Name = "cmd_buscar_capas_empleado"
-        Me.cmd_buscar_capas_empleado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_buscar_capas_empleado.TabIndex = 4
-        Me.cmd_buscar_capas_empleado.UseVisualStyleBackColor = True
-        '
-        'txt_doc_buscar
-        '
-        Me.txt_doc_buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_doc_buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_doc_buscar.Location = New System.Drawing.Point(209, 27)
-        Me.txt_doc_buscar.Name = "txt_doc_buscar"
-        Me.txt_doc_buscar.Size = New System.Drawing.Size(216, 20)
-        Me.txt_doc_buscar.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(159, 30)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
-        Me.Label2.TabIndex = 16
-        Me.Label2.Text = "Número"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(5, 30)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(51, 13)
-        Me.Label9.TabIndex = 15
-        Me.Label9.Text = "Tipo Doc"
-        '
-        'txt_apellido_buscar
-        '
-        Me.txt_apellido_buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_apellido_buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_apellido_buscar.Location = New System.Drawing.Point(547, 41)
-        Me.txt_apellido_buscar.Name = "txt_apellido_buscar"
-        Me.txt_apellido_buscar.Size = New System.Drawing.Size(250, 20)
-        Me.txt_apellido_buscar.TabIndex = 3
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(450, 44)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(49, 13)
-        Me.Label11.TabIndex = 31
-        Me.Label11.Text = "Apellidos"
-        '
-        'txt_nombres_buscar
-        '
-        Me.txt_nombres_buscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_nombres_buscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_nombres_buscar.Location = New System.Drawing.Point(547, 15)
-        Me.txt_nombres_buscar.Name = "txt_nombres_buscar"
-        Me.txt_nombres_buscar.Size = New System.Drawing.Size(250, 20)
-        Me.txt_nombres_buscar.TabIndex = 2
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(451, 17)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(49, 13)
-        Me.Label10.TabIndex = 34
-        Me.Label10.Text = "Nombres"
-        '
-        'cmb_doc_buscar
-        '
-        Me.cmb_doc_buscar._descripcion = "descripcion"
-        Me.cmb_doc_buscar._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_doc_buscar._pk = "id"
-        Me.cmb_doc_buscar.FormattingEnabled = True
-        Me.cmb_doc_buscar.Location = New System.Drawing.Point(100, 27)
-        Me.cmb_doc_buscar.Name = "cmb_doc_buscar"
-        Me.cmb_doc_buscar.Size = New System.Drawing.Size(53, 21)
-        Me.cmb_doc_buscar.TabIndex = 0
-        '
-        'cmb_departamento
-        '
-        Me.cmb_departamento._descripcion = "descripcion"
-        Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamento._pk = "id"
-        Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(118, 42)
-        Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(268, 21)
-        Me.cmb_departamento.TabIndex = 1
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(118, 68)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_localidades.TabIndex = 2
-        '
-        'cmb_tipo_capacitaciones
-        '
-        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
-        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
-        Me.cmb_tipo_capacitaciones._pk = "id"
-        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
-        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(111, 50)
-        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
-        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_tipo_capacitaciones.TabIndex = 1
-        '
-        'cmb_estado
-        '
-        Me.cmb_estado._descripcion = "descripcion"
-        Me.cmb_estado._nombre_tabla = "ESTADO_CAPACITACIONES"
-        Me.cmb_estado._pk = "id"
-        Me.cmb_estado.FormattingEnabled = True
-        Me.cmb_estado.Location = New System.Drawing.Point(112, 192)
-        Me.cmb_estado.Name = "cmb_estado"
-        Me.cmb_estado.Size = New System.Drawing.Size(224, 21)
-        Me.cmb_estado.TabIndex = 5
-        '
-        'cmb_tipos_documento
-        '
-        Me.cmb_tipos_documento._descripcion = "descripcion"
-        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_tipos_documento._pk = "id"
-        Me.cmb_tipos_documento.FormattingEnabled = True
-        Me.cmb_tipos_documento.Location = New System.Drawing.Point(114, 43)
-        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
-        Me.cmb_tipos_documento.Size = New System.Drawing.Size(53, 21)
-        Me.cmb_tipos_documento.TabIndex = 1
-        '
         'Registrar_capacitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1162,6 +1162,8 @@ Partial Class Registrar_capacitaciones
         Me.Text = "CAPACITACIONES"
         Me.TabControl1.ResumeLayout(False)
         Me.Capacitacion.ResumeLayout(False)
+        Me.grp_buscar_empleado.ResumeLayout(False)
+        Me.grp_buscar_empleado.PerformLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.grp_descripcion.ResumeLayout(False)
@@ -1175,8 +1177,6 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_empleados.ResumeLayout(False)
         Me.grp_datos_empleados.PerformLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grp_buscar_empleado.ResumeLayout(False)
-        Me.grp_buscar_empleado.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

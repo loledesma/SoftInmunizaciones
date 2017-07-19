@@ -414,11 +414,7 @@
     End Sub
 
     Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
-        If MessageBox.Show("¿Desea agregar un efector nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
-            Registrar_efectores.ShowDialog()
-        Else
-            Exit Sub
-        End If
+      Registrar_efectores.ShowDialog()
     End Sub
 
     Private Function validar_cuie() As Boolean
@@ -436,7 +432,6 @@
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
         Dim sql As String = ""
-
 
         If validar_cuie() Then
             sql &= "SELECT * FROM ATENCION_SOPORTE "
@@ -479,48 +474,88 @@
                     dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
                 Next
             End If
-        Else
-            If cmb_estado_atencion.SelectedValue <> -1 Then
-                sql &= "SELECT * FROM ATENCION_SOPORTE "
-                sql &= " WHERE id_estados_atencion=" & Me.cmb_estado_atencion.SelectedValue
-                sql &= " ORDER BY fecha"
-                tabla = acceso.consulta(sql)
 
-                If tabla.Rows.Count() = 0 Then
-                    MessageBox.Show("¡No existe atenciones con ese estado!")
-                    Exit Sub
-                Else
-                    Dim c As Integer = 0
-                    dgv_atenciones.Rows.Clear()
-                    For c = 0 To tabla.Rows.Count() - 1
-                        dgv_atenciones.Rows.Add()
-                        dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
-                        dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
-                        dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
-                        dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
-                        dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
-                        dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
-                        dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+        ElseIf cmb_estado_atencion.SelectedIndex <> -1 Then
+            sql &= "SELECT * FROM ATENCION_SOPORTE "
+            sql &= " WHERE id_estados_atencion=" & Me.cmb_estado_atencion.SelectedValue
+            sql &= " ORDER BY fecha"
+            tabla = acceso.consulta(sql)
 
-                        sql = ""
-                        sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
-                        tabla2.Rows.Clear()
-                        tabla2 = acceso.consulta(sql)
-                        dgv_atenciones.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+            If tabla.Rows.Count() = 0 Then
+                MessageBox.Show("¡No existe atenciones con ese estado!")
+                Exit Sub
+            Else
+                Dim c As Integer = 0
+                dgv_atenciones.Rows.Clear()
+                For c = 0 To tabla.Rows.Count() - 1
+                    dgv_atenciones.Rows.Add()
+                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
+                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
 
-                        sql = ""
-                        sql &= "SELECT nombres FROM EMPLEADOS WHERE id= " & Me.dgv_atenciones.Rows(c).Cells("id_administrador").Value
-                        tabla2.Rows.Clear()
-                        tabla2 = acceso.consulta(sql)
-                        dgv_atenciones.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+                    sql = ""
+                    sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
 
-                        sql = ""
-                        sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_atenciones.Rows(c).Cells("cuie").Value & "'"
-                        tabla2.Rows.Clear()
-                        tabla2 = acceso.consulta(sql)
-                        dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
-                    Next
-                End If
+                    sql = ""
+                    sql &= "SELECT nombres FROM EMPLEADOS WHERE id= " & Me.dgv_atenciones.Rows(c).Cells("id_administrador").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                    sql = ""
+                    sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_atenciones.Rows(c).Cells("cuie").Value & "'"
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
+                Next
+            End If
+        ElseIf txt_asunto.Text <> "" Then
+            sql &= "SELECT * FROM ATENCION_SOPORTE "
+            sql &= " WHERE asunto='" & txt_asunto.Text & "'"
+            sql &= " ORDER BY fecha"
+            tabla = acceso.consulta(sql)
+
+            If tabla.Rows.Count() = 0 Then
+                MessageBox.Show("¡No existe atenciones con ese asunto!")
+                Exit Sub
+            Else
+                Dim c As Integer = 0
+                dgv_atenciones.Rows.Clear()
+                For c = 0 To tabla.Rows.Count() - 1
+                    dgv_atenciones.Rows.Add()
+                    dgv_atenciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                    dgv_atenciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                    dgv_atenciones.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
+                    dgv_atenciones.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estados_atencion")
+                    dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("estado").Value = tabla2.Rows(0)("descripcion")
+
+                    sql = ""
+                    sql &= "SELECT nombres FROM EMPLEADOS WHERE id= " & Me.dgv_atenciones.Rows(c).Cells("id_administrador").Value
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                    sql = ""
+                    sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_atenciones.Rows(c).Cells("cuie").Value & "'"
+                    tabla2.Rows.Clear()
+                    tabla2 = acceso.consulta(sql)
+                    dgv_atenciones.Rows(c).Cells("efector").Value = tabla2.Rows(0)("nombre")
+                Next
             End If
         End If
         limpiar(Me.Controls)

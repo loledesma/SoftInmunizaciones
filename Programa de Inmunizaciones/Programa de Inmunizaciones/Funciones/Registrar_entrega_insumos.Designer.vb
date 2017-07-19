@@ -24,10 +24,10 @@ Partial Class Registrar_entrega_insumos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_entrega_insumos))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
         Me.txt_nombre_efector = New System.Windows.Forms.TextBox()
@@ -605,19 +605,19 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_entrega.AllowUserToDeleteRows = False
         Me.dgv_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha_pedido, Me.fecha_entrega, Me.estado, Me.autoriza, Me.id_autoriza, Me.cuie, Me.efector, Me.id_estado})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_entrega.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_entrega.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_entrega.Location = New System.Drawing.Point(438, 16)
         Me.dgv_entrega.Name = "dgv_entrega"
         Me.dgv_entrega.ReadOnly = True
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.dgv_entrega.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_entrega.Size = New System.Drawing.Size(559, 393)
         Me.dgv_entrega.TabIndex = 64
         '
@@ -686,19 +686,19 @@ Partial Class Registrar_entrega_insumos
         Me.dgv_detalle_entrega.AllowUserToDeleteRows = False
         Me.dgv_detalle_entrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle_entrega.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_insumo, Me.insumo, Me.cantidad, Me.nro_serie, Me.modelo, Me.id_marca})
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_detalle_entrega.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_detalle_entrega.Location = New System.Drawing.Point(438, 420)
         Me.dgv_detalle_entrega.Name = "dgv_detalle_entrega"
         Me.dgv_detalle_entrega.ReadOnly = True
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        Me.dgv_detalle_entrega.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_detalle_entrega.Size = New System.Drawing.Size(559, 210)
         Me.dgv_detalle_entrega.TabIndex = 6
         '
@@ -761,9 +761,6 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_devolucion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_devolucion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_devolucion.UseVisualStyleBackColor = False
-        '
-        'tltp_efector
-        '
         '
         'Registrar_entrega_insumos
         '
