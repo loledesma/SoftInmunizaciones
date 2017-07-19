@@ -93,7 +93,7 @@ Partial Class Registrar_atencion
         Me.grp_datos_atencion.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_atencion.Location = New System.Drawing.Point(22, 12)
         Me.grp_datos_atencion.Name = "grp_datos_atencion"
-        Me.grp_datos_atencion.Size = New System.Drawing.Size(403, 240)
+        Me.grp_datos_atencion.Size = New System.Drawing.Size(415, 240)
         Me.grp_datos_atencion.TabIndex = 0
         Me.grp_datos_atencion.TabStop = False
         Me.grp_datos_atencion.Text = "Datos Atención"
@@ -126,10 +126,10 @@ Partial Class Registrar_atencion
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(376, 177)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(376, 172)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(32, 32)
         Me.cmd_efector_nuevo.TabIndex = 8
         Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -145,10 +145,10 @@ Partial Class Registrar_atencion
         Me.cmd_actualizar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_actualizar_estado.Location = New System.Drawing.Point(365, 105)
+        Me.cmd_actualizar_estado.Location = New System.Drawing.Point(365, 104)
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
-        Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_actualizar_estado.Size = New System.Drawing.Size(32, 32)
         Me.cmd_actualizar_estado.TabIndex = 5
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -363,7 +363,7 @@ Partial Class Registrar_atencion
         Me.grp_descripcion.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_descripcion.Location = New System.Drawing.Point(22, 258)
         Me.grp_descripcion.Name = "grp_descripcion"
-        Me.grp_descripcion.Size = New System.Drawing.Size(403, 267)
+        Me.grp_descripcion.Size = New System.Drawing.Size(415, 267)
         Me.grp_descripcion.TabIndex = 1
         Me.grp_descripcion.TabStop = False
         Me.grp_descripcion.Text = "Descripción"

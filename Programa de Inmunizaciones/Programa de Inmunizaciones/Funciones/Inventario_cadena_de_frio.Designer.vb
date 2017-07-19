@@ -197,10 +197,10 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(684, 93)
+        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(680, 86)
         Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
-        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(32, 32)
         Me.cmd_empleado_nuevo.TabIndex = 57
         Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -216,10 +216,10 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(789, 13)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(787, 11)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(20, 20)
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(32, 32)
         Me.cmd_efector_nuevo.TabIndex = 56
         Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -251,9 +251,9 @@ Partial Class Inventario_cadena_de_frio
         Me.cmd_buscar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_empleado.Location = New System.Drawing.Point(640, 84)
+        Me.cmd_buscar_empleado.Location = New System.Drawing.Point(640, 87)
         Me.cmd_buscar_empleado.Name = "cmd_buscar_empleado"
-        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(37, 36)
+        Me.cmd_buscar_empleado.Size = New System.Drawing.Size(32, 32)
         Me.cmd_buscar_empleado.TabIndex = 8
         Me.cmd_buscar_empleado.UseVisualStyleBackColor = True
         '
