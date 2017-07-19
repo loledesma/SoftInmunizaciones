@@ -83,7 +83,7 @@ Public Class Menu
         Registrar_entrega_insumos.ShowDialog()
     End Sub
 
-    Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasPorEfectorToolStripMenuItem.Click
+    Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs)
         list_heladeras_antiguas.ShowDialog()
     End Sub
 
@@ -107,7 +107,7 @@ Public Class Menu
 
     End Sub
 
-    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoRecordatorioToolStripMenuItem.Click
+    Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrar_recordatorio.ShowDialog()
     End Sub
 
@@ -154,4 +154,30 @@ Public Class Menu
     Private Sub PedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosDeDesarrolloToolStripMenuItem.Click
         list_pedidos_desarrollo.ShowDialog()
     End Sub
+
+    Private Sub CapacitacionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapacitacionesRegistradasToolStripMenuItem.Click
+        list_capacitaciones.ShowDialog()
+    End Sub
+
+    Private Sub AtencionesRegistradasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem1.Click
+        list_atenciones.ShowDialog()
+    End Sub
+
+    Private Sub EntregasRealizadasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntregasRealizadasToolStripMenuItem.Click
+        list_entregas.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarInventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarInventarioToolStripMenuItem.Click
+        Inventario_cadena_de_frio.ShowDialog()
+    End Sub
+
+    Private Sub InventariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventariosRegistradosToolStripMenuItem.Click
+        list_inventario.ShowDialog()
+    End Sub
+
+    Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
+        Registrar_recordatorio.ShowDialog()
+    End Sub
+
+    
 End Class

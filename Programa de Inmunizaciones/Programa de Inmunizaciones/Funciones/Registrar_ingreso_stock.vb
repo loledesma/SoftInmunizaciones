@@ -28,6 +28,7 @@
         Me.cmb_insumos.cargar()
         Me.cmb_insumos.SelectedIndex = -1
         Me.cmb_marca.SelectedIndex = -1
+        tip()
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -329,25 +330,35 @@
         Dim contadorCPU As Integer = 0
         Dim contadorMonitor As Integer = 0
         Dim contadorHeladera As Integer = 0
+        Dim contadorTermos As Integer = 0
         Dim c As Integer
         For c = 0 To dgv_stock.Rows.Count() - 1
             If dgv_stock.Rows(c).Cells("id_insumo").Value = 1 Then
                 contadorHeladera = contadorHeladera + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
             ElseIf dgv_stock.Rows(c).Cells("id_insumo").Value = 2 Then
                 contadorMonitor = contadorMonitor + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
-            Else
+            ElseIf dgv_stock.Rows(c).Cells("id_insumo").Value = 3 Then
                 contadorCPU = contadorCPU + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
+            Else
+                contadorTermos = contadorTermos + Convert.ToInt16(dgv_stock.Rows(c).Cells("cantidad").Value)
             End If
         Next
         lbl_contador_cpu.Text = contadorCPU
         lbl_contador_heladeras.Text = contadorHeladera
         lbl_contador_monitores.Text = contadorMonitor
+        lbl_contador_termos.Text = contadorTermos
 
         If dgv_stock.Rows.Count() = 0 Then
             lbl_contador_cpu.Text = 0
             lbl_contador_heladeras.Text = 0
             lbl_contador_monitores.Text = 0
+            lbl_contador_termos.Text = 0
         End If
+    End Sub
+
+    Private Sub tip()
+        tltp_stock.SetToolTip(cmd_buscar_marca, "Buscar por marca")
+        tltp_stock.SetToolTip(cmb_buscar_tipo, "Buscar por tipo de insumo")
     End Sub
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar_marca.Click

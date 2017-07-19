@@ -60,7 +60,7 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT TOP 5 * "
+        sql &= "SELECT * "
         sql &= " FROM PEDIDO_DESARROLLO "
         sql &= " WHERE id_estados_pedidos= 2"
         sql &= " ORDER BY fecha_pedido desc "
@@ -245,7 +245,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM PEDIDO_DESARROLLO "
-        sql &= "WHERE id = " & Me.txt_id_desarrollo.Text
+        sql &= "WHERE id =" & Me.txt_id_desarrollo.Text
 
         tabla = acceso.consulta(sql)
 
@@ -389,6 +389,11 @@
         Else
             sql &= "UPDATE PEDIDO_DESARROLLO"
             sql &= " SET id_estados_pedidos= " & Me.cmb_estado_pedido.SelectedValue
+            If txt_fecha_solucion.Text <> "" Then
+                sql &= ", fecha_solucion='" & Me.txt_fecha_solucion.Text & "'"
+            Else
+                sql &= ", fecha_solucion= NULL"
+            End If
             sql &= " WHERE id= " & Me.txt_id_desarrollo.Text
             acceso.ejecutar(sql)
         End If
@@ -405,7 +410,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM PEDIDO_DESARROLLO "
-        sql &= " WHERE fecha_pedido= " & Me.txt_fecha_pedido.Text
+        sql &= " WHERE fecha_pedido BETWEEN &'" & Me.txt_fecha_pedido.Text & "' AND '" & Me.txt_fecha_solucion.Text & "'"
         sql &= " ORDER BY id_administrador"
         tabla = acceso.consulta(sql)
 

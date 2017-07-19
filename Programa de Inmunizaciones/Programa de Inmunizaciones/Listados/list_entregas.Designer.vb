@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class list_atenciones
+Partial Class list_entregas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,7 +23,7 @@ Partial Class list_atenciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_atenciones))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_entregas))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.txt_cuie = New System.Windows.Forms.TextBox()
@@ -35,19 +35,24 @@ Partial Class list_atenciones
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.grp_datos_atenciones = New System.Windows.Forms.GroupBox()
+        Me.cmb_estado_entrega = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.lbl_estado = New System.Windows.Forms.Label()
+        Me.cmb_insumos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_hasta = New System.Windows.Forms.Label()
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_desde = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LISTATENCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
+        Me.LISTENTREGASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LIST_ENTREGASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.grp_datos_efector.SuspendLayout()
         Me.grp_datos_atenciones.SuspendLayout()
-        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LISTENTREGASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LIST_ENTREGASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grp_datos_efector
@@ -148,6 +153,10 @@ Partial Class list_atenciones
         'grp_datos_atenciones
         '
         Me.grp_datos_atenciones.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_atenciones.Controls.Add(Me.cmb_estado_entrega)
+        Me.grp_datos_atenciones.Controls.Add(Me.lbl_estado)
+        Me.grp_datos_atenciones.Controls.Add(Me.cmb_insumos)
+        Me.grp_datos_atenciones.Controls.Add(Me.Label1)
         Me.grp_datos_atenciones.Controls.Add(Me.cmd_ejecutar)
         Me.grp_datos_atenciones.Controls.Add(Me.txt_fecha_hasta)
         Me.grp_datos_atenciones.Controls.Add(Me.lbl_hasta)
@@ -159,7 +168,47 @@ Partial Class list_atenciones
         Me.grp_datos_atenciones.Size = New System.Drawing.Size(514, 133)
         Me.grp_datos_atenciones.TabIndex = 5
         Me.grp_datos_atenciones.TabStop = False
-        Me.grp_datos_atenciones.Text = "Datos Atenciones"
+        Me.grp_datos_atenciones.Text = "Datos Entregas"
+        '
+        'cmb_estado_entrega
+        '
+        Me.cmb_estado_entrega._descripcion = "descripcion"
+        Me.cmb_estado_entrega._nombre_tabla = "ESTADO_ENTREGA"
+        Me.cmb_estado_entrega._pk = "id"
+        Me.cmb_estado_entrega.FormattingEnabled = True
+        Me.cmb_estado_entrega.Location = New System.Drawing.Point(136, 100)
+        Me.cmb_estado_entrega.Name = "cmb_estado_entrega"
+        Me.cmb_estado_entrega.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_estado_entrega.TabIndex = 33
+        '
+        'lbl_estado
+        '
+        Me.lbl_estado.AutoSize = True
+        Me.lbl_estado.Location = New System.Drawing.Point(32, 104)
+        Me.lbl_estado.Name = "lbl_estado"
+        Me.lbl_estado.Size = New System.Drawing.Size(76, 13)
+        Me.lbl_estado.TabIndex = 34
+        Me.lbl_estado.Text = "Estado Pedido"
+        '
+        'cmb_insumos
+        '
+        Me.cmb_insumos._descripcion = "descripcion"
+        Me.cmb_insumos._nombre_tabla = "INSUMOS"
+        Me.cmb_insumos._pk = "id"
+        Me.cmb_insumos.FormattingEnabled = True
+        Me.cmb_insumos.Location = New System.Drawing.Point(136, 68)
+        Me.cmb_insumos.Name = "cmb_insumos"
+        Me.cmb_insumos.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_insumos.TabIndex = 50
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(32, 71)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Insumos"
         '
         'cmd_ejecutar
         '
@@ -171,7 +220,7 @@ Partial Class list_atenciones
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(385, 30)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(430, 47)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -182,7 +231,7 @@ Partial Class list_atenciones
         '
         'txt_fecha_hasta
         '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(281, 50)
+        Me.txt_fecha_hasta.Location = New System.Drawing.Point(255, 27)
         Me.txt_fecha_hasta.Mask = "00/00/0000"
         Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
         Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
@@ -192,7 +241,7 @@ Partial Class list_atenciones
         'lbl_hasta
         '
         Me.lbl_hasta.AutoSize = True
-        Me.lbl_hasta.Location = New System.Drawing.Point(236, 54)
+        Me.lbl_hasta.Location = New System.Drawing.Point(210, 31)
         Me.lbl_hasta.Name = "lbl_hasta"
         Me.lbl_hasta.Size = New System.Drawing.Size(35, 13)
         Me.lbl_hasta.TabIndex = 34
@@ -200,7 +249,7 @@ Partial Class list_atenciones
         '
         'txt_fecha_desde
         '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(116, 50)
+        Me.txt_fecha_desde.Location = New System.Drawing.Point(90, 27)
         Me.txt_fecha_desde.Mask = "00/00/0000"
         Me.txt_fecha_desde.Name = "txt_fecha_desde"
         Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
@@ -210,7 +259,7 @@ Partial Class list_atenciones
         'lbl_desde
         '
         Me.lbl_desde.AutoSize = True
-        Me.lbl_desde.Location = New System.Drawing.Point(59, 53)
+        Me.lbl_desde.Location = New System.Drawing.Point(33, 30)
         Me.lbl_desde.Name = "lbl_desde"
         Me.lbl_desde.Size = New System.Drawing.Size(38, 13)
         Me.lbl_desde.TabIndex = 33
@@ -226,25 +275,30 @@ Partial Class list_atenciones
         Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
         Me.ReportViewer1.AutoSize = True
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.LISTATENCIONESBindingSource
+        ReportDataSource1.Value = Me.LIST_ENTREGASBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_atenciones.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_entregas.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(18, 150)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(967, 436)
         Me.ReportViewer1.TabIndex = 6
-        '
-        'LISTATENCIONESBindingSource
-        '
-        Me.LISTATENCIONESBindingSource.DataMember = "LIST_ATENCIONES"
-        Me.LISTATENCIONESBindingSource.DataSource = Me.Inmunizaciones
         '
         'Inmunizaciones
         '
         Me.Inmunizaciones.DataSetName = "Inmunizaciones"
         Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'list_atenciones
+        'LISTENTREGASBindingSource
+        '
+        Me.LISTENTREGASBindingSource.DataMember = "LIST_ENTREGAS"
+        Me.LISTENTREGASBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'LIST_ENTREGASBindingSource
+        '
+        Me.LIST_ENTREGASBindingSource.DataMember = "LIST_ENTREGAS"
+        Me.LIST_ENTREGASBindingSource.DataSource = Me.Inmunizaciones
+        '
+        'list_entregas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -254,14 +308,15 @@ Partial Class list_atenciones
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_atenciones)
         Me.Controls.Add(Me.grp_datos_efector)
-        Me.Name = "list_atenciones"
-        Me.Text = "ATENCIONES"
+        Me.Name = "list_entregas"
+        Me.Text = "ENTREGAS"
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
         Me.grp_datos_atenciones.ResumeLayout(False)
         Me.grp_datos_atenciones.PerformLayout()
-        CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LISTENTREGASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LIST_ENTREGASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -282,7 +337,11 @@ Partial Class list_atenciones
     Friend WithEvents txt_fecha_desde As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lbl_desde As System.Windows.Forms.Label
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents tltp_atenciones As System.Windows.Forms.ToolTip
-    Friend WithEvents LISTATENCIONESBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents cmb_insumos As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cmb_estado_entrega As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents lbl_estado As System.Windows.Forms.Label
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents LISTENTREGASBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents LIST_ENTREGASBindingSource As System.Windows.Forms.BindingSource
 End Class

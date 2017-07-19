@@ -81,9 +81,9 @@ Partial Class list_heladeras_antiguas
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(6, 82)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 13)
+        Me.Label3.Size = New System.Drawing.Size(80, 13)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Antigüedad"
+        Me.Label3.Text = "Tiene Heladera"
         '
         'cmd_ejecutar
         '
@@ -158,7 +158,7 @@ Partial Class list_heladeras_antiguas
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "list_heladeras_antiguas"
-        Me.Text = "Heladeras por antiguedad"
+        Me.Text = "Efectores con Heladeras"
         CType(Me.LIST_HELADERAS_ANTIGUASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

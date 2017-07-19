@@ -17,9 +17,6 @@
 
     Dim condicion_inicial As condicion = condicion.insertar
     Dim condicion_click As doble_Click = doble_Click.desactivado
-    Private Sub cmd_busca_efector_Click(sender As Object, e As EventArgs)
-        listados_efector_loc_dpto.ShowDialog()
-    End Sub
 
 
     Private Sub cmd_ver_stock_Click(sender As Object, e As EventArgs) Handles cmd_ver_stock.Click
@@ -452,7 +449,7 @@
             tabla = acceso.consulta(sql)
 
             If tabla.Rows.Count() = 0 Then
-                MessageBox.Show("El insumo " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value & " que trata de entregar no corresponde a un insumo en stock, verifique la grilla")
+                MessageBox.Show("El insumo que trata de entregar no corresponde a un insumo en stock, verifique la grilla")
                 Return False
                 Exit Function
             End If
@@ -968,5 +965,25 @@
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         limpiar_todo()
+    End Sub
+    Private Sub txt_nombre_efector_MouseEnter(sender As Object, e As EventArgs) Handles txt_nombre_efector.MouseEnter
+        If txt_nombre_efector.Text <> "" Then
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim efectores As String = ""
+            sql &= "SELECT  EF.nombre as nombre "
+            sql &= " FROM EFECTORES EF "
+            sql &= " WHERE EF.nombre LIKE '%" & txt_nombre_efector.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                efectores += tabla.Rows(c)("nombre") & vbCrLf
+            Next
+
+            tltp_efector.SetToolTip(txt_nombre_efector, efectores)
+        Else
+            Exit Sub
+        End If
     End Sub
 End Class

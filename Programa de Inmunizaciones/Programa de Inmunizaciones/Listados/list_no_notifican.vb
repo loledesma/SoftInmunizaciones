@@ -98,7 +98,6 @@
             If Me.cmb_departamentos.SelectedIndex <> -1 Then
                 sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
                
-
                 If cmb_localidades.SelectedIndex <> -1 Then
                     sql &= " AND L.id = " & Me.cmb_localidades.SelectedValue
                     sql &= " AND E.id_estado= 3 AND E.cuie NOT IN "

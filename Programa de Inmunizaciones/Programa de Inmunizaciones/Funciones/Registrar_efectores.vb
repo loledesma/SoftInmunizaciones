@@ -330,7 +330,7 @@
         condicion_click = doble_Click.desactivado
     End Sub
 
-    Private Sub abm_empleados_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub registrar_efectores_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control And e.KeyCode.ToString = "N" Then
             nuevo()
         End If
@@ -830,11 +830,7 @@
     End Function
 
     Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
-        If MessageBox.Show("¿Desea agregar un empleado nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
-            abm_empleados.ShowDialog()
-        Else
-            Exit Sub
-        End If
+      abm_empleados.ShowDialog()
     End Sub
 
     Private Sub cmd_buscar_empleadoXDNI_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleadoXDNI.Click

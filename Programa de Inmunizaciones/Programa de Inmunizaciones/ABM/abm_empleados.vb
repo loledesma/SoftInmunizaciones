@@ -122,6 +122,7 @@
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedIndex = -1
+        Me.cmb_tipo_doc.SelectedValue = 1
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -775,6 +776,7 @@
         Dim sql As String = "SELECT * FROM EMPLEADOS "
         Dim tabla As New DataTable
         limpiar(Controls)
+        condicion_click = doble_Click.desactivado
         condicion_estado = estado.insertar
         tabla = acceso.consulta(sql)
         'If tabla.Rows.Count() = 0 Then
@@ -921,11 +923,7 @@
     End Sub
 
     Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
-        If MessageBox.Show("¿Desea agregar un efector nuevo?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
-            Registrar_efectores.ShowDialog()
-        Else
-            Exit Sub
-        End If
+        Registrar_efectores.ShowDialog()
     End Sub
 
     Private Sub dgv_efectores_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_efectores.CellMouseDoubleClick

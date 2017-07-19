@@ -22,6 +22,7 @@ Partial Class Registrar_ingreso_stock
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_ingreso_stock))
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
@@ -55,6 +56,9 @@ Partial Class Registrar_ingreso_stock
         Me.lbl_contador_heladeras = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_contador_cpu = New System.Windows.Forms.Label()
+        Me.lbl_contador_termos = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.tltp_stock = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.dgv_stock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_stock.SuspendLayout()
         Me.SuspendLayout()
@@ -198,7 +202,7 @@ Partial Class Registrar_ingreso_stock
         Me.cmb_buscar_tipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmb_buscar_tipo.FlatAppearance.BorderSize = 0
         Me.cmb_buscar_tipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmb_buscar_tipo.Location = New System.Drawing.Point(354, 16)
+        Me.cmb_buscar_tipo.Location = New System.Drawing.Point(389, 16)
         Me.cmb_buscar_tipo.Name = "cmb_buscar_tipo"
         Me.cmb_buscar_tipo.Size = New System.Drawing.Size(25, 27)
         Me.cmb_buscar_tipo.TabIndex = 80
@@ -210,7 +214,7 @@ Partial Class Registrar_ingreso_stock
         Me.cmd_buscar_marca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_marca.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_marca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_marca.Location = New System.Drawing.Point(263, 100)
+        Me.cmd_buscar_marca.Location = New System.Drawing.Point(389, 101)
         Me.cmd_buscar_marca.Name = "cmd_buscar_marca"
         Me.cmd_buscar_marca.Size = New System.Drawing.Size(25, 27)
         Me.cmd_buscar_marca.TabIndex = 74
@@ -416,6 +420,29 @@ Partial Class Registrar_ingreso_stock
         Me.lbl_contador_cpu.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_cpu.TabIndex = 73
         '
+        'lbl_contador_termos
+        '
+        Me.lbl_contador_termos.AutoSize = True
+        Me.lbl_contador_termos.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_termos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_termos.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_termos.Location = New System.Drawing.Point(555, 163)
+        Me.lbl_contador_termos.Name = "lbl_contador_termos"
+        Me.lbl_contador_termos.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_termos.TabIndex = 75
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(452, 161)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 17)
+        Me.Label5.TabIndex = 74
+        Me.Label5.Text = "Termos :"
+        '
         'Registrar_ingreso_stock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -423,6 +450,8 @@ Partial Class Registrar_ingreso_stock
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(866, 420)
+        Me.Controls.Add(Me.lbl_contador_termos)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lbl_contador_cpu)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lbl_contador_heladeras)
@@ -477,4 +506,7 @@ Partial Class Registrar_ingreso_stock
     Friend WithEvents lbl_contador_cpu As System.Windows.Forms.Label
     Friend WithEvents cmd_buscar_marca As System.Windows.Forms.Button
     Friend WithEvents cmb_buscar_tipo As System.Windows.Forms.Button
+    Friend WithEvents lbl_contador_termos As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents tltp_stock As System.Windows.Forms.ToolTip
 End Class

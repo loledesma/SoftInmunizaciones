@@ -22,6 +22,7 @@ Partial Class Registrar_entrega_insumos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_entrega_insumos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -86,6 +87,7 @@ Partial Class Registrar_entrega_insumos
         Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_devolucion = New System.Windows.Forms.Button()
+        Me.tltp_efector = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_detalle.SuspendLayout()
         CType(Me.dgv_entrega, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -331,7 +333,7 @@ Partial Class Registrar_entrega_insumos
         'lbl_estado
         '
         Me.lbl_estado.AutoSize = True
-        Me.lbl_estado.Location = New System.Drawing.Point(6, 143)
+        Me.lbl_estado.Location = New System.Drawing.Point(5, 143)
         Me.lbl_estado.Name = "lbl_estado"
         Me.lbl_estado.Size = New System.Drawing.Size(76, 13)
         Me.lbl_estado.TabIndex = 30
@@ -847,4 +849,5 @@ Partial Class Registrar_entrega_insumos
     Friend WithEvents txt_modelo As System.Windows.Forms.TextBox
     Friend WithEvents txt_nro_serie As System.Windows.Forms.TextBox
     Friend WithEvents cmd_devolucion As System.Windows.Forms.Button
+    Friend WithEvents tltp_efector As System.Windows.Forms.ToolTip
 End Class
