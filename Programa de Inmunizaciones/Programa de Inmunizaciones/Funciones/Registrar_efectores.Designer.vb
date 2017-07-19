@@ -860,9 +860,6 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
-        'tltp_efectores
-        '
-        '
         'lbl_contador_efectores
         '
         Me.lbl_contador_efectores.AutoSize = True

@@ -28,6 +28,7 @@
         Me.cmb_insumos.cargar()
         Me.cmb_insumos.SelectedIndex = -1
         Me.cmb_marca.SelectedIndex = -1
+        tip()
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -353,6 +354,11 @@
             lbl_contador_monitores.Text = 0
             lbl_contador_termos.Text = 0
         End If
+    End Sub
+
+    Private Sub tip()
+        tltp_stock.SetToolTip(cmd_buscar_marca, "Buscar por marca")
+        tltp_stock.SetToolTip(cmb_buscar_tipo, "Buscar por tipo de insumo")
     End Sub
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar_marca.Click
