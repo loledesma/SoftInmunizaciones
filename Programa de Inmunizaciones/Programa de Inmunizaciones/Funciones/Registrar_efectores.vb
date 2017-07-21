@@ -20,7 +20,7 @@
         cmb_tipos_documento.cargar()
         cmb_barrios.cargar()
         cmb_estado_rm.cargar()
-
+        cmb_perfil.cargar()
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
@@ -238,6 +238,7 @@
         sql &= "SELECT EM.id AS id_empleado, EM.nro_doc as nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, "
         sql &= " C.descripcion AS cargo, EM.usuario_sigipsa as usuario_sigipsa, EE.id_cargo as id_cargo, EE.id_perfil as id_perfil, TD.descripcion AS tipo_doc, "
         sql &= " ESTXEMPL.descripcion AS estado_empleado, EE.id_estado_empleado as id_estado "
+        sql &= " , EE.año_curso as año_curso "
         sql &= " FROM EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados "
         sql &= " JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id "
         sql &= " JOIN CARGO C ON C.id = EE.id_cargo "
@@ -266,6 +267,12 @@
                 dgv_empleados.Rows(c).Cells("id_cargo").Value = tabla.Rows(c)("id_cargo")
                 dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla.Rows(c)("estado_empleado")
                 dgv_empleados.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
+
+                If IsDBNull(tabla.Rows(c)("año_curso")) Then
+                    dgv_empleados.Rows(c).Cells("año_curso").Value = "NO CARGADO"
+                Else
+                    dgv_empleados.Rows(c).Cells("año_curso").Value = tabla.Rows(c)("año_curso")
+                End If
 
                 sql = ""
                 sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
@@ -301,6 +308,7 @@
         sql &= " SELECT EMP.id as id_empleado, EMP.id_tipo_doc as tipo_doc, EMP.nro_doc as nro_doc "
         sql &= " , EMP.apellidos as apellidos, EMP.nombres as nombres, EMP.usuario_sigipsa as usuario "
         sql &= " , EE.id_cargo as id_cargo, EE.id_estado_empleado as id_estado, EE.id_cargo as id_cargo "
+        sql &= ", EE.año_curso as año_curso, EE.id_perfil as perfil_usuario "
         sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EE ON EE.id_efector = E.cuie "
         sql &= " JOIN EMPLEADOS EMP ON EMP.id = EE.id_empleados"
         sql &= " WHERE E.cuie ='" & Me.txt_cuie.Text & "'"
@@ -312,6 +320,7 @@
             Exit Sub
         End If
 
+
         Me.txt_id_empleado.Text = tabla.Rows(0)("id_empleado")
         Me.cmb_tipos_documento.SelectedValue = tabla.Rows(0)("tipo_doc")
         Me.txt_numero_doc.Text = tabla.Rows(0)("nro_doc")
@@ -319,7 +328,17 @@
         Me.txt_nombres_empleado.Text = tabla.Rows(0)("nombres")
         Me.cmb_estados_empleados.SelectedValue = tabla.Rows(0)("id_estado")
         Me.cmb_cargo.SelectedValue = tabla.Rows(0)("id_cargo")
+        If IsDBNull(tabla.Rows(0)("año_curso")) Then
+            txt_año_curso.Text = "0"
+        Else
+            txt_año_curso.Text = tabla.Rows(0)("año_curso")
+        End If
 
+        If IsDBNull(tabla.Rows(0)("perfil_usuario")) Then
+            Me.cmb_perfil.SelectedIndex = -1
+        Else
+            Me.cmb_perfil.SelectedValue = tabla.Rows(0)("perfil_usuario")
+        End If
 
         Me.cmd_eliminar_empleado.Enabled = False
         Me.txt_id_empleado.Enabled = False
@@ -558,6 +577,13 @@
                 Else
                     txt_insert &= ", id_perfil=" & Me.dgv_empleados.Rows(c).Cells("id_perfil").Value
                 End If
+
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("año_curso").Value) Then
+                    txt_insert &= ", año_curso=Null"
+                Else
+                    txt_insert &= ", año_curso=" & Me.dgv_empleados.Rows(c).Cells("año_curso").Value
+                End If
+
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_empleados.Rows(c).Cells("id_estado").Value
                 acceso.insertar(txt_insert)
@@ -808,6 +834,13 @@
                 txt_insert &= ", id_perfil=" & Me.dgv_empleados.Rows(c).Cells("id_perfil").Value
             End If
 
+            If IsNothing(Me.dgv_empleados.Rows(c).Cells("año_curso").Value) Then
+                txt_insert &= ", año_curso=Null"
+            Else
+                txt_insert &= ", año_curso=" & Me.dgv_empleados.Rows(c).Cells("año_curso").Value
+            End If
+
+
             acceso.insertar(txt_insert)
             txt_insert = ""
         Next
@@ -883,6 +916,8 @@
         Me.txt_id_empleado.Text = ""
         Me.txt_nombres_empleado.Text = ""
         Me.txt_apellido.Text = ""
+        Me.txt_año_curso.Text = ""
+        Me.cmb_perfil.SelectedValue = -1
     End Sub
 
     Private Sub cmd_eliminar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_empleado.Click
@@ -1084,6 +1119,7 @@
                     sql &= "SELECT EM.id AS id_empleado, EM.nro_doc as nro_doc, EM.nombres AS nombre_empleado, EM.apellidos AS apellido_empleado, "
                     sql &= " C.descripcion AS cargo, EM.usuario_sigipsa as usuario_sigipsa, EE.id_cargo as id_cargo, EE.id_perfil as id_perfil, TD.descripcion AS tipo_doc, "
                     sql &= " ESTXEMPL.descripcion AS estado_empleado, EE.id_estado_empleado as id_estado "
+                    sql &= ", EE.año_curso as año_curso "
                     sql &= " FROM EMPLEADOS EM JOIN EMPLEADOSXEFECTOR EE ON EM.id = EE.id_empleados "
                     sql &= " JOIN TIPOS_DOCUMENTO TD ON EM.id_tipo_doc = TD.id "
                     sql &= " JOIN CARGO C ON C.id = EE.id_cargo "
@@ -1110,6 +1146,12 @@
                             dgv_empleados.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado_empleado")
                             dgv_empleados.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
 
+                            If IsDBNull(tabla2.Rows(c)("año_curso")) Then
+                                dgv_empleados.Rows(c).Cells("año_curso").Value = "SIN CARGAR"
+                            Else
+                                dgv_empleados.Rows(c).Cells("año_curso").Value = tabla2.Rows(c)("año_curso")
+                            End If
+
                             sql = ""
                             sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
                             sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
@@ -1125,6 +1167,8 @@
                                 dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("perfil")
                                 dgv_empleados.Rows(c).Cells("id_perfil").Value = tabla.Rows(0)("id_perfil")
                             End If
+
+
                         Next
                     End If
                 End If

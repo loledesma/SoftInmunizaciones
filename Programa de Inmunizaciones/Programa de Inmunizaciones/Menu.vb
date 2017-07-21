@@ -178,6 +178,9 @@ Public Class Menu
     Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
         Registrar_recordatorio.ShowDialog()
     End Sub
+    Private Sub EmpleadosPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorEstadoToolStripMenuItem.Click
+        list_empleados_x_estado.ShowDialog()
+    End Sub
 
-    
+ 
 End Class

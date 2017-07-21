@@ -127,7 +127,7 @@
   <data name="RegistrarRecordatorioToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN4AAADeAd3qg2oAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
+        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN0AAADdAXBTogcAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
         bmtzY2FwZS5vcmeb7jwaAAADMUlEQVRYR71XT0gUURhfI+gQRQQdolNQUUEQBZ06BRWdok7VPepYhGX+
         SVFxxdVVd2asDkGXUiozDYxUXP+sb0aIQqgg6mxQSPbHg/Pe7Nf3vXXWHWfcmdF1Dj/cdd97v9/3vr8v
         BgCxQJhW9gpDPR9obdAzcV0gcqFrFy1D/WXp6r9oBQymtli6oiAxSDBlNjoBTNtn6dr7PLkUoF2LRAD6
@@ -1211,7 +1211,7 @@
   <data name="RecordatoriosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
-        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAG9AAABvQG676d5AAAAGXRFWHRTb2Z0d2FyZQB3d3cu
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAG6AAABugHoqwEGAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
         aW5rc2NhcGUub3Jnm+48GgAADsJJREFUeF7Vm2lQVFcWx8mkMh+m8m1SNR+malI1n2YqmZmaxLgrSQa3
         URAViEA3m4Dsq+wIzWJQUIgiIu6DYgyKMgooUdEIqCgQWlGBZhNlCSgomyw2/7n3db/mve7XKziarrrV
         2O++++7/d885995zn2YAzN5kkTzAh0kyWCXLEJTUjFTyfYKUsuRmNJDvQaYo/i6j15R1gug99N432Tfa
@@ -1761,7 +1761,7 @@
     <value>246, 38</value>
   </data>
   <data name="EmpleadosPorEstadoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Empleados por estado</value>
+    <value>Empleados Registrados</value>
   </data>
   <data name="UsuariosRegistradosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1792,36 +1792,6 @@
   </data>
   <data name="UsuariosRegistradosToolStripMenuItem.Text" xml:space="preserve">
     <value>Usuarios Registrados</value>
-  </data>
-  <data name="EmpleadosCompletoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAN0AAADdAXBTogcAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
-        bmtzY2FwZS5vcmeb7jwaAAADUElEQVRYR8WX204TURSGudNH0IfwQXwLb7zzzksuJdGEKFUiB70AL+Qw
-        DUYwgWhQIZ6qqUSDAm2hRcqpY4G206HTmba/+9+0tR1mOkXGdJKVTGbWXv83e6+99pouAF3t2IPY7IW+
-        zeDVQGJyKJBQFoVFA5uKJo338tnkEH3o205M+niK921OXQ4kgoNCICcMbZrwDQ5yrBeIK8BIYuTi/bjS
-        IwT1NkWd4HTGYCw3EEeAhwnlkhANnUPYDhNiTCeIUwD3NpQrYl2TPoqfwIiYjG2HaAKQX24Tv9Z/Swa4
-        /vg2elfHcGPsLnrCo7g53Y/u18PSeM9nfEcf+nJMbWz9Y0Rs+0zUAbhO9mn/sL2C7t4hGKaJOwNPkD7K
-        4NH4c0TiW5iae4uF0JI03vMZ39GHvhzDsYxhm81QY07UAaoJ1+S8nU1jOZJAqVTG2kYShmEivrWHrKYj
-        uadCTWek8T6X1+U7+tCXYziWMezLSa3aUkiAk612Ots5+LyXEwC1altUAlT3+SlSR4D1lTMxuQAIreCg
-        LESsWm5FhoMrFUA/NqSVlsPAu5c+ASg5aovpZ3l1rnAEMIomzMhPVMLvYczPSPE9A3j1290aCd1nQAG1
-        xfTL2u5YYusA2SzweUEk2rGMrRaBxYNmK5adJ6YVALUFgDxYXAEqYg20fEGKm1ZJqpTFshSEYKO5rUtr
-        AGWRADzJXAGaAjMh3rzwKweoGe2qHqeuAKVyGTntWJgOa2Yc2PkFTUzEuu5u7eYAtT0BmITWjyVgYhj5
-        2JqM7S+AxxIUTQuaXoChpmQu8NoVu2BWbTbjn5KQS+CRhBS0RPIxAZmQKFl+5gCTsPU2pBp1pbgmtuOz
-        UR8BxDb0KkT88tx+CnlVhTnxGCga/hYir1IskzAeBZ4OQDs8kl/PopMWxajRxPw4Xi3qwEkpFqNaHkaW
-        OFZ5/LIQ6QWRfeI6NIGvmWazbAQ8lnl+xA/2XRrZ6mFEAL+P40xOx27qEMndNOZj3xyb1abjmBBuDcmZ
-        Mq7qnGKTIsS/r25hLhL2bkgI4NaSFURrxfbqLLajHuDLWgwfVyKYjn5qryUjhFNT6mt33KopJQCto215
-        DaKjPyY1iI7+mtUg/m7RDvycNkLw/n/9nv8BnQ4cf7A7aLMAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="EmpleadosCompletoToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="EmpleadosCompletoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 38</value>
-  </data>
-  <data name="EmpleadosCompletoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Empleados Registrados</value>
   </data>
   <data name="ReferentesRegistradosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8800,16 +8770,16 @@
   <data name="&gt;&gt;RecordatoriosToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ListadosToolStripMenuItem5.Name" xml:space="preserve">
-    <value>ListadosToolStripMenuItem5</value>
-  </data>
-  <data name="&gt;&gt;ListadosToolStripMenuItem5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;RegistrarRecordatorioToolStripMenuItem.Name" xml:space="preserve">
     <value>RegistrarRecordatorioToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;RegistrarRecordatorioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem5.Name" xml:space="preserve">
+    <value>ListadosToolStripMenuItem5</value>
+  </data>
+  <data name="&gt;&gt;ListadosToolStripMenuItem5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NotificacionesToolStripMenuItem.Name" xml:space="preserve">
@@ -9116,12 +9086,6 @@
     <value>UsuariosRegistradosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;UsuariosRegistradosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EmpleadosCompletoToolStripMenuItem.Name" xml:space="preserve">
-    <value>EmpleadosCompletoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EmpleadosCompletoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ReferentesRegistradosToolStripMenuItem.Name" xml:space="preserve">
