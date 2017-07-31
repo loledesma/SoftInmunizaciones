@@ -90,6 +90,7 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.VacunatoriosPorLocalidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -356,7 +357,7 @@ Partial Class Menu
         'EstadisticasToolStripMenuItem1
         '
         Me.EstadisticasToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
-        Me.EstadisticasToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VacunatoriosImplementadosToolStripMenuItem, Me.VacunatoriosSegúnHeladeraToolStripMenuItem, Me.EstadoDeHeladerasToolStripMenuItem, Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VacunatoriosImplementadosToolStripMenuItem, Me.VacunatoriosSegúnHeladeraToolStripMenuItem, Me.EstadoDeHeladerasToolStripMenuItem, Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem, Me.VacunatoriosPorLocalidadToolStripMenuItem})
         Me.EstadisticasToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.EstadisticasToolStripMenuItem1, "EstadisticasToolStripMenuItem1")
         Me.EstadisticasToolStripMenuItem1.Name = "EstadisticasToolStripMenuItem1"
@@ -486,6 +487,11 @@ Partial Class Menu
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Name = "Label1"
         '
+        'VacunatoriosPorLocalidadToolStripMenuItem
+        '
+        resources.ApplyResources(Me.VacunatoriosPorLocalidadToolStripMenuItem, "VacunatoriosPorLocalidadToolStripMenuItem")
+        Me.VacunatoriosPorLocalidadToolStripMenuItem.Name = "VacunatoriosPorLocalidadToolStripMenuItem"
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -571,4 +577,5 @@ Partial Class Menu
     Friend WithEvents InventariosRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Public WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RegistrarRecordatorioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents VacunatoriosPorLocalidadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
