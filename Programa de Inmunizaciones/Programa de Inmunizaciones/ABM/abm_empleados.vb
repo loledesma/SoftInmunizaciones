@@ -277,7 +277,7 @@
             tabla = acceso.consulta(sql)
             sql = ""
             sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo,  EST.descripcion As estado"
-            sql &= ", EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado "
+            sql &= ", EE.id_cargo as id_cargo, EE.id_estado_empleado As id_estado, EE.año_curso as año_curso "
             sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
             sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
             sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
@@ -314,7 +314,11 @@
                         dgv_efectores.Rows(d).Cells("estado_empleado").Value = tabla2.Rows(d)("estado")
                         dgv_efectores.Rows(d).Cells("id_cargo").Value = tabla2.Rows(d)("id_cargo")
                         dgv_efectores.Rows(d).Cells("id_estado").Value = tabla2.Rows(d)("id_estado")
-
+                        If IsDBNull(tabla2.Rows(d)("año_curso")) Then
+                            dgv_efectores.Rows(d).Cells("año_curso").Value = tabla2.Rows(d)("año_curso")
+                        Else
+                            dgv_efectores.Rows(d).Cells("año_curso").Value = "NO ESTA CARGADO"
+                        End If
                         sql = ""
                         sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
                         sql &= "FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
@@ -727,6 +731,13 @@
                 txt_insert &= ", id_perfil=" & Me.dgv_efectores.Rows(c).Cells("id_perfil").Value
             End If
 
+
+            If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Then
+                txt_insert &= ", año_curso=Null"
+            Else
+                txt_insert &= ", año_curso=" & Me.dgv_efectores.Rows(c).Cells("año_curso").Value
+            End If
+
             acceso.insertar(txt_insert)
             txt_insert = ""
         Next
@@ -748,6 +759,13 @@
                 End If
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
+
+                If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Then
+                    txt_insert &= ", año_curso=Null"
+                Else
+                    txt_insert &= ", año_curso=" & Me.dgv_efectores.Rows(c).Cells("año_curso").Value
+                End If
+
                 txt_insert &= " WHERE id_empleados= " & Me.txt_id_empleado.Text & " AND id_efector='" & Me.dgv_efectores.Rows(c).Cells("cuie").Value & "'"
                 acceso.ejecutar(txt_insert)
             Else
@@ -763,6 +781,13 @@
                 End If
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
+
+                If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Then
+                    txt_insert &= ", año_curso=Null"
+                Else
+                    txt_insert &= ", año_curso=" & Me.dgv_efectores.Rows(c).Cells("año_curso").Value
+                End If
+
                 acceso.insertar(txt_insert)
             End If
             txt_insert = ""
@@ -873,7 +898,7 @@
 
         sql = ""
         sql &= " SELECT EF.cuie As cuie, EF.nombre As nombre_efector, C.descripcion As cargo, EST.descripcion As estado "
-        sql &= " , EE.id_cargo As id_cargo, EE.id_estado_empleado As id_estado "
+        sql &= " , EE.id_cargo As id_cargo, EE.id_estado_empleado As id_estado, EE.año_curso As año_curso "
         sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
         sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
         sql &= " JOIN CARGO C ON EE.id_cargo = C.id"
@@ -895,6 +920,13 @@
                 dgv_efectores.Rows(c).Cells("estado_empleado").Value = tabla2.Rows(c)("estado")
                 dgv_efectores.Rows(c).Cells("id_cargo").Value = tabla2.Rows(c)("id_cargo")
                 dgv_efectores.Rows(c).Cells("id_estado").Value = tabla2.Rows(c)("id_estado")
+
+                If IsDBNull(tabla2.Rows(c)("año_curso")) Then
+                    dgv_efectores.Rows(c).Cells("año_curso").Value = "NO CARGADO"
+                Else
+                    dgv_efectores.Rows(c).Cells("año_curso").Value = tabla2.Rows(c)("año_curso")
+                End If
+
 
                 sql = ""
                 sql &= "SELECT P.descripcion As perfil, P.id As id_perfil "
@@ -939,6 +971,7 @@
         End If
 
         sql &= " SELECT EF.nombre As nombre_efector, EF.cuie As cuie, EF.id_departamento As dpto, EF.id_localidad As localidad, EE.id_cargo As cargo, EE.id_perfil As perfil, EE.id_estado_empleado as estado"
+        sql &= " , EE.año_curso As año_curso "
         sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EE ON EMP.id = EE.id_empleados "
         sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie"
         sql &= " WHERE EF.cuie = '" & Me.dgv_efectores.CurrentRow.Cells("cuie").Value & "'"
@@ -956,6 +989,12 @@
         Me.txt_efectores.Text = tabla.Rows(0)("nombre_efector")
         Me.txt_cuie.Text = tabla.Rows(0)("cuie")
         Me.cmb_cargo.SelectedValue = tabla.Rows(0)("cargo")
+        If IsDBNull(tabla.Rows(0)("año_curso")) Then
+            Me.txt_año_curso.Text = "0"
+        Else
+            Me.txt_año_curso.Text = tabla.Rows(0)("año_curso")
+        End If
+
         If IsDBNull(tabla.Rows(0)("perfil")) Then
             Me.cmb_perfil.SelectedIndex = -1
         Else
@@ -1081,6 +1120,11 @@
                         Me.dgv_efectores.Rows(c).Cells("nombre_efector").Value = Me.txt_efectores.Text
                         Me.dgv_efectores.Rows(c).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
                         Me.dgv_efectores.Rows(c).Cells("id_estado").Value = Me.cmb_estado_empleado.SelectedValue
+                        If txt_año_curso.Text <> "" Then
+                            Me.dgv_efectores.Rows(c).Cells("año_curso").Value = txt_año_curso.Text
+                        Else
+                            Me.dgv_efectores.Rows(c).Cells("año_curso").Value = Nothing
+                        End If
                         sql = ""
                         sql &= "SELECT C.descripcion As descripcion FROM CARGO C "
                         sql &= " WHERE C.id = " & Me.cmb_cargo.SelectedValue
@@ -1117,6 +1161,12 @@
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("nombre_efector").Value = Me.txt_efectores.Text
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
                     Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("id_estado").Value = Me.cmb_estado_empleado.SelectedValue
+
+                    If txt_año_curso.Text <> "" Then
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("año_curso").Value = txt_año_curso.Text
+                    Else
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("año_curso").Value = Nothing
+                    End If
                     sql = ""
                     sql &= "SELECT C.descripcion As descripcion FROM CARGO C "
                     sql &= " WHERE C.id= " & Me.cmb_cargo.SelectedValue
@@ -1149,6 +1199,7 @@
         Me.cmd_eliminar_efector.Enabled = True
         Me.txt_efectores.Clear()
         Me.txt_cuie.Clear()
+        Me.txt_año_curso.Clear()
         Me.cmb_departamentos.ResetText()
         Me.cmb_localidades.ResetText()
         Me.cmb_estado_empleado.ResetText()

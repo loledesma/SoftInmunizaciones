@@ -26,8 +26,8 @@ Partial Class Menu
         Me.menu_programa_inmunizaciones = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecordatoriosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListadosToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarRecordatorioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadosToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaNotificaciónToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
@@ -79,7 +79,6 @@ Partial Class Menu
         Me.ListadosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosPorEstadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosRegistradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmpleadosCompletoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReferentesRegistradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosPorCursoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -114,15 +113,15 @@ Partial Class Menu
         resources.ApplyResources(Me.RecordatoriosToolStripMenuItem1, "RecordatoriosToolStripMenuItem1")
         Me.RecordatoriosToolStripMenuItem1.Name = "RecordatoriosToolStripMenuItem1"
         '
-        'ListadosToolStripMenuItem5
-        '
-        resources.ApplyResources(Me.ListadosToolStripMenuItem5, "ListadosToolStripMenuItem5")
-        Me.ListadosToolStripMenuItem5.Name = "ListadosToolStripMenuItem5"
-        '
         'RegistrarRecordatorioToolStripMenuItem
         '
         resources.ApplyResources(Me.RegistrarRecordatorioToolStripMenuItem, "RegistrarRecordatorioToolStripMenuItem")
         Me.RegistrarRecordatorioToolStripMenuItem.Name = "RegistrarRecordatorioToolStripMenuItem"
+        '
+        'ListadosToolStripMenuItem5
+        '
+        resources.ApplyResources(Me.ListadosToolStripMenuItem5, "ListadosToolStripMenuItem5")
+        Me.ListadosToolStripMenuItem5.Name = "ListadosToolStripMenuItem5"
         '
         'NotificacionesToolStripMenuItem
         '
@@ -400,7 +399,7 @@ Partial Class Menu
         'ListadosToolStripMenuItem1
         '
         Me.ListadosToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
-        Me.ListadosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpleadosPorEstadoToolStripMenuItem, Me.UsuariosRegistradosToolStripMenuItem, Me.EmpleadosCompletoToolStripMenuItem, Me.ReferentesRegistradosToolStripMenuItem})
+        Me.ListadosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpleadosPorEstadoToolStripMenuItem, Me.UsuariosRegistradosToolStripMenuItem, Me.ReferentesRegistradosToolStripMenuItem})
         Me.ListadosToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.ListadosToolStripMenuItem1, "ListadosToolStripMenuItem1")
         Me.ListadosToolStripMenuItem1.Name = "ListadosToolStripMenuItem1"
@@ -414,11 +413,6 @@ Partial Class Menu
         '
         resources.ApplyResources(Me.UsuariosRegistradosToolStripMenuItem, "UsuariosRegistradosToolStripMenuItem")
         Me.UsuariosRegistradosToolStripMenuItem.Name = "UsuariosRegistradosToolStripMenuItem"
-        '
-        'EmpleadosCompletoToolStripMenuItem
-        '
-        resources.ApplyResources(Me.EmpleadosCompletoToolStripMenuItem, "EmpleadosCompletoToolStripMenuItem")
-        Me.EmpleadosCompletoToolStripMenuItem.Name = "EmpleadosCompletoToolStripMenuItem"
         '
         'ReferentesRegistradosToolStripMenuItem
         '
@@ -530,7 +524,6 @@ Partial Class Menu
     Friend WithEvents EfectoresPorReferenteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EmpleadosPorEstadoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UsuariosRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EmpleadosCompletoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LocalidadesPorDepartamentosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReferentesRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RecordatoriosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
