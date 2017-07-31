@@ -195,6 +195,12 @@
     <Compile Include="Estadisticos\est_efect_emiten_sigipsa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.Designer.vb">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.Designer.vb">
       <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
     </Compile>
@@ -448,6 +454,10 @@
     <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.resx">
       <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\Est_Efect_x_Loc.resx">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efec_x_loc.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_ef_con_y_sin_heladera.resx">
       <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
     </EmbeddedResource>

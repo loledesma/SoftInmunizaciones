@@ -45,6 +45,8 @@ Partial Public Class Inmunizaciones2
 
     Private tableEST_EF_EMITEN_SIGIPSA As EST_EF_EMITEN_SIGIPSADataTable
 
+    Private tableEST_EFECT_X_LOCALIDAD As EST_EFECT_X_LOCALIDADDataTable
+
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -103,6 +105,9 @@ Partial Public Class Inmunizaciones2
             End If
             If (Not (ds.Tables("EST_EF_EMITEN_SIGIPSA")) Is Nothing) Then
                 MyBase.Tables.Add(New EST_EF_EMITEN_SIGIPSADataTable(ds.Tables("EST_EF_EMITEN_SIGIPSA")))
+            End If
+            If (Not (ds.Tables("EST_EFECT_X_LOCALIDAD")) Is Nothing) Then
+                MyBase.Tables.Add(New EST_EFECT_X_LOCALIDADDataTable(ds.Tables("EST_EFECT_X_LOCALIDAD")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -223,6 +228,16 @@ Partial Public Class Inmunizaciones2
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+     Global.System.ComponentModel.Browsable(False), _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)> _
+    Public ReadOnly Property EST_EFECT_X_LOCALIDAD() As EST_EFECT_X_LOCALIDADDataTable
+        Get
+            Return Me.tableEST_EFECT_X_LOCALIDAD
+        End Get
+    End Property
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
      Global.System.ComponentModel.BrowsableAttribute(True), _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)> _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -318,6 +333,9 @@ Partial Public Class Inmunizaciones2
             If (Not (ds.Tables("EST_EF_EMITEN_SIGIPSA")) Is Nothing) Then
                 MyBase.Tables.Add(New EST_EF_EMITEN_SIGIPSADataTable(ds.Tables("EST_EF_EMITEN_SIGIPSA")))
             End If
+            If (Not (ds.Tables("EST_EFECT_X_LOCALIDAD")) Is Nothing) Then
+                MyBase.Tables.Add(New EST_EFECT_X_LOCALIDADDataTable(ds.Tables("EST_EFECT_X_LOCALIDAD")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -410,6 +428,12 @@ Partial Public Class Inmunizaciones2
                 Me.tableEST_EF_EMITEN_SIGIPSA.InitVars()
             End If
         End If
+        Me.tableEST_EFECT_X_LOCALIDAD = CType(MyBase.Tables("EST_EFECT_X_LOCALIDAD"), EST_EFECT_X_LOCALIDADDataTable)
+        If (initTable = True) Then
+            If (Not (Me.tableEST_EFECT_X_LOCALIDAD) Is Nothing) Then
+                Me.tableEST_EFECT_X_LOCALIDAD.InitVars()
+            End If
+        End If
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -440,6 +464,8 @@ Partial Public Class Inmunizaciones2
         MyBase.Tables.Add(Me.tableEST_ESTADO_HELADERAS)
         Me.tableEST_EF_EMITEN_SIGIPSA = New EST_EF_EMITEN_SIGIPSADataTable()
         MyBase.Tables.Add(Me.tableEST_EF_EMITEN_SIGIPSA)
+        Me.tableEST_EFECT_X_LOCALIDAD = New EST_EFECT_X_LOCALIDADDataTable()
+        MyBase.Tables.Add(Me.tableEST_EFECT_X_LOCALIDAD)
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -499,6 +525,12 @@ Partial Public Class Inmunizaciones2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeEST_EF_EMITEN_SIGIPSA() As Boolean
+        Return False
+    End Function
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Private Function ShouldSerializeEST_EFECT_X_LOCALIDAD() As Boolean
         Return False
     End Function
 
@@ -589,6 +621,9 @@ Partial Public Class Inmunizaciones2
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Public Delegate Sub EST_EF_EMITEN_SIGIPSARowChangeEventHandler(ByVal sender As Object, ByVal e As EST_EF_EMITEN_SIGIPSARowChangeEvent)
+
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Delegate Sub EST_EFECT_X_LOCALIDADRowChangeEventHandler(ByVal sender As Object, ByVal e As EST_EFECT_X_LOCALIDADRowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -3293,6 +3328,271 @@ Partial Public Class Inmunizaciones2
     End Class
 
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(), _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    Partial Public Class EST_EFECT_X_LOCALIDADDataTable
+        Inherits Global.System.Data.TypedTableBase(Of EST_EFECT_X_LOCALIDADRow)
+
+        Private columnnombre_localidad As Global.System.Data.DataColumn
+
+        Private columncantidad_efectores As Global.System.Data.DataColumn
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.TableName = "EST_EFECT_X_LOCALIDAD"
+            Me.BeginInit()
+            Me.InitClass()
+            Me.EndInit()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New()
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property nombre_localidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre_localidad
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property cantidad_efectoresColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncantidad_efectores
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Default Public ReadOnly Property Item(ByVal index As Integer) As EST_EFECT_X_LOCALIDADRow
+            Get
+                Return CType(Me.Rows(index), EST_EFECT_X_LOCALIDADRow)
+            End Get
+        End Property
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EST_EFECT_X_LOCALIDADRowChanging As EST_EFECT_X_LOCALIDADRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EST_EFECT_X_LOCALIDADRowChanged As EST_EFECT_X_LOCALIDADRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EST_EFECT_X_LOCALIDADRowDeleting As EST_EFECT_X_LOCALIDADRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EST_EFECT_X_LOCALIDADRowDeleted As EST_EFECT_X_LOCALIDADRowChangeEventHandler
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Sub AddEST_EFECT_X_LOCALIDADRow(ByVal row As EST_EFECT_X_LOCALIDADRow)
+            Me.Rows.Add(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Function AddEST_EFECT_X_LOCALIDADRow(ByVal nombre_localidad As String, ByVal cantidad_efectores As Long) As EST_EFECT_X_LOCALIDADRow
+            Dim rowEST_EFECT_X_LOCALIDADRow As EST_EFECT_X_LOCALIDADRow = CType(Me.NewRow, EST_EFECT_X_LOCALIDADRow)
+            Dim columnValuesArray() As Object = New Object() {nombre_localidad, cantidad_efectores}
+            rowEST_EFECT_X_LOCALIDADRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowEST_EFECT_X_LOCALIDADRow)
+            Return rowEST_EFECT_X_LOCALIDADRow
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As EST_EFECT_X_LOCALIDADDataTable = CType(MyBase.Clone, EST_EFECT_X_LOCALIDADDataTable)
+            cln.InitVars()
+            Return cln
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New EST_EFECT_X_LOCALIDADDataTable()
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub InitVars()
+            Me.columnnombre_localidad = MyBase.Columns("nombre_localidad")
+            Me.columncantidad_efectores = MyBase.Columns("cantidad_efectores")
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitClass()
+            Me.columnnombre_localidad = New Global.System.Data.DataColumn("nombre_localidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre_localidad)
+            Me.columncantidad_efectores = New Global.System.Data.DataColumn("cantidad_efectores", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncantidad_efectores)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function NewEST_EFECT_X_LOCALIDADRow() As EST_EFECT_X_LOCALIDADRow
+            Return CType(Me.NewRow, EST_EFECT_X_LOCALIDADRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New EST_EFECT_X_LOCALIDADRow(builder)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(EST_EFECT_X_LOCALIDADRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.EST_EFECT_X_LOCALIDADRowChangedEvent) Is Nothing) Then
+                RaiseEvent EST_EFECT_X_LOCALIDADRowChanged(Me, New EST_EFECT_X_LOCALIDADRowChangeEvent(CType(e.Row, EST_EFECT_X_LOCALIDADRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.EST_EFECT_X_LOCALIDADRowChangingEvent) Is Nothing) Then
+                RaiseEvent EST_EFECT_X_LOCALIDADRowChanging(Me, New EST_EFECT_X_LOCALIDADRowChangeEvent(CType(e.Row, EST_EFECT_X_LOCALIDADRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.EST_EFECT_X_LOCALIDADRowDeletedEvent) Is Nothing) Then
+                RaiseEvent EST_EFECT_X_LOCALIDADRowDeleted(Me, New EST_EFECT_X_LOCALIDADRowChangeEvent(CType(e.Row, EST_EFECT_X_LOCALIDADRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.EST_EFECT_X_LOCALIDADRowDeletingEvent) Is Nothing) Then
+                RaiseEvent EST_EFECT_X_LOCALIDADRowDeleting(Me, New EST_EFECT_X_LOCALIDADRowChangeEvent(CType(e.Row, EST_EFECT_X_LOCALIDADRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub RemoveEST_EFECT_X_LOCALIDADRow(ByVal row As EST_EFECT_X_LOCALIDADRow)
+            Me.Rows.Remove(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As Inmunizaciones2 = New Inmunizaciones2()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "EST_EFECT_X_LOCALIDADDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+
+                            Do While ((s1.Position <> s1.Length) _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+
+
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close()
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close()
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class EST_EFECTORES_X_LOC_X_DPTORow
@@ -4122,6 +4422,78 @@ Partial Public Class Inmunizaciones2
     End Class
 
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class EST_EFECT_X_LOCALIDADRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableEST_EFECT_X_LOCALIDAD As EST_EFECT_X_LOCALIDADDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableEST_EFECT_X_LOCALIDAD = CType(Me.Table, EST_EFECT_X_LOCALIDADDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property nombre_localidad() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEST_EFECT_X_LOCALIDAD.nombre_localidadColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre_localidad' de la tabla 'EST_EFECT_X_LOCALIDAD' es " & _
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEST_EFECT_X_LOCALIDAD.nombre_localidadColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property cantidad_efectores() As Long
+            Get
+                Try
+                    Return CType(Me(Me.tableEST_EFECT_X_LOCALIDAD.cantidad_efectoresColumn), Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidad_efectores' de la tabla 'EST_EFECT_X_LOCALIDAD' e" & _
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set(value As Long)
+                Me(Me.tableEST_EFECT_X_LOCALIDAD.cantidad_efectoresColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isnombre_localidadNull() As Boolean
+            Return Me.IsNull(Me.tableEST_EFECT_X_LOCALIDAD.nombre_localidadColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setnombre_localidadNull()
+            Me(Me.tableEST_EFECT_X_LOCALIDAD.nombre_localidadColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Iscantidad_efectoresNull() As Boolean
+            Return Me.IsNull(Me.tableEST_EFECT_X_LOCALIDAD.cantidad_efectoresColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setcantidad_efectoresNull()
+            Me(Me.tableEST_EFECT_X_LOCALIDAD.cantidad_efectoresColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -4467,6 +4839,42 @@ Partial Public Class Inmunizaciones2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property Row() As EST_EF_EMITEN_SIGIPSARow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Class EST_EFECT_X_LOCALIDADRowChangeEvent
+        Inherits Global.System.EventArgs
+
+        Private eventRow As EST_EFECT_X_LOCALIDADRow
+
+        Private eventAction As Global.System.Data.DataRowAction
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New(ByVal row As EST_EFECT_X_LOCALIDADRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New()
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Row() As EST_EFECT_X_LOCALIDADRow
             Get
                 Return Me.eventRow
             End Get
