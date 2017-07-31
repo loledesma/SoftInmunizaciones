@@ -183,4 +183,7 @@ Public Class Menu
     End Sub
 
  
+    Private Sub VacunatoriosPorLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosPorLocalidadToolStripMenuItem.Click
+        Est_Efect_x_Loc.Show()
+    End Sub
 End Class
