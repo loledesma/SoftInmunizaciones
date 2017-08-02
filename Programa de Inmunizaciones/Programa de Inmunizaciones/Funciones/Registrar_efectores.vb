@@ -562,6 +562,14 @@
                 Else
                     txt_insert &= ", id_perfil=" & Me.dgv_empleados.Rows(c).Cells("id_perfil").Value
                 End If
+
+
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("año_curso").Value) Then
+                    txt_insert &= ", año_curso=Null"
+                Else
+                    txt_insert &= ", año_curso=" & Me.dgv_empleados.Rows(c).Cells("año_curso").Value
+                End If
+
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_empleados.Rows(c).Cells("id_estado").Value
                 txt_insert &= " WHERE id_empleados= " & Me.dgv_empleados.Rows(c).Cells("id").Value & " AND id_efector='" & txt_cuie.Text & "'"
 
