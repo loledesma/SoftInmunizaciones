@@ -772,12 +772,16 @@
         Dim tabla As New DataTable
         txt_id_empleado.Enabled = False
 
+        If cmb_tipos_documento.SelectedValue <> -1 & txt_numero_doc.Text <> "" Then
+            sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
+            sql &= " FROM EMPLEADOS E "
+            sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue
 
-        sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
-        sql &= " FROM EMPLEADOS E "
-        sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue
+            tabla = acceso.consulta(sql)
+        Else
+            MsgBox("Debe completar los datos del documento")
+        End If
 
-        tabla = acceso.consulta(sql)
 
         If tabla.Rows().Count = 0 Then
             MessageBox.Show("No existe ningún empleado con el DNI ingresado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

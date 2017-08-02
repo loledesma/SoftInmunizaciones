@@ -195,6 +195,12 @@
     <Compile Include="Estadisticos\est_efect_emiten_sigipsa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.Designer.vb">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.Designer.vb">
       <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
     </Compile>
@@ -357,6 +363,12 @@
     <Compile Include="Listados\list_pedidos_desarrollo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_empleados_x_estado.Designer.vb">
+      <DependentUpon>list_empleados_x_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_empleados_x_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_usuarios.Designer.vb">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </Compile>
@@ -442,6 +454,10 @@
     <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.resx">
       <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\Est_Efect_x_Loc.resx">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efec_x_loc.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_ef_con_y_sin_heladera.resx">
       <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
     </EmbeddedResource>
@@ -541,6 +557,9 @@
     <EmbeddedResource Include="Listados\list_pedidos_desarrollo.resx">
       <DependentUpon>list_pedidos_desarrollo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_empleados_x_estado.resx">
+      <DependentUpon>list_empleados_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </EmbeddedResource>
@@ -548,7 +567,6 @@
     <EmbeddedResource Include="Listados\list_atenciones.resx">
       <DependentUpon>list_atenciones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\list_empleados.rdlc" />
     <EmbeddedResource Include="Listados\list_empleados_x_estado.rdlc" />
     <EmbeddedResource Include="Listados\list_localidad_x_dpto.rdlc" />
     <EmbeddedResource Include="Listados\list_usuarios.rdlc" />

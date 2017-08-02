@@ -74,14 +74,6 @@ Partial Class abm_empleados
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
-        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lbl_mail = New System.Windows.Forms.Label()
         Me.txt_email = New System.Windows.Forms.TextBox()
         Me.lbl_usuario = New System.Windows.Forms.Label()
@@ -96,6 +88,17 @@ Partial Class abm_empleados
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl_contador_empleados = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txt_año_curso = New System.Windows.Forms.TextBox()
+        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.año_curso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -369,6 +372,8 @@ Partial Class abm_empleados
         'grp_datos_laborales
         '
         Me.grp_datos_laborales.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_laborales.Controls.Add(Me.txt_año_curso)
+        Me.grp_datos_laborales.Controls.Add(Me.Label5)
         Me.grp_datos_laborales.Controls.Add(Me.txt_cuie)
         Me.grp_datos_laborales.Controls.Add(Me.lbl_cuie)
         Me.grp_datos_laborales.Controls.Add(Me.txt_efectores)
@@ -390,7 +395,7 @@ Partial Class abm_empleados
         Me.grp_datos_laborales.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_laborales.Location = New System.Drawing.Point(12, 317)
         Me.grp_datos_laborales.Name = "grp_datos_laborales"
-        Me.grp_datos_laborales.Size = New System.Drawing.Size(443, 220)
+        Me.grp_datos_laborales.Size = New System.Drawing.Size(443, 232)
         Me.grp_datos_laborales.TabIndex = 2
         Me.grp_datos_laborales.TabStop = False
         Me.grp_datos_laborales.Text = "Datos Laborales"
@@ -452,7 +457,7 @@ Partial Class abm_empleados
         Me.cmd_limpiar_laboral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_laboral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar_laboral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar_laboral.Location = New System.Drawing.Point(346, 184)
+        Me.cmd_limpiar_laboral.Location = New System.Drawing.Point(346, 200)
         Me.cmd_limpiar_laboral.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_laboral.Name = "cmd_limpiar_laboral"
         Me.cmd_limpiar_laboral.Size = New System.Drawing.Size(25, 25)
@@ -501,7 +506,7 @@ Partial Class abm_empleados
         Me.cmd_eliminar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_efector.Location = New System.Drawing.Point(411, 184)
+        Me.cmd_eliminar_efector.Location = New System.Drawing.Point(411, 200)
         Me.cmd_eliminar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_efector.Name = "cmd_eliminar_efector"
         Me.cmd_eliminar_efector.Size = New System.Drawing.Size(25, 25)
@@ -520,7 +525,7 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_efector.Location = New System.Drawing.Point(378, 184)
+        Me.cmd_agregar_efector.Location = New System.Drawing.Point(378, 200)
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(25, 25)
@@ -666,66 +671,12 @@ Partial Class abm_empleados
         Me.dgv_efectores.AllowUserToAddRows = False
         Me.dgv_efectores.AllowUserToDeleteRows = False
         Me.dgv_efectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre_efector, Me.cargo, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
+        Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre_efector, Me.cargo, Me.perfil, Me.estado_empleado, Me.año_curso, Me.id_cargo, Me.id_perfil, Me.id_estado})
         Me.dgv_efectores.Location = New System.Drawing.Point(461, 324)
         Me.dgv_efectores.Name = "dgv_efectores"
         Me.dgv_efectores.ReadOnly = True
-        Me.dgv_efectores.Size = New System.Drawing.Size(618, 214)
+        Me.dgv_efectores.Size = New System.Drawing.Size(618, 225)
         Me.dgv_efectores.TabIndex = 10
-        '
-        'cuie
-        '
-        Me.cuie.HeaderText = "Cuie"
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        '
-        'nombre_efector
-        '
-        Me.nombre_efector.HeaderText = "Vacunatorio"
-        Me.nombre_efector.Name = "nombre_efector"
-        Me.nombre_efector.ReadOnly = True
-        Me.nombre_efector.Width = 200
-        '
-        'cargo
-        '
-        Me.cargo.HeaderText = "Cargo"
-        Me.cargo.Name = "cargo"
-        Me.cargo.ReadOnly = True
-        Me.cargo.Width = 140
-        '
-        'perfil
-        '
-        Me.perfil.HeaderText = "Perfil"
-        Me.perfil.Name = "perfil"
-        Me.perfil.ReadOnly = True
-        Me.perfil.Width = 150
-        '
-        'estado_empleado
-        '
-        Me.estado_empleado.HeaderText = "Estado"
-        Me.estado_empleado.Name = "estado_empleado"
-        Me.estado_empleado.ReadOnly = True
-        '
-        'id_cargo
-        '
-        Me.id_cargo.HeaderText = "id_cargo"
-        Me.id_cargo.Name = "id_cargo"
-        Me.id_cargo.ReadOnly = True
-        Me.id_cargo.Visible = False
-        '
-        'id_perfil
-        '
-        Me.id_perfil.HeaderText = "id_perfil"
-        Me.id_perfil.Name = "id_perfil"
-        Me.id_perfil.ReadOnly = True
-        Me.id_perfil.Visible = False
-        '
-        'id_estado
-        '
-        Me.id_estado.HeaderText = "id_estado"
-        Me.id_estado.Name = "id_estado"
-        Me.id_estado.ReadOnly = True
-        Me.id_estado.Visible = False
         '
         'lbl_mail
         '
@@ -874,6 +825,84 @@ Partial Class abm_empleados
         Me.Label22.TabIndex = 54
         Me.Label22.Text = "Empleados registrados:"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(269, 162)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(73, 13)
+        Me.Label5.TabIndex = 50
+        Me.Label5.Text = "Año del Curso"
+        '
+        'txt_año_curso
+        '
+        Me.txt_año_curso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_año_curso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_año_curso.Location = New System.Drawing.Point(347, 159)
+        Me.txt_año_curso.Name = "txt_año_curso"
+        Me.txt_año_curso.Size = New System.Drawing.Size(87, 20)
+        Me.txt_año_curso.TabIndex = 51
+        '
+        'cuie
+        '
+        Me.cuie.HeaderText = "Cuie"
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        '
+        'nombre_efector
+        '
+        Me.nombre_efector.HeaderText = "Vacunatorio"
+        Me.nombre_efector.Name = "nombre_efector"
+        Me.nombre_efector.ReadOnly = True
+        Me.nombre_efector.Width = 200
+        '
+        'cargo
+        '
+        Me.cargo.HeaderText = "Cargo"
+        Me.cargo.Name = "cargo"
+        Me.cargo.ReadOnly = True
+        Me.cargo.Width = 140
+        '
+        'perfil
+        '
+        Me.perfil.HeaderText = "Perfil"
+        Me.perfil.Name = "perfil"
+        Me.perfil.ReadOnly = True
+        Me.perfil.Width = 150
+        '
+        'estado_empleado
+        '
+        Me.estado_empleado.HeaderText = "Estado"
+        Me.estado_empleado.Name = "estado_empleado"
+        Me.estado_empleado.ReadOnly = True
+        '
+        'año_curso
+        '
+        Me.año_curso.HeaderText = "Año Curso"
+        Me.año_curso.Name = "año_curso"
+        Me.año_curso.ReadOnly = True
+        '
+        'id_cargo
+        '
+        Me.id_cargo.HeaderText = "id_cargo"
+        Me.id_cargo.Name = "id_cargo"
+        Me.id_cargo.ReadOnly = True
+        Me.id_cargo.Visible = False
+        '
+        'id_perfil
+        '
+        Me.id_perfil.HeaderText = "id_perfil"
+        Me.id_perfil.Name = "id_perfil"
+        Me.id_perfil.ReadOnly = True
+        Me.id_perfil.Visible = False
+        '
+        'id_estado
+        '
+        Me.id_estado.HeaderText = "id_estado"
+        Me.id_estado.Name = "id_estado"
+        Me.id_estado.ReadOnly = True
+        Me.id_estado.Visible = False
+        '
         'abm_empleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -964,14 +993,6 @@ Partial Class abm_empleados
     Friend WithEvents cmd_buscar_x_documento As System.Windows.Forms.Button
     Friend WithEvents cmb_estado_empleado As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cargo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents perfil As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents estado_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_eliminar_efector As System.Windows.Forms.Button
     Friend WithEvents txt_efectores As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuie As System.Windows.Forms.TextBox
@@ -979,4 +1000,15 @@ Partial Class abm_empleados
     Friend WithEvents lbl_contador_empleados As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Public WithEvents txt_nro_documento As System.Windows.Forms.TextBox
+    Friend WithEvents txt_año_curso As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cargo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents perfil As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents estado_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents año_curso As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

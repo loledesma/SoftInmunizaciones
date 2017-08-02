@@ -178,6 +178,12 @@ Public Class Menu
     Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
         Registrar_recordatorio.ShowDialog()
     End Sub
+    Private Sub EmpleadosPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorEstadoToolStripMenuItem.Click
+        list_empleados_x_estado.ShowDialog()
+    End Sub
 
-    
+ 
+    Private Sub VacunatoriosPorLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosPorLocalidadToolStripMenuItem.Click
+        Est_Efect_x_Loc.Show()
+    End Sub
 End Class
