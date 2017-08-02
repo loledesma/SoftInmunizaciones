@@ -731,6 +731,21 @@
                         dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido.Text
                         dgv_empleados.Rows(c).Cells("id_estado").Value = Me.cmb_estados_empleados.SelectedValue
                         dgv_empleados.Rows(c).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
+
+                        If cmb_perfil.SelectedValue <> -1 Then
+                            dgv_empleados.Rows(c).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                            sql = ""
+                            sql &= "SELECT P.descripcion as descripcion "
+                            sql &= " FROM PERFILES_SIGIPSA P "
+                            sql &= "WHERE P.id = " & Me.cmb_perfil.SelectedValue
+                            tabla.Clear()
+                            tabla = acceso.consulta(sql)
+                            dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+                        Else
+                            dgv_empleados.Rows(c).Cells("id_perfil").Value = "Null"
+                            dgv_empleados.Rows(c).Cells("perfil").Value = "Null"
+                        End If
+
                         sql = ""
                         sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
                         tabla.Clear()
@@ -742,13 +757,7 @@
                         tabla.Clear()
                         tabla = acceso.consulta(sql)
                         dgv_empleados.Rows(c).Cells("cargo").Value = tabla.Rows(0)("descripcion")
-                        'sql = ""
-                        'sql &= "SELECT P.descripcion as descripcion, EE.id_perfil as id_perfil"
-                        'sql &= " FROM PERFILES_SIGIPSA P JOIN EMPLEADOSXEFECTOR EE ON P.id = EE.id_perfil "
-                        'sql &= "WHERE EE.id_empleados = " & Me.txt_id_empleado.Text
-                        'tabla.Clear()
-                        'tabla = acceso.consulta(sql)
-                        'dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+
                         sql = ""
                         sql &= "SELECT ESTEMPL.descripcion as descripcion"
                         sql &= " FROM ESTADOS_EMPLEADOS ESTEMPL "
@@ -770,6 +779,20 @@
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_estado").Value = Me.cmb_estados_empleados.SelectedValue
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
+
+                    If cmb_perfil.SelectedValue <> -1 Then
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                        sql = ""
+                        sql &= "SELECT P.descripcion as descripcion "
+                        sql &= " FROM PERFILES_SIGIPSA P "
+                        sql &= "WHERE P.id = " & Me.cmb_perfil.SelectedValue
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+                    Else
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_perfil").Value = "Null"
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("perfil").Value = "Null"
+                    End If
                     sql = ""
                     sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
                     tabla.Clear()
