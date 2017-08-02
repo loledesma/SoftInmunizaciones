@@ -732,6 +732,12 @@
                         dgv_empleados.Rows(c).Cells("id_estado").Value = Me.cmb_estados_empleados.SelectedValue
                         dgv_empleados.Rows(c).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
 
+                        If txt_año_curso.Text <> "" Then
+                            dgv_empleados.Rows(c).Cells("año_curso").Value = Me.txt_año_curso.Text
+                        Else
+                            dgv_empleados.Rows(c).Cells("año_curso").Value = "NO CARGADO"
+                        End If
+
                         If cmb_perfil.SelectedValue <> -1 Then
                             dgv_empleados.Rows(c).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
                             sql = ""
@@ -779,6 +785,12 @@
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_estado").Value = Me.cmb_estados_empleados.SelectedValue
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
+
+                    If txt_año_curso.Text <> "" Then
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("año_curso").Value = Me.txt_año_curso.Text
+                    Else
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("año_curso").Value = "NO CARGADO"
+                    End If
 
                     If cmb_perfil.SelectedValue <> -1 Then
                         dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
@@ -886,7 +898,7 @@
     End Function
 
     Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
-      abm_empleados.ShowDialog()
+        abm_empleados.ShowDialog()
     End Sub
 
     Private Sub cmd_buscar_empleadoXDNI_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleadoXDNI.Click
