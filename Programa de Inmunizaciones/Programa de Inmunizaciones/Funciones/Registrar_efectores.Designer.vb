@@ -503,7 +503,7 @@ Partial Class Registrar_efectores
         Me.txt_nombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_nombre.Location = New System.Drawing.Point(112, 49)
         Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(275, 20)
+        Me.txt_nombre.Size = New System.Drawing.Size(322, 20)
         Me.txt_nombre.TabIndex = 2
         '
         'Label2
