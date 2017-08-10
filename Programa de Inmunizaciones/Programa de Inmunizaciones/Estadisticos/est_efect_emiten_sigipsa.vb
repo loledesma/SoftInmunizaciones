@@ -46,14 +46,15 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= "SELECT ERM.descripcion AS estado, COUNT(*) AS cantidad FROM ESTADO_RM ERM JOIN EFECTORES E ON E.estado_rm = ERM.id "
+        sql &= "SELECT ERM.descripcion AS estado, COUNT(*) AS cantidad FROM ESTADO_RM ERM JOIN EFECTORES E ON E.estado_rm = ERM.id"
+        sql &= " WHERE E.id_estado = 3 "
         If cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            sql &= " AND E.id_estado = 3 AND E.id_departamento = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND E.id_localidad = " & Me.cmb_localidades.SelectedValue
+                sql &= " AND E.id_estado = 3 AND E.id_localidad = " & Me.cmb_localidades.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE E.id_localidad = " & Me.cmb_localidades.SelectedValue
+            sql &= " AND E.id_estado = 3 AND E.id_localidad = " & Me.cmb_localidades.SelectedValue
         End If
         sql &= " GROUP BY ERM.descripcion "
 

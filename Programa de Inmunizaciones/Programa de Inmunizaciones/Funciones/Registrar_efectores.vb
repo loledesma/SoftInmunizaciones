@@ -562,6 +562,14 @@
                 Else
                     txt_insert &= ", id_perfil=" & Me.dgv_empleados.Rows(c).Cells("id_perfil").Value
                 End If
+
+
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("año_curso").Value) Or Me.dgv_empleados.Rows(c).Cells("año_curso").Value.ToString = "NO CARGADO" Then
+                    txt_insert &= ", año_curso=Null"
+                Else
+                    txt_insert &= ", año_curso=" & Me.dgv_empleados.Rows(c).Cells("año_curso").Value
+                End If
+
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_empleados.Rows(c).Cells("id_estado").Value
                 txt_insert &= " WHERE id_empleados= " & Me.dgv_empleados.Rows(c).Cells("id").Value & " AND id_efector='" & txt_cuie.Text & "'"
 
@@ -578,7 +586,7 @@
                     txt_insert &= ", id_perfil=" & Me.dgv_empleados.Rows(c).Cells("id_perfil").Value
                 End If
 
-                If IsNothing(Me.dgv_empleados.Rows(c).Cells("año_curso").Value) Then
+                If IsNothing(Me.dgv_empleados.Rows(c).Cells("año_curso").Value) Or Me.dgv_empleados.Rows(c).Cells("año_curso").Value.ToString = "NO CARGADO" Then
                     txt_insert &= ", año_curso=Null"
                 Else
                     txt_insert &= ", año_curso=" & Me.dgv_empleados.Rows(c).Cells("año_curso").Value
@@ -731,6 +739,27 @@
                         dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido.Text
                         dgv_empleados.Rows(c).Cells("id_estado").Value = Me.cmb_estados_empleados.SelectedValue
                         dgv_empleados.Rows(c).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
+
+                        If txt_año_curso.Text <> "" Then
+                            dgv_empleados.Rows(c).Cells("año_curso").Value = Me.txt_año_curso.Text
+                        Else
+                            dgv_empleados.Rows(c).Cells("año_curso").Value = "NO CARGADO"
+                        End If
+
+                        If cmb_perfil.SelectedValue <> -1 Then
+                            dgv_empleados.Rows(c).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                            sql = ""
+                            sql &= "SELECT P.descripcion as descripcion "
+                            sql &= " FROM PERFILES_SIGIPSA P "
+                            sql &= "WHERE P.id = " & Me.cmb_perfil.SelectedValue
+                            tabla.Clear()
+                            tabla = acceso.consulta(sql)
+                            dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+                        Else
+                            dgv_empleados.Rows(c).Cells("id_perfil").Value = "Null"
+                            dgv_empleados.Rows(c).Cells("perfil").Value = "Null"
+                        End If
+
                         sql = ""
                         sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
                         tabla.Clear()
@@ -742,13 +771,7 @@
                         tabla.Clear()
                         tabla = acceso.consulta(sql)
                         dgv_empleados.Rows(c).Cells("cargo").Value = tabla.Rows(0)("descripcion")
-                        'sql = ""
-                        'sql &= "SELECT P.descripcion as descripcion, EE.id_perfil as id_perfil"
-                        'sql &= " FROM PERFILES_SIGIPSA P JOIN EMPLEADOSXEFECTOR EE ON P.id = EE.id_perfil "
-                        'sql &= "WHERE EE.id_empleados = " & Me.txt_id_empleado.Text
-                        'tabla.Clear()
-                        'tabla = acceso.consulta(sql)
-                        'dgv_empleados.Rows(c).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+
                         sql = ""
                         sql &= "SELECT ESTEMPL.descripcion as descripcion"
                         sql &= " FROM ESTADOS_EMPLEADOS ESTEMPL "
@@ -770,6 +793,26 @@
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_estado").Value = Me.cmb_estados_empleados.SelectedValue
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
+
+                    If txt_año_curso.Text <> "" Then
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("año_curso").Value = Me.txt_año_curso.Text
+                    Else
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("año_curso").Value = "NO CARGADO"
+                    End If
+
+                    If cmb_perfil.SelectedValue <> -1 Then
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_perfil").Value = Me.cmb_perfil.SelectedValue
+                        sql = ""
+                        sql &= "SELECT P.descripcion as descripcion "
+                        sql &= " FROM PERFILES_SIGIPSA P "
+                        sql &= "WHERE P.id = " & Me.cmb_perfil.SelectedValue
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("perfil").Value = tabla.Rows(0)("descripcion")
+                    Else
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id_perfil").Value = "Null"
+                        dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("perfil").Value = "Null"
+                    End If
                     sql = ""
                     sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
                     tabla.Clear()
@@ -863,7 +906,7 @@
     End Function
 
     Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
-      abm_empleados.ShowDialog()
+        abm_empleados.ShowDialog()
     End Sub
 
     Private Sub cmd_buscar_empleadoXDNI_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleadoXDNI.Click
