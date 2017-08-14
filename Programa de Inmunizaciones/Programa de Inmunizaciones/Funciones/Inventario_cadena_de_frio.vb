@@ -936,7 +936,7 @@
             Sql = ""
             Sql &= "id_efector =" & txt_cuie.Text
             Sql &= ",id_empleado= " & id
-            Sql &= ", fecha= '" & Me.txt_fecha_info.Text & "'"
+            Sql &= ", fecha='" & Me.txt_fecha_info.Text & "'"
 
             acceso.insertar(Sql)
         Else
@@ -944,6 +944,8 @@
             Sql &= " SET id_empleado= " & tabla.Rows(0)("id")
             Sql &= ", fecha= '" & Me.txt_fecha_info.Text & "'"
             Sql &= " WHERE id_efector= '" & Me.txt_cuie.Text & "'"
+
+            acceso.ejecutar(Sql)
         End If
 
 
@@ -965,6 +967,7 @@
             If dgv_heladeras.Rows(c).Cells("id_heladera").Value.ToString() <> "Null" Then
                 Sql = "UPDATE INVENTARIO_CF_HELADERA"
                 Sql &= " SET id_tipo_heladera= " & Me.dgv_heladeras.Rows(c).Cells("id_tipo_heladera").Value
+                Sql &= ", fecha='" & Me.dgv_heladeras.Rows(c).Cells("fecha_heladera").Value & "'"
                 Sql &= ", modelo= '" & Me.dgv_heladeras.Rows(c).Cells("modelo").Value & "'"
                 Sql &= ", id_marca= " & Me.dgv_heladeras.Rows(c).Cells("id_marca").Value
                 Sql &= ", nro_serie= '" & Me.dgv_heladeras.Rows(c).Cells("nro_serie").Value & "'"

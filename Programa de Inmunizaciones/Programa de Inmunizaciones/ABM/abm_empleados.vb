@@ -732,7 +732,7 @@
             End If
 
 
-            If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Then
+            If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Or Me.dgv_efectores.Rows(c).Cells("año_curso").Value.ToString = "NO CARGADO" Then
                 txt_insert &= ", año_curso=Null"
             Else
                 txt_insert &= ", año_curso=" & Me.dgv_efectores.Rows(c).Cells("año_curso").Value
@@ -760,7 +760,7 @@
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
 
-                If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Then
+                If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Or Me.dgv_efectores.Rows(c).Cells("año_curso").Value.ToString = "NO CARGADO" Then
                     txt_insert &= ", año_curso=Null"
                 Else
                     txt_insert &= ", año_curso=" & Me.dgv_efectores.Rows(c).Cells("año_curso").Value
@@ -782,7 +782,7 @@
 
                 txt_insert &= ", id_estado_empleado=" & Me.dgv_efectores.Rows(c).Cells("id_estado").Value
 
-                If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Then
+                If IsNothing(Me.dgv_efectores.Rows(c).Cells("año_curso").Value) Or Me.dgv_efectores.Rows(c).Cells("año_curso").Value.ToString = "NO CARGADO" Then
                     txt_insert &= ", año_curso=Null"
                 Else
                     txt_insert &= ", año_curso=" & Me.dgv_efectores.Rows(c).Cells("año_curso").Value
