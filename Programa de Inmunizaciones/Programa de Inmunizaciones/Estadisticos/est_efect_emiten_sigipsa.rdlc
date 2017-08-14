@@ -493,7 +493,7 @@
   <Width>8.38901in</Width>
   <Page>
     <PageHeader>
-      <Height>2.44891cm</Height>
+      <Height>2.55474cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -531,6 +531,18 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line2">
+          <Top>2.13141cm</Top>
+          <Left>0.47307cm</Left>
+          <Height>0cm</Height>
+          <Width>20.35937cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
