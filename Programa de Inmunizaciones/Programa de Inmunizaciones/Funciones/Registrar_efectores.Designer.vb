@@ -606,11 +606,11 @@ Partial Class Registrar_efectores
         Me.cmd_actualizar_sigipsa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_actualizar_sigipsa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_sigipsa.Font = New System.Drawing.Font("Calibri", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(155, 187)
+        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(132, 185)
         Me.cmd_actualizar_sigipsa.Name = "cmd_actualizar_sigipsa"
-        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(168, 35)
+        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(220, 35)
         Me.cmd_actualizar_sigipsa.TabIndex = 9
-        Me.cmd_actualizar_sigipsa.Text = "ACTUALIZAR SIGIPSA"
+        Me.cmd_actualizar_sigipsa.Text = "VER DATOS DEL EMPLEADO"
         Me.cmd_actualizar_sigipsa.UseVisualStyleBackColor = True
         '
         'cmb_cargo
