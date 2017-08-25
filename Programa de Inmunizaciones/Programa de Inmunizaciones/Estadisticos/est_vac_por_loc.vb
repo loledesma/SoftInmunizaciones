@@ -1,13 +1,17 @@
-﻿Public Class est_efect_emiten_sigipsa
+﻿Public Class est_vac_por_loc
 
-    Private Sub est_efect_emiten_sigipsa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub est_vac_por_loc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         cmb_departamentos.cargar()
-        cmb_localidades.cargar()
         cmb_departamentos.SelectedIndex = -1
+        cmb_localidades.cargar()
         cmb_localidades.SelectedIndex = -1
-        ReportViewer1.Clear()
+
+        Me.ReportViewer1.RefreshReport()
+        Me.ReportViewer1.RefreshReport()
         Me.ReportViewer1.RefreshReport()
     End Sub
+
     Private Sub cmb_departamentos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_departamentos.SelectedValueChanged
 
         If cmb_departamentos.SelectedIndex <> -1 Then
@@ -15,7 +19,6 @@
             cmb_localidades.Enabled = True
             cmb_localidades.SelectedIndex = -1
         End If
-
     End Sub
     Private Sub limpiar(ByVal de_donde As Object)
         Dim cmd As ComboBoxV1
@@ -33,45 +36,37 @@
             End Select
         Next obj
     End Sub
-    Private Sub est_efect_emiten_sigipsa_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Me.limpiar(Me.Controls)
-            e.Cancel = False
-        Else
-            e.Cancel = True
-        End If
-    End Sub
 
     Private Sub imprimir()
         Dim sql As String = ""
-        Dim tabla As New DataTable
+        Dim tabla As New DataTable()
 
-        sql &= "SELECT ERM.descripcion AS estado, COUNT(*) AS cantidad FROM ESTADO_RM ERM JOIN EFECTORES E ON E.estado_rm = ERM.id"
-        sql &= " WHERE E.id_estado = 3 "
+        sql = "select L.descripcion AS nombre_localidad, COUNT (*) AS cantidad_efectores"
+        sql &= " from LOCALIDADES L join EFECTORES E on L.id = E.id_localidad  "
+
         If cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " AND E.id_estado = 3 AND E.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND E.id_estado = 3 AND E.id_localidad = " & Me.cmb_localidades.SelectedValue
+                sql &= " AND E.id_localidad = " & Me.cmb_localidades.SelectedValue
             End If
-        ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " AND E.id_estado = 3 AND E.id_localidad = " & Me.cmb_localidades.SelectedValue
-        End If
-        sql &= " GROUP BY ERM.descripcion "
-
-        tabla = acceso.consulta(sql)
-        If tabla.Rows.Count() = 0 Then
-            MessageBox.Show("No hay datos para la búsqueda!", "Atencíón")
-            ReportViewer1.Clear()
+        Else
+            MessageBox.Show("Debe seleccionar un Departamento!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cmb_departamentos.Focus()
             Exit Sub
         End If
 
-        EST_EF_EMITEN_SIGIPSABindingSource.DataSource = tabla
-        ReportViewer1.RefreshReport()
+        sql &= "GROUP BY L.descripcion "
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            MessageBox.Show("No hay datos para la búsqueda!", "Atención", MessageBoxButtons.OK)
+            Exit Sub
+        End If
 
     End Sub
 
-
-    Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
+    Private Sub cmd_generar_Click(sender As Object, e As EventArgs) Handles cmd_generar.Click
         imprimir()
     End Sub
 End Class

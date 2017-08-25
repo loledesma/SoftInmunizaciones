@@ -239,7 +239,7 @@ Partial Class Registrar_atencion
         Me.cmb_estado_atencion.FormattingEnabled = True
         Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 108)
         Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
-        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_estado_atencion.Size = New System.Drawing.Size(237, 21)
         Me.cmb_estado_atencion.TabIndex = 4
         '
         'txt_id_atencion

@@ -74,6 +74,7 @@ Partial Class Menu
         Me.VacunatoriosSegúnHeladeraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadoDeHeladerasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VacunatoriosPorLocalidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeEmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,7 +91,6 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.VacunatoriosPorLocalidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -382,6 +382,11 @@ Partial Class Menu
         resources.ApplyResources(Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem, "EmisiónDeResumenDesdeSigipsaToolStripMenuItem")
         Me.EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Name = "EmisiónDeResumenDesdeSigipsaToolStripMenuItem"
         '
+        'VacunatoriosPorLocalidadToolStripMenuItem
+        '
+        resources.ApplyResources(Me.VacunatoriosPorLocalidadToolStripMenuItem, "VacunatoriosPorLocalidadToolStripMenuItem")
+        Me.VacunatoriosPorLocalidadToolStripMenuItem.Name = "VacunatoriosPorLocalidadToolStripMenuItem"
+        '
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
@@ -486,11 +491,6 @@ Partial Class Menu
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Name = "Label1"
-        '
-        'VacunatoriosPorLocalidadToolStripMenuItem
-        '
-        resources.ApplyResources(Me.VacunatoriosPorLocalidadToolStripMenuItem, "VacunatoriosPorLocalidadToolStripMenuItem")
-        Me.VacunatoriosPorLocalidadToolStripMenuItem.Name = "VacunatoriosPorLocalidadToolStripMenuItem"
         '
         'Menu
         '
