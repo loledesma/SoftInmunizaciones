@@ -1071,4 +1071,20 @@
             End If
         End If
     End Sub
+
+    Private Sub cmd_actividades_Click(sender As Object, e As EventArgs) Handles cmd_actividades.Click
+        If txt_id_capacitacion.Text <> "" Then
+            Registrar_Actividades.ShowDialog()
+        Else
+            MsgBox("Debe seleccionar una capacitacion")
+        End If
+    End Sub
+
+    Private Sub cmd_invitaciones_Click(sender As Object, e As EventArgs) Handles cmd_invitaciones.Click
+        If txt_id_capacitacion.Text <> "" Then
+            Registrar_invitaciones.ShowDialog()
+        Else
+            MsgBox("Debe seleccionar una capacitacion")
+        End If
+    End Sub
 End Class
