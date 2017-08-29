@@ -349,7 +349,7 @@
         End If
 
         sql = ""
-        sql &= "SELECT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
+        sql &= "SELECT DISTINCT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
         sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, A.id_empleado As id_empleado, A.observaciones As observaciones "
         sql &= " FROM ASISTENCIA A JOIN EMPLEADOS E ON A.id_empleado = E.id "
         sql &= " JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
@@ -685,7 +685,7 @@
             MessageBox.Show("¡El campo apellido no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             txt_apellido_empleado.Focus()
-            Exit Function
+0:          Exit Function
         ElseIf txt_numero_doc.Text = "" Then
             MessageBox.Show("¡El campo número de documento no puede estar vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txt_numero_doc.Focus()
@@ -772,7 +772,7 @@
         Dim tabla As New DataTable
         txt_id_empleado.Enabled = False
 
-        If cmb_tipos_documento.SelectedValue <> -1 & txt_numero_doc.Text <> "" Then
+        If cmb_tipos_documento.SelectedValue <> -1 And txt_numero_doc.Text <> "" Then
             sql &= "SELECT E.id as id_empleado, E.id_tipo_doc, E.nro_doc, E.apellidos , E.nombres, E.usuario_sigipsa "
             sql &= " FROM EMPLEADOS E "
             sql &= " WHERE nro_doc = " & Me.txt_numero_doc.Text & " AND id_tipo_doc = " & Me.cmb_tipos_documento.SelectedValue

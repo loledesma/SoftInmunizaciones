@@ -66,7 +66,6 @@ Partial Class Registrar_efectores
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
-        Me.txt_año_curso = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -117,6 +116,7 @@ Partial Class Registrar_efectores
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_notificar = New System.Windows.Forms.Button()
+        Me.txt_año_curso = New System.Windows.Forms.TextBox()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -559,15 +559,6 @@ Partial Class Registrar_efectores
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
         '
-        'txt_año_curso
-        '
-        Me.txt_año_curso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_año_curso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_año_curso.Location = New System.Drawing.Point(338, 124)
-        Me.txt_año_curso.Name = "txt_año_curso"
-        Me.txt_año_curso.Size = New System.Drawing.Size(101, 20)
-        Me.txt_año_curso.TabIndex = 53
-        '
         'Label24
         '
         Me.Label24.AutoSize = True
@@ -606,11 +597,11 @@ Partial Class Registrar_efectores
         Me.cmd_actualizar_sigipsa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_actualizar_sigipsa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_sigipsa.Font = New System.Drawing.Font("Calibri", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(155, 187)
+        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(132, 185)
         Me.cmd_actualizar_sigipsa.Name = "cmd_actualizar_sigipsa"
-        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(168, 35)
+        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(220, 35)
         Me.cmd_actualizar_sigipsa.TabIndex = 9
-        Me.cmd_actualizar_sigipsa.Text = "ACTUALIZAR SIGIPSA"
+        Me.cmd_actualizar_sigipsa.Text = "VER DATOS DEL EMPLEADO"
         Me.cmd_actualizar_sigipsa.UseVisualStyleBackColor = True
         '
         'cmb_cargo
@@ -1110,6 +1101,15 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_notificar.UseVisualStyleBackColor = False
         '
+        'txt_año_curso
+        '
+        Me.txt_año_curso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_año_curso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_año_curso.Location = New System.Drawing.Point(339, 124)
+        Me.txt_año_curso.Name = "txt_año_curso"
+        Me.txt_año_curso.Size = New System.Drawing.Size(98, 20)
+        Me.txt_año_curso.TabIndex = 53
+        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1219,7 +1219,6 @@ Partial Class Registrar_efectores
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents cmd_actualizar_sigipsa As System.Windows.Forms.Button
     Friend WithEvents cmb_perfil As Programa_de_Inmunizaciones.ComboBoxV1
-    Friend WithEvents txt_año_curso As System.Windows.Forms.TextBox
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1234,4 +1233,5 @@ Partial Class Registrar_efectores
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txt_año_curso As System.Windows.Forms.TextBox
 End Class
