@@ -22,7 +22,8 @@
         cargar_grilla()
         Me.cmb_tipo_capacitaciones.cargar()
         Me.cmb_tipo_capacitaciones.SelectedValue = -1
-
+        acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
+        acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -31,6 +32,27 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
 
+    End Sub
+
+    Private Sub txt_efectores_MouseEnter(sender As Object, e As EventArgs) Handles txt_efectores.MouseEnter
+        If txt_efectores.Text <> "" Then
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim efectores As String = ""
+            sql &= "SELECT  EF.nombre as nombre "
+            sql &= " FROM EFECTORES EF "
+            sql &= " WHERE EF.nombre LIKE '%" & txt_efectores.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                efectores += tabla.Rows(c)("nombre") & vbCrLf
+            Next
+
+            tltp_efectores.SetToolTip(txt_efectores, efectores)
+        Else
+            Exit Sub
+        End If
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -73,7 +95,7 @@
             e.Cancel = False
         End If
     End Sub
-    Private Sub cmd_buscar_capacitaciones_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_buscar_capacitaciones_Click(sender As Object, e As EventArgs) Handles cmd_buscar_capacitaciones.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
@@ -115,8 +137,6 @@
 
                 For c = 0 To tabla.Rows.Count - 1
                     dgv_capas.Rows.Add()
-
-                    dgv_capas.Rows(c).Cells("id_capacitacion").Value = tabla.Rows(c)("id")
                     dgv_capas.Rows(c).Cells("fecha_programada").Value = tabla.Rows(c)("fecha_programada")
 
                     sql = ""
@@ -151,7 +171,7 @@
         Dim tabla2 As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT * FROM CAPACITACIONES ORDER BY fecha_programada "
+        sql &= "SELECT * FROM CAPACITACIONES ORDER BY fecha_programada desc "
 
         tabla = acceso.consulta(sql)
 
@@ -187,7 +207,7 @@
         Next
     End Sub
 
-    Private Sub dgv_capas_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
+    Private Sub dgv_capas_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_capas.CellMouseDoubleClick
         Me.condicion_click = doble_Click.activado
         Me.condicion_estado = condicion.modificar
         Dim tabla As New DataTable
@@ -198,7 +218,7 @@
         dgv_efectores.Rows.Clear()
 
         sql2 &= " SELECT * FROM CAPACITACIONES "
-        sql2 &= " WHERE id =" & Me.dgv_capas.CurrentRow.Cells("id_capacitacion").Value
+        sql2 &= " WHERE fecha_programada ='" & Me.dgv_capas.CurrentRow.Cells("fecha_programada").Value & "'"
         tabla2 = acceso.consulta(sql2)
 
         If tabla2.Rows.Count() = 0 Then
@@ -217,10 +237,9 @@
         sql &= " WHERE id_capacitacion= " & Me.txt_id_capacitacion.Text
         tabla.Rows.Clear()
         tabla = acceso.consulta(sql)
-
-
         If tabla.Rows.Count() = 0 Then
             MessageBox.Show("La capacitacion no tiene invitaciones registradas!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.condicion_click = doble_Click.desactivado
             Exit Sub
         Else
             Dim c As Integer = 0
@@ -230,7 +249,7 @@
                 dgv_efectores.Rows(c).Cells("cuie").Value = tabla.Rows(c)("id_efector")
 
                 sql = ""
-                sql &= " SELECT * FROM EFECTORES WHERE cuie= " & tabla.Rows(c)("id_efector")
+                sql &= " SELECT * FROM EFECTORES WHERE cuie= '" & tabla.Rows(c)("id_efector") & "'"
                 tabla2.Rows.Clear()
                 tabla2 = acceso.consulta(sql)
 
@@ -245,11 +264,12 @@
 
             Next
         End If
+
         Me.condicion_click = doble_Click.desactivado
     End Sub
 
 
-    Private Sub dgv_efectores_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
+    Private Sub dgv_efectores_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_efectores.CellMouseDoubleClick
         Me.condicion_click = doble_Click.activado
         Me.condicion_estado = condicion.modificar
         Dim tabla As New DataTable
@@ -273,6 +293,7 @@
         End If
 
         sql = "SELECT * FROM EFECTORES WHERE cuie= '" & Me.dgv_efectores.CurrentRow.Cells("cuie").Value & "'"
+        tabla = acceso.consulta(sql)
 
         Me.txt_cuie.Text = tabla2.Rows(0)("id_efector")
         Me.txt_efectores.Text = tabla.Rows(0)("nombre")
@@ -289,6 +310,7 @@
             Me.chk_confirmada.Checked = True
         End If
 
+        Me.condicion_click = doble_Click.desactivado
     End Sub
 
     Private Sub nuevo()
@@ -318,7 +340,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT * FROM CAPACITACIONES "
-        sql &= "WHERE fecha_programada ='" & Me.txt_fecha_efectiva.Text & "'"
+        sql &= "WHERE id =" & Me.txt_id_capacitacion.Text
 
 
         tabla = acceso.consulta(sql)
@@ -331,19 +353,12 @@
     End Function
 
     Private Sub guardar()
-        If validar_existencia() = True Then
-            If condicion_estado = condicion.insertar Then
-                If validar_existencia() = analizar_existencia.no_existe Then
-                    MessageBox.Show("Debe registrar primero la capacitacion")
-                    Exit Sub
-                Else
-                    validar_grilla()
-                End If
-            Else
-                validar_grilla()
-            End If
+        If validar_existencia() = analizar_existencia.existe Then
+            validar_grilla()
+        Else
+            MessageBox.Show("Debe registrar primero la capacitacion")
+            Exit Sub
         End If
-
 
 
         dgv_efectores.Rows.Clear()
@@ -353,18 +368,8 @@
         cargar_grilla()
     End Sub
 
-    Private Sub modificar_invitaciones()
-        Dim c As Integer = 0
-        If validar_grilla() Then
-          
-        Else
-            MsgBox("Debe registrar una invitacion minima para guardar")
-            Exit Sub
-        End If
-       
-    End Sub
 
-   
+
 
     Private Sub cmd_agregar_invitado_Click(sender As Object, e As EventArgs) Handles cmd_agregar_invitado.Click
         agregar_en_grilla_invitados()
@@ -451,12 +456,11 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
-                sql &= "SELECT E.cuie as cuie"
-                sql &= " WHERE E.nombre='" & txt_efectores.Text & "'"
+                sql &= "SELECT cuie FROM EFECTORES"
+                sql &= " WHERE nombre='" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
-
                 End If
             End If
         End If
@@ -467,12 +471,11 @@
         Dim sql As String = ""
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_cuie.Text <> "" Then
-                sql &= "SELECT E.nombre as nombre"
-                sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
+                sql &= "SELECT nombre as nombre FROM EFECTORES "
+                sql &= " WHERE cuie='" & txt_cuie.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_efectores.Text = tabla.Rows(0)("nombre")
-
                 End If
             End If
         End If
@@ -483,55 +486,47 @@
         Dim c As Integer = 0
         Dim Sql As String = ""
 
+        If dgv_efectores.Rows.Count() = 0 Then
+            MsgBox("Debe registrar una invitacion")
+        Else
+            For c = 0 To dgv_efectores.Rows.Count() - 1
+                If validar_existencia_efector(Me.dgv_efectores.Rows(c).Cells("cuie").Value) = analizar_existencia.existe Then
+                    Sql = ""
+                    Sql = "UPDATE INVITACIONES "
+                    Sql &= " SET invitacion='" & Me.dgv_efectores.Rows(c).Cells("invitacion").Value & "'"
 
-        For c = 0 To dgv_efectores.Rows.Count() - 1
-            If validar_existencia_efector(Me.dgv_efectores.Rows(c).Cells("cuie").Value) = analizar_existencia.existe Then
-                Sql = ""
-                Sql = "UPDATE INVITACIONES "
-                Sql &= " SET "
-
-                If IsNothing(Me.dgv_efectores.Rows(c).Cells("observaciones").Value) Then
-                    Sql &= " observaciones= NULL "
-                Else
-                    Sql &= ", observaciones='" & Me.dgv_efectores.Rows(c).Cells("observaciones").Value & "'"
-                End If
-
-                If chk_confirmada.Checked = False Then
-                    If chk_enviada.Checked = True Then
-                        Sql &= ", invitacion ='ENVIADA'"
+                    If IsNothing(Me.dgv_efectores.Rows(c).Cells("observaciones").Value) Then
+                        Sql &= " , observaciones= NULL "
+                    Else
+                        Sql &= " , observaciones='" & Me.dgv_efectores.Rows(c).Cells("observaciones").Value & "'"
                     End If
+
+                    Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
+                    Sql &= " AND id_efector= '" & dgv_efectores.Rows(c).Cells("cuie").Value & "'"
+                    acceso.ejecutar(Sql)
+
                 Else
-                    Sql &= ", invitacion ='CONFIRMADA'"
-                End If
+                    acceso._nombre_tabla = "INVITACIONES"
+                    Sql = ""
+                    Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
+                    Sql &= ", id_efector=" & dgv_efectores.Rows(c).Cells("cuie").Value
+                    Sql &= ", invitacion = " & Me.dgv_efectores.Rows(c).Cells("invitacion").Value
 
-                Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
-                Sql &= " AND id_efector= " & dgv_efectores.Rows(c).Cells("cuie").Value
-                acceso.ejecutar(Sql)
 
-            Else
-                acceso._nombre_tabla = "INVITACIONES"
-                Sql = ""
-                Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
-                Sql &= ", id_efector=" & dgv_efectores.Rows(c).Cells("cuie").Value
-
-                If chk_confirmada.Checked = False Then
-                    If chk_enviada.Checked = True Then
-                        Sql &= ", invitacion ='ENVIADA'"
+                    If IsNothing(Me.dgv_efectores.Rows(c).Cells("observaciones").Value) Then
+                        Sql &= ", observaciones= NULL "
+                    Else
+                        Sql &= ", observaciones= " & Me.dgv_efectores.Rows(c).Cells("observaciones").Value
                     End If
-                Else
-                    Sql &= ", invitacion ='CONFIRMADA'"
+                    acceso.insertar(Sql)
                 End If
 
-                If IsNothing(Me.dgv_efectores.Rows(c).Cells("observaciones").Value) Then
-                    Sql &= ", observaciones= NULL "
-                Else
-                    Sql &= ", observaciones= " & Me.dgv_efectores.Rows(c).Cells("observaciones").Value
-                End If
-                acceso.insertar(Sql)
-            End If
+                Sql = ""
+            Next
+        End If
 
-            Sql = ""
-        Next
+
+        
     End Sub
 
     Private Function validar_existencia_efector(ByVal cuie As String) As analizar_existencia
@@ -539,7 +534,7 @@
         Dim tabla As New DataTable
 
         sql &= " SELECT * FROM INVITACIONES WHERE id_capacitacion= " & Me.txt_id_capacitacion.Text
-        sql &= " AND id_efector= " & cuie
+        sql &= " AND id_efector= '" & cuie & "'"
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
@@ -563,7 +558,7 @@
         cargar_grilla()
     End Sub
 
-    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs)
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         limpiar_todo()
     End Sub
 
@@ -579,4 +574,6 @@
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         nuevo()
     End Sub
+
+
 End Class

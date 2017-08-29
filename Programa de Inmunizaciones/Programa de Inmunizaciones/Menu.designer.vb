@@ -91,6 +91,7 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.GestionarInvitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -153,7 +154,7 @@ Partial Class Menu
         '
         'CapacitacionesToolStripMenuItem
         '
-        Me.CapacitacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNuevaCapacitaciónToolStripMenuItem, Me.ListadosToolStripMenuItem2, Me.EstadisticasToolStripMenuItem3})
+        Me.CapacitacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNuevaCapacitaciónToolStripMenuItem, Me.ListadosToolStripMenuItem2, Me.EstadisticasToolStripMenuItem3, Me.GestionarInvitacionesToolStripMenuItem})
         resources.ApplyResources(Me.CapacitacionesToolStripMenuItem, "CapacitacionesToolStripMenuItem")
         Me.CapacitacionesToolStripMenuItem.Name = "CapacitacionesToolStripMenuItem"
         '
@@ -492,6 +493,11 @@ Partial Class Menu
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Name = "Label1"
         '
+        'GestionarInvitacionesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.GestionarInvitacionesToolStripMenuItem, "GestionarInvitacionesToolStripMenuItem")
+        Me.GestionarInvitacionesToolStripMenuItem.Name = "GestionarInvitacionesToolStripMenuItem"
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -578,4 +584,5 @@ Partial Class Menu
     Public WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RegistrarRecordatorioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VacunatoriosPorLocalidadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GestionarInvitacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
