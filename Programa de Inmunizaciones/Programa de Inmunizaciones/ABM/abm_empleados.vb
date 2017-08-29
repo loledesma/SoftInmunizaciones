@@ -1120,10 +1120,11 @@
                         Me.dgv_efectores.Rows(c).Cells("nombre_efector").Value = Me.txt_efectores.Text
                         Me.dgv_efectores.Rows(c).Cells("id_cargo").Value = Me.cmb_cargo.SelectedValue
                         Me.dgv_efectores.Rows(c).Cells("id_estado").Value = Me.cmb_estado_empleado.SelectedValue
+
                         If txt_año_curso.Text <> "" Then
                             Me.dgv_efectores.Rows(c).Cells("año_curso").Value = txt_año_curso.Text
                         Else
-                            Me.dgv_efectores.Rows(c).Cells("año_curso").Value = Nothing
+                            Me.dgv_efectores.Rows(c).Cells("año_curso").Value = "NO CARGADO"
                         End If
                         sql = ""
                         sql &= "SELECT C.descripcion As descripcion FROM CARGO C "
@@ -1165,7 +1166,7 @@
                     If txt_año_curso.Text <> "" Then
                         Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("año_curso").Value = txt_año_curso.Text
                     Else
-                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("año_curso").Value = Nothing
+                        Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("año_curso").Value = "NO CARGADO"
                     End If
                     sql = ""
                     sql &= "SELECT C.descripcion As descripcion FROM CARGO C "
@@ -1186,7 +1187,6 @@
                         tabla1 = acceso.consulta(sql)
                         Me.dgv_efectores.Rows(Me.dgv_efectores.Rows.Count - 1).Cells("perfil").Value = tabla1.Rows(0)("descripcion")
                     End If
-
                     sql = ""
                     sql &= "SELECT ENT.descripcion AS descripcion FROM ESTADOS_EMPLEADOS ENT "
                     sql &= " WHERE ENT.id= " & Me.cmb_estado_empleado.SelectedValue
