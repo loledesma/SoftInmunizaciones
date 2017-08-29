@@ -72,4 +72,10 @@
     Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
         imprimir()
     End Sub
+
+    Private Sub est_empleados_con_y_sin_curso_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        Me.ReportViewer1.Width = Me.Width - 50
+        Me.ReportViewer1.Height = Me.Height - 200
+        Me.ReportViewer1.PerformAutoScale()
+    End Sub
 End Class
