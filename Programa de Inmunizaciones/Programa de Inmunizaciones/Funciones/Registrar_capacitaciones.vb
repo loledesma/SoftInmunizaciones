@@ -1074,7 +1074,11 @@
 
     Private Sub cmd_actividades_Click(sender As Object, e As EventArgs) Handles cmd_actividades.Click
         If txt_id_capacitacion.Text <> "" Then
-         
+            Registrar_Actividades.txt_id_capacitacion.Text = Me.txt_id_capacitacion.Text
+            Registrar_Actividades.txt_fecha_efectiva.Text = Me.txt_fecha_programada.Text
+            Registrar_Actividades.cmb_tipo_capacitaciones.cargar()
+            Registrar_Actividades.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
+            Registrar_Actividades.txt_lugar.Text = Me.txt_lugar.Text
             Registrar_Actividades.ShowDialog()
         Else
             MsgBox("Debe seleccionar una capacitacion")
