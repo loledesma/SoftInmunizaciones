@@ -19,6 +19,8 @@
     Private Sub Registrar_Actividades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
         cmb_tipo_capacitaciones.cargar()
+        cmb_etapas.cargar()
+        cmb_etapas.SelectedValue = -1
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -240,7 +242,13 @@
         Dim sql As String = ""
         Dim sql2 As String = ""
 
-        sql = "SELECT * FROM ACTIVIDADES "
+        If cmb_etapas.SelectedValue <> -1 Then
+            sql = "SELECT * FROM ACTIVIDADES "
+        Else
+            sql = "SELECT * FROM ACTIVIDADES WHERE id_etapa=" & Me.cmb_etapas.SelectedValue
+        End If
+
+
         tabla = acceso.consulta(sql)
 
         dgv_actividades.Rows.Clear()

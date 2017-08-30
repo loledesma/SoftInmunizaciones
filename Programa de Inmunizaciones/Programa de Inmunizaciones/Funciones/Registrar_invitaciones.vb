@@ -30,6 +30,7 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
 
+        Me.cmb_tipo_capacitaciones.cargar()
         If cmb_tipo_capacitaciones.SelectedValue = -1 Then
             Me.cmb_tipo_capacitaciones.cargar()
             Me.cmb_tipo_capacitaciones.SelectedValue = -1
