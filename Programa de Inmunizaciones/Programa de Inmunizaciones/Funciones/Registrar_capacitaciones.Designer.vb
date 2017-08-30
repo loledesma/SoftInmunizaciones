@@ -29,6 +29,8 @@ Partial Class Registrar_capacitaciones
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Capacitacion = New System.Windows.Forms.TabPage()
+        Me.cmd_invitaciones = New System.Windows.Forms.Button()
+        Me.cmd_actividades = New System.Windows.Forms.Button()
         Me.grp_buscar_empleado = New System.Windows.Forms.GroupBox()
         Me.txt_nombres_buscar = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -145,6 +147,8 @@ Partial Class Registrar_capacitaciones
         Me.Capacitacion.BackColor = System.Drawing.Color.Transparent
         Me.Capacitacion.BackgroundImage = CType(resources.GetObject("Capacitacion.BackgroundImage"), System.Drawing.Image)
         Me.Capacitacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Capacitacion.Controls.Add(Me.cmd_invitaciones)
+        Me.Capacitacion.Controls.Add(Me.cmd_actividades)
         Me.Capacitacion.Controls.Add(Me.grp_buscar_empleado)
         Me.Capacitacion.Controls.Add(Me.cmd_limpiar)
         Me.Capacitacion.Controls.Add(Me.cmd_guardar)
@@ -160,6 +164,44 @@ Partial Class Registrar_capacitaciones
         Me.Capacitacion.Size = New System.Drawing.Size(891, 643)
         Me.Capacitacion.TabIndex = 0
         Me.Capacitacion.Text = "Capacitacion"
+        '
+        'cmd_invitaciones
+        '
+        Me.cmd_invitaciones.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_invitaciones.BackgroundImage = CType(resources.GetObject("cmd_invitaciones.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_invitaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_invitaciones.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_invitaciones.FlatAppearance.BorderSize = 0
+        Me.cmd_invitaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_invitaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_invitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_invitaciones.Location = New System.Drawing.Point(505, 558)
+        Me.cmd_invitaciones.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_invitaciones.Name = "cmd_invitaciones"
+        Me.cmd_invitaciones.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_invitaciones.TabIndex = 15
+        Me.cmd_invitaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_invitaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_invitaciones.UseVisualStyleBackColor = False
+        '
+        'cmd_actividades
+        '
+        Me.cmd_actividades.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_actividades.BackgroundImage = CType(resources.GetObject("cmd_actividades.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_actividades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_actividades.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_actividades.FlatAppearance.BorderSize = 0
+        Me.cmd_actividades.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_actividades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_actividades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_actividades.Location = New System.Drawing.Point(421, 558)
+        Me.cmd_actividades.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_actividades.Name = "cmd_actividades"
+        Me.cmd_actividades.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_actividades.TabIndex = 14
+        Me.cmd_actividades.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_actividades.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_actividades.UseVisualStyleBackColor = False
         '
         'grp_buscar_empleado
         '
@@ -1269,4 +1311,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents txt_nombres_buscar As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents cmd_invitaciones As System.Windows.Forms.Button
+    Friend WithEvents cmd_actividades As System.Windows.Forms.Button
 End Class

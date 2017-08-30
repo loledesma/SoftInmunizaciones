@@ -80,7 +80,7 @@ Partial Class Dialog1
         Me.DataGridView1.Location = New System.Drawing.Point(109, 58)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(424, 59)
+        Me.DataGridView1.Size = New System.Drawing.Size(499, 59)
         Me.DataGridView1.TabIndex = 1
         '
         'apellidos
@@ -88,13 +88,13 @@ Partial Class Dialog1
         Me.apellidos.HeaderText = "Apellidos"
         Me.apellidos.Name = "apellidos"
         Me.apellidos.ReadOnly = True
-        Me.apellidos.Width = 90
         '
         'nombres
         '
         Me.nombres.HeaderText = "Nombre"
         Me.nombres.Name = "nombres"
         Me.nombres.ReadOnly = True
+        Me.nombres.Width = 110
         '
         'nro_doc
         '
@@ -108,7 +108,7 @@ Partial Class Dialog1
         Me.mail_contacto.HeaderText = "Correo"
         Me.mail_contacto.Name = "mail_contacto"
         Me.mail_contacto.ReadOnly = True
-        Me.mail_contacto.Width = 120
+        Me.mail_contacto.Width = 160
         '
         'Dialog1
         '
@@ -127,7 +127,7 @@ Partial Class Dialog1
         Me.Name = "Dialog1"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Empleados que cumplen años hoy!"
+        Me.Text = "CUMPLEN AÑOS HOY!"
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

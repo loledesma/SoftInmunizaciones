@@ -244,6 +244,18 @@
     <Compile Include="Funciones\Registrar_atencion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.Designer.vb">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.Designer.vb">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
       <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
     </Compile>
@@ -491,8 +503,14 @@
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_invitaciones.resx">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_capacitaciones.resx">
       <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_Actividades.resx">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
