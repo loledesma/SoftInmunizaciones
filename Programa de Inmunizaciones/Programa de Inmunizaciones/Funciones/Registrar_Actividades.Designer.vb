@@ -23,12 +23,12 @@ Partial Class Registrar_Actividades
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_Actividades))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
@@ -45,6 +45,7 @@ Partial Class Registrar_Actividades
         Me.lbl_perdidas = New System.Windows.Forms.Label()
         Me.txt_fecha_efectiva = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_id_notificacion = New System.Windows.Forms.Label()
+        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_id_capacitacion = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -55,7 +56,8 @@ Partial Class Registrar_Actividades
         Me.en_curso = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.realizada = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmb_etapas = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_capacitacion.SuspendLayout()
         CType(Me.dgv_actividades, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,31 +150,31 @@ Partial Class Registrar_Actividades
         '
         Me.dgv_capas.AllowUserToAddRows = False
         Me.dgv_capas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_capas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_capas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_capas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_capas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fecha_programada, Me.tipo, Me.estado, Me.localidad})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_capas.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_capas.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_capas.Location = New System.Drawing.Point(455, 12)
         Me.dgv_capas.Name = "dgv_capas"
         Me.dgv_capas.ReadOnly = True
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        Me.dgv_capas.RowsDefaultCellStyle = DataGridViewCellStyle9
-        Me.dgv_capas.Size = New System.Drawing.Size(443, 159)
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.dgv_capas.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_capas.Size = New System.Drawing.Size(443, 147)
         Me.dgv_capas.TabIndex = 76
         '
         'fecha_programada
@@ -215,7 +217,7 @@ Partial Class Registrar_Actividades
         Me.grp_datos_capacitacion.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_capacitacion.Location = New System.Drawing.Point(12, 10)
         Me.grp_datos_capacitacion.Name = "grp_datos_capacitacion"
-        Me.grp_datos_capacitacion.Size = New System.Drawing.Size(418, 161)
+        Me.grp_datos_capacitacion.Size = New System.Drawing.Size(418, 149)
         Me.grp_datos_capacitacion.TabIndex = 75
         Me.grp_datos_capacitacion.TabStop = False
         Me.grp_datos_capacitacion.Text = "Capacitacion"
@@ -266,6 +268,17 @@ Partial Class Registrar_Actividades
         Me.lbl_id_notificacion.TabIndex = 52
         Me.lbl_id_notificacion.Text = "Id Capacitacion"
         '
+        'cmb_tipo_capacitaciones
+        '
+        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
+        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
+        Me.cmb_tipo_capacitaciones._pk = "id"
+        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
+        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(110, 51)
+        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
+        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_tipo_capacitaciones.TabIndex = 1
+        '
         'txt_id_capacitacion
         '
         Me.txt_id_capacitacion.Location = New System.Drawing.Point(111, 22)
@@ -295,29 +308,29 @@ Partial Class Registrar_Actividades
         '
         Me.dgv_actividades.AllowUserToAddRows = False
         Me.dgv_actividades.AllowUserToDeleteRows = False
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_actividades.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_actividades.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_actividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_actividades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_actividad, Me.actividad, Me.tomada, Me.en_curso, Me.realizada, Me.observaciones})
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_actividades.DefaultCellStyle = DataGridViewCellStyle11
-        Me.dgv_actividades.Location = New System.Drawing.Point(16, 197)
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_actividades.DefaultCellStyle = DataGridViewCellStyle5
+        Me.dgv_actividades.Location = New System.Drawing.Point(16, 205)
         Me.dgv_actividades.Name = "dgv_actividades"
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
-        Me.dgv_actividades.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        Me.dgv_actividades.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgv_actividades.Size = New System.Drawing.Size(882, 284)
         Me.dgv_actividades.TabIndex = 77
         '
@@ -360,16 +373,27 @@ Partial Class Registrar_Actividades
         Me.observaciones.Name = "observaciones"
         Me.observaciones.Width = 200
         '
-        'cmb_tipo_capacitaciones
+        'Label1
         '
-        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
-        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
-        Me.cmb_tipo_capacitaciones._pk = "id"
-        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
-        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(110, 51)
-        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
-        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_tipo_capacitaciones.TabIndex = 1
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Location = New System.Drawing.Point(17, 176)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(40, 13)
+        Me.Label1.TabIndex = 64
+        Me.Label1.Text = "Etapas"
+        '
+        'cmb_etapas
+        '
+        Me.cmb_etapas._descripcion = "descripcion"
+        Me.cmb_etapas._nombre_tabla = "ETAPAS"
+        Me.cmb_etapas._pk = "id"
+        Me.cmb_etapas.FormattingEnabled = True
+        Me.cmb_etapas.Location = New System.Drawing.Point(122, 173)
+        Me.cmb_etapas.Name = "cmb_etapas"
+        Me.cmb_etapas.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_etapas.TabIndex = 64
         '
         'Registrar_Actividades
         '
@@ -378,6 +402,8 @@ Partial Class Registrar_Actividades
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(916, 568)
+        Me.Controls.Add(Me.cmb_etapas)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgv_actividades)
         Me.Controls.Add(Me.dgv_capas)
         Me.Controls.Add(Me.grp_datos_capacitacion)
@@ -425,4 +451,6 @@ Partial Class Registrar_Actividades
     Friend WithEvents en_curso As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents realizada As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cmb_etapas As Programa_de_Inmunizaciones.ComboBoxV1
 End Class
