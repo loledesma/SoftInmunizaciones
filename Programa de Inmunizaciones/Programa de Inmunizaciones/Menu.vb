@@ -215,4 +215,8 @@ Public Class Menu
     Private Sub GestionarInvitacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarInvitacionesToolStripMenuItem.Click
         Registrar_invitaciones.ShowDialog()
     End Sub
+
+    Private Sub GestionarActividadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarActividadesToolStripMenuItem.Click
+        Registrar_Actividades.ShowDialog()
+    End Sub
 End Class

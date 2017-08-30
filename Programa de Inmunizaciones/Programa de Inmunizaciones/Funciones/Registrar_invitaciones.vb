@@ -17,13 +17,11 @@
 
     Dim condicion_click As doble_Click = doble_Click.desactivado
 
-    Private Sub Registrar_capacitaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        limpiar(Me.Controls)
-        cargar_grilla()
-        Me.cmb_tipo_capacitaciones.cargar()
-        Me.cmb_tipo_capacitaciones.SelectedValue = -1
+    Private Sub Registrar_invitaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
+        cargar_grilla()
 
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
@@ -31,6 +29,11 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyGroupSeparator = ","
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
+
+        If cmb_tipo_capacitaciones.SelectedValue = -1 Then
+            Me.cmb_tipo_capacitaciones.cargar()
+            Me.cmb_tipo_capacitaciones.SelectedValue = -1
+        End If
 
     End Sub
 
@@ -56,6 +59,7 @@
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        limpiar_todo()
         Me.Close()
     End Sub
 
@@ -299,7 +303,7 @@
         Me.txt_efectores.Text = tabla.Rows(0)("nombre")
 
         If IsDBNull(tabla2.Rows(0)("observaciones")) Then
-            Me.txt_observaciones2.Text = ""
+            Me.txt_observaciones2.Text = "NO HAY OBSERVACIONES CARGADAS"
         Else
             Me.txt_observaciones2.Text = tabla2.Rows(0)("observaciones")
         End If
@@ -365,7 +369,6 @@
         dgv_capas.Rows.Clear()
         limpiar(Me.Controls)
         limpiar_todo()
-        cargar_grilla()
     End Sub
 
 
@@ -411,7 +414,13 @@
                 If Me.txt_cuie.Text = dgv_efectores.Rows(c).Cells("cuie").Value Then
                     dgv_efectores.Rows(c).Cells("cuie").Value = txt_cuie.Text
                     dgv_efectores.Rows(c).Cells("vacunatorio").Value = txt_efectores.Text
-                    dgv_efectores.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+
+                    If txt_observaciones2.Text <> "" Then
+                        dgv_efectores.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+                    Else
+                        dgv_efectores.Rows(c).Cells("observaciones").Value = Nothing
+                    End If
+
 
                     If chk_confirmada.Checked = True Then
                         dgv_efectores.Rows(c).Cells("invitacion").Value = "CONFIRMADA"
@@ -428,7 +437,13 @@
                 dgv_efectores.Rows.Add()
                 dgv_efectores.Rows(dgv_efectores.Rows.Count - 1).Cells("cuie").Value = txt_cuie.Text
                 dgv_efectores.Rows(dgv_efectores.Rows.Count - 1).Cells("vacunatorio").Value = txt_efectores.Text
-                dgv_efectores.Rows(dgv_efectores.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones2.Text
+
+                If txt_observaciones2.Text <> "" Then
+                    dgv_efectores.Rows(dgv_efectores.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones2.Text
+                Else
+                    dgv_efectores.Rows(dgv_efectores.Rows.Count - 1).Cells("observaciones").Value = Nothing
+                End If
+
 
                 If chk_confirmada.Checked = True Then
                     dgv_efectores.Rows(dgv_efectores.Rows.Count - 1).Cells("invitacion").Value = "CONFIRMADA"
@@ -510,11 +525,10 @@
                     Sql = ""
                     Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
                     Sql &= ", id_efector=" & dgv_efectores.Rows(c).Cells("cuie").Value
-                    Sql &= ", invitacion = " & Me.dgv_efectores.Rows(c).Cells("invitacion").Value
-
+                    Sql &= ", invitacion =" & Me.dgv_efectores.Rows(c).Cells("invitacion").Value
 
                     If IsNothing(Me.dgv_efectores.Rows(c).Cells("observaciones").Value) Then
-                        Sql &= ", observaciones= NULL "
+                        Sql &= ", observaciones=NULL"
                     Else
                         Sql &= ", observaciones= " & Me.dgv_efectores.Rows(c).Cells("observaciones").Value
                     End If

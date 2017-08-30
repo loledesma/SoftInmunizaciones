@@ -61,13 +61,13 @@ Partial Class Registrar_invitaciones
         Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
-        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.vacunatorio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.invitacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vacunatorio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.invitacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_capacitacion.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -447,7 +447,7 @@ Partial Class Registrar_invitaciones
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_efectores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_efectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.observaciones, Me.vacunatorio, Me.invitacion})
+        Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.vacunatorio, Me.invitacion, Me.observaciones})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -464,31 +464,6 @@ Partial Class Registrar_invitaciones
         Me.dgv_efectores.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgv_efectores.Size = New System.Drawing.Size(443, 204)
         Me.dgv_efectores.TabIndex = 75
-        '
-        'cuie
-        '
-        Me.cuie.HeaderText = "Cuie"
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        '
-        'observaciones
-        '
-        Me.observaciones.HeaderText = "Obsevaciones"
-        Me.observaciones.Name = "observaciones"
-        Me.observaciones.ReadOnly = True
-        Me.observaciones.Visible = False
-        '
-        'vacunatorio
-        '
-        Me.vacunatorio.HeaderText = "Vacunatorio"
-        Me.vacunatorio.Name = "vacunatorio"
-        Me.vacunatorio.ReadOnly = True
-        '
-        'invitacion
-        '
-        Me.invitacion.HeaderText = "Invitacion"
-        Me.invitacion.Name = "invitacion"
-        Me.invitacion.ReadOnly = True
         '
         'cmd_nuevo
         '
@@ -519,6 +494,33 @@ Partial Class Registrar_invitaciones
         Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
         Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
         Me.cmb_tipo_capacitaciones.TabIndex = 1
+        '
+        'cuie
+        '
+        Me.cuie.HeaderText = "Cuie"
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        Me.cuie.Width = 60
+        '
+        'vacunatorio
+        '
+        Me.vacunatorio.HeaderText = "Vacunatorio"
+        Me.vacunatorio.Name = "vacunatorio"
+        Me.vacunatorio.ReadOnly = True
+        Me.vacunatorio.Width = 230
+        '
+        'invitacion
+        '
+        Me.invitacion.HeaderText = "Invitacion"
+        Me.invitacion.Name = "invitacion"
+        Me.invitacion.ReadOnly = True
+        '
+        'observaciones
+        '
+        Me.observaciones.HeaderText = "Obsevaciones"
+        Me.observaciones.Name = "observaciones"
+        Me.observaciones.ReadOnly = True
+        Me.observaciones.Visible = False
         '
         'Registrar_invitaciones
         '
@@ -578,10 +580,10 @@ Partial Class Registrar_invitaciones
     Friend WithEvents estado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dgv_efectores As System.Windows.Forms.DataGridView
-    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents vacunatorio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents invitacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
+    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vacunatorio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents invitacion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
