@@ -384,50 +384,11 @@
                 Else
                     check = True
                 End If
-            Else
-                check = False
             End If
-            
         Next
         Return check
     End Function
 
-    'Private Function validar_check(ByVal id_actividad As Integer) As analizar_existencia
-    '    Dim d As Integer = 0
-    '    Dim check As Boolean = False
-    '    For d = 0 To dgv_actividades.Rows.Count() - 1
-    '        If dgv_actividades.Rows(d).Cells("id_actividad").Value = id_actividad Then
-    '            If dgv_actividades.Rows(d).Cells("tomada").Value = False Then
-    '                If dgv_actividades.Rows(d).Cells("en_curso").Value = False Then
-    '                    If dgv_actividades.Rows(d).Cells("realizada").Value = False Then
-    '                        check = False
-    '                    Else
-    '                        check = True
-    '                    End If
-    '                Else
-    '                    check = True
-    '                    If dgv_actividades.Rows(d).Cells("realizada").Value = True Then
-    '                        MsgBox("No debe dejar la actividad en dos estados")
-    '                        check = False
-    '                    End If
-    '                End If
-    '            Else
-    '                If dgv_actividades.Rows(d).Cells("en_curso").Value = True Then
-    '                    MsgBox("No debe dejar la actividad en dos estados")
-    '                    check = False
-    '                Else
-    '                    If dgv_actividades.Rows(d).Cells("realizada").Value = True Then
-    '                        MsgBox("No debe dejar la actividad en dos estados")
-    '                        check = False
-    '                    End If
-    '                End If
-    '                check = True
-    '            End If
-    '        End If
-    '    Next
-    '    Return check
-
-    'End Function
 
     Private Sub check_actividades()
         Dim c As Integer = 0
@@ -439,54 +400,58 @@
         Else
             For c = 0 To dgv_actividades.Rows.Count() - 1
                 If existe_actividad(Me.dgv_actividades.Rows(c).Cells("id_actividad").Value) = analizar_existencia.existe Then
-                    Sql = ""
-                    Sql = "UPDATE ACTIVIDADESXCAPACITACION "
-                    Sql &= " SET "
+                    If validar_actividades(Me.dgv_actividades.Rows(c).Cells("id_actividad").Value) Then
+                        Sql = ""
+                        Sql = "UPDATE ACTIVIDADESXCAPACITACION "
+                        Sql &= " SET "
 
-                    If Me.dgv_actividades.Rows(c).Cells("realizada").Value = True Then
-                        Sql &= " id_estado_actividad= 3"
-                    Else
-                        If Me.dgv_actividades.Rows(c).Cells("en_curso").Value = True Then
-                            Sql &= " id_estado_actividad= 2"
+                        If Me.dgv_actividades.Rows(c).Cells("realizada").Value = True Then
+                            Sql &= " id_estado_actividad= 3"
                         Else
-                            If Me.dgv_actividades.Rows(c).Cells("tomada").Value = True Then
-                                Sql &= " id_estado_actividad= 1"
+                            If Me.dgv_actividades.Rows(c).Cells("en_curso").Value = True Then
+                                Sql &= " id_estado_actividad= 2"
+                            Else
+                                If Me.dgv_actividades.Rows(c).Cells("tomada").Value = True Then
+                                    Sql &= " id_estado_actividad= 1"
+                                End If
                             End If
                         End If
-                    End If
 
-                    If IsNothing(Me.dgv_actividades.Rows(c).Cells("observaciones").Value) Then
-                        Sql &= ", observaciones=NULL"
-                    Else
-                        Sql &= ", observaciones= " & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
+                        If IsNothing(Me.dgv_actividades.Rows(c).Cells("observaciones").Value) Then
+                            Sql &= ", observaciones=NULL"
+                        Else
+                            Sql &= ", observaciones= " & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
+                        End If
+
+                        Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
+                        Sql &= " AND id_actividad= " & Me.dgv_actividades.Rows(c).Cells("id_actividad").Value
+                        acceso.ejecutar(Sql)
                     End If
-                  
-                    Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
-                    Sql &= " AND id_actividad= " & Me.dgv_actividades.Rows(c).Cells("id_actividad").Value
-                    acceso.ejecutar(Sql)
                 Else
-                    acceso._nombre_tabla = "ACTIVIDADESXCAPACITACION"
-                    Sql = ""
-                    Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
-                    Sql &= ", id_actividad= " & Me.dgv_actividades.Rows(c).Cells("id_actividad").Value
+                    If validar_actividades(Me.dgv_actividades.Rows(c).Cells("id_actividad").Value) Then
+                        acceso._nombre_tabla = "ACTIVIDADESXCAPACITACION"
+                        Sql = ""
+                        Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
+                        Sql &= ", id_actividad= " & Me.dgv_actividades.Rows(c).Cells("id_actividad").Value
 
-                    If Me.dgv_actividades.Rows(c).Cells("realizada").Value Then
-                        Sql &= ", id_estado_actividad= 3"
-                    Else
-                        If Me.dgv_actividades.Rows(c).Cells("en_curso").Value Then
-                            Sql &= ", id_estado_actividad= 2"
+                        If Me.dgv_actividades.Rows(c).Cells("realizada").Value Then
+                            Sql &= ", id_estado_actividad= 3"
                         Else
-                            If Me.dgv_actividades.Rows(c).Cells("tomada").Value Then
-                                Sql &= ", id_estado_actividad= 1"
+                            If Me.dgv_actividades.Rows(c).Cells("en_curso").Value Then
+                                Sql &= ", id_estado_actividad= 2"
+                            Else
+                                If Me.dgv_actividades.Rows(c).Cells("tomada").Value Then
+                                    Sql &= ", id_estado_actividad= 1"
+                                End If
                             End If
                         End If
+                        If IsNothing(Me.dgv_actividades.Rows(c).Cells("observaciones").Value) Then
+                            Sql &= ", observaciones=NULL"
+                        Else
+                            Sql &= ", observaciones= " & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
+                        End If
+                        acceso.insertar(Sql)
                     End If
-                    If IsNothing(Me.dgv_actividades.Rows(c).Cells("observaciones").Value) Then
-                        Sql &= ", observaciones=NULL"
-                    Else
-                        Sql &= ", observaciones= " & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
-                    End If
-                    acceso.insertar(Sql)
                 End If
 
                 Sql = ""
