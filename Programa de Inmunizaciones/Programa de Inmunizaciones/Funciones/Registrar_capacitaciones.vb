@@ -337,13 +337,13 @@
         End If
 
         If IsDBNull(tabla2.Rows(0)("observaciones")) Then
-            Me.txt_observaciones.Text = ""
+            Me.txt_observaciones.Text = "NO HAY OBSERVACIONES"
         Else
             Me.txt_observaciones.Text = tabla2.Rows(0)("observaciones")
         End If
 
         If IsDBNull(tabla2.Rows(0)("descripcion")) Then
-            Me.txt_descripcion.Text = ""
+            Me.txt_descripcion.Text = "NO HAY DESCRIPCION"
         Else
             Me.txt_descripcion.Text = tabla2.Rows(0)("descripcion")
         End If
@@ -579,12 +579,12 @@
         Sql &= ", id_estado= " & Me.cmb_estado.SelectedValue
         Sql &= ", lugar='" & Me.txt_lugar.Text & "'"
 
-        If txt_observaciones.Text = "" Then
+        If txt_observaciones.Text = "NO HAY OBSERVACIONES" Then
             Sql &= ", observaciones= NULL "
         Else
             Sql &= ", observaciones= '" & Me.txt_observaciones.Text & "'"
         End If
-        If txt_descripcion.Text = "" Then
+        If txt_descripcion.Text = "NO HAY DESCRIPCION" Then
             Sql &= ", descripcion= NULL "
         Else
             Sql &= ", descripcion= '" & Me.txt_descripcion.Text & "'"
@@ -620,14 +620,14 @@
         sql &= ", id_estado=" & Me.cmb_estado.SelectedValue
         sql &= ", lugar=" & Me.txt_lugar.Text
 
-        If txt_observaciones.Text = "" Then
+        If txt_observaciones.Text = "NO HAY OBSERVACIONES" Then
             sql &= ", observaciones= NULL "
         Else
             sql &= ", observaciones= " & Me.txt_observaciones.Text
         End If
 
 
-        If txt_descripcion.Text = "" Then
+        If txt_descripcion.Text = "NO HAY DESCRIPCION" Then
             sql &= ", descripcion= NULL "
         Else
             sql &= ", descripcion= " & Me.txt_descripcion.Text
@@ -1069,6 +1069,32 @@
                 cmb_doc_buscar.SelectedValue = tabla.Rows(0)("id_tipo_doc")
                 buscarCapaPorDoc()
             End If
+        End If
+    End Sub
+
+    Private Sub cmd_actividades_Click(sender As Object, e As EventArgs) Handles cmd_actividades.Click
+        If txt_id_capacitacion.Text <> "" Then
+            Registrar_Actividades.txt_id_capacitacion.Text = Me.txt_id_capacitacion.Text
+            Registrar_Actividades.txt_fecha_efectiva.Text = Me.txt_fecha_programada.Text
+            Registrar_Actividades.cmb_tipo_capacitaciones.cargar()
+            Registrar_Actividades.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
+            Registrar_Actividades.txt_lugar.Text = Me.txt_lugar.Text
+            Registrar_Actividades.ShowDialog()
+        Else
+            MsgBox("Debe seleccionar una capacitacion")
+        End If
+    End Sub
+
+    Private Sub cmd_invitaciones_Click(sender As Object, e As EventArgs) Handles cmd_invitaciones.Click
+        If txt_id_capacitacion.Text <> "" Then
+            Registrar_invitaciones.txt_id_capacitacion.Text = Me.txt_id_capacitacion.Text
+            Registrar_invitaciones.txt_fecha_efectiva.Text = Me.txt_fecha_programada.Text
+            Registrar_invitaciones.cmb_tipo_capacitaciones.cargar()
+            Registrar_invitaciones.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
+            Registrar_invitaciones.txt_lugar.Text = Me.txt_lugar.Text
+            Registrar_invitaciones.ShowDialog()
+        Else
+            MsgBox("Debe seleccionar una capacitacion")
         End If
     End Sub
 End Class
