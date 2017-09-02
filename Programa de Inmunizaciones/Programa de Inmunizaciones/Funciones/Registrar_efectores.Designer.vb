@@ -66,6 +66,9 @@ Partial Class Registrar_efectores
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
         Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_cargo = New System.Windows.Forms.Label()
@@ -103,6 +106,7 @@ Partial Class Registrar_efectores
         Me.usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estado_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.año_curso = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -112,6 +116,7 @@ Partial Class Registrar_efectores
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_notificar = New System.Windows.Forms.Button()
+        Me.txt_año_curso = New System.Windows.Forms.TextBox()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -215,7 +220,7 @@ Partial Class Registrar_efectores
         '
         Me.txt_heladera.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_heladera.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_heladera.Location = New System.Drawing.Point(112, 108)
+        Me.txt_heladera.Location = New System.Drawing.Point(129, 109)
         Me.txt_heladera.Name = "txt_heladera"
         Me.txt_heladera.Size = New System.Drawing.Size(112, 20)
         Me.txt_heladera.TabIndex = 6
@@ -232,11 +237,11 @@ Partial Class Registrar_efectores
         'lbl_heladera
         '
         Me.lbl_heladera.AutoSize = True
-        Me.lbl_heladera.Location = New System.Drawing.Point(16, 113)
+        Me.lbl_heladera.Location = New System.Drawing.Point(16, 112)
         Me.lbl_heladera.Name = "lbl_heladera"
-        Me.lbl_heladera.Size = New System.Drawing.Size(50, 13)
+        Me.lbl_heladera.Size = New System.Drawing.Size(107, 13)
         Me.lbl_heladera.TabIndex = 19
-        Me.lbl_heladera.Text = "Heladera"
+        Me.lbl_heladera.Text = "PC en el Vacunatorio"
         '
         'txt_cuie
         '
@@ -498,7 +503,7 @@ Partial Class Registrar_efectores
         Me.txt_nombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_nombre.Location = New System.Drawing.Point(112, 49)
         Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(275, 20)
+        Me.txt_nombre.Size = New System.Drawing.Size(322, 20)
         Me.txt_nombre.TabIndex = 2
         '
         'Label2
@@ -522,6 +527,10 @@ Partial Class Registrar_efectores
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_empleados.Controls.Add(Me.txt_año_curso)
+        Me.grp_datos_empleados.Controls.Add(Me.Label24)
+        Me.grp_datos_empleados.Controls.Add(Me.cmb_perfil)
+        Me.grp_datos_empleados.Controls.Add(Me.Label23)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_actualizar_sigipsa)
         Me.grp_datos_empleados.Controls.Add(Me.cmb_cargo)
         Me.grp_datos_empleados.Controls.Add(Me.lbl_cargo)
@@ -545,10 +554,39 @@ Partial Class Registrar_efectores
         Me.grp_datos_empleados.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_empleados.Location = New System.Drawing.Point(6, 391)
         Me.grp_datos_empleados.Name = "grp_datos_empleados"
-        Me.grp_datos_empleados.Size = New System.Drawing.Size(511, 207)
+        Me.grp_datos_empleados.Size = New System.Drawing.Size(511, 238)
         Me.grp_datos_empleados.TabIndex = 1
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(260, 127)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(73, 13)
+        Me.Label24.TabIndex = 52
+        Me.Label24.Text = "Año del Curso"
+        '
+        'cmb_perfil
+        '
+        Me.cmb_perfil._descripcion = "descripcion"
+        Me.cmb_perfil._nombre_tabla = "PERFILES_SIGIPSA"
+        Me.cmb_perfil._pk = "id"
+        Me.cmb_perfil.FormattingEnabled = True
+        Me.cmb_perfil.Location = New System.Drawing.Point(114, 156)
+        Me.cmb_perfil.Name = "cmb_perfil"
+        Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_perfil.TabIndex = 34
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(20, 162)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(30, 13)
+        Me.Label23.TabIndex = 33
+        Me.Label23.Text = "Perfil"
         '
         'cmd_actualizar_sigipsa
         '
@@ -559,11 +597,11 @@ Partial Class Registrar_efectores
         Me.cmd_actualizar_sigipsa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_actualizar_sigipsa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_sigipsa.Font = New System.Drawing.Font("Calibri", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(155, 159)
+        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(132, 185)
         Me.cmd_actualizar_sigipsa.Name = "cmd_actualizar_sigipsa"
-        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(168, 35)
+        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(220, 35)
         Me.cmd_actualizar_sigipsa.TabIndex = 9
-        Me.cmd_actualizar_sigipsa.Text = "ACTUALIZAR SIGIPSA"
+        Me.cmd_actualizar_sigipsa.Text = "VER DATOS DEL EMPLEADO"
         Me.cmd_actualizar_sigipsa.UseVisualStyleBackColor = True
         '
         'cmb_cargo
@@ -572,7 +610,7 @@ Partial Class Registrar_efectores
         Me.cmb_cargo._nombre_tabla = "CARGO"
         Me.cmb_cargo._pk = "id"
         Me.cmb_cargo.FormattingEnabled = True
-        Me.cmb_cargo.Location = New System.Drawing.Point(300, 125)
+        Me.cmb_cargo.Location = New System.Drawing.Point(301, 156)
         Me.cmb_cargo.Name = "cmb_cargo"
         Me.cmb_cargo.Size = New System.Drawing.Size(138, 21)
         Me.cmb_cargo.TabIndex = 8
@@ -580,7 +618,7 @@ Partial Class Registrar_efectores
         'lbl_cargo
         '
         Me.lbl_cargo.AutoSize = True
-        Me.lbl_cargo.Location = New System.Drawing.Point(259, 129)
+        Me.lbl_cargo.Location = New System.Drawing.Point(260, 160)
         Me.lbl_cargo.Name = "lbl_cargo"
         Me.lbl_cargo.Size = New System.Drawing.Size(35, 13)
         Me.lbl_cargo.TabIndex = 32
@@ -666,7 +704,7 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar_empleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar_empleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar_empleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(417, 157)
+        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(416, 197)
         Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_empleados.Name = "cmd_limpiar_empleados"
         Me.cmd_limpiar_empleados.Size = New System.Drawing.Size(25, 25)
@@ -685,7 +723,7 @@ Partial Class Registrar_efectores
         Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(480, 157)
+        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(479, 197)
         Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
         Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(25, 25)
@@ -704,7 +742,7 @@ Partial Class Registrar_efectores
         Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(449, 157)
+        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(448, 197)
         Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
         Me.cmd_agregar_empleado.Size = New System.Drawing.Size(25, 25)
@@ -797,7 +835,7 @@ Partial Class Registrar_efectores
         Me.cmd_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(1183, 605)
+        Me.cmd_salir.Location = New System.Drawing.Point(1183, 635)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 5
@@ -813,7 +851,7 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar.Location = New System.Drawing.Point(149, 605)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(152, 637)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
@@ -832,7 +870,7 @@ Partial Class Registrar_efectores
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_guardar.Location = New System.Drawing.Point(81, 606)
+        Me.cmd_guardar.Location = New System.Drawing.Point(84, 638)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
@@ -851,7 +889,7 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.Location = New System.Drawing.Point(13, 606)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(16, 638)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
@@ -888,7 +926,7 @@ Partial Class Registrar_efectores
         Me.dgv_empleados.AllowUserToAddRows = False
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.id_cargo, Me.id_perfil, Me.id_estado})
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.año_curso, Me.id_cargo, Me.id_perfil, Me.id_estado})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -908,7 +946,7 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_empleados.Size = New System.Drawing.Size(702, 271)
+        Me.dgv_empleados.Size = New System.Drawing.Size(702, 301)
         Me.dgv_empleados.TabIndex = 54
         '
         'id
@@ -969,6 +1007,12 @@ Partial Class Registrar_efectores
         Me.estado_empleado.HeaderText = "Estado Empleado"
         Me.estado_empleado.Name = "estado_empleado"
         Me.estado_empleado.ReadOnly = True
+        '
+        'año_curso
+        '
+        Me.año_curso.HeaderText = "Año Curso"
+        Me.año_curso.Name = "año_curso"
+        Me.año_curso.ReadOnly = True
         '
         'id_cargo
         '
@@ -1048,7 +1092,7 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_notificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_notificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_notificar.Location = New System.Drawing.Point(217, 605)
+        Me.cmd_notificar.Location = New System.Drawing.Point(220, 637)
         Me.cmd_notificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_notificar.Name = "cmd_notificar"
         Me.cmd_notificar.Size = New System.Drawing.Size(60, 60)
@@ -1057,13 +1101,22 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_notificar.UseVisualStyleBackColor = False
         '
+        'txt_año_curso
+        '
+        Me.txt_año_curso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_año_curso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_año_curso.Location = New System.Drawing.Point(339, 124)
+        Me.txt_año_curso.Name = "txt_año_curso"
+        Me.txt_año_curso.Size = New System.Drawing.Size(98, 20)
+        Me.txt_año_curso.TabIndex = 53
+        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1255, 669)
+        Me.ClientSize = New System.Drawing.Size(1255, 707)
         Me.Controls.Add(Me.cmd_notificar)
         Me.Controls.Add(Me.dgv_vacunatorios)
         Me.Controls.Add(Me.dgv_empleados)
@@ -1145,7 +1198,6 @@ Partial Class Registrar_efectores
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents cmb_cargo As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_cargo As System.Windows.Forms.Label
-    Friend WithEvents cmd_actualizar_sigipsa As System.Windows.Forms.Button
     Friend WithEvents txt_pc As System.Windows.Forms.TextBox
     Friend WithEvents txt_heladera As System.Windows.Forms.TextBox
     Friend WithEvents lbl_pc As System.Windows.Forms.Label
@@ -1158,6 +1210,16 @@ Partial Class Registrar_efectores
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
     Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
+    Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
+    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents referente As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_notificar As System.Windows.Forms.Button
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents cmd_actualizar_sigipsa As System.Windows.Forms.Button
+    Friend WithEvents cmb_perfil As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1167,13 +1229,9 @@ Partial Class Registrar_efectores
     Friend WithEvents usuario As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents estado_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents año_curso As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
-    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents referente As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cmd_notificar As System.Windows.Forms.Button
+    Friend WithEvents txt_año_curso As System.Windows.Forms.TextBox
 End Class

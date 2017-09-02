@@ -1,6 +1,33 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class Menu
+
+    Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        verifCumple()
+    End Sub
+
+    Private Sub verifCumple()
+        Dim tabla = New DataTable
+        Dim sql = ""
+
+        sql = "select E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E where day(E.fecha_nac) = " & Date.Today.Day & " AND month (E.fecha_nac) = " & Date.Today.Month
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() <> 0 Then
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count() - 1
+
+                Dialog1.DataGridView1.Rows.Add()
+                Dialog1.DataGridView1.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombres")
+                Dialog1.DataGridView1.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
+                Dialog1.DataGridView1.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
+                Dialog1.DataGridView1.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
+
+                Dialog1.ShowDialog()
+            Next
+        End If
+    End Sub
     Private Sub GestiónDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeEmpleadosToolStripMenuItem.Click
         abm_empleados.ShowDialog()
     End Sub
@@ -47,9 +74,7 @@ Public Class Menu
     Private Sub UsuariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosRegistradosToolStripMenuItem.Click
         list_usuarios.ShowDialog()
     End Sub
-    Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
     Private Sub LocalidadesPorDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesPorDepartamentosToolStripMenuItem.Click
         listado_localidadesxdpto.ShowDialog()
     End Sub
@@ -178,6 +203,20 @@ Public Class Menu
     Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
         Registrar_recordatorio.ShowDialog()
     End Sub
+    Private Sub EmpleadosPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorEstadoToolStripMenuItem.Click
+        list_empleados_x_estado.ShowDialog()
+    End Sub
 
-    
+
+    Private Sub VacunatoriosPorLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosPorLocalidadToolStripMenuItem.Click
+        Est_Efect_x_Loc.ShowDialog()
+    End Sub
+
+    Private Sub GestionarInvitacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarInvitacionesToolStripMenuItem.Click
+        Registrar_invitaciones.ShowDialog()
+    End Sub
+
+    Private Sub GestionarActividadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarActividadesToolStripMenuItem.Click
+        Registrar_Actividades.ShowDialog()
+    End Sub
 End Class

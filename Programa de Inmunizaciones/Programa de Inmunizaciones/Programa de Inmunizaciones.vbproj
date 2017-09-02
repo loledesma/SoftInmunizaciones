@@ -73,21 +73,28 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -183,6 +190,12 @@
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticos\est_efectores_implementados.Designer.vb">
       <DependentUpon>est_efectores_implementados.vb</DependentUpon>
     </Compile>
@@ -193,6 +206,12 @@
       <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
     </Compile>
     <Compile Include="Estadisticos\est_efect_emiten_sigipsa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.Designer.vb">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.Designer.vb">
@@ -223,6 +242,18 @@
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.Designer.vb">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.Designer.vb">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
@@ -357,6 +388,12 @@
     <Compile Include="Listados\list_pedidos_desarrollo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\list_empleados_x_estado.Designer.vb">
+      <DependentUpon>list_empleados_x_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_empleados_x_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listados\list_usuarios.Designer.vb">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </Compile>
@@ -433,6 +470,9 @@
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialog1.resx">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticos\est_con_y_sin_heladera.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_efectores_implementados.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_efectores_implementados.resx">
@@ -442,6 +482,10 @@
     <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.resx">
       <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\Est_Efect_x_Loc.resx">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efec_x_loc.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_ef_con_y_sin_heladera.resx">
       <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
     </EmbeddedResource>
@@ -459,8 +503,14 @@
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_invitaciones.resx">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_capacitaciones.resx">
       <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_Actividades.resx">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
@@ -541,6 +591,9 @@
     <EmbeddedResource Include="Listados\list_pedidos_desarrollo.resx">
       <DependentUpon>list_pedidos_desarrollo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_empleados_x_estado.resx">
+      <DependentUpon>list_empleados_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_usuarios.resx">
       <DependentUpon>list_usuarios.vb</DependentUpon>
     </EmbeddedResource>
@@ -548,7 +601,6 @@
     <EmbeddedResource Include="Listados\list_atenciones.resx">
       <DependentUpon>list_atenciones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\list_empleados.rdlc" />
     <EmbeddedResource Include="Listados\list_empleados_x_estado.rdlc" />
     <EmbeddedResource Include="Listados\list_localidad_x_dpto.rdlc" />
     <EmbeddedResource Include="Listados\list_usuarios.rdlc" />

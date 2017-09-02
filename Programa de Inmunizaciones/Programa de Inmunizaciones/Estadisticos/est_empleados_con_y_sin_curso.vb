@@ -51,13 +51,14 @@
 
         sql &= "SELECT EE.descripcion AS curso, COUNT (*) AS cantidad "
         sql &= "FROM ESTADOS_EMPLEADOS EE JOIN EMPLEADOSXEFECTOR EMPEF ON EMPEF.id_estado_empleado = EE.id JOIN EMPLEADOS E ON E.id = EMPEF.id_empleados JOIN EFECTORES EF ON EF.cuie = EMPEF.id_efector "
+        sql &= " WHERE EF.id_tipo != 4"
         If cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE EF.id_departamento = " & Me.cmb_departamentos.SelectedValue
+            sql &= " and EF.id_tipo != 4 AND EF.id_departamento = " & Me.cmb_departamentos.SelectedValue
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND EF.id_localidad = " & Me.cmb_localidades.SelectedValue
             End If
         ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE EF.id_localidad = " & Me.cmb_localidades.SelectedValue
+            sql &= " AND EF.id_tipo != 4 AND EF.id_localidad = " & Me.cmb_localidades.SelectedValue
         End If
 
         sql &= "GROUP BY EE.descripcion"
@@ -70,5 +71,11 @@
 
     Private Sub cmd_ejecutar_Click(sender As Object, e As EventArgs) Handles cmd_ejecutar.Click
         imprimir()
+    End Sub
+
+    Private Sub est_empleados_con_y_sin_curso_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        Me.ReportViewer1.Width = Me.Width - 50
+        Me.ReportViewer1.Height = Me.Height - 200
+        Me.ReportViewer1.PerformAutoScale()
     End Sub
 End Class

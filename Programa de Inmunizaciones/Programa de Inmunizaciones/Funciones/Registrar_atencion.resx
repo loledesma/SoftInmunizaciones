@@ -142,7 +142,7 @@
   <data name="cmd_actualizar_estado.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFFUSURBVHhe7Z0J
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFFUSURBVHhe7Z0J
         lKZVeeeLpkGEyMGIJkgyJDPGaMZ4QKJOPMcocaJicuISDC4ZR000ZNDu2pslZIgL4xAOOESSiEFckqIo
         qpvu6oXu6oWmUTEqiLJ07dVVXUU30Cu9VVdX1TfPU3xfW91dVd+73Pd97/LjnO+I1Pe9y73/+/z+97lb
         TalUquFDGaABuzXw8DPXnCWfC+XzRvlcJp8r5HOVfK6Xz63y+bZ82uWzUj7r5LNZPo/I51H5PCmfXvkM
@@ -913,33 +913,6 @@
   <metadata name="descripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="fecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="estado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="id_estado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="efector.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cuie.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="id_administrador.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="administrador.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="asunto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="descripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="cmd_limpiar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1289,7 +1262,7 @@
   <data name="cmd_guardar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFFUSURBVHhe7Z0J
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFFUSURBVHhe7Z0J
         lKZVeeeLpkGEyMGIJkgyJDPGaMZ4QKJOPMcocaJicuISDC4ZR000ZNDu2pslZIgL4xAOOESSiEFckqIo
         qpvu6oXu6oWmUTEqiLJ07dVVXUU30Cu9VVdX1TfPU3xfW91dVd+73Pd97/LjnO+I1Pe9y73/+/z+97lb
         TalUquFDGaABuzXw8DPXnCWfC+XzRvlcJp8r5HOVfK6Xz63y+bZ82uWzUj7r5LNZPo/I51H5PCmfXvkM
@@ -1643,7 +1616,7 @@
   <data name="cmd_nuevo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEjCSURBVHhe7Z17
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEjCSURBVHhe7Z17
         jF1VvcelFKxVCSpisH8QE+YcNOAF69XEhItIIj5iQFOeIV46nSkQFBDFBAgJSiCmEqoNhLSAQKsE0ZBU
         ZqadTlECSAtcarFiKdBi5TGlnZaXlHbamX2/u+yBw3Bmzjn77Mda6/epWem94Tz2+f1+/X0+e+211/5A
         FEUfYBADasDtGvjh6s9N05ih8XmNEzRmaZyncYXG9Rp3aPxR416Nfo37NVZpPK7xD41nNDZrbNF4ReNN

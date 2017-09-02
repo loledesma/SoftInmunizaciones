@@ -569,6 +569,7 @@
         Me.descripcion.ToolTipText = ""
         Me.limpiar(Me.Controls)
         Me.condicion_estado = condicion.insertar
+        Me.condicion_click = doble_Click.desactivado
         Me.txt_id_atencion.Focus()
         Me.cargar_grilla()
         Me.txt_descripcion.Text = ""
