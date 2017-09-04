@@ -466,4 +466,8 @@
             Next
         End If
     End Sub
+
+    Private Sub cmd_actualizar_Click(sender As Object, e As EventArgs) Handles cmd_actualizar.Click
+        cargar_actividades()
+    End Sub
 End Class

@@ -58,6 +58,7 @@ Partial Class Registrar_Actividades
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmb_etapas = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmd_actualizar = New System.Windows.Forms.Button()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_capacitacion.SuspendLayout()
         CType(Me.dgv_actividades, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -395,6 +396,25 @@ Partial Class Registrar_Actividades
         Me.cmb_etapas.Size = New System.Drawing.Size(216, 21)
         Me.cmb_etapas.TabIndex = 64
         '
+        'cmd_actualizar
+        '
+        Me.cmd_actualizar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_actualizar.BackgroundImage = CType(resources.GetObject("cmd_actualizar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_actualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_actualizar.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.cmd_actualizar.FlatAppearance.BorderSize = 0
+        Me.cmd_actualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_actualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_actualizar.Location = New System.Drawing.Point(353, 173)
+        Me.cmd_actualizar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_actualizar.Name = "cmd_actualizar"
+        Me.cmd_actualizar.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_actualizar.TabIndex = 78
+        Me.cmd_actualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_actualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_actualizar.UseVisualStyleBackColor = False
+        '
         'Registrar_Actividades
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -402,6 +422,7 @@ Partial Class Registrar_Actividades
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(916, 568)
+        Me.Controls.Add(Me.cmd_actualizar)
         Me.Controls.Add(Me.cmb_etapas)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgv_actividades)
@@ -453,4 +474,5 @@ Partial Class Registrar_Actividades
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmb_etapas As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents cmd_actualizar As System.Windows.Forms.Button
 End Class
