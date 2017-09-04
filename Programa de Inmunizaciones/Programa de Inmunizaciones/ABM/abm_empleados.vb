@@ -652,7 +652,7 @@
             sql &= ", fecha alta =Null"
         End If
 
-        If IsDate(txt_fecha_nac) Then
+        If IsDate(txt_fecha_nac.Text) Then
             sql &= ", fecha_nac= '" & Me.txt_fecha_nac.Text & "'"
         Else
             sql &= ", fecha_nac= Null"
