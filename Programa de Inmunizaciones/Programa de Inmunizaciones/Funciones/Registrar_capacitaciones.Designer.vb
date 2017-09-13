@@ -29,6 +29,8 @@ Partial Class Registrar_capacitaciones
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Capacitacion = New System.Windows.Forms.TabPage()
+        Me.cmd_invitaciones = New System.Windows.Forms.Button()
+        Me.cmd_actividades = New System.Windows.Forms.Button()
         Me.grp_buscar_empleado = New System.Windows.Forms.GroupBox()
         Me.txt_nombres_buscar = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -88,6 +90,8 @@ Partial Class Registrar_capacitaciones
         Me.cmd_guardar_asistencia = New System.Windows.Forms.Button()
         Me.cmd_nueva_asistencia = New System.Windows.Forms.Button()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
+        Me.txt_certificado = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.txt_realizoEvaluacion = New System.Windows.Forms.TextBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
         Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
@@ -107,6 +111,7 @@ Partial Class Registrar_capacitaciones
         Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
+        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -114,8 +119,8 @@ Partial Class Registrar_capacitaciones
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.realizoEvaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.certificado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         Me.grp_buscar_empleado.SuspendLayout()
@@ -145,6 +150,8 @@ Partial Class Registrar_capacitaciones
         Me.Capacitacion.BackColor = System.Drawing.Color.Transparent
         Me.Capacitacion.BackgroundImage = CType(resources.GetObject("Capacitacion.BackgroundImage"), System.Drawing.Image)
         Me.Capacitacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Capacitacion.Controls.Add(Me.cmd_invitaciones)
+        Me.Capacitacion.Controls.Add(Me.cmd_actividades)
         Me.Capacitacion.Controls.Add(Me.grp_buscar_empleado)
         Me.Capacitacion.Controls.Add(Me.cmd_limpiar)
         Me.Capacitacion.Controls.Add(Me.cmd_guardar)
@@ -160,6 +167,44 @@ Partial Class Registrar_capacitaciones
         Me.Capacitacion.Size = New System.Drawing.Size(891, 643)
         Me.Capacitacion.TabIndex = 0
         Me.Capacitacion.Text = "Capacitacion"
+        '
+        'cmd_invitaciones
+        '
+        Me.cmd_invitaciones.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_invitaciones.BackgroundImage = CType(resources.GetObject("cmd_invitaciones.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_invitaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_invitaciones.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_invitaciones.FlatAppearance.BorderSize = 0
+        Me.cmd_invitaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_invitaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_invitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_invitaciones.Location = New System.Drawing.Point(505, 558)
+        Me.cmd_invitaciones.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_invitaciones.Name = "cmd_invitaciones"
+        Me.cmd_invitaciones.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_invitaciones.TabIndex = 15
+        Me.cmd_invitaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_invitaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_invitaciones.UseVisualStyleBackColor = False
+        '
+        'cmd_actividades
+        '
+        Me.cmd_actividades.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_actividades.BackgroundImage = CType(resources.GetObject("cmd_actividades.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_actividades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_actividades.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_actividades.FlatAppearance.BorderSize = 0
+        Me.cmd_actividades.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_actividades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_actividades.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_actividades.Location = New System.Drawing.Point(421, 558)
+        Me.cmd_actividades.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_actividades.Name = "cmd_actividades"
+        Me.cmd_actividades.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_actividades.TabIndex = 14
+        Me.cmd_actividades.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_actividades.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_actividades.UseVisualStyleBackColor = False
         '
         'grp_buscar_empleado
         '
@@ -825,6 +870,8 @@ Partial Class Registrar_capacitaciones
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_empleados.Controls.Add(Me.txt_certificado)
+        Me.grp_datos_empleados.Controls.Add(Me.Label12)
         Me.grp_datos_empleados.Controls.Add(Me.txt_realizoEvaluacion)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_actualizar_sigipsa)
         Me.grp_datos_empleados.Controls.Add(Me.txt_nombres_empleado)
@@ -850,6 +897,24 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_empleados.TabIndex = 2
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
+        '
+        'txt_certificado
+        '
+        Me.txt_certificado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_certificado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_certificado.Location = New System.Drawing.Point(339, 124)
+        Me.txt_certificado.Name = "txt_certificado"
+        Me.txt_certificado.Size = New System.Drawing.Size(100, 20)
+        Me.txt_certificado.TabIndex = 30
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(246, 129)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(87, 13)
+        Me.Label12.TabIndex = 29
+        Me.Label12.Text = "Tiene Certificado"
         '
         'txt_realizoEvaluacion
         '
@@ -1068,7 +1133,7 @@ Partial Class Registrar_capacitaciones
         Me.dgv_empleados.AllowUserToAddRows = False
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.mail, Me.realizoEvaluacion, Me.observaciones})
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.mail, Me.realizoEvaluacion, Me.certificado, Me.observaciones})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1089,6 +1154,19 @@ Partial Class Registrar_capacitaciones
         Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_empleados.Size = New System.Drawing.Size(847, 245)
         Me.dgv_empleados.TabIndex = 1
+        '
+        'cmd_salir
+        '
+        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_salir.FlatAppearance.BorderSize = 0
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_salir.Location = New System.Drawing.Point(846, 684)
+        Me.cmd_salir.Name = "cmd_salir"
+        Me.cmd_salir.Size = New System.Drawing.Size(59, 53)
+        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'id
         '
@@ -1131,23 +1209,15 @@ Partial Class Registrar_capacitaciones
         Me.realizoEvaluacion.HeaderText = "Realizo Evaluacion"
         Me.realizoEvaluacion.Name = "realizoEvaluacion"
         '
+        'certificado
+        '
+        Me.certificado.HeaderText = "Certificado"
+        Me.certificado.Name = "certificado"
+        '
         'observaciones
         '
         Me.observaciones.HeaderText = "observaciones"
         Me.observaciones.Name = "observaciones"
-        '
-        'cmd_salir
-        '
-        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(846, 684)
-        Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(59, 53)
-        Me.cmd_salir.TabIndex = 6
-        Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'Registrar_capacitaciones
         '
@@ -1251,14 +1321,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents localidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents lbl_asistentes As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents mail As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents realizoEvaluacion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents grp_buscar_empleado As System.Windows.Forms.GroupBox
     Friend WithEvents cmd_buscar_capas_empleado As System.Windows.Forms.Button
     Friend WithEvents txt_doc_buscar As System.Windows.Forms.TextBox
@@ -1269,4 +1331,17 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents txt_nombres_buscar As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents cmd_invitaciones As System.Windows.Forms.Button
+    Friend WithEvents cmd_actividades As System.Windows.Forms.Button
+    Friend WithEvents txt_certificado As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents mail As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents realizoEvaluacion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents certificado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

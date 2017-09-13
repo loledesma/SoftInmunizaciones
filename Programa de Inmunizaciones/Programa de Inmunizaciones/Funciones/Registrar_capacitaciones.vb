@@ -337,20 +337,20 @@
         End If
 
         If IsDBNull(tabla2.Rows(0)("observaciones")) Then
-            Me.txt_observaciones.Text = ""
+            Me.txt_observaciones.Text = "NO HAY OBSERVACIONES"
         Else
             Me.txt_observaciones.Text = tabla2.Rows(0)("observaciones")
         End If
 
         If IsDBNull(tabla2.Rows(0)("descripcion")) Then
-            Me.txt_descripcion.Text = ""
+            Me.txt_descripcion.Text = "NO HAY DESCRIPCION"
         Else
             Me.txt_descripcion.Text = tabla2.Rows(0)("descripcion")
         End If
 
         sql = ""
         sql &= "SELECT DISTINCT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
-        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, A.id_empleado As id_empleado, A.observaciones As observaciones "
+        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, A.id_empleado As id_empleado, A.observaciones As observaciones, A.certificado as certificado "
         sql &= " FROM ASISTENCIA A JOIN EMPLEADOS E ON A.id_empleado = E.id "
         sql &= " JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
         sql &= " WHERE A.id_capacitacion= " & Me.txt_id_capacitacion.Text
@@ -378,6 +378,7 @@
                 dgv_empleados.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombre_empleado")
                 dgv_empleados.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellido_empleado")
                 dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = tabla.Rows(c)("realizoEvaluacion")
+                dgv_empleados.Rows(c).Cells("certificado").Value = tabla.Rows(c)("certificado")
 
                 If IsDBNull(tabla.Rows(c)("observaciones")) = False Then
                     dgv_empleados.Rows(c).Cells("observaciones").Value = tabla.Rows(c)("observaciones")
@@ -431,6 +432,7 @@
 
         Me.txt_id_empleado.Text = tabla2.Rows(0)("id_empleado")
         Me.txt_realizoEvaluacion.Text = tabla2.Rows(0)("realizoEvaluacion")
+        Me.txt_certificado.Text = tabla2.Rows(0)("certificado")
 
         If IsDBNull(tabla2.Rows(0)("observaciones")) Then
             Me.txt_observaciones2.Text = ""
@@ -514,6 +516,22 @@
         Return True
     End Function
 
+    Private Function validar_efector(ByVal id As Integer) As analizar_existencia
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT * FROM EMPLEADOSXEFECTOR "
+        sql &= "WHERE id_empleados = " & id
+
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() = 0 Then
+            Return analizar_existencia.no_existe
+        Else
+            Return analizar_existencia.existe
+        End If
+    End Function
+
     Private Function validar_existencia() As analizar_existencia
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -579,12 +597,12 @@
         Sql &= ", id_estado= " & Me.cmb_estado.SelectedValue
         Sql &= ", lugar='" & Me.txt_lugar.Text & "'"
 
-        If txt_observaciones.Text = "" Then
+        If txt_observaciones.Text = "NO HAY OBSERVACIONES" Then
             Sql &= ", observaciones= NULL "
         Else
             Sql &= ", observaciones= '" & Me.txt_observaciones.Text & "'"
         End If
-        If txt_descripcion.Text = "" Then
+        If txt_descripcion.Text = "NO HAY DESCRIPCION" Then
             Sql &= ", descripcion= NULL "
         Else
             Sql &= ", descripcion= '" & Me.txt_descripcion.Text & "'"
@@ -620,14 +638,14 @@
         sql &= ", id_estado=" & Me.cmb_estado.SelectedValue
         sql &= ", lugar=" & Me.txt_lugar.Text
 
-        If txt_observaciones.Text = "" Then
+        If txt_observaciones.Text = "NO HAY OBSERVACIONES" Then
             sql &= ", observaciones= NULL "
         Else
             sql &= ", observaciones= " & Me.txt_observaciones.Text
         End If
 
 
-        If txt_descripcion.Text = "" Then
+        If txt_descripcion.Text = "NO HAY DESCRIPCION" Then
             sql &= ", descripcion= NULL "
         Else
             sql &= ", descripcion= " & Me.txt_descripcion.Text
@@ -668,6 +686,7 @@
         Me.txt_apellido_empleado.Text = ""
         Me.txt_realizoEvaluacion.Text = ""
         Me.txt_observaciones2.Text = ""
+        Me.txt_certificado.Text = ""
     End Sub
 
     Private Function validar_empleado() As Boolean
@@ -696,6 +715,11 @@
             cmb_tipos_documento.Focus()
             Return False
             Exit Function
+        ElseIf txt_certificado.Text = "" Then
+            MessageBox.Show("¡Debe ingresar si recibio el certificado SI O NO!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txt_certificado.Focus()
+            Return False
+            Exit Function
         End If
         Return True
     End Function
@@ -706,41 +730,50 @@
         Dim flag As Boolean = False
         Dim c As Integer = 0
 
+
+
         If validar_empleado() = True Then
-            For c = 0 To dgv_empleados.Rows.Count - 1
-                If Me.txt_id_empleado.Text = dgv_empleados.Rows(c).Cells("id").Value Then
-                    dgv_empleados.Rows(c).Cells("id").Value = txt_id_empleado.Text
-                    dgv_empleados.Rows(c).Cells("numero").Value = txt_numero_doc.Text
-                    dgv_empleados.Rows(c).Cells("nombres").Value = txt_nombres_empleado.Text
-                    dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido_empleado.Text
-                    dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                    dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+            If validar_efector(txt_id_empleado.Text) = analizar_existencia.existe Then
+                For c = 0 To dgv_empleados.Rows.Count - 1
+                    If Me.txt_id_empleado.Text = dgv_empleados.Rows(c).Cells("id").Value Then
+                        dgv_empleados.Rows(c).Cells("id").Value = txt_id_empleado.Text
+                        dgv_empleados.Rows(c).Cells("numero").Value = txt_numero_doc.Text
+                        dgv_empleados.Rows(c).Cells("nombres").Value = txt_nombres_empleado.Text
+                        dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido_empleado.Text
+                        dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
+                        dgv_empleados.Rows(c).Cells("certificado").Value = txt_certificado.Text
+                        dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+
+                        sql = ""
+                        sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
+                        tabla.Clear()
+                        tabla = acceso.consulta(sql)
+                        dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(0)("descripcion")
+
+                        flag = True
+
+                    End If
+
+                Next
+                If flag = False Then
+                    dgv_empleados.Rows.Add()
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id").Value = Me.txt_id_empleado.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("numero").Value = Me.txt_numero_doc.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombres").Value = txt_nombres_empleado.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido_empleado.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("certificado").Value = txt_certificado.Text
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones2.Text
 
                     sql = ""
                     sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
                     tabla.Clear()
                     tabla = acceso.consulta(sql)
-                    dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(0)("descripcion")
-
-                    flag = True
-
+                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("tipo_doc").Value = tabla.Rows(0)("descripcion")
                 End If
-
-            Next
-            If flag = False Then
-                dgv_empleados.Rows.Add()
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("id").Value = Me.txt_id_empleado.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("numero").Value = Me.txt_numero_doc.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombres").Value = txt_nombres_empleado.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido_empleado.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones2.Text
-
-                sql = ""
-                sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
-                tabla.Clear()
-                tabla = acceso.consulta(sql)
-                dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("tipo_doc").Value = tabla.Rows(0)("descripcion")
+            Else
+                MsgBox("El empleado no pertenece a ningun efector")
+                Exit Sub
             End If
         End If
         limpiar_empleados()
@@ -761,6 +794,7 @@
         txt_apellido_empleado.Text = ""
         txt_nombres_empleado.Text = ""
         txt_realizoEvaluacion.Text = ""
+        txt_certificado.Text = ""
         txt_observaciones2.Text = ""
         Me.txt_id_empleado.Text = ""
         Me.cmb_tipos_documento.SelectedValue = -1
@@ -851,6 +885,8 @@
         cargar_grilla()
     End Sub
 
+
+
     Private Sub validar_grilla()
         Dim c As Integer = 0
         Dim Sql As String = ""
@@ -861,6 +897,8 @@
                 Sql = ""
                 Sql = "UPDATE ASISTENCIA"
                 Sql &= " SET realizoEvaluacion ='" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value & "'"
+
+                Sql &= " ,certificado ='" & Me.dgv_empleados.Rows(c).Cells("certificado").Value & "'"""
 
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
                     Sql &= ", observaciones= NULL "
@@ -878,6 +916,7 @@
                 Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
                 Sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
                 Sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
+                Sql &= " ,certificado =" & Me.dgv_empleados.Rows(c).Cells("certificado").Value
 
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
                     Sql &= ", observaciones= NULL "
@@ -1069,6 +1108,32 @@
                 cmb_doc_buscar.SelectedValue = tabla.Rows(0)("id_tipo_doc")
                 buscarCapaPorDoc()
             End If
+        End If
+    End Sub
+
+    Private Sub cmd_actividades_Click(sender As Object, e As EventArgs) Handles cmd_actividades.Click
+        If txt_id_capacitacion.Text <> "" Then
+            Registrar_Actividades.txt_id_capacitacion.Text = Me.txt_id_capacitacion.Text
+            Registrar_Actividades.txt_fecha_efectiva.Text = Me.txt_fecha_programada.Text
+            Registrar_Actividades.cmb_tipo_capacitaciones.cargar()
+            Registrar_Actividades.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
+            Registrar_Actividades.txt_lugar.Text = Me.txt_lugar.Text
+            Registrar_Actividades.ShowDialog()
+        Else
+            MsgBox("Debe seleccionar una capacitacion")
+        End If
+    End Sub
+
+    Private Sub cmd_invitaciones_Click(sender As Object, e As EventArgs) Handles cmd_invitaciones.Click
+        If txt_id_capacitacion.Text <> "" Then
+            Registrar_invitaciones.txt_id_capacitacion.Text = Me.txt_id_capacitacion.Text
+            Registrar_invitaciones.txt_fecha_efectiva.Text = Me.txt_fecha_programada.Text
+            Registrar_invitaciones.cmb_tipo_capacitaciones.cargar()
+            Registrar_invitaciones.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
+            Registrar_invitaciones.txt_lugar.Text = Me.txt_lugar.Text
+            Registrar_invitaciones.ShowDialog()
+        Else
+            MsgBox("Debe seleccionar una capacitacion")
         End If
     End Sub
 End Class

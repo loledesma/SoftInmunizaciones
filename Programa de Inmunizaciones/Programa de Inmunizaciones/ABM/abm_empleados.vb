@@ -141,7 +141,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT TOP 10 T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc "
+        sql &= "SELECT TOP 10 T.descripcion, E.id As id, E.nombres As nombres, E.apellidos As apellidos, E.nro_doc, E.fecha_nac "
         sql &= "FROM EMPLEADOS E JOIN TIPOS_DOCUMENTO T ON E.id_tipo_doc = T.id "
         sql &= "ORDER BY E.id"
         tabla = acceso.consulta(sql)
@@ -155,6 +155,7 @@
             Me.dgv_empleados.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
             Me.dgv_empleados.Rows(c).Cells("tipo_doc").Value = tabla.Rows(c)("descripcion")
             Me.dgv_empleados.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
+
         Next
     End Sub
 
@@ -576,6 +577,12 @@
             sql &= ", mail_contacto= Null"
         End If
 
+        If IsDate(txt_fecha_nac.Text) Then
+            sql &= ", fecha_nac= '" & Me.txt_fecha_nac.Text & "'"
+        Else
+            sql &= ", fecha_nac= Null"
+        End If
+
         If txt_usuario.Text <> "" Then
             sql &= " , usuario_sigipsa='" & Me.txt_usuario.Text & "'"
             sql &= " , fecha_alta= '" & Me.txt_fecha.Text & "'"
@@ -643,6 +650,12 @@
             sql &= ", fecha_alta = '" & Me.txt_fecha.Text & "'"
         Else
             sql &= ", fecha alta =Null"
+        End If
+
+        If IsDate(txt_fecha_nac.Text) Then
+            sql &= ", fecha_nac= '" & Me.txt_fecha_nac.Text & "'"
+        Else
+            sql &= ", fecha_nac= Null"
         End If
 
         acceso.insertar(sql)
@@ -856,6 +869,12 @@
         Me.txt_nro_documento.Text = tabla.Rows(0)("nro_doc")
         Me.txt_nombre.Text = tabla.Rows(0)("nombres")
         Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
+
+        If IsDBNull(tabla.Rows(0)("fecha_nac")) Then
+            Me.txt_fecha_nac.Text = ""
+        Else
+            Me.txt_fecha_nac.Text = tabla.Rows(0)("fecha_nac")
+        End If
 
         If IsDBNull(tabla.Rows(0)("caracteristica")) Then
             Me.txt_caracteristica.Text = ""

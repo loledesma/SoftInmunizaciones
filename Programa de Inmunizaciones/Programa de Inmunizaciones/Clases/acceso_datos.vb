@@ -156,6 +156,7 @@ Public Class acceso_datos
 
         Me.cerrar()
         Return tabla
+
     End Function
 
     Public Function contadores(ByVal comando As String) As Integer

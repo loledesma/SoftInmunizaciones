@@ -226,6 +226,12 @@
     <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticos\est_estado_cargaStockPerdidasXDpto.Designer.vb">
+      <DependentUpon>est_estado_cargaStockPerdidasXDpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_cargaStockPerdidasXDpto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estadisticos\est_estado_heladeras.Designer.vb">
       <DependentUpon>est_estado_heladeras.vb</DependentUpon>
     </Compile>
@@ -242,6 +248,18 @@
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.Designer.vb">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.Designer.vb">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
@@ -481,6 +499,9 @@
     <EmbeddedResource Include="Estadisticos\est_empleados_con_y_sin_curso.resx">
       <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_estado_cargaStockPerdidasXDpto.resx">
+      <DependentUpon>est_estado_cargaStockPerdidasXDpto.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticos\est_estado_heladeras.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_estado_heladeras.resx">
       <DependentUpon>est_estado_heladeras.vb</DependentUpon>
@@ -491,8 +512,14 @@
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_invitaciones.resx">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_capacitaciones.resx">
       <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_Actividades.resx">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
