@@ -35,11 +35,11 @@ Partial Class Menu
         Me.EfectoresQueNoNotificanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapacitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNuevaCapacitaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarInvitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarActividadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapacitacionesRegistradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestionarInvitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestionarActividadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtencionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaAtencónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
@@ -93,6 +93,8 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.EstadisticasToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -128,7 +130,7 @@ Partial Class Menu
         '
         'NotificacionesToolStripMenuItem
         '
-        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaNotificaciónToolStripMenuItem1, Me.ListadosToolStripMenuItem4})
+        Me.NotificacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaNotificaciónToolStripMenuItem1, Me.ListadosToolStripMenuItem4, Me.EstadisticasToolStripMenuItem5})
         resources.ApplyResources(Me.NotificacionesToolStripMenuItem, "NotificacionesToolStripMenuItem")
         Me.NotificacionesToolStripMenuItem.Name = "NotificacionesToolStripMenuItem"
         '
@@ -164,6 +166,16 @@ Partial Class Menu
         resources.ApplyResources(Me.RegistrarNuevaCapacitaciónToolStripMenuItem, "RegistrarNuevaCapacitaciónToolStripMenuItem")
         Me.RegistrarNuevaCapacitaciónToolStripMenuItem.Name = "RegistrarNuevaCapacitaciónToolStripMenuItem"
         '
+        'GestionarInvitacionesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.GestionarInvitacionesToolStripMenuItem, "GestionarInvitacionesToolStripMenuItem")
+        Me.GestionarInvitacionesToolStripMenuItem.Name = "GestionarInvitacionesToolStripMenuItem"
+        '
+        'GestionarActividadesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.GestionarActividadesToolStripMenuItem, "GestionarActividadesToolStripMenuItem")
+        Me.GestionarActividadesToolStripMenuItem.Name = "GestionarActividadesToolStripMenuItem"
+        '
         'ListadosToolStripMenuItem2
         '
         Me.ListadosToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapacitacionesRegistradasToolStripMenuItem})
@@ -179,16 +191,6 @@ Partial Class Menu
         '
         resources.ApplyResources(Me.EstadisticasToolStripMenuItem3, "EstadisticasToolStripMenuItem3")
         Me.EstadisticasToolStripMenuItem3.Name = "EstadisticasToolStripMenuItem3"
-        '
-        'GestionarInvitacionesToolStripMenuItem
-        '
-        resources.ApplyResources(Me.GestionarInvitacionesToolStripMenuItem, "GestionarInvitacionesToolStripMenuItem")
-        Me.GestionarInvitacionesToolStripMenuItem.Name = "GestionarInvitacionesToolStripMenuItem"
-        '
-        'GestionarActividadesToolStripMenuItem
-        '
-        resources.ApplyResources(Me.GestionarActividadesToolStripMenuItem, "GestionarActividadesToolStripMenuItem")
-        Me.GestionarActividadesToolStripMenuItem.Name = "GestionarActividadesToolStripMenuItem"
         '
         'AtencionesToolStripMenuItem
         '
@@ -504,6 +506,17 @@ Partial Class Menu
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Name = "Label1"
         '
+        'EstadisticasToolStripMenuItem5
+        '
+        Me.EstadisticasToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem})
+        resources.ApplyResources(Me.EstadisticasToolStripMenuItem5, "EstadisticasToolStripMenuItem5")
+        Me.EstadisticasToolStripMenuItem5.Name = "EstadisticasToolStripMenuItem5"
+        '
+        'CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem, "CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem")
+        Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Name = "CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem"
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -592,4 +605,6 @@ Partial Class Menu
     Friend WithEvents VacunatoriosPorLocalidadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GestionarInvitacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GestionarActividadesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EstadisticasToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

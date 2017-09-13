@@ -219,4 +219,8 @@ Public Class Menu
     Private Sub GestionarActividadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarActividadesToolStripMenuItem.Click
         Registrar_Actividades.ShowDialog()
     End Sub
+
+    Private Sub CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Click
+        est_estado_cargaStockPerdidasXDpto.ShowDialog()
+    End Sub
 End Class
