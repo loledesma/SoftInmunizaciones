@@ -76,7 +76,7 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT TOP 5 R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+        sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
         sql &= " , R.id_administrador as id_administrador "
         sql &= " FROM RECORDATORIOS R "
         sql &= " WHERE id_estado= 2"
@@ -386,6 +386,16 @@
                 tabla2.Rows.Clear()
                 tabla2 = acceso.consulta(sql)
                 dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = Image.FromFile("C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Imagenes\5.png")
+                Else
+                    If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 3 Then
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = Image.FromFile("C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Imagenes\6.png")
+                    Else
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = Image.FromFile("C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Imagenes\7.png")
+                    End If
+                End If
             Next
             End If
 

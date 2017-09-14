@@ -44,8 +44,6 @@ Partial Class Registrar_recordatorio
         Me.Label3 = New System.Windows.Forms.Label()
         Me.grp_descripcion = New System.Windows.Forms.GroupBox()
         Me.dgv_recordatorios = New System.Windows.Forms.DataGridView()
-        Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imagen = New System.Windows.Forms.DataGridViewImageColumn()
@@ -54,6 +52,8 @@ Partial Class Registrar_recordatorio
         Me.id_administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_atencion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_descripcion.SuspendLayout()
         CType(Me.dgv_recordatorios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,7 +86,7 @@ Partial Class Registrar_recordatorio
         Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 146)
         Me.grp_datos_recordatorio.TabIndex = 0
         Me.grp_datos_recordatorio.TabStop = False
-        Me.grp_datos_recordatorio.Text = "Recordatorio"
+        Me.grp_datos_recordatorio.Text = "Datos"
         '
         'cmd_actualizar_estado
         '
@@ -330,28 +330,6 @@ Partial Class Registrar_recordatorio
         Me.dgv_recordatorios.Size = New System.Drawing.Size(1045, 265)
         Me.dgv_recordatorios.TabIndex = 10
         '
-        'cmb_empleados
-        '
-        Me.cmb_empleados._descripcion = "nombres"
-        Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
-        Me.cmb_empleados._pk = "id"
-        Me.cmb_empleados.FormattingEnabled = True
-        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
-        Me.cmb_empleados.Name = "cmb_empleados"
-        Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 5
-        '
-        'cmb_estado_atencion
-        '
-        Me.cmb_estado_atencion._descripcion = "descripcion"
-        Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
-        Me.cmb_estado_atencion._pk = "id"
-        Me.cmb_estado_atencion.FormattingEnabled = True
-        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
-        Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
-        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_atencion.TabIndex = 3
-        '
         'id
         '
         Me.id.HeaderText = "ID"
@@ -370,13 +348,11 @@ Partial Class Registrar_recordatorio
         Me.imagen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.imagen.FillWeight = 200.0!
         Me.imagen.HeaderText = "Imagen"
-        Me.imagen.Image = Global.Programa_de_Inmunizaciones.My.Resources.Resources._2
         Me.imagen.MinimumWidth = 100
         Me.imagen.Name = "imagen"
         Me.imagen.ReadOnly = True
         Me.imagen.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.imagen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.imagen.Width = 152
         '
         'estado
         '
@@ -412,6 +388,28 @@ Partial Class Registrar_recordatorio
         Me.descripcion.ReadOnly = True
         Me.descripcion.Width = 500
         '
+        'cmb_empleados
+        '
+        Me.cmb_empleados._descripcion = "nombres"
+        Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
+        Me.cmb_empleados._pk = "id"
+        Me.cmb_empleados.FormattingEnabled = True
+        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
+        Me.cmb_empleados.Name = "cmb_empleados"
+        Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
+        Me.cmb_empleados.TabIndex = 5
+        '
+        'cmb_estado_atencion
+        '
+        Me.cmb_estado_atencion._descripcion = "descripcion"
+        Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
+        Me.cmb_estado_atencion._pk = "id"
+        Me.cmb_estado_atencion.FormattingEnabled = True
+        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
+        Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
+        Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
+        Me.cmb_estado_atencion.TabIndex = 3
+        '
         'Registrar_recordatorio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -432,7 +430,7 @@ Partial Class Registrar_recordatorio
         Me.Controls.Add(Me.grp_datos_recordatorio)
         Me.Controls.Add(Me.dgv_recordatorios)
         Me.Name = "Registrar_recordatorio"
-        Me.Text = "RECORDATORIOS"
+        Me.Text = "TABLERO DE PENDIENTES"
         Me.grp_datos_recordatorio.ResumeLayout(False)
         Me.grp_datos_recordatorio.PerformLayout()
         Me.grp_descripcion.ResumeLayout(False)
