@@ -324,6 +324,7 @@
         Me.condicion_estado = condicion.insertar
         Me.txt_id_capacitacion.Enabled = False
         Me.cmb_tipo_capacitaciones.Focus()
+        Me.dgv_efectores.Rows.Clear()
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
     End Sub
@@ -570,6 +571,7 @@
         Me.cmb_tipo_capacitaciones.SelectedValue = -1
         Me.txt_fecha_efectiva.Text = ""
         Me.txt_lugar.Text = ""
+        Me.dgv_efectores.Rows.Clear()
         cargar_grilla()
     End Sub
 
