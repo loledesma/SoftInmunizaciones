@@ -679,9 +679,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Imagenes\5.png" />
-    <Content Include="Imagenes\6.png" />
-    <Content Include="Imagenes\7.png" />
+    <Content Include="Imagenes\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\4.png" />
