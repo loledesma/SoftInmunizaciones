@@ -100,6 +100,10 @@
             tabla2.Rows.Clear()
             tabla2 = acceso.consulta(sql)
             dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+            'If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+            '    dgv_recordatorios.Rows(c).Cells("imagen").Value = 2
+            'End If
         Next
 
     End Sub
@@ -408,5 +412,6 @@
         lbl_contador_pendientes.Text = valor2
         lbl_contador_total.Text = valor1
     End Sub
+
 
 End Class

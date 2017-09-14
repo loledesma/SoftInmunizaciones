@@ -355,7 +355,7 @@
         limpiar(Controls)
         Me.txt_descripcion.Text = ""
         Me.condicion_estado = condicion.insertar
-     
+        Me.condicion_click = doble_Click.desactivado
         Me.txt_id_atencion.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_atencion.Enabled = True
@@ -560,6 +560,7 @@
         End If
         limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
+
     End Sub
 
     Private Sub limpiar_todo()
