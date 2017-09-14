@@ -367,12 +367,16 @@ Partial Class Registrar_recordatorio
         '
         'imagen
         '
+        Me.imagen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.imagen.FillWeight = 200.0!
         Me.imagen.HeaderText = "Imagen"
+        Me.imagen.Image = Global.Programa_de_Inmunizaciones.My.Resources.Resources._2
+        Me.imagen.MinimumWidth = 100
         Me.imagen.Name = "imagen"
         Me.imagen.ReadOnly = True
         Me.imagen.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.imagen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.imagen.Width = 150
+        Me.imagen.Width = 152
         '
         'estado
         '

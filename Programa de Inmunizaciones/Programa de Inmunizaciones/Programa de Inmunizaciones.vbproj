@@ -678,7 +678,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Imagenes\5.png" />
+    <Content Include="Imagenes\6.png" />
+    <Content Include="Imagenes\7.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\4.png" />
     <None Include="Imagenes\3.jpg" />
