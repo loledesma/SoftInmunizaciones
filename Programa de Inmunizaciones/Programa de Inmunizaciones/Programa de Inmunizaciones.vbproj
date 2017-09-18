@@ -479,6 +479,7 @@
     <EmbeddedResource Include="Dialog1.resx">
       <DependentUpon>Dialog1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_cantidadEstadoCargaXDpto.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_con_y_sin_heladera.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_efectores_implementados.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_efectores_implementados.resx">
