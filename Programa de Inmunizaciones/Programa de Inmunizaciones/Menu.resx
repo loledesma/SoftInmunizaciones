@@ -150,10 +150,10 @@
     <value>None</value>
   </data>
   <data name="RegistrarRecordatorioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 38</value>
+    <value>217, 38</value>
   </data>
   <data name="RegistrarRecordatorioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Registrar Recordatorio</value>
+    <value>Registrar Actividad</value>
   </data>
   <data name="ListadosToolStripMenuItem5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -180,7 +180,7 @@
     <value>None</value>
   </data>
   <data name="ListadosToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 38</value>
+    <value>217, 38</value>
   </data>
   <data name="ListadosToolStripMenuItem5.Text" xml:space="preserve">
     <value>Listados</value>
@@ -211,7 +211,7 @@
     <value>193, 38</value>
   </data>
   <data name="RecordatoriosToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Recordatorios</value>
+    <value>Tablero</value>
   </data>
   <data name="NuevaNotificaciónToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -332,26 +332,25 @@
   </data>
   <data name="CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
-        bmtzY2FwZS5vcmeb7jwaAAAD60lEQVRYR72WWUwTWxjH++by4qv67IOJRQN1I4qtS9QWi6y3otIWRMAF
-        REEE9/3KdYlRE3CJueYaF1RiJIIYMa0o1rpUMb4g8qAxGnfqJddEw9/zTcs40/ka24v14RdmvvM//+/P
-        zJlzqgMQESPMxQPizXZzgsVeK3ALOhKS7Z8l6DpQqyUNaTkPDraoxDBr4TCDxVEjzP0CRIif5tBczlMJ
-        WyRMJufABLNjuzDrCTGPhh7yIC+uB8EWx1mcQ8VkT4hZf/CQJ9dLUzBYnHEGi/0FY9IvyJO8Q/upbihl
-        LJr3Qd6hT0K+kN55BI89Ja8cOw6dQOriCnY8AjzKNSEHCC44boJMUkYBXvoe4r+aXXjt88H0xxJWRxRv
-        3IsrLW34q+YkDMkO9bjopQpAn4sY+OlqX1CyCd0N54HSefBfPI3csm2szphVhFe329C72i7pCyr/DNX0
-        9H2igQCB7zxUpGHG/GJ0dj7He88tPBV/N+47zupm21firfc2estz0H2pjgsg1oOjRgpAu5Yo/HSTGWfN
-        xbnGVlRVH5ZexfTs5Wh03cO2AydUupRFq9F84wHOXLqOa24v9hw+pX0FAfzUWxfcXjmBit1HzuDY2SZV
-        zWRbioYWL5pcXtz1+PBPfTPcd56gaO1ulS4c1FsnLmhvZwVE2uI1kuEV9wMY89ch7XKXzERnJRyrtuJT
-        c4NYF9n42NKEwqpqGKx5mJBTLmOY42S9BbUUgA4RzSA9ttYbdyTzFx1dSC+oFA2rkOl6K5OYvwHWvDJ8
-        uOnCt/WFeNfWCrO9FJOKtqh0FILrIXBTADrJNIO2ZevRfbleWvGf6/4W/9kuNgBpy3ccxIVGF0q37Jfu
-        owjQoQsep5rB8Sm5eOprx7+njuL5w3YkZRaGDRBKxAFE77ABCFrtJZv2wRjccLgAE+0VmFv/RGbCwrIo
-        A4R5BRxcAEJZI010ryDMIhxvK4H19H0ZWvExCCAtQvYzpElKEzKNQYDasBvR7wggbUThtuLfECCwFYc7
-        jGIdQD6MpACK4zgxNR8zF5TAsnwrFrW+kbFW7EXyip2q2pxV1RLKGmlIq6yRF3mSdzCA+jgmAj9IcsTR
-        WQ3vo07BM3gfd/2A7vtV65S8qYfmBwlhmJE1RD8lzT9qUgpiCfWgXpoAUoiZ2SP1SalfuYm/AvKmHsqe
-        qgBE/DSbWQi/cQb9gTzJO7Sf6qaP+Km2MXHG9E+c0f+BvMiT66Up9JGYmDUozpR1lTOMBvIgL64HwRaV
-        6E0ZY0dPzbw3avLcXq4Bi9DSHJrLeSphixzDrQWDR5syN8cZM9r1xvR3+impX6RQArqmGo2RhrSchxbo
-        vgPzEuMFiKf0LQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4AAAAOABol/+ygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPrSURBVFhHvZZZ
+        TBNbGMf75vLiq/rsg4lFA3Ujiq1L1BaLrLei0hZEwAVEQQT3/cp1iVETcIm55hoXVGIkghgxrSjWulQx
+        viDyoDEad+ol10TD3/NNyzjT+Rrbi/XhF2a+8z//78/MmXOqAxARI8zFA+LNdnOCxV4rcAs6EpLtnyXo
+        OlCrJQ1pOQ8OtqjEMGvhMIPFUSPM/QJEiJ/m0FzOUwlbJEwm58AEs2O7MOsJMY+GHvIgL64HwRbHWZxD
+        xWRPiFl/8JAn10tTMFiccQaL/QVj0i/Ik7xD+6luKGUsmvdB3qFPQr6Q3nkEjz0lrxw7Dp1A6uIKdjwC
+        PMo1IQcILjhugkxSRgFe+h7iv5pdeO3zwfTHElZHFG/ciystbfir5iQMyQ71uOilCkCfixj46WpfULIJ
+        3Q3ngdJ58F88jdyybazOmFWEV7fb0LvaLukLKv8M1fT0faKBAIHvPFSkYcb8YnR2Psd7zy08FX837jvO
+        6mbbV+Kt9zZ6y3PQfamOCyDWg6NGCkC7lij8dJMZZ83FucZWVFUfll7F9OzlaHTdw7YDJ1S6lEWr0Xzj
+        Ac5cuo5rbi/2HD6lfQUB/NRbF9xeOYGK3UfO4NjZJlXNZFuKhhYvmlxe3PX48E99M9x3nqBo7W6VLhzU
+        WycuaG9nBUTa4jWS4RX3Axjz1yHtcpfMRGclHKu24lNzg1gX2fjY0oTCqmoYrHmYkFMuY5jjZL0FtRSA
+        DhHNID221ht3JPMXHV1IL6gUDauQ6Xork5i/Ada8Mny46cK39YV419YKs70Uk4q2qHQUgushcFMAOsk0
+        g7Zl69F9uV5a8Z/r/hb/2S42AGnLdxzEhUYXSrfsl+6jCNChCx6nmsHxKbl46mvHv6eO4vnDdiRlFoYN
+        EErEAUTvsAEIWu0lm/bBGNxwuAAT7RWYW/9EZsLCsigDhHkFHFwAQlkjTXSvIMwiHG8rgfX0fRla8TEI
+        IC1C9jOkSUoTMo1BgNqwG9HvCCBtROG24t8QILAVhzuMYh1APoykAIrjODE1HzMXlMCyfCsWtb6RsVbs
+        RfKKnaranFXVEsoaaUirrJEXeZJ3MID6OCYCP0hyxNFZDe+jTsEzeB93/YDu+1XrlLyph+YHCWGYkTVE
+        PyXNP2pSCmIJ9aBemgBSiJnZI/VJqV+5ib8C8qYeyp6qAET8NJtZCL9xBv2BPMk7tJ/qpo/4qbYxccb0
+        T5zR/4G8yJPrpSn0kZiYNSjOlHWVM4wG8iAvrgfBFpXoTRljR0/NvDdq8txergGL0NIcmst5KmGLHMOt
+        BYNHmzI3xxkz2vXG9Hf6KalfpFACuqYajZGGtJyHFui+A/MS4wWIp/QtAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -365,24 +364,23 @@
   </data>
   <data name="EstadisticasToolStripMenuItem5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAA3NCSVQICAjb4U/gAAAAAXNSR0IArs4c
-        6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5p
-        bmtzY2FwZS5vcmeb7jwaAAADb0lEQVRYR8WX/0tTURTA/a3+hPoj+sUIUoiICirJILR+Ea20sszqBxXN
-        UAuDFHXTvmyRKJFpezOEoJBklCYkkRllkpvuzS9plobOvWk6Pd1z3Zvvvp3J3DJ/+Iz7zj3vnLN77jn3
-        vhgACIsax8stBpf1sFG2mI2y1M6wG13SLAfHXGYxow7qUjYoSKEWg+vZdqNsNTEHbgaECdO1mvBdyqYW
-        UojUy/Vbq51SKTOm6IyvBwVtoC3KB0IK78nSNvZyl85YNHShTcpXkKBqUNrB8jpCGIkOZhNt6/0JD/yf
-        b4RzFWZbvxKBAeaJKQnL/s0zBM3jb0Qj66SgzQwplSVaWZd2TwQC8G84rlQtW6F9qgd+L7ih5UeH9uWw
-        KXpbC0dzcyD2SCrsz8gS5tCXEMBKqa3u9hqXFXpm7OBeVCIK4PTdUohNSOXOkT0p5/U6ilqiPAB/neuV
-        wOUdjyiAqgELHMzMDgQQl5xO6FlNPADsWkxANplIA7jxrg52JqRx5wfOXYJdiacoPTf6ZsuP7VWcvONq
-        hvmlBVhaXo4ogOPX87nzvWkXoNL+FIo7a8HgtATpoW+2/Ly3B02ahlpgeG5i3QGgMzX/+a33SZ1VLGYW
-        AD9YiMm1U5DdVAmJeTlQaHsgyI8V5HHnyTcLBXkI2jEAPMmECSxD22Q3TC3MkAFU9DdB3IkM2HfmIneG
-        5VbU8ZCDz/Fsrqz3SdB7BPYY/3EqTGAZfnYPhizDzPpySCouAKNTgqyGCtidlM6XPf7kWR7AFckQ9A4J
-        800GoEKlwDBogUOXr0J5X2NAdvtLAySVXOPOE/NyBf014QEQKVChAsB/F2pzlfU2kPI1YCkgNiGWIS6/
-        b9kXFABuPu1zlOAmpMuwbuQFjM79FAK41f2I17VWLzpYGVKNSCXSThguvBFRrRjL8NWv9zD5Z3ojA1hp
-        xdRhVMP2QN+sDB6fdwMD8B9G+KM/jlUwBZ9mHLwpRcPziU7BLkM8jhHthUTFNvmB3wsU3xz0e4b52KGM
-        wCxbGRwjWC0Dyigf4w3K65sPzE0vesCpjMHrqY+C3aALCUJdyVRk7xg0fm/jY8uYjTtU57TXtsejrfwA
-        U+e+sjQSKaSvZMimXkpVNvVarsJXIkQ6IiT8DxMVzJN/Y/7/TzMtBl6im/Bxqge71krb/pef5xDzF3Gt
-        ENw6oM9kAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4AAAAOABol/+ygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANvSURBVFhHxZf/
+        S1NRFMD9rf6E+iP6xQhSiIgKKskgtH4RrbSyzOoHFc1QC4MUddO+bJEokWl7M4SgkGSUJiSRGWWSm+7N
+        L2mWhs69aTo93XPdm+++ncncMn/4jPvOPe+cs3vuOfe+GAAIixrHyy0Gl/WwUbaYjbLUzrAbXdIsB8dc
+        ZjGjDupSNihIoRaD69l2o2w1MQduBoQJ07Wa8F3KphZSiNTL9VurnVIpM6bojK8HBW2gLcoHQgrvydI2
+        9nKXzlg0dKFNyleQoGpQ2sHyOkIYiQ5mE23r/QkP/J9vhHMVZlu/EoEB5okpCcv+zTMEzeNvRCPrpKDN
+        DCmVJVpZl3ZPBALwbziuVC1boX2qB34vuKHlR4f25bApelsLR3NzIPZIKuzPyBLm0JcQwEqpre72GpcV
+        embs4F5UIgrg9N1SiE1I5c6RPSnn9TqKWqI8AH+d65XA5R2PKICqAQsczMwOBBCXnE7oWU08AOxaTEA2
+        mUgDuPGuDnYmpHHnB85dgl2Jpyg9N/pmy4/tVZy842qG+aUFWFpejiiA49fzufO9aReg0v4UijtrweC0
+        BOmhb7b8vLcHTZqGWmB4bmLdAaAzNf/5rfdJnVUsZhYAP1iIybVTkN1UCYl5OVBoeyDIjxXkcefJNwsF
+        eQjaMQA8yYQJLEPbZDdMLcyQAVT0N0HciQzYd+Yid4blVtTxkIPP8WyurPdJ0HsE9hj/cSpMYBl+dg+G
+        LMPM+nJIKi4Ao1OCrIYK2J2Uzpc9/uRZHsAVyRD0DgnzTQagQqXAMGiBQ5evQnlfY0B2+0sDJJVc484T
+        83IF/TXhARApUKECwH8XanOV9TaQ8jVgKSA2IZYhLr9v2RcUAG4+7XOU4Caky7Bu5AWMzv0UArjV/YjX
+        tVYvOlgZUo1IJdJOGC68EVGtGMvw1a/3MPlneiMDWGnF1GFUw/ZA36wMHp93AwPwH0b4oz+OVTAFn2Yc
+        vClFw/OJTsEuQzyOEe2FRMU2+YHfCxTfHPR7hvnYoYzALFsZHCNYLQPKKB/jDcrrmw/MTS96wKmMweup
+        j4LdoAsJQl3JVGTvGDR+b+Njy5iNO1TntNe2x6Ot/ABT576yNBIppK9kyKZeSlU29VquwlciRDoiJPwP
+        ExXMk39j/v9PMy0GXqKb8HGqB7vWStv+l5/nEPMXca0Q3Dqgz2QAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="EstadisticasToolStripMenuItem5.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -486,20 +484,20 @@
   </data>
   <data name="GestionarActividadesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAAOAAAADgAaJf/soAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAACl0lEQVRYR8WXv2/TQBTHvcGfADsrA7GQGLtB3B8sSAw0TmBFDKgLTAgJ8SdQ/wEgNphZEGGACAmp
-        C0tUoaqVGAgNxKlTGgc93vcch7Pz7DtDaJ/0kZy79+Or+O7d2SEiK87V75y6UPfrNc8PmDbTrS37QwWe
-        k7EAPvCVckiIgzru5fWzrtfc5OQhQ5aEiEGslFNHHARLS63TtXrzESeLcsmrECEHckk1gDh40Wud4eBO
-        Ltm/0EFOqdbcgOu1zruevyckyXD/XoMeP0zAs+Sjg5zIna+X+QGVRcXdZZ8urSXc3WgQbd3IgLF0Hr5i
-        Ds6d/ydmD+qdC3+7u9Iid+0Wrfo354oWAV/EIDafj+noa2ImYLrg5gJWnn2g6+0ebbzrisUk4IsYxEo5
-        USsjANuFJ8TVvvr8Iz3Y+kEUh0S7gR3sixjESjmZKN2iiYBkn0uOfwRUNIMAXg/NTXZzVIfjgcImowv4
-        Pjigr98GpcAHZhLAhKjtTNur5KDQBcSTXzSOJ6XAB2YhgFDb4Qf0dtEB6AImnDyeoEgx8IHZCGACCMAh
-        Ik0qdAELfgWgDQE4yaRJhS6gilkK6DrT41SaVOgCRodHNIwOS4EPzEoA164kIBr9pHA4KgU+MHsBJ/4K
-        Ki7C3v4gQ7ro8mYpQC1C620YY6+P4wwYk8xSQFCpEZlsLxxT90ufXn/u0/rbnlGAakRVWrHJdgZH9H5n
-        nxpc/Nobo4CkFXOc8TC63enTy92RkafbB7PiJgGzw0gJMBzHacKqlAjIHseg6ELyXwTkLySg6Ep25ckr
-        uvri01+B2Hw+Rr6SgbJL6SIovZSm2F7Lq4Kcxmt5ClRy0Ml8mKSoNZEszOP/NNPBdpn2ieP9OM2DrjVt
-        2wv8PCfnN1Nt9lktLwI5AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4AAAAOABol/+ygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKXSURBVFhHxZe/
+        b9NAFMe9wZ8AOysDsZAYu0HcHyxIDDROYEUMqAtMCAnxJ1D/ASA2mFkQYYAICakLS1ShqpUYCA3EqVMa
+        Bz3e9xyHs/PsO0Non/SRnLv346v47t3ZISIrztXvnLpQ9+s1zw+YNtOtLftDBZ6TsQA+8JVySIiDOu7l
+        9bOu19zk5CFDloSIQayUU0ccBEtLrdO1evMRJ4tyyasQIQdySTWAOHjRa53h4E4u2b/QQU6p1tyA67XO
+        u56/JyTJcP9egx4/TMCz5KODnMidr5f5AZVFxd1lny6tJdzdaBBt3ciAsXQevmIOzp3/J2YP6p0Lf7u7
+        0iJ37Rat+jfnihYBX8QgNp+P6ehrYiZguuDmAlaefaDr7R5tvOuKxSTgixjESjlRKyMA24UnxNW++vwj
+        Pdj6QRSHRLuBHeyLGMRKOZko3aKJgGSfS45/BFQ0gwBeD81NdnNUh+OBwiajC/g+OKCv3walwAdmEsCE
+        qO1M26vkoNAFxJNfNI4npcAHZiGAUNvhB/R20QHoAiacPJ6gSDHwgdkIYAIIwCEiTSp0AQt+BaANATjJ
+        pEmFLqCKWQroOtPjVJpU6AJGh0c0jA5LgQ/MSgDXriQgGv2kcDgqBT4wewEn/goqLsLe/iBDuujyZilA
+        LULrbRhjr4/jDBiTzFJAUKkRmWwvHFP3S59ef+7T+tueUYBqRFVascl2Bkf0fmefGlz82hujgKQVc5zx
+        MLrd6dPL3ZGRp9sHs+ImAbPDSAkwHMdpwqqUCMgex6DoQvJfBOQvJKDoSnblySu6+uLTX4HYfD5GvpKB
+        skvpIii9lKbYXsurgpzGa3kKVHLQyXyYpKg1kSzM4/8008F2mfaJ4/04zYOuNW3bC/w8J+c3U232WS0v
+        AjkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="GestionarActividadesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -8889,6 +8887,18 @@
   <data name="&gt;&gt;EfectoresQueNoNotificanToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;EstadisticasToolStripMenuItem5.Name" xml:space="preserve">
+    <value>EstadisticasToolStripMenuItem5</value>
+  </data>
+  <data name="&gt;&gt;EstadisticasToolStripMenuItem5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;CapacitacionesToolStripMenuItem.Name" xml:space="preserve">
     <value>CapacitacionesToolStripMenuItem</value>
   </data>
@@ -9241,18 +9251,6 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EstadisticasToolStripMenuItem5.Name" xml:space="preserve">
-    <value>EstadisticasToolStripMenuItem5</value>
-  </data>
-  <data name="&gt;&gt;EstadisticasToolStripMenuItem5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Name" xml:space="preserve">
-    <value>CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

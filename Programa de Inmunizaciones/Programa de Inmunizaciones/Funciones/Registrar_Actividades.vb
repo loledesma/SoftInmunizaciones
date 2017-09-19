@@ -282,6 +282,11 @@
                                 End If
                             End If
                         End If
+                        If IsDBNull(tabla2.Rows(d)("observaciones")) Then
+                            Me.dgv_actividades.Rows(e).Cells("observaciones").Value = Nothing
+                        Else
+                            Me.dgv_actividades.Rows(e).Cells("observaciones").Value = tabla2.Rows(d)("observaciones")
+                        End If
                     End If
                 Next
             Next
@@ -384,14 +389,18 @@
                     If dgv_actividades.Rows(d).Cells("en_curso").Value = False Then
                         If dgv_actividades.Rows(d).Cells("realizada").Value = False Then
                             check = False
+                            Exit For
                         Else
                             check = True
+                            Exit For
                         End If
                     Else
                         check = True
+                        Exit For
                     End If
                 Else
                     check = True
+                    Exit For
                 End If
             End If
         Next
