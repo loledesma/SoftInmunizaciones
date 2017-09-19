@@ -44,6 +44,7 @@ Partial Class Registrar_invitaciones
         Me.lbl_perdidas = New System.Windows.Forms.Label()
         Me.txt_fecha_efectiva = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_id_notificacion = New System.Windows.Forms.Label()
+        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.txt_id_capacitacion = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -61,13 +62,14 @@ Partial Class Registrar_invitaciones
         Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
-        Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmb_tipo_capacitaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.vacunatorio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invitacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.lbl_contador_total = New System.Windows.Forms.Label()
+        Me.lbl_invitados = New System.Windows.Forms.Label()
         Me.grp_datos_capacitacion.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -245,6 +247,17 @@ Partial Class Registrar_invitaciones
         Me.lbl_id_notificacion.Size = New System.Drawing.Size(81, 13)
         Me.lbl_id_notificacion.TabIndex = 52
         Me.lbl_id_notificacion.Text = "Id Capacitacion"
+        '
+        'cmb_tipo_capacitaciones
+        '
+        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
+        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
+        Me.cmb_tipo_capacitaciones._pk = "id"
+        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
+        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(110, 51)
+        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
+        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_tipo_capacitaciones.TabIndex = 1
         '
         'txt_id_capacitacion
         '
@@ -465,36 +478,6 @@ Partial Class Registrar_invitaciones
         Me.dgv_efectores.Size = New System.Drawing.Size(443, 204)
         Me.dgv_efectores.TabIndex = 75
         '
-        'cmd_nuevo
-        '
-        Me.cmd_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_nuevo.BackgroundImage = CType(resources.GetObject("cmd_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.Location = New System.Drawing.Point(17, 445)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 72
-        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmb_tipo_capacitaciones
-        '
-        Me.cmb_tipo_capacitaciones._descripcion = "descripcion"
-        Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
-        Me.cmb_tipo_capacitaciones._pk = "id"
-        Me.cmb_tipo_capacitaciones.FormattingEnabled = True
-        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(110, 51)
-        Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
-        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
-        Me.cmb_tipo_capacitaciones.TabIndex = 1
-        '
         'cuie
         '
         Me.cuie.HeaderText = "Cuie"
@@ -522,12 +505,56 @@ Partial Class Registrar_invitaciones
         Me.observaciones.ReadOnly = True
         Me.observaciones.Visible = False
         '
+        'cmd_nuevo
+        '
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_nuevo.BackgroundImage = CType(resources.GetObject("cmd_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_nuevo.Location = New System.Drawing.Point(17, 445)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_nuevo.TabIndex = 72
+        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
+        'lbl_contador_total
+        '
+        Me.lbl_contador_total.AutoSize = True
+        Me.lbl_contador_total.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_total.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_total.Location = New System.Drawing.Point(685, 434)
+        Me.lbl_contador_total.Name = "lbl_contador_total"
+        Me.lbl_contador_total.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_total.TabIndex = 77
+        '
+        'lbl_invitados
+        '
+        Me.lbl_invitados.AutoSize = True
+        Me.lbl_invitados.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_invitados.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_invitados.ForeColor = System.Drawing.Color.White
+        Me.lbl_invitados.Location = New System.Drawing.Point(464, 434)
+        Me.lbl_invitados.Name = "lbl_invitados"
+        Me.lbl_invitados.Size = New System.Drawing.Size(120, 17)
+        Me.lbl_invitados.TabIndex = 76
+        Me.lbl_invitados.Text = "Total Invitados:"
+        '
         'Registrar_invitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(924, 518)
+        Me.Controls.Add(Me.lbl_contador_total)
+        Me.Controls.Add(Me.lbl_invitados)
         Me.Controls.Add(Me.dgv_efectores)
         Me.Controls.Add(Me.dgv_capas)
         Me.Controls.Add(Me.cmd_limpiar)
@@ -546,6 +573,7 @@ Partial Class Registrar_invitaciones
         CType(Me.dgv_capas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv_efectores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
@@ -586,4 +614,6 @@ Partial Class Registrar_invitaciones
     Friend WithEvents vacunatorio As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents invitacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lbl_contador_total As System.Windows.Forms.Label
+    Friend WithEvents lbl_invitados As System.Windows.Forms.Label
 End Class

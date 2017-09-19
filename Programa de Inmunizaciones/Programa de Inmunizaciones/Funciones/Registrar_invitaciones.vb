@@ -592,5 +592,10 @@
         nuevo()
     End Sub
 
+    Private Sub dgv_efectores_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_efectores.CellValueChanged
+        Dim valor1 As Integer = 0
 
+        valor1 = dgv_efectores.Rows.Count()
+        lbl_contador_total.Text = valor1
+    End Sub
 End Class
