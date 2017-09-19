@@ -425,7 +425,7 @@
                     If IsNothing(Me.dgv_actividades.Rows(c).Cells("observaciones").Value) Then
                         Sql &= ", observaciones=NULL"
                     Else
-                        Sql &= ", observaciones= " & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
+                        Sql &= ", observaciones= '" & Me.dgv_actividades.Rows(c).Cells("observaciones").Value & "'"
                     End If
 
                     Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
@@ -453,7 +453,7 @@
                     If IsNothing(Me.dgv_actividades.Rows(c).Cells("observaciones").Value) Then
                         Sql &= ", observaciones=NULL"
                     Else
-                        Sql &= ", observaciones= " & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
+                        Sql &= ", observaciones=" & Me.dgv_actividades.Rows(c).Cells("observaciones").Value
                     End If
                     acceso.insertar(Sql)
                 End If
