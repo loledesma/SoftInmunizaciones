@@ -33,6 +33,8 @@ Partial Class Menu
         Me.ListadosToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificacionesRegistradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EfectoresQueNoNotificanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstadisticasToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapacitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarNuevaCapacitaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarInvitacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -93,8 +95,6 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.EstadisticasToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -154,6 +154,17 @@ Partial Class Menu
         '
         resources.ApplyResources(Me.EfectoresQueNoNotificanToolStripMenuItem, "EfectoresQueNoNotificanToolStripMenuItem")
         Me.EfectoresQueNoNotificanToolStripMenuItem.Name = "EfectoresQueNoNotificanToolStripMenuItem"
+        '
+        'EstadisticasToolStripMenuItem5
+        '
+        Me.EstadisticasToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem})
+        resources.ApplyResources(Me.EstadisticasToolStripMenuItem5, "EstadisticasToolStripMenuItem5")
+        Me.EstadisticasToolStripMenuItem5.Name = "EstadisticasToolStripMenuItem5"
+        '
+        'CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem, "CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem")
+        Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Name = "CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem"
         '
         'CapacitacionesToolStripMenuItem
         '
@@ -505,17 +516,6 @@ Partial Class Menu
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Name = "Label1"
-        '
-        'EstadisticasToolStripMenuItem5
-        '
-        Me.EstadisticasToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem})
-        resources.ApplyResources(Me.EstadisticasToolStripMenuItem5, "EstadisticasToolStripMenuItem5")
-        Me.EstadisticasToolStripMenuItem5.Name = "EstadisticasToolStripMenuItem5"
-        '
-        'CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem
-        '
-        resources.ApplyResources(Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem, "CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem")
-        Me.CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Name = "CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem"
         '
         'Menu
         '
