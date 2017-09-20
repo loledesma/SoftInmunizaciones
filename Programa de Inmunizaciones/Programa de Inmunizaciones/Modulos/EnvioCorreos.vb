@@ -16,14 +16,14 @@ Module Correo
             'correos.Subject = asunto
             correos.IsBodyHtml = True
             correos.To.Add(Trim(destinatario))
-            Dim ruta As String = "C:\Users\Joaquin\Source\Repos\SoftInmunizaciones4\Programa de Inmunizaciones\Programa de Inmunizaciones\Imagenes\Cartel cumpleaños.jpg"
+            Dim ruta As String = "Programa_de_Inmunizaciones.My.Resources._cumpleaños"
             If ruta <> "" Then
                 Dim archivo As Net.Mail.Attachment = New Net.Mail.Attachment(ruta)
                 correos.Attachments.Add(archivo)
             End If
 
-            correos.From = New MailAddress("here va el correo")
-            envios.Credentials = New NetworkCredential("aca tambien va el correo", "acá va la pwrd")
+            correos.From = New MailAddress("soft.inmunizaciones@gmail.com")
+            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2015")
 
             'Datos importantes no modificables para tener acceso a las cuentas
 

@@ -691,7 +691,9 @@
     <Content Include="Imagenes\7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagenes\Cartel cumpleaños.jpg" />
+    <Content Include="Imagenes\cumpleaños.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\4.png" />
