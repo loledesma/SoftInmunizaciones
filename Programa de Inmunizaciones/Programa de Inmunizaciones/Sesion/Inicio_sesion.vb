@@ -9,6 +9,9 @@
     ' como el nombre de usuario, nombre para mostrar, etc.
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
+        If name.Text = "" Then
+            MsgBox("Debe ingresar un usuario")
+        End If
         Dim samplePrincipal As New SampleIPrincipal(
     Me.name.Text, Me.password.Text)
         Me.password.Text = ""
