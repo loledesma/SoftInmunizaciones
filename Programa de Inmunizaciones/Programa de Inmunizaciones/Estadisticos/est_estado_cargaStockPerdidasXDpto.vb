@@ -58,7 +58,7 @@
         ReportViewer2.RefreshReport()
     End Sub
 
-    Private Sub imprimirEstok() ''Si Lore, puse Estok,es a prosopito.. LOL xdxdxdxd
+    Private Sub imprimirEstoc() 'Si Lore, puse Estoc..
 
     End Sub
 

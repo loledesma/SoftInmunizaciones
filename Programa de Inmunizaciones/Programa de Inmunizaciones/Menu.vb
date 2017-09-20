@@ -25,8 +25,9 @@ Public Class Menu
                 Dialog1.DataGridView1.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
                 enviarCorreo(tabla.Rows(c)("mail_contacto"))
             Next
+            Dialog1.ShowDialog()
         End If
-        Dialog1.ShowDialog()
+
     End Sub
     Private Sub GestiónDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeEmpleadosToolStripMenuItem.Click
         abm_empleados.ShowDialog()
