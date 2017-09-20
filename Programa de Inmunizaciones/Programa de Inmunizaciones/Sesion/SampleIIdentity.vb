@@ -82,14 +82,13 @@
         Else
             sql = "SELECT * FROM USUARIOS_GEVAC WHERE usuario='" & username & "'"
             tabla = acceso.consulta(sql)
+            If Trim(username).ToLower = tabla.Rows(0)("usuario") Then
+                Return tabla.Rows(0)("contraseña")
+            Else
+                Return ""
+            End If
         End If
      
-
-        If Trim(username).ToLower = tabla.Rows(0)("usuario") Then
-            Return tabla.Rows(0)("contraseña")
-        Else
-            Return ""
-        End If
     End Function
 
 
