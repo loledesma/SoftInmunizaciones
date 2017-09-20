@@ -23,10 +23,10 @@ Public Class Menu
                 Dialog1.DataGridView1.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
                 Dialog1.DataGridView1.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
                 Dialog1.DataGridView1.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
-
-                Dialog1.ShowDialog()
+                enviarCorreo(tabla.Rows(c)("mail_contacto"))
             Next
         End If
+        Dialog1.ShowDialog()
     End Sub
     Private Sub GestiónDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeEmpleadosToolStripMenuItem.Click
         abm_empleados.ShowDialog()
