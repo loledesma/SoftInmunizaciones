@@ -359,16 +359,25 @@
         Dim tabla2 As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT * FROM RECORDATORIOS "
-        sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
-        sql &= " ORDER BY id_administrador"
-        tabla = acceso.consulta(sql)
+        If cmb_estado_atencion.SelectedValue <> -1 Then
+            sql &= "SELECT * FROM RECORDATORIOS "
+            sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
+            sql &= " AND id_estado = " & Me.cmb_estado_atencion.SelectedValue
+            sql &= " ORDER BY id_administrador"
+            tabla = acceso.consulta(sql)
+        Else
+            sql &= "SELECT * FROM RECORDATORIOS "
+            sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
+            sql &= " ORDER BY id_administrador"
+            tabla = acceso.consulta(sql)
+        End If
 
-            If tabla.Rows.Count() = 0 Then
+
+        If tabla.Rows.Count() = 0 Then
             MessageBox.Show("¡No existe el recordatorio solicitado!")
-                Exit Sub
-            Else
-                Dim c As Integer = 0
+            Exit Sub
+        Else
+            Dim c As Integer = 0
             dgv_recordatorios.Rows.Clear()
             For c = 0 To tabla.Rows.Count() - 1
                 dgv_recordatorios.Rows.Add()
@@ -403,7 +412,7 @@
                     End If
                 End If
             Next
-            End If
+        End If
 
 
         limpiar(Me.Controls)
