@@ -3757,7 +3757,7 @@ Partial Public Class Inmunizaciones2
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddEST_EFECTORESXESTADONOTIFICACIONESRow(ByVal cantidadEstadoCarga As String, ByVal cantidadEstadoPerdida As String, ByVal cantidadEstadoStock As String, ByVal nombre_departamento As String, ByVal nombre_localidad As String) As EST_EFECTORESXESTADONOTIFICACIONESRow
+        Public Overloads Function AddEST_EFECTORESXESTADONOTIFICACIONESRow(ByVal cantidadEstadoCarga As Long, ByVal cantidadEstadoPerdida As Long, ByVal cantidadEstadoStock As Long, ByVal nombre_departamento As String, ByVal nombre_localidad As String) As EST_EFECTORESXESTADONOTIFICACIONESRow
             Dim rowEST_EFECTORESXESTADONOTIFICACIONESRow As EST_EFECTORESXESTADONOTIFICACIONESRow = CType(Me.NewRow, EST_EFECTORESXESTADONOTIFICACIONESRow)
             Dim columnValuesArray() As Object = New Object() {cantidadEstadoCarga, cantidadEstadoPerdida, cantidadEstadoStock, nombre_departamento, nombre_localidad}
             rowEST_EFECTORESXESTADONOTIFICACIONESRow.ItemArray = columnValuesArray
@@ -3792,11 +3792,11 @@ Partial Public Class Inmunizaciones2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitClass()
-            Me.columncantidadEstadoCarga = New Global.System.Data.DataColumn("cantidadEstadoCarga", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncantidadEstadoCarga = New Global.System.Data.DataColumn("cantidadEstadoCarga", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidadEstadoCarga)
-            Me.columncantidadEstadoPerdida = New Global.System.Data.DataColumn("cantidadEstadoPerdida", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncantidadEstadoPerdida = New Global.System.Data.DataColumn("cantidadEstadoPerdida", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidadEstadoPerdida)
-            Me.columncantidadEstadoStock = New Global.System.Data.DataColumn("cantidadEstadoStock", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncantidadEstadoStock = New Global.System.Data.DataColumn("cantidadEstadoStock", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidadEstadoStock)
             Me.columnnombre_departamento = New Global.System.Data.DataColumn("nombre_departamento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre_departamento)
@@ -4849,48 +4849,48 @@ Partial Public Class Inmunizaciones2
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property cantidadEstadoCarga() As String
+        Public Property cantidadEstadoCarga() As Long
             Get
                 Try
-                    Return CType(Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoCargaColumn), String)
+                    Return CType(Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoCargaColumn), Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidadEstadoCarga' de la tabla 'EST_EFECTORESXESTADONOT" & _
                             "IFICACIONES' es DBNull.", e)
                 End Try
             End Get
-            Set(value As String)
+            Set(value As Long)
                 Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoCargaColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property cantidadEstadoPerdida() As String
+        Public Property cantidadEstadoPerdida() As Long
             Get
                 Try
-                    Return CType(Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoPerdidaColumn), String)
+                    Return CType(Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoPerdidaColumn), Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidadEstadoPerdida' de la tabla 'EST_EFECTORESXESTADON" & _
                             "OTIFICACIONES' es DBNull.", e)
                 End Try
             End Get
-            Set(value As String)
+            Set(value As Long)
                 Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoPerdidaColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property cantidadEstadoStock() As String
+        Public Property cantidadEstadoStock() As Long
             Get
                 Try
-                    Return CType(Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoStockColumn), String)
+                    Return CType(Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoStockColumn), Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidadEstadoStock' de la tabla 'EST_EFECTORESXESTADONOT" & _
                             "IFICACIONES' es DBNull.", e)
                 End Try
             End Get
-            Set(value As String)
+            Set(value As Long)
                 Me(Me.tableEST_EFECTORESXESTADONOTIFICACIONES.cantidadEstadoStockColumn) = value
             End Set
         End Property
