@@ -282,6 +282,11 @@
                                 End If
                             End If
                         End If
+                        If IsDBNull(tabla2.Rows(d)("observaciones")) Then
+                            Me.dgv_actividades.Rows(e).Cells("observaciones").Value = Nothing
+                        Else
+                            Me.dgv_actividades.Rows(e).Cells("observaciones").Value = tabla2.Rows(d)("observaciones")
+                        End If
                     End If
                 Next
             Next
