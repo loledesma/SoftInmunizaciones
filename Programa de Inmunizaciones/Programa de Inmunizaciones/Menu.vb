@@ -1,9 +1,20 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+
 Public Class Menu
 
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        verifCumple()
+
+        Inicio_sesion.ShowDialog()
+        If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) Then
+            verifCumple()
+            verifTareas()
+            back_up.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub verifTareas()
+        Tareas.ShowDialog()
     End Sub
 
     Private Sub verifCumple()

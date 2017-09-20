@@ -191,10 +191,16 @@
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Dialog1.Designer.vb">
+    <Compile Include="Popups\back_up.Designer.vb">
+      <DependentUpon>back_up.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\back_up.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\Dialog1.Designer.vb">
       <DependentUpon>Dialog1.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialog1.vb">
+    <Compile Include="Popups\Dialog1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Estadisticos\est_efectores_implementados.Designer.vb">
@@ -421,6 +427,18 @@
     </Compile>
     <Compile Include="Modulos\EnvioCorreos.vb" />
     <Compile Include="Modulos\global1.vb" />
+    <Compile Include="Popups\Tareas.Designer.vb">
+      <DependentUpon>Tareas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Tareas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sesion\Inicio_sesion.Designer.vb">
+      <DependentUpon>Inicio_sesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sesion\Inicio_sesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Inmunizaciones.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -452,6 +470,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Sesion\SampleIIdentity.vb" />
+    <Compile Include="Sesion\SampleIPrincipal.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ABM\abm_barrios.resx">
@@ -478,7 +498,10 @@
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialog1.resx">
+    <EmbeddedResource Include="Popups\back_up.resx">
+      <DependentUpon>back_up.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\Dialog1.resx">
       <DependentUpon>Dialog1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticos\est_cantidadEstadoCargaXDpto.rdlc" />
@@ -622,6 +645,12 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Popups\Tareas.resx">
+      <DependentUpon>Tareas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sesion\Inicio_sesion.resx">
+      <DependentUpon>Inicio_sesion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -694,6 +723,18 @@
     <Content Include="Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\tech-support-icon.jpg" />
+    <None Include="Resources\Teacher.png" />
+    <None Include="Resources\Security-icon.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\images %282%29.jpg" />
+    <None Include="Resources\images %281%29.jpg" />
+    <None Include="Resources\customer_person_people_woman_you_1627.png" />
+    <None Include="Resources\Client_Female_Light.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\3.jpg" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\vacu_logo_min.png" />
     <None Include="Resources\Cartel cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -703,6 +744,7 @@
     <None Include="Imagenes\3.jpg" />
     <None Include="Imagenes\2.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
