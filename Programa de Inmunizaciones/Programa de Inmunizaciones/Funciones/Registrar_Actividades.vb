@@ -389,14 +389,18 @@
                     If dgv_actividades.Rows(d).Cells("en_curso").Value = False Then
                         If dgv_actividades.Rows(d).Cells("realizada").Value = False Then
                             check = False
+                            Exit For
                         Else
                             check = True
+                            Exit For
                         End If
                     Else
                         check = True
+                        Exit For
                     End If
                 Else
                     check = True
+                    Exit For
                 End If
             End If
         Next
