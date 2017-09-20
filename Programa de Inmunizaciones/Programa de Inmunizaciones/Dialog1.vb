@@ -12,7 +12,5 @@ Public Class Dialog1
         Me.Close()
     End Sub
 
-    Public Sub Dialog1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
+    
 End Class
