@@ -26,15 +26,15 @@ Partial Class Dialog1
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgv_cumples = New System.Windows.Forms.DataGridView()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mail_contacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lbl_titulo = New System.Windows.Forms.Label()
         Me.enviar_Correo = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.lbl_titulo = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_cumples, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -72,21 +72,21 @@ Partial Class Dialog1
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
-        'DataGridView1
+        'dgv_cumples
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.nro_doc, Me.mail_contacto, Me.enviar_Correo})
-        Me.DataGridView1.GridColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 53)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.DataGridView1.Size = New System.Drawing.Size(603, 83)
-        Me.DataGridView1.StandardTab = True
-        Me.DataGridView1.TabIndex = 1
+        Me.dgv_cumples.AllowUserToAddRows = False
+        Me.dgv_cumples.AllowUserToDeleteRows = False
+        Me.dgv_cumples.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.dgv_cumples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical
+        Me.dgv_cumples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_cumples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.nro_doc, Me.mail_contacto, Me.enviar_Correo})
+        Me.dgv_cumples.GridColor = System.Drawing.SystemColors.ControlLightLight
+        Me.dgv_cumples.Location = New System.Drawing.Point(12, 53)
+        Me.dgv_cumples.Name = "dgv_cumples"
+        Me.dgv_cumples.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        Me.dgv_cumples.Size = New System.Drawing.Size(603, 83)
+        Me.dgv_cumples.StandardTab = True
+        Me.dgv_cumples.TabIndex = 1
         '
         'apellidos
         '
@@ -111,6 +111,13 @@ Partial Class Dialog1
         Me.mail_contacto.Name = "mail_contacto"
         Me.mail_contacto.Width = 160
         '
+        'enviar_Correo
+        '
+        Me.enviar_Correo.HeaderText = "Enviar correo"
+        Me.enviar_Correo.Name = "enviar_Correo"
+        Me.enviar_Correo.Text = "Enviar correo"
+        Me.enviar_Correo.UseColumnTextForButtonValue = True
+        '
         'lbl_titulo
         '
         Me.lbl_titulo.AutoSize = True
@@ -122,11 +129,6 @@ Partial Class Dialog1
         Me.lbl_titulo.Size = New System.Drawing.Size(259, 41)
         Me.lbl_titulo.TabIndex = 2
         Me.lbl_titulo.Text = "Hoy cumple años:"
-        '
-        'enviar_Correo
-        '
-        Me.enviar_Correo.HeaderText = "Enviar correo"
-        Me.enviar_Correo.Name = "enviar_Correo"
         '
         'Dialog1
         '
@@ -140,7 +142,7 @@ Partial Class Dialog1
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(620, 198)
         Me.Controls.Add(Me.lbl_titulo)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgv_cumples)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -149,9 +151,8 @@ Partial Class Dialog1
         Me.Name = "Dialog1"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "CUMPLEN AÑOS HOY!"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_cumples, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,12 +160,12 @@ Partial Class Dialog1
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
+    Friend WithEvents lbl_titulo As System.Windows.Forms.Label
+    Friend WithEvents dgv_cumples As System.Windows.Forms.DataGridView
     Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents mail_contacto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lbl_titulo As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents enviar_Correo As System.Windows.Forms.DataGridViewButtonColumn
 
 End Class

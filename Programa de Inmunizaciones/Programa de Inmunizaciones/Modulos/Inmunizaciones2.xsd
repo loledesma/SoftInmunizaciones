@@ -104,6 +104,17 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EST_EFECTORESXESTADONOTIFICACIONES" msprop:Generator_TableClassName="EST_EFECTORESXESTADONOTIFICACIONESDataTable" msprop:Generator_TableVarName="tableEST_EFECTORESXESTADONOTIFICACIONES" msprop:Generator_RowChangedName="EST_EFECTORESXESTADONOTIFICACIONESRowChanged" msprop:Generator_TablePropName="EST_EFECTORESXESTADONOTIFICACIONES" msprop:Generator_RowDeletingName="EST_EFECTORESXESTADONOTIFICACIONESRowDeleting" msprop:Generator_RowChangingName="EST_EFECTORESXESTADONOTIFICACIONESRowChanging" msprop:Generator_RowEvHandlerName="EST_EFECTORESXESTADONOTIFICACIONESRowChangeEventHandler" msprop:Generator_RowDeletedName="EST_EFECTORESXESTADONOTIFICACIONESRowDeleted" msprop:Generator_RowClassName="EST_EFECTORESXESTADONOTIFICACIONESRow" msprop:Generator_UserTableName="EST_EFECTORESXESTADONOTIFICACIONES" msprop:Generator_RowEvArgName="EST_EFECTORESXESTADONOTIFICACIONESRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cantidadEstadoCarga" msprop:Generator_ColumnVarNameInTable="columncantidadEstadoCarga" msprop:Generator_ColumnPropNameInRow="cantidadEstadoCarga" msprop:Generator_ColumnPropNameInTable="cantidadEstadoCargaColumn" msprop:Generator_UserColumnName="cantidadEstadoCarga" type="xs:long" minOccurs="0" />
+              <xs:element name="cantidadEstadoPerdida" msprop:Generator_ColumnVarNameInTable="columncantidadEstadoPerdida" msprop:Generator_ColumnPropNameInRow="cantidadEstadoPerdida" msprop:Generator_ColumnPropNameInTable="cantidadEstadoPerdidaColumn" msprop:Generator_UserColumnName="cantidadEstadoPerdida" type="xs:long" minOccurs="0" />
+              <xs:element name="cantidadEstadoStock" msprop:Generator_ColumnVarNameInTable="columncantidadEstadoStock" msprop:Generator_ColumnPropNameInRow="cantidadEstadoStock" msprop:Generator_ColumnPropNameInTable="cantidadEstadoStockColumn" msprop:Generator_UserColumnName="cantidadEstadoStock" type="xs:long" minOccurs="0" />
+              <xs:element name="nombre_departamento" msprop:Generator_ColumnVarNameInTable="columnnombre_departamento" msprop:Generator_ColumnPropNameInRow="nombre_departamento" msprop:Generator_ColumnPropNameInTable="nombre_departamentoColumn" msprop:Generator_UserColumnName="nombre_departamento" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_localidad" msprop:Generator_ColumnVarNameInTable="columnnombre_localidad" msprop:Generator_ColumnPropNameInRow="nombre_localidad" msprop:Generator_ColumnPropNameInTable="nombre_localidadColumn" msprop:Generator_UserColumnName="nombre_localidad" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

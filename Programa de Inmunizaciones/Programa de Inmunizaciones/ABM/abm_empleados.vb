@@ -577,7 +577,7 @@
             sql &= ", mail_contacto= Null"
         End If
 
-        If txt_fecha_nac.Text <> "" Then
+        If IsDate(txt_fecha_nac.Text) Then
             sql &= ", fecha_nac= '" & Me.txt_fecha_nac.Text & "'"
         Else
             sql &= ", fecha_nac= Null"
@@ -651,7 +651,8 @@
         Else
             sql &= ", fecha alta =Null"
         End If
-        If txt_fecha_nac.Text <> "" Then
+
+        If IsDate(txt_fecha_nac.Text) Then
             sql &= ", fecha_nac= '" & Me.txt_fecha_nac.Text & "'"
         Else
             sql &= ", fecha_nac= Null"

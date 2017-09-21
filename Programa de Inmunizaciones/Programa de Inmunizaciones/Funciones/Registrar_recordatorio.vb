@@ -43,10 +43,16 @@
 
     Private Sub dgv_recordatorios_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_recordatorios.CellFormatting
 
-        Dim estado As String = Me.dgv_recordatorios.Rows(e.RowIndex).Cells("estado").Value
+        Dim administrador As String = Me.dgv_recordatorios.Rows(e.RowIndex).Cells("id_administrador").Value
 
-        If estado = "PENDIENTE" Then
-            e.CellStyle.BackColor = Color.Yellow
+        If administrador = 2 Then
+            e.CellStyle.BackColor = Color.GreenYellow
+        End If
+        If administrador = 3 Then
+            e.CellStyle.BackColor = Color.Turquoise
+        End If
+        If administrador = 4 Then
+            e.CellStyle.BackColor = Color.Tomato
         End If
 
     End Sub
@@ -70,7 +76,7 @@
         Dim sql As String = ""
         Dim tabla2 As New DataTable
 
-        sql &= "SELECT TOP 5 R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+        sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
         sql &= " , R.id_administrador as id_administrador "
         sql &= " FROM RECORDATORIOS R "
         sql &= " WHERE id_estado= 2"
@@ -100,8 +106,21 @@
             tabla2.Rows.Clear()
             tabla2 = acceso.consulta(sql)
             dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
-        Next
 
+            If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+                Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
+                dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+            Else
+                If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 3 Then
+                    Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._6)
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                Else
+                    Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._7)
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                End If
+            End If
+
+        Next
     End Sub
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.txt_descripcion.Text = ""
@@ -340,16 +359,25 @@
         Dim tabla2 As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT * FROM RECORDATORIOS "
-        sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
-        sql &= " ORDER BY id_administrador"
-        tabla = acceso.consulta(sql)
+        If cmb_estado_atencion.SelectedValue <> -1 Then
+            sql &= "SELECT * FROM RECORDATORIOS "
+            sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
+            sql &= " AND id_estado = " & Me.cmb_estado_atencion.SelectedValue
+            sql &= " ORDER BY id_administrador"
+            tabla = acceso.consulta(sql)
+        Else
+            sql &= "SELECT * FROM RECORDATORIOS "
+            sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
+            sql &= " ORDER BY id_administrador"
+            tabla = acceso.consulta(sql)
+        End If
 
-            If tabla.Rows.Count() = 0 Then
+
+        If tabla.Rows.Count() = 0 Then
             MessageBox.Show("¡No existe el recordatorio solicitado!")
-                Exit Sub
-            Else
-                Dim c As Integer = 0
+            Exit Sub
+        Else
+            Dim c As Integer = 0
             dgv_recordatorios.Rows.Clear()
             For c = 0 To tabla.Rows.Count() - 1
                 dgv_recordatorios.Rows.Add()
@@ -370,8 +398,21 @@
                 tabla2.Rows.Clear()
                 tabla2 = acceso.consulta(sql)
                 dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+                If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+                    Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                Else
+                    If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 3 Then
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._6)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    Else
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._7)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    End If
+                End If
             Next
-            End If
+        End If
 
 
         limpiar(Me.Controls)
@@ -408,5 +449,6 @@
         lbl_contador_pendientes.Text = valor2
         lbl_contador_total.Text = valor1
     End Sub
+
 
 End Class
