@@ -1,9 +1,20 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+
 Public Class Menu
 
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        verifCumple()
+
+        Inicio_sesion.ShowDialog()
+        If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) Then
+            verifCumple()
+            verifTareas()
+            back_up.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub verifTareas()
+        Tareas.ShowDialog()
     End Sub
 
     Private Sub verifCumple()
@@ -23,7 +34,7 @@ Public Class Menu
                 Dialog1.dgv_cumples.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
                 Dialog1.dgv_cumples.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
                 Dialog1.dgv_cumples.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
-                enviarCorreo(tabla.Rows(c)("mail_contacto"))
+
             Next
             Dialog1.ShowDialog()
         End If

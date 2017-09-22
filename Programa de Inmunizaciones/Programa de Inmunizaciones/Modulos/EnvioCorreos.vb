@@ -24,10 +24,9 @@ Module Correo
             '    correos.Attachments.Add(archivo)
             'End If
 
-            Dim ruta As String = Programa_de_Inmunizaciones.My.Resources.Cartel_cumpleaños.ToString()
+            Dim ruta As String = Application.StartupPath & "\Imagenes\cumpleaños.jpg"
             Dim archivo As Net.Mail.Attachment = New Net.Mail.Attachment(ruta)
             correos.Attachments.Add(archivo)
-
 
             correos.From = New MailAddress("soft.inmunizaciones@gmail.com")
             envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2015")
