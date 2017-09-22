@@ -18,11 +18,11 @@ Public Class Menu
             Dim c As Integer = 0
             For c = 0 To tabla.Rows.Count() - 1
 
-                Dialog1.DataGridView1.Rows.Add()
-                Dialog1.DataGridView1.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombres")
-                Dialog1.DataGridView1.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
-                Dialog1.DataGridView1.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
-                Dialog1.DataGridView1.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
+                Dialog1.dgv_cumples.Rows.Add()
+                Dialog1.dgv_cumples.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombres")
+                Dialog1.dgv_cumples.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
+                Dialog1.dgv_cumples.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
+                Dialog1.dgv_cumples.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
                 enviarCorreo(tabla.Rows(c)("mail_contacto"))
             Next
             Dialog1.ShowDialog()
