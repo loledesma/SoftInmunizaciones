@@ -17,8 +17,8 @@ Public Class Dialog1
     End Sub
 
 
-    Private Sub ClickButton(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_cumples.CellContentClick
-        If dgv_cumples.CurrentRow.Cells("enviar_Correo").Value Then
+    Private Sub ClickButton(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_cumples.CellClick
+        If dgv_cumples.CurrentCell.GetType.ToString Like "*Button*" Then
             enviarCorreo(dgv_cumples.CurrentRow.Cells("mail_contacto").Value)
         End If
     End Sub
