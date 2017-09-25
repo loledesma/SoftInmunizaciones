@@ -218,7 +218,7 @@ Partial Class Registrar_entrega_insumos
         '
         'txt_fecha_entrega
         '
-        Me.txt_fecha_entrega.Location = New System.Drawing.Point(310, 48)
+        Me.txt_fecha_entrega.Location = New System.Drawing.Point(299, 48)
         Me.txt_fecha_entrega.Mask = "00/00/0000"
         Me.txt_fecha_entrega.Name = "txt_fecha_entrega"
         Me.txt_fecha_entrega.Size = New System.Drawing.Size(97, 20)

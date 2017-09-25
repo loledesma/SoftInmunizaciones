@@ -28,7 +28,7 @@ Public Class back_up
         Dim sql As String
         Dim num As Integer = 0
 
-        sql = "SELECT top 1 id FROM BACK_UP ORDER BY fecha desc "
+        sql = "SELECT top 1 id_backuper FROM BACK_UP ORDER BY fecha desc "
         tabla = acceso.consulta(sql)
 
         If tabla.Rows.Count() = 0 Then
@@ -36,7 +36,7 @@ Public Class back_up
             picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
             Label1.Text = "LORE"
         Else
-            num = tabla.Rows(0)("id")
+            num = tabla.Rows(0)("id_backuper")
             If num = 4 Then
                 controlador = 2
                 picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
@@ -64,7 +64,7 @@ Public Class back_up
         acceso._nombre_tabla = "BACK_UP"
 
 
-        sql &= " id =" & controlador
+        sql &= " id_backuper =" & controlador
         sql &= ", fecha = '" & hoy & "'"
 
         acceso.insertar(sql)

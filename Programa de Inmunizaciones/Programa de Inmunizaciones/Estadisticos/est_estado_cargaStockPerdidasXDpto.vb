@@ -46,11 +46,38 @@
         Dim tablaCarga As New DataTable
         Dim sqlCarga As String = ""
 
-        sqlCarga = "select D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, COUNT(*) as cantidadEstadoCarga from EFECTORES E "
-        sqlCarga &= "JOIN NOTIFICACIONXEFECTOR NE ON NE.id_efector = E.cuie "
-        sqlCarga &= "JOIN DEPARTAMENTOS D on D.id = E.id_departamento JOIN LOCALIDADES L ON L.id = E.id_localidad"
-        sqlCarga &= " Where E.id_departamento = " & Me.cmb_departamentos.SelectedValue & " AND (NE.id_estado_carga = " & Me.cmb_carga.SelectedValue & ") and NE.fecha between '" & Me.txt_fecha_desde.Text & "' and '" & Me.txt_fecha_hasta.Text & "' "
-        sqlCarga &= "group by D.descripcion, L.descripcion"
+        If cmb_carga.SelectedIndex = -1 Then
+            MsgBox("No se puede hacer la busqueda si no seleccionó el estado ")
+            Exit Sub
+
+        End If
+
+        sqlCarga = "SELECT D.descripcion as nombre_departamento,L.descripcion as nombre_localidad,COUNT(DISTINCT NE.id_efector) as cantidadEstadoCarga "
+        sqlCarga &= " FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
+        sqlCarga &= " JOIN DEPARTAMENTOS D ON E.id_departamento = D.id "
+        sqlCarga &= " JOIN LOCALIDADES L ON E.id_localidad = L.id "
+        sqlCarga &= "WHERE NE.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
+        sqlCarga &= "  AND NE.id_estado_carga =  " & Me.cmb_carga.SelectedValue
+        sqlCarga &= " AND NE.id_efector IN "
+        sqlCarga &= " (SELECT TOP 1 N.id_efector FROM NOTIFICACIONXEFECTOR N "
+        sqlCarga &= "WHERE N.id_efector = NE.id_efector"
+        sqlCarga &= " AND N.id_estado_carga = " & Me.cmb_carga.SelectedValue
+        sqlCarga &= "AND NE.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
+        sqlCarga &= " ORDER BY N.fecha desc) "
+
+        If cmb_departamentos.SelectedIndex <> -1 Then
+            sqlCarga &= " AND D.id= " & Me.cmb_departamentos.SelectedValue
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sqlCarga &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+            End If
+        Else
+            If cmb_localidades.SelectedIndex <> -1 Then
+                sqlCarga &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+            End If
+        End If
+
+        sqlCarga &= "GROUP BY D.descripcion, L.descripcion"
+
 
         tablaCarga = acceso.consulta(sqlCarga)
         EST_EFECTORESXESTADONOTIFICACIONESBindingSource.DataSource = tablaCarga
