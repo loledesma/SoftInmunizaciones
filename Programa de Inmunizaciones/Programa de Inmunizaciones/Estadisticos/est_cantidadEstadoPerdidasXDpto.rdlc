@@ -2,6 +2,18 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
+      <Line Name="Line2">
+        <Top>12.47948cm</Top>
+        <Left>0.34237cm</Left>
+        <Height>0cm</Height>
+        <Width>34.73979cm</Width>
+        <Style>
+          <Border>
+            <Style>Dashed</Style>
+            <Width>1.5pt</Width>
+          </Border>
+        </Style>
+      </Line>
       <Chart Name="Chart1">
         <ChartCategoryHierarchy>
           <ChartMembers>
@@ -44,11 +56,11 @@
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="cantidadEstadoCarga">
+            <ChartSeries Name="cantidadEstadoPerdida">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Sum(Fields!cantidadEstadoCarga.Value)</Y>
+                    <Y>=Sum(Fields!cantidadEstadoPerdida.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -89,7 +101,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Departamento</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -282,10 +294,11 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.49389cm</Top>
-        <Left>1.50813cm</Left>
-        <Height>11.22105cm</Height>
-        <Width>26.25641cm</Width>
+        <Top>0.17639cm</Top>
+        <Left>0.34237cm</Left>
+        <Height>12.1267cm</Height>
+        <Width>28.58729cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -299,7 +312,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.84396cm</Width>
+              <Width>2.92333cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -314,7 +327,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox7">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -330,10 +343,10 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>CornflowerBlue</BackgroundColor>
@@ -366,7 +379,7 @@
                       <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>CornflowerBlue</BackgroundColor>
@@ -399,7 +412,7 @@
                       <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>CornflowerBlue</BackgroundColor>
@@ -435,7 +448,7 @@
                       <rd:DefaultName>nombre_departamento</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -466,7 +479,7 @@
                       <rd:DefaultName>nombre_localidad</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -480,24 +493,24 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="cantidadEstadoCarga">
+                    <Textbox Name="cantidadEstadoPerdida">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!cantidadEstadoCarga.Value</Value>
+                              <Value>=Fields!cantidadEstadoPerdida.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>cantidadEstadoCarga</rd:DefaultName>
+                      <rd:DefaultName>cantidadEstadoPerdida</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>White</Color>
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>LightBlue</BackgroundColor>
@@ -531,41 +544,29 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.49389cm</Top>
-        <Left>28.13937cm</Left>
+        <Top>1.0287cm</Top>
+        <Left>29.65883cm</Left>
         <Height>1.2cm</Height>
-        <Width>7.84396cm</Width>
-        <ZIndex>1</ZIndex>
+        <Width>7.92333cm</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Color>White</Color>
-            <Style>Solid</Style>
+            <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.76171in</Height>
+    <Height>4.92708in</Height>
     <Style />
   </Body>
-  <Width>14.16667in</Width>
+  <Width>14.79613in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Line Name="Line1">
-          <Top>2.36361cm</Top>
-          <Left>0.37042cm</Left>
-          <Height>0cm</Height>
-          <Width>34.73979cm</Width>
-          <Style>
-            <Border>
-              <Style>Dashed</Style>
-              <Width>1.5pt</Width>
-            </Border>
-          </Style>
-        </Line>
         <Textbox Name="Textbox13">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -573,7 +574,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Cantidad de efectores por departamento según estado de carga</Value>
+                  <Value>Cantidad de efectores por departamento según estado de pérdidas</Value>
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontFamily>Calibri</FontFamily>
@@ -588,11 +589,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>0.7112cm</Top>
-          <Left>4.28308cm</Left>
+          <Top>0.53199cm</Top>
+          <Left>10.4975cm</Left>
           <Height>1.47602cm</Height>
           <Width>13.74479cm</Width>
-          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -603,6 +603,18 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line1">
+          <Top>2.36361cm</Top>
+          <Height>0cm</Height>
+          <Width>35.08216cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>Dashed</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -615,6 +627,20 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>Proceincor4</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.07052cm</Top>
+          <Left>0.34237cm</Left>
+          <Height>2.21288cm</Height>
+          <Width>4.43687cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
         <Textbox Name="Textbox14">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -630,10 +656,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>1.33655cm</Top>
-          <Left>19.35459cm</Left>
+          <Top>1.07995cm</Top>
+          <Left>31.95034cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -659,11 +686,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.56016cm</Top>
-          <Left>19.35459cm</Left>
+          <Top>0.30356cm</Top>
+          <Left>31.95034cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>1</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -674,33 +701,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Image Name="Image1">
-          <Source>Embedded</Source>
-          <Value>Proceincor4</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.32712cm</Top>
-          <Left>0.81704cm</Left>
-          <Height>2.21288cm</Height>
-          <Width>4.43687cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
-        <Line Name="Line2">
-          <Top>0.03528cm</Top>
-          <Height>0cm</Height>
-          <Width>34.73979cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>Dashed</Style>
-              <Width>1.5pt</Width>
-            </Border>
-          </Style>
-        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -724,7 +724,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>aa4847bc-4a5b-47f5-9cee-08bd6f1cf9de</rd:DataSourceID>
+      <rd:DataSourceID>80d738fe-1448-487c-a726-27b5d8e546c1</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -2033,5 +2033,5 @@ RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>8245cef4-b7bf-4f7f-bb3a-a5bf3827ef52</rd:ReportID>
+  <rd:ReportID>1c6473c4-2cee-430c-98d6-074f75e43f74</rd:ReportID>
 </Report>
