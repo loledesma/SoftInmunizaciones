@@ -115,6 +115,24 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EST_EFXESTADOPERDIDAS" msprop:Generator_TableClassName="EST_EFXESTADOPERDIDASDataTable" msprop:Generator_TableVarName="tableEST_EFXESTADOPERDIDAS" msprop:Generator_RowChangedName="EST_EFXESTADOPERDIDASRowChanged" msprop:Generator_TablePropName="EST_EFXESTADOPERDIDAS" msprop:Generator_RowDeletingName="EST_EFXESTADOPERDIDASRowDeleting" msprop:Generator_RowChangingName="EST_EFXESTADOPERDIDASRowChanging" msprop:Generator_RowEvHandlerName="EST_EFXESTADOPERDIDASRowChangeEventHandler" msprop:Generator_RowDeletedName="EST_EFXESTADOPERDIDASRowDeleted" msprop:Generator_RowClassName="EST_EFXESTADOPERDIDASRow" msprop:Generator_UserTableName="EST_EFXESTADOPERDIDAS" msprop:Generator_RowEvArgName="EST_EFXESTADOPERDIDASRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_departamento" msprop:Generator_ColumnVarNameInTable="columnnombre_departamento" msprop:Generator_ColumnPropNameInRow="nombre_departamento" msprop:Generator_ColumnPropNameInTable="nombre_departamentoColumn" msprop:Generator_UserColumnName="nombre_departamento" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_localidad" msprop:Generator_ColumnVarNameInTable="columnnombre_localidad" msprop:Generator_ColumnPropNameInRow="nombre_localidad" msprop:Generator_ColumnPropNameInTable="nombre_localidadColumn" msprop:Generator_UserColumnName="nombre_localidad" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidadEstadoPerdida" msprop:Generator_ColumnVarNameInTable="columncantidadEstadoPerdida" msprop:Generator_ColumnPropNameInRow="cantidadEstadoPerdida" msprop:Generator_ColumnPropNameInTable="cantidadEstadoPerdidaColumn" msprop:Generator_UserColumnName="cantidadEstadoPerdida" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EST_EFXESTADOSTOCK" msprop:Generator_TableClassName="EST_EFXESTADOSTOCKDataTable" msprop:Generator_TableVarName="tableEST_EFXESTADOSTOCK" msprop:Generator_RowChangedName="EST_EFXESTADOSTOCKRowChanged" msprop:Generator_TablePropName="EST_EFXESTADOSTOCK" msprop:Generator_RowDeletingName="EST_EFXESTADOSTOCKRowDeleting" msprop:Generator_RowChangingName="EST_EFXESTADOSTOCKRowChanging" msprop:Generator_RowEvHandlerName="EST_EFXESTADOSTOCKRowChangeEventHandler" msprop:Generator_RowDeletedName="EST_EFXESTADOSTOCKRowDeleted" msprop:Generator_RowClassName="EST_EFXESTADOSTOCKRow" msprop:Generator_UserTableName="EST_EFXESTADOSTOCK" msprop:Generator_RowEvArgName="EST_EFXESTADOSTOCKRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_departamento" msprop:Generator_ColumnVarNameInTable="columnnombre_departamento" msprop:Generator_ColumnPropNameInRow="nombre_departamento" msprop:Generator_ColumnPropNameInTable="nombre_departamentoColumn" msprop:Generator_UserColumnName="nombre_departamento" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_localidad" msprop:Generator_ColumnVarNameInTable="columnnombre_localidad" msprop:Generator_ColumnPropNameInRow="nombre_localidad" msprop:Generator_ColumnPropNameInTable="nombre_localidadColumn" msprop:Generator_UserColumnName="nombre_localidad" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidadEstadoStock" msprop:Generator_ColumnVarNameInTable="columncantidadEstadoStock" msprop:Generator_ColumnPropNameInRow="cantidadEstadoStock" msprop:Generator_ColumnPropNameInTable="cantidadEstadoStockColumn" msprop:Generator_UserColumnName="cantidadEstadoStock" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
