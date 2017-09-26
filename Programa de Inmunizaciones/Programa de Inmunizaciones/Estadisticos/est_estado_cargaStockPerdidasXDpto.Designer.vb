@@ -25,7 +25,18 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(est_estado_cargaStockPerdidasXDpto))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones2 = New Programa_de_Inmunizaciones.Inmunizaciones2()
+        Me.ESTEFXESTADOPERDIDASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EST_EFXESTADOSTOCKBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -40,25 +51,47 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.ReportViewer4 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ReportViewer3 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Inmunizaciones2 = New Programa_de_Inmunizaciones.Inmunizaciones2()
-        Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_fecha_hasta = New System.Windows.Forms.MaskedTextBox()
         Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        CType(Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ESTEFXESTADOPERDIDASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EST_EFXESTADOSTOCKBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EST_EFECTORESXESTADONOTIFICACIONESBindingSource
+        '
+        Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource.DataMember = "EST_EFECTORESXESTADONOTIFICACIONES"
+        Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource.DataSource = Me.Inmunizaciones2
+        '
+        'Inmunizaciones2
+        '
+        Me.Inmunizaciones2.DataSetName = "Inmunizaciones2"
+        Me.Inmunizaciones2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ESTEFXESTADOPERDIDASBindingSource
+        '
+        Me.ESTEFXESTADOPERDIDASBindingSource.DataMember = "EST_EFXESTADOPERDIDAS"
+        Me.ESTEFXESTADOPERDIDASBindingSource.DataSource = Me.Inmunizaciones2BindingSource
+        '
+        'Inmunizaciones2BindingSource
+        '
+        Me.Inmunizaciones2BindingSource.DataSource = Me.Inmunizaciones2
+        Me.Inmunizaciones2BindingSource.Position = 0
+        '
+        'EST_EFXESTADOSTOCKBindingSource
+        '
+        Me.EST_EFXESTADOSTOCKBindingSource.DataMember = "EST_EFXESTADOSTOCK"
+        Me.EST_EFXESTADOSTOCKBindingSource.DataSource = Me.Inmunizaciones2
         '
         'GroupBox1
         '
@@ -85,6 +118,42 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
+        '
+        'txt_fecha_hasta
+        '
+        Me.txt_fecha_hasta.Location = New System.Drawing.Point(85, 106)
+        Me.txt_fecha_hasta.Mask = "00/00/0000"
+        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
+        Me.txt_fecha_hasta.Size = New System.Drawing.Size(100, 20)
+        Me.txt_fecha_hasta.TabIndex = 3
+        Me.txt_fecha_hasta.ValidatingType = GetType(Date)
+        '
+        'txt_fecha_desde
+        '
+        Me.txt_fecha_desde.Location = New System.Drawing.Point(85, 81)
+        Me.txt_fecha_desde.Mask = "00/00/0000"
+        Me.txt_fecha_desde.Name = "txt_fecha_desde"
+        Me.txt_fecha_desde.Size = New System.Drawing.Size(100, 20)
+        Me.txt_fecha_desde.TabIndex = 2
+        Me.txt_fecha_desde.ValidatingType = GetType(Date)
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(9, 109)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(66, 13)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Fecha hasta"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 85)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(69, 13)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "Fecha desde"
         '
         'Label5
         '
@@ -140,7 +209,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmd_ejecutar.Location = New System.Drawing.Point(801, 38)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_ejecutar.TabIndex = 5
+        Me.cmd_ejecutar.TabIndex = 7
         Me.cmd_ejecutar.UseVisualStyleBackColor = True
         '
         'TabControl1
@@ -151,7 +220,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabControl1.Location = New System.Drawing.Point(12, 150)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1038, 529)
+        Me.TabControl1.Size = New System.Drawing.Size(1318, 720)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
@@ -161,7 +230,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1030, 503)
+        Me.TabPage1.Size = New System.Drawing.Size(1310, 694)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Estado Carga"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -174,8 +243,8 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_cantidadEstadoCargaXDpto.rdlc"
         Me.ReportViewer2.Location = New System.Drawing.Point(-2, 0)
         Me.ReportViewer2.Name = "ReportViewer2"
-        Me.ReportViewer2.Size = New System.Drawing.Size(1034, 503)
-        Me.ReportViewer2.TabIndex = 1
+        Me.ReportViewer2.Size = New System.Drawing.Size(1306, 698)
+        Me.ReportViewer2.TabIndex = 0
         '
         'ReportViewer1
         '
@@ -190,16 +259,20 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1030, 503)
+        Me.TabPage2.Size = New System.Drawing.Size(1310, 694)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Estado Perdidas"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'ReportViewer4
         '
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.ESTEFXESTADOPERDIDASBindingSource
+        Me.ReportViewer4.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer4.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_cantidadEstadoPerdidasXDpto.rdlc"
         Me.ReportViewer4.Location = New System.Drawing.Point(-2, 0)
         Me.ReportViewer4.Name = "ReportViewer4"
-        Me.ReportViewer4.Size = New System.Drawing.Size(1034, 503)
+        Me.ReportViewer4.Size = New System.Drawing.Size(1316, 679)
         Me.ReportViewer4.TabIndex = 1
         '
         'TabPage3
@@ -207,63 +280,21 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabPage3.Controls.Add(Me.ReportViewer3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1030, 503)
+        Me.TabPage3.Size = New System.Drawing.Size(1310, 694)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Estado Stock"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'ReportViewer3
         '
+        ReportDataSource3.Name = "DataSet1"
+        ReportDataSource3.Value = Me.EST_EFXESTADOSTOCKBindingSource
+        Me.ReportViewer3.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer3.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.EST_EfXEstadoStock.rdlc"
         Me.ReportViewer3.Location = New System.Drawing.Point(-2, 0)
         Me.ReportViewer3.Name = "ReportViewer3"
-        Me.ReportViewer3.Size = New System.Drawing.Size(1034, 503)
+        Me.ReportViewer3.Size = New System.Drawing.Size(1309, 673)
         Me.ReportViewer3.TabIndex = 1
-        '
-        'Inmunizaciones2
-        '
-        Me.Inmunizaciones2.DataSetName = "Inmunizaciones2"
-        Me.Inmunizaciones2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EST_EFECTORESXESTADONOTIFICACIONESBindingSource
-        '
-        Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource.DataMember = "EST_EFECTORESXESTADONOTIFICACIONES"
-        Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource.DataSource = Me.Inmunizaciones2
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 85)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 13)
-        Me.Label6.TabIndex = 16
-        Me.Label6.Text = "Fecha desde"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(9, 109)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(66, 13)
-        Me.Label7.TabIndex = 17
-        Me.Label7.Text = "Fecha hasta"
-        '
-        'txt_fecha_desde
-        '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(85, 81)
-        Me.txt_fecha_desde.Mask = "00/00/0000"
-        Me.txt_fecha_desde.Name = "txt_fecha_desde"
-        Me.txt_fecha_desde.Size = New System.Drawing.Size(100, 20)
-        Me.txt_fecha_desde.TabIndex = 18
-        Me.txt_fecha_desde.ValidatingType = GetType(Date)
-        '
-        'txt_fecha_hasta
-        '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(85, 106)
-        Me.txt_fecha_hasta.Mask = "00/00/0000"
-        Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
-        Me.txt_fecha_hasta.Size = New System.Drawing.Size(100, 20)
-        Me.txt_fecha_hasta.TabIndex = 19
-        Me.txt_fecha_hasta.ValidatingType = GetType(Date)
         '
         'cmb_perdidas
         '
@@ -274,7 +305,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmb_perdidas.Location = New System.Drawing.Point(459, 94)
         Me.cmb_perdidas.Name = "cmb_perdidas"
         Me.cmb_perdidas.Size = New System.Drawing.Size(235, 21)
-        Me.cmb_perdidas.TabIndex = 15
+        Me.cmb_perdidas.TabIndex = 6
         '
         'cmb_stock
         '
@@ -285,7 +316,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmb_stock.Location = New System.Drawing.Point(459, 59)
         Me.cmb_stock.Name = "cmb_stock"
         Me.cmb_stock.Size = New System.Drawing.Size(235, 21)
-        Me.cmb_stock.TabIndex = 14
+        Me.cmb_stock.TabIndex = 5
         '
         'cmb_carga
         '
@@ -296,7 +327,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmb_carga.Location = New System.Drawing.Point(459, 22)
         Me.cmb_carga.Name = "cmb_carga"
         Me.cmb_carga.Size = New System.Drawing.Size(235, 21)
-        Me.cmb_carga.TabIndex = 13
+        Me.cmb_carga.TabIndex = 4
         '
         'cmb_localidades
         '
@@ -307,7 +338,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmb_localidades.Location = New System.Drawing.Point(85, 54)
         Me.cmb_localidades.Name = "cmb_localidades"
         Me.cmb_localidades.Size = New System.Drawing.Size(309, 21)
-        Me.cmb_localidades.TabIndex = 7
+        Me.cmb_localidades.TabIndex = 1
         '
         'cmb_departamentos
         '
@@ -318,7 +349,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmb_departamentos.Location = New System.Drawing.Point(85, 27)
         Me.cmb_departamentos.Name = "cmb_departamentos"
         Me.cmb_departamentos.Size = New System.Drawing.Size(309, 21)
-        Me.cmb_departamentos.TabIndex = 6
+        Me.cmb_departamentos.TabIndex = 0
         '
         'est_estado_cargaStockPerdidasXDpto
         '
@@ -326,19 +357,22 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1062, 691)
+        Me.ClientSize = New System.Drawing.Size(1342, 882)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "est_estado_cargaStockPerdidasXDpto"
         Me.Text = "Cantidad efectores por estado de notificaciones"
+        CType(Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ESTEFXESTADOPERDIDASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EST_EFXESTADOSTOCKBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
-        CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -368,4 +402,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
     Friend WithEvents txt_fecha_desde As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents ESTEFXESTADOPERDIDASBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Inmunizaciones2BindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents EST_EFXESTADOSTOCKBindingSource As System.Windows.Forms.BindingSource
 End Class

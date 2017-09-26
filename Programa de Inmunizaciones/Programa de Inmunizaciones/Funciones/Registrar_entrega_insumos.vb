@@ -87,6 +87,7 @@
     End Sub
 
     Private Sub limpiar_todo()
+        Me.limpiar_insumos()
         Me.txt_fecha_entrega.Text = ""
         Me.txt_fecha_pedido.Text = ""
         Me.txt_cuie.Text = ""
