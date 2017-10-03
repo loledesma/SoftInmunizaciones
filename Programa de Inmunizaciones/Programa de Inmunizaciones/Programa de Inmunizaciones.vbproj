@@ -435,9 +435,11 @@
     </Compile>
     <Compile Include="Sesion\Inicio_sesion.Designer.vb">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Sesion\Inicio_sesion.vb">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Modulos\Inmunizaciones.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -498,6 +500,8 @@
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_cantidadEstadoPerdidasXDpto.rdlc" />
+    <EmbeddedResource Include="Estadisticos\EST_EfXEstadoStock.rdlc" />
     <EmbeddedResource Include="Popups\back_up.resx">
       <DependentUpon>back_up.vb</DependentUpon>
     </EmbeddedResource>
@@ -650,6 +654,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sesion\Inicio_sesion.resx">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>

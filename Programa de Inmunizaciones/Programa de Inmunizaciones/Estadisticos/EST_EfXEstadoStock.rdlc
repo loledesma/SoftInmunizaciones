@@ -44,11 +44,11 @@
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="cantidadEstadoCarga">
+            <ChartSeries Name="cantidadEstadoStock">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Sum(Fields!cantidadEstadoCarga.Value)</Y>
+                    <Y>=Sum(Fields!cantidadEstadoStock.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -89,7 +89,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Departamento</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -282,10 +282,10 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.49389cm</Top>
-        <Left>1.50813cm</Left>
-        <Height>11.22105cm</Height>
-        <Width>26.25641cm</Width>
+        <Top>0.17639cm</Top>
+        <Left>0.34237cm</Left>
+        <Height>13.00868cm</Height>
+        <Width>27.64737cm</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -295,11 +295,11 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
-      <Tablix Name="Tablix1">
+      <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.84396cm</Width>
+              <Width>3.18792cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -347,7 +347,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -363,7 +363,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -380,7 +380,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox11">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -396,7 +396,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -480,21 +480,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="cantidadEstadoCarga">
+                    <Textbox Name="cantidadEstadoStock">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!cantidadEstadoCarga.Value</Value>
+                              <Value>=Fields!cantidadEstadoStock.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>cantidadEstadoCarga</rd:DefaultName>
+                      <rd:DefaultName>cantidadEstadoStock</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -531,10 +531,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.49389cm</Top>
-        <Left>28.13937cm</Left>
+        <Top>0.17639cm</Top>
+        <Left>28.36016cm</Left>
         <Height>1.2cm</Height>
-        <Width>7.84396cm</Width>
+        <Width>8.18792cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -544,28 +544,16 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.76171in</Height>
+    <Height>5.36458in</Height>
     <Style />
   </Body>
-  <Width>14.16667in</Width>
+  <Width>14.38901in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>2.18581cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Line Name="Line1">
-          <Top>2.36361cm</Top>
-          <Left>0.37042cm</Left>
-          <Height>0cm</Height>
-          <Width>34.73979cm</Width>
-          <Style>
-            <Border>
-              <Style>Dashed</Style>
-              <Width>1.5pt</Width>
-            </Border>
-          </Style>
-        </Line>
         <Textbox Name="Textbox13">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -573,7 +561,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Cantidad de efectores por departamento según estado de carga</Value>
+                  <Value>Cantidad de efectores por departamento según estado de stock</Value>
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontFamily>Calibri</FontFamily>
@@ -588,11 +576,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>0.7112cm</Top>
-          <Left>4.28308cm</Left>
+          <Top>0.35419cm</Top>
+          <Left>10.4975cm</Left>
           <Height>1.47602cm</Height>
           <Width>13.74479cm</Width>
-          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -603,6 +590,18 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line1">
+          <Top>2.18581cm</Top>
+          <Height>0cm</Height>
+          <Width>35.08216cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>Dashed</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -611,7 +610,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.54cm</Height>
+      <Height>3.70417cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -630,8 +629,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>1.33655cm</Top>
-          <Left>19.35459cm</Left>
+          <Top>2.13459cm</Top>
+          <Left>32.0867cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -659,8 +658,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.56016cm</Top>
-          <Left>19.35459cm</Left>
+          <Top>1.3582cm</Top>
+          <Left>32.0867cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -678,10 +677,10 @@
           <Source>Embedded</Source>
           <Value>Proceincor4</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.32712cm</Top>
-          <Left>0.81704cm</Left>
-          <Height>2.21288cm</Height>
-          <Width>4.43687cm</Width>
+          <Top>0.17639cm</Top>
+          <Left>0.26785cm</Left>
+          <Height>3.29767cm</Height>
+          <Width>5.4952cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -690,7 +689,8 @@
           </Style>
         </Image>
         <Line Name="Line2">
-          <Top>0.03528cm</Top>
+          <Top>0cm</Top>
+          <Left>0.34237cm</Left>
           <Height>0cm</Height>
           <Width>34.73979cm</Width>
           <ZIndex>3</ZIndex>
@@ -724,7 +724,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>aa4847bc-4a5b-47f5-9cee-08bd6f1cf9de</rd:DataSourceID>
+      <rd:DataSourceID>b5cd769c-eed5-4af2-9edd-d0f8f5a55519</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -734,18 +734,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="cantidadEstadoCarga">
-          <DataField>cantidadEstadoCarga</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="cantidadEstadoPerdida">
-          <DataField>cantidadEstadoPerdida</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="cantidadEstadoStock">
-          <DataField>cantidadEstadoStock</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
         <Field Name="nombre_departamento">
           <DataField>nombre_departamento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -754,11 +742,15 @@
           <DataField>nombre_localidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="cantidadEstadoStock">
+          <DataField>cantidadEstadoStock</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Inmunizaciones2</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Joaquin\Source\Repos\SoftInmunizaciones4\Programa de Inmunizaciones\Programa de Inmunizaciones\Modulos\Inmunizaciones2.xsd</rd:SchemaPath>
-        <rd:TableName>EST_EFECTORESXESTADONOTIFICACIONES</rd:TableName>
+        <rd:TableName>EST_EFXESTADOSTOCK</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -2033,5 +2025,5 @@ RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>8245cef4-b7bf-4f7f-bb3a-a5bf3827ef52</rd:ReportID>
+  <rd:ReportID>6f76083b-8902-46df-9e79-fff15ddc93e0</rd:ReportID>
 </Report>
