@@ -29,6 +29,10 @@
         acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
+        Me.cmb_notifica.cargar()
+        Me.cmb_notifica.SelectedIndex = -1
+        Me.cmb_notifica.Enabled = False
+        Me.txt_atenciones.Enabled = False
         Me.cmd_eliminar.Enabled = False
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
@@ -569,54 +573,154 @@
 
 
         If validar_cuie() Then
-            sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
-            sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
-            sql &= " ORDER BY fecha"
-            tabla = acceso.consulta(sql)
+            If IsDate(txt_fecha_desde.Text) = False And IsDate(txt_fecha_hasta.Text) = False Then
+
+                sql = ""
+                sql &= "SELECT * FROM ATENCION_SOPORTE A "
+                sql &= " JOIN ASUNTO_ATENCIONES AA ON A.id_asunto = AA.id"
+                sql &= " WHERE A.id_efector = '" & Me.txt_cuie.Text & "'"
+                sql &= " AND AA.descripcion LIKE 'LICENCIA%'"
+                tabla.Clear()
+                tabla = acceso.consulta(sql)
+
+                If tabla.Rows.Count() <> 0 Then
+                    txt_atenciones.Text = "EL EFECTOR TIENE LICENCIAS REGISTRADAS"
+                Else
+                    txt_atenciones.Text = "NO HAY LICENCIAS REGISTRADAS"
+                End If
+
+                sql = ""
+                sql &= "SELECT id_tipo_notificacion FROM EFECTORES "
+                sql &= "WHERE cuie ='" & Me.txt_cuie.Text & "'"
+                tabla.Clear()
+                tabla = acceso.consulta(sql)
+
+                If tabla.Rows.Count() <> 0 Then
+                    cmb_notifica.SelectedValue = tabla.Rows(0)("id_tipo_notificacion")
+                End If
+
+                sql = ""
+                sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
+                sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+                sql &= " ORDER BY fecha"
+                tabla.Clear()
+                tabla = acceso.consulta(sql)
 
 
-            If tabla.Rows.Count() = 0 Then
-                MessageBox.Show("¡No tiene notificacion!")
-                Exit Sub
+                If tabla.Rows.Count() = 0 Then
+                    MessageBox.Show("¡No tiene notificacion!")
+                    Exit Sub
+                Else
+                    dgv_notificaciones.Rows.Clear()
+                    Dim c As Integer = 0
+                    For c = 0 To tabla.Rows.Count() - 1
+                        dgv_notificaciones.Rows.Add()
+                        dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                        dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                        dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(c)("id_estado_stock")
+                        dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(c)("id_estado_perdidas")
+                        dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(c)("id_estado_carga")
+                        dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(c)("id_efector")
+
+                        sql = ""
+                        sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_notificaciones.Rows(c).Cells("id_efector").Value & "'"
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(0)("nombre")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM CARGA WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_carga").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("carga").Value = tabla2.Rows(0)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM STOCK WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_stock").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("stock").Value = tabla2.Rows(0)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM PERDIDAS WHERE id=" & dgv_notificaciones.Rows(c).Cells("id_perdidas").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
+                    Next
+                End If
             Else
-                dgv_notificaciones.Rows.Clear()
-                Dim c As Integer = 0
-                For c = 0 To tabla.Rows.Count() - 1
-                    dgv_notificaciones.Rows.Add()
-                    dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
-                    dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
-                    dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(c)("id_estado_stock")
-                    dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(c)("id_estado_perdidas")
-                    dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(c)("id_estado_carga")
-                    dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(c)("id_efector")
 
-                    sql = ""
-                    sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_notificaciones.Rows(c).Cells("id_efector").Value & "'"
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
-                    dgv_notificaciones.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(0)("nombre")
+                sql = ""
+                sql &= "SELECT * FROM ATENCION_SOPORTE A JOIN ASUNTO_ATENCIONES AA ON A.id_asunto = AA.id"
+                sql &= " WHERE A.id_efector = '" & Me.txt_cuie.Text & "'"
+                sql &= " AND AA.descripcion LIKE 'LICENCIA%'"
+                sql &= " AND A.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count() <> 0 Then
+                    txt_atenciones.Text = "EL EFECTOR TIENE LICENCIAS REGISTRADAS EN EL PERIODO"
+                Else
+                    txt_atenciones.Text = "NO HAY LICENCIAS REGISTRADAS"
+                End If
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM CARGA WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_carga").Value
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
-                    dgv_notificaciones.Rows(c).Cells("carga").Value = tabla2.Rows(0)("descripcion")
+                sql = ""
+                sql &= "SELECT id_tipo_notificacion FROM EFECTORES "
+                sql &= "WHERE cuie ='" & Me.txt_cuie.Text & "'"
+                tabla.Clear()
+                tabla = acceso.consulta(sql)
+                If tabla.Rows.Count() <> 0 Then
+                    cmb_notifica.SelectedValue = tabla.Rows(0)("id_tipo_notificacion")
+                End If
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM STOCK WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_stock").Value
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
-                    dgv_notificaciones.Rows(c).Cells("stock").Value = tabla2.Rows(0)("descripcion")
+                sql = ""
+                sql &= "SELECT * FROM NOTIFICACIONXEFECTOR "
+                sql &= " WHERE id_efector='" & Me.txt_cuie.Text & "'"
+                sql &= " AND fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
+                sql &= " ORDER BY fecha"
+                tabla.Clear()
+                tabla = acceso.consulta(sql)
 
-                    sql = ""
-                    sql &= "SELECT descripcion FROM PERDIDAS WHERE id=" & dgv_notificaciones.Rows(c).Cells("id_perdidas").Value
-                    tabla2.Rows.Clear()
-                    tabla2 = acceso.consulta(sql)
-                    dgv_notificaciones.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
-                Next
+                If tabla.Rows.Count() = 0 Then
+                    MessageBox.Show("¡No tiene notificacion en ese periodo!")
+                    Exit Sub
+                Else
+                    dgv_notificaciones.Rows.Clear()
+                    Dim c As Integer = 0
+                    For c = 0 To tabla.Rows.Count() - 1
+                        dgv_notificaciones.Rows.Add()
+                        dgv_notificaciones.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                        dgv_notificaciones.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                        dgv_notificaciones.Rows(c).Cells("id_stock").Value = tabla.Rows(c)("id_estado_stock")
+                        dgv_notificaciones.Rows(c).Cells("id_perdidas").Value = tabla.Rows(c)("id_estado_perdidas")
+                        dgv_notificaciones.Rows(c).Cells("id_carga").Value = tabla.Rows(c)("id_estado_carga")
+                        dgv_notificaciones.Rows(c).Cells("id_efector").Value = tabla.Rows(c)("id_efector")
+
+                        sql = ""
+                        sql &= "SELECT nombre FROM EFECTORES WHERE cuie='" & Me.dgv_notificaciones.Rows(c).Cells("id_efector").Value & "'"
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("nombre_efector").Value = tabla2.Rows(0)("nombre")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM CARGA WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_carga").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("carga").Value = tabla2.Rows(0)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM STOCK WHERE id=" & Me.dgv_notificaciones.Rows(c).Cells("id_stock").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("stock").Value = tabla2.Rows(0)("descripcion")
+
+                        sql = ""
+                        sql &= "SELECT descripcion FROM PERDIDAS WHERE id=" & dgv_notificaciones.Rows(c).Cells("id_perdidas").Value
+                        tabla2.Rows.Clear()
+                        tabla2 = acceso.consulta(sql)
+                        dgv_notificaciones.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
+                    Next
+                End If
+
             End If
         End If
-        limpiar(Me.Controls)
         Me.condicion_estado = estado.modificar
     End Sub
 
@@ -659,6 +763,9 @@
             Dim sql As String = ""
             Dim tabla As New DataTable
             Dim efectores As String = ""
+            Dim empleados As String = ""
+            Dim tabla2 As New DataTable
+
             sql &= "SELECT  EF.nombre as nombre "
             sql &= " FROM EFECTORES EF "
             sql &= " WHERE EF.nombre LIKE '%" & txt_efectores.Text & "%'"
@@ -670,6 +777,30 @@
             Next
 
             tltp_notificaciones.SetToolTip(txt_efectores, efectores)
+
+        Else
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub txt_cuie_MouseEnter(sender As Object, e As EventArgs) Handles txt_cuie.MouseEnter
+        If txt_cuie.Text <> "" Then
+            Dim sql As String = ""
+            Dim empleados As String = ""
+            Dim tabla2 As New DataTable
+            sql = ""
+            sql &= "SELECT COALESCE(E.nombres, '') +' '+ COALESCE(E.apellidos, '') as nombre "
+            sql &= " FROM EMPLEADOSXEFECTOR EE JOIN EMPLEADOS E ON EE.id_empleados = E.id "
+            sql &= " WHERE EE.id_efector LIKE '%" & txt_cuie.Text & "%'"
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla2.Rows.Count - 1
+                empleados += tabla2.Rows(c)("nombre") & vbCrLf
+            Next
+            tltp_empleados.SetToolTip(txt_nombres, empleados)
+
         Else
             Exit Sub
         End If
