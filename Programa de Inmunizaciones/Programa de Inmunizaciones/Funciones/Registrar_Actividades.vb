@@ -130,6 +130,7 @@
         Me.cmb_tipo_capacitaciones.SelectedValue = -1
         Me.txt_fecha_efectiva.Text = ""
         Me.txt_lugar.Text = ""
+        Me.dgv_actividades.Rows.Clear()
         cargar_grilla()
     End Sub
 

@@ -26,13 +26,15 @@ Partial Class Dialog1
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgv_cumples = New System.Windows.Forms.DataGridView()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mail_contacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.enviar_Correo = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.lbl_titulo = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_cumples, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -44,7 +46,7 @@ Partial Class Dialog1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(472, 179)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(472, 157)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -70,76 +72,100 @@ Partial Class Dialog1
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
-        'DataGridView1
+        'dgv_cumples
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.CadetBlue
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.nro_doc, Me.mail_contacto})
-        Me.DataGridView1.Location = New System.Drawing.Point(109, 58)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(499, 59)
-        Me.DataGridView1.TabIndex = 1
+        Me.dgv_cumples.AllowUserToAddRows = False
+        Me.dgv_cumples.AllowUserToDeleteRows = False
+        Me.dgv_cumples.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.dgv_cumples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical
+        Me.dgv_cumples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_cumples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.nro_doc, Me.mail_contacto, Me.enviar_Correo})
+        Me.dgv_cumples.GridColor = System.Drawing.SystemColors.ControlLightLight
+        Me.dgv_cumples.Location = New System.Drawing.Point(12, 53)
+        Me.dgv_cumples.Name = "dgv_cumples"
+        Me.dgv_cumples.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        Me.dgv_cumples.Size = New System.Drawing.Size(603, 83)
+        Me.dgv_cumples.StandardTab = True
+        Me.dgv_cumples.TabIndex = 1
         '
         'apellidos
         '
         Me.apellidos.HeaderText = "Apellidos"
         Me.apellidos.Name = "apellidos"
-        Me.apellidos.ReadOnly = True
         '
         'nombres
         '
         Me.nombres.HeaderText = "Nombre"
         Me.nombres.Name = "nombres"
-        Me.nombres.ReadOnly = True
         Me.nombres.Width = 110
         '
         'nro_doc
         '
         Me.nro_doc.HeaderText = "Documento"
         Me.nro_doc.Name = "nro_doc"
-        Me.nro_doc.ReadOnly = True
         Me.nro_doc.Width = 70
         '
         'mail_contacto
         '
         Me.mail_contacto.HeaderText = "Correo"
         Me.mail_contacto.Name = "mail_contacto"
-        Me.mail_contacto.ReadOnly = True
         Me.mail_contacto.Width = 160
+        '
+        'enviar_Correo
+        '
+        Me.enviar_Correo.HeaderText = "Enviar correo"
+        Me.enviar_Correo.Name = "enviar_Correo"
+        Me.enviar_Correo.Text = "Enviar correo"
+        Me.enviar_Correo.UseColumnTextForButtonValue = True
+        '
+        'lbl_titulo
+        '
+        Me.lbl_titulo.AutoSize = True
+        Me.lbl_titulo.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_titulo.Font = New System.Drawing.Font("Calibri", 25.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_titulo.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lbl_titulo.Location = New System.Drawing.Point(195, 9)
+        Me.lbl_titulo.Name = "lbl_titulo"
+        Me.lbl_titulo.Size = New System.Drawing.Size(259, 41)
+        Me.lbl_titulo.TabIndex = 2
+        Me.lbl_titulo.Text = "Hoy cumple años:"
         '
         'Dialog1
         '
         Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
+        Me.BackColor = System.Drawing.Color.YellowGreen
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(620, 220)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.ClientSize = New System.Drawing.Size(620, 198)
+        Me.Controls.Add(Me.lbl_titulo)
+        Me.Controls.Add(Me.dgv_cumples)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Dialog1"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "CUMPLEN AÑOS HOY!"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_cumples, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents lbl_titulo As System.Windows.Forms.Label
+    Friend WithEvents dgv_cumples As System.Windows.Forms.DataGridView
     Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents mail_contacto As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents enviar_Correo As System.Windows.Forms.DataGridViewButtonColumn
 
 End Class

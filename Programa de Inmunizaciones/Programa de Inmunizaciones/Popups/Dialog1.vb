@@ -12,7 +12,16 @@ Public Class Dialog1
         Me.Close()
     End Sub
 
-    Public Sub Dialog1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Dialog1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+
+    Private Sub ClickButton(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_cumples.CellClick
+        If dgv_cumples.CurrentCell.GetType.ToString Like "*Button*" Then
+            enviarCorreo(dgv_cumples.CurrentRow.Cells("mail_contacto").Value)
+        End If
+    End Sub
+
+
 End Class
