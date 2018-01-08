@@ -20,6 +20,7 @@
         cmb_tipos_documento.cargar()
         cmb_barrios.cargar()
         cmb_estado_rm.cargar()
+        cmb_notifica.cargar()
         cmb_perfil.cargar()
         cmb_departamento.cargar()
         cmb_localidades.cargar()
@@ -175,6 +176,11 @@
         Me.txt_heladera.Text = tabla2.Rows(0)("tiene_heladera")
         Me.txt_pc.Text = tabla2.Rows(0)("tiene_internet")
 
+        If IsDBNull(tabla2.Rows(0)("id_tipo_notificacion")) Then
+            Me.cmb_notifica.SelectedIndex = -1
+        Else
+            Me.cmb_notifica.SelectedValue = tabla2.Rows(0)("id_tipo_notificacion")
+        End If
 
 
         If IsDBNull(tabla2.Rows(0)("estado_rm")) Then
@@ -543,6 +549,12 @@
         Else
             sql &= ", estado_rm = Null"
         End If
+
+        If cmb_notifica.SelectedValue <> -1 Then
+            sql &= ", id_tipo_notificacion = " & Me.cmb_notifica.SelectedValue
+        Else
+            sql &= ", id_tipo_notificacion = Null"
+        End If
         sql &= " WHERE cuie='" & Me.txt_cuie.Text & "'"
 
         acceso.ejecutar(sql)
@@ -628,6 +640,12 @@
             sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
         Else
             sql &= ", estado_rm = Null"
+        End If
+
+        If cmb_notifica.SelectedValue <> -1 Then
+            sql &= ", id_tipo_notificacion = " & Me.cmb_notifica.SelectedValue
+        Else
+            sql &= ", id_tipo_notificacion = Null"
         End If
 
         If txt_calle.Text <> "" Then
