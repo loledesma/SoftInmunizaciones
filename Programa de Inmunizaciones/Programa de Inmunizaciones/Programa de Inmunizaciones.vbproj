@@ -726,9 +726,9 @@
     <Content Include="Imagenes\7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagenes\cumpleaños.jpg">
+    <EmbeddedResource Include="Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <None Include="Resources\tech-support-icon.jpg" />
     <None Include="Resources\Teacher.png" />
     <None Include="Resources\Security-icon.png" />
