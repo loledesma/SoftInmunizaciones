@@ -145,7 +145,7 @@ Public Class Menu
     End Sub
 
     Private Sub NuevoRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        Registrar_recordatorio.ShowDialog()
+        Registrar_recordatorio.Show()
     End Sub
 
     Private Sub NuevaNotificaciónToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevaNotificaciónToolStripMenuItem1.Click

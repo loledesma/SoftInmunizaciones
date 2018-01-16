@@ -15,7 +15,13 @@
         desactivado
     End Enum
 
+    Enum grilla
+        activado
+        desactivado
+    End Enum
+
     Dim condicion_click As doble_Click = doble_Click.desactivado
+    Dim condicion_dgv As grilla = grilla.activado
 
     Private Sub Registrar_atencion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar(Controls)
@@ -435,6 +441,8 @@
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Me.condicion_estado = condicion.modificar
         Me.condicion_click = doble_Click.activado
+        Me.condicion_dgv = grilla.desactivado
+
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
 
@@ -465,12 +473,12 @@
                     dgv_atenciones.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
                     dgv_atenciones.Rows(c).Cells("id_asunto").Value = tabla.Rows(c)("id_asunto")
                     sql = ""
-                    sql &= "SELECT descripcion as asunto FROM ESTADOS_ATENCION WHERE id=" & tabla.Rows(c)("id_asunto")
+                    sql &= "SELECT descripcion as asunto FROM ASUNTO_ATENCIONES WHERE id=" & tabla.Rows(c)("id_asunto")
                     tabla2.Rows.Clear()
                     tabla2 = acceso.consulta(sql)
 
-                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla2.Rows(c)("asunto")
-                    dgv_atenciones.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+                    dgv_atenciones.Rows(c).Cells("asunto").Value = tabla2.Rows(0)("asunto")
+
 
                     sql = ""
                     sql &= "SELECT descripcion FROM ESTADOS_ATENCION WHERE id=" & Me.dgv_atenciones.Rows(c).Cells("id_estado").Value
@@ -590,10 +598,10 @@
                         Next
                     End If
                 End If
-
             End If
         End If
-
+        Me.condicion_dgv = grilla.activado
+        contador()
         limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
 
@@ -616,11 +624,10 @@
         limpiar_todo()
     End Sub
 
-    Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_atenciones.CellValueChanged
+    Private Sub contador()
         Dim valor1 As Integer = 0
         Dim valor2 As Integer = 0
         Dim sql As String = ""
-
 
         sql &= "SELECT COUNT(*) "
         sql &= "FROM ATENCION_SOPORTE "
@@ -633,6 +640,14 @@
 
         lbl_contador_pendientes.Text = valor2
         lbl_contador_total.Text = valor1
+    End Sub
+
+    Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_atenciones.CellValueChanged
+        If condicion_dgv = grilla.activado Then
+            contador()
+        Else
+            Exit Sub
+        End If
     End Sub
     Private Sub txt_efector_MouseEnter(sender As Object, e As EventArgs) Handles txt_efector.MouseEnter
         If txt_efector.Text <> "" Then
