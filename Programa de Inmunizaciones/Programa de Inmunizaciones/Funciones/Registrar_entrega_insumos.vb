@@ -746,7 +746,8 @@
 
         Dim c As Integer
         For c = 0 To dgv_detalle_entrega.Rows.Count() - 1
-            sql &= "id_entrega = " & Me.txt_id_entrega.Text
+            sql = ""
+            sql &= " id_entrega = " & Me.txt_id_entrega.Text
             sql &= ", id_insumo = " & Me.dgv_detalle_entrega.Rows(c).Cells("id_insumo").Value
             sql &= " , cantidad= " & Me.dgv_detalle_entrega.Rows(c).Cells("cantidad").Value
             sql &= ", nro_serie=" & Me.dgv_detalle_entrega.Rows(c).Cells("nro_serie").Value

@@ -11,7 +11,7 @@ Module Correo
         Try
             correos.To.Clear()
             correos.Body = "Desde el equipo de sistemas esperamos que pases un excelente día y que tengas un excelente cumpleaños!"
-            correos.Subject = "!Feliz cumple!"
+            correos.Subject = "¡FELIZ CUMPLE!"
             'correos.Body = mensaje
             'correos.Subject = asunto
             correos.IsBodyHtml = True

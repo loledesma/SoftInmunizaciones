@@ -25,6 +25,8 @@ Partial Class Registrar_recordatorio
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_recordatorio))
         Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
+        Me.cmb_prioridad = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -53,6 +55,7 @@ Partial Class Registrar_recordatorio
         Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.administrador = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.prioridad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grp_datos_recordatorio.SuspendLayout()
         Me.grp_descripcion.SuspendLayout()
@@ -63,13 +66,15 @@ Partial Class Registrar_recordatorio
         '
         Me.txt_descripcion.Location = New System.Drawing.Point(6, 16)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(605, 124)
+        Me.txt_descripcion.Size = New System.Drawing.Size(605, 150)
         Me.txt_descripcion.TabIndex = 0
         Me.txt_descripcion.Text = ""
         '
         'grp_datos_recordatorio
         '
         Me.grp_datos_recordatorio.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_recordatorio.Controls.Add(Me.cmb_prioridad)
+        Me.grp_datos_recordatorio.Controls.Add(Me.Label2)
         Me.grp_datos_recordatorio.Controls.Add(Me.cmd_actualizar_estado)
         Me.grp_datos_recordatorio.Controls.Add(Me.cmd_buscar)
         Me.grp_datos_recordatorio.Controls.Add(Me.cmb_empleados)
@@ -83,10 +88,30 @@ Partial Class Registrar_recordatorio
         Me.grp_datos_recordatorio.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_recordatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_recordatorio.Name = "grp_datos_recordatorio"
-        Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 146)
+        Me.grp_datos_recordatorio.Size = New System.Drawing.Size(403, 166)
         Me.grp_datos_recordatorio.TabIndex = 0
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Datos"
+        '
+        'cmb_prioridad
+        '
+        Me.cmb_prioridad._descripcion = "descripcion"
+        Me.cmb_prioridad._nombre_tabla = "PRIORIDADES"
+        Me.cmb_prioridad._pk = "id"
+        Me.cmb_prioridad.FormattingEnabled = True
+        Me.cmb_prioridad.Location = New System.Drawing.Point(109, 102)
+        Me.cmb_prioridad.Name = "cmb_prioridad"
+        Me.cmb_prioridad.Size = New System.Drawing.Size(136, 21)
+        Me.cmb_prioridad.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 105)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.TabIndex = 55
+        Me.Label2.Text = "Prioridad"
         '
         'cmd_actualizar_estado
         '
@@ -102,7 +127,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_actualizar_estado.TabIndex = 4
+        Me.cmd_actualizar_estado.TabIndex = 6
         Me.cmd_actualizar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_actualizar_estado.UseVisualStyleBackColor = False
@@ -116,7 +141,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_buscar.Location = New System.Drawing.Point(353, 16)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(37, 36)
-        Me.cmd_buscar.TabIndex = 2
+        Me.cmd_buscar.TabIndex = 5
         Me.cmd_buscar.UseVisualStyleBackColor = True
         '
         'cmb_empleados
@@ -125,15 +150,15 @@ Partial Class Registrar_recordatorio
         Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
         Me.cmb_empleados._pk = "id"
         Me.cmb_empleados.FormattingEnabled = True
-        Me.cmb_empleados.Location = New System.Drawing.Point(111, 107)
+        Me.cmb_empleados.Location = New System.Drawing.Point(109, 130)
         Me.cmb_empleados.Name = "cmb_empleados"
         Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
-        Me.cmb_empleados.TabIndex = 5
+        Me.cmb_empleados.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 110)
+        Me.Label1.Location = New System.Drawing.Point(7, 133)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(70, 13)
         Me.Label1.TabIndex = 53
@@ -154,10 +179,10 @@ Partial Class Registrar_recordatorio
         Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
         Me.cmb_estado_atencion._pk = "id"
         Me.cmb_estado_atencion.FormattingEnabled = True
-        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
+        Me.cmb_estado_atencion.Location = New System.Drawing.Point(109, 75)
         Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
         Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
-        Me.cmb_estado_atencion.TabIndex = 3
+        Me.cmb_estado_atencion.TabIndex = 2
         '
         'txt_id_recordatorio
         '
@@ -274,6 +299,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_salir.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Location = New System.Drawing.Point(997, 465)
@@ -335,8 +361,8 @@ Partial Class Registrar_recordatorio
         Me.grp_descripcion.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_descripcion.Location = New System.Drawing.Point(440, 12)
         Me.grp_descripcion.Name = "grp_descripcion"
-        Me.grp_descripcion.Size = New System.Drawing.Size(617, 146)
-        Me.grp_descripcion.TabIndex = 59
+        Me.grp_descripcion.Size = New System.Drawing.Size(617, 172)
+        Me.grp_descripcion.TabIndex = 1
         Me.grp_descripcion.TabStop = False
         Me.grp_descripcion.Text = "Descripción"
         '
@@ -345,11 +371,11 @@ Partial Class Registrar_recordatorio
         Me.dgv_recordatorios.AllowUserToAddRows = False
         Me.dgv_recordatorios.AllowUserToDeleteRows = False
         Me.dgv_recordatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_recordatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha, Me.imagen, Me.estado, Me.id_estado, Me.id_administrador, Me.administrador, Me.descripcion})
-        Me.dgv_recordatorios.Location = New System.Drawing.Point(12, 173)
+        Me.dgv_recordatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha, Me.imagen, Me.estado, Me.id_estado, Me.id_administrador, Me.administrador, Me.prioridad, Me.descripcion})
+        Me.dgv_recordatorios.Location = New System.Drawing.Point(12, 190)
         Me.dgv_recordatorios.Name = "dgv_recordatorios"
         Me.dgv_recordatorios.ReadOnly = True
-        Me.dgv_recordatorios.Size = New System.Drawing.Size(1045, 265)
+        Me.dgv_recordatorios.Size = New System.Drawing.Size(1045, 248)
         Me.dgv_recordatorios.TabIndex = 10
         '
         'id
@@ -403,12 +429,18 @@ Partial Class Registrar_recordatorio
         Me.administrador.ReadOnly = True
         Me.administrador.Width = 150
         '
+        'prioridad
+        '
+        Me.prioridad.HeaderText = "Prioridad"
+        Me.prioridad.Name = "prioridad"
+        Me.prioridad.ReadOnly = True
+        '
         'descripcion
         '
         Me.descripcion.HeaderText = "Descripcion"
         Me.descripcion.Name = "descripcion"
         Me.descripcion.ReadOnly = True
-        Me.descripcion.Width = 500
+        Me.descripcion.Width = 450
         '
         'Registrar_recordatorio
         '
@@ -416,6 +448,7 @@ Partial Class Registrar_recordatorio
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CancelButton = Me.cmd_salir
         Me.ClientSize = New System.Drawing.Size(1068, 538)
         Me.Controls.Add(Me.grp_descripcion)
         Me.Controls.Add(Me.lbl_contador_pendientes)
@@ -462,6 +495,8 @@ Partial Class Registrar_recordatorio
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents grp_descripcion As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_recordatorios As System.Windows.Forms.DataGridView
+    Friend WithEvents cmb_prioridad As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents imagen As System.Windows.Forms.DataGridViewImageColumn
@@ -469,5 +504,6 @@ Partial Class Registrar_recordatorio
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_administrador As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents administrador As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents prioridad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

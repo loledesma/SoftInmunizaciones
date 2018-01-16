@@ -432,7 +432,13 @@
 
         Me.txt_id_empleado.Text = tabla2.Rows(0)("id_empleado")
         Me.txt_realizoEvaluacion.Text = tabla2.Rows(0)("realizoEvaluacion")
-        Me.txt_certificado.Text = tabla2.Rows(0)("certificado")
+
+        If IsDBNull(tabla2.Rows(0)("certificado")) Then
+            Me.txt_certificado.Text = ""
+        Else
+            Me.txt_certificado.Text = tabla2.Rows(0)("certificado")
+        End If
+
 
         If IsDBNull(tabla2.Rows(0)("observaciones")) Then
             Me.txt_observaciones2.Text = ""
@@ -742,7 +748,14 @@
                         dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido_empleado.Text
                         dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
                         dgv_empleados.Rows(c).Cells("certificado").Value = txt_certificado.Text
-                        dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+
+                        If txt_observaciones2.Text <> "" Then
+                            dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+
+                        Else
+                            dgv_empleados.Rows(c).Cells("observaciones").Value = "SIN OBSERVACIONES"
+                        End If
+
 
                         sql = ""
                         sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
@@ -763,8 +776,13 @@
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido_empleado.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("certificado").Value = txt_certificado.Text
-                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("observaciones").Value = txt_observaciones2.Text
 
+                    If txt_observaciones2.Text <> "" Then
+                        dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
+
+                    Else
+                        dgv_empleados.Rows(c).Cells("observaciones").Value = "SIN OBSERVACIONES"
+                    End If
                     sql = ""
                     sql &= "SELECT TD.descripcion FROM TIPOS_DOCUMENTO TD WHERE TD.id = " & Me.cmb_tipos_documento.SelectedValue()
                     tabla.Clear()
@@ -898,16 +916,16 @@
                 Sql = "UPDATE ASISTENCIA"
                 Sql &= " SET realizoEvaluacion ='" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value & "'"
 
-                Sql &= " ,certificado ='" & Me.dgv_empleados.Rows(c).Cells("certificado").Value & "'"""
+                Sql &= " ,certificado ='" & Me.dgv_empleados.Rows(c).Cells("certificado").Value & "'"
 
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
-                    Sql &= ", observaciones= NULL "
+                    Sql &= ", observaciones= NULL"
                 Else
                     Sql &= ", observaciones='" & Me.dgv_empleados.Rows(c).Cells("observaciones").Value & "'"
                 End If
 
-                Sql &= " WHERE id_capacitacion = " & Me.txt_id_capacitacion.Text
-                Sql &= " AND id_empleado= " & dgv_empleados.Rows(c).Cells("id").Value
+                Sql &= " WHERE id_capacitacion =" & Me.txt_id_capacitacion.Text
+                Sql &= " AND id_empleado=" & dgv_empleados.Rows(c).Cells("id").Value
                 acceso.ejecutar(Sql)
 
             Else
@@ -921,7 +939,7 @@
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
                     Sql &= ", observaciones= NULL "
                 Else
-                    Sql &= ", observaciones= " & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
+                    Sql &= ", observaciones=" & Me.dgv_empleados.Rows(c).Cells("observaciones").Value
                 End If
                 acceso.insertar(Sql)
             End If
