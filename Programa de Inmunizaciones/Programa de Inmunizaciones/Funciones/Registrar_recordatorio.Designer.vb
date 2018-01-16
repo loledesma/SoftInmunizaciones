@@ -25,6 +25,8 @@ Partial Class Registrar_recordatorio
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrar_recordatorio))
         Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
         Me.grp_datos_recordatorio = New System.Windows.Forms.GroupBox()
+        Me.cmb_prioridad = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmd_actualizar_estado = New System.Windows.Forms.Button()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.cmb_empleados = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -46,8 +48,6 @@ Partial Class Registrar_recordatorio
         Me.Label3 = New System.Windows.Forms.Label()
         Me.grp_descripcion = New System.Windows.Forms.GroupBox()
         Me.dgv_recordatorios = New System.Windows.Forms.DataGridView()
-        Me.cmb_prioridad = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imagen = New System.Windows.Forms.DataGridViewImageColumn()
@@ -93,6 +93,26 @@ Partial Class Registrar_recordatorio
         Me.grp_datos_recordatorio.TabStop = False
         Me.grp_datos_recordatorio.Text = "Datos"
         '
+        'cmb_prioridad
+        '
+        Me.cmb_prioridad._descripcion = "descripcion"
+        Me.cmb_prioridad._nombre_tabla = "PRIORIDADES"
+        Me.cmb_prioridad._pk = "id"
+        Me.cmb_prioridad.FormattingEnabled = True
+        Me.cmb_prioridad.Location = New System.Drawing.Point(109, 102)
+        Me.cmb_prioridad.Name = "cmb_prioridad"
+        Me.cmb_prioridad.Size = New System.Drawing.Size(136, 21)
+        Me.cmb_prioridad.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 105)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.TabIndex = 55
+        Me.Label2.Text = "Prioridad"
+        '
         'cmd_actualizar_estado
         '
         Me.cmd_actualizar_estado.BackColor = System.Drawing.Color.Transparent
@@ -130,7 +150,7 @@ Partial Class Registrar_recordatorio
         Me.cmb_empleados._nombre_tabla = "EMPLEADOS"
         Me.cmb_empleados._pk = "id"
         Me.cmb_empleados.FormattingEnabled = True
-        Me.cmb_empleados.Location = New System.Drawing.Point(111, 130)
+        Me.cmb_empleados.Location = New System.Drawing.Point(109, 130)
         Me.cmb_empleados.Name = "cmb_empleados"
         Me.cmb_empleados.Size = New System.Drawing.Size(279, 21)
         Me.cmb_empleados.TabIndex = 4
@@ -159,7 +179,7 @@ Partial Class Registrar_recordatorio
         Me.cmb_estado_atencion._nombre_tabla = "ESTADOS_ATENCION"
         Me.cmb_estado_atencion._pk = "id"
         Me.cmb_estado_atencion.FormattingEnabled = True
-        Me.cmb_estado_atencion.Location = New System.Drawing.Point(111, 75)
+        Me.cmb_estado_atencion.Location = New System.Drawing.Point(109, 75)
         Me.cmb_estado_atencion.Name = "cmb_estado_atencion"
         Me.cmb_estado_atencion.Size = New System.Drawing.Size(247, 21)
         Me.cmb_estado_atencion.TabIndex = 2
@@ -357,26 +377,6 @@ Partial Class Registrar_recordatorio
         Me.dgv_recordatorios.ReadOnly = True
         Me.dgv_recordatorios.Size = New System.Drawing.Size(1045, 248)
         Me.dgv_recordatorios.TabIndex = 10
-        '
-        'cmb_prioridad
-        '
-        Me.cmb_prioridad._descripcion = "descripcion"
-        Me.cmb_prioridad._nombre_tabla = "PRIORIDADES"
-        Me.cmb_prioridad._pk = "id"
-        Me.cmb_prioridad.FormattingEnabled = True
-        Me.cmb_prioridad.Location = New System.Drawing.Point(109, 102)
-        Me.cmb_prioridad.Name = "cmb_prioridad"
-        Me.cmb_prioridad.Size = New System.Drawing.Size(136, 21)
-        Me.cmb_prioridad.TabIndex = 3
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 105)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(48, 13)
-        Me.Label2.TabIndex = 55
-        Me.Label2.Text = "Prioridad"
         '
         'id
         '
