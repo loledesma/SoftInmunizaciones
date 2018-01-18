@@ -2,6 +2,8 @@
 Imports System.Net.Mail
 Imports System.Net.Mime
 Imports System.Text
+Imports System.IO
+Imports System.Reflection
 
 Module Correo
 
@@ -24,11 +26,23 @@ Module Correo
 
             Dim plainView As AlternateView = AlternateView.CreateAlternateViewFromString(text, Encoding.UTF8, MediaTypeNames.Text.Plain)
 
-            Dim html As String = "<img src='cid:imagen' />"
+            Dim html As String = "<img src='cid:cumpleaños' />"
 
             Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html)
+            'Dim ensamblado As [Assembly]
+            'ensamblado = [Assembly].GetExecutingAssembly()
 
-            Dim img As LinkedResource = New LinkedResource("C:\Users\LORE\Documents\GitHub\SoftInmunizaciones\Programa de Inmunizaciones\Programa de Inmunizaciones\Resources\cumpleaños.jpg", MediaTypeNames.Image.Jpeg)
+            'Dim imagen As Stream
+            'imagen = ensamblado.GetManifestResourceStream("cumpleaños.jpg")
+
+            'Dim readStream As New StreamReader(imagen, Encoding.UTF8)
+
+            'Dim externalhtml As String = readStream.ReadToEnd()
+
+            Dim ruta As String = Application.StartupPath & "\Resources\cumpleaños.jpg"
+
+            Dim img As LinkedResource = New LinkedResource(ruta, MediaTypeNames.Image.Jpeg)
+            'Dim img As New LinkedResource(Https.MapPath("/Imagenes/cumpleaños.jpg"), MediaTypeNames.Image.Jpeg)
             img.ContentId = "cumpleaños"
 
             htmlView.LinkedResources.Add(img)
