@@ -729,10 +729,9 @@
     <Content Include="Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\cumpleaños.jpg">
+    <Content Include="Resources\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\cumpleaños.bmp" />
+    </Content>
     <None Include="Resources\tech-support-icon.jpg" />
     <None Include="Resources\Teacher.png" />
     <None Include="Resources\Security-icon.png" />
