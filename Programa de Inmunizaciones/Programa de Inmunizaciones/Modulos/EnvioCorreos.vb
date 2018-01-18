@@ -24,7 +24,7 @@ Module Correo
             '    correos.Attachments.Add(archivo)
             'End If
 
-            Dim ruta As String = Application.StartupPath & "\Imagenes\cumpleaños.jpg"
+            Dim ruta As String = Application.StartupPath & "\Resources\cumpleaños.jpg"
             Dim archivo As Net.Mail.Attachment = New Net.Mail.Attachment(ruta)
             correos.Attachments.Add(archivo)
 
