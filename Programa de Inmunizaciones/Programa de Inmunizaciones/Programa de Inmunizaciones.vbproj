@@ -726,7 +726,10 @@
     <Content Include="Imagenes\7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Imagenes\cumpleaños.jpg">
+    <Content Include="Imagenes\cumpleaños.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Resources\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="Resources\tech-support-icon.jpg" />
@@ -741,9 +744,9 @@
     <None Include="Resources\3.jpg" />
     <None Include="Resources\2.png" />
     <None Include="Resources\vacu_logo_min.png" />
-    <None Include="Resources\Cartel cumpleaños.jpg">
+    <Content Include="Resources\Cartel cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\4.png" />
