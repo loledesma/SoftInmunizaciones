@@ -398,6 +398,11 @@
             Me.txt_referentes.Focus()
             Return False
             Exit Function
+        ElseIf cmb_notifica.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un tipo de notificacion!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_notifica.Focus()
+            Return False
+            Exit Function
         ElseIf cmb_estado_efector.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un estado para el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_estado_efector.Focus()
