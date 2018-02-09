@@ -101,6 +101,7 @@ Partial Class abm_empleados
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl_contador_empleados = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1035,4 +1036,5 @@ Partial Class abm_empleados
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txt_fecha_nac As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
 End Class
