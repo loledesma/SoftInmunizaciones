@@ -1314,5 +1314,28 @@
     '    acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
     'End Sub
 
+    Private Sub txt_efector_MouseEnter(sender As Object, e As EventArgs) Handles txt_efectores.MouseEnter
+        If txt_efectores.Text <> "" Then
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim efectores As String = ""
+            Dim empleados As String = ""
+            Dim tabla2 As New DataTable
 
+            sql &= "SELECT  EF.nombre as nombre "
+            sql &= " FROM EFECTORES EF "
+            sql &= " WHERE EF.nombre LIKE '%" & txt_efectores.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                efectores += tabla.Rows(c)("nombre") & vbCrLf
+            Next
+
+            tltp_efectores.SetToolTip(txt_efectores, efectores)
+
+        Else
+            Exit Sub
+        End If
+    End Sub
 End Class

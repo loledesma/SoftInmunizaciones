@@ -187,6 +187,7 @@
     <Compile Include="ABM\abm_tipos_efectores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Clases\acceso_datos.vb" />
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
@@ -728,6 +729,9 @@
     <Content Include="Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Resources\cumpleaños.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\tech-support-icon.jpg" />
     <None Include="Resources\Teacher.png" />
     <None Include="Resources\Security-icon.png" />
@@ -740,9 +744,9 @@
     <None Include="Resources\3.jpg" />
     <None Include="Resources\2.png" />
     <None Include="Resources\vacu_logo_min.png" />
-    <None Include="Resources\Cartel cumpleaños.jpg">
+    <Content Include="Resources\Cartel cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\4.png" />

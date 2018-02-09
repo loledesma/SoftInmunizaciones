@@ -783,7 +783,7 @@
         End If
     End Sub
 
-    Private Sub txt_cuie_MouseEnter(sender As Object, e As EventArgs) Handles txt_cuie.MouseEnter
+    Private Sub txt_nombre_MouseEnter(sender As Object, e As EventArgs) Handles txt_nombres.MouseEnter
         If txt_cuie.Text <> "" Then
             Dim sql As String = ""
             Dim empleados As String = ""
@@ -804,5 +804,9 @@
         Else
             Exit Sub
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Registrar_atencion.ShowDialog()
     End Sub
 End Class
