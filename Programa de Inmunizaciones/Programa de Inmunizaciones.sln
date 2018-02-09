@@ -10,6 +10,8 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "SetupProCEInCor", "SetupPro
 		{B06B1301-94FF-48F2-A059-909F971B9DE9} = {B06B1301-94FF-48F2-A059-909F971B9DE9}
 	EndProjectSection
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Instalador", "Instalador\Instalador.isproj", "{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -39,6 +41,16 @@ Global
 		{BFF53357-9281-46E8-A3A1-F345383B1C12}.Release|Any CPU.Build.0 = SingleImage
 		{BFF53357-9281-46E8-A3A1-F345383B1C12}.SingleImage|Any CPU.ActiveCfg = SingleImage
 		{BFF53357-9281-46E8-A3A1-F345383B1C12}.SingleImage|Any CPU.Build.0 = SingleImage
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.Debug|Any CPU.ActiveCfg = DVD-5
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.Debug|Any CPU.Build.0 = DVD-5
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.DVD-5|Any CPU.Build.0 = DVD-5
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.Release|Any CPU.ActiveCfg = SingleImage
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.Release|Any CPU.Build.0 = SingleImage
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{5A3E196B-1701-4EB8-A90E-D9AAECF42DA6}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
