@@ -7,6 +7,13 @@
         existe
         no_existe
     End Enum
+
+    Enum grilla
+        activado
+        desactivado
+    End Enum
+
+    Dim condicion_grilla As grilla = grilla.activado
     Dim condicion_estado As condicion = condicion.insertar
 
     Enum doble_Click
@@ -24,6 +31,8 @@
         cargar_combo()
         Me.txt_id_recordatorio.Focus()
         Me.cmb_empleados.SelectedIndex = -1
+        Me.cmb_prioridad.cargar()
+        Me.cmb_prioridad.SelectedIndex = -1
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator = "."
@@ -75,9 +84,10 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
         Dim tabla2 As New DataTable
+        Me.condicion_grilla = grilla.desactivado
 
         sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
-        sql &= " , R.id_administrador as id_administrador "
+        sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad "
         sql &= " FROM RECORDATORIOS R "
         sql &= " WHERE id_estado= 2"
         sql &= " ORDER BY fecha "
@@ -95,6 +105,7 @@
             dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
             dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
 
+
             sql = ""
             sql &= "SELECT descripcion as estado FROM ESTADOS_ATENCION WHERE id= " & tabla.Rows(c)("id_estado")
             tabla2.Rows.Clear()
@@ -106,6 +117,13 @@
             tabla2.Rows.Clear()
             tabla2 = acceso.consulta(sql)
             dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+
+            sql = ""
+            sql &= "SELECT descripcion as prioridad FROM PRIORIDADES WHERE id= " & tabla.Rows(c)("id_prioridad")
+            tabla2.Rows.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_recordatorios.Rows(c).Cells("prioridad").Value = tabla2.Rows(0)("prioridad")
 
             If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
                 Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
@@ -121,6 +139,9 @@
             End If
 
         Next
+
+        Me.condicion_grilla = grilla.activado
+        contador()
     End Sub
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.txt_descripcion.Text = ""
@@ -176,6 +197,7 @@
         Me.cmb_estado_atencion.SelectedValue = tabla.Rows(0)("id_estado")
         Me.cmb_empleados.SelectedValue = tabla.Rows(0)("id_administrador")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
+        Me.cmb_prioridad.SelectedValue = tabla.Rows(0)("id_prioridad")
 
         Me.cmd_eliminar.Enabled = True
         Me.condicion_click = doble_Click.desactivado
@@ -207,12 +229,17 @@
             Return False
             Exit Function
         ElseIf cmb_estado_atencion.SelectedIndex = -1 Then
-            MessageBox.Show("¡Debe seleccionar un estado de la atención!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("¡Debe seleccionar un estado de la actividad!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_estado_atencion.Focus()
             Return False
             Exit Function
+        ElseIf cmb_prioridad.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar una prioridad para la actividad!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_prioridad.Focus()
+            Return False
+            Exit Function
         ElseIf txt_fecha.Text > hoy Then
-            MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Debe ingresar una fecha correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_fecha.Focus()
             Exit Function
@@ -252,6 +279,7 @@
         sql &= ", id_estado = " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
+        sql &= ", id_prioridad=" & Me.cmb_prioridad.SelectedValue
         acceso.insertar(sql)
     End Sub
 
@@ -263,6 +291,7 @@
         sql &= ", id_estado = " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", descripcion ='" & Me.txt_descripcion.Text & "'"
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
+        sql &= " , id_prioridad=" & Me.cmb_prioridad.SelectedValue
         sql &= " WHERE id = " & Me.txt_id_recordatorio.Text
 
         acceso.ejecutar(sql)
@@ -355,20 +384,28 @@
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Me.condicion_estado = condicion.modificar
         Me.condicion_click = doble_Click.activado
+        Me.condicion_grilla = grilla.desactivado
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
         Dim sql As String = ""
 
-        If cmb_estado_atencion.SelectedValue <> -1 Then
-            sql &= "SELECT * FROM RECORDATORIOS "
-            sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
-            sql &= " AND id_estado = " & Me.cmb_estado_atencion.SelectedValue
-            sql &= " ORDER BY id_administrador"
-            tabla = acceso.consulta(sql)
+        If cmb_estado_atencion.SelectedIndex <> -1 Then
+            If cmb_empleados.SelectedIndex <> -1 Then
+                sql &= "SELECT * FROM RECORDATORIOS "
+                sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
+                sql &= " AND id_estado = " & Me.cmb_estado_atencion.SelectedValue
+                sql &= " ORDER BY id_administrador, id_prioridad asc"
+                tabla = acceso.consulta(sql)
+            Else
+                sql &= "SELECT * FROM RECORDATORIOS "
+                sql &= " WHERE id_estado = " & Me.cmb_estado_atencion.SelectedValue
+                sql &= " ORDER BY id_administrador, id_prioridad asc"
+                tabla = acceso.consulta(sql)
+            End If
         Else
             sql &= "SELECT * FROM RECORDATORIOS "
             sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
-            sql &= " ORDER BY id_administrador"
+            sql &= " ORDER BY id_prioridad asc, fecha"
             tabla = acceso.consulta(sql)
         End If
 
@@ -399,6 +436,12 @@
                 tabla2 = acceso.consulta(sql)
                 dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
 
+                sql = ""
+                sql &= "SELECT descripcion as prioridad FROM PRIORIDADES WHERE id= " & tabla.Rows(c)("id_prioridad")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("prioridad").Value = tabla2.Rows(0)("prioridad")
+
                 If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
                     Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
                     dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
@@ -413,8 +456,8 @@
                 End If
             Next
         End If
-
-
+        Me.condicion_grilla = grilla.activado
+        contador()
         limpiar(Me.Controls)
         Me.condicion_estado = condicion.modificar
     End Sub
@@ -431,7 +474,7 @@
         Me.txt_descripcion.Text = ""
     End Sub
 
-    Private Sub dgv_recordatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_recordatorios.CellValueChanged
+    Private Sub contador()
         Dim valor1 As Integer = 0
         Dim valor2 As Integer = 0
         Dim sql As String = ""
@@ -448,6 +491,15 @@
 
         lbl_contador_pendientes.Text = valor2
         lbl_contador_total.Text = valor1
+    End Sub
+
+    Private Sub dgv_recordatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_recordatorios.CellValueChanged
+        If condicion_grilla = grilla.activado Then
+            contador()
+        Else
+            Exit Sub
+        End If
+
     End Sub
 
 
