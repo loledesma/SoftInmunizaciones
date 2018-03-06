@@ -111,7 +111,6 @@ Partial Class Registrar_capacitaciones
         Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -121,6 +120,7 @@ Partial Class Registrar_capacitaciones
         Me.realizoEvaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.certificado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         Me.grp_buscar_empleado.SuspendLayout()
@@ -306,7 +306,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_buscar_capas_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_capas_empleado.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_capas_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_capas_empleado.Location = New System.Drawing.Point(803, 25)
+        Me.cmd_buscar_capas_empleado.Location = New System.Drawing.Point(806, 25)
         Me.cmd_buscar_capas_empleado.Name = "cmd_buscar_capas_empleado"
         Me.cmd_buscar_capas_empleado.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_capas_empleado.TabIndex = 4
@@ -450,7 +450,7 @@ Partial Class Registrar_capacitaciones
         '
         Me.txt_descripcion.Location = New System.Drawing.Point(8, 19)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(374, 86)
+        Me.txt_descripcion.Size = New System.Drawing.Size(387, 86)
         Me.txt_descripcion.TabIndex = 0
         Me.txt_descripcion.Text = ""
         '
@@ -470,7 +470,7 @@ Partial Class Registrar_capacitaciones
         '
         Me.txt_observaciones.Location = New System.Drawing.Point(8, 20)
         Me.txt_observaciones.Name = "txt_observaciones"
-        Me.txt_observaciones.Size = New System.Drawing.Size(376, 51)
+        Me.txt_observaciones.Size = New System.Drawing.Size(386, 51)
         Me.txt_observaciones.TabIndex = 0
         Me.txt_observaciones.Text = ""
         '
@@ -1155,19 +1155,6 @@ Partial Class Registrar_capacitaciones
         Me.dgv_empleados.Size = New System.Drawing.Size(847, 245)
         Me.dgv_empleados.TabIndex = 1
         '
-        'cmd_salir
-        '
-        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(846, 684)
-        Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(59, 53)
-        Me.cmd_salir.TabIndex = 6
-        Me.cmd_salir.UseVisualStyleBackColor = False
-        '
         'id
         '
         Me.id.HeaderText = "ID"
@@ -1218,6 +1205,19 @@ Partial Class Registrar_capacitaciones
         '
         Me.observaciones.HeaderText = "observaciones"
         Me.observaciones.Name = "observaciones"
+        '
+        'cmd_salir
+        '
+        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_salir.FlatAppearance.BorderSize = 0
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_salir.Location = New System.Drawing.Point(846, 684)
+        Me.cmd_salir.Name = "cmd_salir"
+        Me.cmd_salir.Size = New System.Drawing.Size(59, 53)
+        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'Registrar_capacitaciones
         '
