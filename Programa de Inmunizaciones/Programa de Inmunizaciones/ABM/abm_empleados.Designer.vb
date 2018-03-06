@@ -173,7 +173,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_documento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_x_documento.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_x_documento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_x_documento.Location = New System.Drawing.Point(282, 19)
+        Me.cmd_buscar_x_documento.Location = New System.Drawing.Point(408, 19)
         Me.cmd_buscar_x_documento.Name = "cmd_buscar_x_documento"
         Me.cmd_buscar_x_documento.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_x_documento.TabIndex = 1
