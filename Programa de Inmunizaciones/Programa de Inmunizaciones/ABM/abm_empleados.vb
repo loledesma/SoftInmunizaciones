@@ -1288,7 +1288,7 @@
         Me.txt_efectores.Enabled = True
         Me.cmd_efector_nuevo.Enabled = True
         Me.cmd_eliminar_efector.Enabled = True
-        Me.txt_efectores = ""
+        Me.txt_efectores.Text = ""
     End Sub
 
     Private Sub cmd_cambiar_estado_Click(sender As Object, e As EventArgs) Handles cmd_cambiar_estado.Click
