@@ -90,14 +90,10 @@ Partial Class Registrar_capacitaciones
         Me.cmd_guardar_asistencia = New System.Windows.Forms.Button()
         Me.cmd_nueva_asistencia = New System.Windows.Forms.Button()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
-        Me.txt_certificado = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txt_realizoEvaluacion = New System.Windows.Forms.TextBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
         Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_id_empleado = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.cmd_limpiar_empleados = New System.Windows.Forms.Button()
@@ -870,14 +866,10 @@ Partial Class Registrar_capacitaciones
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_empleados.Controls.Add(Me.txt_certificado)
-        Me.grp_datos_empleados.Controls.Add(Me.Label12)
-        Me.grp_datos_empleados.Controls.Add(Me.txt_realizoEvaluacion)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_actualizar_sigipsa)
         Me.grp_datos_empleados.Controls.Add(Me.txt_nombres_empleado)
         Me.grp_datos_empleados.Controls.Add(Me.Label21)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_buscar_empleadoXDNI)
-        Me.grp_datos_empleados.Controls.Add(Me.Label7)
         Me.grp_datos_empleados.Controls.Add(Me.txt_id_empleado)
         Me.grp_datos_empleados.Controls.Add(Me.Label20)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_limpiar_empleados)
@@ -897,34 +889,6 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_empleados.TabIndex = 2
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
-        '
-        'txt_certificado
-        '
-        Me.txt_certificado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_certificado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_certificado.Location = New System.Drawing.Point(339, 124)
-        Me.txt_certificado.Name = "txt_certificado"
-        Me.txt_certificado.Size = New System.Drawing.Size(100, 20)
-        Me.txt_certificado.TabIndex = 30
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(246, 129)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(87, 13)
-        Me.Label12.TabIndex = 29
-        Me.Label12.Text = "Tiene Certificado"
-        '
-        'txt_realizoEvaluacion
-        '
-        Me.txt_realizoEvaluacion.AutoCompleteCustomSource.AddRange(New String() {"Si", "No"})
-        Me.txt_realizoEvaluacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_realizoEvaluacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_realizoEvaluacion.Location = New System.Drawing.Point(114, 124)
-        Me.txt_realizoEvaluacion.Name = "txt_realizoEvaluacion"
-        Me.txt_realizoEvaluacion.Size = New System.Drawing.Size(126, 20)
-        Me.txt_realizoEvaluacion.TabIndex = 7
         '
         'cmd_actualizar_sigipsa
         '
@@ -969,15 +933,6 @@ Partial Class Registrar_capacitaciones
         Me.cmd_buscar_empleadoXDNI.TabIndex = 3
         Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(16, 129)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(98, 13)
-        Me.Label7.TabIndex = 27
-        Me.Label7.Text = "Realizo Evaluacion"
-        '
         'txt_id_empleado
         '
         Me.txt_id_empleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -1006,7 +961,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_limpiar_empleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_empleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar_empleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(417, 157)
+        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(411, 133)
         Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_empleados.Name = "cmd_limpiar_empleados"
         Me.cmd_limpiar_empleados.Size = New System.Drawing.Size(25, 25)
@@ -1025,7 +980,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(480, 157)
+        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(474, 133)
         Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
         Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(25, 25)
@@ -1044,7 +999,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(449, 157)
+        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(443, 133)
         Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
         Me.cmd_agregar_empleado.Size = New System.Drawing.Size(25, 25)
@@ -1291,7 +1246,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents txt_nombres_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents cmd_buscar_empleadoXDNI As System.Windows.Forms.Button
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents cmd_limpiar_empleados As System.Windows.Forms.Button
@@ -1309,7 +1263,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents cmd_nueva_asistencia As System.Windows.Forms.Button
     Friend WithEvents cmb_departamento As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txt_realizoEvaluacion As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents txt_observaciones2 As System.Windows.Forms.RichTextBox
     Friend WithEvents cmd_actualizar_estado As System.Windows.Forms.Button
@@ -1333,8 +1286,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cmd_invitaciones As System.Windows.Forms.Button
     Friend WithEvents cmd_actividades As System.Windows.Forms.Button
-    Friend WithEvents txt_certificado As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
