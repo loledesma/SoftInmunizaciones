@@ -90,7 +90,7 @@
         sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad "
         sql &= " FROM RECORDATORIOS R "
         sql &= " WHERE id_estado= 2"
-        sql &= " ORDER BY fecha "
+        sql &= " ORDER BY id_prioridad asc "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0

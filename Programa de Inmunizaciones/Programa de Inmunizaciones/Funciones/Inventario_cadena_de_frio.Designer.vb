@@ -263,9 +263,9 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
         Me.cmb_departamento._pk = "id"
         Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(162, 38)
+        Me.cmb_departamento.Location = New System.Drawing.Point(170, 38)
         Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(277, 21)
+        Me.cmb_departamento.Size = New System.Drawing.Size(269, 21)
         Me.cmb_departamento.TabIndex = 3
         '
         'txt_empleado_apellido
@@ -353,7 +353,7 @@ Partial Class Inventario_cadena_de_frio
         Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
         Me.cmb_tipos_efectores._pk = "id"
         Me.cmb_tipos_efectores.FormattingEnabled = True
-        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(162, 66)
+        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(170, 66)
         Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
         Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
         Me.cmb_tipos_efectores.TabIndex = 5
@@ -371,9 +371,9 @@ Partial Class Inventario_cadena_de_frio
         '
         Me.txt_efector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_efector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_efector.Location = New System.Drawing.Point(163, 12)
+        Me.txt_efector.Location = New System.Drawing.Point(170, 12)
         Me.txt_efector.Name = "txt_efector"
-        Me.txt_efector.Size = New System.Drawing.Size(434, 20)
+        Me.txt_efector.Size = New System.Drawing.Size(427, 20)
         Me.txt_efector.TabIndex = 0
         '
         'Label2
