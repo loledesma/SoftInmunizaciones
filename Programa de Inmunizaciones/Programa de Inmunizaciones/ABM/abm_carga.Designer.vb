@@ -54,7 +54,7 @@ Partial Class abm_carga
         Me.grp_grilla_carga.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_grilla_carga.Location = New System.Drawing.Point(3, 103)
         Me.grp_grilla_carga.Name = "grp_grilla_carga"
-        Me.grp_grilla_carga.Size = New System.Drawing.Size(308, 279)
+        Me.grp_grilla_carga.Size = New System.Drawing.Size(389, 279)
         Me.grp_grilla_carga.TabIndex = 17
         Me.grp_grilla_carga.TabStop = False
         Me.grp_grilla_carga.Text = "Existentes"
@@ -81,7 +81,7 @@ Partial Class abm_carga
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
         Me.dgv_carga.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_carga.Size = New System.Drawing.Size(293, 254)
+        Me.dgv_carga.Size = New System.Drawing.Size(374, 254)
         Me.dgv_carga.TabIndex = 0
         '
         'id_carga
@@ -109,7 +109,7 @@ Partial Class abm_carga
         Me.grp_carga.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_carga.Location = New System.Drawing.Point(3, 2)
         Me.grp_carga.Name = "grp_carga"
-        Me.grp_carga.Size = New System.Drawing.Size(308, 85)
+        Me.grp_carga.Size = New System.Drawing.Size(389, 85)
         Me.grp_carga.TabIndex = 16
         Me.grp_carga.TabStop = False
         Me.grp_carga.Text = "Datos"
@@ -169,7 +169,7 @@ Partial Class abm_carga
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_limpiar.Location = New System.Drawing.Point(349, 218)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(399, 212)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
@@ -188,7 +188,7 @@ Partial Class abm_carga
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_guardar.Location = New System.Drawing.Point(349, 82)
+        Me.cmd_guardar.Location = New System.Drawing.Point(399, 76)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
@@ -207,7 +207,7 @@ Partial Class abm_carga
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_eliminar.Location = New System.Drawing.Point(349, 150)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(399, 144)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
@@ -223,7 +223,7 @@ Partial Class abm_carga
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(349, 322)
+        Me.cmd_salir.Location = New System.Drawing.Point(399, 316)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 39
@@ -239,7 +239,7 @@ Partial Class abm_carga
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_nuevo.Location = New System.Drawing.Point(349, 14)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(399, 8)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
@@ -254,7 +254,7 @@ Partial Class abm_carga
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(415, 406)
+        Me.ClientSize = New System.Drawing.Size(471, 419)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.grp_grilla_carga)
         Me.Controls.Add(Me.cmd_guardar)
