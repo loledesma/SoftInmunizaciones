@@ -209,16 +209,18 @@
         cmd_eliminar.Enabled = False
         cmd_nuevo.Enabled = False
         txt_id_tipo_doc.Enabled = False
-
         Dim tabla As New DataTable
-
         Dim sql As String = ""
-
         sql &= "select * from tipos_documento "
-
         tabla = acceso.consulta(sql)
 
-        txt_id_tipo_doc.Text = tabla.Rows().Count() + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_tipo_doc.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_tipo_doc.Text = tabla.Rows(ultimo)("id") + 1
+        End If
+
     End Sub
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click

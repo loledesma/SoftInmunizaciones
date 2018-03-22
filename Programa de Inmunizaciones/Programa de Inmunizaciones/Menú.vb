@@ -67,4 +67,8 @@
     Private Sub cmd_registro_efectores_Click(sender As Object, e As EventArgs) Handles cmd_registro_efectores.Click
         Registrar_efectores.ShowDialog()
     End Sub
+
+    Private Sub cmd_registrar_notificacion_Click(sender As Object, e As EventArgs) Handles cmd_registrar_notificacion.Click
+        Registrar_notificaciones.ShowDialog()
+    End Sub
 End Class

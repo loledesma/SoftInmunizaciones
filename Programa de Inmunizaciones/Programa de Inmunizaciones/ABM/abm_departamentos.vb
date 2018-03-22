@@ -18,6 +18,17 @@
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
         Me.txt_id_departamento.Focus()
+        acceso.autocompletar(txt_descripcion, "DEPARTAMENTOS", "descripcion")
+        tip()
+    End Sub
+
+    Private Sub tip()
+        tltp_departamentos.SetToolTip(cmd_buscar_nombre, "Buscar por nombre de departamento")
+        tltp_departamentos.SetToolTip(cmd_buscar, "Buscar por Id")
+        tltp_departamentos.SetToolTip(cmd_eliminar, "Eliminar")
+        tltp_departamentos.SetToolTip(cmd_guardar, "Guardar")
+        tltp_departamentos.SetToolTip(cmd_nuevo, "Nuevo")
+        tltp_departamentos.SetToolTip(cmd_salir, "Salir")
     End Sub
 
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
@@ -131,11 +142,14 @@
         Me.condicion_estado = estado.insertar
         Dim sql As String = "SELECT * FROM DEPARTAMENTOS"
         Dim tabla As New DataTable
-
         tabla = acceso.consulta(sql)
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
 
-        Me.txt_id_departamento.Text = tabla.Rows(ultimo)("id") + 1
+        If tabla.Rows.Count() = 0 Then
+            Me.txt_id_departamento.Text = 1
+        Else
+            Dim ultimo As Integer = tabla.Rows.Count() - 1
+            Me.txt_id_departamento.Text = tabla.Rows(ultimo)("id") + 1
+        End If
 
         Me.txt_id_departamento.Enabled = False
         Me.txt_descripcion.Focus()
@@ -148,14 +162,17 @@
             MessageBox.Show("El id está vacío", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_id_departamento.Focus()
             Return False
+            Exit Function
         ElseIf IsNumeric(Me.txt_id_departamento.Text) = False Then
             MessageBox.Show("No se admiten caracteres en el ID", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_id_departamento.Focus()
             Return False
+            Exit Function
         ElseIf Me.txt_descripcion.Text = "" Then
             MessageBox.Show("La Descripcion está vacía", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_descripcion.Focus()
             Return False
+            Exit Function
         End If
         Return True
     End Function
@@ -247,7 +264,7 @@
     End Sub
 
 
-    Private Sub cmb_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmb_buscar_nombre.Click
+    Private Sub cmb_buscar_nombre_Click(sender As Object, e As EventArgs) Handles cmd_buscar_nombre.Click
         Dim tabla As New DataTable
         Dim sql As String = "SELECT * FROM DEPARTAMENTOS WHERE descripcion = '" & Me.txt_descripcion.Text & "'"
 
@@ -276,4 +293,5 @@
             guardar()
         End If
     End Sub
+
 End Class

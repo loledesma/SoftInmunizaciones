@@ -9,8 +9,7 @@
         cmd_guardar.Enabled = False
         cmd_eliminar.Enabled = False
         tip()
-        abrir()
-        autocompletar(txt_descripcion)
+        acceso.autocompletar(txt_descripcion, "LOCALIDADES", "descripcion")
 
     End Sub
 
@@ -56,10 +55,10 @@
 
     Private Sub insertar()
         Dim sql As String = ""
+        Dim id As Integer = obtenerId()
 
-        sql &= "INSERT INTO LOCALIDADES VALUES ( " & Me.txt_id_localidad.Text & ",'" & Me.txt_descripcion.Text & "' , " & Me.txt_cod_postal.Text & ", " & Me.cmb_dptos.SelectedValue & ")"
+        sql &= "INSERT INTO LOCALIDADES VALUES ( " & id & ",'" & Me.txt_descripcion.Text & "' , " & Me.txt_cod_postal.Text & ", " & Me.cmb_dptos.SelectedValue & ")"
         acceso.ejecutar(sql)
-
     End Sub
 
     Private Sub modificar()
@@ -76,12 +75,12 @@
     End Sub
 
     Private Function validar_campos() As Boolean
-        If txt_id_localidad.Text = "" Then
-            MessageBox.Show("El campo ID está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_id_localidad.Focus()
-            Exit Function
-        End If
+        'If txt_id_localidad.Text = "" Then
+        '    MessageBox.Show("El campo ID está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        '    Return False
+        '    Me.txt_id_localidad.Focus()
+        '    Exit Function
+        'End If
         If txt_descripcion.Text = "" Then
             MessageBox.Show("El campo DESCRIPCIÓN está vacío!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
@@ -169,6 +168,7 @@
         cmd_eliminar.Enabled = True
         cmd_guardar.Enabled = True
         cmd_nuevo.Enabled = True
+        cmd_cancelar.Enabled = True
     End Sub
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
@@ -335,8 +335,8 @@
         Dim tabla As New DataTable
         limpiar(Controls)
         tabla = acceso.consulta(sql)
-        Dim ultimo As Integer = tabla.Rows.Count() - 1
-        Me.txt_id_localidad.Text = tabla.Rows(ultimo)("id") + 1
+        'Dim ultimo As Integer = tabla.Rows.Count() - 1
+        'Me.txt_id_localidad.Text = tabla.Rows(ultimo)("id") + 1
         txt_id_localidad.Enabled = False
         cmd_eliminar.Enabled = False
         cmd_nuevo.Enabled = False
@@ -346,8 +346,26 @@
         txt_descripcion.Focus()
 
     End Sub
+    Private Function obtenerId()
+        Dim id As Integer = 0
+        Dim sqlId = ""
+        Dim tablaId As New DataTable
 
+        sqlId = "SELECT * FROM LOCALIDADES"
+        tablaId = acceso.consulta(sqlId)
+
+        If tablaId.Rows.Count = 0 Then
+            id = 1
+            txt_id_localidad.Text = id
+        Else
+            Dim ultimo As Integer = tablaId.Rows.Count() - 1
+            id = tablaId.Rows(ultimo)("id") + 1
+            txt_id_localidad.Text = id
+        End If
+        Return id
+    End Function
     Private Sub guardar()
+        obtenerId()
         If Me.validar_campos() = True Then
             If condicion = estado.insertar Then
                 If validar_existencia() = analizar_existencia.no_existe Then
@@ -414,31 +432,31 @@
     End Sub
 
     'CODIGO DE AUTOCOMPLETADO: VER
-    Private Sub autocompletar(ByVal textbx As TextBox)
+    'Private Sub autocompletar(ByVal textbx As TextBox)
 
-        cmd = New OleDb.OleDbCommand("select descripcion from LOCALIDADES", conexion)
-        res = cmd.ExecuteReader()
+    '    cmd = New OleDb.OleDbCommand("select descripcion from LOCALIDADES", conexion)
+    '    res = cmd.ExecuteReader()
 
-        While res.Read()
-            textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
-
-
-        End While
-        res.Close()
+    '    While res.Read()
+    '        textbx.AutoCompleteCustomSource.Add(res.Item("descripcion"))
 
 
-    End Sub
+    '    End While
+    '    res.Close()
 
-    Dim conexion As OleDb.OleDbConnection
-    Dim cmd As OleDb.OleDbCommand
-    Dim adaptador As OleDb.OleDbDataAdapter
-    Dim res As OleDb.OleDbDataReader
 
-    Private Sub abrir()
-        conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
-        conexion.Open()
-    End Sub
-    'FIN DE CODIGO DE AUTOCOMPLETADO
+    'End Sub
+
+    'Dim conexion As OleDb.OleDbConnection
+    'Dim cmd As OleDb.OleDbCommand
+    'Dim adaptador As OleDb.OleDbDataAdapter
+    'Dim res As OleDb.OleDbDataReader
+
+    'Private Sub abrir()
+    '    conexion = New OleDb.OleDbConnection("Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88")
+    '    conexion.Open()
+    'End Sub
+    ''FIN DE CODIGO DE AUTOCOMPLETADO
 
 
 End Class

@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +37,8 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Programa de Inmunizaciones.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +49,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Programa de Inmunizaciones.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -45,18 +63,39 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -136,12 +175,6 @@
     <Compile Include="ABM\abm_perdidas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\abm_stock.Designer.vb">
-      <DependentUpon>abm_stock.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ABM\abm_stock.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ABM\abm_tipos_documento.Designer.vb">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
     </Compile>
@@ -154,14 +187,99 @@
     <Compile Include="ABM\abm_tipos_efectores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Clases\acceso_datos.vb" />
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Popups\back_up.Designer.vb">
+      <DependentUpon>back_up.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\back_up.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Dialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_efectores_implementados.Designer.vb">
+      <DependentUpon>est_efectores_implementados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_efectores_implementados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_efect_emiten_sigipsa.Designer.vb">
+      <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_efect_emiten_sigipsa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.Designer.vb">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\Est_Efect_x_Loc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.Designer.vb">
+      <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_ef_con_y_sin_heladera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.Designer.vb">
+      <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_empleados_con_y_sin_curso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_cargaStockPerdidasXDpto.Designer.vb">
+      <DependentUpon>est_estado_cargaStockPerdidasXDpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_cargaStockPerdidasXDpto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_heladeras.Designer.vb">
+      <DependentUpon>est_estado_heladeras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_estado_heladeras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Inventario_cadena_de_frio.Designer.vb">
+      <DependentUpon>Inventario_cadena_de_frio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Inventario_cadena_de_frio.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.Designer.vb">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Registrar_atencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.Designer.vb">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_Actividades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.Designer.vb">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_invitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.Designer.vb">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_entrega_insumos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Registrar_ingreso_stock.Designer.vb">
+      <DependentUpon>Registrar_ingreso_stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_ingreso_stock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.Designer.vb">
@@ -170,16 +288,10 @@
     <Compile Include="Funciones\Registrar_peticiones_desarrollos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funciones\Registrar_superviciones.Designer.vb">
-      <DependentUpon>Registrar_superviciones.vb</DependentUpon>
+    <Compile Include="Funciones\Registrar_recordatorio.Designer.vb">
+      <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Funciones\Registrar_superviciones.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Funciones\Registrar_asistencia_capacitaciones.Designer.vb">
-      <DependentUpon>Registrar_asistencia_capacitaciones.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Funciones\Registrar_asistencia_capacitaciones.vb">
+    <Compile Include="Funciones\Registrar_recordatorio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones\Registrar_capacitaciones.Designer.vb">
@@ -200,14 +312,152 @@
     <Compile Include="Funciones\Registrar_notificaciones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú.vb">
+    <Compile Include="Funciones\Registrar_supervisiones.Designer.vb">
+      <DependentUpon>Registrar_supervisiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registrar_supervisiones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú.Designer.vb">
-      <DependentUpon>Menú.vb</DependentUpon>
+    <Compile Include="Listados\listados_efector_loc_dpto.Designer.vb">
+      <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listados_efector_loc_dpto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listados\listados_efector_x_refe.Designer.vb">
+      <DependentUpon>listados_efector_x_refe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listados_efector_x_refe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\listados_referentes_y_efectores.Designer.vb">
+      <DependentUpon>listados_referentes_y_efectores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listados_referentes_y_efectores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Listados_notificaciones.Designer.vb">
+      <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Listados_notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\listado_localidadesxdpto.Designer.vb">
+      <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\listado_localidadesxdpto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_entregas.Designer.vb">
+      <DependentUpon>list_entregas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_entregas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_capacitaciones.Designer.vb">
+      <DependentUpon>list_capacitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_capacitaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_inventario.Designer.vb">
+      <DependentUpon>list_inventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_inventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_efectores_emiten_resumen.Designer.vb">
+      <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efectores_emiten_resumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_efectores_x_estado.Designer.vb">
+      <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efectores_x_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_efect_internet.Designer.vb">
+      <DependentUpon>list_efect_internet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_efect_internet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_heladeras_antiguas.Designer.vb">
+      <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_heladeras_antiguas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_no_notifican.Designer.vb">
+      <DependentUpon>list_no_notifican.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_no_notifican.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_pedidos_desarrollo.Designer.vb">
+      <DependentUpon>list_pedidos_desarrollo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_pedidos_desarrollo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_empleados_x_estado.Designer.vb">
+      <DependentUpon>list_empleados_x_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_empleados_x_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_usuarios.Designer.vb">
+      <DependentUpon>list_usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_atenciones.Designer.vb">
+      <DependentUpon>list_atenciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_atenciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.designer.vb">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\EnvioCorreos.vb" />
     <Compile Include="Modulos\global1.vb" />
+    <Compile Include="Popups\Tareas.Designer.vb">
+      <DependentUpon>Tareas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Tareas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sesion\Inicio_sesion.Designer.vb">
+      <DependentUpon>Inicio_sesion.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sesion\Inicio_sesion.vb">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones.vb">
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Inmunizaciones2.vb">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -223,6 +473,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Sesion\SampleIIdentity.vb" />
+    <Compile Include="Sesion\SampleIPrincipal.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ABM\abm_barrios.resx">
@@ -246,29 +498,196 @@
     <EmbeddedResource Include="ABM\abm_perdidas.resx">
       <DependentUpon>abm_perdidas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM\abm_stock.resx">
-      <DependentUpon>abm_stock.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ABM\abm_tipos_documento.resx">
       <DependentUpon>abm_tipos_documento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_cantidadEstadoPerdidasXDpto.rdlc" />
+    <EmbeddedResource Include="Estadisticos\EST_EfXEstadoStock.rdlc" />
+    <EmbeddedResource Include="Popups\back_up.resx">
+      <DependentUpon>back_up.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\Dialog1.resx">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_cantidadEstadoCargaXDpto.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_con_y_sin_heladera.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efectores_implementados.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efectores_implementados.resx">
+      <DependentUpon>est_efectores_implementados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_efect_emiten_sigipsa.resx">
+      <DependentUpon>est_efect_emiten_sigipsa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\Est_Efect_x_Loc.resx">
+      <DependentUpon>Est_Efect_x_Loc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_efec_x_loc.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_ef_con_y_sin_heladera.resx">
+      <DependentUpon>est_ef_con_y_sin_heladera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_empleados_con_curso.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_empleados_con_y_sin_curso.resx">
+      <DependentUpon>est_empleados_con_y_sin_curso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_estado_cargaStockPerdidasXDpto.resx">
+      <DependentUpon>est_estado_cargaStockPerdidasXDpto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_estado_heladeras.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_estado_heladeras.resx">
+      <DependentUpon>est_estado_heladeras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Inventario_cadena_de_frio.resx">
+      <DependentUpon>Inventario_cadena_de_frio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_atencion.resx">
       <DependentUpon>Registrar_atencion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_invitaciones.resx">
+      <DependentUpon>Registrar_invitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_capacitaciones.resx">
+      <DependentUpon>Registrar_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_Actividades.resx">
+      <DependentUpon>Registrar_Actividades.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Registrar_efectores.resx">
       <DependentUpon>Registrar_efectores.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menú.resx">
-      <DependentUpon>Menú.vb</DependentUpon>
+    <EmbeddedResource Include="Funciones\Registrar_entrega_insumos.resx">
+      <DependentUpon>Registrar_entrega_insumos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_ingreso_stock.resx">
+      <DependentUpon>Registrar_ingreso_stock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_notificaciones.resx">
+      <DependentUpon>Registrar_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_peticiones_desarrollos.resx">
+      <DependentUpon>Registrar_peticiones_desarrollos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_recordatorio.resx">
+      <DependentUpon>Registrar_recordatorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registrar_supervisiones.resx">
+      <DependentUpon>Registrar_supervisiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_efector_loc_dpto.rdlc" />
+    <EmbeddedResource Include="Listados\listados_efector_loc_dpto.resx">
+      <DependentUpon>listados_efector_loc_dpto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_efector_x_refe.resx">
+      <DependentUpon>listados_efector_x_refe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_referentes_y_efectores.resx">
+      <DependentUpon>listados_referentes_y_efectores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listados_notificaciones.rdlc" />
+    <EmbeddedResource Include="Listados\Listados_notificaciones.resx">
+      <DependentUpon>Listados_notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listado_localidadesxdpto.resx">
+      <DependentUpon>listado_localidadesxdpto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\listado_efector_x_refe.rdlc" />
+    <EmbeddedResource Include="Listados\listado_referentes_y_efectores.rdlc" />
+    <EmbeddedResource Include="Listados\list_entregas.resx">
+      <DependentUpon>list_entregas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_entregas.rdlc" />
+    <EmbeddedResource Include="Listados\list_atenciones.rdlc" />
+    <EmbeddedResource Include="Listados\list_capacitaciones.resx">
+      <DependentUpon>list_capacitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_inventario.resx">
+      <DependentUpon>list_inventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_inventario_cf _termos.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf_termometro.rdlc" />
+    <EmbeddedResource Include="Listados\list_inventario_cf_heladera.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_con_internet.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_emiten_resumen.resx">
+      <DependentUpon>list_efectores_emiten_resumen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_efectores_x_estado.rdlc" />
+    <EmbeddedResource Include="Listados\list_efectores_x_estado.resx">
+      <DependentUpon>list_efectores_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_efect_internet.resx">
+      <DependentUpon>list_efect_internet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_ef_eminten_sigipsa.rdlc" />
+    <EmbeddedResource Include="Listados\list_pedidos_desarrollo.rdlc" />
+    <EmbeddedResource Include="Listados\list_heladeras_antiguas.rdlc" />
+    <EmbeddedResource Include="Listados\list_heladeras_antiguas.resx">
+      <DependentUpon>list_heladeras_antiguas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_no_notifican.rdlc" />
+    <EmbeddedResource Include="Listados\list_no_notifican.resx">
+      <DependentUpon>list_no_notifican.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_pedidos_desarrollo.resx">
+      <DependentUpon>list_pedidos_desarrollo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_empleados_x_estado.resx">
+      <DependentUpon>list_empleados_x_estado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_usuarios.resx">
+      <DependentUpon>list_usuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_capacitaciones.rdlc" />
+    <EmbeddedResource Include="Listados\list_atenciones.resx">
+      <DependentUpon>list_atenciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_empleados_x_estado.rdlc" />
+    <EmbeddedResource Include="Listados\list_localidad_x_dpto.rdlc" />
+    <EmbeddedResource Include="Listados\list_usuarios.rdlc" />
+    <EmbeddedResource Include="Menu.es-AR.resx">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\Tareas.resx">
+      <DependentUpon>Tareas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sesion\Inicio_sesion.resx">
+      <DependentUpon>Inicio_sesion.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Modulos\Inmunizaciones.xsc">
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Inmunizaciones.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Inmunizaciones.xss">
+      <DependentUpon>Inmunizaciones.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xsc">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Inmunizaciones2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Inmunizaciones2.xss">
+      <DependentUpon>Inmunizaciones2.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -279,6 +698,60 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagenes\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\cumpleaños.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Resources\cumpleaños.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\tech-support-icon.jpg" />
+    <None Include="Resources\Teacher.png" />
+    <None Include="Resources\Security-icon.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\images %282%29.jpg" />
+    <None Include="Resources\images %281%29.jpg" />
+    <None Include="Resources\customer_person_people_woman_you_1627.png" />
+    <None Include="Resources\Client_Female_Light.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\3.jpg" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\vacu_logo_min.png" />
+    <Content Include="Resources\Cartel cumpleaños.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\4.png" />
+    <None Include="Imagenes\3.jpg" />
+    <None Include="Imagenes\2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

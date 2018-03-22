@@ -22,11 +22,12 @@ Partial Class abm_departamentos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_departamentos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_departamentos = New System.Windows.Forms.GroupBox()
-        Me.cmb_buscar_nombre = New System.Windows.Forms.Button()
+        Me.cmd_buscar_nombre = New System.Windows.Forms.Button()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.txt_descripcion = New System.Windows.Forms.TextBox()
         Me.txt_id_departamento = New System.Windows.Forms.TextBox()
@@ -36,11 +37,12 @@ Partial Class abm_departamentos
         Me.dgv_departamentos = New System.Windows.Forms.DataGridView()
         Me.id_departamentos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.tltp_departamentos = New System.Windows.Forms.ToolTip(Me.components)
         Me.grp_departamentos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_departamentos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,7 +51,7 @@ Partial Class abm_departamentos
         'grp_departamentos
         '
         Me.grp_departamentos.BackColor = System.Drawing.Color.Transparent
-        Me.grp_departamentos.Controls.Add(Me.cmb_buscar_nombre)
+        Me.grp_departamentos.Controls.Add(Me.cmd_buscar_nombre)
         Me.grp_departamentos.Controls.Add(Me.cmd_buscar)
         Me.grp_departamentos.Controls.Add(Me.txt_descripcion)
         Me.grp_departamentos.Controls.Add(Me.txt_id_departamento)
@@ -63,16 +65,16 @@ Partial Class abm_departamentos
         Me.grp_departamentos.TabStop = False
         Me.grp_departamentos.Text = "Datos"
         '
-        'cmb_buscar_nombre
+        'cmd_buscar_nombre
         '
-        Me.cmb_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmb_buscar_nombre.BackgroundImage"), System.Drawing.Image)
-        Me.cmb_buscar_nombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmb_buscar_nombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmb_buscar_nombre.Location = New System.Drawing.Point(295, 47)
-        Me.cmb_buscar_nombre.Name = "cmb_buscar_nombre"
-        Me.cmb_buscar_nombre.Size = New System.Drawing.Size(25, 25)
-        Me.cmb_buscar_nombre.TabIndex = 13
-        Me.cmb_buscar_nombre.UseVisualStyleBackColor = True
+        Me.cmd_buscar_nombre.BackgroundImage = CType(resources.GetObject("cmd_buscar_nombre.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_nombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_nombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_buscar_nombre.Location = New System.Drawing.Point(295, 47)
+        Me.cmd_buscar_nombre.Name = "cmd_buscar_nombre"
+        Me.cmd_buscar_nombre.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_buscar_nombre.TabIndex = 13
+        Me.cmd_buscar_nombre.UseVisualStyleBackColor = True
         '
         'cmd_buscar
         '
@@ -168,6 +170,25 @@ Partial Class abm_departamentos
         Me.descripcion.ReadOnly = True
         Me.descripcion.Width = 225
         '
+        'cmd_nuevo
+        '
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_nuevo.BackgroundImage = CType(resources.GetObject("cmd_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_nuevo.Location = New System.Drawing.Point(435, 16)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_nuevo.TabIndex = 8
+        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
         'cmd_salir
         '
         Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
@@ -175,10 +196,10 @@ Partial Class abm_departamentos
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(398, 338)
+        Me.cmd_salir.Location = New System.Drawing.Point(436, 339)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 10
+        Me.cmd_salir.TabIndex = 33
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_limpiar
@@ -191,11 +212,11 @@ Partial Class abm_departamentos
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_limpiar.Location = New System.Drawing.Point(407, 216)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(435, 220)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 9
+        Me.cmd_limpiar.TabIndex = 37
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -205,38 +226,19 @@ Partial Class abm_departamentos
         Me.cmd_guardar.BackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.BackgroundImage = CType(resources.GetObject("cmd_guardar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_guardar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_guardar.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.cmd_guardar.FlatAppearance.BorderSize = 0
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_guardar.Location = New System.Drawing.Point(407, 80)
+        Me.cmd_guardar.Location = New System.Drawing.Point(435, 84)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 6
+        Me.cmd_guardar.TabIndex = 34
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
-        '
-        'cmd_nuevo
-        '
-        Me.cmd_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_nuevo.BackgroundImage = CType(resources.GetObject("cmd_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_nuevo.Location = New System.Drawing.Point(407, 12)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 8
-        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
         'cmd_eliminar
         '
@@ -248,11 +250,11 @@ Partial Class abm_departamentos
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_eliminar.Location = New System.Drawing.Point(407, 148)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(435, 152)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_eliminar.TabIndex = 7
+        Me.cmd_eliminar.TabIndex = 35
         Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_eliminar.UseVisualStyleBackColor = False
@@ -263,12 +265,12 @@ Partial Class abm_departamentos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(490, 411)
-        Me.Controls.Add(Me.cmd_salir)
+        Me.ClientSize = New System.Drawing.Size(508, 411)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
-        Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.cmd_eliminar)
+        Me.Controls.Add(Me.cmd_salir)
+        Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.grp_departamentos)
         Me.KeyPreview = True
@@ -288,13 +290,14 @@ Partial Class abm_departamentos
     Friend WithEvents lbl_departamento As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dgv_departamentos As System.Windows.Forms.DataGridView
+    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
+    Friend WithEvents cmd_buscar As System.Windows.Forms.Button
+    Friend WithEvents cmd_buscar_nombre As System.Windows.Forms.Button
+    Friend WithEvents id_departamentos As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
-    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
-    Friend WithEvents cmd_buscar As System.Windows.Forms.Button
-    Friend WithEvents cmb_buscar_nombre As System.Windows.Forms.Button
-    Friend WithEvents id_departamentos As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tltp_departamentos As System.Windows.Forms.ToolTip
 End Class
