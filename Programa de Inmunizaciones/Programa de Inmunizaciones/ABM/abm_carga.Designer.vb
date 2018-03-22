@@ -23,8 +23,8 @@ Partial Class abm_carga
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_carga))
         Me.grp_grilla_carga = New System.Windows.Forms.GroupBox()
         Me.dgv_carga = New System.Windows.Forms.DataGridView()
@@ -66,21 +66,21 @@ Partial Class abm_carga
         Me.dgv_carga.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dgv_carga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_carga.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_carga, Me.descripcion})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_carga.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_carga.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_carga.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dgv_carga.Location = New System.Drawing.Point(9, 19)
         Me.dgv_carga.Name = "dgv_carga"
         Me.dgv_carga.ReadOnly = True
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        Me.dgv_carga.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.dgv_carga.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_carga.Size = New System.Drawing.Size(374, 254)
         Me.dgv_carga.TabIndex = 0
         '
@@ -254,7 +254,7 @@ Partial Class abm_carga
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(471, 419)
+        Me.ClientSize = New System.Drawing.Size(471, 389)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.grp_grilla_carga)
         Me.Controls.Add(Me.cmd_guardar)
