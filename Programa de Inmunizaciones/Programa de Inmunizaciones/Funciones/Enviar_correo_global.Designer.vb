@@ -47,7 +47,7 @@ Partial Class Enviar_correo_global
         Me.grp_datos.Controls.Add(Me.txt_asunto)
         Me.grp_datos.Controls.Add(Me.Label1)
         Me.grp_datos.Controls.Add(Me.lbl_descripcion)
-        Me.grp_datos.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_datos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.grp_datos.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos.Name = "grp_datos"
         Me.grp_datos.Size = New System.Drawing.Size(421, 78)
@@ -79,7 +79,7 @@ Partial Class Enviar_correo_global
         Me.txt_destinatario.Location = New System.Drawing.Point(99, 16)
         Me.txt_destinatario.Name = "txt_destinatario"
         Me.txt_destinatario.Size = New System.Drawing.Size(287, 20)
-        Me.txt_destinatario.TabIndex = 7
+        Me.txt_destinatario.TabIndex = 0
         Me.txt_destinatario.Text = ""
         '
         'txt_asunto
@@ -87,11 +87,12 @@ Partial Class Enviar_correo_global
         Me.txt_asunto.Location = New System.Drawing.Point(99, 45)
         Me.txt_asunto.Name = "txt_asunto"
         Me.txt_asunto.Size = New System.Drawing.Size(287, 20)
-        Me.txt_asunto.TabIndex = 5
+        Me.txt_asunto.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.Location = New System.Drawing.Point(5, 49)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
@@ -101,10 +102,11 @@ Partial Class Enviar_correo_global
         'lbl_descripcion
         '
         Me.lbl_descripcion.AutoSize = True
+        Me.lbl_descripcion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lbl_descripcion.Location = New System.Drawing.Point(4, 22)
         Me.lbl_descripcion.Name = "lbl_descripcion"
         Me.lbl_descripcion.Size = New System.Drawing.Size(63, 13)
-        Me.lbl_descripcion.TabIndex = 2
+        Me.lbl_descripcion.TabIndex = 0
         Me.lbl_descripcion.Text = "Destinatario"
         '
         'cmd_salir
@@ -143,7 +145,7 @@ Partial Class Enviar_correo_global
         '
         Me.grp_grilla_stock.BackColor = System.Drawing.Color.Transparent
         Me.grp_grilla_stock.Controls.Add(Me.txt_cuerpo)
-        Me.grp_grilla_stock.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.grp_grilla_stock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.grp_grilla_stock.Location = New System.Drawing.Point(12, 96)
         Me.grp_grilla_stock.Name = "grp_grilla_stock"
         Me.grp_grilla_stock.Size = New System.Drawing.Size(421, 279)
@@ -156,20 +158,20 @@ Partial Class Enviar_correo_global
         Me.txt_cuerpo.Location = New System.Drawing.Point(5, 19)
         Me.txt_cuerpo.Name = "txt_cuerpo"
         Me.txt_cuerpo.Size = New System.Drawing.Size(410, 239)
-        Me.txt_cuerpo.TabIndex = 6
+        Me.txt_cuerpo.TabIndex = 0
         Me.txt_cuerpo.Text = ""
         '
         'Enviar_correo_global
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BackgroundImage = Global.Programa_de_Inmunizaciones.My.Resources.Resources.vacu_logo_min
         Me.ClientSize = New System.Drawing.Size(445, 469)
         Me.Controls.Add(Me.grp_grilla_stock)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_enviar)
         Me.Controls.Add(Me.grp_datos)
+        Me.DoubleBuffered = True
         Me.Name = "Enviar_correo_global"
         Me.Text = "Envio de Mail"
         Me.grp_datos.ResumeLayout(False)
