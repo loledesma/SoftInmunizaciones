@@ -778,6 +778,9 @@
             End If
         End If
         limpiar_empleados()
+        cmb_tipos_documento.SelectedIndex = 0
+        txt_numero_doc.Focus()
+
     End Sub
 
     Private Sub cmd_eliminar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_empleado.Click
