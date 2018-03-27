@@ -80,6 +80,7 @@ Module Correo
     End Sub
 
     Sub EnviarCorreo(ByVal destinatario As String, ByVal text As String, ByVal asunto As String)
+        Dim contador As Integer = 0
         For Each mail As String In destinatario.Split(",")
             Try
                 correos.To.Clear()
@@ -141,7 +142,9 @@ Module Correo
                 envios.EnableSsl = True
 
                 envios.Send(correos)
-                MsgBox("El mensaje fue enviado correctamente. ", MsgBoxStyle.Information, "Mensaje")
+
+                contador = contador + 1
+
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Mensajeria 1.0 vb.net ®", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -149,8 +152,8 @@ Module Correo
 
 
         Next
+        MsgBox("Cantidad de correos enviados correctamente: " & contador)
 
-        
     End Sub
 
 End Module
