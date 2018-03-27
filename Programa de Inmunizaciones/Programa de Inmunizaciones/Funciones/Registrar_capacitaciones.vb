@@ -778,7 +778,7 @@
             End If
         End If
         limpiar_empleados()
-        cmb_tipos_documento.SelectedIndex = 1
+        cmb_tipos_documento.SelectedIndex = 0
         txt_numero_doc.Focus()
 
     End Sub
