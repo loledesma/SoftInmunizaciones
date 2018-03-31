@@ -28,6 +28,8 @@ Partial Class Registrar_efectores
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grp_datos_vacunatorio = New System.Windows.Forms.GroupBox()
+        Me.cmb_notifica = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.cmd_cadena_de_frio = New System.Windows.Forms.Button()
         Me.txt_referentes = New System.Windows.Forms.TextBox()
         Me.cmb_estado_rm = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -117,8 +119,6 @@ Partial Class Registrar_efectores
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_notificar = New System.Windows.Forms.Button()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.cmb_notifica = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -166,6 +166,26 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.TabStop = False
         Me.grp_datos_vacunatorio.Text = "Datos del vacunatorio  "
         '
+        'cmb_notifica
+        '
+        Me.cmb_notifica._descripcion = "descripcion"
+        Me.cmb_notifica._nombre_tabla = "TIPO_NOTIFICACION"
+        Me.cmb_notifica._pk = "id"
+        Me.cmb_notifica.FormattingEnabled = True
+        Me.cmb_notifica.Location = New System.Drawing.Point(113, 238)
+        Me.cmb_notifica.Name = "cmb_notifica"
+        Me.cmb_notifica.Size = New System.Drawing.Size(99, 21)
+        Me.cmb_notifica.TabIndex = 12
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(19, 241)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(43, 13)
+        Me.Label25.TabIndex = 34
+        Me.Label25.Text = "Notifica"
+        '
         'cmd_cadena_de_frio
         '
         Me.cmd_cadena_de_frio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -189,7 +209,7 @@ Partial Class Registrar_efectores
         Me.txt_referentes.Location = New System.Drawing.Point(111, 137)
         Me.txt_referentes.Name = "txt_referentes"
         Me.txt_referentes.Size = New System.Drawing.Size(384, 20)
-        Me.txt_referentes.TabIndex = 8
+        Me.txt_referentes.TabIndex = 7
         '
         'cmb_estado_rm
         '
@@ -200,7 +220,7 @@ Partial Class Registrar_efectores
         Me.cmb_estado_rm.Location = New System.Drawing.Point(345, 170)
         Me.cmb_estado_rm.Name = "cmb_estado_rm"
         Me.cmb_estado_rm.Size = New System.Drawing.Size(153, 21)
-        Me.cmb_estado_rm.TabIndex = 10
+        Me.cmb_estado_rm.TabIndex = 9
         '
         'Label17
         '
@@ -218,7 +238,7 @@ Partial Class Registrar_efectores
         Me.txt_pc.Location = New System.Drawing.Point(370, 111)
         Me.txt_pc.Name = "txt_pc"
         Me.txt_pc.Size = New System.Drawing.Size(125, 20)
-        Me.txt_pc.TabIndex = 7
+        Me.txt_pc.TabIndex = 6
         '
         'txt_heladera
         '
@@ -227,7 +247,7 @@ Partial Class Registrar_efectores
         Me.txt_heladera.Location = New System.Drawing.Point(129, 108)
         Me.txt_heladera.Name = "txt_heladera"
         Me.txt_heladera.Size = New System.Drawing.Size(112, 20)
-        Me.txt_heladera.TabIndex = 6
+        Me.txt_heladera.TabIndex = 5
         '
         'lbl_pc
         '
@@ -279,7 +299,7 @@ Partial Class Registrar_efectores
         Me.cmb_tipo_carga.Location = New System.Drawing.Point(345, 206)
         Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
         Me.cmb_tipo_carga.Size = New System.Drawing.Size(153, 21)
-        Me.cmb_tipo_carga.TabIndex = 12
+        Me.cmb_tipo_carga.TabIndex = 11
         '
         'Label15
         '
@@ -299,7 +319,7 @@ Partial Class Registrar_efectores
         Me.cmb_estado_efector.Location = New System.Drawing.Point(113, 205)
         Me.cmb_estado_efector.Name = "cmb_estado_efector"
         Me.cmb_estado_efector.Size = New System.Drawing.Size(159, 21)
-        Me.cmb_estado_efector.TabIndex = 11
+        Me.cmb_estado_efector.TabIndex = 10
         '
         'Label14
         '
@@ -319,7 +339,7 @@ Partial Class Registrar_efectores
         Me.cmb_tipos_efectores.Location = New System.Drawing.Point(111, 170)
         Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
         Me.cmb_tipos_efectores.Size = New System.Drawing.Size(194, 21)
-        Me.cmb_tipos_efectores.TabIndex = 9
+        Me.cmb_tipos_efectores.TabIndex = 8
         '
         'Label13
         '
@@ -353,14 +373,14 @@ Partial Class Registrar_efectores
         Me.txt_horarioDesde.Location = New System.Drawing.Point(325, 75)
         Me.txt_horarioDesde.Name = "txt_horarioDesde"
         Me.txt_horarioDesde.Size = New System.Drawing.Size(53, 20)
-        Me.txt_horarioDesde.TabIndex = 4
+        Me.txt_horarioDesde.TabIndex = 3
         '
         'txt_horarioHasta
         '
         Me.txt_horarioHasta.Location = New System.Drawing.Point(435, 77)
         Me.txt_horarioHasta.Name = "txt_horarioHasta"
         Me.txt_horarioHasta.Size = New System.Drawing.Size(61, 20)
-        Me.txt_horarioHasta.TabIndex = 5
+        Me.txt_horarioHasta.TabIndex = 4
         '
         'Label10
         '
@@ -377,7 +397,7 @@ Partial Class Registrar_efectores
         Me.txt_telefono.Mask = "99999999999"
         Me.txt_telefono.Name = "txt_telefono"
         Me.txt_telefono.Size = New System.Drawing.Size(100, 20)
-        Me.txt_telefono.TabIndex = 3
+        Me.txt_telefono.TabIndex = 2
         '
         'Label9
         '
@@ -508,7 +528,7 @@ Partial Class Registrar_efectores
         Me.txt_nombre.Location = New System.Drawing.Point(112, 49)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(322, 20)
-        Me.txt_nombre.TabIndex = 2
+        Me.txt_nombre.TabIndex = 1
         '
         'Label2
         '
@@ -570,7 +590,7 @@ Partial Class Registrar_efectores
         Me.txt_año_curso.Location = New System.Drawing.Point(339, 124)
         Me.txt_año_curso.Name = "txt_año_curso"
         Me.txt_año_curso.Size = New System.Drawing.Size(98, 20)
-        Me.txt_año_curso.TabIndex = 53
+        Me.txt_año_curso.TabIndex = 6
         '
         'Label24
         '
@@ -590,7 +610,7 @@ Partial Class Registrar_efectores
         Me.cmb_perfil.Location = New System.Drawing.Point(114, 156)
         Me.cmb_perfil.Name = "cmb_perfil"
         Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_perfil.TabIndex = 34
+        Me.cmb_perfil.TabIndex = 7
         '
         'Label23
         '
@@ -644,7 +664,7 @@ Partial Class Registrar_efectores
         Me.txt_nombres_empleado.Location = New System.Drawing.Point(114, 98)
         Me.txt_nombres_empleado.Name = "txt_nombres_empleado"
         Me.txt_nombres_empleado.Size = New System.Drawing.Size(325, 20)
-        Me.txt_nombres_empleado.TabIndex = 6
+        Me.txt_nombres_empleado.TabIndex = 4
         '
         'Label21
         '
@@ -678,7 +698,7 @@ Partial Class Registrar_efectores
         Me.cmb_estados_empleados.Location = New System.Drawing.Point(114, 124)
         Me.cmb_estados_empleados.Name = "cmb_estados_empleados"
         Me.cmb_estados_empleados.Size = New System.Drawing.Size(132, 21)
-        Me.cmb_estados_empleados.TabIndex = 7
+        Me.cmb_estados_empleados.TabIndex = 5
         '
         'Label3
         '
@@ -799,7 +819,7 @@ Partial Class Registrar_efectores
         Me.txt_apellido.Location = New System.Drawing.Point(114, 70)
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(325, 20)
-        Me.txt_apellido.TabIndex = 5
+        Me.txt_apellido.TabIndex = 3
         '
         'label16
         '
@@ -851,7 +871,7 @@ Partial Class Registrar_efectores
         Me.cmd_salir.Location = New System.Drawing.Point(1183, 635)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_salir.TabIndex = 5
+        Me.cmd_salir.TabIndex = 4
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_limpiar
@@ -868,7 +888,7 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_limpiar.TabIndex = 4
+        Me.cmd_limpiar.TabIndex = 2
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar.UseVisualStyleBackColor = False
@@ -887,7 +907,7 @@ Partial Class Registrar_efectores
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_guardar.TabIndex = 2
+        Me.cmd_guardar.TabIndex = 1
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_guardar.UseVisualStyleBackColor = False
@@ -906,7 +926,7 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_nuevo.TabIndex = 3
+        Me.cmd_nuevo.TabIndex = 0
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -1109,30 +1129,10 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_notificar.Name = "cmd_notificar"
         Me.cmd_notificar.Size = New System.Drawing.Size(60, 60)
-        Me.cmd_notificar.TabIndex = 56
+        Me.cmd_notificar.TabIndex = 3
         Me.cmd_notificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_notificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_notificar.UseVisualStyleBackColor = False
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(19, 241)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(43, 13)
-        Me.Label25.TabIndex = 34
-        Me.Label25.Text = "Notifica"
-        '
-        'cmb_notifica
-        '
-        Me.cmb_notifica._descripcion = "descripcion"
-        Me.cmb_notifica._nombre_tabla = "TIPO_NOTIFICACION"
-        Me.cmb_notifica._pk = "id"
-        Me.cmb_notifica.FormattingEnabled = True
-        Me.cmb_notifica.Location = New System.Drawing.Point(113, 238)
-        Me.cmb_notifica.Name = "cmb_notifica"
-        Me.cmb_notifica.Size = New System.Drawing.Size(99, 21)
-        Me.cmb_notifica.TabIndex = 35
         '
         'Registrar_efectores
         '

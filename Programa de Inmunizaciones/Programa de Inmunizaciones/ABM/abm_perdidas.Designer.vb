@@ -113,7 +113,7 @@ Partial Class abm_perdidas
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(327, 315)
+        Me.cmd_salir.Location = New System.Drawing.Point(549, 312)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 34
@@ -129,7 +129,7 @@ Partial Class abm_perdidas
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_limpiar.Location = New System.Drawing.Point(327, 217)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(549, 238)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
@@ -148,7 +148,7 @@ Partial Class abm_perdidas
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_guardar.Location = New System.Drawing.Point(327, 81)
+        Me.cmd_guardar.Location = New System.Drawing.Point(549, 84)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
@@ -167,7 +167,7 @@ Partial Class abm_perdidas
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_nuevo.Location = New System.Drawing.Point(327, 13)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(549, 10)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
@@ -186,7 +186,7 @@ Partial Class abm_perdidas
         Me.cmd_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_eliminar.Location = New System.Drawing.Point(327, 149)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(549, 158)
         Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(60, 60)
@@ -252,7 +252,7 @@ Partial Class abm_perdidas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(398, 384)
+        Me.ClientSize = New System.Drawing.Size(621, 384)
         Me.Controls.Add(Me.grp_grilla_stock)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)

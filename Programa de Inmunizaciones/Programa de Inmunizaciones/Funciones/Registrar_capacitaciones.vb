@@ -778,6 +778,9 @@
             End If
         End If
         limpiar_empleados()
+        cmb_tipos_documento.SelectedIndex = 0
+        txt_numero_doc.Focus()
+
     End Sub
 
     Private Sub cmd_eliminar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_empleado.Click
@@ -1130,5 +1133,21 @@
         Else
             MsgBox("Debe seleccionar una capacitacion")
         End If
+    End Sub
+
+    Private Sub cmd_enviar_correo_Click(sender As Object, e As EventArgs) Handles cmd_enviar_correo.Click
+        Dim c As Integer = 0
+        Dim destinatario As String = ""
+        For c = 0 To dgv_empleados.Rows.Count() - 1
+            If Me.dgv_empleados.Rows(c).Cells("mail").Value <> Nothing Then
+                If c = dgv_empleados.Rows.Count() - 1 Then
+                    destinatario += " " & Me.dgv_empleados.Rows(c).Cells("mail").Value
+                Else
+                    destinatario += " " & Me.dgv_empleados.Rows(c).Cells("mail").Value & ","
+                End If
+            End If
+        Next
+        Enviar_correo_global.txt_destinatario.Text = destinatario
+        Enviar_correo_global.ShowDialog()
     End Sub
 End Class
