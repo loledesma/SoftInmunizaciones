@@ -81,7 +81,7 @@ Partial Class abm_departamentos
         Me.cmd_buscar.BackgroundImage = CType(resources.GetObject("cmd_buscar.BackgroundImage"), System.Drawing.Image)
         Me.cmd_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_buscar.Location = New System.Drawing.Point(179, 19)
+        Me.cmd_buscar.Location = New System.Drawing.Point(295, 19)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar.TabIndex = 12

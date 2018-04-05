@@ -117,6 +117,7 @@ Partial Class Registrar_capacitaciones
         Me.certificado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.cmd_enviar_correo = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         Me.grp_buscar_empleado.SuspendLayout()
@@ -748,6 +749,7 @@ Partial Class Registrar_capacitaciones
         Me.Asistencia.BackColor = System.Drawing.Color.Transparent
         Me.Asistencia.BackgroundImage = CType(resources.GetObject("Asistencia.BackgroundImage"), System.Drawing.Image)
         Me.Asistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Asistencia.Controls.Add(Me.cmd_enviar_correo)
         Me.Asistencia.Controls.Add(Me.lbl_asistentes)
         Me.Asistencia.Controls.Add(Me.Label22)
         Me.Asistencia.Controls.Add(Me.GroupBox2)
@@ -1174,6 +1176,25 @@ Partial Class Registrar_capacitaciones
         Me.cmd_salir.TabIndex = 6
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
+        'cmd_enviar_correo
+        '
+        Me.cmd_enviar_correo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_enviar_correo.BackgroundImage = CType(resources.GetObject("cmd_enviar_correo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_enviar_correo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_enviar_correo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_enviar_correo.FlatAppearance.BorderSize = 0
+        Me.cmd_enviar_correo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_enviar_correo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_enviar_correo.Location = New System.Drawing.Point(807, 543)
+        Me.cmd_enviar_correo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
+        Me.cmd_enviar_correo.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_enviar_correo.TabIndex = 56
+        Me.cmd_enviar_correo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_enviar_correo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_enviar_correo.UseVisualStyleBackColor = False
+        '
         'Registrar_capacitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1295,4 +1316,5 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents realizoEvaluacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents certificado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_enviar_correo As System.Windows.Forms.Button
 End Class
