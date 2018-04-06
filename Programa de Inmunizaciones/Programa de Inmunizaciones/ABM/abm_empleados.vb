@@ -979,7 +979,7 @@
 
     Private Sub dgv_empleados_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_efectores.CellFormatting
 
-        Dim estado_empleado As String = Me.dgv_empleados.Rows(e.RowIndex).Cells("estado_empleado").Value
+        Dim estado_empleado As String = Me.dgv_efectores.Rows(e.RowIndex).Cells("estado_empleado").Value
 
 
         If estado_empleado = "BAJA" Then
