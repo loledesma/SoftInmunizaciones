@@ -977,6 +977,17 @@
         Registrar_efectores.ShowDialog()
     End Sub
 
+    Private Sub dgv_empleados_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_efectores.CellFormatting
+
+        Dim estado_empleado As String = Me.dgv_empleados.Rows(e.RowIndex).Cells("estado_empleado").Value
+
+
+        If estado_empleado = "BAJA" Then
+            e.CellStyle.BackColor = Color.RosyBrown
+        End If
+
+    End Sub
+
     Private Sub dgv_efectores_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv_efectores.CellMouseDoubleClick
         condicion_click = doble_Click.activado
         Dim tabla As DataTable
