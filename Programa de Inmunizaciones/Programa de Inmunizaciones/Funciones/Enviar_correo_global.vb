@@ -38,4 +38,6 @@
     Private Sub cmd_enviar_Click(sender As Object, e As EventArgs) Handles cmd_enviar.Click
         enviarCorreo(txt_destinatario.Text, txt_cuerpo.Text, txt_asunto.Text)
     End Sub
+
+  
 End Class

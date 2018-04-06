@@ -235,4 +235,8 @@ Public Class Menu
     Private Sub CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Click
         est_estado_cargaStockPerdidasXDpto.ShowDialog()
     End Sub
+
+    Private Sub cmd_enviar_correo_Click(sender As Object, e As EventArgs) Handles cmd_enviar_correo.Click
+        Enviar_correo_global.ShowDialog()
+    End Sub
 End Class
