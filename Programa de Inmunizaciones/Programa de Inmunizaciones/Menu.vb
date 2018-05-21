@@ -10,6 +10,11 @@ Public Class Menu
             verifCumple()
             verifTareas()
             back_up.ShowDialog()
+            If Ajustes_Pendientes.mostrar = True Then
+                Ajustes_Pendientes.ShowDialog()
+            Else
+                Exit Sub
+            End If
         End If
     End Sub
 

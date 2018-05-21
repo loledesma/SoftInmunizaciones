@@ -198,6 +198,12 @@
     <Compile Include="Funciones\Enviar_correo_global.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Popups\Ajustes Pendientes.Designer.vb">
+      <DependentUpon>Ajustes Pendientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Ajustes Pendientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Popups\back_up.Designer.vb">
       <DependentUpon>back_up.vb</DependentUpon>
     </Compile>
@@ -511,6 +517,9 @@
     <EmbeddedResource Include="Estadisticos\EST_EfXEstadoStock.rdlc" />
     <EmbeddedResource Include="Funciones\Enviar_correo_global.resx">
       <DependentUpon>Enviar_correo_global.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\Ajustes Pendientes.resx">
+      <DependentUpon>Ajustes Pendientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popups\back_up.resx">
       <DependentUpon>back_up.vb</DependentUpon>
