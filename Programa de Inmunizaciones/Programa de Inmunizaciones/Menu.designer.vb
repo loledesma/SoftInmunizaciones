@@ -95,7 +95,12 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_enviar_correo = New System.Windows.Forms.Button()
         Me.menu_programa_inmunizaciones.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'menu_programa_inmunizaciones
@@ -517,11 +522,57 @@ Partial Class Menu
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Name = "Label1"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.cmd_enviar_correo)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Button2, "Button2")
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button2.Name = "Button2"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'cmd_enviar_correo
+        '
+        Me.cmd_enviar_correo.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.cmd_enviar_correo, "cmd_enviar_correo")
+        Me.cmd_enviar_correo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_enviar_correo.FlatAppearance.BorderSize = 0
+        Me.cmd_enviar_correo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
+        Me.cmd_enviar_correo.UseVisualStyleBackColor = False
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.menu_programa_inmunizaciones)
         Me.DoubleBuffered = True
@@ -531,6 +582,7 @@ Partial Class Menu
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.menu_programa_inmunizaciones.ResumeLayout(False)
         Me.menu_programa_inmunizaciones.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -607,4 +659,8 @@ Partial Class Menu
     Friend WithEvents GestionarActividadesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EstadisticasToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents cmd_enviar_correo As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
