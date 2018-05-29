@@ -536,7 +536,7 @@
                 sql = ""
                 sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
                 sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
-                sql &= " WHERE EMP.nombres='" & Me.txt_nombres.Text & "' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
+                sql &= " WHERE EMP.nombres like '%" & Me.txt_nombres.Text & "%' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
                 sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)

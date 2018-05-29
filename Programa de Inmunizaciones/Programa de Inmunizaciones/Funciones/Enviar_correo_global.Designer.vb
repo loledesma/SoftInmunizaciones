@@ -25,6 +25,9 @@ Partial Class Enviar_correo_global
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Enviar_correo_global))
         Me.grp_datos = New System.Windows.Forms.GroupBox()
+        Me.txt_examinar = New System.Windows.Forms.Button()
+        Me.txt_adjuntos = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
         Me.txt_destinatario = New System.Windows.Forms.RichTextBox()
         Me.txt_asunto = New System.Windows.Forms.TextBox()
@@ -35,6 +38,7 @@ Partial Class Enviar_correo_global
         Me.grp_grilla_stock = New System.Windows.Forms.GroupBox()
         Me.txt_cuerpo = New System.Windows.Forms.RichTextBox()
         Me.tltp_perdidas = New System.Windows.Forms.ToolTip(Me.components)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.grp_datos.SuspendLayout()
         Me.grp_grilla_stock.SuspendLayout()
         Me.SuspendLayout()
@@ -42,6 +46,9 @@ Partial Class Enviar_correo_global
         'grp_datos
         '
         Me.grp_datos.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos.Controls.Add(Me.txt_examinar)
+        Me.grp_datos.Controls.Add(Me.txt_adjuntos)
+        Me.grp_datos.Controls.Add(Me.Label2)
         Me.grp_datos.Controls.Add(Me.cmd_empleado_nuevo)
         Me.grp_datos.Controls.Add(Me.txt_destinatario)
         Me.grp_datos.Controls.Add(Me.txt_asunto)
@@ -50,10 +57,36 @@ Partial Class Enviar_correo_global
         Me.grp_datos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.grp_datos.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos.Name = "grp_datos"
-        Me.grp_datos.Size = New System.Drawing.Size(421, 108)
+        Me.grp_datos.Size = New System.Drawing.Size(421, 135)
         Me.grp_datos.TabIndex = 0
         Me.grp_datos.TabStop = False
         Me.grp_datos.Text = "Datos"
+        '
+        'txt_examinar
+        '
+        Me.txt_examinar.Location = New System.Drawing.Point(361, 108)
+        Me.txt_examinar.Name = "txt_examinar"
+        Me.txt_examinar.Size = New System.Drawing.Size(25, 20)
+        Me.txt_examinar.TabIndex = 11
+        Me.txt_examinar.Text = "..."
+        Me.txt_examinar.UseVisualStyleBackColor = True
+        '
+        'txt_adjuntos
+        '
+        Me.txt_adjuntos.Location = New System.Drawing.Point(99, 108)
+        Me.txt_adjuntos.Name = "txt_adjuntos"
+        Me.txt_adjuntos.Size = New System.Drawing.Size(258, 20)
+        Me.txt_adjuntos.TabIndex = 10
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label2.Location = New System.Drawing.Point(6, 111)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "Archivos"
         '
         'cmd_empleado_nuevo
         '
@@ -93,7 +126,7 @@ Partial Class Enviar_correo_global
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(5, 86)
+        Me.Label1.Location = New System.Drawing.Point(6, 85)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 4
@@ -116,7 +149,7 @@ Partial Class Enviar_correo_global
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_salir.Location = New System.Drawing.Point(384, 450)
+        Me.cmd_salir.Location = New System.Drawing.Point(373, 450)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 34
@@ -132,7 +165,7 @@ Partial Class Enviar_correo_global
         Me.cmd_enviar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_enviar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmd_enviar.Location = New System.Drawing.Point(-3, 450)
+        Me.cmd_enviar.Location = New System.Drawing.Point(12, 450)
         Me.cmd_enviar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_enviar.Name = "cmd_enviar"
         Me.cmd_enviar.Size = New System.Drawing.Size(60, 60)
@@ -146,12 +179,12 @@ Partial Class Enviar_correo_global
         Me.grp_grilla_stock.BackColor = System.Drawing.Color.Transparent
         Me.grp_grilla_stock.Controls.Add(Me.txt_cuerpo)
         Me.grp_grilla_stock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.grp_grilla_stock.Location = New System.Drawing.Point(12, 126)
+        Me.grp_grilla_stock.Location = New System.Drawing.Point(12, 153)
         Me.grp_grilla_stock.Name = "grp_grilla_stock"
         Me.grp_grilla_stock.Size = New System.Drawing.Size(421, 279)
         Me.grp_grilla_stock.TabIndex = 35
         Me.grp_grilla_stock.TabStop = False
-        Me.grp_grilla_stock.Text = "Existentes"
+        Me.grp_grilla_stock.Text = "Cuerpos"
         '
         'txt_cuerpo
         '
@@ -160,6 +193,10 @@ Partial Class Enviar_correo_global
         Me.txt_cuerpo.Size = New System.Drawing.Size(410, 239)
         Me.txt_cuerpo.TabIndex = 0
         Me.txt_cuerpo.Text = ""
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'Enviar_correo_global
         '
@@ -191,4 +228,8 @@ Partial Class Enviar_correo_global
     Friend WithEvents txt_destinatario As System.Windows.Forms.RichTextBox
     Friend WithEvents txt_cuerpo As System.Windows.Forms.RichTextBox
     Friend WithEvents cmd_empleado_nuevo As System.Windows.Forms.Button
+    Friend WithEvents txt_adjuntos As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txt_examinar As System.Windows.Forms.Button
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 End Class
