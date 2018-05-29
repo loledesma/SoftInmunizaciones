@@ -198,10 +198,10 @@
     <Compile Include="Funciones\Enviar_correo_global.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popups\Ajustes Pendientes.Designer.vb">
-      <DependentUpon>Ajustes Pendientes.vb</DependentUpon>
+    <Compile Include="Popups\Ajustes_Pendientes.Designer.vb">
+      <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Popups\Ajustes Pendientes.vb">
+    <Compile Include="Popups\Ajustes_Pendientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Popups\back_up.Designer.vb">
@@ -518,8 +518,8 @@
     <EmbeddedResource Include="Funciones\Enviar_correo_global.resx">
       <DependentUpon>Enviar_correo_global.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popups\Ajustes Pendientes.resx">
-      <DependentUpon>Ajustes Pendientes.vb</DependentUpon>
+    <EmbeddedResource Include="Popups\Ajustes_Pendientes.resx">
+      <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popups\back_up.resx">
       <DependentUpon>back_up.vb</DependentUpon>

@@ -10,7 +10,7 @@ Public Class Menu
             verifCumple()
             verifTareas()
             back_up.ShowDialog()
-            If Ajustes_Pendientes.mostrar = True Then
+            If Ajustes_Pendientes.verificar() = True Then
                 Ajustes_Pendientes.ShowDialog()
             Else
                 Exit Sub
@@ -243,5 +243,13 @@ Public Class Menu
 
     Private Sub cmd_enviar_correo_Click(sender As Object, e As EventArgs) Handles cmd_enviar_correo.Click
         Enviar_correo_global.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Registrar_notificaciones.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Registrar_atencion.Show()
     End Sub
 End Class

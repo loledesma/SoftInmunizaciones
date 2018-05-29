@@ -24,11 +24,12 @@ Partial Class Ajustes_Pendientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Ajustes_Pendientes))
         Me.dgv_atenc_pendientes = New System.Windows.Forms.DataGridView()
+        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_aceptar = New System.Windows.Forms.Button()
         Me.txt_atenciones = New System.Windows.Forms.Button()
-        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgv_atenc_pendientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,6 +42,18 @@ Partial Class Ajustes_Pendientes
         resources.ApplyResources(Me.dgv_atenc_pendientes, "dgv_atenc_pendientes")
         Me.dgv_atenc_pendientes.Name = "dgv_atenc_pendientes"
         Me.dgv_atenc_pendientes.ReadOnly = True
+        '
+        'cuie
+        '
+        resources.ApplyResources(Me.cuie, "cuie")
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        '
+        'nombre_efector
+        '
+        resources.ApplyResources(Me.nombre_efector, "nombre_efector")
+        Me.nombre_efector.Name = "nombre_efector"
+        Me.nombre_efector.ReadOnly = True
         '
         'Label1
         '
@@ -63,22 +76,19 @@ Partial Class Ajustes_Pendientes
         Me.txt_atenciones.Name = "txt_atenciones"
         Me.txt_atenciones.UseVisualStyleBackColor = False
         '
-        'cuie
+        'Button1
         '
-        resources.ApplyResources(Me.cuie, "cuie")
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        '
-        'nombre_efector
-        '
-        resources.ApplyResources(Me.nombre_efector, "nombre_efector")
-        Me.nombre_efector.Name = "nombre_efector"
-        Me.nombre_efector.ReadOnly = True
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Ajustes_Pendientes
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txt_atenciones)
         Me.Controls.Add(Me.txt_aceptar)
         Me.Controls.Add(Me.Label1)
@@ -95,4 +105,5 @@ Partial Class Ajustes_Pendientes
     Friend WithEvents txt_atenciones As System.Windows.Forms.Button
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
