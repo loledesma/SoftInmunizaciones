@@ -96,9 +96,9 @@ Partial Class Menu
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cmd_enviar_correo = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_enviar_correo = New System.Windows.Forms.Button()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -534,16 +534,16 @@ Partial Class Menu
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
-        'cmd_enviar_correo
+        'Button2
         '
-        Me.cmd_enviar_correo.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.cmd_enviar_correo, "cmd_enviar_correo")
-        Me.cmd_enviar_correo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_enviar_correo.FlatAppearance.BorderSize = 0
-        Me.cmd_enviar_correo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
-        Me.cmd_enviar_correo.UseVisualStyleBackColor = False
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Button2, "Button2")
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button2.Name = "Button2"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -556,16 +556,16 @@ Partial Class Menu
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Button2
+        'cmd_enviar_correo
         '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.Button2, "Button2")
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.Button2.Name = "Button2"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.cmd_enviar_correo.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.cmd_enviar_correo, "cmd_enviar_correo")
+        Me.cmd_enviar_correo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_enviar_correo.FlatAppearance.BorderSize = 0
+        Me.cmd_enviar_correo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
+        Me.cmd_enviar_correo.UseVisualStyleBackColor = False
         '
         'Menu
         '
