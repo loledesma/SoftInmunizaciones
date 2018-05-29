@@ -1109,6 +1109,16 @@
     '    Me.condicion_estado = estado.modificar
     'End Sub
 
+    Private Sub dgv_empleados_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgv_empleados.CellFormatting
+
+        Dim estado_empleado As String = Me.dgv_empleados.Rows(e.RowIndex).Cells("estado_empleado").Value
+
+
+        If estado_empleado = "BAJA" Then
+            e.CellStyle.BackColor = Color.RosyBrown
+        End If
+
+    End Sub
     Private Sub cmd_buscar_cuie_Click(sender As Object, e As EventArgs) Handles cmd_buscar_cuie.Click
         Dim sql As String = ""
         Dim tabla As New DataTable

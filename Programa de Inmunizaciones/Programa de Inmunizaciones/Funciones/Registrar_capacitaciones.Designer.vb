@@ -82,6 +82,7 @@ Partial Class Registrar_capacitaciones
         Me.lbl_perfil = New System.Windows.Forms.Label()
         Me.lbl_perdidas = New System.Windows.Forms.Label()
         Me.Asistencia = New System.Windows.Forms.TabPage()
+        Me.cmd_enviar_correo = New System.Windows.Forms.Button()
         Me.lbl_asistentes = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -90,14 +91,10 @@ Partial Class Registrar_capacitaciones
         Me.cmd_guardar_asistencia = New System.Windows.Forms.Button()
         Me.cmd_nueva_asistencia = New System.Windows.Forms.Button()
         Me.grp_datos_empleados = New System.Windows.Forms.GroupBox()
-        Me.txt_certificado = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txt_realizoEvaluacion = New System.Windows.Forms.TextBox()
         Me.cmd_actualizar_sigipsa = New System.Windows.Forms.Button()
         Me.txt_nombres_empleado = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_id_empleado = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.cmd_limpiar_empleados = New System.Windows.Forms.Button()
@@ -111,7 +108,6 @@ Partial Class Registrar_capacitaciones
         Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
-        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -121,6 +117,7 @@ Partial Class Registrar_capacitaciones
         Me.realizoEvaluacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.certificado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.Capacitacion.SuspendLayout()
         Me.grp_buscar_empleado.SuspendLayout()
@@ -306,7 +303,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_buscar_capas_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_capas_empleado.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_capas_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_capas_empleado.Location = New System.Drawing.Point(803, 25)
+        Me.cmd_buscar_capas_empleado.Location = New System.Drawing.Point(806, 25)
         Me.cmd_buscar_capas_empleado.Name = "cmd_buscar_capas_empleado"
         Me.cmd_buscar_capas_empleado.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_capas_empleado.TabIndex = 4
@@ -450,7 +447,7 @@ Partial Class Registrar_capacitaciones
         '
         Me.txt_descripcion.Location = New System.Drawing.Point(8, 19)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(374, 86)
+        Me.txt_descripcion.Size = New System.Drawing.Size(387, 86)
         Me.txt_descripcion.TabIndex = 0
         Me.txt_descripcion.Text = ""
         '
@@ -470,7 +467,7 @@ Partial Class Registrar_capacitaciones
         '
         Me.txt_observaciones.Location = New System.Drawing.Point(8, 20)
         Me.txt_observaciones.Name = "txt_observaciones"
-        Me.txt_observaciones.Size = New System.Drawing.Size(376, 51)
+        Me.txt_observaciones.Size = New System.Drawing.Size(386, 51)
         Me.txt_observaciones.TabIndex = 0
         Me.txt_observaciones.Text = ""
         '
@@ -752,6 +749,7 @@ Partial Class Registrar_capacitaciones
         Me.Asistencia.BackColor = System.Drawing.Color.Transparent
         Me.Asistencia.BackgroundImage = CType(resources.GetObject("Asistencia.BackgroundImage"), System.Drawing.Image)
         Me.Asistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Asistencia.Controls.Add(Me.cmd_enviar_correo)
         Me.Asistencia.Controls.Add(Me.lbl_asistentes)
         Me.Asistencia.Controls.Add(Me.Label22)
         Me.Asistencia.Controls.Add(Me.GroupBox2)
@@ -766,6 +764,25 @@ Partial Class Registrar_capacitaciones
         Me.Asistencia.Size = New System.Drawing.Size(891, 643)
         Me.Asistencia.TabIndex = 1
         Me.Asistencia.Text = "Asistencia"
+        '
+        'cmd_enviar_correo
+        '
+        Me.cmd_enviar_correo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_enviar_correo.BackgroundImage = CType(resources.GetObject("cmd_enviar_correo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_enviar_correo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_enviar_correo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_enviar_correo.FlatAppearance.BorderSize = 0
+        Me.cmd_enviar_correo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_enviar_correo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_enviar_correo.Location = New System.Drawing.Point(807, 543)
+        Me.cmd_enviar_correo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
+        Me.cmd_enviar_correo.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_enviar_correo.TabIndex = 56
+        Me.cmd_enviar_correo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_enviar_correo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_enviar_correo.UseVisualStyleBackColor = False
         '
         'lbl_asistentes
         '
@@ -870,14 +887,10 @@ Partial Class Registrar_capacitaciones
         'grp_datos_empleados
         '
         Me.grp_datos_empleados.BackColor = System.Drawing.Color.Transparent
-        Me.grp_datos_empleados.Controls.Add(Me.txt_certificado)
-        Me.grp_datos_empleados.Controls.Add(Me.Label12)
-        Me.grp_datos_empleados.Controls.Add(Me.txt_realizoEvaluacion)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_actualizar_sigipsa)
         Me.grp_datos_empleados.Controls.Add(Me.txt_nombres_empleado)
         Me.grp_datos_empleados.Controls.Add(Me.Label21)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_buscar_empleadoXDNI)
-        Me.grp_datos_empleados.Controls.Add(Me.Label7)
         Me.grp_datos_empleados.Controls.Add(Me.txt_id_empleado)
         Me.grp_datos_empleados.Controls.Add(Me.Label20)
         Me.grp_datos_empleados.Controls.Add(Me.cmd_limpiar_empleados)
@@ -897,34 +910,6 @@ Partial Class Registrar_capacitaciones
         Me.grp_datos_empleados.TabIndex = 2
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
-        '
-        'txt_certificado
-        '
-        Me.txt_certificado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_certificado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_certificado.Location = New System.Drawing.Point(339, 124)
-        Me.txt_certificado.Name = "txt_certificado"
-        Me.txt_certificado.Size = New System.Drawing.Size(100, 20)
-        Me.txt_certificado.TabIndex = 30
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(246, 129)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(87, 13)
-        Me.Label12.TabIndex = 29
-        Me.Label12.Text = "Tiene Certificado"
-        '
-        'txt_realizoEvaluacion
-        '
-        Me.txt_realizoEvaluacion.AutoCompleteCustomSource.AddRange(New String() {"Si", "No"})
-        Me.txt_realizoEvaluacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_realizoEvaluacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_realizoEvaluacion.Location = New System.Drawing.Point(114, 124)
-        Me.txt_realizoEvaluacion.Name = "txt_realizoEvaluacion"
-        Me.txt_realizoEvaluacion.Size = New System.Drawing.Size(126, 20)
-        Me.txt_realizoEvaluacion.TabIndex = 7
         '
         'cmd_actualizar_sigipsa
         '
@@ -969,15 +954,6 @@ Partial Class Registrar_capacitaciones
         Me.cmd_buscar_empleadoXDNI.TabIndex = 3
         Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(16, 129)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(98, 13)
-        Me.Label7.TabIndex = 27
-        Me.Label7.Text = "Realizo Evaluacion"
-        '
         'txt_id_empleado
         '
         Me.txt_id_empleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -1006,7 +982,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_limpiar_empleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_empleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar_empleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(417, 157)
+        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(411, 133)
         Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_empleados.Name = "cmd_limpiar_empleados"
         Me.cmd_limpiar_empleados.Size = New System.Drawing.Size(25, 25)
@@ -1025,7 +1001,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(480, 157)
+        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(474, 133)
         Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
         Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(25, 25)
@@ -1044,7 +1020,7 @@ Partial Class Registrar_capacitaciones
         Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(449, 157)
+        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(443, 133)
         Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
         Me.cmd_agregar_empleado.Size = New System.Drawing.Size(25, 25)
@@ -1152,21 +1128,9 @@ Partial Class Registrar_capacitaciones
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgv_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_empleados.Size = New System.Drawing.Size(847, 245)
         Me.dgv_empleados.TabIndex = 1
-        '
-        'cmd_salir
-        '
-        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_salir.FlatAppearance.BorderSize = 0
-        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(846, 684)
-        Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(59, 53)
-        Me.cmd_salir.TabIndex = 6
-        Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'id
         '
@@ -1218,6 +1182,19 @@ Partial Class Registrar_capacitaciones
         '
         Me.observaciones.HeaderText = "observaciones"
         Me.observaciones.Name = "observaciones"
+        '
+        'cmd_salir
+        '
+        Me.cmd_salir.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_salir.BackgroundImage = CType(resources.GetObject("cmd_salir.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_salir.FlatAppearance.BorderSize = 0
+        Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_salir.Location = New System.Drawing.Point(846, 684)
+        Me.cmd_salir.Name = "cmd_salir"
+        Me.cmd_salir.Size = New System.Drawing.Size(59, 53)
+        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'Registrar_capacitaciones
         '
@@ -1291,7 +1268,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents txt_nombres_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents cmd_buscar_empleadoXDNI As System.Windows.Forms.Button
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txt_id_empleado As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents cmd_limpiar_empleados As System.Windows.Forms.Button
@@ -1309,7 +1285,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents cmd_nueva_asistencia As System.Windows.Forms.Button
     Friend WithEvents cmb_departamento As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txt_realizoEvaluacion As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents txt_observaciones2 As System.Windows.Forms.RichTextBox
     Friend WithEvents cmd_actualizar_estado As System.Windows.Forms.Button
@@ -1333,8 +1308,6 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cmd_invitaciones As System.Windows.Forms.Button
     Friend WithEvents cmd_actividades As System.Windows.Forms.Button
-    Friend WithEvents txt_certificado As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents numero As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1344,4 +1317,5 @@ Partial Class Registrar_capacitaciones
     Friend WithEvents realizoEvaluacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents certificado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_enviar_correo As System.Windows.Forms.Button
 End Class

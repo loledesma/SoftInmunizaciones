@@ -349,8 +349,8 @@
         End If
 
         sql = ""
-        sql &= "SELECT DISTINCT A.realizoEvaluacion As realizoEvaluacion, E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
-        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, A.id_empleado As id_empleado, A.observaciones As observaciones, A.certificado as certificado "
+        sql &= "SELECT DISTINCT E.nombres As nombre_empleado, E.apellidos As apellido_empleado "
+        sql &= ", E.id_tipo_doc As tipo_doc, E.nro_doc As nro_doc, A.id_empleado As id_empleado, A.observaciones As observaciones "
         sql &= " FROM ASISTENCIA A JOIN EMPLEADOS E ON A.id_empleado = E.id "
         sql &= " JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
         sql &= " WHERE A.id_capacitacion= " & Me.txt_id_capacitacion.Text
@@ -377,8 +377,7 @@
                 dgv_empleados.Rows(c).Cells("numero").Value = tabla.Rows(c)("nro_doc")
                 dgv_empleados.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombre_empleado")
                 dgv_empleados.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellido_empleado")
-                dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = tabla.Rows(c)("realizoEvaluacion")
-                dgv_empleados.Rows(c).Cells("certificado").Value = tabla.Rows(c)("certificado")
+
 
                 If IsDBNull(tabla.Rows(c)("observaciones")) = False Then
                     dgv_empleados.Rows(c).Cells("observaciones").Value = tabla.Rows(c)("observaciones")
@@ -431,14 +430,7 @@
         End If
 
         Me.txt_id_empleado.Text = tabla2.Rows(0)("id_empleado")
-        Me.txt_realizoEvaluacion.Text = tabla2.Rows(0)("realizoEvaluacion")
-
-        If IsDBNull(tabla2.Rows(0)("certificado")) Then
-            Me.txt_certificado.Text = ""
-        Else
-            Me.txt_certificado.Text = tabla2.Rows(0)("certificado")
-        End If
-
+      
 
         If IsDBNull(tabla2.Rows(0)("observaciones")) Then
             Me.txt_observaciones2.Text = ""
@@ -690,9 +682,7 @@
         Me.txt_id_empleado.Text = ""
         Me.txt_nombres_empleado.Text = ""
         Me.txt_apellido_empleado.Text = ""
-        Me.txt_realizoEvaluacion.Text = ""
         Me.txt_observaciones2.Text = ""
-        Me.txt_certificado.Text = ""
     End Sub
 
     Private Function validar_empleado() As Boolean
@@ -721,11 +711,6 @@
             cmb_tipos_documento.Focus()
             Return False
             Exit Function
-        ElseIf txt_certificado.Text = "" Then
-            MessageBox.Show("¡Debe ingresar si recibio el certificado SI O NO!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_certificado.Focus()
-            Return False
-            Exit Function
         End If
         Return True
     End Function
@@ -746,8 +731,7 @@
                         dgv_empleados.Rows(c).Cells("numero").Value = txt_numero_doc.Text
                         dgv_empleados.Rows(c).Cells("nombres").Value = txt_nombres_empleado.Text
                         dgv_empleados.Rows(c).Cells("apellidos").Value = txt_apellido_empleado.Text
-                        dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                        dgv_empleados.Rows(c).Cells("certificado").Value = txt_certificado.Text
+              
 
                         If txt_observaciones2.Text <> "" Then
                             dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
@@ -774,8 +758,7 @@
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("numero").Value = Me.txt_numero_doc.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("nombres").Value = txt_nombres_empleado.Text
                     dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("apellidos").Value = txt_apellido_empleado.Text
-                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("realizoEvaluacion").Value = txt_realizoEvaluacion.Text
-                    dgv_empleados.Rows(dgv_empleados.Rows.Count - 1).Cells("certificado").Value = txt_certificado.Text
+     
 
                     If txt_observaciones2.Text <> "" Then
                         dgv_empleados.Rows(c).Cells("observaciones").Value = txt_observaciones2.Text
@@ -795,6 +778,9 @@
             End If
         End If
         limpiar_empleados()
+        cmb_tipos_documento.SelectedIndex = 0
+        txt_numero_doc.Focus()
+
     End Sub
 
     Private Sub cmd_eliminar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_empleado.Click
@@ -811,8 +797,6 @@
         txt_numero_doc.Text = ""
         txt_apellido_empleado.Text = ""
         txt_nombres_empleado.Text = ""
-        txt_realizoEvaluacion.Text = ""
-        txt_certificado.Text = ""
         txt_observaciones2.Text = ""
         Me.txt_id_empleado.Text = ""
         Me.cmb_tipos_documento.SelectedValue = -1
@@ -913,15 +897,12 @@
         For c = 0 To dgv_empleados.Rows.Count() - 1
             If validar_existencia_empleado(Me.dgv_empleados.Rows(c).Cells("id").Value) = analizar_existencia.existe Then
                 Sql = ""
-                Sql = "UPDATE ASISTENCIA"
-                Sql &= " SET realizoEvaluacion ='" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value & "'"
-
-                Sql &= " ,certificado ='" & Me.dgv_empleados.Rows(c).Cells("certificado").Value & "'"
+                Sql = "UPDATE ASISTENCIA SET " 
 
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
-                    Sql &= ", observaciones= NULL"
+                    Sql &= " observaciones= NULL"
                 Else
-                    Sql &= ", observaciones='" & Me.dgv_empleados.Rows(c).Cells("observaciones").Value & "'"
+                    Sql &= " observaciones='" & Me.dgv_empleados.Rows(c).Cells("observaciones").Value & "'"
                 End If
 
                 Sql &= " WHERE id_capacitacion =" & Me.txt_id_capacitacion.Text
@@ -933,8 +914,7 @@
                 Sql = ""
                 Sql &= "id_capacitacion = " & Me.txt_id_capacitacion.Text
                 Sql &= ", id_empleado =" & dgv_empleados.Rows(c).Cells("id").Value
-                Sql &= ", realizoEvaluacion=" & Me.dgv_empleados.Rows(c).Cells("realizoEvaluacion").Value
-                Sql &= " ,certificado =" & Me.dgv_empleados.Rows(c).Cells("certificado").Value
+
 
                 If IsNothing(Me.dgv_empleados.Rows(c).Cells("observaciones").Value) Then
                     Sql &= ", observaciones= NULL "
@@ -951,7 +931,7 @@
 
     Private Sub cmd_nueva_asistencia_Click(sender As Object, e As EventArgs) Handles cmd_nueva_asistencia.Click
         Me.limpiar(Me.Controls)
-        Me.txt_realizoEvaluacion.Text = ""
+
         Me.txt_observaciones2.Text = ""
 
         If txt_id_capacitacion.Text = "" Then
@@ -1153,5 +1133,30 @@
         Else
             MsgBox("Debe seleccionar una capacitacion")
         End If
+    End Sub
+
+    Private Sub cmd_enviar_correo_Click(sender As Object, e As EventArgs) Handles cmd_enviar_correo.Click
+        Dim c As Integer = 0
+        Dim destinatario As String = ""
+        Dim Seleccionadas As DataGridViewSelectedRowCollection = dgv_empleados.SelectedRows()
+
+        Dim d As Integer = Seleccionadas.Count() - 1
+        For Each variable As DataGridViewRow In Seleccionadas
+            If d <> 0 Then
+                If variable.Cells("mail").Value <> Nothing Then
+                    destinatario += " " & variable.Cells("mail").Value & ","
+                End If
+            Else
+                If variable.Cells("mail").Value <> Nothing Then
+                    destinatario += " " & variable.Cells("mail").Value
+                End If
+            End If
+            d = d - 1
+        Next
+
+
+
+        Enviar_correo_global.txt_destinatario.Text = destinatario
+        Enviar_correo_global.ShowDialog()
     End Sub
 End Class

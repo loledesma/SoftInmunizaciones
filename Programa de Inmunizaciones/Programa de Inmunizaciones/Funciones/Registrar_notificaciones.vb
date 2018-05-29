@@ -536,7 +536,7 @@
                 sql = ""
                 sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
                 sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
-                sql &= " WHERE EMP.nombres='" & Me.txt_nombres.Text & "' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
+                sql &= " WHERE EMP.nombres like '%" & Me.txt_nombres.Text & "%' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
                 sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)
@@ -579,14 +579,13 @@
                 sql &= "SELECT * FROM ATENCION_SOPORTE A "
                 sql &= " JOIN ASUNTO_ATENCIONES AA ON A.id_asunto = AA.id"
                 sql &= " WHERE A.id_efector = '" & Me.txt_cuie.Text & "'"
-                sql &= " AND AA.descripcion LIKE 'LICENCIA%'"
                 tabla.Clear()
                 tabla = acceso.consulta(sql)
 
                 If tabla.Rows.Count() <> 0 Then
-                    txt_atenciones.Text = "EL EFECTOR TIENE LICENCIAS REGISTRADAS"
+                    txt_atenciones.Text = "EL EFECTOR TIENE ATENCIONES"
                 Else
-                    txt_atenciones.Text = "NO HAY LICENCIAS REGISTRADAS"
+                    txt_atenciones.Text = "NO HAY ATENCIONES REGISTRADAS"
                 End If
 
                 sql = ""
@@ -650,15 +649,14 @@
             Else
 
                 sql = ""
-                sql &= "SELECT * FROM ATENCION_SOPORTE A JOIN ASUNTO_ATENCIONES AA ON A.id_asunto = AA.id"
+                sql &= "SELECT * FROM ATENCION_SOPORTE A"
                 sql &= " WHERE A.id_efector = '" & Me.txt_cuie.Text & "'"
-                sql &= " AND AA.descripcion LIKE 'LICENCIA%'"
                 sql &= " AND A.fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
-                    txt_atenciones.Text = "EL EFECTOR TIENE LICENCIAS REGISTRADAS EN EL PERIODO"
+                    txt_atenciones.Text = "EL EFECTOR TIENE ATENCIONES REGISTRADAS EN EL PERIODO"
                 Else
-                    txt_atenciones.Text = "NO HAY LICENCIAS REGISTRADAS"
+                    txt_atenciones.Text = "NO HAY ATENCIONES REGISTRADAS"
                 End If
 
                 sql = ""

@@ -10,6 +10,11 @@ Public Class Menu
             verifCumple()
             verifTareas()
             back_up.ShowDialog()
+            If Ajustes_Pendientes.verificar() = True Then
+                Ajustes_Pendientes.ShowDialog()
+            Else
+                Exit Sub
+            End If
         End If
     End Sub
 
@@ -234,5 +239,17 @@ Public Class Menu
 
     Private Sub CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Click
         est_estado_cargaStockPerdidasXDpto.ShowDialog()
+    End Sub
+
+    Private Sub cmd_enviar_correo_Click(sender As Object, e As EventArgs) Handles cmd_enviar_correo.Click
+        Enviar_correo_global.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Registrar_notificaciones.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Registrar_atencion.Show()
     End Sub
 End Class
