@@ -268,13 +268,13 @@
             cmb_estado_atencion.Focus()
             Return False
             Exit Function
-        ElseIf txt_fecha.Text > hoy Then
-            MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_fecha.Focus()
-            Exit Function
+            'ElseIf txt_fecha.Text > hoy Then
+            '    MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    Return False
+            '    Me.txt_fecha.Focus()
+            '    Exit Function
         ElseIf IsDate(txt_fecha.Text) = False Then
-            MessageBox.Show("Debe ingresar una fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Debe ingresar una fecha!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_fecha.Focus()
             Exit Function
