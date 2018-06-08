@@ -198,6 +198,11 @@
     <Compile Include="Funciones\Enviar_correo_global.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Popups\Ajustes_Pendientes.Designer.vb">
       <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
     </Compile>
@@ -474,11 +479,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -759,9 +759,12 @@
     <None Include="Resources\customer_person_people_woman_you_1627.png" />
     <None Include="Resources\Client_Female_Light.png" />
     <None Include="Resources\4.png" />
+    <None Include="Resources\vacu_logo_min.png" />
     <None Include="Resources\3.jpg" />
     <None Include="Resources\2.png" />
-    <None Include="Resources\vacu_logo_min.png" />
+    <None Include="Resources\7.png" />
+    <None Include="Resources\5.png" />
+    <None Include="Resources\6.png" />
     <Content Include="Resources\Cartel cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
