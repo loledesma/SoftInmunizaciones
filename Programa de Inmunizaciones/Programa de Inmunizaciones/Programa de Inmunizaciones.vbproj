@@ -198,6 +198,18 @@
     <Compile Include="Funciones\Enviar_correo_global.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Registro_de_reportes.Designer.vb">
+      <DependentUpon>Registro_de_reportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registro_de_reportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_reportesSemestrales.Designer.vb">
+      <DependentUpon>list_reportesSemestrales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_reportesSemestrales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -518,6 +530,10 @@
     <EmbeddedResource Include="Funciones\Enviar_correo_global.resx">
       <DependentUpon>Enviar_correo_global.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registro_de_reportes.resx">
+      <DependentUpon>Registro_de_reportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_reportesSemestrales.rdlc" />
     <EmbeddedResource Include="Popups\Ajustes_Pendientes.resx">
       <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
     </EmbeddedResource>
