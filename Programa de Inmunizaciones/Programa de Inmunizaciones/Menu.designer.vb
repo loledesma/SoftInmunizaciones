@@ -99,6 +99,7 @@ Partial Class Menu
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmd_enviar_correo = New System.Windows.Forms.Button()
+        Me.RegistroDeReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -113,7 +114,7 @@ Partial Class Menu
         '
         'ToolStripMenuItem1
         '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecordatoriosToolStripMenuItem1, Me.NotificacionesToolStripMenuItem, Me.CapacitacionesToolStripMenuItem, Me.AtencionesToolStripMenuItem, Me.DesarrollosSigipsaToolStripMenuItem})
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecordatoriosToolStripMenuItem1, Me.NotificacionesToolStripMenuItem, Me.CapacitacionesToolStripMenuItem, Me.AtencionesToolStripMenuItem, Me.DesarrollosSigipsaToolStripMenuItem, Me.RegistroDeReportesToolStripMenuItem})
         resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         '
@@ -567,6 +568,11 @@ Partial Class Menu
         Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
         Me.cmd_enviar_correo.UseVisualStyleBackColor = False
         '
+        'RegistroDeReportesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.RegistroDeReportesToolStripMenuItem, "RegistroDeReportesToolStripMenuItem")
+        Me.RegistroDeReportesToolStripMenuItem.Name = "RegistroDeReportesToolStripMenuItem"
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -663,4 +669,5 @@ Partial Class Menu
     Friend WithEvents cmd_enviar_correo As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents RegistroDeReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -252,4 +252,8 @@ Public Class Menu
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Registrar_atencion.Show()
     End Sub
+
+    Private Sub RegistroDeReportesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeReportesToolStripMenuItem.Click
+        Registro_de_reportes.Show()
+    End Sub
 End Class
