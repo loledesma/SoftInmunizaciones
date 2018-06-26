@@ -289,7 +289,7 @@ Partial Class Registrar_atencion
         Me.dgv_atenciones.Location = New System.Drawing.Point(443, 12)
         Me.dgv_atenciones.Name = "dgv_atenciones"
         Me.dgv_atenciones.ReadOnly = True
-        Me.dgv_atenciones.Size = New System.Drawing.Size(656, 515)
+        Me.dgv_atenciones.Size = New System.Drawing.Size(668, 515)
         Me.dgv_atenciones.TabIndex = 7
         '
         'id
