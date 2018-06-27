@@ -65,7 +65,6 @@ Public Class acceso_datos
     End Sub
 
     Private Function conectar() As resultado
-
         If conexion.state.ToString <> "Open" Then
             If validacion_conexion = conexion_hamachi.vacio Then
                 conexion.ConnectionString = cadena_conexion
