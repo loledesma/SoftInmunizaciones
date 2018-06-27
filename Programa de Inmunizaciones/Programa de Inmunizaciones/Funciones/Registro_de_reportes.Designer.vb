@@ -22,19 +22,40 @@ Partial Class Registro_de_reportes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registro_de_reportes))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.txt_responsable = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmd_confirmar_reportes = New System.Windows.Forms.Button()
         Me.cmd_eliminar_reporte = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgv_reportes = New System.Windows.Forms.DataGridView()
+        Me.efectorTerminado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cuieTerminado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.notificaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emision_resumen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tiempo_notificacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Reporte = New System.Windows.Forms.GroupBox()
+        Me.lbl_notificoOk = New System.Windows.Forms.Label()
+        Me.cmd_notificaciones = New System.Windows.Forms.Button()
         Me.cmd_agregar_reporte = New System.Windows.Forms.Button()
         Me.txt_observaciones = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_emite_resumen = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tiempo_notificacion = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -48,30 +69,11 @@ Partial Class Registro_de_reportes
         Me.cmd_buscar_añoYsemestre = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmd_notificaciones = New System.Windows.Forms.Button()
-        Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_emite_resumen = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_tiempo_notificacion = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_semestre_reporte = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_año_reporte = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.lbl_notificoOk = New System.Windows.Forms.Label()
-        Me.efectorTerminado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cuieTerminado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.notificaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.carga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.perdidas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.emision_resumen = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tiempo_notificacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.observaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Reporte.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgv_vacunatorios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,7 +86,7 @@ Partial Class Registro_de_reportes
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(1471, 743)
+        Me.cmd_salir.Location = New System.Drawing.Point(1271, 738)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(73, 71)
         Me.cmd_salir.TabIndex = 19
@@ -93,7 +95,8 @@ Partial Class Registro_de_reportes
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.cmb_año)
+        Me.GroupBox1.Controls.Add(Me.txt_responsable)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.cmd_salir)
@@ -103,25 +106,54 @@ Partial Class Registro_de_reportes
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cmb_semestre_reporte)
-        Me.GroupBox1.Controls.Add(Me.cmb_año_reporte)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(8, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1554, 821)
+        Me.GroupBox1.Size = New System.Drawing.Size(1368, 737)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "El GoupBox de los GroupBox"
+        '
+        'cmb_año
+        '
+        Me.cmb_año._descripcion = "descripcion"
+        Me.cmb_año._nombre_tabla = "REPORTES_AÑOS"
+        Me.cmb_año._pk = "id"
+        Me.cmb_año.FormattingEnabled = True
+        Me.cmb_año.Location = New System.Drawing.Point(427, 27)
+        Me.cmb_año.Name = "cmb_año"
+        Me.cmb_año.Size = New System.Drawing.Size(81, 21)
+        Me.cmb_año.TabIndex = 61
+        '
+        'txt_responsable
+        '
+        Me.txt_responsable.Location = New System.Drawing.Point(810, 27)
+        Me.txt_responsable.Multiline = True
+        Me.txt_responsable.Name = "txt_responsable"
+        Me.txt_responsable.Size = New System.Drawing.Size(245, 22)
+        Me.txt_responsable.TabIndex = 60
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label3.Location = New System.Drawing.Point(689, 30)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(115, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Hospital de Referencia"
         '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.cmd_confirmar_reportes)
         Me.GroupBox2.Controls.Add(Me.cmd_eliminar_reporte)
-        Me.GroupBox2.Controls.Add(Me.DataGridView1)
+        Me.GroupBox2.Controls.Add(Me.dgv_reportes)
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(501, 59)
+        Me.GroupBox2.Location = New System.Drawing.Point(514, 60)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1047, 678)
+        Me.GroupBox2.Size = New System.Drawing.Size(836, 677)
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Reportes realizados"
@@ -133,7 +165,7 @@ Partial Class Registro_de_reportes
         Me.cmd_confirmar_reportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_confirmar_reportes.FlatAppearance.BorderSize = 0
         Me.cmd_confirmar_reportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_confirmar_reportes.Location = New System.Drawing.Point(992, 622)
+        Me.cmd_confirmar_reportes.Location = New System.Drawing.Point(726, 621)
         Me.cmd_confirmar_reportes.Name = "cmd_confirmar_reportes"
         Me.cmd_confirmar_reportes.Size = New System.Drawing.Size(49, 50)
         Me.cmd_confirmar_reportes.TabIndex = 17
@@ -146,20 +178,72 @@ Partial Class Registro_de_reportes
         Me.cmd_eliminar_reporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_eliminar_reporte.FlatAppearance.BorderSize = 0
         Me.cmd_eliminar_reporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_reporte.Location = New System.Drawing.Point(937, 622)
+        Me.cmd_eliminar_reporte.Location = New System.Drawing.Point(781, 621)
         Me.cmd_eliminar_reporte.Name = "cmd_eliminar_reporte"
         Me.cmd_eliminar_reporte.Size = New System.Drawing.Size(49, 50)
         Me.cmd_eliminar_reporte.TabIndex = 18
         Me.cmd_eliminar_reporte.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'dgv_reportes
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efectorTerminado, Me.cuieTerminado, Me.notificaciones, Me.carga, Me.perdidas, Me.stock, Me.emision_resumen, Me.tiempo_notificacion, Me.observaciones})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 22)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1035, 594)
-        Me.DataGridView1.TabIndex = 0
+        Me.dgv_reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_reportes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efectorTerminado, Me.cuieTerminado, Me.notificaciones, Me.carga, Me.perdidas, Me.stock, Me.emision_resumen, Me.tiempo_notificacion, Me.observaciones})
+        Me.dgv_reportes.Location = New System.Drawing.Point(6, 19)
+        Me.dgv_reportes.Name = "dgv_reportes"
+        Me.dgv_reportes.Size = New System.Drawing.Size(824, 596)
+        Me.dgv_reportes.TabIndex = 0
+        '
+        'efectorTerminado
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.efectorTerminado.DefaultCellStyle = DataGridViewCellStyle1
+        Me.efectorTerminado.FillWeight = 150.0!
+        Me.efectorTerminado.HeaderText = "Vacunatorio"
+        Me.efectorTerminado.MinimumWidth = 10
+        Me.efectorTerminado.Name = "efectorTerminado"
+        Me.efectorTerminado.Width = 150
+        '
+        'cuieTerminado
+        '
+        Me.cuieTerminado.HeaderText = "CUIE"
+        Me.cuieTerminado.Name = "cuieTerminado"
+        Me.cuieTerminado.Width = 50
+        '
+        'notificaciones
+        '
+        Me.notificaciones.HeaderText = "Notificaciones"
+        Me.notificaciones.Name = "notificaciones"
+        '
+        'carga
+        '
+        Me.carga.HeaderText = "Carga"
+        Me.carga.Name = "carga"
+        '
+        'perdidas
+        '
+        Me.perdidas.HeaderText = "Perdidas"
+        Me.perdidas.Name = "perdidas"
+        '
+        'stock
+        '
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        '
+        'emision_resumen
+        '
+        Me.emision_resumen.HeaderText = "Emite Resumen"
+        Me.emision_resumen.Name = "emision_resumen"
+        '
+        'tiempo_notificacion
+        '
+        Me.tiempo_notificacion.HeaderText = "Notifica cada:"
+        Me.tiempo_notificacion.Name = "tiempo_notificacion"
+        '
+        'observaciones
+        '
+        Me.observaciones.HeaderText = "Observaciones"
+        Me.observaciones.Name = "observaciones"
+        Me.observaciones.Width = 250
         '
         'Reporte
         '
@@ -188,6 +272,37 @@ Partial Class Registro_de_reportes
         Me.Reporte.TabIndex = 14
         Me.Reporte.TabStop = False
         Me.Reporte.Text = "Reporte"
+        '
+        'lbl_notificoOk
+        '
+        Me.lbl_notificoOk.AutoSize = True
+        Me.lbl_notificoOk.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_notificoOk.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lbl_notificoOk.Location = New System.Drawing.Point(97, 55)
+        Me.lbl_notificoOk.Name = "lbl_notificoOk"
+        Me.lbl_notificoOk.Size = New System.Drawing.Size(37, 13)
+        Me.lbl_notificoOk.TabIndex = 60
+        Me.lbl_notificoOk.Text = "----------"
+        '
+        'cmd_notificaciones
+        '
+        Me.cmd_notificaciones.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_notificaciones.BackgroundImage = CType(resources.GetObject("cmd_notificaciones.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_notificaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_notificaciones.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_notificaciones.FlatAppearance.BorderSize = 0
+        Me.cmd_notificaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_notificaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_notificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_notificaciones.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
+        Me.cmd_notificaciones.Location = New System.Drawing.Point(449, 28)
+        Me.cmd_notificaciones.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_notificaciones.Name = "cmd_notificaciones"
+        Me.cmd_notificaciones.Size = New System.Drawing.Size(29, 25)
+        Me.cmd_notificaciones.TabIndex = 59
+        Me.cmd_notificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_notificaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_notificaciones.UseVisualStyleBackColor = False
         '
         'cmd_agregar_reporte
         '
@@ -221,6 +336,17 @@ Partial Class Registro_de_reportes
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Observaciones"
         '
+        'cmb_notificaciones
+        '
+        Me.cmb_notificaciones._descripcion = "descripcion"
+        Me.cmb_notificaciones._nombre_tabla = "ESTADO_NOTIF_REPORTES"
+        Me.cmb_notificaciones._pk = "id"
+        Me.cmb_notificaciones.FormattingEnabled = True
+        Me.cmb_notificaciones.Location = New System.Drawing.Point(100, 31)
+        Me.cmb_notificaciones.Name = "cmb_notificaciones"
+        Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_notificaciones.TabIndex = 14
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -231,6 +357,61 @@ Partial Class Registro_de_reportes
         Me.Label10.Size = New System.Drawing.Size(74, 13)
         Me.Label10.TabIndex = 13
         Me.Label10.Text = "Notificaciones"
+        '
+        'cmb_stock
+        '
+        Me.cmb_stock._descripcion = "descripcion"
+        Me.cmb_stock._nombre_tabla = "ESTADO_INDICADORES"
+        Me.cmb_stock._pk = "id"
+        Me.cmb_stock.FormattingEnabled = True
+        Me.cmb_stock.Location = New System.Drawing.Point(100, 136)
+        Me.cmb_stock.Name = "cmb_stock"
+        Me.cmb_stock.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_stock.TabIndex = 12
+        '
+        'cmb_emite_resumen
+        '
+        Me.cmb_emite_resumen._descripcion = "descripcion"
+        Me.cmb_emite_resumen._nombre_tabla = "ESTADO_RM"
+        Me.cmb_emite_resumen._pk = "id"
+        Me.cmb_emite_resumen.FormattingEnabled = True
+        Me.cmb_emite_resumen.Location = New System.Drawing.Point(100, 163)
+        Me.cmb_emite_resumen.Name = "cmb_emite_resumen"
+        Me.cmb_emite_resumen.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_emite_resumen.TabIndex = 11
+        '
+        'cmb_tiempo_notificacion
+        '
+        Me.cmb_tiempo_notificacion._descripcion = "descripcion"
+        Me.cmb_tiempo_notificacion._nombre_tabla = "TIPO_NOTIFICACION"
+        Me.cmb_tiempo_notificacion._pk = "id"
+        Me.cmb_tiempo_notificacion.FormattingEnabled = True
+        Me.cmb_tiempo_notificacion.Location = New System.Drawing.Point(100, 190)
+        Me.cmb_tiempo_notificacion.Name = "cmb_tiempo_notificacion"
+        Me.cmb_tiempo_notificacion.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_tiempo_notificacion.TabIndex = 10
+        '
+        'cmb_perdidas
+        '
+        Me.cmb_perdidas._descripcion = "descripcion"
+        Me.cmb_perdidas._nombre_tabla = "ESTADO_INDICADORES"
+        Me.cmb_perdidas._pk = "id"
+        Me.cmb_perdidas.FormattingEnabled = True
+        Me.cmb_perdidas.Location = New System.Drawing.Point(100, 109)
+        Me.cmb_perdidas.Name = "cmb_perdidas"
+        Me.cmb_perdidas.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_perdidas.TabIndex = 9
+        '
+        'cmb_carga
+        '
+        Me.cmb_carga._descripcion = "descripcion"
+        Me.cmb_carga._nombre_tabla = "ESTADO_INDICADORES"
+        Me.cmb_carga._pk = "id"
+        Me.cmb_carga.FormattingEnabled = True
+        Me.cmb_carga.Location = New System.Drawing.Point(100, 82)
+        Me.cmb_carga.Name = "cmb_carga"
+        Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_carga.TabIndex = 7
         '
         'Label9
         '
@@ -366,210 +547,34 @@ Partial Class Registro_de_reportes
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Año"
         '
-        'cmd_notificaciones
-        '
-        Me.cmd_notificaciones.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_notificaciones.BackgroundImage = CType(resources.GetObject("cmd_notificaciones.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_notificaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_notificaciones.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_notificaciones.FlatAppearance.BorderSize = 0
-        Me.cmd_notificaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_notificaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_notificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_notificaciones.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
-        Me.cmd_notificaciones.Location = New System.Drawing.Point(449, 28)
-        Me.cmd_notificaciones.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_notificaciones.Name = "cmd_notificaciones"
-        Me.cmd_notificaciones.Size = New System.Drawing.Size(29, 25)
-        Me.cmd_notificaciones.TabIndex = 59
-        Me.cmd_notificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_notificaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_notificaciones.UseVisualStyleBackColor = False
-        '
-        'cmb_notificaciones
-        '
-        Me.cmb_notificaciones._descripcion = ""
-        Me.cmb_notificaciones._nombre_tabla = ""
-        Me.cmb_notificaciones._pk = ""
-        Me.cmb_notificaciones.FormattingEnabled = True
-        Me.cmb_notificaciones.Location = New System.Drawing.Point(100, 31)
-        Me.cmb_notificaciones.Name = "cmb_notificaciones"
-        Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_notificaciones.TabIndex = 14
-        '
-        'cmb_stock
-        '
-        Me.cmb_stock._descripcion = ""
-        Me.cmb_stock._nombre_tabla = ""
-        Me.cmb_stock._pk = ""
-        Me.cmb_stock.FormattingEnabled = True
-        Me.cmb_stock.Location = New System.Drawing.Point(100, 136)
-        Me.cmb_stock.Name = "cmb_stock"
-        Me.cmb_stock.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_stock.TabIndex = 12
-        '
-        'cmb_emite_resumen
-        '
-        Me.cmb_emite_resumen._descripcion = ""
-        Me.cmb_emite_resumen._nombre_tabla = ""
-        Me.cmb_emite_resumen._pk = ""
-        Me.cmb_emite_resumen.FormattingEnabled = True
-        Me.cmb_emite_resumen.Location = New System.Drawing.Point(100, 163)
-        Me.cmb_emite_resumen.Name = "cmb_emite_resumen"
-        Me.cmb_emite_resumen.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_emite_resumen.TabIndex = 11
-        '
-        'cmb_tiempo_notificacion
-        '
-        Me.cmb_tiempo_notificacion._descripcion = ""
-        Me.cmb_tiempo_notificacion._nombre_tabla = ""
-        Me.cmb_tiempo_notificacion._pk = ""
-        Me.cmb_tiempo_notificacion.FormattingEnabled = True
-        Me.cmb_tiempo_notificacion.Location = New System.Drawing.Point(100, 190)
-        Me.cmb_tiempo_notificacion.Name = "cmb_tiempo_notificacion"
-        Me.cmb_tiempo_notificacion.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_tiempo_notificacion.TabIndex = 10
-        '
-        'cmb_perdidas
-        '
-        Me.cmb_perdidas._descripcion = ""
-        Me.cmb_perdidas._nombre_tabla = ""
-        Me.cmb_perdidas._pk = ""
-        Me.cmb_perdidas.FormattingEnabled = True
-        Me.cmb_perdidas.Location = New System.Drawing.Point(100, 109)
-        Me.cmb_perdidas.Name = "cmb_perdidas"
-        Me.cmb_perdidas.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_perdidas.TabIndex = 9
-        '
-        'cmb_carga
-        '
-        Me.cmb_carga._descripcion = ""
-        Me.cmb_carga._nombre_tabla = ""
-        Me.cmb_carga._pk = ""
-        Me.cmb_carga.FormattingEnabled = True
-        Me.cmb_carga.Location = New System.Drawing.Point(100, 82)
-        Me.cmb_carga.Name = "cmb_carga"
-        Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_carga.TabIndex = 7
-        '
         'cmb_semestre_reporte
         '
-        Me.cmb_semestre_reporte._descripcion = ""
-        Me.cmb_semestre_reporte._nombre_tabla = ""
-        Me.cmb_semestre_reporte._pk = ""
+        Me.cmb_semestre_reporte._descripcion = "descripcion"
+        Me.cmb_semestre_reporte._nombre_tabla = "SEMESTRES"
+        Me.cmb_semestre_reporte._pk = "id"
         Me.cmb_semestre_reporte.FormattingEnabled = True
         Me.cmb_semestre_reporte.Location = New System.Drawing.Point(578, 27)
         Me.cmb_semestre_reporte.Name = "cmb_semestre_reporte"
         Me.cmb_semestre_reporte.Size = New System.Drawing.Size(105, 21)
         Me.cmb_semestre_reporte.TabIndex = 9
         '
-        'cmb_año_reporte
-        '
-        Me.cmb_año_reporte._descripcion = ""
-        Me.cmb_año_reporte._nombre_tabla = ""
-        Me.cmb_año_reporte._pk = ""
-        Me.cmb_año_reporte.FormattingEnabled = True
-        Me.cmb_año_reporte.Location = New System.Drawing.Point(440, 27)
-        Me.cmb_año_reporte.Name = "cmb_año_reporte"
-        Me.cmb_año_reporte.Size = New System.Drawing.Size(65, 21)
-        Me.cmb_año_reporte.TabIndex = 8
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label3.Location = New System.Drawing.Point(689, 30)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 13)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Hospital de Referencia"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(810, 27)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(245, 22)
-        Me.TextBox1.TabIndex = 60
-        '
-        'lbl_notificoOk
-        '
-        Me.lbl_notificoOk.AutoSize = True
-        Me.lbl_notificoOk.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_notificoOk.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl_notificoOk.Location = New System.Drawing.Point(97, 55)
-        Me.lbl_notificoOk.Name = "lbl_notificoOk"
-        Me.lbl_notificoOk.Size = New System.Drawing.Size(37, 13)
-        Me.lbl_notificoOk.TabIndex = 60
-        Me.lbl_notificoOk.Text = "----------"
-        '
-        'efectorTerminado
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.efectorTerminado.DefaultCellStyle = DataGridViewCellStyle1
-        Me.efectorTerminado.FillWeight = 150.0!
-        Me.efectorTerminado.HeaderText = "Vacunatorio"
-        Me.efectorTerminado.MinimumWidth = 10
-        Me.efectorTerminado.Name = "efectorTerminado"
-        Me.efectorTerminado.Width = 150
-        '
-        'cuieTerminado
-        '
-        Me.cuieTerminado.HeaderText = "CUIE"
-        Me.cuieTerminado.Name = "cuieTerminado"
-        Me.cuieTerminado.Width = 50
-        '
-        'notificaciones
-        '
-        Me.notificaciones.HeaderText = "Notificaciones"
-        Me.notificaciones.Name = "notificaciones"
-        '
-        'carga
-        '
-        Me.carga.HeaderText = "Carga"
-        Me.carga.Name = "carga"
-        '
-        'perdidas
-        '
-        Me.perdidas.HeaderText = "Perdidas"
-        Me.perdidas.Name = "perdidas"
-        '
-        'stock
-        '
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        '
-        'emision_resumen
-        '
-        Me.emision_resumen.HeaderText = "Emite Resumen"
-        Me.emision_resumen.Name = "emision_resumen"
-        '
-        'tiempo_notificacion
-        '
-        Me.tiempo_notificacion.HeaderText = "Notifica cada:"
-        Me.tiempo_notificacion.Name = "tiempo_notificacion"
-        '
-        'observaciones
-        '
-        Me.observaciones.HeaderText = "Observaciones"
-        Me.observaciones.Name = "observaciones"
-        Me.observaciones.Width = 250
-        '
         'Registro_de_reportes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1574, 840)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Registro_de_reportes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro_de_reportes"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_reportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Reporte.ResumeLayout(False)
         Me.Reporte.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -583,7 +588,7 @@ Partial Class Registro_de_reportes
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents cmd_confirmar_reportes As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_reporte As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgv_reportes As System.Windows.Forms.DataGridView
     Friend WithEvents Reporte As System.Windows.Forms.GroupBox
     Friend WithEvents cmd_agregar_reporte As System.Windows.Forms.Button
     Friend WithEvents txt_observaciones As System.Windows.Forms.TextBox
@@ -609,9 +614,8 @@ Partial Class Registro_de_reportes
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmb_semestre_reporte As Programa_de_Inmunizaciones.ComboBoxV1
-    Friend WithEvents cmb_año_reporte As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents cmd_notificaciones As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_responsable As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents lbl_notificoOk As System.Windows.Forms.Label
     Friend WithEvents efectorTerminado As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -623,4 +627,6 @@ Partial Class Registro_de_reportes
     Friend WithEvents emision_resumen As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tiempo_notificacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmb_año As ComboBoxV1
+    Friend WithEvents tltp_reportes As ToolTip
 End Class

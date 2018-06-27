@@ -250,7 +250,7 @@ Partial Class Registrar_atencion
         '
         Me.txt_id_atencion.Location = New System.Drawing.Point(109, 21)
         Me.txt_id_atencion.Name = "txt_id_atencion"
-        Me.txt_id_atencion.Size = New System.Drawing.Size(136, 20)
+        Me.txt_id_atencion.Size = New System.Drawing.Size(90, 20)
         Me.txt_id_atencion.TabIndex = 0
         '
         'txt_fecha
