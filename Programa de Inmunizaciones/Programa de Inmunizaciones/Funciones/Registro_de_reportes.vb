@@ -101,25 +101,107 @@
         Registrar_notificaciones.ShowDialog()
     End Sub
 
-    Private Sub txt_responsable_LostFocus(sender As Object, e As EventArgs) Handles txt_responsable.LostFocus
+    Private Sub cmd_buscar_añoYsemestre_Click(sender As Object, e As EventArgs) Handles cmd_buscar_añoYsemestre.Click
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
+        Dim tabla3 As New DataTable
         Dim sql As String = ""
-        If txt_responsable.Text <> "" Then
-            sql &= "SELECT E.cuie as cuie "
-            sql &= " FROM EFECTORES E "
-            sql &= " WHERE E.nombres= '" & txt_responsable.Text & "'"
-            tabla = acceso.consulta(sql)
-            sql = ""
-            sql &= "SELECT E.cuie as cuie, E.nombre as nombre "
-            sql &= " FROM EFECTORES E "
-            sql &= " WHERE E.referente= " & tabla.Rows(0)("cuie")
-            tabla2 = acceso.consulta(sql)
+        Dim cuie As String = ""
 
-            If tabla.Rows.Count() <> 0 Then
+        If validar_reporte() = True Then
+            If txt_responsable.Text <> "" Then
+                Sql &= "SELECT E.cuie as cuie, E.nombre "
+                Sql &= " FROM EFECTORES E "
+                Sql &= " WHERE E.nombre= '" & txt_responsable.Text & "'"
+                tabla = acceso.consulta(Sql)
+                cuie = tabla.Rows(0)("cuie")
+
+                Sql = ""
+                Sql &= "SELECT id FROM REPORTES WHERE responsable= '" & cuie & "'"
+                Sql &= " AND año= '" & Me.cmb_año.SelectedText & "'"
+                Sql &= " AND id_semestre= " & Me.cmb_semestre_reporte.SelectedValue
+                tabla3 = acceso.consulta(Sql)
+
+                Sql = ""
+                Sql &= "SELECT E.cuie as cuie, E.nombre as nombre "
+                Sql &= " FROM EFECTORES E "
+                Sql &= " WHERE E.referente= " & tabla.Rows(0)("cuie") & " AND E.cuie NOT IN "
+                Sql &= "(SELECT cuie FROM DETALLE_REPORTE WHERE id_reporte= " & tabla3.Rows(0)("id") & ")"
+                tabla2 = acceso.consulta(Sql)
 
             End If
+        Else
+            If txt_responsable.Text <> "" Then
+                sql &= "SELECT E.cuie as cuie, E.nombre "
+                sql &= " FROM EFECTORES E "
+                sql &= " WHERE E.nombre= '" & txt_responsable.Text & "'"
+                tabla = acceso.consulta(sql)
+
+                sql = ""
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre "
+                sql &= " FROM EFECTORES E "
+                sql &= " WHERE E.referente= " & tabla.Rows(0)("cuie")
+                tabla2 = acceso.consulta(sql)
+
+                If tabla.Rows.Count() <> 0 Then
+                    Me.dgv_vacunatorios.Rows.Clear()
+                    Me.dgv_vacunatorios.Rows.Add()
+                    Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = tabla.Rows(0)("cuie")
+                    Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = tabla.Rows(0)("nombre")
+                    If tabla2.Rows.Count() <> 0 Then
+                        Dim c As Integer = 0
+                        For c = 1 To tabla2.Rows.Count() - 1
+                            Me.dgv_vacunatorios.Rows.Add()
+                            Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
+                            Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
+                        Next
+                    End If
+
+                End If
+            End If
+        End If
+
+        If tabla.Rows.Count() <> 0 Then
+            Me.dgv_vacunatorios.Rows.Clear()
+            Me.dgv_vacunatorios.Rows.Add()
+            Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = tabla.Rows(0)("cuie")
+            Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = tabla.Rows(0)("nombre")
+            If tabla2.Rows.Count() <> 0 Then
+                Dim c As Integer = 0
+                For c = 1 To tabla2.Rows.Count() - 1
+                    Me.dgv_vacunatorios.Rows.Add()
+                    Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
+                    Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
+                Next
+            End If
+
         End If
     End Sub
 
+    Private Function validar_reporte() As Boolean
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        Dim cuie As String = "
+"
+        If txt_responsable.Text <> "" Then
+            sql &= "SELECT E.cuie as cuie "
+            sql &= " FROM EFECTORES E "
+            sql &= " WHERE E.nombre= '" & txt_responsable.Text & "'"
+            tabla = acceso.consulta(sql)
+            cuie = tabla.Rows(0)("cuie")
+
+            sql = ""
+            sql &= "SELECT * FROM REPORTES "
+            sql &= " WHERE año= '" & cmb_año.SelectedText & "' AND id_semestre= " & cmb_semestre_reporte.SelectedValue
+            sql &= " AND responsable= '" & cuie & "'"
+            tabla.Clear()
+            tabla = acceso.consulta(sql)
+        End If
+
+        If tabla.Rows.Count() <> 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Class
