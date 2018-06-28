@@ -87,6 +87,9 @@ Public Class acceso_datos
                 If validacion_conexion = conexion_hamachi.hamachi Then
                     conexion.ConnectionString = cadena_conexion
                     Try
+                        If conexion.state = ConnectionState.Open Then
+                            conexion.Close()
+                        End If
                         conexion.Open()
                         validacion_conexion = conexion_hamachi.hamachi
                     Catch ex2 As Exception

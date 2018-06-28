@@ -109,7 +109,7 @@
 
         If validar_reporte() = True Then
             If txt_responsable.Text <> "" Then
-           
+
                 cuie = devolver_cuie_responsable()
                 id = devolver_id_reporte()
 
@@ -118,7 +118,9 @@
                 Sql &= " FROM EFECTORES E "
                 sql &= " WHERE E.id_referente= '" & cuie & "' AND E.cuie NOT IN "
                 sql &= "(SELECT cuie FROM DETALLE_REPORTE WHERE id_reporte= " & id & ")"
-                tabla2 = acceso.consulta(Sql)
+                tabla2 = acceso.consulta(sql)
+
+                cargar_reportes(cuie, id)
 
             End If
         Else
@@ -145,7 +147,7 @@
                     Next
                 End If
 
-        End If
+            End If
         End If
 
         If tabla.Rows.Count() <> 0 Then
@@ -163,6 +165,91 @@
             End If
 
         End If
+    End Sub
+
+    Private Sub cargar_reportes(ByVal id As Integer, ByVal cuie As String)
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim sql As String = ""
+
+
+        sql = "SELECT * FROM DETALLE_REPORTES WHERE id_reporte= " & id
+        tabla = acceso.consulta(sql)
+
+        Dim c As Integer = 0
+        For c = 0 To tabla.Rows.Count() - 2
+            dgv_reportes.Rows.Add()
+            sql = "SELECT nombre FROM EFECTORES WHERE cuie= '" & tabla.Rows(c)("cuie") & "'"
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+
+            dgv_reportes.Rows(c).Cells("efectorTerminado").Value = tabla2.Rows(0)("nombre")
+            dgv_reportes.Rows(c).Cells("cuieTerminado").Value = tabla.Rows(c)("cuie")
+            dgv_reportes.Rows(c).Cells("id_notificaciones").Value = tabla.Rows(c)("id_estado_notif")
+
+            sql = "SELECT descripcion FROM ESTADO_NOTIF_REPORTES WHERE id= " & tabla.Rows(c)("id_estado_notif")
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_reportes.Rows(c).Cells("notificaciones").Value = tabla2.Rows(0)("descripcion")
+
+            dgv_reportes.Rows(c).Cells("id_carga").Value = tabla.Rows(c)("id_reporte_carga")
+
+            sql = "SELECT descripcion FROM ESTADO_INDICADORES WHERE id= " & tabla.Rows(c)("id_reporte_carga")
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_reportes.Rows(c).Cells("carga").Value = tabla2.Rows(0)("descripcion")
+
+            dgv_reportes.Rows(c).Cells("id_perdidas").Value = tabla.Rows(c)("id_reporte_perdidas")
+
+            sql = "SELECT descripcion FROM ESTADO_INDICADORES WHERE id= " & tabla.Rows(c)("id_reporte_perdidas")
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_reportes.Rows(c).Cells("perdidas").Value = tabla2.Rows(0)("descripcion")
+
+            dgv_reportes.Rows(c).Cells("id_stock").Value = tabla.Rows(c)("id_reporte_stock")
+
+            sql = "SELECT descripcion FROM ESTADO_INDICADORES WHERE id= " & tabla.Rows(c)("id_reporte_stock")
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_reportes.Rows(c).Cells("stock").Value = tabla2.Rows(0)("descripcion")
+
+            dgv_reportes.Rows(c).Cells("id_emision_resumen").Value = tabla.Rows(c)("id_estado_rm")
+
+            sql = "SELECT descripcion FROM ESTADO_RM WHERE id= " & tabla.Rows(c)("id_estado_rm")
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_reportes.Rows(c).Cells("emision_resumen").Value = tabla2.Rows(0)("descripcion")
+
+            dgv_reportes.Rows(c).Cells("id_tiempo_notificacion").Value = tabla.Rows(c)("id_tiempo_notif")
+
+            sql = "SELECT descripcion FROM TIPO_NOTIFICACION WHERE id= " & tabla.Rows(c)("id_tiempo_notif")
+            tabla2.Clear()
+            tabla2 = acceso.consulta(sql)
+            dgv_reportes.Rows(c).Cells("tiempo_notificacion").Value = tabla2.Rows(0)("descripcion")
+
+            dgv_reportes.Rows(c).Cells("observaciones").Value = tabla.Rows(c)("observaciones")
+        Next
+
+    End Sub
+
+    Private Sub dgv_reportes_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_reportes.CellDoubleClick
+        Dim tabla As New DataTable
+        Dim tabla2 As New DataTable
+        Dim sql As String = ""
+
+        dgv_vacunatorios.Rows.Clear()
+        dgv_vacunatorios.Rows.Add()
+        dgv_vacunatorios.Rows(0).Cells("efector").Value = dgv_reportes.CurrentRow.Cells("efectorTerminado").Value
+        dgv_vacunatorios.Rows(0).Cells("cuie").Value = dgv_reportes.CurrentRow.Cells("cuieTerminado").Value
+
+        cmb_notificaciones.SelectedValue = dgv_reportes.CurrentRow.Cells("id_notificaciones").Value
+        cmb_carga.SelectedValue = dgv_reportes.CurrentRow.Cells("id_carga").Value
+        cmb_perdidas.SelectedValue = dgv_reportes.CurrentRow.Cells("perdidas").Value
+        cmb_stock.SelectedValue = dgv_reportes.CurrentRow.Cells("id_stock").Value
+        cmb_emite_resumen.SelectedValue = dgv_reportes.CurrentRow.Cells("id_emision_resumen").Value
+        cmb_tiempo_notificacion.SelectedValue = dgv_reportes.CurrentRow.Cells("id_tiempo_notificacion").Value
+        txt_observaciones.Text = dgv_reportes.CurrentRow.Cells("observaciones").Value
+
     End Sub
 
     Private Function validar_reporte() As Boolean
@@ -218,10 +305,56 @@
         End If
     End Sub
 
-    Private Function controlar_notificaciones() As Boolean
+    Private Sub controlar_notificaciones()
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        Dim cuie As String = ""
+        Dim validador As Integer = 0
+        Dim contador As Integer = 0
+        Dim carga As Integer = 0
+        Dim perdidas As Integer = 0
+        Dim stock As Integer = 0
+        Dim limite_inferior As Date = ""
+        Dim limite_superior As Date = ""
 
-        Return True
-    End Function
+        If cmb_semestre_reporte.SelectedValue = 1 Then
+            limite_inferior = "01/01/2018"
+            limite_superior = "30/06/2018"
+        Else
+            limite_inferior = "01/07/2018"
+            limite_superior = "31/12/2018"
+        End If
+
+        cuie = devolver_cuie_responsable()
+
+        sql = "SELECT count(id) as contador FROM NOTIFICACIONXEFECTOR "
+        sql &= " WHERE id_efector= '" & cuie & "'"
+        sql &= " AND (fecha BETWEEN " & limite_inferior & " and " & limite_superior & ")"
+        tabla = acceso.consulta(sql)
+        contador = tabla.Rows(0)("contador")
+
+        'sql = "COUNT(id_estado_carga) as estado_carga "
+        'sql &= " From NOTIFICACIONXEFECTOR "
+        'sql &= " Where id_efector = '" & cuie & "' AND (fecha BETWEEN " & limite_inferior & " and " & limite_superior & ")"
+        'sql &= " GROUP BY id_estado_carga "
+        'tabla.Clear()
+        'tabla = acceso.consulta(sql)
+
+        'Dim c As Integer = 0
+        'For c = 0 To tabla.Rows.Count() - 1
+
+        'Next
+
+        'If contador <= 16 Then
+        '    validador = 1
+        'Else
+
+        'End If
+
+
+    End Sub
+
+
 
 
     Private Sub cmd_agregar_reporte_Click(sender As Object, e As EventArgs) Handles cmd_agregar_reporte.Click
@@ -312,7 +445,7 @@
 
     Private Sub guardar_reporte()
         Dim tabla As New DataTable
-        Dim sql As String = ""
+        Dim sql_insert As String = ""
         Dim cuie As String = ""
 
         If validar_reporte() Then
@@ -323,11 +456,11 @@
 
             acceso._nombre_tabla = "REPORTES"
 
-            sql &= " año = " & Me.cmb_año.Text
-            sql &= ", id_semestre = " & Me.cmb_semestre_reporte.SelectedValue
-            sql &= ", id_responsable = " & cuie
+            sql_insert &= "año = " & Me.cmb_año.Text
+            sql_insert &= ", id_semestre = " & Me.cmb_semestre_reporte.SelectedValue
+            sql_insert &= ", id_responsable = " & cuie
 
-            acceso.insertar(sql)
+            acceso.insertar(sql_insert)
 
             guardar_detalle()
         End If
@@ -357,12 +490,12 @@
         cuie = devolver_cuie_responsable()
 
         sql = ""
-        sql &= "SELECT id_reporte FROM REPORTES "
+        sql &= "SELECT id FROM REPORTES "
         sql &= " WHERE año= '" & cmb_año.Text & "' AND id_semestre= " & cmb_semestre_reporte.SelectedValue
         sql &= " AND responsable= '" & cuie & "'"
         tabla.Clear()
         tabla = acceso.consulta(sql)
-        id_reporte = tabla.Rows(0)("id_reporte")
+        id_reporte = tabla.Rows(0)("id")
 
 
     End Function
@@ -431,7 +564,6 @@
         Next
     End Sub
 
-
     Private Sub cmd_eliminar_reporte_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_reporte.Click
         Dim num As Integer = dgv_reportes.CurrentRow.Index
         For c = 0 To dgv_reportes.Rows.Count - 1
@@ -441,4 +573,6 @@
             End If
         Next
     End Sub
+
+
 End Class
