@@ -100,9 +100,14 @@
     End Sub
 
     Private Sub cmd_buscar_añoYsemestre_Click(sender As Object, e As EventArgs) Handles cmd_buscar_añoYsemestre.Click
-
         dgv_reportes.Rows.Clear()
         dgv_vacunatorios.Rows.Clear()
+        cargar_vacunatorios()
+    End Sub
+
+    Private Sub cargar_vacunatorios()
+
+        
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
         Dim bandera As Boolean
@@ -172,8 +177,8 @@
 
         End If
 
-
     End Sub
+
 
     Private Function existe_detalle(ByVal cuie As String, ByVal id As Integer) As Boolean
         Dim tabla As New DataTable
@@ -271,6 +276,7 @@
         dgv_vacunatorios.Rows.Add()
         dgv_vacunatorios.Rows(0).Cells("efector").Value = dgv_reportes.CurrentRow.Cells("efectorTerminado").Value
         dgv_vacunatorios.Rows(0).Cells("cuie").Value = dgv_reportes.CurrentRow.Cells("cuieTerminado").Value
+        dgv_vacunatorios.Rows(0).Selected = True
 
         cmb_notificaciones.SelectedValue = dgv_reportes.CurrentRow.Cells("id_notificaciones").Value
         cmb_carga.SelectedValue = dgv_reportes.CurrentRow.Cells("id_carga").Value
@@ -280,6 +286,7 @@
         cmb_tiempo_notificacion.SelectedValue = dgv_reportes.CurrentRow.Cells("id_tiempo_notificacion").Value
         txt_observaciones.Text = dgv_reportes.CurrentRow.Cells("observaciones").Value
 
+        Me.condicion_estado = condicion.modificar
     End Sub
 
     Private Function validar_reporte() As Boolean
@@ -338,30 +345,84 @@
 
     Private Sub cmd_agregar_reporte_Click(sender As Object, e As EventArgs) Handles cmd_agregar_reporte.Click
         Dim numero As Integer = 0
-        If validar_llenado() Then
-            dgv_reportes.Rows.Add()
-            numero = dgv_reportes.Rows.Count() - 1
-            dgv_reportes.Rows(numero).Cells("efectorTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("efector").Value
-            dgv_reportes.Rows(numero).Cells("cuieTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("cuie").Value
-            dgv_reportes.Rows(numero).Cells("id_notificaciones").Value = cmb_notificaciones.SelectedValue
-            dgv_reportes.Rows(numero).Cells("notificaciones").Value = cmb_notificaciones.Text
-            dgv_reportes.Rows(numero).Cells("id_carga").Value = cmb_carga.SelectedValue
-            dgv_reportes.Rows(numero).Cells("carga").Value = cmb_carga.Text
-            dgv_reportes.Rows(numero).Cells("id_perdidas").Value = cmb_perdidas.SelectedValue
-            dgv_reportes.Rows(numero).Cells("perdidas").Value = cmb_perdidas.Text
-            dgv_reportes.Rows(numero).Cells("id_stock").Value = cmb_stock.SelectedValue
-            dgv_reportes.Rows(numero).Cells("stock").Value = cmb_stock.Text
-            dgv_reportes.Rows(numero).Cells("id_emision_resumen").Value = cmb_emite_resumen.SelectedValue
-            dgv_reportes.Rows(numero).Cells("emision_resumen").Value = cmb_emite_resumen.Text
-            dgv_reportes.Rows(numero).Cells("id_tiempo_notificacion").Value = cmb_tiempo_notificacion.SelectedValue
-            dgv_reportes.Rows(numero).Cells("tiempo_notificacion").Value = cmb_tiempo_notificacion.Text
-            dgv_reportes.Rows(numero).Cells("observaciones").Value = txt_observaciones.Text
+        Dim c As Integer = 0
+        Dim flag As Boolean = False
 
-            dgv_vacunatorios.Rows.RemoveAt(dgv_vacunatorios.CurrentRow.Index)
-        Else
-            Exit Sub
+        If validar_llenado() Then
+            If dgv_reportes.Rows.Count() <> 0 Then
+                For c = 0 To dgv_reportes.Rows.Count() - 1
+                    If IsNothing(dgv_vacunatorios.CurrentRow.Cells("cuie").Value) = False Then
+                        If Me.dgv_vacunatorios.CurrentRow.Cells("cuie").Value = dgv_reportes.Rows(c).Cells("cuieTerminado").Value Then
+                            If condicion_estado = condicion.modificar Then
+                                dgv_reportes.Rows(c).Cells("efectorTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("efector").Value
+                                dgv_reportes.Rows(c).Cells("cuieTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("cuie").Value
+                                dgv_reportes.Rows(c).Cells("id_notificaciones").Value = cmb_notificaciones.SelectedValue
+                                dgv_reportes.Rows(c).Cells("notificaciones").Value = cmb_notificaciones.Text
+                                dgv_reportes.Rows(c).Cells("id_carga").Value = cmb_carga.SelectedValue
+                                dgv_reportes.Rows(c).Cells("carga").Value = cmb_carga.Text
+                                dgv_reportes.Rows(c).Cells("id_perdidas").Value = cmb_perdidas.SelectedValue
+                                dgv_reportes.Rows(c).Cells("perdidas").Value = cmb_perdidas.Text
+                                dgv_reportes.Rows(c).Cells("id_stock").Value = cmb_stock.SelectedValue
+                                dgv_reportes.Rows(c).Cells("stock").Value = cmb_stock.Text
+                                dgv_reportes.Rows(c).Cells("id_emision_resumen").Value = cmb_emite_resumen.SelectedValue
+                                dgv_reportes.Rows(c).Cells("emision_resumen").Value = cmb_emite_resumen.Text
+                                dgv_reportes.Rows(c).Cells("id_tiempo_notificacion").Value = cmb_tiempo_notificacion.SelectedValue
+                                dgv_reportes.Rows(c).Cells("tiempo_notificacion").Value = cmb_tiempo_notificacion.Text
+                                dgv_reportes.Rows(c).Cells("observaciones").Value = txt_observaciones.Text
+                                Exit For
+                            End If
+                        Else
+                            If condicion_estado = condicion.insertar Then
+                                dgv_reportes.Rows.Add()
+                                numero = dgv_reportes.Rows.Count() - 1
+                                dgv_reportes.Rows(numero).Cells("efectorTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("efector").Value
+                                dgv_reportes.Rows(numero).Cells("cuieTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("cuie").Value
+                                dgv_reportes.Rows(numero).Cells("id_notificaciones").Value = cmb_notificaciones.SelectedValue
+                                dgv_reportes.Rows(numero).Cells("notificaciones").Value = cmb_notificaciones.Text
+                                dgv_reportes.Rows(numero).Cells("id_carga").Value = cmb_carga.SelectedValue
+                                dgv_reportes.Rows(numero).Cells("carga").Value = cmb_carga.Text
+                                dgv_reportes.Rows(numero).Cells("id_perdidas").Value = cmb_perdidas.SelectedValue
+                                dgv_reportes.Rows(numero).Cells("perdidas").Value = cmb_perdidas.Text
+                                dgv_reportes.Rows(numero).Cells("id_stock").Value = cmb_stock.SelectedValue
+                                dgv_reportes.Rows(numero).Cells("stock").Value = cmb_stock.Text
+                                dgv_reportes.Rows(numero).Cells("id_emision_resumen").Value = cmb_emite_resumen.SelectedValue
+                                dgv_reportes.Rows(numero).Cells("emision_resumen").Value = cmb_emite_resumen.Text
+                                dgv_reportes.Rows(numero).Cells("id_tiempo_notificacion").Value = cmb_tiempo_notificacion.SelectedValue
+                                dgv_reportes.Rows(numero).Cells("tiempo_notificacion").Value = cmb_tiempo_notificacion.Text
+                                dgv_reportes.Rows(numero).Cells("observaciones").Value = txt_observaciones.Text
+
+                                Exit For
+                            End If
+                        End If
+                    Else
+                        Exit For
+                    End If
+                Next
+            Else
+                dgv_reportes.Rows.Add()
+                numero = dgv_reportes.Rows.Count() - 1
+                dgv_reportes.Rows(numero).Cells("efectorTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("efector").Value
+                dgv_reportes.Rows(numero).Cells("cuieTerminado").Value = dgv_vacunatorios.CurrentRow.Cells("cuie").Value
+                dgv_reportes.Rows(numero).Cells("id_notificaciones").Value = cmb_notificaciones.SelectedValue
+                dgv_reportes.Rows(numero).Cells("notificaciones").Value = cmb_notificaciones.Text
+                dgv_reportes.Rows(numero).Cells("id_carga").Value = cmb_carga.SelectedValue
+                dgv_reportes.Rows(numero).Cells("carga").Value = cmb_carga.Text
+                dgv_reportes.Rows(numero).Cells("id_perdidas").Value = cmb_perdidas.SelectedValue
+                dgv_reportes.Rows(numero).Cells("perdidas").Value = cmb_perdidas.Text
+                dgv_reportes.Rows(numero).Cells("id_stock").Value = cmb_stock.SelectedValue
+                dgv_reportes.Rows(numero).Cells("stock").Value = cmb_stock.Text
+                dgv_reportes.Rows(numero).Cells("id_emision_resumen").Value = cmb_emite_resumen.SelectedValue
+                dgv_reportes.Rows(numero).Cells("emision_resumen").Value = cmb_emite_resumen.Text
+                dgv_reportes.Rows(numero).Cells("id_tiempo_notificacion").Value = cmb_tiempo_notificacion.SelectedValue
+                dgv_reportes.Rows(numero).Cells("tiempo_notificacion").Value = cmb_tiempo_notificacion.Text
+                dgv_reportes.Rows(numero).Cells("observaciones").Value = txt_observaciones.Text
+
+            End If
         End If
+        dgv_vacunatorios.Rows.RemoveAt(dgv_vacunatorios.CurrentRow.Index)
         limpiar_indicadores()
+
+        condicion_estado = condicion.insertar
     End Sub
 
     Private Sub limpiar_indicadores()
@@ -419,7 +480,8 @@
         If dgv_reportes.Rows.Count() <> 0 Then
             guardar_reporte()
         End If
-        limpiar(Controls)
+        MsgBox("Guardado")
+        condicion_estado = condicion.insertar
     End Sub
 
     Private Sub guardar_reporte()
