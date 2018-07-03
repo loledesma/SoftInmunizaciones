@@ -256,4 +256,8 @@ Public Class Menu
     Private Sub RegistroDeReportesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeReportesToolStripMenuItem.Click
         Registro_de_reportes.Show()
     End Sub
+
+    Private Sub ReportesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportesToolStripMenuItem.Click
+        list_reportesSemestrales.Show()
+    End Sub
 End Class

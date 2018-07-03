@@ -847,20 +847,20 @@
   </data>
   <data name="RegistroDeReportesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAAOEAAADhAXAYHC4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAACl0lEQVRYR8WXv2/TQBTHvcGfADsrA7GQGLtB3B8sSAw0TmBFDKgLTAgJ8SdQ/wEgNphZEGGACAmp
-        C0tUoaqVGAgNxKlTGgc93vcch7Pz7DtDaJ/0kZy79+Or+O7d2SEiK87V75y6UPfrNc8PmDbTrS37QwWe
-        k7EAPvCVckiIgzru5fWzrtfc5OQhQ5aEiEGslFNHHARLS63TtXrzESeLcsmrECEHckk1gDh40Wud4eBO
-        Ltm/0EFOqdbcgOu1zruevyckyXD/XoMeP0zAs+Sjg5zIna+X+QGVRcXdZZ8urSXc3WgQbd3IgLF0Hr5i
-        Ds6d/ydmD+qdC3+7u9Iid+0Wrfo354oWAV/EIDafj+noa2ImYLrg5gJWnn2g6+0ebbzrisUk4IsYxEo5
-        USsjANuFJ8TVvvr8Iz3Y+kEUh0S7gR3sixjESjmZKN2iiYBkn0uOfwRUNIMAXg/NTXZzVIfjgcImowv4
-        Pjigr98GpcAHZhLAhKjtTNur5KDQBcSTXzSOJ6XAB2YhgFDb4Qf0dtEB6AImnDyeoEgx8IHZCGACCMAh
-        Ik0qdAELfgWgDQE4yaRJhS6gilkK6DrT41SaVOgCRodHNIwOS4EPzEoA164kIBr9pHA4KgU+MHsBJ/4K
-        Ki7C3v4gQ7ro8mYpQC1C620YY6+P4wwYk8xSQFCpEZlsLxxT90ufXn/u0/rbnlGAakRVWrHJdgZH9H5n
-        nxpc/Nobo4CkFXOc8TC63enTy92RkafbB7PiJgGzw0gJMBzHacKqlAjIHseg6ELyXwTkLySg6Ep25ckr
-        uvri01+B2Hw+Rr6SgbJL6SIovZSm2F7Lq4Kcxmt5ClRy0Ml8mKSoNZEszOP/NNPBdpn2ieP9OM2DrjVt
-        2wv8PCfnN1Nt9lktLwI5AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4QAAAOEBcBgcLgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKXSURBVFhHxZe/
+        b9NAFMe9wZ8AOysDsZAYu0HcHyxIDDROYEUMqAtMCAnxJ1D/ASA2mFkQYYAICakLS1ShqpUYCA3EqVMa
+        Bz3e9xyHs/PsO0Non/SRnLv346v47t3ZISIrztXvnLpQ9+s1zw+YNtOtLftDBZ6TsQA+8JVySIiDOu7l
+        9bOu19zk5CFDloSIQayUU0ccBEtLrdO1evMRJ4tyyasQIQdySTWAOHjRa53h4E4u2b/QQU6p1tyA67XO
+        u56/JyTJcP9egx4/TMCz5KODnMidr5f5AZVFxd1lny6tJdzdaBBt3ciAsXQevmIOzp3/J2YP6p0Lf7u7
+        0iJ37Rat+jfnihYBX8QgNp+P6ehrYiZguuDmAlaefaDr7R5tvOuKxSTgixjESjlRKyMA24UnxNW++vwj
+        Pdj6QRSHRLuBHeyLGMRKOZko3aKJgGSfS45/BFQ0gwBeD81NdnNUh+OBwiajC/g+OKCv3walwAdmEsCE
+        qO1M26vkoNAFxJNfNI4npcAHZiGAUNvhB/R20QHoAiacPJ6gSDHwgdkIYAIIwCEiTSp0AQt+BaANATjJ
+        pEmFLqCKWQroOtPjVJpU6AJGh0c0jA5LgQ/MSgDXriQgGv2kcDgqBT4wewEn/goqLsLe/iBDuujyZilA
+        LULrbRhjr4/jDBiTzFJAUKkRmWwvHFP3S59ef+7T+tueUYBqRFVascl2Bkf0fmefGlz82hujgKQVc5zx
+        MLrd6dPL3ZGRp9sHs+ImAbPDSAkwHMdpwqqUCMgex6DoQvJfBOQvJKDoSnblySu6+uLTX4HYfD5GvpKB
+        skvpIii9lKbYXsurgpzGa3kKVHLQyXyYpKg1kSzM4/8008F2mfaJ4/04zYOuNW3bC/w8J+c3U232WS0v
+        AjkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="RegistroDeReportesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -1611,6 +1611,12 @@
   </data>
   <data name="EfectoresConInternetToolStripMenuItem.Text" xml:space="preserve">
     <value>Efectores con Internet</value>
+  </data>
+  <data name="ReportesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 38</value>
+  </data>
+  <data name="ReportesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reportes</value>
   </data>
   <data name="ListadosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -10625,6 +10631,12 @@
   <data name="&gt;&gt;PedidosDeDesarrolloToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;RegistroDeReportesToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistroDeReportesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistroDeReportesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;RecordatoriosToolStripMenuItem.Name" xml:space="preserve">
     <value>RecordatoriosToolStripMenuItem</value>
   </data>
@@ -10889,10 +10901,10 @@
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RegistroDeReportesToolStripMenuItem.Name" xml:space="preserve">
-    <value>RegistroDeReportesToolStripMenuItem</value>
+  <data name="&gt;&gt;ReportesToolStripMenuItem.Name" xml:space="preserve">
+    <value>ReportesToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;RegistroDeReportesToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ReportesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
