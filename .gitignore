@@ -154,3 +154,8 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/Programa de Inmunizaciones/.vs/Programa de Inmunizaciones/v15/Server/sqlite3/storage.ide-wal
+/Programa de Inmunizaciones/.vs/Programa de Inmunizaciones/v15/Server/sqlite3/storage.ide-shm
+/Programa de Inmunizaciones/.vs/Programa de Inmunizaciones/v15/Server/sqlite3/storage.ide
+/Programa de Inmunizaciones/.vs/Programa de Inmunizaciones/v15/Server/sqlite3/db.lock
+/Programa de Inmunizaciones/.vs/Programa de Inmunizaciones/v15/Server/sqlite3
