@@ -28,6 +28,7 @@ Partial Class list_reportesSemestrales
         Me.LIST_REPORTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.LIST_REPORTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -49,10 +50,17 @@ Partial Class list_reportesSemestrales
         ReportDataSource1.Value = Me.LIST_REPORTESBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_reportes_semestrales.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 12)
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 71)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(1723, 927)
         Me.ReportViewer1.TabIndex = 0
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(112, 36)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(256, 20)
+        Me.TextBox1.TabIndex = 1
         '
         'list_reportesSemestrales
         '
@@ -61,15 +69,18 @@ Partial Class list_reportesSemestrales
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1747, 951)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "list_reportesSemestrales"
         Me.Text = "list_reportesSemestrales"
         CType(Me.LIST_REPORTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents LIST_REPORTESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 End Class

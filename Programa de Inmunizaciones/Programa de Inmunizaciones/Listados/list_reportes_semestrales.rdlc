@@ -423,7 +423,7 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
+                                <Color>=Iif(fields!estado_notificacion.Value = "CUMPLE C/ERRORES", "Black", "White")</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -438,7 +438,7 @@
                           <Color>#001552</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>=IIf(fields!estado_notificacion.Value = "CORRECTO", "limegreen","red")</BackgroundColor>
+                        <BackgroundColor>=IIf(fields!estado_notificacion.Value = "CUMPLE", "limegreen",IIf(fields!estado_notificacion.Value = "CUMPLE C/ERRORES","YELLOW","RED"))</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -559,7 +559,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
