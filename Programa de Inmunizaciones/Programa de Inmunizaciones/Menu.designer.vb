@@ -74,6 +74,7 @@ Partial Class Menu
         Me.EfectoresPorReferenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EfectoresPorEmisiónDeResumenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EfectoresConInternetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosImplementadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VacunatoriosSegúnHeladeraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -95,12 +96,10 @@ Partial Class Menu
         Me.GestiónDeLocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmd_enviar_correo = New System.Windows.Forms.Button()
-        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -391,6 +390,11 @@ Partial Class Menu
         resources.ApplyResources(Me.EfectoresConInternetToolStripMenuItem, "EfectoresConInternetToolStripMenuItem")
         Me.EfectoresConInternetToolStripMenuItem.Name = "EfectoresConInternetToolStripMenuItem"
         '
+        'ReportesToolStripMenuItem
+        '
+        resources.ApplyResources(Me.ReportesToolStripMenuItem, "ReportesToolStripMenuItem")
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        '
         'EstadisticasToolStripMenuItem1
         '
         Me.EstadisticasToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
@@ -522,20 +526,13 @@ Partial Class Menu
         resources.ApplyResources(Me.GestiónDeBarriosToolStripMenuItem, "GestiónDeBarriosToolStripMenuItem")
         Me.GestiónDeBarriosToolStripMenuItem.Name = "GestiónDeBarriosToolStripMenuItem"
         '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Name = "Label1"
-        '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.BackColor = System.Drawing.Color.RoyalBlue
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.cmd_enviar_correo)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.GroupBox1.Name = "GroupBox1"
@@ -574,18 +571,12 @@ Partial Class Menu
         Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
         Me.cmd_enviar_correo.UseVisualStyleBackColor = False
         '
-        'ReportesToolStripMenuItem
-        '
-        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        resources.ApplyResources(Me.ReportesToolStripMenuItem, "ReportesToolStripMenuItem")
-        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSkyBlue
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.menu_programa_inmunizaciones)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -664,7 +655,6 @@ Partial Class Menu
     Friend WithEvents RegistrarInventarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListadosToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InventariosRegistradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Public WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RegistrarRecordatorioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VacunatoriosPorLocalidadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GestionarInvitacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

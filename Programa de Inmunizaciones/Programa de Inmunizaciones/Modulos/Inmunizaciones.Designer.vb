@@ -8138,6 +8138,8 @@ Partial Public Class Inmunizaciones
         
         Private columnestado_carga As Global.System.Data.DataColumn
 
+        Private columnobservaciones As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -8254,6 +8256,14 @@ Partial Public Class Inmunizaciones
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property observacionesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnobservaciones
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -8290,9 +8300,9 @@ Partial Public Class Inmunizaciones
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddLIST_REPORTESRow(ByVal nombre_efector As String, ByVal cuie As String, ByVal estado_notificacion As String, ByVal estado_perdidas As String, ByVal estado_stock As String, ByVal estado_resumen_mensual As String, ByVal notifica_cada As String, ByVal año As Short, ByVal semestre As String, ByVal estado_carga As String) As LIST_REPORTESRow
+        Public Overloads Function AddLIST_REPORTESRow(ByVal nombre_efector As String, ByVal cuie As String, ByVal estado_notificacion As String, ByVal estado_perdidas As String, ByVal estado_stock As String, ByVal estado_resumen_mensual As String, ByVal notifica_cada As String, ByVal año As Short, ByVal semestre As String, ByVal estado_carga As String, ByVal observaciones As String) As LIST_REPORTESRow
             Dim rowLIST_REPORTESRow As LIST_REPORTESRow = CType(Me.NewRow, LIST_REPORTESRow)
-            Dim columnValuesArray() As Object = New Object() {nombre_efector, cuie, estado_notificacion, estado_perdidas, estado_stock, estado_resumen_mensual, notifica_cada, año, semestre, estado_carga}
+            Dim columnValuesArray() As Object = New Object() {nombre_efector, cuie, estado_notificacion, estado_perdidas, estado_stock, estado_resumen_mensual, notifica_cada, año, semestre, estado_carga, observaciones}
             rowLIST_REPORTESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowLIST_REPORTESRow)
             Return rowLIST_REPORTESRow
@@ -8325,6 +8335,7 @@ Partial Public Class Inmunizaciones
             Me.columnaño = MyBase.Columns("año")
             Me.columnsemestre = MyBase.Columns("semestre")
             Me.columnestado_carga = MyBase.Columns("estado_carga")
+            Me.columnobservaciones = MyBase.Columns("observaciones")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -8350,6 +8361,8 @@ Partial Public Class Inmunizaciones
             MyBase.Columns.Add(Me.columnsemestre)
             Me.columnestado_carga = New Global.System.Data.DataColumn("estado_carga", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnestado_carga)
+            Me.columnobservaciones = New Global.System.Data.DataColumn("observaciones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnobservaciones)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -12832,6 +12845,21 @@ Partial Public Class Inmunizaciones
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property observaciones() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableLIST_REPORTES.observacionesColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'observaciones' de la tabla 'LIST_REPORTES' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableLIST_REPORTES.observacionesColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function Isnombre_efectorNull() As Boolean
             Return Me.IsNull(Me.tableLIST_REPORTES.nombre_efectorColumn)
         End Function
@@ -12948,6 +12976,18 @@ Partial Public Class Inmunizaciones
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub Setestado_cargaNull()
             Me(Me.tableLIST_REPORTES.estado_cargaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsobservacionesNull() As Boolean
+            Return Me.IsNull(Me.tableLIST_REPORTES.observacionesColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetobservacionesNull()
+            Me(Me.tableLIST_REPORTES.observacionesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
