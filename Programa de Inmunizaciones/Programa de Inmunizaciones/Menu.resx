@@ -1612,6 +1612,27 @@
   <data name="EfectoresConInternetToolStripMenuItem.Text" xml:space="preserve">
     <value>Efectores con Internet</value>
   </data>
+  <data name="ReportesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAOEAAADhAXAYHC4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACl0lEQVRYR8WXv2/TQBTHvcGfADsrA7GQGLtB3B8sSAw0TmBFDKgLTAgJ8SdQ/wEgNphZEGGACAmp
+        C0tUoaqVGAgNxKlTGgc93vcch7Pz7DtDaJ/0kZy79+Or+O7d2SEiK87V75y6UPfrNc8PmDbTrS37QwWe
+        k7EAPvCVckiIgzru5fWzrtfc5OQhQ5aEiEGslFNHHARLS63TtXrzESeLcsmrECEHckk1gDh40Wud4eBO
+        Ltm/0EFOqdbcgOu1zruevyckyXD/XoMeP0zAs+Sjg5zIna+X+QGVRcXdZZ8urSXc3WgQbd3IgLF0Hr5i
+        Ds6d/ydmD+qdC3+7u9Iid+0Wrfo354oWAV/EIDafj+noa2ImYLrg5gJWnn2g6+0ebbzrisUk4IsYxEo5
+        USsjANuFJ8TVvvr8Iz3Y+kEUh0S7gR3sixjESjmZKN2iiYBkn0uOfwRUNIMAXg/NTXZzVIfjgcImowv4
+        Pjigr98GpcAHZhLAhKjtTNur5KDQBcSTXzSOJ6XAB2YhgFDb4Qf0dtEB6AImnDyeoEgx8IHZCGACCMAh
+        Ik0qdAELfgWgDQE4yaRJhS6gilkK6DrT41SaVOgCRodHNIwOS4EPzEoA164kIBr9pHA4KgU+MHsBJ/4K
+        Ki7C3v4gQ7ro8mYpQC1C620YY6+P4wwYk8xSQFCpEZlsLxxT90ufXn/u0/rbnlGAakRVWrHJdgZH9H5n
+        nxpc/Nobo4CkFXOc8TC63enTy92RkafbB7PiJgGzw0gJMBzHacKqlAjIHseg6ELyXwTkLySg6Ep25ckr
+        uvri01+B2Hw+Rr6SgbJL6SIovZSm2F7Lq4Kcxmt5ClRy0Ml8mKSoNZEszOP/NNPBdpn2ieP9OM2DrjVt
+        2wv8PCfnN1Nt9lktLwI5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ReportesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="ReportesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>315, 38</value>
   </data>
@@ -2434,39 +2455,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menu_programa_inmunizaciones.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="Label1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 14pt, style=Bold</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>940, 449</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 23</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>GeVac ©JL Soluciones 2017</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="Button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -4055,7 +4043,7 @@
     <value>Trebuchet MS, 9pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 135</value>
+    <value>0, 75</value>
   </data>
   <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 86</value>
@@ -10775,6 +10763,12 @@
   <data name="&gt;&gt;EfectoresConInternetToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ReportesToolStripMenuItem.Name" xml:space="preserve">
+    <value>ReportesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ReportesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;EstadisticasToolStripMenuItem1.Name" xml:space="preserve">
     <value>EstadisticasToolStripMenuItem1</value>
   </data>
@@ -10899,12 +10893,6 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ReportesToolStripMenuItem.Name" xml:space="preserve">
-    <value>ReportesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ReportesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

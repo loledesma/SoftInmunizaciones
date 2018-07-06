@@ -15,19 +15,22 @@
               <Width>6.07187cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.38666cm</Width>
+              <Width>3.93687cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.09292cm</Width>
+              <Width>4.80188cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.66417cm</Width>
+              <Width>3.50542cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.97417cm</Width>
+              <Width>4.25978cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.83917cm</Width>
+              <Width>6.49521cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>9.08813cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -330,6 +333,43 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Observaciones</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>14pt</FontSize>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#001552</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -386,7 +426,6 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -423,7 +462,7 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
+                                <Color>=Iif(fields!estado_notificacion.Value = "CUMPLE C/ERRORES", "Black", "White")</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -438,7 +477,7 @@
                           <Color>#001552</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>=IIf(fields!estado_notificacion.Value = "CORRECTO", "limegreen","red")</BackgroundColor>
+                        <BackgroundColor>=IIf(fields!estado_notificacion.Value = "CUMPLE", "limegreen",IIf(fields!estado_notificacion.Value = "CUMPLE C/ERRORES","YELLOW","RED"))</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -559,7 +598,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -575,7 +613,6 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -612,7 +649,6 @@
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -622,6 +658,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>estado_resumen_mensual</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#001552</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="observaciones">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!observaciones.Value</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>observaciones</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#001552</Color>
@@ -650,6 +722,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -666,7 +739,7 @@
         <Top>0.31433cm</Top>
         <Left>0.39042cm</Left>
         <Height>1.33229cm</Height>
-        <Width>42.91542cm</Width>
+        <Width>50.04562cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -678,13 +751,13 @@
     </ReportItems>
     <Height>0.78369in</Height>
     <Style>
-      <BackgroundColor>#56a7cb</BackgroundColor>
+      <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>17.20579in</Width>
+  <Width>20.41921in</Width>
   <Page>
     <PageHeader>
-      <Height>2.48101cm</Height>
+      <Height>2.50747cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -702,7 +775,6 @@
                     <FontSize>50pt</FontSize>
                     <FontWeight>Thin</FontWeight>
                     <TextDecoration>Underline</TextDecoration>
-                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -729,7 +801,7 @@
         <Border>
           <Style>None</Style>
         </Border>
-        <BackgroundColor>#56a7cb</BackgroundColor>
+        <BackgroundColor>White</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
@@ -759,9 +831,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!PageNumber</Value>
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
@@ -769,7 +839,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.44978cm</Top>
-          <Left>39.19187cm</Left>
+          <Left>47.93604cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -791,9 +861,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!ExecutionTime</Value>
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
@@ -801,7 +869,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>1.22617cm</Top>
-          <Left>39.19187cm</Left>
+          <Left>47.93604cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>2</ZIndex>
@@ -820,7 +888,7 @@
         <Border>
           <Style>None</Style>
         </Border>
-        <BackgroundColor>#56a7cb</BackgroundColor>
+        <BackgroundColor>White</BackgroundColor>
       </Style>
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
@@ -887,6 +955,10 @@
         </Field>
         <Field Name="estado_carga">
           <DataField>estado_carga</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="observaciones">
+          <DataField>observaciones</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
