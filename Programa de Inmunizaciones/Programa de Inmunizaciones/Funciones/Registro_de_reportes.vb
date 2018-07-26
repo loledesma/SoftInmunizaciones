@@ -43,7 +43,7 @@
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."
         System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ","
     End Sub
-    Private Sub txt_responsable_MouseEnter(sender As Object, e As EventArgs)
+    Private Sub txt_responsable_MouseEnter(sender As Object, e As EventArgs) Handles txt_responsable.MouseEnter
         If txt_responsable.Text <> "" Then
             Dim sql As String = ""
             Dim tabla As New DataTable
@@ -89,13 +89,11 @@
 
     End Sub
 
- 
-
-    Private Sub Label12_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub cmd_notificaciones_Click(sender As Object, e As EventArgs) Handles cmd_notificaciones.Click
+        If dgv_vacunatorios.CurrentRow.Selected = True Then
+            Registrar_notificaciones.txt_cuie.Text = dgv_vacunatorios.CurrentRow.Cells("cuie").Value
+        End If
         Registrar_notificaciones.ShowDialog()
     End Sub
 
@@ -107,7 +105,6 @@
 
     Private Sub cargar_vacunatorios()
 
-        
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
         Dim bandera As Boolean
@@ -123,7 +120,7 @@
             If txt_responsable.Text <> "" Then
 
                 sql = ""
-                sql &= "SELECT E.cuie as cuie, E.nombre as nombre "
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado "
                 sql &= " FROM EFECTORES E "
                 sql &= " WHERE E.id_referente= '" & cuie & "' AND E.cuie NOT IN "
                 sql &= "(SELECT cuie FROM DETALLE_REPORTE WHERE id_reporte= " & id & ")"
@@ -135,11 +132,10 @@
         Else
             If txt_responsable.Text <> "" Then
                 sql = ""
-                sql &= "SELECT E.cuie as cuie, E.nombre as nombre "
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado as id_estado "
                 sql &= " FROM EFECTORES E "
                 sql &= " WHERE E.id_referente='" & cuie & "'"
                 tabla2 = acceso.consulta(sql)
-
             End If
         End If
 
@@ -166,17 +162,29 @@
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
+                    colorear_estado(tabla2.Rows(c)("id_estado"), c)
                 Next
             Else
                 For c = 0 To tabla2.Rows.Count() - 1
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
+                    colorear_estado(tabla2.Rows(c)("id_estado"), c)
                 Next
             End If
 
         End If
 
+    End Sub
+
+    Private Sub colorear_estado(ByVal id_estado As Integer, ByVal indice As Integer)
+        If id_estado = 4 Then
+            dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.RosyBrown
+        End If
+
+        If id_estado = 8 Then
+            dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.BlueViolet
+        End If
     End Sub
 
 
@@ -515,7 +523,7 @@
         Dim cuie As String = ""
         Dim id_reporte As Integer = 0
 
-        sql = "SELECT cuie FROM EFECTORES WHERE nombre= '" & Me.txt_responsable.Text & "'"
+        sql = "SELECT cuie FROM EFECTORES WHERE nombre LIKE '%" & Me.txt_responsable.Text & "%'"
         tabla = acceso.consulta(sql)
         If tabla.Rows.Count() <> 0 Then
             cuie = tabla.Rows(0)("cuie")
@@ -640,4 +648,7 @@
     End Sub
 
 
+    Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
+        Registrar_efectores.ShowDialog()
+    End Sub
 End Class
