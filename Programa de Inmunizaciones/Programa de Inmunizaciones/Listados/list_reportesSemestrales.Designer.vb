@@ -154,7 +154,7 @@ Partial Class list_reportesSemestrales
         Me.txt_vacunatorio_particular.Location = New System.Drawing.Point(142, 75)
         Me.txt_vacunatorio_particular.Name = "txt_vacunatorio_particular"
         Me.txt_vacunatorio_particular.Size = New System.Drawing.Size(312, 20)
-        Me.txt_vacunatorio_particular.TabIndex = 11
+        Me.txt_vacunatorio_particular.TabIndex = 5
         '
         'txt_centro_responsable
         '
@@ -163,7 +163,7 @@ Partial Class list_reportesSemestrales
         Me.txt_centro_responsable.Location = New System.Drawing.Point(142, 36)
         Me.txt_centro_responsable.Name = "txt_centro_responsable"
         Me.txt_centro_responsable.Size = New System.Drawing.Size(312, 20)
-        Me.txt_centro_responsable.TabIndex = 12
+        Me.txt_centro_responsable.TabIndex = 0
         '
         'cmb_semestres
         '
