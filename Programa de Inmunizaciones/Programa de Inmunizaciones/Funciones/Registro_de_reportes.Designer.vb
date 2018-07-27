@@ -27,7 +27,9 @@ Partial Class Registro_de_reportes
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.txt_responsable = New System.Windows.Forms.TextBox()
+        Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmd_confirmar_reportes = New System.Windows.Forms.Button()
@@ -53,7 +55,13 @@ Partial Class Registro_de_reportes
         Me.cmd_agregar_reporte = New System.Windows.Forms.Button()
         Me.txt_observaciones = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_emite_resumen = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tiempo_notificacion = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -67,16 +75,8 @@ Partial Class Registro_de_reportes
         Me.cmd_buscar_añoYsemestre = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
-        Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_emite_resumen = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_tiempo_notificacion = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_semestre_reporte = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +121,25 @@ Partial Class Registro_de_reportes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "El GoupBox de los GroupBox"
         '
+        'cmd_efector_nuevo
+        '
+        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(1113, 24)
+        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_efector_nuevo.TabIndex = 21
+        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
+        '
         'txt_responsable
         '
         Me.txt_responsable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -129,6 +148,17 @@ Partial Class Registro_de_reportes
         Me.txt_responsable.Name = "txt_responsable"
         Me.txt_responsable.Size = New System.Drawing.Size(243, 20)
         Me.txt_responsable.TabIndex = 2
+        '
+        'cmb_año
+        '
+        Me.cmb_año._descripcion = "descripcion"
+        Me.cmb_año._nombre_tabla = "REPORTES_AÑOS"
+        Me.cmb_año._pk = "id"
+        Me.cmb_año.FormattingEnabled = True
+        Me.cmb_año.Location = New System.Drawing.Point(427, 27)
+        Me.cmb_año.Name = "cmb_año"
+        Me.cmb_año.Size = New System.Drawing.Size(81, 21)
+        Me.cmb_año.TabIndex = 0
         '
         'Label3
         '
@@ -375,6 +405,17 @@ Partial Class Registro_de_reportes
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Observaciones"
         '
+        'cmb_notificaciones
+        '
+        Me.cmb_notificaciones._descripcion = "descripcion"
+        Me.cmb_notificaciones._nombre_tabla = "ESTADO_NOTIF_REPORTES"
+        Me.cmb_notificaciones._pk = "id"
+        Me.cmb_notificaciones.FormattingEnabled = True
+        Me.cmb_notificaciones.Location = New System.Drawing.Point(100, 31)
+        Me.cmb_notificaciones.Name = "cmb_notificaciones"
+        Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_notificaciones.TabIndex = 0
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -385,6 +426,61 @@ Partial Class Registro_de_reportes
         Me.Label10.Size = New System.Drawing.Size(74, 13)
         Me.Label10.TabIndex = 13
         Me.Label10.Text = "Notificaciones"
+        '
+        'cmb_stock
+        '
+        Me.cmb_stock._descripcion = "descripcion"
+        Me.cmb_stock._nombre_tabla = "ESTADO_INDICADORES"
+        Me.cmb_stock._pk = "id"
+        Me.cmb_stock.FormattingEnabled = True
+        Me.cmb_stock.Location = New System.Drawing.Point(100, 112)
+        Me.cmb_stock.Name = "cmb_stock"
+        Me.cmb_stock.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_stock.TabIndex = 3
+        '
+        'cmb_emite_resumen
+        '
+        Me.cmb_emite_resumen._descripcion = "descripcion"
+        Me.cmb_emite_resumen._nombre_tabla = "ESTADO_RM"
+        Me.cmb_emite_resumen._pk = "id"
+        Me.cmb_emite_resumen.FormattingEnabled = True
+        Me.cmb_emite_resumen.Location = New System.Drawing.Point(100, 139)
+        Me.cmb_emite_resumen.Name = "cmb_emite_resumen"
+        Me.cmb_emite_resumen.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_emite_resumen.TabIndex = 4
+        '
+        'cmb_tiempo_notificacion
+        '
+        Me.cmb_tiempo_notificacion._descripcion = "descripcion"
+        Me.cmb_tiempo_notificacion._nombre_tabla = "TIPO_NOTIFICACION"
+        Me.cmb_tiempo_notificacion._pk = "id"
+        Me.cmb_tiempo_notificacion.FormattingEnabled = True
+        Me.cmb_tiempo_notificacion.Location = New System.Drawing.Point(100, 166)
+        Me.cmb_tiempo_notificacion.Name = "cmb_tiempo_notificacion"
+        Me.cmb_tiempo_notificacion.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_tiempo_notificacion.TabIndex = 5
+        '
+        'cmb_perdidas
+        '
+        Me.cmb_perdidas._descripcion = "descripcion"
+        Me.cmb_perdidas._nombre_tabla = "ESTADO_INDICADORES"
+        Me.cmb_perdidas._pk = "id"
+        Me.cmb_perdidas.FormattingEnabled = True
+        Me.cmb_perdidas.Location = New System.Drawing.Point(100, 85)
+        Me.cmb_perdidas.Name = "cmb_perdidas"
+        Me.cmb_perdidas.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_perdidas.TabIndex = 2
+        '
+        'cmb_carga
+        '
+        Me.cmb_carga._descripcion = "descripcion"
+        Me.cmb_carga._nombre_tabla = "ESTADO_INDICADORES"
+        Me.cmb_carga._pk = "id"
+        Me.cmb_carga.FormattingEnabled = True
+        Me.cmb_carga.Location = New System.Drawing.Point(100, 58)
+        Me.cmb_carga.Name = "cmb_carga"
+        Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_carga.TabIndex = 1
         '
         'Label9
         '
@@ -529,106 +625,6 @@ Partial Class Registro_de_reportes
         Me.Label1.Size = New System.Drawing.Size(26, 13)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Año"
-        '
-        'cmd_efector_nuevo
-        '
-        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(1113, 24)
-        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_efector_nuevo.TabIndex = 21
-        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmb_año
-        '
-        Me.cmb_año._descripcion = "descripcion"
-        Me.cmb_año._nombre_tabla = "REPORTES_AÑOS"
-        Me.cmb_año._pk = "id"
-        Me.cmb_año.FormattingEnabled = True
-        Me.cmb_año.Location = New System.Drawing.Point(427, 27)
-        Me.cmb_año.Name = "cmb_año"
-        Me.cmb_año.Size = New System.Drawing.Size(81, 21)
-        Me.cmb_año.TabIndex = 0
-        '
-        'cmb_notificaciones
-        '
-        Me.cmb_notificaciones._descripcion = "descripcion"
-        Me.cmb_notificaciones._nombre_tabla = "ESTADO_NOTIF_REPORTES"
-        Me.cmb_notificaciones._pk = "id"
-        Me.cmb_notificaciones.FormattingEnabled = True
-        Me.cmb_notificaciones.Location = New System.Drawing.Point(100, 31)
-        Me.cmb_notificaciones.Name = "cmb_notificaciones"
-        Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_notificaciones.Sorted = True
-        Me.cmb_notificaciones.TabIndex = 0
-        '
-        'cmb_stock
-        '
-        Me.cmb_stock._descripcion = "descripcion"
-        Me.cmb_stock._nombre_tabla = "ESTADO_INDICADORES"
-        Me.cmb_stock._pk = "id"
-        Me.cmb_stock.FormattingEnabled = True
-        Me.cmb_stock.Location = New System.Drawing.Point(100, 112)
-        Me.cmb_stock.Name = "cmb_stock"
-        Me.cmb_stock.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_stock.Sorted = True
-        Me.cmb_stock.TabIndex = 3
-        '
-        'cmb_emite_resumen
-        '
-        Me.cmb_emite_resumen._descripcion = "descripcion"
-        Me.cmb_emite_resumen._nombre_tabla = "ESTADO_RM"
-        Me.cmb_emite_resumen._pk = "id"
-        Me.cmb_emite_resumen.FormattingEnabled = True
-        Me.cmb_emite_resumen.Location = New System.Drawing.Point(100, 139)
-        Me.cmb_emite_resumen.Name = "cmb_emite_resumen"
-        Me.cmb_emite_resumen.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_emite_resumen.TabIndex = 4
-        '
-        'cmb_tiempo_notificacion
-        '
-        Me.cmb_tiempo_notificacion._descripcion = "descripcion"
-        Me.cmb_tiempo_notificacion._nombre_tabla = "TIPO_NOTIFICACION"
-        Me.cmb_tiempo_notificacion._pk = "id"
-        Me.cmb_tiempo_notificacion.FormattingEnabled = True
-        Me.cmb_tiempo_notificacion.Location = New System.Drawing.Point(100, 166)
-        Me.cmb_tiempo_notificacion.Name = "cmb_tiempo_notificacion"
-        Me.cmb_tiempo_notificacion.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_tiempo_notificacion.TabIndex = 5
-        '
-        'cmb_perdidas
-        '
-        Me.cmb_perdidas._descripcion = "descripcion"
-        Me.cmb_perdidas._nombre_tabla = "ESTADO_INDICADORES"
-        Me.cmb_perdidas._pk = "id"
-        Me.cmb_perdidas.FormattingEnabled = True
-        Me.cmb_perdidas.Location = New System.Drawing.Point(100, 85)
-        Me.cmb_perdidas.Name = "cmb_perdidas"
-        Me.cmb_perdidas.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_perdidas.Sorted = True
-        Me.cmb_perdidas.TabIndex = 2
-        '
-        'cmb_carga
-        '
-        Me.cmb_carga._descripcion = "descripcion"
-        Me.cmb_carga._nombre_tabla = "ESTADO_INDICADORES"
-        Me.cmb_carga._pk = "id"
-        Me.cmb_carga.FormattingEnabled = True
-        Me.cmb_carga.Location = New System.Drawing.Point(100, 58)
-        Me.cmb_carga.Name = "cmb_carga"
-        Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_carga.Sorted = True
-        Me.cmb_carga.TabIndex = 1
         '
         'cmb_semestre_reporte
         '
