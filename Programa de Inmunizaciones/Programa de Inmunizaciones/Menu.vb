@@ -46,75 +46,75 @@ Public Class Menu
 
     End Sub
     Private Sub GestiónDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeEmpleadosToolStripMenuItem.Click
-        abm_empleados.ShowDialog()
+        abm_empleados.Show()
     End Sub
 
     Private Sub EfectoresPorDptoYLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorDptoYLocalidadToolStripMenuItem.Click
-        listados_efector_loc_dpto.ShowDialog()
+        listados_efector_loc_dpto.Show()
     End Sub
 
     Private Sub NotificacionesPorToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        listados_notificaciones.ShowDialog()
+        listados_notificaciones.Show()
     End Sub
 
     Private Sub NuevaNotificaciónToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        Registrar_notificaciones.ShowDialog()
+        Registrar_notificaciones.Show()
     End Sub
 
     Private Sub GestiónDeLocalidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeLocalidadesToolStripMenuItem.Click
-        abm_localidades.ShowDialog()
+        abm_localidades.Show()
     End Sub
 
     Private Sub GestiónDeDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeDepartamentosToolStripMenuItem.Click
-        abm_departamentos.ShowDialog()
+        abm_departamentos.Show()
     End Sub
 
     Private Sub GestiónDeBarriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeBarriosToolStripMenuItem.Click
-        abm_barrios.ShowDialog()
+        abm_barrios.Show()
     End Sub
 
     Private Sub GestiónDeVacunatoriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeVacunatoriosToolStripMenuItem.Click
-        Registrar_efectores.ShowDialog()
+        Registrar_efectores.Show()
     End Sub
 
 
     Private Sub NuevaAtenciónToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        Registrar_atencion.ShowDialog()
+        Registrar_atencion.Show()
     End Sub
 
     Private Sub ReferentesRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        listados_referentes_y_efectores.ShowDialog()
+        listados_referentes_y_efectores.Show()
     End Sub
     Private Sub AtencionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        list_atenciones.ShowDialog()
+        list_atenciones.Show()
     End Sub
     Private Sub UsuariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosRegistradosToolStripMenuItem.Click
-        list_usuarios.ShowDialog()
+        list_usuarios.Show()
     End Sub
 
     Private Sub LocalidadesPorDepartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesPorDepartamentosToolStripMenuItem.Click
-        listado_localidadesxdpto.ShowDialog()
+        listado_localidadesxdpto.Show()
     End Sub
 
     Private Sub EfectoresPorReferenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorReferenteToolStripMenuItem.Click
-        listados_efector_x_refe.ShowDialog()
+        listados_efector_x_refe.Show()
     End Sub
 
     Private Sub EfectoresPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEstadoToolStripMenuItem.Click
-        list_efectores_x_estado.ShowDialog()
+        list_efectores_x_estado.Show()
     End Sub
 
     Private Sub ReferentesRegistradosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ReferentesRegistradosToolStripMenuItem.Click
-        listados_referentes_y_efectores.ShowDialog()
+        listados_referentes_y_efectores.Show()
     End Sub
 
 
     Private Sub RegistrarPeticionesToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        Registrar_peticiones_desarrollos.ShowDialog()
+        Registrar_peticiones_desarrollos.Show()
     End Sub
 
     Private Sub VacunatoriosImplementadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosImplementadosToolStripMenuItem.Click
-        est_efectores_implementados.ShowDialog()
+        est_efectores_implementados.Show()
     End Sub
 
     'Private Sub StockDeInsumosToolStripMenuItem_Click(sender As Object, e As EventArgs)
@@ -122,27 +122,27 @@ Public Class Menu
     'End Sub
 
     Private Sub RegistrarEntregaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarEntregaToolStripMenuItem.Click
-        Registrar_entrega_insumos.ShowDialog()
+        Registrar_entrega_insumos.Show()
     End Sub
 
     Private Sub EstadoDeHeladerasPorEfectorToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        list_heladeras_antiguas.ShowDialog()
+        list_heladeras_antiguas.Show()
     End Sub
 
     Private Sub EmpleadosPorCursoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorCursoToolStripMenuItem.Click
-        est_empleados_con_y_sin_curso.ShowDialog()
+        est_empleados_con_y_sin_curso.Show()
     End Sub
 
     Private Sub VacunatoriosSegúnHeladeraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosSegúnHeladeraToolStripMenuItem.Click
-        est_ef_con_y_sin_heladera.ShowDialog()
+        est_ef_con_y_sin_heladera.Show()
     End Sub
 
     Private Sub EstadoDeHeladerasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeHeladerasToolStripMenuItem.Click
-        est_estado_heladeras.ShowDialog()
+        est_estado_heladeras.Show()
     End Sub
 
     Private Sub EmisiónDeResumenDesdeSigipsaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmisiónDeResumenDesdeSigipsaToolStripMenuItem.Click
-        est_efect_emiten_sigipsa.ShowDialog()
+        est_efect_emiten_sigipsa.Show()
     End Sub
 
     Private Sub menu_programa_inmunizaciones_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles menu_programa_inmunizaciones.ItemClicked
@@ -154,74 +154,74 @@ Public Class Menu
     End Sub
 
     Private Sub NuevaNotificaciónToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevaNotificaciónToolStripMenuItem1.Click
-        Registrar_notificaciones.ShowDialog()
+        Registrar_notificaciones.Show()
     End Sub
 
     Private Sub NotificacionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificacionesRegistradasToolStripMenuItem.Click
-        listados_notificaciones.ShowDialog()
+        listados_notificaciones.Show()
     End Sub
 
     Private Sub NuevaAtencónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaAtencónToolStripMenuItem.Click
-        Registrar_atencion.ShowDialog()
+        Registrar_atencion.Show()
     End Sub
 
     Private Sub RegistrarNvaPeticiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarNvaPeticiónToolStripMenuItem.Click
-        Registrar_peticiones_desarrollos.ShowDialog()
+        Registrar_peticiones_desarrollos.Show()
     End Sub
 
     Private Sub EfectoresPorEmisiónDeResumenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresPorEmisiónDeResumenToolStripMenuItem.Click
-        list_efectores_emiten_resumen.ShowDialog()
+        list_efectores_emiten_resumen.Show()
     End Sub
 
     Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockToolStripMenuItem.Click
-        Registrar_ingreso_stock.ShowDialog()
+        Registrar_ingreso_stock.Show()
     End Sub
 
     Private Sub RegistrarNuevaCapacitaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarNuevaCapacitaciónToolStripMenuItem.Click
-        Registrar_capacitaciones.ShowDialog()
+        Registrar_capacitaciones.Show()
     End Sub
 
     Private Sub EfectoresQueNoNotificanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresQueNoNotificanToolStripMenuItem.Click
-        list_no_notifican.ShowDialog()
+        list_no_notifican.Show()
     End Sub
 
     Private Sub EfectoresConInternetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EfectoresConInternetToolStripMenuItem.Click
-        list_efect_internet.ShowDialog()
+        list_efect_internet.Show()
     End Sub
 
     Private Sub InventarioDeCadenaDeFrioToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles InventarioDeCadenaDeFrioToolStripMenuItem.Click
-        Inventario_cadena_de_frio.ShowDialog()
+        Inventario_cadena_de_frio.Show()
     End Sub
 
     Private Sub PedidosDeDesarrolloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosDeDesarrolloToolStripMenuItem.Click
-        list_pedidos_desarrollo.ShowDialog()
+        list_pedidos_desarrollo.Show()
     End Sub
 
     Private Sub CapacitacionesRegistradasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapacitacionesRegistradasToolStripMenuItem.Click
-        list_capacitaciones.ShowDialog()
+        list_capacitaciones.Show()
     End Sub
 
     Private Sub AtencionesRegistradasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AtencionesRegistradasToolStripMenuItem1.Click
-        list_atenciones.ShowDialog()
+        list_atenciones.Show()
     End Sub
 
     Private Sub EntregasRealizadasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntregasRealizadasToolStripMenuItem.Click
-        list_entregas.ShowDialog()
+        list_entregas.Show()
     End Sub
 
     Private Sub RegistrarInventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarInventarioToolStripMenuItem.Click
-        Inventario_cadena_de_frio.ShowDialog()
+        Inventario_cadena_de_frio.Show()
     End Sub
 
     Private Sub InventariosRegistradosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventariosRegistradosToolStripMenuItem.Click
-        list_inventario.ShowDialog()
+        list_inventario.Show()
     End Sub
 
     Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
         Registrar_recordatorio.ShowDialog()
     End Sub
     Private Sub EmpleadosPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorEstadoToolStripMenuItem.Click
-        list_empleados_x_estado.ShowDialog()
+        list_empleados_x_estado.Show()
     End Sub
 
 
@@ -230,19 +230,19 @@ Public Class Menu
     End Sub
 
     Private Sub GestionarInvitacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarInvitacionesToolStripMenuItem.Click
-        Registrar_invitaciones.ShowDialog()
+        Registrar_invitaciones.Show()
     End Sub
 
     Private Sub GestionarActividadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarActividadesToolStripMenuItem.Click
-        Registrar_Actividades.ShowDialog()
+        Registrar_Actividades.Show()
     End Sub
 
     Private Sub CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantidadDeEfectoresSegunEstadoDeNotificacionesToolStripMenuItem.Click
-        est_estado_cargaStockPerdidasXDpto.ShowDialog()
+        est_estado_cargaStockPerdidasXDpto.Show()
     End Sub
 
     Private Sub cmd_enviar_correo_Click(sender As Object, e As EventArgs) Handles cmd_enviar_correo.Click
-        Enviar_correo_global.ShowDialog()
+        Enviar_correo_global.Show()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

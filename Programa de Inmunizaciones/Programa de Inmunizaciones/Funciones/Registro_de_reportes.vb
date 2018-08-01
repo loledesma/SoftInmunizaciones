@@ -651,4 +651,8 @@
     Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
         Registrar_efectores.ShowDialog()
     End Sub
+
+    Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar(Me.Controls)
+    End Sub
 End Class
