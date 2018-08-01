@@ -57,6 +57,7 @@ Partial Class list_reportesSemestrales
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.AutoScroll = True
         Me.ReportViewer1.DocumentMapWidth = 85
         ReportDataSource1.Name = "list_reportes"
         ReportDataSource1.Value = Me.LIST_REPORTESBindingSource
@@ -189,8 +190,9 @@ Partial Class list_reportesSemestrales
         '
         'list_reportesSemestrales
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.AutoScroll = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1512, 692)
@@ -208,7 +210,7 @@ Partial Class list_reportesSemestrales
         Me.Controls.Add(Me.txt_cuie_responsable)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "list_reportesSemestrales"
-        Me.Text = "list_reportesSemestrales"
+        Me.Text = "REPORTES SEMESTRALES"
         CType(Me.LIST_REPORTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

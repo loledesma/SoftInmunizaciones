@@ -68,7 +68,7 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efector.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre='" & txt_efector.Text & "'"
+                sql &= " WHERE LIKE '%" & txt_efector.Text & "%'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
