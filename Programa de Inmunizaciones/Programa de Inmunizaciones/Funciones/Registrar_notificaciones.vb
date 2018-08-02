@@ -88,6 +88,7 @@
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        limpiar()
         Me.Close()
     End Sub
     Private Sub cargar_grilla()

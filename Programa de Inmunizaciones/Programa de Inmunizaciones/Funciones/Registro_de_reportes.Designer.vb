@@ -27,6 +27,7 @@ Partial Class Registro_de_reportes
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.txt_responsable = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -68,7 +69,6 @@ Partial Class Registro_de_reportes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -77,6 +77,7 @@ Partial Class Registro_de_reportes
         Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_semestre_reporte = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +122,25 @@ Partial Class Registro_de_reportes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "El GoupBox de los GroupBox"
         '
+        'cmd_efector_nuevo
+        '
+        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(1113, 24)
+        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
+        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_efector_nuevo.TabIndex = 21
+        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
+        '
         'txt_responsable
         '
         Me.txt_responsable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -144,6 +164,7 @@ Partial Class Registro_de_reportes
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.cmd_limpiar)
         Me.GroupBox2.Controls.Add(Me.cmd_confirmar_reportes)
         Me.GroupBox2.Controls.Add(Me.cmd_eliminar_reporte)
         Me.GroupBox2.Controls.Add(Me.dgv_reportes)
@@ -361,6 +382,7 @@ Partial Class Registro_de_reportes
         Me.txt_observaciones.Location = New System.Drawing.Point(7, 219)
         Me.txt_observaciones.Multiline = True
         Me.txt_observaciones.Name = "txt_observaciones"
+        Me.txt_observaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txt_observaciones.Size = New System.Drawing.Size(476, 121)
         Me.txt_observaciones.TabIndex = 6
         '
@@ -530,25 +552,6 @@ Partial Class Registro_de_reportes
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Año"
         '
-        'cmd_efector_nuevo
-        '
-        Me.cmd_efector_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_efector_nuevo.BackgroundImage = CType(resources.GetObject("cmd_efector_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_efector_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_efector_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_efector_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(1113, 24)
-        Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
-        Me.cmd_efector_nuevo.Size = New System.Drawing.Size(25, 25)
-        Me.cmd_efector_nuevo.TabIndex = 21
-        Me.cmd_efector_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_efector_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_efector_nuevo.UseVisualStyleBackColor = False
-        '
         'cmb_año
         '
         Me.cmb_año._descripcion = "descripcion"
@@ -569,7 +572,6 @@ Partial Class Registro_de_reportes
         Me.cmb_notificaciones.Location = New System.Drawing.Point(100, 31)
         Me.cmb_notificaciones.Name = "cmb_notificaciones"
         Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_notificaciones.Sorted = True
         Me.cmb_notificaciones.TabIndex = 0
         '
         'cmb_stock
@@ -581,7 +583,6 @@ Partial Class Registro_de_reportes
         Me.cmb_stock.Location = New System.Drawing.Point(100, 112)
         Me.cmb_stock.Name = "cmb_stock"
         Me.cmb_stock.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_stock.Sorted = True
         Me.cmb_stock.TabIndex = 3
         '
         'cmb_emite_resumen
@@ -615,7 +616,6 @@ Partial Class Registro_de_reportes
         Me.cmb_perdidas.Location = New System.Drawing.Point(100, 85)
         Me.cmb_perdidas.Name = "cmb_perdidas"
         Me.cmb_perdidas.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_perdidas.Sorted = True
         Me.cmb_perdidas.TabIndex = 2
         '
         'cmb_carga
@@ -627,7 +627,6 @@ Partial Class Registro_de_reportes
         Me.cmb_carga.Location = New System.Drawing.Point(100, 58)
         Me.cmb_carga.Name = "cmb_carga"
         Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
-        Me.cmb_carga.Sorted = True
         Me.cmb_carga.TabIndex = 1
         '
         'cmb_semestre_reporte
@@ -640,6 +639,25 @@ Partial Class Registro_de_reportes
         Me.cmb_semestre_reporte.Name = "cmb_semestre_reporte"
         Me.cmb_semestre_reporte.Size = New System.Drawing.Size(105, 21)
         Me.cmb_semestre_reporte.TabIndex = 1
+        '
+        'cmd_limpiar
+        '
+        Me.cmd_limpiar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.BackgroundImage = CType(resources.GetObject("cmd_limpiar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_limpiar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_limpiar.FlatAppearance.BorderSize = 0
+        Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_limpiar.Location = New System.Drawing.Point(668, 623)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_limpiar.Name = "cmd_limpiar"
+        Me.cmd_limpiar.Size = New System.Drawing.Size(51, 48)
+        Me.cmd_limpiar.TabIndex = 60
+        Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_limpiar.UseVisualStyleBackColor = False
         '
         'Registro_de_reportes
         '
@@ -718,4 +736,5 @@ Partial Class Registro_de_reportes
     Friend WithEvents id_tiempo_notificacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_efector_nuevo As System.Windows.Forms.Button
+    Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
 End Class
