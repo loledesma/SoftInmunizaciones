@@ -1279,13 +1279,14 @@
         If txt_cuie.Text <> "" Then
             Registrar_notificaciones.txt_cuie.Text = Me.txt_cuie.Text
         End If
-        Registrar_notificaciones.ShowDialog()
+        Registrar_notificaciones.Show()
+
     End Sub
 
     Private Sub cmd_atenciones_Click(sender As Object, e As EventArgs) Handles cmd_atenciones.Click
         If txt_cuie.Text <> "" Then
             Registrar_atencion.txt_cuie.Text = Me.txt_cuie.Text
         End If
-        Registrar_atencion.ShowDialog()
+        Registrar_atencion.Show()
     End Sub
 End Class
