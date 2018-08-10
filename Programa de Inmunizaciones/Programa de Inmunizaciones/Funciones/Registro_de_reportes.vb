@@ -118,7 +118,6 @@
 
         If validar_reporte() = True Then
             If txt_responsable.Text <> "" Then
-
                 sql = ""
                 sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado "
                 sql &= " FROM EFECTORES E "
@@ -145,24 +144,26 @@
                 Me.dgv_vacunatorios.Rows.Add()
                 Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = cuie
                 Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = txt_responsable.Text
-                bandera = True
+                bandera = True ''LA PRIMERA FILA DE LA GRILLA ESTA LLENA
             End If
         Else
             Me.dgv_vacunatorios.Rows.Add()
             Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = cuie
             Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = txt_responsable.Text
-            bandera = True
+            bandera = True ''LA PRIMERA FILA DE LA GRILLA ESTA LLENA
         End If
 
 
         If tabla2.Rows.Count() <> 0 Then
             Dim c As Integer = 0
+            Dim d As Integer = 0
             If bandera Then
                 For c = 1 To tabla2.Rows.Count() - 1
                     Me.dgv_vacunatorios.Rows.Add()
-                    Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
-                    Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
+                    Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(d)("cuie")
+                    Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(d)("nombre")
                     colorear_estado(tabla2.Rows(c)("id_estado"), c)
+                    d = d + 1
                 Next
             Else
                 For c = 0 To tabla2.Rows.Count() - 1
@@ -177,6 +178,15 @@
 
     End Sub
 
+    Private Sub registro_de_reportes_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control And e.KeyCode.ToString = "L" Then
+            limpiar(Me.Controls)
+        End If
+        If e.Control And e.KeyCode.ToString = "G" Then
+            guardar_reporte()
+        End If
+    End Sub
+
     Private Sub colorear_estado(ByVal id_estado As Integer, ByVal indice As Integer)
         If id_estado = 4 Then
             dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.RosyBrown
@@ -184,6 +194,10 @@
 
         If id_estado = 8 Then
             dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.BlueViolet
+        End If
+
+        If id_estado = 6 Then
+            dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.Cyan
         End If
     End Sub
 
@@ -486,9 +500,14 @@
 
     Private Sub cmd_confirmar_reportes_Click(sender As Object, e As EventArgs) Handles cmd_confirmar_reportes.Click
         If dgv_reportes.Rows.Count() <> 0 Then
-            guardar_reporte()
+            Try
+                guardar_reporte()
+                MsgBox("Guardado")
+            Catch ex As Exception
+                MsgBox("No se pudo guardar")
+            End Try
         End If
-        MsgBox("Guardado")
+
         condicion_estado = condicion.insertar
     End Sub
 
@@ -552,9 +571,6 @@
 
         If tabla.Rows.Count() <> 0 Then
             id_reporte = tabla.Rows(0)("id")
-        End If
-
-        If id_reporte <> 0 Then
             Return id_reporte
         End If
 
