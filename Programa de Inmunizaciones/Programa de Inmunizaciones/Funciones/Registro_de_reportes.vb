@@ -674,5 +674,7 @@
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         limpiar(Me.Controls)
+        Me.dgv_reportes.Rows.Clear()
+        Me.dgv_vacunatorios.Rows.Clear()
     End Sub
 End Class
