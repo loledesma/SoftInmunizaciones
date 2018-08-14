@@ -144,7 +144,6 @@
                 Me.dgv_vacunatorios.Rows.Add()
                 Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = cuie
                 Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = txt_responsable.Text
-                bandera = True ''LA PRIMERA FILA DE LA GRILLA ESTA LLENA
             End If
         Else
             Me.dgv_vacunatorios.Rows.Add()
@@ -158,11 +157,11 @@
             Dim c As Integer = 0
             Dim d As Integer = 0
             If bandera Then
-                For c = 1 To tabla2.Rows.Count() - 1
+                For c = 1 To tabla2.Rows.Count()
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(d)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(d)("nombre")
-                    colorear_estado(tabla2.Rows(c)("id_estado"), c, tabla2.Rows(c)("id_tipo"))
+                    colorear_estado(tabla2.Rows(d)("id_estado"), c, tabla2.Rows(d)("id_tipo"))
                     d = d + 1
                 Next
             Else
@@ -675,5 +674,7 @@
 
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
         limpiar(Me.Controls)
+        Me.dgv_reportes.Rows.Clear()
+        Me.dgv_vacunatorios.Rows.Clear()
     End Sub
 End Class
