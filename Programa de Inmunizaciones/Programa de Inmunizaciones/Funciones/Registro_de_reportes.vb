@@ -119,7 +119,7 @@
         If validar_reporte() = True Then
             If txt_responsable.Text <> "" Then
                 sql = ""
-                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado "
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado, E.id_tipo "
                 sql &= " FROM EFECTORES E "
                 sql &= " WHERE E.id_referente= '" & cuie & "' AND E.cuie NOT IN "
                 sql &= "(SELECT cuie FROM DETALLE_REPORTE WHERE id_reporte= " & id & ")"
@@ -131,7 +131,7 @@
         Else
             If txt_responsable.Text <> "" Then
                 sql = ""
-                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado as id_estado "
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado as id_estado, E.id_tipo as id_tipo "
                 sql &= " FROM EFECTORES E "
                 sql &= " WHERE E.id_referente='" & cuie & "'"
                 tabla2 = acceso.consulta(sql)
@@ -162,7 +162,7 @@
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(d)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(d)("nombre")
-                    colorear_estado(tabla2.Rows(c)("id_estado"), c)
+                    colorear_estado(tabla2.Rows(c)("id_estado"), c, tabla2.Rows(c)("id_tipo"))
                     d = d + 1
                 Next
             Else
@@ -170,7 +170,7 @@
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
-                    colorear_estado(tabla2.Rows(c)("id_estado"), c)
+                    colorear_estado(tabla2.Rows(c)("id_estado"), c, tabla2.Rows(c)("id_tipo"))
                 Next
             End If
 
@@ -187,9 +187,9 @@
         End If
     End Sub
 
-    Private Sub colorear_estado(ByVal id_estado As Integer, ByVal indice As Integer)
+    Private Sub colorear_estado(ByVal id_estado As Integer, ByVal indice As Integer, ByVal id_tipo As Integer)
         If id_estado = 4 Then
-            dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.RosyBrown
+            dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.Red
         End If
 
         If id_estado = 8 Then
@@ -199,6 +199,11 @@
         If id_estado = 6 Then
             dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.Cyan
         End If
+
+        If id_tipo = 3 Then
+            dgv_vacunatorios.Rows(indice).DefaultCellStyle.BackColor = Color.Yellow
+        End If
+
     End Sub
 
 
