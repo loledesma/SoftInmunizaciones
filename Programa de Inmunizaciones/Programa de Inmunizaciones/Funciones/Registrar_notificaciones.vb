@@ -20,7 +20,6 @@
 
     Dim condicion_click As doble_Click = doble_Click.desactivado
     Private Sub Registrar_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        limpiar(Me.Controls)
         Me.rdio_todas.Checked = True
         Me.cargar_grilla()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
@@ -72,6 +71,10 @@
         tltp_notificaciones.SetToolTip(cmd_limpiar, "Limpiar")
     End Sub
     Private Sub cmd_limpiar_Click(sender As Object, e As EventArgs) Handles cmd_limpiar.Click
+        limpiar()
+    End Sub
+
+    Private Sub limpiar()
         Me.condicion_click = doble_Click.desactivado
         Me.txt_id_empleado.Enabled = True
         Me.grp_datos_generales.Enabled = True
@@ -85,6 +88,7 @@
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        limpiar()
         Me.Close()
     End Sub
     Private Sub cargar_grilla()
@@ -166,7 +170,7 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
                 sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
-                sql &= " WHERE E.nombre= '" & txt_efectores.Text & "'"
+                sql &= " WHERE E.nombre LIKE '%" & txt_efectores.Text & "%'"
                 tabla = acceso.consulta(sql)
 
                 If tabla.Rows.Count() <> 0 Then
@@ -465,23 +469,6 @@
         End If
 
 
-        'If perdidas = "AL DIA" Then
-        '    Me.dgv_notificaciones.CurrentRow.Cells("perdidas").Style.BackColor = Color.GreenYellow
-        'ElseIf perdidas = "ATRASADO" Then
-        '    Me.dgv_notificaciones.CurrentRow.Cells("perdidas").Style.BackColor = Color.Yellow
-        'ElseIf perdidas = "NO INFORMA" Then
-        '    Me.dgv_notificaciones.CurrentRow.Cells("perdidas").Style.BackColor = Color.Red
-        'End If
-
-
-        'If stock = "COINCIDE" Then
-        '    Me.dgv_notificaciones.CurrentRow.Cells("stock").Style.BackColor = Color.GreenYellow
-        'ElseIf stock = "NO COINCIDE" Then
-        '    Me.dgv_notificaciones.CurrentRow.Cells("stock").Style.BackColor = Color.Yellow
-        'ElseIf stock = "NO INFORMA" Then
-        '    Me.dgv_notificaciones.CurrentRow.Cells("stock").Style.BackColor = Color.Red
-        'End If
-
     End Sub
 
     Private Sub cmd_efector_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_efector_nuevo.Click
@@ -720,6 +707,7 @@
             End If
         End If
         Me.condicion_estado = estado.modificar
+        Me.condicion_click = doble_Click.desactivado
     End Sub
 
     Private Sub dgv_notificaciones_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_notificaciones.CellValueChanged
@@ -741,10 +729,12 @@
             lbl_contador_hoy.Text = Me.dgv_notificaciones.Rows.Count()
             lbl_contador_notif.Text = valor1
 
+
         ElseIf rdio_todas.Checked = True Then
             lbl_contador_notif.Text = valor1
             lbl_contador_hoy.Text = valor2
         End If
+        lbl_grilla.Text = dgv_notificaciones.Rows.Count()
     End Sub
 
     Private Sub rdio_todas_CheckedChanged(sender As Object, e As EventArgs) Handles rdio_todas.CheckedChanged
@@ -807,4 +797,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Registrar_atencion.ShowDialog()
     End Sub
+
+ 
+   
 End Class
