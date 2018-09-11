@@ -119,7 +119,7 @@ Partial Class Inicio_sesion
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.name = "Inicio_sesion"
+        Me.name.Text = "Inicio_sesion"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "INICIO DE SESION"
