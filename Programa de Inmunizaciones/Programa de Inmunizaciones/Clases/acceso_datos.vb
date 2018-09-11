@@ -87,9 +87,6 @@ Public Class acceso_datos
                 If validacion_conexion = conexion_hamachi.hamachi Then
                     conexion.ConnectionString = cadena_conexion
                     Try
-                        If conexion.state = ConnectionState.Open Then
-                            conexion.Close()
-                        End If
                         conexion.Open()
                         validacion_conexion = conexion_hamachi.hamachi
                     Catch ex2 As Exception
@@ -100,7 +97,7 @@ Public Class acceso_datos
                 Else
                     If validacion_conexion = conexion_hamachi.interno Then
                         Try
-                            cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                            cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password=lore88"
                             conexion.ConnectionString = cadena_conexion
                             conexion.Open()
                         Catch ex3 As Exception

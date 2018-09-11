@@ -457,12 +457,6 @@
     </Compile>
     <Compile Include="Modulos\EnvioCorreos.vb" />
     <Compile Include="Modulos\global1.vb" />
-    <Compile Include="Popups\Tareas.Designer.vb">
-      <DependentUpon>Tareas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Popups\Tareas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Sesion\Inicio_sesion.Designer.vb">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -686,9 +680,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Popups\Tareas.resx">
-      <DependentUpon>Tareas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sesion\Inicio_sesion.resx">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
