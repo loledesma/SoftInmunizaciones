@@ -75,7 +75,7 @@ Partial Class Inicio_sesion
         Me.name.Name = "name"
         Me.name.Size = New System.Drawing.Size(220, 20)
         Me.name.TabIndex = 1
-        Me.name.Text = "Ingrese el usuario"
+        Me.name.Text = "Ingresar usuario"
         '
         'password
         '
@@ -108,6 +108,7 @@ Partial Class Inicio_sesion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(401, 192)
+        Me.ControlBox = False
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.OK)
         Me.Controls.Add(Me.password)
@@ -118,7 +119,7 @@ Partial Class Inicio_sesion
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.name.Text = "Ingresar usuario"
+        Me.name = "Inicio_sesion"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "INICIO DE SESION"
