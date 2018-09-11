@@ -8,7 +8,6 @@ Public Class Menu
         Inicio_sesion.ShowDialog()
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) Then
             verifCumple()
-            verifTareas()
             back_up.ShowDialog()
             If Ajustes_Pendientes.verificar() = True Then
                 Ajustes_Pendientes.ShowDialog()
@@ -18,9 +17,6 @@ Public Class Menu
         End If
     End Sub
 
-    Private Sub verifTareas()
-        Tareas.ShowDialog()
-    End Sub
 
     Private Sub verifCumple()
         Dim tabla = New DataTable
