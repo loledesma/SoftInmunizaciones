@@ -22,7 +22,11 @@ Public Class Menu
         Dim tabla = New DataTable
         Dim sql = ""
 
-        sql = "select E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E where day(E.fecha_nac) = " & Date.Today.Day & " AND month (E.fecha_nac) = " & Date.Today.Month
+        sql = "select E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
+        sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie "
+        sql &= " where Day(E.fecha_nac) = " & Date.Today.Day & " And Month(E.fecha_nac) = " & Date.Today.Month
+        sql &= " AND EE.id_estado_empleado != 4 "
+        sql &= " AND EF.id_estado = 3"
 
         tabla = acceso.consulta(sql)
 
