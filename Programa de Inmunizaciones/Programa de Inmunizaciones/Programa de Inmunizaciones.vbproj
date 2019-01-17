@@ -198,6 +198,29 @@
     <Compile Include="Funciones\Enviar_correo_global.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Funciones\Registro_de_reportes.Designer.vb">
+      <DependentUpon>Registro_de_reportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Registro_de_reportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\list_reportesSemestrales.Designer.vb">
+      <DependentUpon>list_reportesSemestrales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\list_reportesSemestrales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Ajustes_Pendientes.Designer.vb">
+      <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Ajustes_Pendientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Popups\back_up.Designer.vb">
       <DependentUpon>back_up.vb</DependentUpon>
     </Compile>
@@ -434,12 +457,6 @@
     </Compile>
     <Compile Include="Modulos\EnvioCorreos.vb" />
     <Compile Include="Modulos\global1.vb" />
-    <Compile Include="Popups\Tareas.Designer.vb">
-      <DependentUpon>Tareas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Popups\Tareas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Sesion\Inicio_sesion.Designer.vb">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -468,11 +485,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -511,6 +523,16 @@
     <EmbeddedResource Include="Estadisticos\EST_EfXEstadoStock.rdlc" />
     <EmbeddedResource Include="Funciones\Enviar_correo_global.resx">
       <DependentUpon>Enviar_correo_global.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Registro_de_reportes.resx">
+      <DependentUpon>Registro_de_reportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_reportesSemestrales.resx">
+      <DependentUpon>list_reportesSemestrales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\list_reportes_semestrales.rdlc" />
+    <EmbeddedResource Include="Popups\Ajustes_Pendientes.resx">
+      <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popups\back_up.resx">
       <DependentUpon>back_up.vb</DependentUpon>
@@ -659,9 +681,6 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popups\Tareas.resx">
-      <DependentUpon>Tareas.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sesion\Inicio_sesion.resx">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -726,16 +745,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Imagenes\5.png">
+    <Content Include="Funciones\Imagenes\5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagenes\6.png">
+    <Content Include="Funciones\Imagenes\6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagenes\7.png">
+    <Content Include="Funciones\Imagenes\7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagenes\cumpleaños.jpg">
+    <Content Include="Funciones\Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Resources\cumpleaños.jpg">
@@ -750,17 +769,20 @@
     <None Include="Resources\customer_person_people_woman_you_1627.png" />
     <None Include="Resources\Client_Female_Light.png" />
     <None Include="Resources\4.png" />
+    <None Include="Resources\vacu_logo_min.png" />
     <None Include="Resources\3.jpg" />
     <None Include="Resources\2.png" />
-    <None Include="Resources\vacu_logo_min.png" />
+    <None Include="Resources\7.png" />
+    <None Include="Resources\5.png" />
+    <None Include="Resources\6.png" />
     <Content Include="Resources\Cartel cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Imagenes\4.png" />
-    <None Include="Imagenes\3.jpg" />
-    <None Include="Imagenes\2.png" />
+    <None Include="Funciones\Imagenes\4.png" />
+    <None Include="Funciones\Imagenes\3.jpg" />
+    <None Include="Funciones\Imagenes\2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

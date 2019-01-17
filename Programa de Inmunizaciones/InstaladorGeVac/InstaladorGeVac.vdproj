@@ -15,8 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0556FE4FA51F4CE2ADDDF34256EE1304"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_0ABE253441CB2971218DE1D2ABEA726A"
+        "OwnerKey" = "8:_6421C23CC4F5489590B55010BC08DC40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0ABE253441CB2971218DE1D2ABEA726A"
+        "OwnerKey" = "8:_B4E45E2899AA31DDD9340898B6554E25"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0ABE253441CB2971218DE1D2ABEA726A"
+        "OwnerKey" = "8:_2CDA97EFAE9995AD29864F9D2EA327E1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -75,32 +87,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E7E4B6B79C06BC97065D8AA07A033A1E"
-        "OwnerKey" = "8:_6421C23CC4F5489590B55010BC08DC40"
+        "MsmKey" = "8:_E7C30E68AA4A4537BFCB6FD214A7ED00"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E7E4B6B79C06BC97065D8AA07A033A1E"
-        "OwnerKey" = "8:_2CDA97EFAE9995AD29864F9D2EA327E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E7E4B6B79C06BC97065D8AA07A033A1E"
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B4E45E2899AA31DDD9340898B6554E25"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E7E4B6B79C06BC97065D8AA07A033A1E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6421C23CC4F5489590B55010BC08DC40"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -124,7 +118,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4E45E2899AA31DDD9340898B6554E25"
+        "OwnerKey" = "8:_6421C23CC4F5489590B55010BC08DC40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0ABE253441CB2971218DE1D2ABEA726A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -145,6 +145,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -161,6 +169,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -190,10 +206,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0556FE4FA51F4CE2ADDDF34256EE1304"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0ABE253441CB2971218DE1D2ABEA726A"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Dropbox\\Soft\\LOGOS E IMAGENES\\cumpleaños.jpg"
-            "TargetName" = "8:cumpleaños.jpg"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0ABE253441CB2971218DE1D2ABEA726A"
+                    {
+                    "Name" = "8:Microsoft.SqlServer.Types.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.SqlServer.Types.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_1BA23CC07E3142BCBE15B7A997FDB34C"
             "Condition" = "8:"
@@ -207,7 +234,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1F75B82328983D3D4021DB1232854C56"
@@ -354,21 +381,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E7E4B6B79C06BC97065D8AA07A033A1E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E7C30E68AA4A4537BFCB6FD214A7ED00"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_E7E4B6B79C06BC97065D8AA07A033A1E"
-                    {
-                    "Name" = "8:Microsoft.SqlServer.Types.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.SqlServer.Types.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\..\\..\\Dropbox\\Soft\\IMAGENES\\CARTELES BEIOS\\cumpleaños.jpg"
+            "TargetName" = "8:cumpleaños.jpg"
             "Tag" = "8:"
             "Folder" = "8:_1BA23CC07E3142BCBE15B7A997FDB34C"
             "Condition" = "8:"
@@ -382,7 +398,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }

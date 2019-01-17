@@ -250,7 +250,7 @@ Partial Class Registrar_atencion
         '
         Me.txt_id_atencion.Location = New System.Drawing.Point(109, 21)
         Me.txt_id_atencion.Name = "txt_id_atencion"
-        Me.txt_id_atencion.Size = New System.Drawing.Size(136, 20)
+        Me.txt_id_atencion.Size = New System.Drawing.Size(90, 20)
         Me.txt_id_atencion.TabIndex = 0
         '
         'txt_fecha
@@ -289,7 +289,7 @@ Partial Class Registrar_atencion
         Me.dgv_atenciones.Location = New System.Drawing.Point(443, 12)
         Me.dgv_atenciones.Name = "dgv_atenciones"
         Me.dgv_atenciones.ReadOnly = True
-        Me.dgv_atenciones.Size = New System.Drawing.Size(656, 515)
+        Me.dgv_atenciones.Size = New System.Drawing.Size(668, 515)
         Me.dgv_atenciones.TabIndex = 7
         '
         'id

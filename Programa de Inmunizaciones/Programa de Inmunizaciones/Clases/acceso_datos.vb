@@ -65,7 +65,6 @@ Public Class acceso_datos
     End Sub
 
     Private Function conectar() As resultado
-
         If conexion.state.ToString <> "Open" Then
             If validacion_conexion = conexion_hamachi.vacio Then
                 conexion.ConnectionString = cadena_conexion
@@ -98,7 +97,7 @@ Public Class acceso_datos
                 Else
                     If validacion_conexion = conexion_hamachi.interno Then
                         Try
-                            cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password = lore88"
+                            cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password=lore88"
                             conexion.ConnectionString = cadena_conexion
                             conexion.Open()
                         Catch ex3 As Exception

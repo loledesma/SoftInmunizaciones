@@ -68,7 +68,7 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efector.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre='" & txt_efector.Text & "'"
+                sql &= " WHERE E.nombre LIKE '%" & txt_efector.Text & "%'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
@@ -268,13 +268,13 @@
             cmb_estado_atencion.Focus()
             Return False
             Exit Function
-        ElseIf txt_fecha.Text > hoy Then
-            MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-            Me.txt_fecha.Focus()
-            Exit Function
+            'ElseIf txt_fecha.Text > hoy Then
+            '    MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    Return False
+            '    Me.txt_fecha.Focus()
+            '    Exit Function
         ElseIf IsDate(txt_fecha.Text) = False Then
-            MessageBox.Show("Debe ingresar una fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Debe ingresar una fecha!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
             Me.txt_fecha.Focus()
             Exit Function

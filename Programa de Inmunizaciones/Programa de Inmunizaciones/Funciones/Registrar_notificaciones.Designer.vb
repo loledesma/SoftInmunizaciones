@@ -81,6 +81,7 @@ Partial Class Registrar_notificaciones
         Me.rdio_hoy = New System.Windows.Forms.RadioButton()
         Me.rdio_todas = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txt_atenciones = New System.Windows.Forms.TextBox()
         Me.cmb_notifica = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -88,7 +89,8 @@ Partial Class Registrar_notificaciones
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.lbl_grilla = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.grp_datos_generales.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
         CType(Me.dgv_notificaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -656,7 +658,7 @@ Partial Class Registrar_notificaciones
         Me.lbl_contador_hoy.BackColor = System.Drawing.Color.Transparent
         Me.lbl_contador_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_contador_hoy.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_hoy.Location = New System.Drawing.Point(669, 485)
+        Me.lbl_contador_hoy.Location = New System.Drawing.Point(669, 471)
         Me.lbl_contador_hoy.Name = "lbl_contador_hoy"
         Me.lbl_contador_hoy.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_hoy.TabIndex = 50
@@ -667,7 +669,7 @@ Partial Class Registrar_notificaciones
         Me.lbl_registradas_hoy.BackColor = System.Drawing.Color.Transparent
         Me.lbl_registradas_hoy.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_registradas_hoy.ForeColor = System.Drawing.Color.White
-        Me.lbl_registradas_hoy.Location = New System.Drawing.Point(422, 485)
+        Me.lbl_registradas_hoy.Location = New System.Drawing.Point(422, 471)
         Me.lbl_registradas_hoy.Name = "lbl_registradas_hoy"
         Me.lbl_registradas_hoy.Size = New System.Drawing.Size(238, 17)
         Me.lbl_registradas_hoy.TabIndex = 49
@@ -717,6 +719,25 @@ Partial Class Registrar_notificaciones
         Me.GroupBox1.TabIndex = 53
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Busqueda"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(265, 42)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(25, 25)
+        Me.Button1.TabIndex = 54
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'txt_atenciones
         '
@@ -774,32 +795,39 @@ Partial Class Registrar_notificaciones
         Me.Label4.TabIndex = 49
         Me.Label4.Text = "Fecha Desde"
         '
-        'Button1
+        'lbl_grilla
         '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(265, 42)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(25, 25)
-        Me.Button1.TabIndex = 54
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.lbl_grilla.AutoSize = True
+        Me.lbl_grilla.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_grilla.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_grilla.ForeColor = System.Drawing.Color.White
+        Me.lbl_grilla.Location = New System.Drawing.Point(669, 498)
+        Me.lbl_grilla.Name = "lbl_grilla"
+        Me.lbl_grilla.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_grilla.TabIndex = 55
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(422, 498)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(192, 17)
+        Me.Label5.TabIndex = 54
+        Me.Label5.Text = "Notificaciones en la grilla"
         '
         'Registrar_notificaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 530)
+        Me.Controls.Add(Me.lbl_grilla)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.rdio_todas)
         Me.Controls.Add(Me.rdio_hoy)
@@ -897,4 +925,6 @@ Partial Class Registrar_notificaciones
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tltp_empleados As System.Windows.Forms.ToolTip
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents lbl_grilla As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

@@ -62,7 +62,7 @@ Module Correo
             'correos.Attachments.Add(archivo)
 
 
-            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2015")
+            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2019")
 
             ''Datos importantes no modificables para tener acceso a las cuentas
 
@@ -79,7 +79,7 @@ Module Correo
 
     End Sub
 
-    Sub EnviarCorreo(ByVal destinatario As String, ByVal text As String, ByVal asunto As String)
+    Sub enviarCorreo(ByVal destinatario As String, ByVal text As String, ByVal asunto As String)
         Dim contador As Integer = 0
         For Each mail As String In destinatario.Split(",")
             Try
@@ -155,5 +155,44 @@ Module Correo
         MsgBox("Cantidad de correos enviados correctamente: " & contador)
 
     End Sub
+
+    Dim ADJUNTO As Attachment
+    Public Sub enviarCorreo(ByVal destinatario As String, ByVal text As String, ByVal asunto As String, ByVal adjunto As Attachment)
+        Dim MISMTP As New SmtpClient
+        Dim MENSAJE As New MailMessage
+
+        Try
+            MENSAJE.From = New MailAddress("soft.inmunizaciones@gmail.com")
+            MENSAJE.To.Add(destinatario)
+            MENSAJE.Subject = asunto
+            MENSAJE.Body = text
+
+            Try
+                MENSAJE.Attachments.Add(adjunto)
+            Catch ex As Exception
+                ' SI NO HAY FICHERO ADJUNTO NO HARA NADA
+            End Try
+
+            Dim ORIGEN As String = "soft.inmunizaciones@gmail.com"
+            ORIGEN = ORIGEN.Remove(0, ORIGEN.IndexOf("@") + 1)
+            If ORIGEN = "gmail.com" Then
+                MISMTP.Host = "SMTP.GMAIL.COM"
+            ElseIf ORIGEN = "hotmail.com" Or ORIGEN = "outlook.com" Then
+                MISMTP.Host = "SMTP.LIVE.COM"
+            End If
+
+            MISMTP.EnableSsl = True
+            MISMTP.Port = "587"
+            MISMTP.Credentials = New Net.NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2019")
+
+            MISMTP.Send(MENSAJE)
+
+            MsgBox("Correo enviado con éxito!")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
 
 End Module

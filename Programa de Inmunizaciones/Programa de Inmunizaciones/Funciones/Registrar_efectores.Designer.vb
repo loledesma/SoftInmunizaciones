@@ -119,6 +119,7 @@ Partial Class Registrar_efectores
         Me.referente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_notificar = New System.Windows.Forms.Button()
+        Me.cmd_atenciones = New System.Windows.Forms.Button()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -1134,6 +1135,25 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_notificar.UseVisualStyleBackColor = False
         '
+        'cmd_atenciones
+        '
+        Me.cmd_atenciones.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_atenciones.BackgroundImage = CType(resources.GetObject("cmd_atenciones.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_atenciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_atenciones.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_atenciones.FlatAppearance.BorderSize = 0
+        Me.cmd_atenciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_atenciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_atenciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_atenciones.Location = New System.Drawing.Point(293, 638)
+        Me.cmd_atenciones.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_atenciones.Name = "cmd_atenciones"
+        Me.cmd_atenciones.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_atenciones.TabIndex = 56
+        Me.cmd_atenciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_atenciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_atenciones.UseVisualStyleBackColor = False
+        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1141,6 +1161,7 @@ Partial Class Registrar_efectores
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1255, 707)
+        Me.Controls.Add(Me.cmd_atenciones)
         Me.Controls.Add(Me.cmd_notificar)
         Me.Controls.Add(Me.dgv_vacunatorios)
         Me.Controls.Add(Me.dgv_empleados)
@@ -1260,4 +1281,5 @@ Partial Class Registrar_efectores
     Friend WithEvents txt_año_curso As System.Windows.Forms.TextBox
     Friend WithEvents cmb_notifica As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents cmd_atenciones As System.Windows.Forms.Button
 End Class

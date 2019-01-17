@@ -283,6 +283,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="LIST_REPORTES" msprop:Generator_TableClassName="LIST_REPORTESDataTable" msprop:Generator_TableVarName="tableLIST_REPORTES" msprop:Generator_RowChangedName="LIST_REPORTESRowChanged" msprop:Generator_TablePropName="LIST_REPORTES" msprop:Generator_RowDeletingName="LIST_REPORTESRowDeleting" msprop:Generator_RowChangingName="LIST_REPORTESRowChanging" msprop:Generator_RowEvHandlerName="LIST_REPORTESRowChangeEventHandler" msprop:Generator_RowDeletedName="LIST_REPORTESRowDeleted" msprop:Generator_RowClassName="LIST_REPORTESRow" msprop:Generator_UserTableName="LIST_REPORTES" msprop:Generator_RowEvArgName="LIST_REPORTESRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_efector" msprop:Generator_ColumnVarNameInTable="columnnombre_efector" msprop:Generator_ColumnPropNameInRow="nombre_efector" msprop:Generator_ColumnPropNameInTable="nombre_efectorColumn" msprop:Generator_UserColumnName="nombre_efector" type="xs:string" minOccurs="0" />
+              <xs:element name="cuie" msprop:Generator_ColumnVarNameInTable="columncuie" msprop:Generator_ColumnPropNameInRow="cuie" msprop:Generator_ColumnPropNameInTable="cuieColumn" msprop:Generator_UserColumnName="cuie" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_notificacion" msprop:Generator_ColumnVarNameInTable="columnestado_notificacion" msprop:Generator_ColumnPropNameInRow="estado_notificacion" msprop:Generator_ColumnPropNameInTable="estado_notificacionColumn" msprop:Generator_UserColumnName="estado_notificacion" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_perdidas" msprop:Generator_ColumnVarNameInTable="columnestado_perdidas" msprop:Generator_ColumnPropNameInRow="estado_perdidas" msprop:Generator_ColumnPropNameInTable="estado_perdidasColumn" msprop:Generator_UserColumnName="estado_perdidas" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_stock" msprop:Generator_ColumnVarNameInTable="columnestado_stock" msprop:Generator_ColumnPropNameInRow="estado_stock" msprop:Generator_ColumnPropNameInTable="estado_stockColumn" msprop:Generator_UserColumnName="estado_stock" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_resumen_mensual" msprop:Generator_ColumnVarNameInTable="columnestado_resumen_mensual" msprop:Generator_ColumnPropNameInRow="estado_resumen_mensual" msprop:Generator_ColumnPropNameInTable="estado_resumen_mensualColumn" msprop:Generator_UserColumnName="estado_resumen_mensual" type="xs:string" minOccurs="0" />
+              <xs:element name="notifica_cada" msprop:Generator_ColumnVarNameInTable="columnnotifica_cada" msprop:Generator_ColumnPropNameInRow="notifica_cada" msprop:Generator_ColumnPropNameInTable="notifica_cadaColumn" msprop:Generator_UserColumnName="notifica_cada" type="xs:string" minOccurs="0" />
+              <xs:element name="año" msprop:Generator_ColumnVarNameInTable="columnaño" msprop:Generator_ColumnPropNameInRow="año" msprop:Generator_ColumnPropNameInTable="añoColumn" msprop:Generator_UserColumnName="año" type="xs:short" minOccurs="0" />
+              <xs:element name="semestre" msprop:Generator_ColumnVarNameInTable="columnsemestre" msprop:Generator_ColumnPropNameInRow="semestre" msprop:Generator_ColumnPropNameInTable="semestreColumn" msprop:Generator_UserColumnName="semestre" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_carga" msprop:Generator_ColumnVarNameInTable="columnestado_carga" msprop:Generator_ColumnPropNameInRow="estado_carga" msprop:Generator_ColumnPropNameInTable="estado_cargaColumn" msprop:Generator_UserColumnName="estado_carga" type="xs:string" minOccurs="0" />
+              <xs:element name="observaciones" msprop:Generator_ColumnVarNameInTable="columnobservaciones" msprop:Generator_ColumnPropNameInRow="observaciones" msprop:Generator_ColumnPropNameInTable="observacionesColumn" msprop:Generator_UserColumnName="observaciones" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
