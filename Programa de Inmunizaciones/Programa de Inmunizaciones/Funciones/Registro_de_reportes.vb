@@ -112,17 +112,21 @@
         Dim sql As String = ""
         Dim cuie As String = ""
         Dim id As Integer = 0
+        Dim depto As String = ""
 
+        depto = devolver_dpto_refe()
         cuie = devolver_cuie_responsable()
         id = devolver_id_reporte()
+
 
         If validar_reporte() = True Then
             If txt_responsable.Text <> "" Then
                 sql = ""
-                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado, E.id_tipo "
-                sql &= " FROM EFECTORES E "
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado, E.id_tipo, D.descripcion "
+                sql &= " FROM EFECTORES E join DEPARTAMENTOS D on D.id = E.id_departamento "
                 sql &= " WHERE E.id_referente= '" & cuie & "' AND E.cuie NOT IN "
                 sql &= "(SELECT cuie FROM DETALLE_REPORTE WHERE id_reporte= " & id & ")"
+                sql &= " order by E.id_departamento"
                 tabla2 = acceso.consulta(sql)
 
                 cargar_reportes(cuie, id)
@@ -131,9 +135,10 @@
         Else
             If txt_responsable.Text <> "" Then
                 sql = ""
-                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado as id_estado, E.id_tipo as id_tipo "
-                sql &= " FROM EFECTORES E "
+                sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado as id_estado, E.id_tipo as id_tipo, D.descripcion "
+                sql &= " FROM EFECTORES E join DEPARTAMENTOS D on D.id = E.id_departamento "
                 sql &= " WHERE E.id_referente='" & cuie & "'"
+                sql &= " order by E.id_departamento"
                 tabla2 = acceso.consulta(sql)
             End If
         End If
@@ -143,11 +148,14 @@
             If existe_detalle(cuie, id) = False Then
                 Me.dgv_vacunatorios.Rows.Add()
                 Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = cuie
+                Me.dgv_vacunatorios.Rows(0).Cells("departamento").Value = depto
                 Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = txt_responsable.Text
+
             End If
         Else
             Me.dgv_vacunatorios.Rows.Add()
             Me.dgv_vacunatorios.Rows(0).Cells("cuie").Value = cuie
+            Me.dgv_vacunatorios.Rows(0).Cells("departamento").Value = depto
             Me.dgv_vacunatorios.Rows(0).Cells("efector").Value = txt_responsable.Text
             bandera = True ''LA PRIMERA FILA DE LA GRILLA ESTA LLENA
         End If
@@ -160,6 +168,7 @@
                 For c = 1 To tabla2.Rows.Count()
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(d)("cuie")
+                    Me.dgv_vacunatorios.Rows(c).Cells("departamento").Value = tabla2.Rows(d)("descripcion")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(d)("nombre")
                     colorear_estado(tabla2.Rows(d)("id_estado"), c, tabla2.Rows(d)("id_tipo"))
                     d = d + 1
@@ -169,6 +178,7 @@
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
+                    Me.dgv_vacunatorios.Rows(0).Cells("departamento").Value = tabla2.Rows(c)("descripcion")
                     colorear_estado(tabla2.Rows(c)("id_estado"), c, tabla2.Rows(c)("id_tipo"))
                 Next
             End If
@@ -556,6 +566,25 @@
         If cuie <> "" Then
             Return cuie
         End If
+    End Function
+
+    Private Function devolver_dpto_refe() As String
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        Dim depto As String = ""
+
+        sql = "select D.descripcion as departamento from departamentos D join efectores E on E.id_departamento = D.id "
+        sql &= "WHERE E.nombre like '%" & Me.txt_responsable.Text & "%'"
+        tabla = acceso.consulta(sql)
+
+        If tabla.Rows.Count() <> 0 Then
+            depto = tabla.Rows(0)("departamento")
+        End If
+
+        If depto <> "" Then
+            Return depto
+        End If
+
     End Function
 
     Private Function devolver_id_reporte() As Integer

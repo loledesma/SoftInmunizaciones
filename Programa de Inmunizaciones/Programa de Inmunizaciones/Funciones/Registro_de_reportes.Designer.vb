@@ -31,6 +31,7 @@ Partial Class Registro_de_reportes
         Me.txt_responsable = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmd_limpiar = New System.Windows.Forms.Button()
         Me.cmd_confirmar_reportes = New System.Windows.Forms.Button()
         Me.cmd_eliminar_reporte = New System.Windows.Forms.Button()
         Me.dgv_reportes = New System.Windows.Forms.DataGridView()
@@ -61,14 +62,12 @@ Partial Class Registro_de_reportes
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.dgv_vacunatorios = New System.Windows.Forms.DataGridView()
-        Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmd_buscar_añoYsemestre = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
+        Me.dgv_vacunatorios = New System.Windows.Forms.DataGridView()
         Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
@@ -77,7 +76,9 @@ Partial Class Registro_de_reportes
         Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_semestre_reporte = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmd_limpiar = New System.Windows.Forms.Button()
+        Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.departamento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,6 +176,25 @@ Partial Class Registro_de_reportes
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Reportes realizados"
+        '
+        'cmd_limpiar
+        '
+        Me.cmd_limpiar.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.BackgroundImage = CType(resources.GetObject("cmd_limpiar.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_limpiar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_limpiar.FlatAppearance.BorderSize = 0
+        Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_limpiar.Location = New System.Drawing.Point(668, 623)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_limpiar.Name = "cmd_limpiar"
+        Me.cmd_limpiar.Size = New System.Drawing.Size(51, 48)
+        Me.cmd_limpiar.TabIndex = 60
+        Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_limpiar.UseVisualStyleBackColor = False
         '
         'cmd_confirmar_reportes
         '
@@ -476,36 +496,6 @@ Partial Class Registro_de_reportes
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Selección de Vacunatorio"
         '
-        'dgv_vacunatorios
-        '
-        Me.dgv_vacunatorios.AllowUserToAddRows = False
-        Me.dgv_vacunatorios.AllowUserToDeleteRows = False
-        Me.dgv_vacunatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_vacunatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efector, Me.cuie})
-        Me.dgv_vacunatorios.Location = New System.Drawing.Point(9, 32)
-        Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
-        Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(469, 207)
-        Me.dgv_vacunatorios.TabIndex = 47
-        '
-        'efector
-        '
-        Me.efector.FillWeight = 150.0!
-        Me.efector.HeaderText = "Vacunatorio"
-        Me.efector.MinimumWidth = 10
-        Me.efector.Name = "efector"
-        Me.efector.ReadOnly = True
-        Me.efector.Width = 340
-        '
-        'cuie
-        '
-        Me.cuie.FillWeight = 150.0!
-        Me.cuie.HeaderText = "Cuie"
-        Me.cuie.MinimumWidth = 10
-        Me.cuie.Name = "cuie"
-        Me.cuie.ReadOnly = True
-        Me.cuie.Width = 80
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -551,6 +541,18 @@ Partial Class Registro_de_reportes
         Me.Label1.Size = New System.Drawing.Size(26, 13)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Año"
+        '
+        'dgv_vacunatorios
+        '
+        Me.dgv_vacunatorios.AllowUserToAddRows = False
+        Me.dgv_vacunatorios.AllowUserToDeleteRows = False
+        Me.dgv_vacunatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_vacunatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efector, Me.departamento, Me.cuie})
+        Me.dgv_vacunatorios.Location = New System.Drawing.Point(9, 32)
+        Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
+        Me.dgv_vacunatorios.ReadOnly = True
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(469, 207)
+        Me.dgv_vacunatorios.TabIndex = 47
         '
         'cmb_año
         '
@@ -640,24 +642,29 @@ Partial Class Registro_de_reportes
         Me.cmb_semestre_reporte.Size = New System.Drawing.Size(105, 21)
         Me.cmb_semestre_reporte.TabIndex = 1
         '
-        'cmd_limpiar
+        'efector
         '
-        Me.cmd_limpiar.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_limpiar.BackgroundImage = CType(resources.GetObject("cmd_limpiar.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_limpiar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_limpiar.FlatAppearance.BorderSize = 0
-        Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar.Location = New System.Drawing.Point(668, 623)
-        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmd_limpiar.Name = "cmd_limpiar"
-        Me.cmd_limpiar.Size = New System.Drawing.Size(51, 48)
-        Me.cmd_limpiar.TabIndex = 60
-        Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_limpiar.UseVisualStyleBackColor = False
+        Me.efector.FillWeight = 150.0!
+        Me.efector.HeaderText = "Vacunatorio"
+        Me.efector.MinimumWidth = 10
+        Me.efector.Name = "efector"
+        Me.efector.ReadOnly = True
+        Me.efector.Width = 290
+        '
+        'departamento
+        '
+        Me.departamento.HeaderText = "Departmaneto"
+        Me.departamento.Name = "departamento"
+        Me.departamento.ReadOnly = True
+        '
+        'cuie
+        '
+        Me.cuie.FillWeight = 150.0!
+        Me.cuie.HeaderText = "Cuie"
+        Me.cuie.MinimumWidth = 10
+        Me.cuie.Name = "cuie"
+        Me.cuie.ReadOnly = True
+        Me.cuie.Width = 80
         '
         'Registro_de_reportes
         '
@@ -716,9 +723,6 @@ Partial Class Registro_de_reportes
     Friend WithEvents tltp_reportes As ToolTip
     Friend WithEvents txt_responsable As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
-    Friend WithEvents efector As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents efectorTerminado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cuieTerminado As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -737,4 +741,8 @@ Partial Class Registro_de_reportes
     Friend WithEvents observaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_efector_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_limpiar As System.Windows.Forms.Button
+    Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
+    Friend WithEvents efector As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents departamento As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
