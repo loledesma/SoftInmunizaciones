@@ -929,7 +929,7 @@
     End Function
 
     Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
-        abm_empleados.ShowDialog()
+        abm_empleados.Show()
     End Sub
 
     Private Sub cmd_buscar_empleadoXDNI_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleadoXDNI.Click

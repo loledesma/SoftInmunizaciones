@@ -22,7 +22,8 @@ Public Class Menu
         Dim tabla = New DataTable
         Dim sql = ""
 
-        sql = "select distinct E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
+      sql = "select DISTINCT E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
+
         sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie "
         sql &= " where Day(E.fecha_nac) = " & Date.Today.Day & " And Month(E.fecha_nac) = " & Date.Today.Month
         sql &= " AND EE.id_estado_empleado != 4 "
@@ -218,7 +219,7 @@ Public Class Menu
     End Sub
 
     Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
-        Registrar_recordatorio.ShowDialog()
+        Registrar_recordatorio.Show()
     End Sub
     Private Sub EmpleadosPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorEstadoToolStripMenuItem.Click
         list_empleados_x_estado.Show()
@@ -226,7 +227,7 @@ Public Class Menu
 
 
     Private Sub VacunatoriosPorLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosPorLocalidadToolStripMenuItem.Click
-        Est_Efect_x_Loc.ShowDialog()
+        Est_Efect_x_Loc.Show()
     End Sub
 
     Private Sub GestionarInvitacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarInvitacionesToolStripMenuItem.Click
