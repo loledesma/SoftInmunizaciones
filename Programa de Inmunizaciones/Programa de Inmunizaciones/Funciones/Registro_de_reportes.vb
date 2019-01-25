@@ -126,7 +126,7 @@
                 sql &= " FROM EFECTORES E join DEPARTAMENTOS D on D.id = E.id_departamento "
                 sql &= " WHERE E.id_referente= '" & cuie & "' AND E.cuie NOT IN "
                 sql &= "(SELECT cuie FROM DETALLE_REPORTE WHERE id_reporte= " & id & ")"
-                sql &= " order by E.id_departamento"
+                sql &= " order by D.descripcion"
                 tabla2 = acceso.consulta(sql)
 
                 cargar_reportes(cuie, id)
@@ -138,7 +138,7 @@
                 sql &= "SELECT E.cuie as cuie, E.nombre as nombre, E.id_estado as id_estado, E.id_tipo as id_tipo, D.descripcion "
                 sql &= " FROM EFECTORES E join DEPARTAMENTOS D on D.id = E.id_departamento "
                 sql &= " WHERE E.id_referente='" & cuie & "'"
-                sql &= " order by E.id_departamento"
+                sql &= " order by D.descripcion"
                 tabla2 = acceso.consulta(sql)
             End If
         End If
@@ -178,7 +178,7 @@
                     Me.dgv_vacunatorios.Rows.Add()
                     Me.dgv_vacunatorios.Rows(c).Cells("cuie").Value = tabla2.Rows(c)("cuie")
                     Me.dgv_vacunatorios.Rows(c).Cells("efector").Value = tabla2.Rows(c)("nombre")
-                    Me.dgv_vacunatorios.Rows(0).Cells("departamento").Value = tabla2.Rows(c)("descripcion")
+                    Me.dgv_vacunatorios.Rows(c).Cells("departamento").Value = tabla2.Rows(c)("descripcion")
                     colorear_estado(tabla2.Rows(c)("id_estado"), c, tabla2.Rows(c)("id_tipo"))
                 Next
             End If
