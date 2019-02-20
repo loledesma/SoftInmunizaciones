@@ -48,7 +48,7 @@ Public Class por_up_back_up
                     Label1.Text = "Joaquin"
                 Else
                     controlador = 4
-                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.leandrito
+                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__1_
                     Label1.Text = "Leandro"
                 End If
             End If
