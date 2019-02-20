@@ -130,7 +130,7 @@ Partial Class Registrar_atencion
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(439, 172)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(426, 171)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
         Me.cmd_efector_nuevo.Size = New System.Drawing.Size(37, 32)
@@ -182,7 +182,7 @@ Partial Class Registrar_atencion
         Me.txt_efector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_efector.Location = New System.Drawing.Point(129, 177)
         Me.txt_efector.Name = "txt_efector"
-        Me.txt_efector.Size = New System.Drawing.Size(305, 21)
+        Me.txt_efector.Size = New System.Drawing.Size(276, 21)
         Me.txt_efector.TabIndex = 5
         '
         'lbl_efector

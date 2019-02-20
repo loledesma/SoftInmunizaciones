@@ -205,6 +205,8 @@
     End Sub
 
     Private Sub cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
+        dgv_recordatorios.Rows.Clear()
+        dgv_recordatoriosDiaSiguiente.Rows.Clear()
         verificar()
         verificarMañana()
     End Sub
