@@ -784,6 +784,8 @@
     <Content Include="Funciones\Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\joaquito.jpg" />
+    <Content Include="Resources\leandrito.jpg" />
     <EmbeddedResource Include="Resources\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

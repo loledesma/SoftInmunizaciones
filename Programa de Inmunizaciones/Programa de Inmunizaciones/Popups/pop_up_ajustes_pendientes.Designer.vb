@@ -84,7 +84,7 @@ Partial Class pop_up_ajustes_pendientes
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Ajustes_Pendientes
+        'pop_up_ajustes_pendientes
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -93,7 +93,7 @@ Partial Class pop_up_ajustes_pendientes
         Me.Controls.Add(Me.txt_aceptar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgv_atenc_pendientes)
-        Me.Name = "Ajustes_Pendientes"
+        Me.Name = "pop_up_ajustes_pendientes"
         CType(Me.dgv_atenc_pendientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

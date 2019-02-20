@@ -272,4 +272,8 @@ Public Class Menu
         pop_up_recordatorios.verificar()
         pop_up_recordatorios.verificarMañana()
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Registrar_recordatorio.Show()
+    End Sub
 End Class

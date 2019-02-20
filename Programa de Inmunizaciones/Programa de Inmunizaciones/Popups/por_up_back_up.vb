@@ -40,16 +40,16 @@ Public Class por_up_back_up
             If num = 4 Then
                 controlador = 2
                 picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
-                Label1.Text = "LORE"
+                Label1.Text = "Lore"
             Else
                 If num = 2 Then
                     controlador = 3
                     picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__2_
-                    Label1.Text = "JOACO"
+                    Label1.Text = "Joaquin"
                 Else
                     controlador = 4
-                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__1_
-                    Label1.Text = "LEA"
+                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.leandrito
+                    Label1.Text = "Leandro"
                 End If
             End If
         End If
@@ -69,4 +69,6 @@ Public Class por_up_back_up
 
         acceso.insertar(sql)
     End Sub
+
+
 End Class
