@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Ajustes_Pendientes
+Partial Class pop_up_ajustes_pendientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class Ajustes_Pendientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Ajustes_Pendientes))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(pop_up_ajustes_pendientes))
         Me.dgv_atenc_pendientes = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()

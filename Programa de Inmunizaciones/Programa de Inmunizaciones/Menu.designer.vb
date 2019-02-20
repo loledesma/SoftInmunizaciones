@@ -100,6 +100,7 @@ Partial Class Menu
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmd_enviar_correo = New System.Windows.Forms.Button()
+        Me.cmd_recordatorios = New System.Windows.Forms.Button()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -571,18 +572,29 @@ Partial Class Menu
         Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
         Me.cmd_enviar_correo.UseVisualStyleBackColor = False
         '
+        'cmd_recordatorios
+        '
+        Me.cmd_recordatorios.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.cmd_recordatorios, "cmd_recordatorios")
+        Me.cmd_recordatorios.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_recordatorios.FlatAppearance.BorderSize = 0
+        Me.cmd_recordatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_recordatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_recordatorios.Name = "cmd_recordatorios"
+        Me.cmd_recordatorios.UseVisualStyleBackColor = False
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Controls.Add(Me.cmd_recordatorios)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.menu_programa_inmunizaciones)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.MainMenuStrip = Me.menu_programa_inmunizaciones
         Me.Name = "Menu"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.menu_programa_inmunizaciones.ResumeLayout(False)
         Me.menu_programa_inmunizaciones.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -667,4 +679,5 @@ Partial Class Menu
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents RegistroDeReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmd_recordatorios As System.Windows.Forms.Button
 End Class

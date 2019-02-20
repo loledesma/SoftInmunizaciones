@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 
-Public Class back_up
+Public Class por_up_back_up
     Dim id As Integer
     Dim controlador As Integer
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
@@ -53,7 +53,7 @@ Public Class back_up
                 End If
             End If
         End If
-        
+
 
 
     End Sub
