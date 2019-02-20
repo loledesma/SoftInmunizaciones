@@ -40,7 +40,7 @@ Public Class por_up_back_up
             If num = 4 Then
                 controlador = 2
                 picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
-                Label1.Text = "Lore"
+                Label1.Text = "L"
             Else
                 If num = 2 Then
                     controlador = 3

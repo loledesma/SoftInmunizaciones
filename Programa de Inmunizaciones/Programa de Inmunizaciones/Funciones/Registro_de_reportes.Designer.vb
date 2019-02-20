@@ -29,6 +29,7 @@ Partial Class Registro_de_reportes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.txt_responsable = New System.Windows.Forms.TextBox()
+        Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmd_limpiar = New System.Windows.Forms.Button()
@@ -55,30 +56,29 @@ Partial Class Registro_de_reportes
         Me.cmd_agregar_reporte = New System.Windows.Forms.Button()
         Me.txt_observaciones = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_emite_resumen = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tiempo_notificacion = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.dgv_vacunatorios = New System.Windows.Forms.DataGridView()
+        Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.departamento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmd_buscar_añoYsemestre = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
-        Me.dgv_vacunatorios = New System.Windows.Forms.DataGridView()
-        Me.cmb_año = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_notificaciones = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_emite_resumen = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_tiempo_notificacion = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_semestre_reporte = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.departamento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tltp_reportes = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,8 +148,19 @@ Partial Class Registro_de_reportes
         Me.txt_responsable.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txt_responsable.Location = New System.Drawing.Point(810, 28)
         Me.txt_responsable.Name = "txt_responsable"
-        Me.txt_responsable.Size = New System.Drawing.Size(243, 20)
+        Me.txt_responsable.Size = New System.Drawing.Size(243, 21)
         Me.txt_responsable.TabIndex = 2
+        '
+        'cmb_año
+        '
+        Me.cmb_año._descripcion = "descripcion"
+        Me.cmb_año._nombre_tabla = "REPORTES_AÑOS"
+        Me.cmb_año._pk = "id"
+        Me.cmb_año.FormattingEnabled = True
+        Me.cmb_año.Location = New System.Drawing.Point(427, 27)
+        Me.cmb_año.Name = "cmb_año"
+        Me.cmb_año.Size = New System.Drawing.Size(81, 21)
+        Me.cmb_año.TabIndex = 0
         '
         'Label3
         '
@@ -158,7 +169,7 @@ Partial Class Registro_de_reportes
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label3.Location = New System.Drawing.Point(689, 30)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 13)
+        Me.Label3.Size = New System.Drawing.Size(135, 13)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Hospital de Referencia"
         '
@@ -413,157 +424,9 @@ Partial Class Registro_de_reportes
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label11.Location = New System.Drawing.Point(9, 203)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(78, 13)
+        Me.Label11.Size = New System.Drawing.Size(91, 13)
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Observaciones"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label10.Location = New System.Drawing.Point(20, 34)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(74, 13)
-        Me.Label10.TabIndex = 13
-        Me.Label10.Text = "Notificaciones"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(59, 61)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(35, 13)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Carga"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(46, 88)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(48, 13)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Perdidas"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(1, 169)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(93, 13)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Notificacion cada:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label7.Location = New System.Drawing.Point(59, 115)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(35, 13)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Stock"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label6.Location = New System.Drawing.Point(18, 142)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(76, 13)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Emite resumen"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox3.Controls.Add(Me.dgv_vacunatorios)
-        Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 59)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(491, 248)
-        Me.GroupBox3.TabIndex = 13
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Selección de Vacunatorio"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(182, 16)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 13)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Vacunatorios"
-        '
-        'cmd_buscar_añoYsemestre
-        '
-        Me.cmd_buscar_añoYsemestre.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_buscar_añoYsemestre.BackgroundImage = CType(resources.GetObject("cmd_buscar_añoYsemestre.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_buscar_añoYsemestre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_añoYsemestre.FlatAppearance.BorderSize = 0
-        Me.cmd_buscar_añoYsemestre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_añoYsemestre.Location = New System.Drawing.Point(1061, 19)
-        Me.cmd_buscar_añoYsemestre.Name = "cmd_buscar_añoYsemestre"
-        Me.cmd_buscar_añoYsemestre.Size = New System.Drawing.Size(35, 35)
-        Me.cmd_buscar_añoYsemestre.TabIndex = 3
-        Me.cmd_buscar_añoYsemestre.UseVisualStyleBackColor = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(521, 30)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 13)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Semestre"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(395, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(26, 13)
-        Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Año"
-        '
-        'dgv_vacunatorios
-        '
-        Me.dgv_vacunatorios.AllowUserToAddRows = False
-        Me.dgv_vacunatorios.AllowUserToDeleteRows = False
-        Me.dgv_vacunatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_vacunatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efector, Me.departamento, Me.cuie})
-        Me.dgv_vacunatorios.Location = New System.Drawing.Point(9, 32)
-        Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
-        Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(469, 207)
-        Me.dgv_vacunatorios.TabIndex = 47
-        '
-        'cmb_año
-        '
-        Me.cmb_año._descripcion = "descripcion"
-        Me.cmb_año._nombre_tabla = "REPORTES_AÑOS"
-        Me.cmb_año._pk = "id"
-        Me.cmb_año.FormattingEnabled = True
-        Me.cmb_año.Location = New System.Drawing.Point(427, 27)
-        Me.cmb_año.Name = "cmb_año"
-        Me.cmb_año.Size = New System.Drawing.Size(81, 21)
-        Me.cmb_año.TabIndex = 0
         '
         'cmb_notificaciones
         '
@@ -575,6 +438,17 @@ Partial Class Registro_de_reportes
         Me.cmb_notificaciones.Name = "cmb_notificaciones"
         Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
         Me.cmb_notificaciones.TabIndex = 0
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label10.Location = New System.Drawing.Point(20, 34)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(85, 13)
+        Me.Label10.TabIndex = 13
+        Me.Label10.Text = "Notificaciones"
         '
         'cmb_stock
         '
@@ -631,16 +505,85 @@ Partial Class Registro_de_reportes
         Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
         Me.cmb_carga.TabIndex = 1
         '
-        'cmb_semestre_reporte
+        'Label9
         '
-        Me.cmb_semestre_reporte._descripcion = "descripcion"
-        Me.cmb_semestre_reporte._nombre_tabla = "SEMESTRES"
-        Me.cmb_semestre_reporte._pk = "id"
-        Me.cmb_semestre_reporte.FormattingEnabled = True
-        Me.cmb_semestre_reporte.Location = New System.Drawing.Point(578, 27)
-        Me.cmb_semestre_reporte.Name = "cmb_semestre_reporte"
-        Me.cmb_semestre_reporte.Size = New System.Drawing.Size(105, 21)
-        Me.cmb_semestre_reporte.TabIndex = 1
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label9.Location = New System.Drawing.Point(59, 61)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(42, 13)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "Carga"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.Location = New System.Drawing.Point(46, 88)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(56, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Perdidas"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.Location = New System.Drawing.Point(1, 169)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(108, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Notificacion cada:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label7.Location = New System.Drawing.Point(59, 115)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(39, 13)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Stock"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.Location = New System.Drawing.Point(18, 142)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(93, 13)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "Emite resumen"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox3.Controls.Add(Me.dgv_vacunatorios)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 59)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(491, 248)
+        Me.GroupBox3.TabIndex = 13
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Selección de Vacunatorio"
+        '
+        'dgv_vacunatorios
+        '
+        Me.dgv_vacunatorios.AllowUserToAddRows = False
+        Me.dgv_vacunatorios.AllowUserToDeleteRows = False
+        Me.dgv_vacunatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_vacunatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efector, Me.departamento, Me.cuie})
+        Me.dgv_vacunatorios.Location = New System.Drawing.Point(9, 32)
+        Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
+        Me.dgv_vacunatorios.ReadOnly = True
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(469, 207)
+        Me.dgv_vacunatorios.TabIndex = 47
         '
         'efector
         '
@@ -666,6 +609,63 @@ Partial Class Registro_de_reportes
         Me.cuie.ReadOnly = True
         Me.cuie.Width = 80
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label4.Location = New System.Drawing.Point(182, 16)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(80, 13)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Vacunatorios"
+        '
+        'cmd_buscar_añoYsemestre
+        '
+        Me.cmd_buscar_añoYsemestre.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_buscar_añoYsemestre.BackgroundImage = CType(resources.GetObject("cmd_buscar_añoYsemestre.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_añoYsemestre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_añoYsemestre.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_añoYsemestre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_buscar_añoYsemestre.Location = New System.Drawing.Point(1061, 19)
+        Me.cmd_buscar_añoYsemestre.Name = "cmd_buscar_añoYsemestre"
+        Me.cmd_buscar_añoYsemestre.Size = New System.Drawing.Size(35, 35)
+        Me.cmd_buscar_añoYsemestre.TabIndex = 3
+        Me.cmd_buscar_añoYsemestre.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label2.Location = New System.Drawing.Point(521, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(62, 13)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Semestre"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label1.Location = New System.Drawing.Point(395, 30)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Año"
+        '
+        'cmb_semestre_reporte
+        '
+        Me.cmb_semestre_reporte._descripcion = "descripcion"
+        Me.cmb_semestre_reporte._nombre_tabla = "SEMESTRES"
+        Me.cmb_semestre_reporte._pk = "id"
+        Me.cmb_semestre_reporte.FormattingEnabled = True
+        Me.cmb_semestre_reporte.Location = New System.Drawing.Point(578, 27)
+        Me.cmb_semestre_reporte.Name = "cmb_semestre_reporte"
+        Me.cmb_semestre_reporte.Size = New System.Drawing.Size(105, 21)
+        Me.cmb_semestre_reporte.TabIndex = 1
+        '
         'Registro_de_reportes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -676,6 +676,7 @@ Partial Class Registro_de_reportes
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Verdana", 8.25!)
         Me.Name = "Registro_de_reportes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro_de_reportes"
