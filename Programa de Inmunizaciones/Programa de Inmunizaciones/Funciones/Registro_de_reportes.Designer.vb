@@ -24,7 +24,7 @@ Partial Class Registro_de_reportes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registro_de_reportes))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
@@ -146,9 +146,9 @@ Partial Class Registro_de_reportes
         '
         Me.txt_responsable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_responsable.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_responsable.Location = New System.Drawing.Point(810, 28)
+        Me.txt_responsable.Location = New System.Drawing.Point(824, 28)
         Me.txt_responsable.Name = "txt_responsable"
-        Me.txt_responsable.Size = New System.Drawing.Size(243, 21)
+        Me.txt_responsable.Size = New System.Drawing.Size(229, 22)
         Me.txt_responsable.TabIndex = 2
         '
         'cmb_año
@@ -159,7 +159,7 @@ Partial Class Registro_de_reportes
         Me.cmb_año.FormattingEnabled = True
         Me.cmb_año.Location = New System.Drawing.Point(427, 27)
         Me.cmb_año.Name = "cmb_año"
-        Me.cmb_año.Size = New System.Drawing.Size(81, 21)
+        Me.cmb_año.Size = New System.Drawing.Size(81, 23)
         Me.cmb_año.TabIndex = 0
         '
         'Label3
@@ -169,7 +169,7 @@ Partial Class Registro_de_reportes
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label3.Location = New System.Drawing.Point(689, 30)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(135, 13)
+        Me.Label3.Size = New System.Drawing.Size(137, 16)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Hospital de Referencia"
         '
@@ -247,8 +247,8 @@ Partial Class Registro_de_reportes
         '
         'efectorTerminado
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.efectorTerminado.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.efectorTerminado.DefaultCellStyle = DataGridViewCellStyle2
         Me.efectorTerminado.FillWeight = 150.0!
         Me.efectorTerminado.HeaderText = "Vacunatorio"
         Me.efectorTerminado.MinimumWidth = 10
@@ -424,7 +424,7 @@ Partial Class Registro_de_reportes
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label11.Location = New System.Drawing.Point(9, 203)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(91, 13)
+        Me.Label11.Size = New System.Drawing.Size(91, 16)
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Observaciones"
         '
@@ -434,9 +434,9 @@ Partial Class Registro_de_reportes
         Me.cmb_notificaciones._nombre_tabla = "ESTADO_NOTIF_REPORTES"
         Me.cmb_notificaciones._pk = "id"
         Me.cmb_notificaciones.FormattingEnabled = True
-        Me.cmb_notificaciones.Location = New System.Drawing.Point(100, 31)
+        Me.cmb_notificaciones.Location = New System.Drawing.Point(111, 31)
         Me.cmb_notificaciones.Name = "cmb_notificaciones"
-        Me.cmb_notificaciones.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_notificaciones.Size = New System.Drawing.Size(331, 23)
         Me.cmb_notificaciones.TabIndex = 0
         '
         'Label10
@@ -446,7 +446,7 @@ Partial Class Registro_de_reportes
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label10.Location = New System.Drawing.Point(20, 34)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(85, 13)
+        Me.Label10.Size = New System.Drawing.Size(85, 16)
         Me.Label10.TabIndex = 13
         Me.Label10.Text = "Notificaciones"
         '
@@ -456,9 +456,9 @@ Partial Class Registro_de_reportes
         Me.cmb_stock._nombre_tabla = "ESTADO_INDICADORES"
         Me.cmb_stock._pk = "id"
         Me.cmb_stock.FormattingEnabled = True
-        Me.cmb_stock.Location = New System.Drawing.Point(100, 112)
+        Me.cmb_stock.Location = New System.Drawing.Point(111, 112)
         Me.cmb_stock.Name = "cmb_stock"
-        Me.cmb_stock.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_stock.Size = New System.Drawing.Size(331, 23)
         Me.cmb_stock.TabIndex = 3
         '
         'cmb_emite_resumen
@@ -467,9 +467,9 @@ Partial Class Registro_de_reportes
         Me.cmb_emite_resumen._nombre_tabla = "ESTADO_RM"
         Me.cmb_emite_resumen._pk = "id"
         Me.cmb_emite_resumen.FormattingEnabled = True
-        Me.cmb_emite_resumen.Location = New System.Drawing.Point(100, 139)
+        Me.cmb_emite_resumen.Location = New System.Drawing.Point(111, 139)
         Me.cmb_emite_resumen.Name = "cmb_emite_resumen"
-        Me.cmb_emite_resumen.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_emite_resumen.Size = New System.Drawing.Size(331, 23)
         Me.cmb_emite_resumen.TabIndex = 4
         '
         'cmb_tiempo_notificacion
@@ -478,9 +478,9 @@ Partial Class Registro_de_reportes
         Me.cmb_tiempo_notificacion._nombre_tabla = "TIPO_NOTIFICACION"
         Me.cmb_tiempo_notificacion._pk = "id"
         Me.cmb_tiempo_notificacion.FormattingEnabled = True
-        Me.cmb_tiempo_notificacion.Location = New System.Drawing.Point(100, 166)
+        Me.cmb_tiempo_notificacion.Location = New System.Drawing.Point(111, 166)
         Me.cmb_tiempo_notificacion.Name = "cmb_tiempo_notificacion"
-        Me.cmb_tiempo_notificacion.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_tiempo_notificacion.Size = New System.Drawing.Size(331, 23)
         Me.cmb_tiempo_notificacion.TabIndex = 5
         '
         'cmb_perdidas
@@ -489,9 +489,9 @@ Partial Class Registro_de_reportes
         Me.cmb_perdidas._nombre_tabla = "ESTADO_INDICADORES"
         Me.cmb_perdidas._pk = "id"
         Me.cmb_perdidas.FormattingEnabled = True
-        Me.cmb_perdidas.Location = New System.Drawing.Point(100, 85)
+        Me.cmb_perdidas.Location = New System.Drawing.Point(111, 85)
         Me.cmb_perdidas.Name = "cmb_perdidas"
-        Me.cmb_perdidas.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_perdidas.Size = New System.Drawing.Size(331, 23)
         Me.cmb_perdidas.TabIndex = 2
         '
         'cmb_carga
@@ -500,9 +500,9 @@ Partial Class Registro_de_reportes
         Me.cmb_carga._nombre_tabla = "ESTADO_INDICADORES"
         Me.cmb_carga._pk = "id"
         Me.cmb_carga.FormattingEnabled = True
-        Me.cmb_carga.Location = New System.Drawing.Point(100, 58)
+        Me.cmb_carga.Location = New System.Drawing.Point(111, 58)
         Me.cmb_carga.Name = "cmb_carga"
-        Me.cmb_carga.Size = New System.Drawing.Size(342, 21)
+        Me.cmb_carga.Size = New System.Drawing.Size(331, 23)
         Me.cmb_carga.TabIndex = 1
         '
         'Label9
@@ -512,7 +512,7 @@ Partial Class Registro_de_reportes
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label9.Location = New System.Drawing.Point(59, 61)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(42, 13)
+        Me.Label9.Size = New System.Drawing.Size(45, 16)
         Me.Label9.TabIndex = 8
         Me.Label9.Text = "Carga"
         '
@@ -523,7 +523,7 @@ Partial Class Registro_de_reportes
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label8.Location = New System.Drawing.Point(46, 88)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 13)
+        Me.Label8.Size = New System.Drawing.Size(59, 16)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Perdidas"
         '
@@ -534,7 +534,7 @@ Partial Class Registro_de_reportes
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label5.Location = New System.Drawing.Point(1, 169)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(108, 13)
+        Me.Label5.Size = New System.Drawing.Size(109, 16)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Notificacion cada:"
         '
@@ -545,7 +545,7 @@ Partial Class Registro_de_reportes
         Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label7.Location = New System.Drawing.Point(59, 115)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(39, 13)
+        Me.Label7.Size = New System.Drawing.Size(37, 16)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Stock"
         '
@@ -556,7 +556,7 @@ Partial Class Registro_de_reportes
         Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label6.Location = New System.Drawing.Point(18, 142)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 13)
+        Me.Label6.Size = New System.Drawing.Size(86, 16)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Emite resumen"
         '
@@ -616,7 +616,7 @@ Partial Class Registro_de_reportes
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label4.Location = New System.Drawing.Point(182, 16)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 13)
+        Me.Label4.Size = New System.Drawing.Size(80, 16)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Vacunatorios"
         '
@@ -638,9 +638,9 @@ Partial Class Registro_de_reportes
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(521, 30)
+        Me.Label2.Location = New System.Drawing.Point(511, 29)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(62, 13)
+        Me.Label2.Size = New System.Drawing.Size(59, 16)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Semestre"
         '
@@ -651,7 +651,7 @@ Partial Class Registro_de_reportes
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.Location = New System.Drawing.Point(395, 30)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.Size = New System.Drawing.Size(29, 16)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Año"
         '
@@ -661,9 +661,9 @@ Partial Class Registro_de_reportes
         Me.cmb_semestre_reporte._nombre_tabla = "SEMESTRES"
         Me.cmb_semestre_reporte._pk = "id"
         Me.cmb_semestre_reporte.FormattingEnabled = True
-        Me.cmb_semestre_reporte.Location = New System.Drawing.Point(578, 27)
+        Me.cmb_semestre_reporte.Location = New System.Drawing.Point(576, 27)
         Me.cmb_semestre_reporte.Name = "cmb_semestre_reporte"
-        Me.cmb_semestre_reporte.Size = New System.Drawing.Size(105, 21)
+        Me.cmb_semestre_reporte.Size = New System.Drawing.Size(107, 23)
         Me.cmb_semestre_reporte.TabIndex = 1
         '
         'Registro_de_reportes
@@ -676,7 +676,7 @@ Partial Class Registro_de_reportes
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Font = New System.Drawing.Font("Verdana", 8.25!)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Name = "Registro_de_reportes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro_de_reportes"

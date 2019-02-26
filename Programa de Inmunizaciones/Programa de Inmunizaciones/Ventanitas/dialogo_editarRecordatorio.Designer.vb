@@ -36,7 +36,7 @@ Partial Class dialogo_editarRecordatorio
         Me.lbl_idRecordatorio.BackColor = System.Drawing.Color.Transparent
         Me.lbl_idRecordatorio.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_idRecordatorio.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl_idRecordatorio.Location = New System.Drawing.Point(128, 27)
+        Me.lbl_idRecordatorio.Location = New System.Drawing.Point(149, 31)
         Me.lbl_idRecordatorio.Name = "lbl_idRecordatorio"
         Me.lbl_idRecordatorio.Size = New System.Drawing.Size(0, 16)
         Me.lbl_idRecordatorio.TabIndex = 8
@@ -45,11 +45,11 @@ Partial Class dialogo_editarRecordatorio
         '
         Me.lbl1.AutoSize = True
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
-        Me.lbl1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.lbl1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl1.Location = New System.Drawing.Point(12, 27)
+        Me.lbl1.Location = New System.Drawing.Point(14, 31)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(110, 16)
+        Me.lbl1.Size = New System.Drawing.Size(96, 16)
         Me.lbl1.TabIndex = 7
         Me.lbl1.Text = "ID Recordatorio"
         '
@@ -57,20 +57,20 @@ Partial Class dialogo_editarRecordatorio
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(12, 62)
+        Me.Label1.Location = New System.Drawing.Point(14, 72)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(89, 16)
+        Me.Label1.Size = New System.Drawing.Size(79, 16)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Modificación"
         '
         'txt_editarRecordatorio
         '
-        Me.txt_editarRecordatorio.Location = New System.Drawing.Point(107, 62)
+        Me.txt_editarRecordatorio.Location = New System.Drawing.Point(125, 72)
         Me.txt_editarRecordatorio.Multiline = True
         Me.txt_editarRecordatorio.Name = "txt_editarRecordatorio"
-        Me.txt_editarRecordatorio.Size = New System.Drawing.Size(448, 75)
+        Me.txt_editarRecordatorio.Size = New System.Drawing.Size(522, 86)
         Me.txt_editarRecordatorio.TabIndex = 10
         '
         'cmd_confirmarCambios
@@ -83,10 +83,10 @@ Partial Class dialogo_editarRecordatorio
         Me.cmd_confirmarCambios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_confirmarCambios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_confirmarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_confirmarCambios.Location = New System.Drawing.Point(513, 144)
-        Me.cmd_confirmarCambios.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_confirmarCambios.Location = New System.Drawing.Point(598, 166)
+        Me.cmd_confirmarCambios.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_confirmarCambios.Name = "cmd_confirmarCambios"
-        Me.cmd_confirmarCambios.Size = New System.Drawing.Size(35, 35)
+        Me.cmd_confirmarCambios.Size = New System.Drawing.Size(41, 40)
         Me.cmd_confirmarCambios.TabIndex = 11
         Me.cmd_confirmarCambios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_confirmarCambios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -94,16 +94,17 @@ Partial Class dialogo_editarRecordatorio
         '
         'dialogo_editarRecordatorio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(561, 191)
+        Me.ClientSize = New System.Drawing.Size(654, 220)
         Me.Controls.Add(Me.cmd_confirmarCambios)
         Me.Controls.Add(Me.txt_editarRecordatorio)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_idRecordatorio)
         Me.Controls.Add(Me.lbl1)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Name = "dialogo_editarRecordatorio"
         Me.Text = "dialogo_editarRecordatorio"
         Me.ResumeLayout(False)

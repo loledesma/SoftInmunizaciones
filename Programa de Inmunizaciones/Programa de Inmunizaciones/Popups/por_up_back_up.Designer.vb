@@ -41,21 +41,21 @@ Partial Class por_up_back_up
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(669, 260)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(314, 230)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(195, 36)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(171, 34)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.OK_Button.Location = New System.Drawing.Point(4, 4)
-        Me.OK_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.OK_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(89, 28)
+        Me.OK_Button.Size = New System.Drawing.Size(77, 26)
         Me.OK_Button.TabIndex = 0
         Me.OK_Button.Text = "Aceptar"
         '
@@ -63,10 +63,10 @@ Partial Class por_up_back_up
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(101, 4)
-        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cancel_Button.Location = New System.Drawing.Point(89, 4)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(89, 28)
+        Me.Cancel_Button.Size = New System.Drawing.Size(78, 26)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
@@ -74,12 +74,12 @@ Partial Class por_up_back_up
         '
         Me.lbl_titulo.AutoSize = True
         Me.lbl_titulo.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_titulo.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_titulo.Font = New System.Drawing.Font("Tw Cen MT", 30.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_titulo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lbl_titulo.Location = New System.Drawing.Point(316, 51)
+        Me.lbl_titulo.Location = New System.Drawing.Point(45, 9)
         Me.lbl_titulo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_titulo.Name = "lbl_titulo"
-        Me.lbl_titulo.Size = New System.Drawing.Size(272, 32)
+        Me.lbl_titulo.Size = New System.Drawing.Size(327, 47)
         Me.lbl_titulo.TabIndex = 4
         Me.lbl_titulo.Text = "El backup le toca a"
         Me.lbl_titulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -91,7 +91,7 @@ Partial Class por_up_back_up
         Me.Label1.Font = New System.Drawing.Font("Calibri", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label1.Location = New System.Drawing.Point(385, 224)
+        Me.Label1.Location = New System.Drawing.Point(337, 210)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 33)
@@ -100,10 +100,10 @@ Partial Class por_up_back_up
         '
         'picbox_1
         '
-        Me.picbox_1.Location = New System.Drawing.Point(363, 87)
-        Me.picbox_1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.picbox_1.Location = New System.Drawing.Point(53, 71)
+        Me.picbox_1.Margin = New System.Windows.Forms.Padding(4)
         Me.picbox_1.Name = "picbox_1"
-        Me.picbox_1.Size = New System.Drawing.Size(149, 133)
+        Me.picbox_1.Size = New System.Drawing.Size(237, 192)
         Me.picbox_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picbox_1.TabIndex = 8
         Me.picbox_1.TabStop = False
@@ -111,10 +111,10 @@ Partial Class por_up_back_up
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(541, 162)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox1.Location = New System.Drawing.Point(298, 137)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(88, 20)
+        Me.CheckBox1.Size = New System.Drawing.Size(84, 20)
         Me.CheckBox1.TabIndex = 10
         Me.CheckBox1.Text = "Realizado"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -122,19 +122,19 @@ Partial Class por_up_back_up
         'por_up_back_up
         '
         Me.AcceptButton = Me.OK_Button
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Programa_de_Inmunizaciones.My.Resources.Resources.vacu_logo_min
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(877, 320)
+        Me.ClientSize = New System.Drawing.Size(496, 286)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.picbox_1)
         Me.Controls.Add(Me.lbl_titulo)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "por_up_back_up"

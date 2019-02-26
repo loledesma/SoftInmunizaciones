@@ -160,9 +160,9 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label2)
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label1)
         Me.grp_datos_vacunatorio.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_vacunatorio.Location = New System.Drawing.Point(10, 10)
+        Me.grp_datos_vacunatorio.Location = New System.Drawing.Point(10, 12)
         Me.grp_datos_vacunatorio.Name = "grp_datos_vacunatorio"
-        Me.grp_datos_vacunatorio.Size = New System.Drawing.Size(596, 395)
+        Me.grp_datos_vacunatorio.Size = New System.Drawing.Size(596, 456)
         Me.grp_datos_vacunatorio.TabIndex = 0
         Me.grp_datos_vacunatorio.TabStop = False
         Me.grp_datos_vacunatorio.Text = "Datos del vacunatorio  "
@@ -173,17 +173,17 @@ Partial Class Registrar_efectores
         Me.cmb_notifica._nombre_tabla = "TIPO_NOTIFICACION"
         Me.cmb_notifica._pk = "id"
         Me.cmb_notifica.FormattingEnabled = True
-        Me.cmb_notifica.Location = New System.Drawing.Point(132, 238)
+        Me.cmb_notifica.Location = New System.Drawing.Point(132, 275)
         Me.cmb_notifica.Name = "cmb_notifica"
-        Me.cmb_notifica.Size = New System.Drawing.Size(115, 21)
+        Me.cmb_notifica.Size = New System.Drawing.Size(115, 23)
         Me.cmb_notifica.TabIndex = 12
         '
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(22, 241)
+        Me.Label25.Location = New System.Drawing.Point(22, 278)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(49, 13)
+        Me.Label25.Size = New System.Drawing.Size(52, 16)
         Me.Label25.TabIndex = 34
         Me.Label25.Text = "Notifica"
         '
@@ -196,9 +196,9 @@ Partial Class Registrar_efectores
         Me.cmd_cadena_de_frio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_cadena_de_frio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_cadena_de_frio.Font = New System.Drawing.Font("Calibri", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.cmd_cadena_de_frio.Location = New System.Drawing.Point(254, 255)
+        Me.cmd_cadena_de_frio.Location = New System.Drawing.Point(254, 294)
         Me.cmd_cadena_de_frio.Name = "cmd_cadena_de_frio"
-        Me.cmd_cadena_de_frio.Size = New System.Drawing.Size(335, 25)
+        Me.cmd_cadena_de_frio.Size = New System.Drawing.Size(335, 29)
         Me.cmd_cadena_de_frio.TabIndex = 33
         Me.cmd_cadena_de_frio.Text = "ACTUALIZAR INVENTARIO CADENA DE FRIO"
         Me.cmd_cadena_de_frio.UseVisualStyleBackColor = True
@@ -207,9 +207,9 @@ Partial Class Registrar_efectores
         '
         Me.txt_referentes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_referentes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_referentes.Location = New System.Drawing.Point(129, 137)
+        Me.txt_referentes.Location = New System.Drawing.Point(129, 158)
         Me.txt_referentes.Name = "txt_referentes"
-        Me.txt_referentes.Size = New System.Drawing.Size(447, 21)
+        Me.txt_referentes.Size = New System.Drawing.Size(447, 22)
         Me.txt_referentes.TabIndex = 7
         '
         'cmb_estado_rm
@@ -218,17 +218,17 @@ Partial Class Registrar_efectores
         Me.cmb_estado_rm._nombre_tabla = "ESTADO_RM"
         Me.cmb_estado_rm._pk = "id"
         Me.cmb_estado_rm.FormattingEnabled = True
-        Me.cmb_estado_rm.Location = New System.Drawing.Point(402, 170)
+        Me.cmb_estado_rm.Location = New System.Drawing.Point(402, 196)
         Me.cmb_estado_rm.Name = "cmb_estado_rm"
-        Me.cmb_estado_rm.Size = New System.Drawing.Size(178, 21)
+        Me.cmb_estado_rm.Size = New System.Drawing.Size(178, 23)
         Me.cmb_estado_rm.TabIndex = 9
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(372, 174)
+        Me.Label17.Location = New System.Drawing.Point(372, 201)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(24, 13)
+        Me.Label17.Size = New System.Drawing.Size(26, 16)
         Me.Label17.TabIndex = 22
         Me.Label17.Text = "RM"
         '
@@ -236,35 +236,35 @@ Partial Class Registrar_efectores
         '
         Me.txt_pc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_pc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_pc.Location = New System.Drawing.Point(432, 111)
+        Me.txt_pc.Location = New System.Drawing.Point(432, 128)
         Me.txt_pc.Name = "txt_pc"
-        Me.txt_pc.Size = New System.Drawing.Size(145, 21)
+        Me.txt_pc.Size = New System.Drawing.Size(145, 22)
         Me.txt_pc.TabIndex = 6
         '
         'txt_heladera
         '
         Me.txt_heladera.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_heladera.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_heladera.Location = New System.Drawing.Point(150, 108)
+        Me.txt_heladera.Location = New System.Drawing.Point(150, 125)
         Me.txt_heladera.Name = "txt_heladera"
-        Me.txt_heladera.Size = New System.Drawing.Size(130, 21)
+        Me.txt_heladera.Size = New System.Drawing.Size(130, 22)
         Me.txt_heladera.TabIndex = 5
         '
         'lbl_pc
         '
         Me.lbl_pc.AutoSize = True
-        Me.lbl_pc.Location = New System.Drawing.Point(357, 114)
+        Me.lbl_pc.Location = New System.Drawing.Point(357, 132)
         Me.lbl_pc.Name = "lbl_pc"
-        Me.lbl_pc.Size = New System.Drawing.Size(53, 13)
+        Me.lbl_pc.Size = New System.Drawing.Size(50, 16)
         Me.lbl_pc.TabIndex = 20
         Me.lbl_pc.Text = "Internet"
         '
         'lbl_heladera
         '
         Me.lbl_heladera.AutoSize = True
-        Me.lbl_heladera.Location = New System.Drawing.Point(16, 111)
+        Me.lbl_heladera.Location = New System.Drawing.Point(16, 128)
         Me.lbl_heladera.Name = "lbl_heladera"
-        Me.lbl_heladera.Size = New System.Drawing.Size(126, 13)
+        Me.lbl_heladera.Size = New System.Drawing.Size(125, 16)
         Me.lbl_heladera.TabIndex = 19
         Me.lbl_heladera.Text = "PC en el Vacunatorio"
         '
@@ -272,9 +272,9 @@ Partial Class Registrar_efectores
         '
         Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_cuie.Location = New System.Drawing.Point(131, 19)
+        Me.txt_cuie.Location = New System.Drawing.Point(131, 22)
         Me.txt_cuie.Name = "txt_cuie"
-        Me.txt_cuie.Size = New System.Drawing.Size(185, 21)
+        Me.txt_cuie.Size = New System.Drawing.Size(185, 22)
         Me.txt_cuie.TabIndex = 0
         '
         'cmd_buscar_cuie
@@ -285,9 +285,9 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_cuie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar_cuie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar_cuie.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(513, 15)
+        Me.cmd_buscar_cuie.Location = New System.Drawing.Point(513, 17)
         Me.cmd_buscar_cuie.Name = "cmd_buscar_cuie"
-        Me.cmd_buscar_cuie.Size = New System.Drawing.Size(72, 56)
+        Me.cmd_buscar_cuie.Size = New System.Drawing.Size(72, 65)
         Me.cmd_buscar_cuie.TabIndex = 1
         Me.cmd_buscar_cuie.UseVisualStyleBackColor = True
         '
@@ -297,17 +297,17 @@ Partial Class Registrar_efectores
         Me.cmb_tipo_carga._nombre_tabla = "TIPO_CARGA"
         Me.cmb_tipo_carga._pk = "id"
         Me.cmb_tipo_carga.FormattingEnabled = True
-        Me.cmb_tipo_carga.Location = New System.Drawing.Point(402, 206)
+        Me.cmb_tipo_carga.Location = New System.Drawing.Point(402, 238)
         Me.cmb_tipo_carga.Name = "cmb_tipo_carga"
-        Me.cmb_tipo_carga.Size = New System.Drawing.Size(178, 21)
+        Me.cmb_tipo_carga.Size = New System.Drawing.Size(178, 23)
         Me.cmb_tipo_carga.TabIndex = 11
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(328, 210)
+        Me.Label15.Location = New System.Drawing.Point(328, 242)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(67, 13)
+        Me.Label15.Size = New System.Drawing.Size(70, 16)
         Me.Label15.TabIndex = 18
         Me.Label15.Text = "Tipo carga"
         '
@@ -317,17 +317,17 @@ Partial Class Registrar_efectores
         Me.cmb_estado_efector._nombre_tabla = "ESTADOS_EFECTOR"
         Me.cmb_estado_efector._pk = "id"
         Me.cmb_estado_efector.FormattingEnabled = True
-        Me.cmb_estado_efector.Location = New System.Drawing.Point(132, 205)
+        Me.cmb_estado_efector.Location = New System.Drawing.Point(132, 237)
         Me.cmb_estado_efector.Name = "cmb_estado_efector"
-        Me.cmb_estado_efector.Size = New System.Drawing.Size(185, 21)
+        Me.cmb_estado_efector.Size = New System.Drawing.Size(185, 23)
         Me.cmb_estado_efector.TabIndex = 10
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(21, 208)
+        Me.Label14.Location = New System.Drawing.Point(21, 240)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(45, 13)
+        Me.Label14.Size = New System.Drawing.Size(46, 16)
         Me.Label14.TabIndex = 16
         Me.Label14.Text = "Estado"
         '
@@ -337,75 +337,75 @@ Partial Class Registrar_efectores
         Me.cmb_tipos_efectores._nombre_tabla = "TIPOS_EFECTORES"
         Me.cmb_tipos_efectores._pk = "id"
         Me.cmb_tipos_efectores.FormattingEnabled = True
-        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(129, 170)
+        Me.cmb_tipos_efectores.Location = New System.Drawing.Point(129, 196)
         Me.cmb_tipos_efectores.Name = "cmb_tipos_efectores"
-        Me.cmb_tipos_efectores.Size = New System.Drawing.Size(226, 21)
+        Me.cmb_tipos_efectores.Size = New System.Drawing.Size(226, 23)
         Me.cmb_tipos_efectores.TabIndex = 8
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(17, 175)
+        Me.Label13.Location = New System.Drawing.Point(17, 202)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(75, 13)
+        Me.Label13.Size = New System.Drawing.Size(75, 16)
         Me.Label13.TabIndex = 14
         Me.Label13.Text = "Tipo Efector"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(17, 140)
+        Me.Label12.Location = New System.Drawing.Point(17, 162)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(63, 13)
+        Me.Label12.Size = New System.Drawing.Size(63, 16)
         Me.Label12.TabIndex = 12
         Me.Label12.Text = "Referente"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(454, 79)
+        Me.Label11.Location = New System.Drawing.Point(454, 91)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(38, 13)
+        Me.Label11.Size = New System.Drawing.Size(39, 16)
         Me.Label11.TabIndex = 11
         Me.Label11.Text = "hasta"
         '
         'txt_horarioDesde
         '
-        Me.txt_horarioDesde.Location = New System.Drawing.Point(379, 75)
+        Me.txt_horarioDesde.Location = New System.Drawing.Point(379, 87)
         Me.txt_horarioDesde.Name = "txt_horarioDesde"
-        Me.txt_horarioDesde.Size = New System.Drawing.Size(61, 21)
+        Me.txt_horarioDesde.Size = New System.Drawing.Size(61, 22)
         Me.txt_horarioDesde.TabIndex = 3
         '
         'txt_horarioHasta
         '
-        Me.txt_horarioHasta.Location = New System.Drawing.Point(507, 77)
+        Me.txt_horarioHasta.Location = New System.Drawing.Point(507, 89)
         Me.txt_horarioHasta.Name = "txt_horarioHasta"
-        Me.txt_horarioHasta.Size = New System.Drawing.Size(70, 21)
+        Me.txt_horarioHasta.Size = New System.Drawing.Size(70, 22)
         Me.txt_horarioHasta.TabIndex = 4
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(253, 79)
+        Me.Label10.Location = New System.Drawing.Point(253, 91)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(119, 13)
+        Me.Label10.Size = New System.Drawing.Size(120, 16)
         Me.Label10.TabIndex = 8
         Me.Label10.Text = "Horario de atención"
         '
         'txt_telefono
         '
-        Me.txt_telefono.Location = New System.Drawing.Point(131, 77)
+        Me.txt_telefono.Location = New System.Drawing.Point(131, 89)
         Me.txt_telefono.Mask = "99999999999"
         Me.txt_telefono.Name = "txt_telefono"
-        Me.txt_telefono.Size = New System.Drawing.Size(116, 21)
+        Me.txt_telefono.Size = New System.Drawing.Size(116, 22)
         Me.txt_telefono.TabIndex = 2
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(17, 78)
+        Me.Label9.Location = New System.Drawing.Point(17, 90)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(55, 13)
+        Me.Label9.Size = New System.Drawing.Size(56, 16)
         Me.Label9.TabIndex = 6
         Me.Label9.Text = "Teléfono"
         '
@@ -422,9 +422,9 @@ Partial Class Registrar_efectores
         Me.GroupBox2.Controls.Add(Me.txt_calle)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 286)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 330)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(582, 106)
+        Me.GroupBox2.Size = New System.Drawing.Size(582, 122)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ubicación"
@@ -435,17 +435,17 @@ Partial Class Registrar_efectores
         Me.cmb_departamento._nombre_tabla = "DEPARTAMENTOS"
         Me.cmb_departamento._pk = "id"
         Me.cmb_departamento.FormattingEnabled = True
-        Me.cmb_departamento.Location = New System.Drawing.Point(126, 45)
+        Me.cmb_departamento.Location = New System.Drawing.Point(126, 52)
         Me.cmb_departamento.Name = "cmb_departamento"
-        Me.cmb_departamento.Size = New System.Drawing.Size(185, 21)
+        Me.cmb_departamento.Size = New System.Drawing.Size(185, 23)
         Me.cmb_departamento.TabIndex = 2
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(13, 48)
+        Me.Label8.Location = New System.Drawing.Point(13, 55)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(89, 13)
+        Me.Label8.Size = New System.Drawing.Size(89, 16)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Departamento"
         '
@@ -455,17 +455,17 @@ Partial Class Registrar_efectores
         Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
         Me.cmb_localidades._pk = "id"
         Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(387, 45)
+        Me.cmb_localidades.Location = New System.Drawing.Point(387, 52)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(184, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(184, 23)
         Me.cmb_localidades.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(318, 48)
+        Me.Label7.Location = New System.Drawing.Point(318, 55)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(60, 13)
+        Me.Label7.Size = New System.Drawing.Size(63, 16)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Localidad"
         '
@@ -475,50 +475,50 @@ Partial Class Registrar_efectores
         Me.cmb_barrios._nombre_tabla = "BARRIOS"
         Me.cmb_barrios._pk = "id"
         Me.cmb_barrios.FormattingEnabled = True
-        Me.cmb_barrios.Location = New System.Drawing.Point(126, 72)
+        Me.cmb_barrios.Location = New System.Drawing.Point(126, 83)
         Me.cmb_barrios.Name = "cmb_barrios"
-        Me.cmb_barrios.Size = New System.Drawing.Size(185, 21)
+        Me.cmb_barrios.Size = New System.Drawing.Size(185, 23)
         Me.cmb_barrios.TabIndex = 4
         '
         'txt_numero
         '
-        Me.txt_numero.Location = New System.Drawing.Point(506, 19)
+        Me.txt_numero.Location = New System.Drawing.Point(506, 22)
         Me.txt_numero.Mask = "99999999"
         Me.txt_numero.Name = "txt_numero"
-        Me.txt_numero.Size = New System.Drawing.Size(65, 21)
+        Me.txt_numero.Size = New System.Drawing.Size(65, 22)
         Me.txt_numero.TabIndex = 1
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 75)
+        Me.Label6.Location = New System.Drawing.Point(13, 87)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 13)
+        Me.Label6.Size = New System.Drawing.Size(43, 16)
         Me.Label6.TabIndex = 7
         Me.Label6.Text = "Barrio"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(454, 22)
+        Me.Label5.Location = New System.Drawing.Point(454, 25)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(52, 13)
+        Me.Label5.Size = New System.Drawing.Size(51, 16)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Número"
         '
         'txt_calle
         '
-        Me.txt_calle.Location = New System.Drawing.Point(126, 19)
+        Me.txt_calle.Location = New System.Drawing.Point(126, 22)
         Me.txt_calle.Name = "txt_calle"
-        Me.txt_calle.Size = New System.Drawing.Size(320, 21)
+        Me.txt_calle.Size = New System.Drawing.Size(320, 22)
         Me.txt_calle.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(13, 22)
+        Me.Label4.Location = New System.Drawing.Point(13, 25)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(36, 13)
+        Me.Label4.Size = New System.Drawing.Size(37, 16)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Calle"
         '
@@ -526,26 +526,26 @@ Partial Class Registrar_efectores
         '
         Me.txt_nombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_nombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_nombre.Location = New System.Drawing.Point(131, 49)
+        Me.txt_nombre.Location = New System.Drawing.Point(131, 57)
         Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(375, 21)
+        Me.txt_nombre.Size = New System.Drawing.Size(375, 22)
         Me.txt_nombre.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 52)
+        Me.Label2.Location = New System.Drawing.Point(17, 60)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.Size = New System.Drawing.Size(53, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Nombre"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(20, 26)
+        Me.Label1.Location = New System.Drawing.Point(20, 30)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(36, 13)
+        Me.Label1.Size = New System.Drawing.Size(33, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CUIE"
         '
@@ -577,9 +577,9 @@ Partial Class Registrar_efectores
         Me.grp_datos_empleados.Controls.Add(Me.cmb_tipos_documento)
         Me.grp_datos_empleados.Controls.Add(Me.Label18)
         Me.grp_datos_empleados.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_empleados.Location = New System.Drawing.Point(7, 411)
+        Me.grp_datos_empleados.Location = New System.Drawing.Point(7, 474)
         Me.grp_datos_empleados.Name = "grp_datos_empleados"
-        Me.grp_datos_empleados.Size = New System.Drawing.Size(596, 218)
+        Me.grp_datos_empleados.Size = New System.Drawing.Size(596, 252)
         Me.grp_datos_empleados.TabIndex = 1
         Me.grp_datos_empleados.TabStop = False
         Me.grp_datos_empleados.Text = "Datos del empleado"
@@ -588,17 +588,17 @@ Partial Class Registrar_efectores
         '
         Me.txt_año_curso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_año_curso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_año_curso.Location = New System.Drawing.Point(395, 124)
+        Me.txt_año_curso.Location = New System.Drawing.Point(395, 143)
         Me.txt_año_curso.Name = "txt_año_curso"
-        Me.txt_año_curso.Size = New System.Drawing.Size(114, 21)
+        Me.txt_año_curso.Size = New System.Drawing.Size(114, 22)
         Me.txt_año_curso.TabIndex = 6
         '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(303, 127)
+        Me.Label24.Location = New System.Drawing.Point(303, 147)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(88, 13)
+        Me.Label24.Size = New System.Drawing.Size(86, 16)
         Me.Label24.TabIndex = 52
         Me.Label24.Text = "Año del Curso"
         '
@@ -608,17 +608,17 @@ Partial Class Registrar_efectores
         Me.cmb_perfil._nombre_tabla = "PERFILES_SIGIPSA"
         Me.cmb_perfil._pk = "id"
         Me.cmb_perfil.FormattingEnabled = True
-        Me.cmb_perfil.Location = New System.Drawing.Point(133, 156)
+        Me.cmb_perfil.Location = New System.Drawing.Point(133, 180)
         Me.cmb_perfil.Name = "cmb_perfil"
-        Me.cmb_perfil.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_perfil.Size = New System.Drawing.Size(161, 23)
         Me.cmb_perfil.TabIndex = 7
         '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(23, 162)
+        Me.Label23.Location = New System.Drawing.Point(23, 187)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(36, 13)
+        Me.Label23.Size = New System.Drawing.Size(38, 16)
         Me.Label23.TabIndex = 33
         Me.Label23.Text = "Perfil"
         '
@@ -630,10 +630,10 @@ Partial Class Registrar_efectores
         Me.cmd_actualizar_sigipsa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_actualizar_sigipsa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_actualizar_sigipsa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_actualizar_sigipsa.Font = New System.Drawing.Font("Calibri", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(154, 176)
+        Me.cmd_actualizar_sigipsa.Font = New System.Drawing.Font("Tw Cen MT", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_actualizar_sigipsa.Location = New System.Drawing.Point(154, 203)
         Me.cmd_actualizar_sigipsa.Name = "cmd_actualizar_sigipsa"
-        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(257, 35)
+        Me.cmd_actualizar_sigipsa.Size = New System.Drawing.Size(257, 40)
         Me.cmd_actualizar_sigipsa.TabIndex = 9
         Me.cmd_actualizar_sigipsa.Text = "VER DATOS DEL EMPLEADO"
         Me.cmd_actualizar_sigipsa.UseVisualStyleBackColor = True
@@ -644,17 +644,17 @@ Partial Class Registrar_efectores
         Me.cmb_cargo._nombre_tabla = "CARGO"
         Me.cmb_cargo._pk = "id"
         Me.cmb_cargo.FormattingEnabled = True
-        Me.cmb_cargo.Location = New System.Drawing.Point(351, 156)
+        Me.cmb_cargo.Location = New System.Drawing.Point(351, 180)
         Me.cmb_cargo.Name = "cmb_cargo"
-        Me.cmb_cargo.Size = New System.Drawing.Size(160, 21)
+        Me.cmb_cargo.Size = New System.Drawing.Size(160, 23)
         Me.cmb_cargo.TabIndex = 8
         '
         'lbl_cargo
         '
         Me.lbl_cargo.AutoSize = True
-        Me.lbl_cargo.Location = New System.Drawing.Point(303, 160)
+        Me.lbl_cargo.Location = New System.Drawing.Point(303, 185)
         Me.lbl_cargo.Name = "lbl_cargo"
-        Me.lbl_cargo.Size = New System.Drawing.Size(42, 13)
+        Me.lbl_cargo.Size = New System.Drawing.Size(44, 16)
         Me.lbl_cargo.TabIndex = 32
         Me.lbl_cargo.Text = "Cargo"
         '
@@ -662,17 +662,17 @@ Partial Class Registrar_efectores
         '
         Me.txt_nombres_empleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_nombres_empleado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_nombres_empleado.Location = New System.Drawing.Point(133, 98)
+        Me.txt_nombres_empleado.Location = New System.Drawing.Point(133, 113)
         Me.txt_nombres_empleado.Name = "txt_nombres_empleado"
-        Me.txt_nombres_empleado.Size = New System.Drawing.Size(378, 21)
+        Me.txt_nombres_empleado.Size = New System.Drawing.Size(378, 22)
         Me.txt_nombres_empleado.TabIndex = 4
         '
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(20, 101)
+        Me.Label21.Location = New System.Drawing.Point(20, 117)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(58, 13)
+        Me.Label21.Size = New System.Drawing.Size(58, 16)
         Me.Label21.TabIndex = 28
         Me.Label21.Text = "Nombres"
         '
@@ -684,9 +684,9 @@ Partial Class Registrar_efectores
         Me.cmd_buscar_empleadoXDNI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar_empleadoXDNI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_buscar_empleadoXDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_empleadoXDNI.Location = New System.Drawing.Point(516, 42)
+        Me.cmd_buscar_empleadoXDNI.Location = New System.Drawing.Point(516, 48)
         Me.cmd_buscar_empleadoXDNI.Name = "cmd_buscar_empleadoXDNI"
-        Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(29, 25)
+        Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(29, 29)
         Me.cmd_buscar_empleadoXDNI.TabIndex = 3
         Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
         '
@@ -696,17 +696,17 @@ Partial Class Registrar_efectores
         Me.cmb_estados_empleados._nombre_tabla = "ESTADOS_EMPLEADOS"
         Me.cmb_estados_empleados._pk = "id"
         Me.cmb_estados_empleados.FormattingEnabled = True
-        Me.cmb_estados_empleados.Location = New System.Drawing.Point(133, 124)
+        Me.cmb_estados_empleados.Location = New System.Drawing.Point(133, 143)
         Me.cmb_estados_empleados.Name = "cmb_estados_empleados"
-        Me.cmb_estados_empleados.Size = New System.Drawing.Size(153, 21)
+        Me.cmb_estados_empleados.Size = New System.Drawing.Size(153, 23)
         Me.cmb_estados_empleados.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(20, 127)
+        Me.Label3.Location = New System.Drawing.Point(20, 147)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(105, 13)
+        Me.Label3.Size = New System.Drawing.Size(107, 16)
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "Estado empleado"
         '
@@ -714,17 +714,17 @@ Partial Class Registrar_efectores
         '
         Me.txt_id_empleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_id_empleado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_id_empleado.Location = New System.Drawing.Point(133, 16)
+        Me.txt_id_empleado.Location = New System.Drawing.Point(133, 18)
         Me.txt_id_empleado.Name = "txt_id_empleado"
-        Me.txt_id_empleado.Size = New System.Drawing.Size(61, 21)
+        Me.txt_id_empleado.Size = New System.Drawing.Size(61, 22)
         Me.txt_id_empleado.TabIndex = 0
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(20, 19)
+        Me.Label20.Location = New System.Drawing.Point(20, 22)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(21, 13)
+        Me.Label20.Size = New System.Drawing.Size(19, 16)
         Me.Label20.TabIndex = 26
         Me.Label20.Text = "ID"
         '
@@ -738,10 +738,10 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar_empleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar_empleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar_empleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(482, 186)
-        Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_limpiar_empleados.Location = New System.Drawing.Point(482, 215)
+        Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_limpiar_empleados.Name = "cmd_limpiar_empleados"
-        Me.cmd_limpiar_empleados.Size = New System.Drawing.Size(29, 25)
+        Me.cmd_limpiar_empleados.Size = New System.Drawing.Size(29, 29)
         Me.cmd_limpiar_empleados.TabIndex = 10
         Me.cmd_limpiar_empleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar_empleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -757,10 +757,10 @@ Partial Class Registrar_efectores
         Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(555, 186)
-        Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(555, 215)
+        Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
-        Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(29, 25)
+        Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(29, 29)
         Me.cmd_eliminar_empleado.TabIndex = 12
         Me.cmd_eliminar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_eliminar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -776,10 +776,10 @@ Partial Class Registrar_efectores
         Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(519, 186)
-        Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(519, 215)
+        Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
-        Me.cmd_agregar_empleado.Size = New System.Drawing.Size(29, 25)
+        Me.cmd_agregar_empleado.Size = New System.Drawing.Size(29, 29)
         Me.cmd_agregar_empleado.TabIndex = 11
         Me.cmd_agregar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -795,10 +795,10 @@ Partial Class Registrar_efectores
         Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(553, 42)
-        Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(553, 48)
+        Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
-        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(29, 25)
+        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(29, 29)
         Me.cmd_empleado_nuevo.TabIndex = 4
         Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -808,35 +808,35 @@ Partial Class Registrar_efectores
         '
         Me.txt_numero_doc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_numero_doc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_numero_doc.Location = New System.Drawing.Point(260, 43)
+        Me.txt_numero_doc.Location = New System.Drawing.Point(260, 50)
         Me.txt_numero_doc.Name = "txt_numero_doc"
-        Me.txt_numero_doc.Size = New System.Drawing.Size(251, 21)
+        Me.txt_numero_doc.Size = New System.Drawing.Size(251, 22)
         Me.txt_numero_doc.TabIndex = 2
         '
         'txt_apellido
         '
         Me.txt_apellido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_apellido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_apellido.Location = New System.Drawing.Point(133, 70)
+        Me.txt_apellido.Location = New System.Drawing.Point(133, 81)
         Me.txt_apellido.Name = "txt_apellido"
-        Me.txt_apellido.Size = New System.Drawing.Size(378, 21)
+        Me.txt_apellido.Size = New System.Drawing.Size(378, 22)
         Me.txt_apellido.TabIndex = 3
         '
         'label16
         '
         Me.label16.AutoSize = True
-        Me.label16.Location = New System.Drawing.Point(20, 73)
+        Me.label16.Location = New System.Drawing.Point(20, 84)
         Me.label16.Name = "label16"
-        Me.label16.Size = New System.Drawing.Size(58, 13)
+        Me.label16.Size = New System.Drawing.Size(60, 16)
         Me.label16.TabIndex = 23
         Me.label16.Text = "Apellidos"
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(202, 46)
+        Me.Label19.Location = New System.Drawing.Point(202, 53)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(52, 13)
+        Me.Label19.Size = New System.Drawing.Size(51, 16)
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Número"
         '
@@ -846,17 +846,17 @@ Partial Class Registrar_efectores
         Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
         Me.cmb_tipos_documento._pk = "id"
         Me.cmb_tipos_documento.FormattingEnabled = True
-        Me.cmb_tipos_documento.Location = New System.Drawing.Point(133, 43)
+        Me.cmb_tipos_documento.Location = New System.Drawing.Point(133, 50)
         Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
-        Me.cmb_tipos_documento.Size = New System.Drawing.Size(61, 21)
+        Me.cmb_tipos_documento.Size = New System.Drawing.Size(61, 23)
         Me.cmb_tipos_documento.TabIndex = 1
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(20, 46)
+        Me.Label18.Location = New System.Drawing.Point(20, 53)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(57, 13)
+        Me.Label18.Size = New System.Drawing.Size(56, 16)
         Me.Label18.TabIndex = 4
         Me.Label18.Text = "Tipo Doc"
         '
@@ -869,9 +869,9 @@ Partial Class Registrar_efectores
         Me.cmd_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(1380, 635)
+        Me.cmd_salir.Location = New System.Drawing.Point(1380, 733)
         Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(70, 60)
+        Me.cmd_salir.Size = New System.Drawing.Size(70, 69)
         Me.cmd_salir.TabIndex = 4
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
@@ -885,10 +885,10 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar.Location = New System.Drawing.Point(177, 637)
-        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(177, 735)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_limpiar.Name = "cmd_limpiar"
-        Me.cmd_limpiar.Size = New System.Drawing.Size(70, 60)
+        Me.cmd_limpiar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_limpiar.TabIndex = 2
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -904,10 +904,10 @@ Partial Class Registrar_efectores
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_guardar.Location = New System.Drawing.Point(98, 638)
-        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_guardar.Location = New System.Drawing.Point(98, 736)
+        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(70, 60)
+        Me.cmd_guardar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_guardar.TabIndex = 1
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -923,10 +923,10 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.Location = New System.Drawing.Point(19, 638)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(19, 736)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(70, 60)
+        Me.cmd_nuevo.Size = New System.Drawing.Size(70, 69)
         Me.cmd_nuevo.TabIndex = 0
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -938,7 +938,7 @@ Partial Class Registrar_efectores
         Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
         Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_efectores.Location = New System.Drawing.Point(834, 296)
+        Me.lbl_contador_efectores.Location = New System.Drawing.Point(834, 342)
         Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
         Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_efectores.TabIndex = 53
@@ -947,11 +947,11 @@ Partial Class Registrar_efectores
         '
         Me.Label22.AutoSize = True
         Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(623, 295)
+        Me.Label22.Location = New System.Drawing.Point(623, 340)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(169, 17)
+        Me.Label22.Size = New System.Drawing.Size(131, 16)
         Me.Label22.TabIndex = 52
         Me.Label22.Text = "Efectores registrados:"
         '
@@ -963,24 +963,24 @@ Partial Class Registrar_efectores
         Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tipo_doc, Me.numero, Me.nombres, Me.apellidos, Me.cargo, Me.usuario, Me.perfil, Me.estado_empleado, Me.año_curso, Me.id_cargo, Me.id_perfil, Me.id_estado})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Verdana", 8.25!)
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv_empleados.Location = New System.Drawing.Point(623, 328)
+        Me.dgv_empleados.Location = New System.Drawing.Point(623, 378)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Verdana", 8.25!)
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_empleados.Size = New System.Drawing.Size(819, 301)
+        Me.dgv_empleados.Size = New System.Drawing.Size(819, 347)
         Me.dgv_empleados.TabIndex = 54
         '
         'id
@@ -1076,16 +1076,16 @@ Partial Class Registrar_efectores
         Me.dgv_vacunatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre, Me.referente, Me.localidad})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Verdana", 8.25!)
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_vacunatorios.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_vacunatorios.Location = New System.Drawing.Point(614, 14)
+        Me.dgv_vacunatorios.Location = New System.Drawing.Point(614, 16)
         Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
         Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(819, 265)
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(819, 306)
         Me.dgv_vacunatorios.TabIndex = 55
         '
         'cuie
@@ -1126,10 +1126,10 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_notificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_notificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_notificar.Location = New System.Drawing.Point(257, 637)
-        Me.cmd_notificar.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_notificar.Location = New System.Drawing.Point(257, 735)
+        Me.cmd_notificar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_notificar.Name = "cmd_notificar"
-        Me.cmd_notificar.Size = New System.Drawing.Size(70, 60)
+        Me.cmd_notificar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_notificar.TabIndex = 3
         Me.cmd_notificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_notificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1145,10 +1145,10 @@ Partial Class Registrar_efectores
         Me.cmd_atenciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_atenciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_atenciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_atenciones.Location = New System.Drawing.Point(342, 638)
-        Me.cmd_atenciones.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmd_atenciones.Location = New System.Drawing.Point(342, 736)
+        Me.cmd_atenciones.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_atenciones.Name = "cmd_atenciones"
-        Me.cmd_atenciones.Size = New System.Drawing.Size(70, 60)
+        Me.cmd_atenciones.Size = New System.Drawing.Size(70, 69)
         Me.cmd_atenciones.TabIndex = 56
         Me.cmd_atenciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_atenciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1156,11 +1156,11 @@ Partial Class Registrar_efectores
         '
         'Registrar_efectores
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1464, 707)
+        Me.ClientSize = New System.Drawing.Size(1464, 816)
         Me.Controls.Add(Me.cmd_atenciones)
         Me.Controls.Add(Me.cmd_notificar)
         Me.Controls.Add(Me.dgv_vacunatorios)
@@ -1173,7 +1173,7 @@ Partial Class Registrar_efectores
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.grp_datos_empleados)
         Me.Controls.Add(Me.grp_datos_vacunatorio)
-        Me.Font = New System.Drawing.Font("Verdana", 8.25!)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.KeyPreview = True
         Me.Name = "Registrar_efectores"
         Me.Text = "Registro de efectores"

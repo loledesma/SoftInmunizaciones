@@ -33,22 +33,21 @@ Public Class por_up_back_up
 
         If tabla.Rows.Count() = 0 Then
             controlador = 2
-            picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
+            picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.lore
             Label1.Text = "LORE"
         Else
             num = tabla.Rows(0)("id_backuper")
             If num = 4 Then
                 controlador = 2
-                picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
+                picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.lore
                 Label1.Text = "L"
             Else
                 If num = 2 Then
                     controlador = 3
-                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__2_
-                    Label1.Text = "Joaquin"
+                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.IMG_20190208_155010
                 Else
                     controlador = 4
-                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__1_
+                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.leandro
                     Label1.Text = "Leandro"
                 End If
             End If

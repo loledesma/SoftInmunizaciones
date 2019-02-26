@@ -22,9 +22,9 @@ Partial Class pop_up_recordatorios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(pop_up_recordatorios))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv_recordatorios = New System.Windows.Forms.DataGridView()
         Me.id_recordatorio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,21 +56,21 @@ Partial Class pop_up_recordatorios
         Me.dgv_recordatorios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.dgv_recordatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_recordatorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_recordatorio, Me.descripcion, Me.administrador, Me.cmd_solucionado, Me.cmd_posponer, Me.cmd_editar})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaption
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.NullValue = "N/A"
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_recordatorios.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveCaption
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.NullValue = "N/A"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_recordatorios.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_recordatorios.GridColor = System.Drawing.SystemColors.ControlLightLight
-        Me.dgv_recordatorios.Location = New System.Drawing.Point(12, 48)
+        Me.dgv_recordatorios.Location = New System.Drawing.Point(14, 55)
         Me.dgv_recordatorios.Name = "dgv_recordatorios"
         Me.dgv_recordatorios.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dgv_recordatorios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.dgv_recordatorios.Size = New System.Drawing.Size(822, 177)
+        Me.dgv_recordatorios.Size = New System.Drawing.Size(959, 204)
         Me.dgv_recordatorios.StandardTab = True
         Me.dgv_recordatorios.TabIndex = 2
         '
@@ -129,10 +129,10 @@ Partial Class pop_up_recordatorios
         Me.cmd_recordatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_recordatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_recordatorios.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
-        Me.cmd_recordatorios.Location = New System.Drawing.Point(773, 377)
-        Me.cmd_recordatorios.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_recordatorios.Location = New System.Drawing.Point(902, 435)
+        Me.cmd_recordatorios.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_recordatorios.Name = "cmd_recordatorios"
-        Me.cmd_recordatorios.Size = New System.Drawing.Size(57, 57)
+        Me.cmd_recordatorios.Size = New System.Drawing.Size(66, 66)
         Me.cmd_recordatorios.TabIndex = 61
         Me.cmd_recordatorios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_recordatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -147,21 +147,21 @@ Partial Class pop_up_recordatorios
         Me.dgv_recordatoriosDiaSiguiente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.dgv_recordatoriosDiaSiguiente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_recordatoriosDiaSiguiente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_recordatorioMañana, Me.descripcionMañana, Me.administrador_mañana, Me.cmd_solucionadoMañana, Me.cmd_posponerMañana, Me.cmd_editarMañana})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.InactiveCaption
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.NullValue = "N/A"
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_recordatoriosDiaSiguiente.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveCaption
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.NullValue = "N/A"
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_recordatoriosDiaSiguiente.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_recordatoriosDiaSiguiente.GridColor = System.Drawing.SystemColors.ControlLightLight
-        Me.dgv_recordatoriosDiaSiguiente.Location = New System.Drawing.Point(9, 261)
+        Me.dgv_recordatoriosDiaSiguiente.Location = New System.Drawing.Point(10, 301)
         Me.dgv_recordatoriosDiaSiguiente.Name = "dgv_recordatoriosDiaSiguiente"
         Me.dgv_recordatoriosDiaSiguiente.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dgv_recordatoriosDiaSiguiente.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.dgv_recordatoriosDiaSiguiente.Size = New System.Drawing.Size(822, 109)
+        Me.dgv_recordatoriosDiaSiguiente.Size = New System.Drawing.Size(959, 126)
         Me.dgv_recordatoriosDiaSiguiente.StandardTab = True
         Me.dgv_recordatoriosDiaSiguiente.TabIndex = 62
         '
@@ -215,7 +215,7 @@ Partial Class pop_up_recordatorios
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
         Me.lbl1.Font = New System.Drawing.Font("Verdana", 12.0!)
         Me.lbl1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl1.Location = New System.Drawing.Point(12, 240)
+        Me.lbl1.Location = New System.Drawing.Point(14, 277)
         Me.lbl1.Name = "lbl1"
         Me.lbl1.Size = New System.Drawing.Size(215, 18)
         Me.lbl1.TabIndex = 63
@@ -227,7 +227,7 @@ Partial Class pop_up_recordatorios
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Verdana", 12.0!)
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(12, 18)
+        Me.Label1.Location = New System.Drawing.Point(14, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(179, 18)
         Me.Label1.TabIndex = 64
@@ -244,10 +244,10 @@ Partial Class pop_up_recordatorios
         Me.cmd_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_refresh.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
-        Me.cmd_refresh.Location = New System.Drawing.Point(708, 377)
-        Me.cmd_refresh.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_refresh.Location = New System.Drawing.Point(826, 435)
+        Me.cmd_refresh.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_refresh.Name = "cmd_refresh"
-        Me.cmd_refresh.Size = New System.Drawing.Size(57, 57)
+        Me.cmd_refresh.Size = New System.Drawing.Size(66, 66)
         Me.cmd_refresh.TabIndex = 65
         Me.cmd_refresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_refresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -255,16 +255,17 @@ Partial Class pop_up_recordatorios
         '
         'pop_up_recordatorios
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(843, 443)
+        Me.ClientSize = New System.Drawing.Size(983, 511)
         Me.Controls.Add(Me.cmd_refresh)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl1)
         Me.Controls.Add(Me.dgv_recordatoriosDiaSiguiente)
         Me.Controls.Add(Me.cmd_recordatorios)
         Me.Controls.Add(Me.dgv_recordatorios)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Name = "pop_up_recordatorios"
         Me.Text = "Recordatorios del día"
         CType(Me.dgv_recordatorios, System.ComponentModel.ISupportInitialize).EndInit()

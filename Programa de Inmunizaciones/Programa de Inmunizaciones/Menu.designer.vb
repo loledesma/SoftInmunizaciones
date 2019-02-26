@@ -97,11 +97,11 @@ Partial Class Menu
         Me.GestiónDeDepartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónDeBarriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.cmd_recordatorios = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmd_enviar_correo = New System.Windows.Forms.Button()
-        Me.cmd_recordatorios = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -542,6 +542,28 @@ Partial Class Menu
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Button3, "Button3")
+        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button3.Name = "Button3"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'cmd_recordatorios
+        '
+        Me.cmd_recordatorios.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.cmd_recordatorios, "cmd_recordatorios")
+        Me.cmd_recordatorios.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_recordatorios.FlatAppearance.BorderSize = 0
+        Me.cmd_recordatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.cmd_recordatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.cmd_recordatorios.Name = "cmd_recordatorios"
+        Me.cmd_recordatorios.UseVisualStyleBackColor = False
+        '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.Transparent
@@ -574,28 +596,6 @@ Partial Class Menu
         Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
         Me.cmd_enviar_correo.UseVisualStyleBackColor = False
-        '
-        'cmd_recordatorios
-        '
-        Me.cmd_recordatorios.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.cmd_recordatorios, "cmd_recordatorios")
-        Me.cmd_recordatorios.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_recordatorios.FlatAppearance.BorderSize = 0
-        Me.cmd_recordatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.cmd_recordatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.cmd_recordatorios.Name = "cmd_recordatorios"
-        Me.cmd_recordatorios.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.Button3, "Button3")
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.Button3.Name = "Button3"
-        Me.Button3.UseVisualStyleBackColor = False
         '
         'Menu
         '

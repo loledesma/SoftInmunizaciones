@@ -36,11 +36,11 @@ Partial Class dialogo_posponerRecordatorio
         '
         Me.lbl1.AutoSize = True
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
-        Me.lbl1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.lbl1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl1.Location = New System.Drawing.Point(12, 21)
+        Me.lbl1.Location = New System.Drawing.Point(14, 24)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(110, 16)
+        Me.lbl1.Size = New System.Drawing.Size(96, 16)
         Me.lbl1.TabIndex = 0
         Me.lbl1.Text = "ID Recordatorio"
         '
@@ -48,11 +48,11 @@ Partial Class dialogo_posponerRecordatorio
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(12, 47)
+        Me.Label1.Location = New System.Drawing.Point(14, 54)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(203, 16)
+        Me.Label1.Size = New System.Drawing.Size(175, 16)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Fecha actual del recordatorio"
         '
@@ -60,9 +60,9 @@ Partial Class dialogo_posponerRecordatorio
         '
         Me.lbl_fecha_actual_evento.AutoSize = True
         Me.lbl_fecha_actual_evento.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_fecha_actual_evento.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_fecha_actual_evento.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.lbl_fecha_actual_evento.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl_fecha_actual_evento.Location = New System.Drawing.Point(221, 47)
+        Me.lbl_fecha_actual_evento.Location = New System.Drawing.Point(258, 54)
         Me.lbl_fecha_actual_evento.Name = "lbl_fecha_actual_evento"
         Me.lbl_fecha_actual_evento.Size = New System.Drawing.Size(0, 16)
         Me.lbl_fecha_actual_evento.TabIndex = 2
@@ -71,20 +71,21 @@ Partial Class dialogo_posponerRecordatorio
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label2.Location = New System.Drawing.Point(12, 81)
+        Me.Label2.Location = New System.Drawing.Point(14, 93)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(91, 16)
+        Me.Label2.Size = New System.Drawing.Size(79, 16)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Nueva fecha"
         '
         'txt_nuevaFechaEvento
         '
-        Me.txt_nuevaFechaEvento.Location = New System.Drawing.Point(115, 80)
+        Me.txt_nuevaFechaEvento.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
+        Me.txt_nuevaFechaEvento.Location = New System.Drawing.Point(134, 92)
         Me.txt_nuevaFechaEvento.Mask = "00/00/0000"
         Me.txt_nuevaFechaEvento.Name = "txt_nuevaFechaEvento"
-        Me.txt_nuevaFechaEvento.Size = New System.Drawing.Size(100, 20)
+        Me.txt_nuevaFechaEvento.Size = New System.Drawing.Size(116, 22)
         Me.txt_nuevaFechaEvento.TabIndex = 4
         Me.txt_nuevaFechaEvento.ValidatingType = GetType(Date)
         '
@@ -98,10 +99,11 @@ Partial Class dialogo_posponerRecordatorio
         Me.cmd_confirmarNuevafecha.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_confirmarNuevafecha.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_confirmarNuevafecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_confirmarNuevafecha.Location = New System.Drawing.Point(224, 75)
-        Me.cmd_confirmarNuevafecha.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_confirmarNuevafecha.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
+        Me.cmd_confirmarNuevafecha.Location = New System.Drawing.Point(261, 87)
+        Me.cmd_confirmarNuevafecha.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_confirmarNuevafecha.Name = "cmd_confirmarNuevafecha"
-        Me.cmd_confirmarNuevafecha.Size = New System.Drawing.Size(28, 28)
+        Me.cmd_confirmarNuevafecha.Size = New System.Drawing.Size(33, 32)
         Me.cmd_confirmarNuevafecha.TabIndex = 5
         Me.cmd_confirmarNuevafecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_confirmarNuevafecha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -111,20 +113,20 @@ Partial Class dialogo_posponerRecordatorio
         '
         Me.lbl_idRecordatorio.AutoSize = True
         Me.lbl_idRecordatorio.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_idRecordatorio.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_idRecordatorio.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.lbl_idRecordatorio.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl_idRecordatorio.Location = New System.Drawing.Point(128, 21)
+        Me.lbl_idRecordatorio.Location = New System.Drawing.Point(149, 24)
         Me.lbl_idRecordatorio.Name = "lbl_idRecordatorio"
         Me.lbl_idRecordatorio.Size = New System.Drawing.Size(0, 16)
         Me.lbl_idRecordatorio.TabIndex = 6
         '
         'dialogo_posponerRecordatorio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(304, 130)
+        Me.ClientSize = New System.Drawing.Size(355, 150)
         Me.Controls.Add(Me.lbl_idRecordatorio)
         Me.Controls.Add(Me.cmd_confirmarNuevafecha)
         Me.Controls.Add(Me.txt_nuevaFechaEvento)
@@ -132,6 +134,7 @@ Partial Class dialogo_posponerRecordatorio
         Me.Controls.Add(Me.lbl_fecha_actual_evento)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl1)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.KeyPreview = True
         Me.Name = "dialogo_posponerRecordatorio"
         Me.Text = "Posponer Recordatorio ☺"
