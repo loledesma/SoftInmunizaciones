@@ -1,4 +1,9 @@
 ﻿Public Class Registrar_recordatorio
+    Enum cambioGrilla
+        pendiente
+        no_aplica
+        solucionado
+    End Enum
     Enum condicion
         insertar
         modificar
@@ -20,7 +25,7 @@
         activado
         desactivado
     End Enum
-
+    Dim cambio As cambioGrilla
     Dim condicion_click As doble_Click = doble_Click.desactivado
 
     Private Sub Registrar_atencion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -87,10 +92,10 @@
         Me.condicion_grilla = grilla.desactivado
 
         sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
-        sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad "
+        sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad, R.fecha_evento "
         sql &= " FROM RECORDATORIOS R "
         sql &= " WHERE id_estado= 2"
-        sql &= " ORDER BY id_prioridad asc "
+        sql &= " ORDER BY id_prioridad asc, fecha_evento desc "
         tabla = acceso.consulta(sql)
 
         Dim c As Integer = 0
@@ -101,6 +106,7 @@
             dgv_recordatorios.Rows.Add()
             dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
             dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+            dgv_recordatorios.Rows(c).Cells("fecha_evento").Value = tabla.Rows(c)("fecha_evento")
             dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
             dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
             dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
@@ -193,7 +199,7 @@
         End If
 
         Me.txt_id_recordatorio.Text = Me.dgv_recordatorios.CurrentRow.Cells("id").Value
-        Me.txt_fecha.Text = tabla.Rows(0)("fecha")
+        Me.txt_fechaEvento.Text = tabla.Rows(0)("fecha_evento")
         Me.cmb_estado_atencion.SelectedValue = tabla.Rows(0)("id_estado")
         Me.cmb_empleados.SelectedValue = tabla.Rows(0)("id_administrador")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
@@ -238,21 +244,21 @@
             cmb_prioridad.Focus()
             Return False
             Exit Function
-        ElseIf txt_fecha.Text > hoy Then
+            'ElseIf txt_fecha.Text > hoy Then
             MessageBox.Show("Debe ingresar una fecha correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
-            Me.txt_fecha.Focus()
+            'Me.txt_fecha.Focus()
             Exit Function
-        ElseIf IsDate(txt_fecha.Text) = False Then
+            ' ElseIf IsDate(txt_fecha.Text) = False Then
             MessageBox.Show("Debe ingresar una fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
-            Me.txt_fecha.Focus()
+            'Me.txt_fecha.Focus()
             Exit Function
         End If
         Return True
     End Function
 
-  
+
 
     Private Function validar_existencia() As analizar_existencia
         Dim tabla As New DataTable
@@ -275,11 +281,12 @@
         acceso._nombre_tabla = "RECORDATORIOS"
 
 
-        sql &= " fecha ='" & Me.txt_fecha.Text & "'"
+        sql &= " fecha ='" & Date.Today & "'"
         sql &= ", id_estado = " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", descripcion =" & Me.txt_descripcion.Text
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         sql &= ", id_prioridad=" & Me.cmb_prioridad.SelectedValue
+        sql &= ", fecha_evento = '" & Me.txt_fechaEvento.Text & "'"
         acceso.insertar(sql)
     End Sub
 
@@ -287,12 +294,14 @@
         Dim sql As String = ""
 
         sql = "UPDATE RECORDATORIOS "
-        sql &= " SET fecha = '" & Me.txt_fecha.Text & "'"
+        sql &= " SET fecha = '" & Date.Today & "'"
         sql &= ", id_estado = " & Me.cmb_estado_atencion.SelectedValue
         sql &= ", descripcion ='" & Me.txt_descripcion.Text & "'"
         sql &= ", id_administrador =" & Me.cmb_empleados.SelectedValue
         sql &= " , id_prioridad=" & Me.cmb_prioridad.SelectedValue
+        sql &= ", fecha_evento = '" & Me.txt_fechaEvento.Text & "'"
         sql &= " WHERE id = " & Me.txt_id_recordatorio.Text
+
 
         acceso.ejecutar(sql)
     End Sub
@@ -324,7 +333,7 @@
         Me.txt_id_recordatorio.Enabled = False
         Me.cmb_empleados.Enabled = True
         Me.cmb_estado_atencion.Enabled = True
-        Me.txt_fecha.Focus()
+        Me.txt_fechaEvento.Focus()
         Me.cmd_guardar.Enabled = True
         Me.cmd_eliminar.Enabled = False
     End Sub
@@ -405,7 +414,7 @@
         Else
             sql &= "SELECT * FROM RECORDATORIOS "
             sql &= " WHERE id_administrador=" & Me.cmb_empleados.SelectedValue
-            sql &= " ORDER BY id_prioridad asc, fecha"
+            sql &= " ORDER BY id_prioridad asc, fecha_evento,fecha"
             tabla = acceso.consulta(sql)
         End If
 
@@ -420,6 +429,7 @@
                 dgv_recordatorios.Rows.Add()
                 dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
                 dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_recordatorios.Rows(c).Cells("fecha_evento").Value = tabla.Rows(c)("fecha_evento")
                 dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
                 dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
                 dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
@@ -503,4 +513,196 @@
     End Sub
 
 
+    Private Sub cmd_cambioGrilla_Click(sender As Object, e As EventArgs) Handles cmb_cambioGrilla.Click
+
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        Dim tabla2 As New DataTable
+        Me.condicion_grilla = grilla.desactivado
+
+
+        If cambio = cambioGrilla.no_aplica Then
+
+            sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+            sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad, R.fecha_evento "
+            sql &= " FROM RECORDATORIOS R "
+            sql &= " WHERE id_estado= 1"
+            sql &= " ORDER BY id_prioridad asc, fecha_evento desc "
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+
+            dgv_recordatorios.Rows.Clear()
+
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_recordatorios.Rows.Add()
+                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_recordatorios.Rows(c).Cells("fecha_evento").Value = tabla.Rows(c)("fecha_evento")
+                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
+                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+
+
+                sql = ""
+                sql &= "SELECT descripcion as estado FROM ESTADOS_ATENCION WHERE id= " & tabla.Rows(c)("id_estado")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("estado").Value = tabla2.Rows(0)("estado")
+
+                sql = ""
+                sql &= "SELECT nombres FROM EMPLEADOS WHERE id=" & tabla.Rows(c)("id_administrador")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+
+                sql = ""
+                sql &= "SELECT descripcion as prioridad FROM PRIORIDADES WHERE id= " & tabla.Rows(c)("id_prioridad")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("prioridad").Value = tabla2.Rows(0)("prioridad")
+
+                If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+                    Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                Else
+                    If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 3 Then
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._6)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    Else
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._7)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    End If
+                End If
+
+            Next
+
+            Me.condicion_grilla = grilla.activado
+            contador()
+            cambio = cambioGrilla.pendiente
+
+        ElseIf cambio = cambioGrilla.pendiente Then
+            sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+            sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad, R.fecha_evento "
+            sql &= " FROM RECORDATORIOS R "
+            sql &= " WHERE id_estado = 2 "
+            sql &= " ORDER BY id_prioridad asc, fecha_evento desc "
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+
+            dgv_recordatorios.Rows.Clear()
+
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_recordatorios.Rows.Add()
+                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_recordatorios.Rows(c).Cells("fecha_evento").Value = tabla.Rows(c)("fecha_evento")
+                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
+                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+
+
+                sql = ""
+                sql &= "SELECT descripcion as estado FROM ESTADOS_ATENCION WHERE id= " & tabla.Rows(c)("id_estado")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("estado").Value = tabla2.Rows(0)("estado")
+
+                sql = ""
+                sql &= "SELECT nombres FROM EMPLEADOS WHERE id=" & tabla.Rows(c)("id_administrador")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+
+                sql = ""
+                sql &= "SELECT descripcion as prioridad FROM PRIORIDADES WHERE id= " & tabla.Rows(c)("id_prioridad")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("prioridad").Value = tabla2.Rows(0)("prioridad")
+
+                If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+                    Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                Else
+                    If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 3 Then
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._6)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    Else
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._7)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    End If
+                End If
+
+            Next
+
+            Me.condicion_grilla = grilla.activado
+            contador()
+            cambio = cambioGrilla.solucionado
+
+        ElseIf cambio = cambioGrilla.solucionado Then
+
+            sql &= "SELECT R.id as id, R.fecha as fecha, R.id_estado as id_estado, R.descripcion as descripcion "
+            sql &= " , R.id_administrador as id_administrador, R.id_prioridad as id_prioridad, R.fecha_evento "
+            sql &= " FROM RECORDATORIOS R "
+            sql &= " WHERE id_estado = 3 "
+            sql &= " ORDER BY id_prioridad asc, fecha_evento desc "
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+
+            dgv_recordatorios.Rows.Clear()
+
+            For c = 0 To tabla.Rows.Count - 1
+                dgv_recordatorios.Rows.Add()
+                dgv_recordatorios.Rows(c).Cells("id").Value = tabla.Rows(c)("id")
+                dgv_recordatorios.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_recordatorios.Rows(c).Cells("fecha_evento").Value = tabla.Rows(c)("fecha_evento")
+                dgv_recordatorios.Rows(c).Cells("id_estado").Value = tabla.Rows(c)("id_estado")
+                dgv_recordatorios.Rows(c).Cells("descripcion").Value = tabla.Rows(c)("descripcion")
+                dgv_recordatorios.Rows(c).Cells("id_administrador").Value = tabla.Rows(c)("id_administrador")
+
+
+                sql = ""
+                sql &= "SELECT descripcion as estado FROM ESTADOS_ATENCION WHERE id= " & tabla.Rows(c)("id_estado")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("estado").Value = tabla2.Rows(0)("estado")
+
+                sql = ""
+                sql &= "SELECT nombres FROM EMPLEADOS WHERE id=" & tabla.Rows(c)("id_administrador")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("administrador").Value = tabla2.Rows(0)("nombres")
+
+
+                sql = ""
+                sql &= "SELECT descripcion as prioridad FROM PRIORIDADES WHERE id= " & tabla.Rows(c)("id_prioridad")
+                tabla2.Rows.Clear()
+                tabla2 = acceso.consulta(sql)
+                dgv_recordatorios.Rows(c).Cells("prioridad").Value = tabla2.Rows(0)("prioridad")
+
+                If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 2 Then
+                    Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._5)
+                    dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                Else
+                    If dgv_recordatorios.Rows(c).Cells("id_administrador").Value = 3 Then
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._6)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    Else
+                        Dim imagen = New System.Drawing.Bitmap(Programa_de_Inmunizaciones.My.Resources._7)
+                        dgv_recordatorios.Rows(c).Cells("imagen").Value = imagen
+                    End If
+                End If
+
+            Next
+
+            Me.condicion_grilla = grilla.activado
+            contador()
+            cambio = cambioGrilla.no_aplica
+        End If
+
+    End Sub
 End Class

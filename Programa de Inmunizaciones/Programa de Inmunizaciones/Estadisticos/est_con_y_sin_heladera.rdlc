@@ -306,8 +306,7 @@
                             <TextRun>
                               <Value>HELADERA</Value>
                               <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontWeight>Bold</FontWeight>
+                                <FontFamily>Tw Cen MT</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -342,8 +341,7 @@
                             <TextRun>
                               <Value>CANTIDAD</Value>
                               <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontWeight>Bold</FontWeight>
+                                <FontFamily>Tw Cen MT</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -356,8 +354,7 @@
                             <TextRun>
                               <Value />
                               <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontWeight>Bold</FontWeight>
+                                <FontFamily>Tw Cen MT</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -394,7 +391,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!heladera.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Tw Cen MT</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -426,7 +425,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!cantidad.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Tw Cen MT</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -476,6 +477,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <FontFamily>Tw Cen MT</FontFamily>
         </Style>
       </Tablix>
     </ReportItems>
@@ -498,6 +500,7 @@
                 <TextRun>
                   <Value>EFECTORES CON Y SIN HELADERAS</Value>
                   <Style>
+                    <FontFamily>Tw Cen MT</FontFamily>
                     <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>

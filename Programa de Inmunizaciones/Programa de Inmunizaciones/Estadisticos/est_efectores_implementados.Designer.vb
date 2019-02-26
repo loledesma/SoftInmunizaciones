@@ -23,7 +23,7 @@ Partial Class est_efectores_implementados
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(est_efectores_implementados))
         Me.EST_EFECTORES_IMPLEMENTADOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Inmunizaciones2 = New Programa_de_Inmunizaciones.Inmunizaciones2()
@@ -51,13 +51,13 @@ Partial Class est_efectores_implementados
         '
         'ReportViewer1
         '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.EST_EFECTORES_IMPLEMENTADOSBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.EST_EFECTORES_IMPLEMENTADOSBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_efectores_implementados.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(5, 107)
+        Me.ReportViewer1.Location = New System.Drawing.Point(6, 123)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(948, 460)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1106, 530)
         Me.ReportViewer1.TabIndex = 0
         '
         'GroupBox1
@@ -69,9 +69,9 @@ Partial Class est_efectores_implementados
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.GroupBox1.Location = New System.Drawing.Point(156, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(182, 14)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(500, 89)
+        Me.GroupBox1.Size = New System.Drawing.Size(583, 103)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos"
@@ -82,9 +82,9 @@ Partial Class est_efectores_implementados
         Me.cmd_generar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_generar.FlatAppearance.BorderSize = 0
         Me.cmd_generar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_generar.Location = New System.Drawing.Point(423, 19)
+        Me.cmd_generar.Location = New System.Drawing.Point(493, 22)
         Me.cmd_generar.Name = "cmd_generar"
-        Me.cmd_generar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_generar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_generar.TabIndex = 4
         Me.cmd_generar.UseVisualStyleBackColor = True
         '
@@ -94,9 +94,9 @@ Partial Class est_efectores_implementados
         Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
         Me.cmb_localidades._pk = "id"
         Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(96, 52)
+        Me.cmb_localidades.Location = New System.Drawing.Point(112, 60)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(278, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(324, 23)
         Me.cmb_localidades.TabIndex = 3
         '
         'cmb_departamentos
@@ -106,38 +106,39 @@ Partial Class est_efectores_implementados
         Me.cmb_departamentos._pk = "id"
         Me.cmb_departamentos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(96, 24)
+        Me.cmb_departamentos.Location = New System.Drawing.Point(112, 28)
         Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(278, 21)
+        Me.cmb_departamentos.Size = New System.Drawing.Size(324, 23)
         Me.cmb_departamentos.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 55)
+        Me.Label2.Location = New System.Drawing.Point(19, 63)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.Size = New System.Drawing.Size(63, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Localidad"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 27)
+        Me.Label1.Location = New System.Drawing.Point(19, 31)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.Size = New System.Drawing.Size(89, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Departamento"
         '
         'est_efectores_implementados
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(957, 571)
+        Me.ClientSize = New System.Drawing.Size(1116, 659)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Name = "est_efectores_implementados"
         Me.Text = "Efectores por implementación"
         CType(Me.EST_EFECTORES_IMPLEMENTADOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

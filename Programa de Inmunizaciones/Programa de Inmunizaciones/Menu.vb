@@ -8,9 +8,11 @@ Public Class Menu
         Inicio_sesion.ShowDialog()
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) Then
             verifCumple()
-            back_up.ShowDialog()
-            If Ajustes_Pendientes.verificar() = True Then
-                Ajustes_Pendientes.ShowDialog()
+            por_up_back_up.ShowDialog()
+            pop_up_recordatorios.verificar()
+            pop_up_recordatorios.verificarMañana()
+            If pop_up_ajustes_pendientes.verificar() = True Then
+                pop_up_ajustes_pendientes.ShowDialog()
             Else
                 Exit Sub
             End If
@@ -22,7 +24,8 @@ Public Class Menu
         Dim tabla = New DataTable
         Dim sql = ""
 
-        sql = "select distinct E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
+      sql = "select DISTINCT E.nombres, E.apellidos, E.nro_doc, E.mail_contacto from EMPLEADOS E JOIN EMPLEADOSXEFECTOR EE ON E.id = EE.id_empleados "
+
         sql &= " JOIN EFECTORES EF ON EE.id_efector = EF.cuie "
         sql &= " where Day(E.fecha_nac) = " & Date.Today.Day & " And Month(E.fecha_nac) = " & Date.Today.Month
         sql &= " AND EE.id_estado_empleado != 4 "
@@ -34,16 +37,20 @@ Public Class Menu
             Dim c As Integer = 0
             For c = 0 To tabla.Rows.Count() - 1
 
-                Dialog1.dgv_cumples.Rows.Add()
-                Dialog1.dgv_cumples.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombres")
-                Dialog1.dgv_cumples.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
-                Dialog1.dgv_cumples.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
-                Dialog1.dgv_cumples.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
+                pop_up_cumpleaños.dgv_cumples.Rows.Add()
+                pop_up_cumpleaños.dgv_cumples.Rows(c).Cells("nombres").Value = tabla.Rows(c)("nombres")
+                pop_up_cumpleaños.dgv_cumples.Rows(c).Cells("apellidos").Value = tabla.Rows(c)("apellidos")
+                pop_up_cumpleaños.dgv_cumples.Rows(c).Cells("mail_contacto").Value = tabla.Rows(c)("mail_contacto")
+                pop_up_cumpleaños.dgv_cumples.Rows(c).Cells("nro_doc").Value = tabla.Rows(c)("nro_doc")
 
             Next
-            Dialog1.ShowDialog()
+            pop_up_cumpleaños.ShowDialog()
         End If
 
+    End Sub
+
+    Private Sub verifRecordatorios()
+        pop_up_recordatorios.verificar()
     End Sub
     Private Sub GestiónDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónDeEmpleadosToolStripMenuItem.Click
         abm_empleados.Show()
@@ -218,7 +225,7 @@ Public Class Menu
     End Sub
 
     Private Sub RegistrarRecordatorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarRecordatorioToolStripMenuItem.Click
-        Registrar_recordatorio.ShowDialog()
+        Registrar_recordatorio.Show()
     End Sub
     Private Sub EmpleadosPorEstadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosPorEstadoToolStripMenuItem.Click
         list_empleados_x_estado.Show()
@@ -226,7 +233,7 @@ Public Class Menu
 
 
     Private Sub VacunatoriosPorLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VacunatoriosPorLocalidadToolStripMenuItem.Click
-        Est_Efect_x_Loc.ShowDialog()
+        Est_Efect_x_Loc.Show()
     End Sub
 
     Private Sub GestionarInvitacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarInvitacionesToolStripMenuItem.Click
@@ -259,5 +266,14 @@ Public Class Menu
 
     Private Sub ReportesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportesToolStripMenuItem.Click
         list_reportesSemestrales.Show()
+    End Sub
+
+    Private Sub cmd_recordatorios_Click(sender As Object, e As EventArgs) Handles cmd_recordatorios.Click
+        pop_up_recordatorios.verificar()
+        pop_up_recordatorios.verificarMañana()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Registrar_recordatorio.Show()
     End Sub
 End Class
