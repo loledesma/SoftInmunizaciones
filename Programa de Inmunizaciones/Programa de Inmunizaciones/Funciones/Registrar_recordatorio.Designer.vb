@@ -110,7 +110,7 @@ Partial Class Registrar_recordatorio
         Me.txt_fechaEvento.Mask = "00/00/0000"
         Me.txt_fechaEvento.Name = "txt_fechaEvento"
         Me.txt_fechaEvento.Size = New System.Drawing.Size(112, 22)
-        Me.txt_fechaEvento.TabIndex = 56
+        Me.txt_fechaEvento.TabIndex = 1
         Me.txt_fechaEvento.ValidatingType = GetType(Date)
         '
         'cmb_prioridad
@@ -144,7 +144,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_estado.Location = New System.Drawing.Point(425, 83)
-        Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(29, 29)
         Me.cmd_actualizar_estado.TabIndex = 6
@@ -231,7 +231,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_eliminar.Location = New System.Drawing.Point(182, 537)
-        Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_eliminar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_eliminar.TabIndex = 3
@@ -250,7 +250,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Location = New System.Drawing.Point(254, 538)
-        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_limpiar.TabIndex = 4
@@ -269,7 +269,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(98, 537)
-        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_guardar.TabIndex = 2
@@ -288,10 +288,10 @@ Partial Class Registrar_recordatorio
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(19, 537)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(70, 69)
-        Me.cmd_nuevo.TabIndex = 1
+        Me.cmd_nuevo.TabIndex = 5
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -307,7 +307,7 @@ Partial Class Registrar_recordatorio
         Me.cmd_salir.Location = New System.Drawing.Point(1163, 537)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(70, 69)
-        Me.cmd_salir.TabIndex = 5
+        Me.cmd_salir.TabIndex = 7
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'lbl_contador_pendientes
@@ -461,7 +461,7 @@ Partial Class Registrar_recordatorio
         Me.cmb_cambioGrilla.Location = New System.Drawing.Point(962, 537)
         Me.cmb_cambioGrilla.Name = "cmb_cambioGrilla"
         Me.cmb_cambioGrilla.Size = New System.Drawing.Size(70, 69)
-        Me.cmb_cambioGrilla.TabIndex = 59
+        Me.cmb_cambioGrilla.TabIndex = 6
         Me.cmb_cambioGrilla.UseVisualStyleBackColor = False
         '
         'Registrar_recordatorio
