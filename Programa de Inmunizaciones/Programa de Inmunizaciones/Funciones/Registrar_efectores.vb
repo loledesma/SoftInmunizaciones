@@ -176,6 +176,12 @@
         Me.txt_heladera.Text = tabla2.Rows(0)("tiene_heladera")
         Me.txt_pc.Text = tabla2.Rows(0)("tiene_internet")
 
+        If IsDBNull(tabla2.Rows(0)("correo_efector")) Then
+            Me.txt_correo_efector.Text = ""
+        Else
+            Me.txt_correo_efector.Text = tabla2.Rows(0)("correo_efector")
+        End If
+
         If IsDBNull(tabla2.Rows(0)("id_tipo_notificacion")) Then
             Me.cmb_notifica.SelectedIndex = -1
         Else
@@ -505,6 +511,12 @@
         sql &= " , id_departamento= " & Me.cmb_departamento.SelectedValue
         sql &= " , id_localidad= " & Me.cmb_localidades.SelectedValue
 
+        If txt_correo_efector.Text = "" Then
+            sql &= ", correo_efector = Null"
+        Else
+            sql &= ", correo_efector = '" & Me.txt_correo_efector.Text & "'"
+        End If
+
         If cmb_barrios.SelectedIndex <> -1 Then
             sql &= ", id_barrio = " & Me.cmb_barrios.SelectedValue
         Else
@@ -640,6 +652,7 @@
         sql &= ", id_estado =" & Me.cmb_estado_efector.SelectedValue
         sql &= ", tiene_heladera=" & Me.txt_heladera.Text
         sql &= ", tiene_internet=" & Me.txt_pc.Text
+        sql &= ", correo_efector = '" & Me.txt_correo_efector.Text & "'"
 
         If cmb_estado_rm.SelectedValue <> -1 Then
             sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
@@ -687,6 +700,9 @@
             sql &= ", id_barrio = " & Me.cmb_barrios.SelectedValue
         Else
             sql &= ", id_barrio = Null"
+        End If
+        If txt_correo_efector.Text = "" Then
+            sql &= ", correo_efector = Null"
         End If
         acceso.insertar(sql)
     End Sub
@@ -1007,6 +1023,7 @@
                 abm_empleados.cmb_tipo_doc.cargar()
                 abm_empleados.cmb_tipo_doc.SelectedValue = Me.cmb_tipos_documento.SelectedValue
                 abm_empleados.ShowDialog()
+                abm_empleados.buscar_x_documento()
             End If
         End If
     End Sub
@@ -1289,4 +1306,5 @@
         End If
         Registrar_atencion.Show()
     End Sub
+
 End Class
