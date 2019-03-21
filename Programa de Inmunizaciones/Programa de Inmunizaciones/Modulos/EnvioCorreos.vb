@@ -62,7 +62,7 @@ Module Correo
             'correos.Attachments.Add(archivo)
 
 
-            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2015")
+            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2019")
 
             ''Datos importantes no modificables para tener acceso a las cuentas
 
@@ -183,7 +183,7 @@ Module Correo
 
             MISMTP.EnableSsl = True
             MISMTP.Port = "587"
-            MISMTP.Credentials = New Net.NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2015")
+            MISMTP.Credentials = New Net.NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2019")
 
             MISMTP.Send(MENSAJE)
 

@@ -215,22 +215,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Popups\Ajustes_Pendientes.Designer.vb">
-      <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
+    <Compile Include="Popups\pop_up_recordatorios.Designer.vb">
+      <DependentUpon>pop_up_recordatorios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Popups\Ajustes_Pendientes.vb">
+    <Compile Include="Popups\pop_up_recordatorios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popups\back_up.Designer.vb">
-      <DependentUpon>back_up.vb</DependentUpon>
+    <Compile Include="Popups\pop_up_ajustes_pendientes.Designer.vb">
+      <DependentUpon>pop_up_ajustes_pendientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Popups\back_up.vb">
+    <Compile Include="Popups\pop_up_ajustes_pendientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popups\Dialog1.Designer.vb">
-      <DependentUpon>Dialog1.vb</DependentUpon>
+    <Compile Include="Popups\por_up_back_up.Designer.vb">
+      <DependentUpon>por_up_back_up.vb</DependentUpon>
     </Compile>
-    <Compile Include="Popups\Dialog1.vb">
+    <Compile Include="Popups\por_up_back_up.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\pop_up_cumpleaños.Designer.vb">
+      <DependentUpon>pop_up_cumpleaños.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\pop_up_cumpleaños.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Estadisticos\est_efectores_implementados.Designer.vb">
@@ -457,12 +463,6 @@
     </Compile>
     <Compile Include="Modulos\EnvioCorreos.vb" />
     <Compile Include="Modulos\global1.vb" />
-    <Compile Include="Popups\Tareas.Designer.vb">
-      <DependentUpon>Tareas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Popups\Tareas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Sesion\Inicio_sesion.Designer.vb">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -499,6 +499,18 @@
     </Compile>
     <Compile Include="Sesion\SampleIIdentity.vb" />
     <Compile Include="Sesion\SampleIPrincipal.vb" />
+    <Compile Include="Ventanitas\dialogo_editarRecordatorio.Designer.vb">
+      <DependentUpon>dialogo_editarRecordatorio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanitas\dialogo_editarRecordatorio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanitas\dialogo_posponerRecordatorio.Designer.vb">
+      <DependentUpon>dialogo_posponerRecordatorio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanitas\dialogo_posponerRecordatorio.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ABM\abm_barrios.resx">
@@ -537,14 +549,17 @@
       <DependentUpon>list_reportesSemestrales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\list_reportes_semestrales.rdlc" />
-    <EmbeddedResource Include="Popups\Ajustes_Pendientes.resx">
-      <DependentUpon>Ajustes_Pendientes.vb</DependentUpon>
+    <EmbeddedResource Include="Popups\pop_up_recordatorios.resx">
+      <DependentUpon>pop_up_recordatorios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popups\back_up.resx">
-      <DependentUpon>back_up.vb</DependentUpon>
+    <EmbeddedResource Include="Popups\pop_up_ajustes_pendientes.resx">
+      <DependentUpon>pop_up_ajustes_pendientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popups\Dialog1.resx">
-      <DependentUpon>Dialog1.vb</DependentUpon>
+    <EmbeddedResource Include="Popups\por_up_back_up.resx">
+      <DependentUpon>por_up_back_up.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\pop_up_cumpleaños.resx">
+      <DependentUpon>pop_up_cumpleaños.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticos\est_cantidadEstadoCargaXDpto.rdlc" />
     <EmbeddedResource Include="Estadisticos\est_con_y_sin_heladera.rdlc" />
@@ -687,9 +702,6 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popups\Tareas.resx">
-      <DependentUpon>Tareas.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sesion\Inicio_sesion.resx">
       <DependentUpon>Inicio_sesion.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -699,6 +711,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanitas\dialogo_editarRecordatorio.resx">
+      <DependentUpon>dialogo_editarRecordatorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanitas\dialogo_posponerRecordatorio.resx">
+      <DependentUpon>dialogo_posponerRecordatorio.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -766,6 +784,10 @@
     <Content Include="Funciones\Imagenes\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\lore.jpg" />
+    <None Include="Resources\leandro.jpg" />
+    <None Include="Resources\IMG_20190208_155010.jpg" />
+    <None Include="Resources\sorete.jpg" />
     <EmbeddedResource Include="Resources\cumpleaños.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 
-Public Class back_up
+Public Class por_up_back_up
     Dim id As Integer
     Dim controlador As Integer
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
@@ -33,27 +33,26 @@ Public Class back_up
 
         If tabla.Rows.Count() = 0 Then
             controlador = 2
-            picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
+            picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.lore
             Label1.Text = "LORE"
         Else
             num = tabla.Rows(0)("id_backuper")
             If num = 4 Then
                 controlador = 2
-                picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.customer_person_people_woman_you_1627
-                Label1.Text = "LORE"
+                picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.lore
+                Label1.Text = "L"
             Else
                 If num = 2 Then
                     controlador = 3
-                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__2_
-                    Label1.Text = "JOACO"
+                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.IMG_20190208_155010
                 Else
                     controlador = 4
-                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.images__1_
-                    Label1.Text = "LEA"
+                    picbox_1.Image = Programa_de_Inmunizaciones.My.Resources.leandro
+                    Label1.Text = "Leandro"
                 End If
             End If
         End If
-        
+
 
 
     End Sub
@@ -69,4 +68,6 @@ Public Class back_up
 
         acceso.insertar(sql)
     End Sub
+
+
 End Class

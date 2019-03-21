@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Ajustes_Pendientes
+Partial Class pop_up_ajustes_pendientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class Ajustes_Pendientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Ajustes_Pendientes))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(pop_up_ajustes_pendientes))
         Me.dgv_atenc_pendientes = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,7 +84,7 @@ Partial Class Ajustes_Pendientes
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Ajustes_Pendientes
+        'pop_up_ajustes_pendientes
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -93,7 +93,7 @@ Partial Class Ajustes_Pendientes
         Me.Controls.Add(Me.txt_aceptar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgv_atenc_pendientes)
-        Me.Name = "Ajustes_Pendientes"
+        Me.Name = "pop_up_ajustes_pendientes"
         CType(Me.dgv_atenc_pendientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

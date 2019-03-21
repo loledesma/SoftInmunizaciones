@@ -37,11 +37,16 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.txt_fecha_desde = New System.Windows.Forms.MaskedTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -51,11 +56,6 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.ReportViewer4 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ReportViewer3 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.cmb_perdidas = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_stock = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_carga = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ESTEFXESTADOPERDIDASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,93 +112,148 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.GroupBox1.Controls.Add(Me.cmb_departamentos)
         Me.GroupBox1.Controls.Add(Me.cmd_ejecutar)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.GroupBox1.Location = New System.Drawing.Point(119, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(139, 14)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(867, 132)
+        Me.GroupBox1.Size = New System.Drawing.Size(1011, 152)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
         '
         'txt_fecha_hasta
         '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(85, 106)
+        Me.txt_fecha_hasta.Location = New System.Drawing.Point(99, 122)
         Me.txt_fecha_hasta.Mask = "00/00/0000"
         Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
-        Me.txt_fecha_hasta.Size = New System.Drawing.Size(100, 20)
+        Me.txt_fecha_hasta.Size = New System.Drawing.Size(116, 22)
         Me.txt_fecha_hasta.TabIndex = 3
         Me.txt_fecha_hasta.ValidatingType = GetType(Date)
         '
         'txt_fecha_desde
         '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(85, 81)
+        Me.txt_fecha_desde.Location = New System.Drawing.Point(99, 93)
         Me.txt_fecha_desde.Mask = "00/00/0000"
         Me.txt_fecha_desde.Name = "txt_fecha_desde"
-        Me.txt_fecha_desde.Size = New System.Drawing.Size(100, 20)
+        Me.txt_fecha_desde.Size = New System.Drawing.Size(116, 22)
         Me.txt_fecha_desde.TabIndex = 2
         Me.txt_fecha_desde.ValidatingType = GetType(Date)
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(9, 109)
+        Me.Label7.Location = New System.Drawing.Point(10, 126)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(66, 13)
+        Me.Label7.Size = New System.Drawing.Size(75, 16)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Fecha hasta"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 85)
+        Me.Label6.Location = New System.Drawing.Point(7, 98)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 13)
+        Me.Label6.Size = New System.Drawing.Size(79, 16)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Fecha desde"
+        '
+        'cmb_perdidas
+        '
+        Me.cmb_perdidas._descripcion = "descripcion"
+        Me.cmb_perdidas._nombre_tabla = "PERDIDAS"
+        Me.cmb_perdidas._pk = "id"
+        Me.cmb_perdidas.FormattingEnabled = True
+        Me.cmb_perdidas.Location = New System.Drawing.Point(535, 108)
+        Me.cmb_perdidas.Name = "cmb_perdidas"
+        Me.cmb_perdidas.Size = New System.Drawing.Size(273, 23)
+        Me.cmb_perdidas.TabIndex = 6
+        '
+        'cmb_stock
+        '
+        Me.cmb_stock._descripcion = "descripcion"
+        Me.cmb_stock._nombre_tabla = "STOCK"
+        Me.cmb_stock._pk = "id"
+        Me.cmb_stock.FormattingEnabled = True
+        Me.cmb_stock.Location = New System.Drawing.Point(535, 68)
+        Me.cmb_stock.Name = "cmb_stock"
+        Me.cmb_stock.Size = New System.Drawing.Size(273, 23)
+        Me.cmb_stock.TabIndex = 5
+        '
+        'cmb_carga
+        '
+        Me.cmb_carga._descripcion = "descripcion"
+        Me.cmb_carga._nombre_tabla = "CARGA"
+        Me.cmb_carga._pk = "id"
+        Me.cmb_carga.FormattingEnabled = True
+        Me.cmb_carga.Location = New System.Drawing.Point(535, 25)
+        Me.cmb_carga.Name = "cmb_carga"
+        Me.cmb_carga.Size = New System.Drawing.Size(273, 23)
+        Me.cmb_carga.TabIndex = 4
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(405, 97)
+        Me.Label5.Location = New System.Drawing.Point(472, 112)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 13)
+        Me.Label5.Size = New System.Drawing.Size(59, 16)
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "Perdidas"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(418, 62)
+        Me.Label4.Location = New System.Drawing.Point(488, 72)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(35, 13)
+        Me.Label4.Size = New System.Drawing.Size(37, 16)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Stock"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(418, 25)
+        Me.Label3.Location = New System.Drawing.Point(488, 29)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(35, 13)
+        Me.Label3.Size = New System.Drawing.Size(45, 16)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "Carga"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 57)
+        Me.Label2.Location = New System.Drawing.Point(6, 66)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.Size = New System.Drawing.Size(63, 16)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Localidad"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 30)
+        Me.Label1.Location = New System.Drawing.Point(6, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.Size = New System.Drawing.Size(89, 16)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Departamento"
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(99, 62)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(360, 23)
+        Me.cmb_localidades.TabIndex = 1
+        '
+        'cmb_departamentos
+        '
+        Me.cmb_departamentos._descripcion = "descripcion"
+        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamentos._pk = "id"
+        Me.cmb_departamentos.FormattingEnabled = True
+        Me.cmb_departamentos.Location = New System.Drawing.Point(99, 31)
+        Me.cmb_departamentos.Name = "cmb_departamentos"
+        Me.cmb_departamentos.Size = New System.Drawing.Size(360, 23)
+        Me.cmb_departamentos.TabIndex = 0
         '
         'cmd_ejecutar
         '
@@ -206,9 +261,9 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(801, 38)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(934, 44)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
-        Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_ejecutar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_ejecutar.TabIndex = 7
         Me.cmd_ejecutar.UseVisualStyleBackColor = True
         '
@@ -217,20 +272,20 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 150)
+        Me.TabControl1.Location = New System.Drawing.Point(14, 173)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1318, 720)
+        Me.TabControl1.Size = New System.Drawing.Size(1538, 831)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.ReportViewer2)
         Me.TabPage1.Controls.Add(Me.ReportViewer1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1310, 694)
+        Me.TabPage1.Size = New System.Drawing.Size(1530, 803)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Estado Carga"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -243,14 +298,14 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_cantidadEstadoCargaXDpto.rdlc"
         Me.ReportViewer2.Location = New System.Drawing.Point(-2, 0)
         Me.ReportViewer2.Name = "ReportViewer2"
-        Me.ReportViewer2.Size = New System.Drawing.Size(1306, 698)
+        Me.ReportViewer2.Size = New System.Drawing.Size(1523, 805)
         Me.ReportViewer2.TabIndex = 0
         '
         'ReportViewer1
         '
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1034, 503)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1206, 580)
         Me.ReportViewer1.TabIndex = 0
         '
         'TabPage2
@@ -259,7 +314,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1310, 694)
+        Me.TabPage2.Size = New System.Drawing.Size(1530, 805)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Estado Perdidas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -272,7 +327,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.ReportViewer4.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_cantidadEstadoPerdidasXDpto.rdlc"
         Me.ReportViewer4.Location = New System.Drawing.Point(-2, 0)
         Me.ReportViewer4.Name = "ReportViewer4"
-        Me.ReportViewer4.Size = New System.Drawing.Size(1316, 679)
+        Me.ReportViewer4.Size = New System.Drawing.Size(1535, 783)
         Me.ReportViewer4.TabIndex = 1
         '
         'TabPage3
@@ -280,7 +335,7 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.TabPage3.Controls.Add(Me.ReportViewer3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1310, 694)
+        Me.TabPage3.Size = New System.Drawing.Size(1530, 805)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Estado Stock"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -293,73 +348,19 @@ Partial Class est_estado_cargaStockPerdidasXDpto
         Me.ReportViewer3.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.EST_EfXEstadoStock.rdlc"
         Me.ReportViewer3.Location = New System.Drawing.Point(-2, 0)
         Me.ReportViewer3.Name = "ReportViewer3"
-        Me.ReportViewer3.Size = New System.Drawing.Size(1309, 673)
+        Me.ReportViewer3.Size = New System.Drawing.Size(1527, 776)
         Me.ReportViewer3.TabIndex = 1
-        '
-        'cmb_perdidas
-        '
-        Me.cmb_perdidas._descripcion = "descripcion"
-        Me.cmb_perdidas._nombre_tabla = "PERDIDAS"
-        Me.cmb_perdidas._pk = "id"
-        Me.cmb_perdidas.FormattingEnabled = True
-        Me.cmb_perdidas.Location = New System.Drawing.Point(459, 94)
-        Me.cmb_perdidas.Name = "cmb_perdidas"
-        Me.cmb_perdidas.Size = New System.Drawing.Size(235, 21)
-        Me.cmb_perdidas.TabIndex = 6
-        '
-        'cmb_stock
-        '
-        Me.cmb_stock._descripcion = "descripcion"
-        Me.cmb_stock._nombre_tabla = "STOCK"
-        Me.cmb_stock._pk = "id"
-        Me.cmb_stock.FormattingEnabled = True
-        Me.cmb_stock.Location = New System.Drawing.Point(459, 59)
-        Me.cmb_stock.Name = "cmb_stock"
-        Me.cmb_stock.Size = New System.Drawing.Size(235, 21)
-        Me.cmb_stock.TabIndex = 5
-        '
-        'cmb_carga
-        '
-        Me.cmb_carga._descripcion = "descripcion"
-        Me.cmb_carga._nombre_tabla = "CARGA"
-        Me.cmb_carga._pk = "id"
-        Me.cmb_carga.FormattingEnabled = True
-        Me.cmb_carga.Location = New System.Drawing.Point(459, 22)
-        Me.cmb_carga.Name = "cmb_carga"
-        Me.cmb_carga.Size = New System.Drawing.Size(235, 21)
-        Me.cmb_carga.TabIndex = 4
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(85, 54)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(309, 21)
-        Me.cmb_localidades.TabIndex = 1
-        '
-        'cmb_departamentos
-        '
-        Me.cmb_departamentos._descripcion = "descripcion"
-        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamentos._pk = "id"
-        Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(85, 27)
-        Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(309, 21)
-        Me.cmb_departamentos.TabIndex = 0
         '
         'est_estado_cargaStockPerdidasXDpto
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1342, 882)
+        Me.ClientSize = New System.Drawing.Size(1566, 1018)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Name = "est_estado_cargaStockPerdidasXDpto"
         Me.Text = "Cantidad efectores por estado de notificaciones"
         CType(Me.EST_EFECTORESXESTADONOTIFICACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

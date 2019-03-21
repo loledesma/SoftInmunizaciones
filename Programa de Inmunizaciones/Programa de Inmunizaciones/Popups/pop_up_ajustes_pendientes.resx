@@ -138,10 +138,14 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dgv_atenc_pendientes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 62</value>
+    <value>18, 71</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgv_atenc_pendientes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="dgv_atenc_pendientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>543, 102</value>
+    <value>634, 118</value>
   </data>
   <data name="dgv_atenc_pendientes.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -162,13 +166,16 @@
     <value>True</value>
   </data>
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 15.75pt, style=Italic</value>
+    <value>Tw Cen MT, 15.75pt</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
+    <value>14, 20</value>
+  </data>
+  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 25</value>
+    <value>368, 24</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -189,10 +196,13 @@
     <value>3</value>
   </data>
   <data name="txt_aceptar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>483, 175</value>
+    <value>564, 202</value>
+  </data>
+  <data name="txt_aceptar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="txt_aceptar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>88, 26</value>
   </data>
   <data name="txt_aceptar.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -261,7 +271,6 @@
         TAVcY+NGg2CK/XSWQN1jnFo/no4H7r3Lwxe8jCV/Gv9r+vk8TPsFmqHIgKTs19QAAAAASUVORK5CYII=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txt_atenciones.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -269,10 +278,13 @@
     <value>Flat</value>
   </data>
   <data name="txt_atenciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 170</value>
+    <value>18, 196</value>
+  </data>
+  <data name="txt_atenciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="txt_atenciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 38</value>
+    <value>52, 44</value>
   </data>
   <data name="txt_atenciones.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4821,10 +4833,13 @@
     <value>NoControl</value>
   </data>
   <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>411, 2</value>
+    <value>480, 2</value>
+  </data>
+  <data name="Button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 54</value>
+    <value>64, 62</value>
   </data>
   <data name="Button1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4845,7 +4860,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6036,7 +6051,13 @@
 </value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>562, 210</value>
+    <value>655, 242</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tw Cen MT, 10pt</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -6057,7 +6078,7 @@
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Ajustes_Pendientes</value>
+    <value>pop_up_ajustes_pendientes</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Dialog1
+Partial Class pop_up_cumpleaños
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class Dialog1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dialog1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(pop_up_cumpleaños))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
@@ -46,19 +46,21 @@ Partial Class Dialog1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(472, 157)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(550, 181)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(171, 34)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
+        Me.OK_Button.Location = New System.Drawing.Point(4, 4)
+        Me.OK_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
+        Me.OK_Button.Size = New System.Drawing.Size(77, 26)
         Me.OK_Button.TabIndex = 0
         Me.OK_Button.Text = "Aceptar"
         '
@@ -66,9 +68,10 @@ Partial Class Dialog1
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(76, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(89, 4)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
+        Me.Cancel_Button.Size = New System.Drawing.Size(78, 26)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
@@ -81,10 +84,11 @@ Partial Class Dialog1
         Me.dgv_cumples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_cumples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.apellidos, Me.nombres, Me.nro_doc, Me.mail_contacto, Me.enviar_Correo})
         Me.dgv_cumples.GridColor = System.Drawing.SystemColors.ControlLightLight
-        Me.dgv_cumples.Location = New System.Drawing.Point(12, 53)
+        Me.dgv_cumples.Location = New System.Drawing.Point(14, 61)
+        Me.dgv_cumples.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_cumples.Name = "dgv_cumples"
         Me.dgv_cumples.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.dgv_cumples.Size = New System.Drawing.Size(603, 83)
+        Me.dgv_cumples.Size = New System.Drawing.Size(704, 96)
         Me.dgv_cumples.StandardTab = True
         Me.dgv_cumples.TabIndex = 1
         '
@@ -122,33 +126,36 @@ Partial Class Dialog1
         '
         Me.lbl_titulo.AutoSize = True
         Me.lbl_titulo.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_titulo.Font = New System.Drawing.Font("Calibri", 25.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_titulo.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_titulo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl_titulo.Location = New System.Drawing.Point(195, 9)
+        Me.lbl_titulo.Location = New System.Drawing.Point(228, 17)
+        Me.lbl_titulo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_titulo.Name = "lbl_titulo"
-        Me.lbl_titulo.Size = New System.Drawing.Size(259, 41)
+        Me.lbl_titulo.Size = New System.Drawing.Size(259, 32)
         Me.lbl_titulo.TabIndex = 2
         Me.lbl_titulo.Text = "Hoy cumple años:"
         '
-        'Dialog1
+        'pop_up_cumpleaños
         '
         Me.AcceptButton = Me.OK_Button
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.YellowGreen
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(620, 198)
+        Me.ClientSize = New System.Drawing.Size(724, 229)
         Me.Controls.Add(Me.lbl_titulo)
         Me.Controls.Add(Me.dgv_cumples)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "Dialog1"
+        Me.Name = "pop_up_cumpleaños"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.TableLayoutPanel1.ResumeLayout(False)

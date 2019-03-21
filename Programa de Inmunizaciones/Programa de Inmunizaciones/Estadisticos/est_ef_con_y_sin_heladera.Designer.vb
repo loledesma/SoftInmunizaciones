@@ -58,9 +58,9 @@ Partial Class est_ef_con_y_sin_heladera
         Me.GroupBox1.Controls.Add(Me.cmb_localidades)
         Me.GroupBox1.Controls.Add(Me.cmb_departamentos)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(325, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(379, 14)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(477, 92)
+        Me.GroupBox1.Size = New System.Drawing.Size(556, 106)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
@@ -71,27 +71,27 @@ Partial Class est_ef_con_y_sin_heladera
         Me.cmd_ejecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_ejecutar.FlatAppearance.BorderSize = 0
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(401, 19)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(468, 22)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
-        Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_ejecutar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_ejecutar.TabIndex = 4
         Me.cmd_ejecutar.UseVisualStyleBackColor = True
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 56)
+        Me.Label2.Location = New System.Drawing.Point(7, 65)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.Size = New System.Drawing.Size(63, 16)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Localidad"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 29)
+        Me.Label1.Location = New System.Drawing.Point(7, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.Size = New System.Drawing.Size(89, 16)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Departamento"
         '
@@ -101,9 +101,9 @@ Partial Class est_ef_con_y_sin_heladera
         Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
         Me.cmb_localidades._pk = "id"
         Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(86, 53)
+        Me.cmb_localidades.Location = New System.Drawing.Point(100, 61)
         Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(309, 21)
+        Me.cmb_localidades.Size = New System.Drawing.Size(360, 23)
         Me.cmb_localidades.TabIndex = 1
         '
         'cmb_departamentos
@@ -112,9 +112,9 @@ Partial Class est_ef_con_y_sin_heladera
         Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
         Me.cmb_departamentos._pk = "id"
         Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(86, 26)
+        Me.cmb_departamentos.Location = New System.Drawing.Point(100, 30)
         Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(309, 21)
+        Me.cmb_departamentos.Size = New System.Drawing.Size(360, 23)
         Me.cmb_departamentos.TabIndex = 0
         '
         'ReportViewer1
@@ -123,20 +123,21 @@ Partial Class est_ef_con_y_sin_heladera
         ReportDataSource1.Value = Me.EST_EFECTORES_CON_Y_SIN_HELADERABindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.est_con_y_sin_heladera.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 110)
+        Me.ReportViewer1.Location = New System.Drawing.Point(14, 127)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 523)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1173, 603)
         Me.ReportViewer1.TabIndex = 1
         '
         'est_ef_con_y_sin_heladera
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1023, 639)
+        Me.ClientSize = New System.Drawing.Size(1193, 737)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.Name = "est_ef_con_y_sin_heladera"
         Me.Text = "Efectores por heladeras"
         CType(Me.EST_EFECTORES_CON_Y_SIN_HELADERABindingSource, System.ComponentModel.ISupportInitialize).EndInit()

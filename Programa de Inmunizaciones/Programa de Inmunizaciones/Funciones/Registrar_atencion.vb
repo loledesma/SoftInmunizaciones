@@ -55,10 +55,10 @@
     End Sub
 
     Private Sub Registrar_atencion_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.Control And e.KeyCode.ToString = "N" Then
+        If (e.KeyCode = Keys.Control And e.KeyCode = Keys.N) Then
             nuevo()
         End If
-        If e.Control And e.KeyCode.ToString = "G" Then
+        If (e.KeyCode = Keys.Control And e.KeyCode = Keys.G) Then
             guardar()
         End If
     End Sub

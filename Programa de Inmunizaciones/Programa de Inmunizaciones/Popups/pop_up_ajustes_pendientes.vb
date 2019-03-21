@@ -1,4 +1,4 @@
-﻿Public Class Ajustes_Pendientes
+﻿Public Class pop_up_ajustes_pendientes
     Public Sub Ajustes_Pendientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
     End Sub

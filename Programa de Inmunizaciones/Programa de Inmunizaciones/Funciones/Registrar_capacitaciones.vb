@@ -1116,7 +1116,7 @@
             Registrar_Actividades.cmb_tipo_capacitaciones.cargar()
             Registrar_Actividades.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
             Registrar_Actividades.txt_lugar.Text = Me.txt_lugar.Text
-            Registrar_Actividades.ShowDialog()
+            Registrar_Actividades.Show()
         Else
             MsgBox("Debe seleccionar una capacitacion")
         End If
@@ -1129,7 +1129,7 @@
             Registrar_invitaciones.cmb_tipo_capacitaciones.cargar()
             Registrar_invitaciones.cmb_tipo_capacitaciones.SelectedValue = Me.cmb_tipo_capacitaciones.SelectedValue
             Registrar_invitaciones.txt_lugar.Text = Me.txt_lugar.Text
-            Registrar_invitaciones.ShowDialog()
+            Registrar_invitaciones.Show()
         Else
             MsgBox("Debe seleccionar una capacitacion")
         End If

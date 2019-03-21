@@ -73,9 +73,9 @@ Partial Class Registrar_Actividades
         Me.cmd_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(838, 499)
+        Me.cmd_salir.Location = New System.Drawing.Point(978, 576)
         Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_salir.Size = New System.Drawing.Size(70, 69)
         Me.cmd_salir.TabIndex = 5
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
@@ -89,10 +89,10 @@ Partial Class Registrar_Actividades
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar.Location = New System.Drawing.Point(160, 499)
-        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(187, 576)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_limpiar.Name = "cmd_limpiar"
-        Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_limpiar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_limpiar.TabIndex = 4
         Me.cmd_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -108,10 +108,10 @@ Partial Class Registrar_Actividades
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_guardar.Location = New System.Drawing.Point(92, 500)
-        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_guardar.Location = New System.Drawing.Point(107, 577)
+        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_guardar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_guardar.TabIndex = 2
         Me.cmd_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -127,10 +127,10 @@ Partial Class Registrar_Actividades
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.Location = New System.Drawing.Point(24, 500)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(28, 577)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
+        Me.cmd_nuevo.Size = New System.Drawing.Size(70, 69)
         Me.cmd_nuevo.TabIndex = 3
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -142,7 +142,7 @@ Partial Class Registrar_Actividades
         Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
         Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_efectores.Location = New System.Drawing.Point(715, 296)
+        Me.lbl_contador_efectores.Location = New System.Drawing.Point(834, 342)
         Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
         Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
         Me.lbl_contador_efectores.TabIndex = 53
@@ -153,7 +153,7 @@ Partial Class Registrar_Actividades
         Me.dgv_capas.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -163,19 +163,19 @@ Partial Class Registrar_Actividades
         Me.dgv_capas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fecha_programada, Me.tipo, Me.estado, Me.localidad})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_capas.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_capas.Location = New System.Drawing.Point(455, 12)
+        Me.dgv_capas.Location = New System.Drawing.Point(531, 14)
         Me.dgv_capas.Name = "dgv_capas"
         Me.dgv_capas.ReadOnly = True
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         Me.dgv_capas.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_capas.Size = New System.Drawing.Size(443, 147)
+        Me.dgv_capas.Size = New System.Drawing.Size(517, 170)
         Me.dgv_capas.TabIndex = 76
         '
         'fecha_programada
@@ -216,9 +216,9 @@ Partial Class Registrar_Actividades
         Me.grp_datos_capacitacion.Controls.Add(Me.Label5)
         Me.grp_datos_capacitacion.Controls.Add(Me.Label6)
         Me.grp_datos_capacitacion.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_capacitacion.Location = New System.Drawing.Point(12, 10)
+        Me.grp_datos_capacitacion.Location = New System.Drawing.Point(14, 12)
         Me.grp_datos_capacitacion.Name = "grp_datos_capacitacion"
-        Me.grp_datos_capacitacion.Size = New System.Drawing.Size(418, 149)
+        Me.grp_datos_capacitacion.Size = New System.Drawing.Size(488, 172)
         Me.grp_datos_capacitacion.TabIndex = 75
         Me.grp_datos_capacitacion.TabStop = False
         Me.grp_datos_capacitacion.Text = "Capacitacion"
@@ -229,43 +229,43 @@ Partial Class Registrar_Actividades
         Me.cmd_buscar_capacitaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_capacitaciones.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_capacitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_capacitaciones.Location = New System.Drawing.Point(341, 19)
+        Me.cmd_buscar_capacitaciones.Location = New System.Drawing.Point(398, 22)
         Me.cmd_buscar_capacitaciones.Name = "cmd_buscar_capacitaciones"
-        Me.cmd_buscar_capacitaciones.Size = New System.Drawing.Size(40, 40)
+        Me.cmd_buscar_capacitaciones.Size = New System.Drawing.Size(47, 46)
         Me.cmd_buscar_capacitaciones.TabIndex = 8
         Me.cmd_buscar_capacitaciones.UseVisualStyleBackColor = True
         '
         'txt_lugar
         '
-        Me.txt_lugar.Location = New System.Drawing.Point(110, 120)
+        Me.txt_lugar.Location = New System.Drawing.Point(128, 138)
         Me.txt_lugar.Name = "txt_lugar"
-        Me.txt_lugar.Size = New System.Drawing.Size(268, 20)
+        Me.txt_lugar.Size = New System.Drawing.Size(312, 22)
         Me.txt_lugar.TabIndex = 0
         '
         'lbl_perdidas
         '
         Me.lbl_perdidas.AutoSize = True
-        Me.lbl_perdidas.Location = New System.Drawing.Point(5, 89)
+        Me.lbl_perdidas.Location = New System.Drawing.Point(6, 103)
         Me.lbl_perdidas.Name = "lbl_perdidas"
-        Me.lbl_perdidas.Size = New System.Drawing.Size(37, 13)
+        Me.lbl_perdidas.Size = New System.Drawing.Size(40, 16)
         Me.lbl_perdidas.TabIndex = 31
         Me.lbl_perdidas.Text = "Fecha"
         '
         'txt_fecha_efectiva
         '
-        Me.txt_fecha_efectiva.Location = New System.Drawing.Point(111, 85)
+        Me.txt_fecha_efectiva.Location = New System.Drawing.Point(129, 98)
         Me.txt_fecha_efectiva.Mask = "00/00/0000"
         Me.txt_fecha_efectiva.Name = "txt_fecha_efectiva"
-        Me.txt_fecha_efectiva.Size = New System.Drawing.Size(97, 20)
+        Me.txt_fecha_efectiva.Size = New System.Drawing.Size(112, 22)
         Me.txt_fecha_efectiva.TabIndex = 3
         Me.txt_fecha_efectiva.ValidatingType = GetType(Date)
         '
         'lbl_id_notificacion
         '
         Me.lbl_id_notificacion.AutoSize = True
-        Me.lbl_id_notificacion.Location = New System.Drawing.Point(6, 25)
+        Me.lbl_id_notificacion.Location = New System.Drawing.Point(7, 29)
         Me.lbl_id_notificacion.Name = "lbl_id_notificacion"
-        Me.lbl_id_notificacion.Size = New System.Drawing.Size(81, 13)
+        Me.lbl_id_notificacion.Size = New System.Drawing.Size(96, 16)
         Me.lbl_id_notificacion.TabIndex = 52
         Me.lbl_id_notificacion.Text = "Id Capacitacion"
         '
@@ -275,33 +275,33 @@ Partial Class Registrar_Actividades
         Me.cmb_tipo_capacitaciones._nombre_tabla = "TIPO_CAPACITACIONES"
         Me.cmb_tipo_capacitaciones._pk = "id"
         Me.cmb_tipo_capacitaciones.FormattingEnabled = True
-        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(110, 51)
+        Me.cmb_tipo_capacitaciones.Location = New System.Drawing.Point(128, 59)
         Me.cmb_tipo_capacitaciones.Name = "cmb_tipo_capacitaciones"
-        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_tipo_capacitaciones.Size = New System.Drawing.Size(251, 23)
         Me.cmb_tipo_capacitaciones.TabIndex = 1
         '
         'txt_id_capacitacion
         '
-        Me.txt_id_capacitacion.Location = New System.Drawing.Point(111, 22)
+        Me.txt_id_capacitacion.Location = New System.Drawing.Point(129, 25)
         Me.txt_id_capacitacion.Name = "txt_id_capacitacion"
-        Me.txt_id_capacitacion.Size = New System.Drawing.Size(136, 20)
+        Me.txt_id_capacitacion.Size = New System.Drawing.Size(158, 22)
         Me.txt_id_capacitacion.TabIndex = 0
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 55)
+        Me.Label5.Location = New System.Drawing.Point(7, 63)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(28, 13)
+        Me.Label5.Size = New System.Drawing.Size(32, 16)
         Me.Label5.TabIndex = 63
         Me.Label5.Text = "Tipo"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 123)
+        Me.Label6.Location = New System.Drawing.Point(7, 142)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(34, 13)
+        Me.Label6.Size = New System.Drawing.Size(40, 16)
         Me.Label6.TabIndex = 59
         Me.Label6.Text = "Lugar"
         '
@@ -311,7 +311,7 @@ Partial Class Registrar_Actividades
         Me.dgv_actividades.AllowUserToDeleteRows = False
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -321,18 +321,18 @@ Partial Class Registrar_Actividades
         Me.dgv_actividades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_actividad, Me.actividad, Me.tomada, Me.en_curso, Me.realizada, Me.observaciones})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_actividades.DefaultCellStyle = DataGridViewCellStyle5
-        Me.dgv_actividades.Location = New System.Drawing.Point(16, 205)
+        Me.dgv_actividades.Location = New System.Drawing.Point(19, 237)
         Me.dgv_actividades.Name = "dgv_actividades"
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
         Me.dgv_actividades.RowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgv_actividades.Size = New System.Drawing.Size(882, 284)
+        Me.dgv_actividades.Size = New System.Drawing.Size(1029, 328)
         Me.dgv_actividades.TabIndex = 77
         '
         'id_actividad
@@ -379,9 +379,9 @@ Partial Class Registrar_Actividades
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(17, 176)
+        Me.Label1.Location = New System.Drawing.Point(20, 203)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 13)
+        Me.Label1.Size = New System.Drawing.Size(47, 16)
         Me.Label1.TabIndex = 64
         Me.Label1.Text = "Etapas"
         '
@@ -391,9 +391,9 @@ Partial Class Registrar_Actividades
         Me.cmb_etapas._nombre_tabla = "ETAPAS"
         Me.cmb_etapas._pk = "id"
         Me.cmb_etapas.FormattingEnabled = True
-        Me.cmb_etapas.Location = New System.Drawing.Point(122, 173)
+        Me.cmb_etapas.Location = New System.Drawing.Point(142, 200)
         Me.cmb_etapas.Name = "cmb_etapas"
-        Me.cmb_etapas.Size = New System.Drawing.Size(216, 21)
+        Me.cmb_etapas.Size = New System.Drawing.Size(251, 23)
         Me.cmb_etapas.TabIndex = 64
         '
         'cmd_actualizar
@@ -406,10 +406,10 @@ Partial Class Registrar_Actividades
         Me.cmd_actualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_actualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_actualizar.Location = New System.Drawing.Point(353, 173)
-        Me.cmd_actualizar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmd_actualizar.Location = New System.Drawing.Point(412, 200)
+        Me.cmd_actualizar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.cmd_actualizar.Name = "cmd_actualizar"
-        Me.cmd_actualizar.Size = New System.Drawing.Size(25, 25)
+        Me.cmd_actualizar.Size = New System.Drawing.Size(29, 29)
         Me.cmd_actualizar.TabIndex = 78
         Me.cmd_actualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_actualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -417,11 +417,11 @@ Partial Class Registrar_Actividades
         '
         'Registrar_Actividades
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(916, 568)
+        Me.ClientSize = New System.Drawing.Size(1069, 655)
         Me.Controls.Add(Me.cmd_actualizar)
         Me.Controls.Add(Me.cmb_etapas)
         Me.Controls.Add(Me.Label1)
@@ -433,6 +433,7 @@ Partial Class Registrar_Actividades
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
+        Me.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.KeyPreview = True
         Me.Name = "Registrar_Actividades"
         Me.Text = "ACTIVIDADES"
