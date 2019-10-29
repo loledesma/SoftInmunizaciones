@@ -102,6 +102,8 @@ Partial Class Menu
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmd_enviar_correo = New System.Windows.Forms.Button()
+        Me.RegistrarNuevaSupervisiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarSupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -268,6 +270,7 @@ Partial Class Menu
         '
         'SupervisionesToolStripMenuItem
         '
+        Me.SupervisionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNuevaSupervisiónToolStripMenuItem, Me.ConsultarSupervisionesToolStripMenuItem})
         resources.ApplyResources(Me.SupervisionesToolStripMenuItem, "SupervisionesToolStripMenuItem")
         Me.SupervisionesToolStripMenuItem.Name = "SupervisionesToolStripMenuItem"
         '
@@ -597,6 +600,16 @@ Partial Class Menu
         Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
         Me.cmd_enviar_correo.UseVisualStyleBackColor = False
         '
+        'RegistrarNuevaSupervisiónToolStripMenuItem
+        '
+        Me.RegistrarNuevaSupervisiónToolStripMenuItem.Name = "RegistrarNuevaSupervisiónToolStripMenuItem"
+        resources.ApplyResources(Me.RegistrarNuevaSupervisiónToolStripMenuItem, "RegistrarNuevaSupervisiónToolStripMenuItem")
+        '
+        'ConsultarSupervisionesToolStripMenuItem
+        '
+        Me.ConsultarSupervisionesToolStripMenuItem.Name = "ConsultarSupervisionesToolStripMenuItem"
+        resources.ApplyResources(Me.ConsultarSupervisionesToolStripMenuItem, "ConsultarSupervisionesToolStripMenuItem")
+        '
         'Menu
         '
         resources.ApplyResources(Me, "$this")
@@ -694,4 +707,6 @@ Partial Class Menu
     Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmd_recordatorios As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents RegistrarNuevaSupervisiónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ConsultarSupervisionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

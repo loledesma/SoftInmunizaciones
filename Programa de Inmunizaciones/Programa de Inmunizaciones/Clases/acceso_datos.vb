@@ -84,8 +84,8 @@ Public Class acceso_datos
                     End Try
                 End Try
             Else
-                If validacion_conexion = conexion_hamachi.hamachi Then
-                    conexion.ConnectionString = cadena_conexion
+                If Inicio_sesion.chk_hamachi.Checked = True Then
+                    conexion.ConnectionString = "Provider=SQLNCLI11;Data Source=25.36.109.252;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES; password= lore88"
                     Try
                         conexion.Open()
                         validacion_conexion = conexion_hamachi.hamachi
@@ -95,7 +95,7 @@ Public Class acceso_datos
                         Return resultado.fallido
                     End Try
                 Else
-                    If validacion_conexion = conexion_hamachi.interno Then
+                    If Inicio_sesion.chk_redLocal.Checked = True Then
                         Try
                             cadena_conexion = "Provider=SQLNCLI11;Data Source=LORE-PC\SQLEXPRESS;Persist Security Info=True;User ID=LORE;Initial Catalog=INMUNIZACIONES;password=lore88"
                             conexion.ConnectionString = cadena_conexion
@@ -371,7 +371,7 @@ Public Class acceso_datos
 
         End If
 
-       
+
     End Sub
 
     'Public Sub autocompletar(ByVal textbx As TextBox, ByVal tabla As String, ByVal descripcion As String, ByRef e As Char)

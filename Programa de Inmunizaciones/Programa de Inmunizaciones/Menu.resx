@@ -921,6 +921,18 @@
   <data name="ToolStripMenuItem1.Text" xml:space="preserve">
     <value>Sistemas</value>
   </data>
+  <data name="RegistrarNuevaSupervisiónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 22</value>
+  </data>
+  <data name="RegistrarNuevaSupervisiónToolStripMenuItem.Text" xml:space="preserve">
+    <value>Registrar Nueva Supervisión</value>
+  </data>
+  <data name="ConsultarSupervisionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 22</value>
+  </data>
+  <data name="ConsultarSupervisionesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Consultar Supervisiones</value>
+  </data>
   <data name="SupervisionesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -11055,6 +11067,18 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarNuevaSupervisiónToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarNuevaSupervisiónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarNuevaSupervisiónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsultarSupervisionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>ConsultarSupervisionesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ConsultarSupervisionesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

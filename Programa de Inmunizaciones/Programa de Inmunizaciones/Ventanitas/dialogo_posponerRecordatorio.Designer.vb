@@ -101,7 +101,7 @@ Partial Class dialogo_posponerRecordatorio
         Me.cmd_confirmarNuevafecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_confirmarNuevafecha.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
         Me.cmd_confirmarNuevafecha.Location = New System.Drawing.Point(261, 87)
-        Me.cmd_confirmarNuevafecha.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_confirmarNuevafecha.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_confirmarNuevafecha.Name = "cmd_confirmarNuevafecha"
         Me.cmd_confirmarNuevafecha.Size = New System.Drawing.Size(33, 32)
         Me.cmd_confirmarNuevafecha.TabIndex = 5

@@ -13,12 +13,11 @@
         Me.cmb_localidades.cargar()
         Me.cmb_localidades.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
+        acceso.autocompletar(txt_nombre_referente, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         Me.cmb_departamentos.Focus()
         Me.ReportViewer1.AutoScroll = True
         Me.ReportViewer4.AutoScroll = True
-
-
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
         Me.ReportViewer4.RefreshReport()
@@ -53,6 +52,7 @@
             End If
         End If
     End Sub
+
 
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
@@ -89,9 +89,13 @@
     Private Sub list_inventario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.limpiar(Me.Controls)
+
             e.Cancel = False
+
         Else
+
             e.Cancel = True
+
         End If
     End Sub
 
@@ -132,17 +136,17 @@
         End If
     End Sub
 
-
-
     Private Function imprimir_inventario() As DataTable
         Dim tabla As New DataTable
         Dim sql As String = ""
+
 
         sql &= "SELECT IC.id_efector as cuie, E.nombre as nombre_vacunatorio, EMP.nombres as nombre_informante "
         sql &= ", EMP.apellidos as apellido_informante, IC.fecha as fecha_informacion "
         sql &= " FROM INVENTARIO_CF IC "
         sql &= " JOIN EFECTORES E ON E.cuie = IC.id_efector "
         sql &= " JOIN EMPLEADOS EMP ON IC.id_empleado = EMP.id "
+
 
         If Me.cmb_departamentos.SelectedIndex <> -1 Then
             sql &= " WHERE E.id_departamento = " & Me.cmb_departamentos.SelectedValue
@@ -158,6 +162,8 @@
             End If
         ElseIf txt_cuie.Text <> "" Then
             sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        ElseIf txt_nombre_referente.Text <> "" Then
+            sql &= "Where E.id_referente = '" & Me.txt_cuie_referente.Text & "' "
         End If
 
         sql &= "ORDER BY nombre_vacunatorio "
@@ -197,8 +203,13 @@
                 sql &= " AND E.cuie='" & Me.txt_cuie.Text & "'"
             End If
         ElseIf txt_cuie.Text <> "" Then
-            sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+            sql &= " WHERE E.cuie ='" & Me.txt_cuie.Text & "'"
+        ElseIf txt_nombre_referente.Text <> "" Then
+            sql &= "Where E.id_referente = '" & Me.txt_cuie_referente.Text & "' "
         End If
+
+
+
 
         sql &= "ORDER BY nombre_vacunatorio "
 
@@ -232,6 +243,8 @@
             End If
         ElseIf txt_cuie.Text <> "" Then
             sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        ElseIf txt_nombre_referente.Text <> "" Then
+            sql &= "Where E.id_referente = '" & Me.txt_cuie_referente.Text & "' "
         End If
 
         sql &= "ORDER BY nombre_vacunatorio "
@@ -266,6 +279,8 @@
             End If
         ElseIf txt_cuie.Text <> "" Then
             sql &= " WHERE EF.cuie ='" & Me.txt_cuie.Text & "'"
+        ElseIf txt_nombre_referente.Text <> "" Then
+            sql &= "Where E.id_referente = '" & Me.txt_cuie_referente.Text & "' "
         End If
 
         sql &= "ORDER BY nombre_vacunatorio "
@@ -297,4 +312,34 @@
     End Sub
 
    
+    Private Sub txt_efectores_TextChanged(sender As Object, e As EventArgs) Handles txt_efectores.TextChanged
+
+    End Sub
+
+    Private Sub txt_nombre_referente_Leave(sender As Object, e As EventArgs) Handles txt_nombre_referente.Leave
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        If Me.condicion_click = doble_Click.desactivado Then
+            If txt_nombre_referente.Text <> "" Then
+                sql &= "SELECT E.cuie, E.nombre FROM EFECTORES E "
+                sql &= " WHERE E.nombre like '%" & txt_nombre_referente.Text & "%'"
+                tabla = acceso.consulta(sql)
+                txt_cuie_referente.Text = tabla.Rows(0)("cuie")
+                txt_nombre_referente.Text = tabla.Rows(0)("nombre")
+            End If
+        End If
+    End Sub
+
+    Private Sub txt_cuie_referente_Leave(sender As Object, e As EventArgs) Handles txt_cuie_referente.Leave
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        If Me.condicion_click = doble_Click.desactivado Then
+            If txt_cuie_referente.Text <> "" Then
+                sql &= "SELECT E.nombre As nombre FROM EFECTORES E "
+                sql &= " WHERE E.cuie ='" & txt_cuie_referente.Text & "'"
+                tabla = acceso.consulta(sql)
+                txt_nombre_referente.Text = tabla.Rows(0)("nombre")
+            End If
+        End If
+    End Sub
 End Class

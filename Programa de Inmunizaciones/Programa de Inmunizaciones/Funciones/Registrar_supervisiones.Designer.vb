@@ -41,12 +41,9 @@ Partial Class Registrar_supervisiones
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.grp_datos_vacunadores = New System.Windows.Forms.GroupBox()
-        Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
-        Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
-        Me.txt_numero_doc = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.Label18 = New System.Windows.Forms.Label()
+        Me.cmd_eliminar_empleado = New System.Windows.Forms.Button()
+        Me.cmd_agregar_empleado = New System.Windows.Forms.Button()
+        Me.MaskedTextBox6 = New System.Windows.Forms.MaskedTextBox()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -61,21 +58,24 @@ Partial Class Registrar_supervisiones
         Me.id_cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_perfil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MaskedTextBox6 = New System.Windows.Forms.MaskedTextBox()
-        Me.cmd_agregar_empleado = New System.Windows.Forms.Button()
-        Me.cmd_eliminar_empleado = New System.Windows.Forms.Button()
+        Me.cmd_buscar_empleadoXDNI = New System.Windows.Forms.Button()
+        Me.cmd_empleado_nuevo = New System.Windows.Forms.Button()
+        Me.txt_numero_doc = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.chk_cargaSigipsaSI = New System.Windows.Forms.CheckBox()
-        Me.chk_cargaSigipsaNO = New System.Windows.Forms.CheckBox()
         Me.chk_registroAlDiaNO = New System.Windows.Forms.CheckBox()
         Me.chk_registroAlDiaSI = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.chk_cargaSigipsaNO = New System.Windows.Forms.CheckBox()
+        Me.chk_cargaSigipsaSI = New System.Windows.Forms.CheckBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cmb_heladera = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_tipo_heladera = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cmb_heladera = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_vacunadores.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -286,83 +286,57 @@ Partial Class Registrar_supervisiones
         Me.grp_datos_vacunadores.Controls.Add(Me.cmb_tipos_documento)
         Me.grp_datos_vacunadores.Controls.Add(Me.Label18)
         Me.grp_datos_vacunadores.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_vacunadores.Location = New System.Drawing.Point(12, 117)
+        Me.grp_datos_vacunadores.Location = New System.Drawing.Point(12, 90)
         Me.grp_datos_vacunadores.Name = "grp_datos_vacunadores"
         Me.grp_datos_vacunadores.Size = New System.Drawing.Size(1280, 278)
         Me.grp_datos_vacunadores.TabIndex = 23
         Me.grp_datos_vacunadores.TabStop = False
         Me.grp_datos_vacunadores.Text = "Responsable/s de la vacunación"
         '
-        'cmd_buscar_empleadoXDNI
+        'cmd_eliminar_empleado
         '
-        Me.cmd_buscar_empleadoXDNI.BackgroundImage = CType(resources.GetObject("cmd_buscar_empleadoXDNI.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_buscar_empleadoXDNI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_buscar_empleadoXDNI.FlatAppearance.BorderSize = 0
-        Me.cmd_buscar_empleadoXDNI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cmd_buscar_empleadoXDNI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cmd_buscar_empleadoXDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_empleadoXDNI.Location = New System.Drawing.Point(395, 28)
-        Me.cmd_buscar_empleadoXDNI.Name = "cmd_buscar_empleadoXDNI"
-        Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(29, 29)
-        Me.cmd_buscar_empleadoXDNI.TabIndex = 15
-        Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
+        Me.cmd_eliminar_empleado.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_eliminar_empleado.BackgroundImage = CType(resources.GetObject("cmd_eliminar_empleado.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_eliminar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_eliminar_empleado.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_eliminar_empleado.FlatAppearance.BorderSize = 0
+        Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(1249, 241)
+        Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
+        Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(29, 29)
+        Me.cmd_eliminar_empleado.TabIndex = 23
+        Me.cmd_eliminar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_eliminar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_eliminar_empleado.UseVisualStyleBackColor = False
         '
-        'cmd_empleado_nuevo
+        'cmd_agregar_empleado
         '
-        Me.cmd_empleado_nuevo.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_empleado_nuevo.BackgroundImage = CType(resources.GetObject("cmd_empleado_nuevo.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_empleado_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_empleado_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_empleado_nuevo.FlatAppearance.BorderSize = 0
-        Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(931, 28)
-        Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(5)
-        Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
-        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(29, 29)
-        Me.cmd_empleado_nuevo.TabIndex = 16
-        Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_empleado_nuevo.UseVisualStyleBackColor = False
+        Me.cmd_agregar_empleado.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_agregar_empleado.BackgroundImage = CType(resources.GetObject("cmd_agregar_empleado.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_agregar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_agregar_empleado.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_agregar_empleado.FlatAppearance.BorderSize = 0
+        Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(883, 28)
+        Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
+        Me.cmd_agregar_empleado.Size = New System.Drawing.Size(29, 29)
+        Me.cmd_agregar_empleado.TabIndex = 22
+        Me.cmd_agregar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_agregar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_agregar_empleado.UseVisualStyleBackColor = False
         '
-        'txt_numero_doc
+        'MaskedTextBox6
         '
-        Me.txt_numero_doc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txt_numero_doc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_numero_doc.Location = New System.Drawing.Point(228, 30)
-        Me.txt_numero_doc.Name = "txt_numero_doc"
-        Me.txt_numero_doc.Size = New System.Drawing.Size(164, 25)
-        Me.txt_numero_doc.TabIndex = 14
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(163, 33)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(59, 19)
-        Me.Label19.TabIndex = 18
-        Me.Label19.Text = "Número"
-        '
-        'cmb_tipos_documento
-        '
-        Me.cmb_tipos_documento._descripcion = "descripcion"
-        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_tipos_documento._pk = "id"
-        Me.cmb_tipos_documento.FormattingEnabled = True
-        Me.cmb_tipos_documento.Location = New System.Drawing.Point(92, 30)
-        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
-        Me.cmb_tipos_documento.Size = New System.Drawing.Size(61, 27)
-        Me.cmb_tipos_documento.TabIndex = 13
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(22, 33)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(64, 19)
-        Me.Label18.TabIndex = 17
-        Me.Label18.Text = "Tipo Doc"
+        Me.MaskedTextBox6.Location = New System.Drawing.Point(471, 30)
+        Me.MaskedTextBox6.Name = "MaskedTextBox6"
+        Me.MaskedTextBox6.Size = New System.Drawing.Size(404, 25)
+        Me.MaskedTextBox6.TabIndex = 21
         '
         'dgv_empleados
         '
@@ -480,50 +454,76 @@ Partial Class Registrar_supervisiones
         Me.id_estado.ReadOnly = True
         Me.id_estado.Visible = False
         '
-        'MaskedTextBox6
+        'cmd_buscar_empleadoXDNI
         '
-        Me.MaskedTextBox6.Location = New System.Drawing.Point(471, 30)
-        Me.MaskedTextBox6.Name = "MaskedTextBox6"
-        Me.MaskedTextBox6.Size = New System.Drawing.Size(404, 25)
-        Me.MaskedTextBox6.TabIndex = 21
+        Me.cmd_buscar_empleadoXDNI.BackgroundImage = CType(resources.GetObject("cmd_buscar_empleadoXDNI.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_buscar_empleadoXDNI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_buscar_empleadoXDNI.FlatAppearance.BorderSize = 0
+        Me.cmd_buscar_empleadoXDNI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_buscar_empleadoXDNI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_buscar_empleadoXDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_buscar_empleadoXDNI.Location = New System.Drawing.Point(395, 28)
+        Me.cmd_buscar_empleadoXDNI.Name = "cmd_buscar_empleadoXDNI"
+        Me.cmd_buscar_empleadoXDNI.Size = New System.Drawing.Size(29, 29)
+        Me.cmd_buscar_empleadoXDNI.TabIndex = 15
+        Me.cmd_buscar_empleadoXDNI.UseVisualStyleBackColor = True
         '
-        'cmd_agregar_empleado
+        'cmd_empleado_nuevo
         '
-        Me.cmd_agregar_empleado.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_agregar_empleado.BackgroundImage = CType(resources.GetObject("cmd_agregar_empleado.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_agregar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_agregar_empleado.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_agregar_empleado.FlatAppearance.BorderSize = 0
-        Me.cmd_agregar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cmd_agregar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cmd_agregar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_empleado.Location = New System.Drawing.Point(883, 28)
-        Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(5)
-        Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
-        Me.cmd_agregar_empleado.Size = New System.Drawing.Size(29, 29)
-        Me.cmd_agregar_empleado.TabIndex = 22
-        Me.cmd_agregar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_agregar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_agregar_empleado.UseVisualStyleBackColor = False
+        Me.cmd_empleado_nuevo.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_empleado_nuevo.BackgroundImage = CType(resources.GetObject("cmd_empleado_nuevo.BackgroundImage"), System.Drawing.Image)
+        Me.cmd_empleado_nuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmd_empleado_nuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cmd_empleado_nuevo.FlatAppearance.BorderSize = 0
+        Me.cmd_empleado_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.cmd_empleado_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.cmd_empleado_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_empleado_nuevo.Location = New System.Drawing.Point(931, 28)
+        Me.cmd_empleado_nuevo.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmd_empleado_nuevo.Name = "cmd_empleado_nuevo"
+        Me.cmd_empleado_nuevo.Size = New System.Drawing.Size(29, 29)
+        Me.cmd_empleado_nuevo.TabIndex = 16
+        Me.cmd_empleado_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_empleado_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_empleado_nuevo.UseVisualStyleBackColor = False
         '
-        'cmd_eliminar_empleado
+        'txt_numero_doc
         '
-        Me.cmd_eliminar_empleado.BackColor = System.Drawing.Color.Transparent
-        Me.cmd_eliminar_empleado.BackgroundImage = CType(resources.GetObject("cmd_eliminar_empleado.BackgroundImage"), System.Drawing.Image)
-        Me.cmd_eliminar_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmd_eliminar_empleado.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cmd_eliminar_empleado.FlatAppearance.BorderSize = 0
-        Me.cmd_eliminar_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cmd_eliminar_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cmd_eliminar_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_empleado.Location = New System.Drawing.Point(1249, 241)
-        Me.cmd_eliminar_empleado.Margin = New System.Windows.Forms.Padding(5)
-        Me.cmd_eliminar_empleado.Name = "cmd_eliminar_empleado"
-        Me.cmd_eliminar_empleado.Size = New System.Drawing.Size(29, 29)
-        Me.cmd_eliminar_empleado.TabIndex = 23
-        Me.cmd_eliminar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_eliminar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_eliminar_empleado.UseVisualStyleBackColor = False
+        Me.txt_numero_doc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_numero_doc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_numero_doc.Location = New System.Drawing.Point(228, 30)
+        Me.txt_numero_doc.Name = "txt_numero_doc"
+        Me.txt_numero_doc.Size = New System.Drawing.Size(164, 25)
+        Me.txt_numero_doc.TabIndex = 14
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(163, 33)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(59, 19)
+        Me.Label19.TabIndex = 18
+        Me.Label19.Text = "Número"
+        '
+        'cmb_tipos_documento
+        '
+        Me.cmb_tipos_documento._descripcion = "descripcion"
+        Me.cmb_tipos_documento._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_tipos_documento._pk = "id"
+        Me.cmb_tipos_documento.FormattingEnabled = True
+        Me.cmb_tipos_documento.Location = New System.Drawing.Point(92, 30)
+        Me.cmb_tipos_documento.Name = "cmb_tipos_documento"
+        Me.cmb_tipos_documento.Size = New System.Drawing.Size(61, 27)
+        Me.cmb_tipos_documento.TabIndex = 13
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(22, 33)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(64, 19)
+        Me.Label18.TabIndex = 17
+        Me.Label18.Text = "Tipo Doc"
         '
         'GroupBox1
         '
@@ -535,41 +535,12 @@ Partial Class Registrar_supervisiones
         Me.GroupBox1.Controls.Add(Me.chk_cargaSigipsaSI)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 401)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 374)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1280, 100)
         Me.GroupBox1.TabIndex = 24
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registro Sigipsa ♥"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(22, 30)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(234, 19)
-        Me.Label6.TabIndex = 18
-        Me.Label6.Text = "Realiza registro nominal en Sigipsa?"
-        '
-        'chk_cargaSigipsaSI
-        '
-        Me.chk_cargaSigipsaSI.AutoSize = True
-        Me.chk_cargaSigipsaSI.Location = New System.Drawing.Point(262, 30)
-        Me.chk_cargaSigipsaSI.Name = "chk_cargaSigipsaSI"
-        Me.chk_cargaSigipsaSI.Size = New System.Drawing.Size(40, 23)
-        Me.chk_cargaSigipsaSI.TabIndex = 24
-        Me.chk_cargaSigipsaSI.Text = "SI"
-        Me.chk_cargaSigipsaSI.UseVisualStyleBackColor = True
-        '
-        'chk_cargaSigipsaNO
-        '
-        Me.chk_cargaSigipsaNO.AutoSize = True
-        Me.chk_cargaSigipsaNO.Location = New System.Drawing.Point(308, 30)
-        Me.chk_cargaSigipsaNO.Name = "chk_cargaSigipsaNO"
-        Me.chk_cargaSigipsaNO.Size = New System.Drawing.Size(51, 23)
-        Me.chk_cargaSigipsaNO.TabIndex = 25
-        Me.chk_cargaSigipsaNO.Text = "NO"
-        Me.chk_cargaSigipsaNO.UseVisualStyleBackColor = True
         '
         'chk_registroAlDiaNO
         '
@@ -600,6 +571,35 @@ Partial Class Registrar_supervisiones
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Tiene el registro al día?"
         '
+        'chk_cargaSigipsaNO
+        '
+        Me.chk_cargaSigipsaNO.AutoSize = True
+        Me.chk_cargaSigipsaNO.Location = New System.Drawing.Point(308, 30)
+        Me.chk_cargaSigipsaNO.Name = "chk_cargaSigipsaNO"
+        Me.chk_cargaSigipsaNO.Size = New System.Drawing.Size(51, 23)
+        Me.chk_cargaSigipsaNO.TabIndex = 25
+        Me.chk_cargaSigipsaNO.Text = "NO"
+        Me.chk_cargaSigipsaNO.UseVisualStyleBackColor = True
+        '
+        'chk_cargaSigipsaSI
+        '
+        Me.chk_cargaSigipsaSI.AutoSize = True
+        Me.chk_cargaSigipsaSI.Location = New System.Drawing.Point(262, 30)
+        Me.chk_cargaSigipsaSI.Name = "chk_cargaSigipsaSI"
+        Me.chk_cargaSigipsaSI.Size = New System.Drawing.Size(40, 23)
+        Me.chk_cargaSigipsaSI.TabIndex = 24
+        Me.chk_cargaSigipsaSI.Text = "SI"
+        Me.chk_cargaSigipsaSI.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(22, 30)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(234, 19)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "Realiza registro nominal en Sigipsa?"
+        '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
@@ -608,41 +608,12 @@ Partial Class Registrar_supervisiones
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.cmb_heladera)
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 507)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 480)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1280, 248)
         Me.GroupBox2.TabIndex = 25
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cadena de Frío"
-        '
-        'cmb_heladera
-        '
-        Me.cmb_heladera._descripcion = "descripcion"
-        Me.cmb_heladera._nombre_tabla = "nombre_heladera"
-        Me.cmb_heladera._pk = "id"
-        Me.cmb_heladera.FormattingEnabled = True
-        Me.cmb_heladera.Location = New System.Drawing.Point(98, 24)
-        Me.cmb_heladera.Name = "cmb_heladera"
-        Me.cmb_heladera.Size = New System.Drawing.Size(249, 27)
-        Me.cmb_heladera.TabIndex = 17
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(22, 27)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(70, 19)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Heladera"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(56, 60)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(36, 19)
-        Me.Label9.TabIndex = 20
-        Me.Label9.Text = "Tipo"
         '
         'cmb_tipo_heladera
         '
@@ -654,6 +625,35 @@ Partial Class Registrar_supervisiones
         Me.cmb_tipo_heladera.Name = "cmb_tipo_heladera"
         Me.cmb_tipo_heladera.Size = New System.Drawing.Size(249, 27)
         Me.cmb_tipo_heladera.TabIndex = 21
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(56, 60)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(36, 19)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "Tipo"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(22, 27)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(70, 19)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Heladera"
+        '
+        'cmb_heladera
+        '
+        Me.cmb_heladera._descripcion = "descripcion"
+        Me.cmb_heladera._nombre_tabla = "nombre_heladera"
+        Me.cmb_heladera._pk = "id"
+        Me.cmb_heladera.FormattingEnabled = True
+        Me.cmb_heladera.Location = New System.Drawing.Point(98, 24)
+        Me.cmb_heladera.Name = "cmb_heladera"
+        Me.cmb_heladera.Size = New System.Drawing.Size(249, 27)
+        Me.cmb_heladera.TabIndex = 17
         '
         'Registrar_supervisiones
         '

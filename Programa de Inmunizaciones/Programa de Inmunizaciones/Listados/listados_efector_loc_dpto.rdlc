@@ -9,7 +9,7 @@
               <Width>1.81121cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.54644cm</Width>
+              <Width>4.77373cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.13511cm</Width>
@@ -22,9 +22,6 @@
             </TablixColumn>
             <TablixColumn>
               <Width>3.66417cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>3.87583cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -263,10 +260,8 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>2</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell />
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -461,7 +456,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!horario_desde.Value</Value>
+                              <Value>= "De " &amp; Fields!horario_desde.Value &amp; " a " &amp; Fields!horario_hasta.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                               </Style>
@@ -473,42 +468,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>horario_desde</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>White</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <BackgroundColor>LightBlue</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="horario_hasta">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!horario_hasta.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>horario_hasta</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -536,7 +495,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -555,10 +513,10 @@
             <Value>=Fields!nombre_departamento.Value</Value>
           </SortExpression>
         </SortExpressions>
-        <Top>0.55245cm</Top>
-        <Left>1.14448cm</Left>
+        <Top>0.429cm</Top>
+        <Left>0.95501cm</Left>
         <Height>1.2cm</Height>
-        <Width>28.01196cm</Width>
+        <Width>22.36342cm</Width>
         <Style>
           <Border>
             <Color>White</Color>
@@ -567,7 +525,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.9087in</Height>
+    <Height>0.86703in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -575,41 +533,39 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>13.04024in</Width>
+  <Width>10.82149in</Width>
   <Page>
     <PageHeader>
-      <Height>2.43417cm</Height>
+      <Height>2.69875cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox80">
+        <Textbox Name="Textbox7">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>VACUNATORIOS POR DEPARTAMENTO</Value>
+                  <Value>Vacunatorios registrados</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>30pt</FontSize>
+                    <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
+              <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox80</rd:DefaultName>
-          <Top>0.49361cm</Top>
-          <Left>5.78673cm</Left>
-          <Height>1.44667cm</Height>
-          <Width>17.32343cm</Width>
+          <rd:DefaultName>Textbox7</rd:DefaultName>
+          <Top>0.44662cm</Top>
+          <Left>0.26622cm</Left>
+          <Height>1.73771cm</Height>
+          <Width>12.85187cm</Width>
           <Style>
             <Border>
-              <Style>Double</Style>
-              <Width>2.25pt</Width>
+              <Style>None</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -626,7 +582,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>4.3438cm</Height>
+      <Height>3.33838cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -648,7 +604,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.64173cm</Top>
-          <Left>27.97999cm</Left>
+          <Left>24.11707cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -667,8 +623,8 @@
           <Sizing>FitProportional</Sizing>
           <Top>0.29777cm</Top>
           <Left>0.26622cm</Left>
-          <Height>3.86755cm</Height>
-          <Width>7.18979cm</Width>
+          <Height>2.59755cm</Height>
+          <Width>5.86687cm</Width>
           <ZIndex>1</ZIndex>
           <ToolTip>Programa de Control de Enfermedades Inmunoprevenibles Cordoba</ToolTip>
           <Style>
@@ -685,7 +641,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!PageNumber</Value>
+                  <Value>= "Página " &amp; Globals!PageNumber &amp; " de " &amp; Globals!TotalPages</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -693,8 +649,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.55788cm</Top>
-          <Left>27.97999cm</Left>
+          <Top>1.41812cm</Top>
+          <Left>24.38166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>2</ZIndex>

@@ -46,7 +46,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CUIE</Value>
+                              <Value>CUIE Referente</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -83,7 +83,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>REFERENTE</Value>
+                              <Value>Referente</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -157,7 +157,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>EFECTOR</Value>
+                              <Value>Centro de Salud</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -206,7 +206,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>DEPARTAMENTO</Value>
+                              <Value>Departamento</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -243,7 +243,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>LOCALIDAD</Value>
+                              <Value>Localidad</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                                 <FontSize>12pt</FontSize>

@@ -31,12 +31,12 @@
         cmb_tipo_carga.cargar()
         cmb_estados_empleados.cargar()
         limpiar(Controls)
-        cargar_grilla_vacunatorios()
+        'cargar_grilla_vacunatorios()
 
         tip()
         acceso.autocompletar(txt_numero_doc, "EMPLEADOS", "nro_doc")
-        acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
-        acceso.autocompletar(txt_nombres_empleado, "EMPLEADOS", "nombres")
+        'acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
+        'acceso.autocompletar(txt_nombres_empleado, "EMPLEADOS", "nombres")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         acceso.autocompletar(txt_nombre, "EFECTORES", "nombre")
         acceso.autocompletar(txt_referentes, "EFECTORES", "nombre")
@@ -102,7 +102,7 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_nombre.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre='" & txt_nombre.Text & "'"
+                sql &= " WHERE E.nombre like '%" & txt_nombre.Text & "%'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
@@ -652,7 +652,7 @@
         sql &= ", id_estado =" & Me.cmb_estado_efector.SelectedValue
         sql &= ", tiene_heladera=" & Me.txt_heladera.Text
         sql &= ", tiene_internet=" & Me.txt_pc.Text
-        sql &= ", correo_efector = '" & Me.txt_correo_efector.Text & "'"
+        sql &= ", correo_efector = " & Me.txt_correo_efector.Text
 
         If cmb_estado_rm.SelectedValue <> -1 Then
             sql &= ", estado_rm = " & Me.cmb_estado_rm.SelectedValue
@@ -1133,6 +1133,10 @@
 
         If estado_empleado = "BAJA" Then
             e.CellStyle.BackColor = Color.RosyBrown
+        ElseIf estado_empleado = "LICENCIA" Then
+            e.CellStyle.BackColor = Color.LightYellow
+        ElseIf estado_empleado = "SUSPENDIDO" Then
+            e.CellStyle.BackColor = Color.Lavender
         End If
 
     End Sub
@@ -1306,5 +1310,6 @@
         End If
         Registrar_atencion.Show()
     End Sub
+
 
 End Class

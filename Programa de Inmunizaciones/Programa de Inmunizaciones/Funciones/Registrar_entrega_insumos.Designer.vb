@@ -137,7 +137,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_agregar_efector.Location = New System.Drawing.Point(453, 85)
-        Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(29, 29)
         Me.cmd_agregar_efector.TabIndex = 5
@@ -245,7 +245,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_actualizar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_actualizar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_actualizar_estado.Location = New System.Drawing.Point(426, 156)
-        Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_actualizar_estado.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_actualizar_estado.Name = "cmd_actualizar_estado"
         Me.cmd_actualizar_estado.Size = New System.Drawing.Size(29, 29)
         Me.cmd_actualizar_estado.TabIndex = 8
@@ -267,7 +267,7 @@ Partial Class Registrar_entrega_insumos
         '
         'cmb_autorizador
         '
-        Me.cmb_autorizador._descripcion = "nombres"
+        Me.cmb_autorizador._descripcion = "nombres, apellidos"
         Me.cmb_autorizador._nombre_tabla = "EMPLEADOS"
         Me.cmb_autorizador._pk = "id"
         Me.cmb_autorizador.FormattingEnabled = True
@@ -446,7 +446,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar_insumo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar_insumo.Location = New System.Drawing.Point(379, 173)
-        Me.cmd_limpiar_insumo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_limpiar_insumo.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_limpiar_insumo.Name = "cmd_limpiar_insumo"
         Me.cmd_limpiar_insumo.Size = New System.Drawing.Size(29, 29)
         Me.cmd_limpiar_insumo.TabIndex = 5
@@ -465,7 +465,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_eliminar_insumo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_eliminar_insumo.Location = New System.Drawing.Point(453, 173)
-        Me.cmd_eliminar_insumo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_eliminar_insumo.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_eliminar_insumo.Name = "cmd_eliminar_insumo"
         Me.cmd_eliminar_insumo.Size = New System.Drawing.Size(29, 29)
         Me.cmd_eliminar_insumo.TabIndex = 7
@@ -484,7 +484,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_agregar_insumo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_insumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_agregar_insumo.Location = New System.Drawing.Point(416, 173)
-        Me.cmd_agregar_insumo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_agregar_insumo.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_agregar_insumo.Name = "cmd_agregar_insumo"
         Me.cmd_agregar_insumo.Size = New System.Drawing.Size(29, 29)
         Me.cmd_agregar_insumo.TabIndex = 6
@@ -540,7 +540,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Location = New System.Drawing.Point(183, 749)
-        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_limpiar.TabIndex = 4
@@ -559,7 +559,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Location = New System.Drawing.Point(104, 747)
-        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(70, 69)
         Me.cmd_guardar.TabIndex = 3
@@ -578,7 +578,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Location = New System.Drawing.Point(24, 747)
-        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(70, 69)
         Me.cmd_nuevo.TabIndex = 2
@@ -754,7 +754,7 @@ Partial Class Registrar_entrega_insumos
         Me.cmd_devolucion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_devolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_devolucion.Location = New System.Drawing.Point(264, 749)
-        Me.cmd_devolucion.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_devolucion.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_devolucion.Name = "cmd_devolucion"
         Me.cmd_devolucion.Size = New System.Drawing.Size(70, 69)
         Me.cmd_devolucion.TabIndex = 65
