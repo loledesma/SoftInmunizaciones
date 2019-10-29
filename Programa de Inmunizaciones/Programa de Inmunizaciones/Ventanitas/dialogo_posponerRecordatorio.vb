@@ -32,4 +32,8 @@
             Me.guardar()
         End If
     End Sub
+
+    Private Sub dialogo_posponerRecordatorio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

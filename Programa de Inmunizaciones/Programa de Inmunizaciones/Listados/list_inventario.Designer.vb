@@ -25,13 +25,13 @@ Partial Class list_inventario
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(list_inventario))
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.LISTINVENTTERMOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
-        Me.LISTINVENTTERMOMETROSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LISTINVENTARIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inmunizaciones = New Programa_de_Inmunizaciones.Inmunizaciones()
+        Me.LISTINVENTTERMOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LISTINVENTTERMOMETROSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LISTINVENTHELADERABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.grp_datos_efector = New System.Windows.Forms.GroupBox()
         Me.cmd_ejecutar = New System.Windows.Forms.Button()
@@ -45,18 +45,22 @@ Partial Class list_inventario
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.ReportViewer4 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ReportViewer2 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ReportViewer3 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.LIST_INVENT_HELADERABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.txt_nombre_referente = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txt_cuie_referente = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
-        CType(Me.LISTINVENTTERMOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LISTINVENTTERMOMETROSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LISTINVENTARIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LISTINVENTTERMOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LISTINVENTTERMOMETROSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LISTINVENTHELADERABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -67,25 +71,25 @@ Partial Class list_inventario
         CType(Me.LIST_INVENT_HELADERABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'LISTINVENTTERMOSBindingSource
+        'LISTINVENTARIOBindingSource
         '
-        Me.LISTINVENTTERMOSBindingSource.DataMember = "LIST_INVENT_TERMOS"
-        Me.LISTINVENTTERMOSBindingSource.DataSource = Me.Inmunizaciones
+        Me.LISTINVENTARIOBindingSource.DataMember = "LIST_INVENTARIO"
+        Me.LISTINVENTARIOBindingSource.DataSource = Me.Inmunizaciones
         '
         'Inmunizaciones
         '
         Me.Inmunizaciones.DataSetName = "Inmunizaciones"
         Me.Inmunizaciones.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'LISTINVENTTERMOSBindingSource
+        '
+        Me.LISTINVENTTERMOSBindingSource.DataMember = "LIST_INVENT_TERMOS"
+        Me.LISTINVENTTERMOSBindingSource.DataSource = Me.Inmunizaciones
+        '
         'LISTINVENTTERMOMETROSBindingSource
         '
         Me.LISTINVENTTERMOMETROSBindingSource.DataMember = "LIST_INVENT_TERMOMETROS"
         Me.LISTINVENTTERMOMETROSBindingSource.DataSource = Me.Inmunizaciones
-        '
-        'LISTINVENTARIOBindingSource
-        '
-        Me.LISTINVENTARIOBindingSource.DataMember = "LIST_INVENTARIO"
-        Me.LISTINVENTARIOBindingSource.DataSource = Me.Inmunizaciones
         '
         'LISTINVENTHELADERABindingSource
         '
@@ -95,6 +99,10 @@ Partial Class list_inventario
         'grp_datos_efector
         '
         Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_efector.Controls.Add(Me.txt_cuie_referente)
+        Me.grp_datos_efector.Controls.Add(Me.Label2)
+        Me.grp_datos_efector.Controls.Add(Me.Label1)
+        Me.grp_datos_efector.Controls.Add(Me.txt_nombre_referente)
         Me.grp_datos_efector.Controls.Add(Me.cmd_ejecutar)
         Me.grp_datos_efector.Controls.Add(Me.txt_cuie)
         Me.grp_datos_efector.Controls.Add(Me.lbl_cuie)
@@ -105,9 +113,9 @@ Partial Class list_inventario
         Me.grp_datos_efector.Controls.Add(Me.lbl_localidad)
         Me.grp_datos_efector.Controls.Add(Me.lbl_departamento)
         Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_efector.Location = New System.Drawing.Point(203, 12)
+        Me.grp_datos_efector.Location = New System.Drawing.Point(57, 12)
         Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(624, 133)
+        Me.grp_datos_efector.Size = New System.Drawing.Size(883, 133)
         Me.grp_datos_efector.TabIndex = 4
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
@@ -122,7 +130,7 @@ Partial Class list_inventario
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(505, 28)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(812, 20)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -237,6 +245,24 @@ Partial Class list_inventario
         Me.TabPage1.Text = "Heladera"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ReportViewer1.AutoScroll = True
+        Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
+        Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
+        Me.ReportViewer1.AutoSize = True
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.LISTINVENTHELADERABindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_inventario_cf_heladera.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(6, 6)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(944, 383)
+        Me.ReportViewer1.TabIndex = 9
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.ReportViewer2)
@@ -294,28 +320,46 @@ Partial Class list_inventario
         Me.ReportViewer3.Size = New System.Drawing.Size(942, 383)
         Me.ReportViewer3.TabIndex = 8
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer1.AutoScroll = True
-        Me.ReportViewer1.AutoScrollMargin = New System.Drawing.Size(2, 2)
-        Me.ReportViewer1.AutoScrollMinSize = New System.Drawing.Size(2, 2)
-        Me.ReportViewer1.AutoSize = True
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.LISTINVENTHELADERABindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_inventario_cf_heladera.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(6, 6)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(944, 383)
-        Me.ReportViewer1.TabIndex = 9
-        '
         'LIST_INVENT_HELADERABindingSource
         '
         Me.LIST_INVENT_HELADERABindingSource.DataMember = "LIST_INVENT_HELADERA"
         Me.LIST_INVENT_HELADERABindingSource.DataSource = Me.Inmunizaciones
+        '
+        'txt_nombre_referente
+        '
+        Me.txt_nombre_referente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_nombre_referente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_nombre_referente.Location = New System.Drawing.Point(523, 41)
+        Me.txt_nombre_referente.Name = "txt_nombre_referente"
+        Me.txt_nombre_referente.Size = New System.Drawing.Size(282, 20)
+        Me.txt_nombre_referente.TabIndex = 51
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(453, 44)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 13)
+        Me.Label1.TabIndex = 52
+        Me.Label1.Text = "Referente"
+        '
+        'txt_cuie_referente
+        '
+        Me.txt_cuie_referente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txt_cuie_referente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_cuie_referente.Location = New System.Drawing.Point(523, 64)
+        Me.txt_cuie_referente.Name = "txt_cuie_referente"
+        Me.txt_cuie_referente.Size = New System.Drawing.Size(184, 20)
+        Me.txt_cuie_referente.TabIndex = 53
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(453, 68)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(28, 13)
+        Me.Label2.TabIndex = 54
+        Me.Label2.Text = "Cuie"
         '
         'cmb_departamentos
         '
@@ -350,10 +394,10 @@ Partial Class list_inventario
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "list_inventario"
         Me.Text = "INVENTARIO"
-        CType(Me.LISTINVENTTERMOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LISTINVENTTERMOMETROSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LISTINVENTARIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LISTINVENTTERMOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LISTINVENTTERMOMETROSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LISTINVENTHELADERABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_datos_efector.ResumeLayout(False)
         Me.grp_datos_efector.PerformLayout()
@@ -395,4 +439,8 @@ Partial Class list_inventario
     Friend WithEvents ReportViewer4 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents LIST_INVENT_HELADERABindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents txt_cuie_referente As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txt_nombre_referente As System.Windows.Forms.TextBox
 End Class

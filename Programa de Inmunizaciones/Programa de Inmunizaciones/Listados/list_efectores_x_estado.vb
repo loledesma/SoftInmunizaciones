@@ -72,7 +72,7 @@
             sql &= " WHERE EE.id = " & Me.cmb_estado_efector.SelectedValue
         End If
 
-        sql &= "ORDER BY nombre_departamento "
+        sql &= "ORDER BY D.descripcion "
 
         tabla = acceso.consulta(sql)
 

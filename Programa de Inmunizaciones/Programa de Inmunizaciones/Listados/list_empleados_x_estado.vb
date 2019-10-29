@@ -103,7 +103,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, E.nombre as nombre_efector, EMP.nombres as nombre_empleado "
+        sql &= "SELECT distinct EMP.nombres as nombre_empleado, L.descripcion as nombre_localidad, E.nombre as nombre_efector, D.descripcion as nombre_departamento  "
         sql &= ", EMP.apellidos as apellido_empleado "
         sql &= ", EXU.descripcion as estado, EXE.año_curso as año_curso, EMP.caracteristica as caracteristica, EMP.telefono as telefono "
         sql &= " FROM EFECTORES E JOIN EMPLEADOSXEFECTOR EXE ON E.cuie = EXE.id_efector "
@@ -121,6 +121,9 @@
                 sql &= " AND EXE.id_efector ='" & Me.txt_cuie.Text & "'"
             ElseIf cmb_estados_empleados.SelectedIndex <> -1 Then
                 sql &= " AND EXU.id=" & Me.cmb_estados_empleados.SelectedValue
+                If txt_año_curso.Text <> "" Then
+                    sql &= " AND EXE.año_curso = " & Me.txt_año_curso.Text
+                End If
             ElseIf txt_año_curso.Text <> "" Then
                 sql &= " AND año_curso= " & txt_año_curso.Text
             End If
@@ -129,9 +132,9 @@
             If txt_cuie.Text <> "" Then
                 sql &= " AND E.cuie ='" & Me.txt_cuie.Text & "'"
             ElseIf cmb_estados_empleados.SelectedIndex <> -1 Then
-                sql &= " AND estado=" & Me.cmb_estados_empleados.SelectedValue
+                sql &= " AND EXU.id =" & Me.cmb_estados_empleados.SelectedValue
             ElseIf txt_año_curso.Text <> "" Then
-                sql &= " AND año_curso= " & txt_año_curso.Text
+                sql &= " AND EXE.año_curso= " & txt_año_curso.Text
             End If
         ElseIf txt_cuie.Text <> "" Then
             sql &= " WHERE E.cuie ='" & Me.txt_cuie.Text & "'"
@@ -141,12 +144,12 @@
                 sql &= " AND año_curso= " & txt_año_curso.Text
             End If
         ElseIf cmb_estados_empleados.SelectedIndex <> -1 Then
-            sql &= " WHERE estado= " & Me.cmb_estados_empleados.SelectedValue
+            sql &= " WHERE EXU.id = " & Me.cmb_estados_empleados.SelectedValue
             If txt_año_curso.Text <> "" Then
-                sql &= " AND año_curso= " & txt_año_curso.Text
+                sql &= " AND EXE.año_curso= " & txt_año_curso.Text
             End If
         ElseIf txt_año_curso.Text <> "" Then
-            sql &= " WHERE año_curso= " & txt_año_curso.Text
+            sql &= " WHERE EXE.año_curso= " & txt_año_curso.Text
         End If
 
         sql &= "ORDER BY nombre_efector, nombre_empleado, apellido_empleado "

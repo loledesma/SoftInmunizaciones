@@ -18,7 +18,7 @@
             pop_up_recordatorios.dgv_recordatoriosDiaSiguiente.Rows.Clear()
             pop_up_recordatorios.verificar()
             pop_up_recordatorios.verificarMañana()
-            If pop_up_recordatorios.dgv_recordatorios.Rows.Count() = 0 And pop_up_recordatorios.dgv_recordatoriosDiaSiguiente.Rows.Count() = 0 Then
+            If pop_up_recordatorios.dgv_recordatorios.Rows.Count() = 0 And pop_up_recordatorios.dgv_recordatoriosDiaSiguiente.Rows.Count() = 0 And pop_up_recordatorios.dgv_atencionescaducadas.Rows.Count() = 0 Then
                 pop_up_recordatorios.Close()
             End If
         End If
@@ -29,4 +29,7 @@
         End If
     End Sub
     
+    Private Sub dialogo_editarRecordatorio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

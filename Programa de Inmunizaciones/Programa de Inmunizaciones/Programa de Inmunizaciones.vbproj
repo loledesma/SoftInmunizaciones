@@ -192,6 +192,12 @@
     <Compile Include="Clases\ComboBoxV1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Estadisticos\est_reporte_de_notif.Designer.vb">
+      <DependentUpon>est_reporte_de_notif.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticos\est_reporte_de_notif.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones\Enviar_correo_global.Designer.vb">
       <DependentUpon>Enviar_correo_global.vb</DependentUpon>
     </Compile>
@@ -505,6 +511,12 @@
     <Compile Include="Ventanitas\dialogo_editarRecordatorio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ventanitas\dialogo_modificarAtencionCaducada.Designer.vb">
+      <DependentUpon>dialogo_modificarAtencionCaducada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanitas\dialogo_modificarAtencionCaducada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ventanitas\dialogo_posponerRecordatorio.Designer.vb">
       <DependentUpon>dialogo_posponerRecordatorio.vb</DependentUpon>
     </Compile>
@@ -539,6 +551,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticos\est_cantidadEstadoPerdidasXDpto.rdlc" />
     <EmbeddedResource Include="Estadisticos\EST_EfXEstadoStock.rdlc" />
+    <EmbeddedResource Include="Estadisticos\est_reporte_de_notif.resx">
+      <DependentUpon>est_reporte_de_notif.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticos\est_reporte_de_notificaciones.rdlc" />
     <EmbeddedResource Include="Funciones\Enviar_correo_global.resx">
       <DependentUpon>Enviar_correo_global.vb</DependentUpon>
     </EmbeddedResource>
@@ -714,6 +730,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanitas\dialogo_editarRecordatorio.resx">
       <DependentUpon>dialogo_editarRecordatorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanitas\dialogo_modificarAtencionCaducada.resx">
+      <DependentUpon>dialogo_modificarAtencionCaducada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanitas\dialogo_posponerRecordatorio.resx">
       <DependentUpon>dialogo_posponerRecordatorio.vb</DependentUpon>

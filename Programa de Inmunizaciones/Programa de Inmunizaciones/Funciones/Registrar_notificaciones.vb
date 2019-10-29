@@ -20,12 +20,10 @@
 
     Dim condicion_click As doble_Click = doble_Click.desactivado
     Private Sub Registrar_notificaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.rdio_todas.Checked = True
-        Me.cargar_grilla()
+        ' Me.rdio_todas.Checked = True
+        'Me.cargar_grilla()
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
-        acceso.autocompletar(txt_apellidos, "EMPLEADOS", "apellidos")
-        acceso.autocompletar(txt_nombres, "EMPLEADOS", "nombres")
-        acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
+        Me.dgv_notificaciones.Rows.Clear()
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
         Me.cmb_notifica.cargar()
@@ -36,8 +34,7 @@
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
         Me.cmd_limpiar.Enabled = True
-        Me.txt_id_empleado.Enabled = True
-        Me.txt_id_empleado.Focus()
+
         Me.cmb_departamentos.cargar()
         Me.cmb_localidades.cargar()
         Me.cmb_carga.cargar()
@@ -61,9 +58,9 @@
 
     Private Sub tip()
         tltp_notificaciones.SetToolTip(cmd_efector_nuevo, "Dar de alta efector nuevo")
-        tltp_notificaciones.SetToolTip(cmd_buscar_empleado, "Buscar id empleado")
+
         tltp_notificaciones.SetToolTip(cmd_buscar_notificaciones, "Buscar notificación")
-        tltp_notificaciones.SetToolTip(cmd_empleado_nuevo, "Dar de alta empleado nuevo")
+
         tltp_notificaciones.SetToolTip(cmd_eliminar, "Eliminar")
         tltp_notificaciones.SetToolTip(cmd_guardar, "Guardar")
         tltp_notificaciones.SetToolTip(cmd_nuevo, "Nuevo")
@@ -75,16 +72,17 @@
     End Sub
 
     Private Sub limpiar()
+        Me.dgv_notificaciones.Rows.Clear()
         Me.condicion_click = doble_Click.desactivado
-        Me.txt_id_empleado.Enabled = True
+
         Me.grp_datos_generales.Enabled = True
         Me.grp_datos_notificacion.Enabled = True
-        Me.grp_datos_empleados.Enabled = True
+
         Me.limpiar(Me.Controls)
         Me.cmd_eliminar.Enabled = False
         Me.condicion_estado = estado.insertar
-        Me.txt_id_empleado.Focus()
-        cargar_grilla()
+
+        'cargar_grilla()
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -97,7 +95,7 @@
         Dim sql As String = ""
 
         If rdio_hoy.Checked = True Then
-            sql &= "SELECT NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
+            sql &= "SELECT NE.id As id, NE.fecha As fecha, Ne.id_efector As cuie, E.nombre As nombre "
             sql &= ", C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas, C.id As id_carga, E.cuie As cuie "
             sql &= ", S.id As id_stock, P.id As id_perdidas "
             sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
@@ -107,7 +105,7 @@
             sql &= " WHERE NE.fecha= '" & hoy & "'"
             sql &= " ORDER BY E.nombre "
         ElseIf rdio_todas.Checked = True Then
-            sql &= "SELECT TOP 10 NE.id As id, NE.fecha As fecha, Ne.id_empleado As empleado, Ne.id_efector As cuie, E.nombre As nombre "
+            sql &= "SELECT TOP 10 NE.id As id, NE.fecha As fecha, Ne.id_efector As cuie, E.nombre As nombre "
             sql &= ", C.descripcion As carga, S.descripcion As stock, P.descripcion As perdidas, C.id As id_carga, E.cuie As cuie "
             sql &= ", S.id As id_stock, P.id As id_perdidas "
             sql &= "FROM NOTIFICACIONXEFECTOR NE JOIN EFECTORES E ON NE.id_efector = E.cuie "
@@ -283,7 +281,7 @@
         sql &= ", id_estado_stock = " & Me.cmb_stock.SelectedValue
         sql &= ", id_estado_perdidas = " & Me.cmb_perdidas.SelectedValue
         sql &= ", id_efector =" & Me.txt_cuie.Text
-        sql &= ", id_empleado = " & Me.txt_id_empleado.Text
+
 
         acceso.insertar(sql)
     End Sub
@@ -297,7 +295,6 @@
         sql &= ", id_estado_stock= " & Me.cmb_stock.SelectedValue
         sql &= ", id_estado_perdidas= " & Me.cmb_perdidas.SelectedValue
         sql &= ", id_efector='" & Me.txt_cuie.Text & "'"
-        sql &= ", id_empleado= " & Me.txt_id_empleado.Text
         sql &= " WHERE id = " & Me.txt_id_notificacion.Text
 
         acceso.ejecutar(sql)
@@ -338,13 +335,14 @@
             Exit Sub
         End If
         Me.limpiar(Me.Controls)
-        Me.cargar_grilla()
+        '' Me.cargar_grilla()
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = True
         Me.cmd_limpiar.Enabled = True
     End Sub
 
     Private Sub nuevo()
+
         Me.condicion_click = doble_Click.desactivado
         limpiar(Controls)
         Me.condicion_estado = estado.insertar
@@ -391,17 +389,6 @@
         Me.cmb_stock.SelectedValue = tabla.Rows(0)("id_estado_stock")
 
         sql = ""
-        sql &= "SELECT * FROM EMPLEADOS "
-        sql &= " WHERE id= " & tabla.Rows(0)("id_empleado")
-
-        tabla2 = acceso.consulta(sql)
-
-        Me.txt_id_empleado.Text = tabla2.Rows(0)("id")
-        Me.txt_apellidos.Text = tabla2.Rows(0)("apellidos")
-        Me.txt_nombres.Text = tabla2.Rows(0)("nombres")
-        Me.txt_usuario.Text = tabla2.Rows(0)("usuario_sigipsa")
-
-        sql = ""
         sql &= "SELECT * FROM EFECTORES "
         sql &= "WHERE cuie= '" & tabla.Rows(0)("id_efector") & "'"
 
@@ -412,9 +399,8 @@
         Me.txt_efectores.Text = tabla3.Rows(0)("nombre")
         Me.txt_cuie.Text = tabla.Rows(0)("id_efector")
 
-        Me.grp_datos_empleados.Enabled = True
         Me.grp_datos_generales.Enabled = True
-        Me.txt_id_empleado.Enabled = False
+
         Me.condicion_estado = estado.modificar
         Me.cmd_eliminar.Enabled = True
         Me.cmd_guardar.Enabled = True
@@ -439,7 +425,7 @@
         End If
 
         Me.txt_id_notificacion.Enabled = True
-        Me.cargar_grilla()
+        ''Me.cargar_grilla()
         Me.limpiar(Me.Controls)
         Me.condicion_estado = estado.insertar
     End Sub
@@ -480,65 +466,65 @@
 
     'End Sub
 
-    Private Sub cmd_buscar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleado.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
-        Dim c As Integer = 0
+    'Private Sub cmd_buscar_empleado_Click(sender As Object, e As EventArgs) Handles cmd_buscar_empleado.Click
+    '    Dim sql As String = ""
+    '    Dim tabla As New DataTable
+    '    Dim c As Integer = 0
 
-        If txt_cuie.Text = "" Then
-            MessageBox.Show("Debe ingresar el cuie", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txt_cuie.Focus()
-            Exit Sub
-        End If
-        If txt_apellidos.Text = "" And txt_nombres.Text = "" Then
-            If txt_usuario.Text = "" Then
-                MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                txt_apellidos.Focus()
-                Exit Sub
-            ElseIf txt_usuario.Text <> "" Then
-                sql = ""
-                sql &= "SELECT EMP.id as id, EMP.nombres as nombres, EMP.apellidos as apellidos"
-                sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
-                sql &= " WHERE EMP.usuario_sigipsa= '" & Me.txt_usuario.Text & "' AND EXE.id_efector ='" & Me.txt_cuie.Text & "'"
+    '    If txt_cuie.Text = "" Then
+    '        MessageBox.Show("Debe ingresar el cuie", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '        txt_cuie.Focus()
+    '        Exit Sub
+    '    End If
+    '    If txt_apellidos.Text = "" And txt_nombres.Text = "" Then
+    '        If txt_usuario.Text = "" Then
+    '            MessageBox.Show("¡Ingrese un valor para buscar por nombre y apellido o usuario!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '            txt_apellidos.Focus()
+    '            Exit Sub
+    '        ElseIf txt_usuario.Text <> "" Then
+    '            sql = ""
+    '            sql &= "SELECT EMP.id as id, EMP.nombres as nombres, EMP.apellidos as apellidos"
+    '            sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+    '            sql &= " WHERE EMP.usuario_sigipsa= '" & Me.txt_usuario.Text & "' AND EXE.id_efector ='" & Me.txt_cuie.Text & "'"
 
-                tabla = acceso.consulta(sql)
-                If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text & " en ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Else
-                    Me.txt_id_empleado.Text = tabla.Rows(0)("id")
-                    Me.txt_nombres.Text = tabla.Rows(0)("nombres")
-                    Me.txt_apellidos.Text = tabla.Rows(0)("apellidos")
-                End If
-            End If
-        Else
-            If txt_apellidos.Text = "" And txt_nombres.Text <> "" Then
-                MessageBox.Show("¡Ingrese un apellido para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                txt_apellidos.Focus()
-                Exit Sub
-            ElseIf txt_apellidos.Text <> "" And txt_nombres.Text = "" Then
-                MessageBox.Show("¡Ingrese un nombre para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                txt_nombres.Focus()
-                Exit Sub
-            ElseIf txt_apellidos.Text <> "" And txt_nombres.Text <> "" Then
-                sql = ""
-                sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
-                sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
-                sql &= " WHERE EMP.nombres like '%" & Me.txt_nombres.Text & "%' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
-                sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
+    '            tabla = acceso.consulta(sql)
+    '            If tabla.Rows.Count = 0 Then
+    '                MessageBox.Show("No se encontró un empleado con el usuario: " & Me.txt_usuario.Text & " en ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '            Else
+    '                Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+    '                Me.txt_nombres.Text = tabla.Rows(0)("nombres")
+    '                Me.txt_apellidos.Text = tabla.Rows(0)("apellidos")
+    '            End If
+    '        End If
+    '    Else
+    '        If txt_apellidos.Text = "" And txt_nombres.Text <> "" Then
+    '            MessageBox.Show("¡Ingrese un apellido para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '            txt_apellidos.Focus()
+    '            Exit Sub
+    '        ElseIf txt_apellidos.Text <> "" And txt_nombres.Text = "" Then
+    '            MessageBox.Show("¡Ingrese un nombre para buscar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '            txt_nombres.Focus()
+    '            Exit Sub
+    '        ElseIf txt_apellidos.Text <> "" And txt_nombres.Text <> "" Then
+    '            sql = ""
+    '            sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
+    '            sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
+    '            sql &= " WHERE EMP.nombres like '%" & Me.txt_nombres.Text & "%' AND EMP.apellidos= '" & Me.txt_apellidos.Text & "'"
+    '            sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
-                tabla = acceso.consulta(sql)
-                If tabla.Rows.Count = 0 Then
-                    MessageBox.Show("No se encontro id de empleado con esos datos para ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Else
-                    Me.txt_id_empleado.Text = tabla.Rows(0)("id")
-                    Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
-                End If
-            End If
-        End If
+    '            tabla = acceso.consulta(sql)
+    '            If tabla.Rows.Count = 0 Then
+    '                MessageBox.Show("No se encontro id de empleado con esos datos para ese efector", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    '            Else
+    '                Me.txt_id_empleado.Text = tabla.Rows(0)("id")
+    '                Me.txt_usuario.Text = tabla.Rows(0)("usuario_sigipsa")
+    '            End If
+    '        End If
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_empleado_nuevo.Click
+    Private Sub cmd_empleado_nuevo_Click(sender As Object, e As EventArgs)
         abm_empleados.ShowDialog()
     End Sub
 
@@ -738,11 +724,11 @@
     End Sub
 
     Private Sub rdio_todas_CheckedChanged(sender As Object, e As EventArgs) Handles rdio_todas.CheckedChanged
-        cargar_grilla()
+        ''cargar_grilla()
     End Sub
 
     Private Sub rdio_hoy_CheckedChanged(sender As Object, e As EventArgs) Handles rdio_hoy.CheckedChanged
-        cargar_grilla()
+        ''cargar_grilla()
     End Sub
 
  
@@ -771,33 +757,33 @@
         End If
     End Sub
 
-    Private Sub txt_nombre_MouseEnter(sender As Object, e As EventArgs) Handles txt_nombres.MouseEnter
-        If txt_cuie.Text <> "" Then
-            Dim sql As String = ""
-            Dim empleados As String = ""
-            Dim tabla2 As New DataTable
-            sql = ""
-            sql &= "SELECT COALESCE(E.nombres, '') +' '+ COALESCE(E.apellidos, '') as nombre "
-            sql &= " FROM EMPLEADOSXEFECTOR EE JOIN EMPLEADOS E ON EE.id_empleados = E.id "
-            sql &= " WHERE EE.id_efector LIKE '%" & txt_cuie.Text & "%'"
-            tabla2.Clear()
-            tabla2 = acceso.consulta(sql)
+    'Private Sub txt_nombre_MouseEnter(sender As Object, e As EventArgs)
+    '    If txt_cuie.Text <> "" Then
+    '        Dim sql As String = ""
+    '        Dim empleados As String = ""
+    '        Dim tabla2 As New DataTable
+    '        sql = ""
+    '        sql &= "SELECT COALESCE(E.nombres, '') +' '+ COALESCE(E.apellidos, '') as nombre "
+    '        sql &= " FROM EMPLEADOSXEFECTOR EE JOIN EMPLEADOS E ON EE.id_empleados = E.id "
+    '        sql &= " WHERE EE.id_efector LIKE '%" & txt_cuie.Text & "%'"
+    '        tabla2.Clear()
+    '        tabla2 = acceso.consulta(sql)
 
-            Dim c As Integer = 0
-            For c = 0 To tabla2.Rows.Count - 1
-                empleados += tabla2.Rows(c)("nombre") & vbCrLf
-            Next
-            tltp_empleados.SetToolTip(txt_nombres, empleados)
+    '        Dim c As Integer = 0
+    '        For c = 0 To tabla2.Rows.Count - 1
+    '            empleados += tabla2.Rows(c)("nombre") & vbCrLf
+    '        Next
+    '        tltp_empleados.SetToolTip(txt_nombres, empleados)
 
-        Else
-            Exit Sub
-        End If
-    End Sub
+    '    Else
+    '        Exit Sub
+    '    End If
+    'End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Registrar_atencion.ShowDialog()
     End Sub
 
  
-   
+
 End Class

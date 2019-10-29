@@ -84,7 +84,7 @@ Partial Class dialogo_editarRecordatorio
         Me.cmd_confirmarCambios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_confirmarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_confirmarCambios.Location = New System.Drawing.Point(598, 166)
-        Me.cmd_confirmarCambios.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_confirmarCambios.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_confirmarCambios.Name = "cmd_confirmarCambios"
         Me.cmd_confirmarCambios.Size = New System.Drawing.Size(41, 40)
         Me.cmd_confirmarCambios.TabIndex = 11

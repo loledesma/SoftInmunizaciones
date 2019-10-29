@@ -49,7 +49,7 @@
         Dim estado As String = Me.dgv_atenciones.Rows(e.RowIndex).Cells("estado").Value
 
         If estado = "PENDIENTE" Then
-            e.CellStyle.BackColor = Color.Yellow
+            e.CellStyle.BackColor = Color.LightYellow
         End If
 
     End Sub

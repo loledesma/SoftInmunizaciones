@@ -8,7 +8,6 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-
         sql = "SELECT R.descripcion as descripcion, R.fecha_evento,R.fecha, R.id, R.id_estado, E.NOMBRES from RECORDATORIOS R JOIN EMPLEADOS E ON R.id_administrador = E.id"
         sql &= " WHERE R.fecha_evento = '" & Date.Today & "'"
 
@@ -29,6 +28,7 @@
                     dgv_recordatorios.Rows(c).Cells("cmd_solucionado").Value = "NO APLICA"
                 End If
             Next
+           
             Me.Show()
             'Else
             'MessageBox.Show("No hay eventos para el día de hoy!", "Atención", MessageBoxButtons.OK)
@@ -37,7 +37,27 @@
 
     End Sub
 
+    Public Sub verificarAtencionesPendientesCaducadas()
+        Dim sql As String
+        Dim tabla As New DataTable
+        Sql = ""
+        sql = "SELECT A.id, A.descripcion as atencion, A.fecha, E.nombre as efector, AA.descripcion as asunto from atencion_soporte A JOIN efectores E on A.id_efector = E.cuie JOIN asunto_atenciones AA on AA.id = A.asunto WHERE A.id_estados_atencion = 2 and A.fecha < getdate()"
+        tabla.Clear()
+        tabla = acceso.consulta(Sql)
 
+        If tabla.Rows.Count() <> 0 Then
+            For c = 0 To tabla.Rows.Count() - 1
+                dgv_atencionescaducadas.Rows.Add()
+                dgv_atencionescaducadas.Rows(c).Cells("efector").Value = tabla.Rows(c)("efector")
+                dgv_atencionescaducadas.Rows(c).Cells("asunto").Value = tabla.Rows(c)("asunto")
+                dgv_atencionescaducadas.Rows(c).Cells("fecha").Value = tabla.Rows(c)("fecha")
+                dgv_atencionescaducadas.Rows(c).Cells("id_atencion").Value = tabla.Rows(c)("id")
+
+
+            Next
+            Me.Show()
+        End If
+    End Sub
     'VERIFICAR DIA SIGUIENTE
 
     Public Sub verificarMañana()
@@ -207,7 +227,40 @@
     Private Sub cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
         dgv_recordatorios.Rows.Clear()
         dgv_recordatoriosDiaSiguiente.Rows.Clear()
+        dgv_atencionescaducadas.Rows.Clear()
         verificar()
         verificarMañana()
+        verificarAtencionesPendientesCaducadas()
+    End Sub
+
+    Private Sub dgv_atencionescaducadas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_atencionescaducadas.CellContentClick
+        Dim dgv As DataGridView = CType(sender, DataGridView)
+
+        If dgv.Columns(e.ColumnIndex).Name = "cmd_modificar" Then
+            Dim tabla As New DataTable
+            Dim sql As String
+
+            sql = "select A.*, E.nombre from atencion_soporte A join efectores E on e.cuie = a.id_efector where id = " & Me.dgv_atencionescaducadas.CurrentRow.Cells("id_atencion").Value
+            tabla = acceso.consulta(sql)
+            If tabla.Rows.Count() <> 0 Then
+                dialogo_modificarAtencionCaducada.lbl_id_atencion.Text = tabla.Rows(0)("id")
+                dialogo_modificarAtencionCaducada.lbl_fecha_actual.Text = tabla.Rows(0)("fecha")
+                dialogo_modificarAtencionCaducada.lbl_efector.Text = tabla.Rows(0)("nombre")
+                dialogo_modificarAtencionCaducada.cmb_estado_atencion.cargar()
+                dialogo_modificarAtencionCaducada.cmb_estado_atencion.SelectedValue = tabla.Rows(0)("id_estados_atencion")
+                dialogo_modificarAtencionCaducada.txt_editarAtencion.Text = tabla.Rows(0)("descripcion")
+                dialogo_modificarAtencionCaducada.Show()
+            End If
+        End If
+        
+       
+    End Sub
+
+    Private Sub dgv_recordatoriosDiaSiguiente_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_recordatoriosDiaSiguiente.CellContentClick
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Registrar_atencion.Show()
     End Sub
 End Class

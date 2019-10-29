@@ -86,7 +86,7 @@ Partial Class listados_efector_loc_dpto
         Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_efector.Location = New System.Drawing.Point(134, 12)
         Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(583, 112)
+        Me.grp_datos_efector.Size = New System.Drawing.Size(788, 112)
         Me.grp_datos_efector.TabIndex = 3
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
@@ -164,7 +164,7 @@ Partial Class listados_efector_loc_dpto
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.listados_efector_loc_dpto.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(22, 130)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(983, 425)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1188, 582)
         Me.ReportViewer1.TabIndex = 4
         '
         'listados_efector_loc_dpto
@@ -174,7 +174,7 @@ Partial Class listados_efector_loc_dpto
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1017, 565)
+        Me.ClientSize = New System.Drawing.Size(1222, 722)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_efector)
         Me.Name = "listados_efector_loc_dpto"
