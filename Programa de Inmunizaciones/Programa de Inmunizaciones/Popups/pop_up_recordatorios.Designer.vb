@@ -43,8 +43,17 @@ Partial Class pop_up_recordatorios
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmd_refresh = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dgv_atencionescaducadas = New System.Windows.Forms.DataGridView()
+        Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.asunto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_modificar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.id_atencion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.dgv_recordatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_recordatoriosDiaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_atencionescaducadas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgv_recordatorios
@@ -66,11 +75,11 @@ Partial Class pop_up_recordatorios
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_recordatorios.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_recordatorios.GridColor = System.Drawing.SystemColors.ControlLightLight
-        Me.dgv_recordatorios.Location = New System.Drawing.Point(14, 55)
+        Me.dgv_recordatorios.Location = New System.Drawing.Point(10, 42)
         Me.dgv_recordatorios.Name = "dgv_recordatorios"
         Me.dgv_recordatorios.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dgv_recordatorios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.dgv_recordatorios.Size = New System.Drawing.Size(959, 204)
+        Me.dgv_recordatorios.Size = New System.Drawing.Size(959, 147)
         Me.dgv_recordatorios.StandardTab = True
         Me.dgv_recordatorios.TabIndex = 2
         '
@@ -129,8 +138,8 @@ Partial Class pop_up_recordatorios
         Me.cmd_recordatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_recordatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_recordatorios.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
-        Me.cmd_recordatorios.Location = New System.Drawing.Point(902, 435)
-        Me.cmd_recordatorios.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_recordatorios.Location = New System.Drawing.Point(903, 518)
+        Me.cmd_recordatorios.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_recordatorios.Name = "cmd_recordatorios"
         Me.cmd_recordatorios.Size = New System.Drawing.Size(66, 66)
         Me.cmd_recordatorios.TabIndex = 61
@@ -157,7 +166,7 @@ Partial Class pop_up_recordatorios
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_recordatoriosDiaSiguiente.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_recordatoriosDiaSiguiente.GridColor = System.Drawing.SystemColors.ControlLightLight
-        Me.dgv_recordatoriosDiaSiguiente.Location = New System.Drawing.Point(10, 301)
+        Me.dgv_recordatoriosDiaSiguiente.Location = New System.Drawing.Point(10, 213)
         Me.dgv_recordatoriosDiaSiguiente.Name = "dgv_recordatoriosDiaSiguiente"
         Me.dgv_recordatoriosDiaSiguiente.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dgv_recordatoriosDiaSiguiente.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
@@ -215,7 +224,7 @@ Partial Class pop_up_recordatorios
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
         Me.lbl1.Font = New System.Drawing.Font("Verdana", 12.0!)
         Me.lbl1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbl1.Location = New System.Drawing.Point(14, 277)
+        Me.lbl1.Location = New System.Drawing.Point(14, 192)
         Me.lbl1.Name = "lbl1"
         Me.lbl1.Size = New System.Drawing.Size(215, 18)
         Me.lbl1.TabIndex = 63
@@ -244,8 +253,8 @@ Partial Class pop_up_recordatorios
         Me.cmd_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_refresh.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
-        Me.cmd_refresh.Location = New System.Drawing.Point(826, 435)
-        Me.cmd_refresh.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.cmd_refresh.Location = New System.Drawing.Point(827, 518)
+        Me.cmd_refresh.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_refresh.Name = "cmd_refresh"
         Me.cmd_refresh.Size = New System.Drawing.Size(66, 66)
         Me.cmd_refresh.TabIndex = 65
@@ -253,12 +262,93 @@ Partial Class pop_up_recordatorios
         Me.cmd_refresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_refresh.UseVisualStyleBackColor = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 12.0!)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label2.Location = New System.Drawing.Point(14, 353)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(286, 18)
+        Me.Label2.TabIndex = 66
+        Me.Label2.Text = "Atenciones pendientes caducadas"
+        '
+        'dgv_atencionescaducadas
+        '
+        Me.dgv_atencionescaducadas.AllowUserToAddRows = False
+        Me.dgv_atencionescaducadas.AllowUserToDeleteRows = False
+        Me.dgv_atencionescaducadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_atencionescaducadas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.efector, Me.asunto, Me.fecha, Me.cmd_modificar, Me.id_atencion})
+        Me.dgv_atencionescaducadas.Location = New System.Drawing.Point(10, 374)
+        Me.dgv_atencionescaducadas.Name = "dgv_atencionescaducadas"
+        Me.dgv_atencionescaducadas.ReadOnly = True
+        Me.dgv_atencionescaducadas.Size = New System.Drawing.Size(959, 136)
+        Me.dgv_atencionescaducadas.TabIndex = 67
+        '
+        'efector
+        '
+        Me.efector.HeaderText = "Centro de Salud"
+        Me.efector.Name = "efector"
+        Me.efector.ReadOnly = True
+        Me.efector.Width = 300
+        '
+        'asunto
+        '
+        Me.asunto.HeaderText = "Asunto"
+        Me.asunto.Name = "asunto"
+        Me.asunto.ReadOnly = True
+        Me.asunto.Width = 300
+        '
+        'fecha
+        '
+        Me.fecha.HeaderText = "Fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        '
+        'cmd_modificar
+        '
+        Me.cmd_modificar.HeaderText = "Modificar"
+        Me.cmd_modificar.Name = "cmd_modificar"
+        Me.cmd_modificar.ReadOnly = True
+        Me.cmd_modificar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'id_atencion
+        '
+        Me.id_atencion.HeaderText = "id_atencion"
+        Me.id_atencion.Name = "id_atencion"
+        Me.id_atencion.ReadOnly = True
+        Me.id_atencion.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
+        Me.Button2.Location = New System.Drawing.Point(746, 524)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(5)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(71, 60)
+        Me.Button2.TabIndex = 68
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'pop_up_recordatorios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(983, 511)
+        Me.ClientSize = New System.Drawing.Size(983, 591)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.dgv_atencionescaducadas)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmd_refresh)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl1)
@@ -270,6 +360,7 @@ Partial Class pop_up_recordatorios
         Me.Text = "Recordatorios del día"
         CType(Me.dgv_recordatorios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv_recordatoriosDiaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_atencionescaducadas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -292,4 +383,12 @@ Partial Class pop_up_recordatorios
     Friend WithEvents cmd_editarMañana As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmd_refresh As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents dgv_atencionescaducadas As System.Windows.Forms.DataGridView
+    Friend WithEvents efector As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents asunto As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmd_modificar As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents id_atencion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

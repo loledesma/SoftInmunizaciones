@@ -65,7 +65,7 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efector.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre='" & txt_efector.Text & "'"
+                sql &= " WHERE E.nombre LIKE '%" & txt_efector.Text & "%'"
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
@@ -170,7 +170,7 @@
                 sql = ""
                 sql &= "SELECT EMP.id as id, EMP.usuario_sigipsa as usuario_sigipsa"
                 sql &= " FROM EMPLEADOS EMP JOIN EMPLEADOSXEFECTOR EXE ON EMP.id = EXE.id_empleados "
-                sql &= " WHERE EMP.nombres='" & Me.txt_empleado_nombre.Text & "' AND EMP.apellidos= '" & Me.txt_empleado_apellido.Text & "'"
+                sql &= " WHERE EMP.nombres LIKE '%" & Me.txt_empleado_nombre.Text & "%' AND EMP.apellidos LIKE'%" & Me.txt_empleado_apellido.Text & "%'"
                 sql &= " AND EXE.id_efector='" & Me.txt_cuie.Text & "'"
 
                 tabla = acceso.consulta(sql)
@@ -181,7 +181,7 @@
                         Exit Sub
                     End If
                 Else
-                    MessageBox.Show("Empleado encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("Empleado encontrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
                 End If
             End If

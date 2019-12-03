@@ -21,12 +21,12 @@
     Dim condicion_click As doble_Click = doble_Click.desactivado
 
     Private Sub abm_empleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.cargar_grilla()
+        'Me.cargar_grilla()
         acceso.autocompletar(txt_apellido, "EMPLEADOS", "apellidos")
         acceso.autocompletar(txt_nro_documento, "EMPLEADOS", "nro_doc")
-        acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
+        'acceso.autocompletar(txt_usuario, "EMPLEADOS", "usuario_sigipsa")
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
-        acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
+        'acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
         tip()
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
@@ -116,7 +116,7 @@
         Me.txt_id_empleado.Focus()
         txt_cuie.Enabled = True
         txt_nombre.Enabled = True
-        cargar_grilla()
+        'cargar_grilla()
         Me.condicion_click = doble_Click.desactivado
         Me.cmb_departamentos.cargar()
         Me.cmb_departamentos.SelectedIndex = -1
@@ -562,7 +562,25 @@
         sql &= " , nombres= '" & Me.txt_nombre.Text & "'"
         sql &= " , apellidos= '" & Me.txt_apellido.Text & "'"
         ' sql &= " , caracteristica= " & Me.txt_caracteristica.Text
-
+        If cmb_tieneCurso.SelectedItem <> "" Then
+            If Me.cmb_tieneCurso.SelectedItem = "SI" Then
+                If txt_añoCurso.Text <> "" Then
+                    sql &= ", tiene_curso = 'SI', año_curso = " & Me.txt_añoCurso.Text
+                Else
+                    MessageBox.Show("Debe ingresar un año de realización! Si no lo sabe, ingrese 0", "Error!", MessageBoxButtons.OK)
+                    Me.txt_añoCurso.Focus()
+                    Exit Sub
+                End If
+            ElseIf cmb_tieneCurso.SelectedItem = "NO" Then
+                sql &= ", tiene_curso = 'NO' , año_curso = 0"
+            ElseIf cmb_tieneCurso.SelectedItem = "DESCONOCIDO" Then
+                sql &= ", tiene_curso = 'DESCONOCIDO', año_curso = 0"
+            End If
+        Else
+            MessageBox.Show("Debe informar si el empleado tiene curso o no", "Atencion!", MessageBoxButtons.OK)
+            cmb_tieneCurso.Focus()
+            Exit Sub
+        End If
         If txt_telefono.Text <> "" Then
             sql &= ", telefono = " & Me.txt_telefono.Text
             sql &= ", caracteristica = " & Me.txt_caracteristica.Text
@@ -628,6 +646,11 @@
         sql &= ", nombres=" & Me.txt_nombre.Text
         sql &= ", apellidos=" & Me.txt_apellido.Text
 
+        If Me.cmb_tieneCurso.SelectedValue = 1 Then
+            If txt_añoCurso.Text <> "" Then
+                sql &= ", tiene_curso = SI, año_curso = " & Me.txt_añoCurso.Text
+            End If
+        End If
         If txt_telefono.Text <> "" Then
             sql &= ", telefono = " & Me.txt_telefono.Text
             sql &= ", caracteristica = " & Me.txt_caracteristica.Text
@@ -836,7 +859,7 @@
         Me.cmb_tipo_doc.SelectedValue = 1
         txt_nro_documento.Focus()
         Me.cmd_eliminar_efector.Enabled = True
-        cargar_grilla()
+        'cargar_grilla()
     End Sub
 
 
@@ -869,6 +892,16 @@
         Me.txt_nro_documento.Text = tabla.Rows(0)("nro_doc")
         Me.txt_nombre.Text = tabla.Rows(0)("nombres")
         Me.txt_apellido.Text = tabla.Rows(0)("apellidos")
+        If IsDBNull(tabla.Rows(0)("año_curso")) Then
+            Me.txt_añoCurso.Text = ""
+        Else
+            Me.txt_añoCurso.Text = tabla.Rows(0)("año_curso")
+        End If
+        If IsDBNull(tabla.Rows(0)("tiene_curso")) Then
+            Me.cmb_tieneCurso.SelectedIndex = -1
+        Else
+            Me.cmb_tieneCurso.SelectedItem = tabla.Rows(0)("tiene_curso")
+        End If
 
         If IsDBNull(tabla.Rows(0)("fecha_nac")) Then
             Me.txt_fecha_nac.Text = ""
@@ -1243,38 +1276,39 @@
     Private Sub txt_efectores_LostFocus(sender As Object, e As EventArgs) Handles txt_efectores.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
-        If Me.condicion_click = doble_Click.desactivado Then
-            If txt_efectores.Text <> "" Then
-                sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad "
-                sql &= " FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
-                sql &= " WHERE E.nombre LIKE '%" & txt_efectores.Text & "'"
-                tabla = acceso.consulta(sql)
-                If tabla.Rows.Count() <> 0 Then
-                    txt_cuie.Text = tabla.Rows(0)("cuie")
-                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
-                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+        'If Me.condicion_click = doble_Click.desactivado Then
+        If txt_efectores.Text <> "" Then
+            sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad "
+            sql &= " FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
+            sql &= " WHERE E.nombre LIKE '%" & txt_efectores.Text & "'"
+            tabla = acceso.consulta(sql)
+            If tabla.Rows.Count() <> 0 Then
+                txt_cuie.Text = tabla.Rows(0)("cuie")
+                cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
 
-                End If
             End If
         End If
+        'End If
     End Sub
 
     Private Sub txt_cuie_LostFocus(sender As Object, e As EventArgs) Handles txt_cuie.LostFocus
         Dim tabla As New DataTable
         Dim sql As String = ""
-        If Me.condicion_click = doble_Click.desactivado Then
-            If txt_cuie.Text <> "" Then
-                sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
-                sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
-                tabla = acceso.consulta(sql)
-                If tabla.Rows.Count() <> 0 Then
-                    txt_efectores.Text = tabla.Rows(0)("nombre")
-                    cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
-                    cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+        ' If Me.condicion_click = doble_Click.desactivado Then
+        If txt_cuie.Text <> "" Then
+            sql &= "SELECT E.nombre as nombre, D.id as id_dpto, L.id as id_localidad FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
+            sql &= " WHERE E.cuie='" & txt_cuie.Text & "'"
+            tabla = acceso.consulta(sql)
+            If tabla.Rows.Count() <> 0 Then
+                txt_efectores.Text = tabla.Rows(0)("nombre")
+                cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
 
-                End If
             End If
+
         End If
+        'End If
     End Sub
     Private Sub cmd_eliminar_efector_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_efector.Click
         Dim num As Integer = dgv_efectores.CurrentRow.Index
@@ -1351,5 +1385,29 @@
         Else
             Exit Sub
         End If
+    End Sub
+
+ 
+    Private Sub dgv_empleados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_empleados.CellContentClick
+
+    End Sub
+
+    Private Sub txt_efectores_Leave(sender As Object, e As EventArgs) Handles txt_efectores.Leave
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        'If Me.condicion_click = doble_Click.desactivado Then
+        If txt_efectores.Text <> "" Then
+            sql &= "SELECT E.cuie as cuie, D.id as id_dpto, L.id as id_localidad "
+            sql &= " FROM EFECTORES E JOIN DEPARTAMENTOS D ON D.id = E.id_departamento join LOCALIDADES L ON L.id = E.id_localidad "
+            sql &= " WHERE E.nombre LIKE '%" & txt_efectores.Text & "%'"
+            tabla = acceso.consulta(sql)
+            If tabla.Rows.Count() <> 0 Then
+                txt_cuie.Text = tabla.Rows(0)("cuie")
+                cmb_departamentos.SelectedValue = tabla.Rows(0)("id_dpto")
+                cmb_localidades.SelectedValue = tabla.Rows(0)("id_localidad")
+
+            End If
+        End If
+        'End If
     End Sub
 End Class

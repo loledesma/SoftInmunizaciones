@@ -25,12 +25,15 @@ Partial Class abm_empleados
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abm_empleados))
         Me.grp_datos_personales = New System.Windows.Forms.GroupBox()
+        Me.cmb_tieneCurso = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txt_añoCurso = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_fecha_nac = New System.Windows.Forms.MaskedTextBox()
         Me.txt_nro_documento = New System.Windows.Forms.TextBox()
         Me.cmd_buscar_x_documento = New System.Windows.Forms.Button()
         Me.cmd_buscar_x_apellido = New System.Windows.Forms.Button()
-        Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt_telefono = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -55,28 +58,23 @@ Partial Class abm_empleados
         Me.txt_cuie = New System.Windows.Forms.TextBox()
         Me.lbl_cuie = New System.Windows.Forms.Label()
         Me.txt_efectores = New System.Windows.Forms.TextBox()
-        Me.cmb_estado_empleado = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmd_limpiar_laboral = New System.Windows.Forms.Button()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.cmd_efector_nuevo = New System.Windows.Forms.Button()
         Me.cmd_eliminar_efector = New System.Windows.Forms.Button()
         Me.cmd_agregar_efector = New System.Windows.Forms.Button()
-        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_perfil = New System.Windows.Forms.Label()
-        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_cargo = New System.Windows.Forms.Label()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_vacunatorio = New System.Windows.Forms.Label()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
         Me.id_empleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_efectores = New System.Windows.Forms.DataGridView()
         Me.cuie = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -95,13 +93,19 @@ Partial Class abm_empleados
         Me.grp_datos_sigipsa = New System.Windows.Forms.GroupBox()
         Me.cmd_buscar_x_usuario = New System.Windows.Forms.Button()
         Me.cmd_cambiar_estado = New System.Windows.Forms.Button()
-        Me.cmb_estados = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_estado = New System.Windows.Forms.Label()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.tltp_empleados = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl_contador_empleados = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmb_estado_empleado = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_perfil = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_cargo = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estados = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_tipo_doc = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_personales.SuspendLayout()
         Me.grp_datos_laborales.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,6 +116,10 @@ Partial Class abm_empleados
         'grp_datos_personales
         '
         Me.grp_datos_personales.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_personales.Controls.Add(Me.cmb_tieneCurso)
+        Me.grp_datos_personales.Controls.Add(Me.Label8)
+        Me.grp_datos_personales.Controls.Add(Me.txt_añoCurso)
+        Me.grp_datos_personales.Controls.Add(Me.Label7)
         Me.grp_datos_personales.Controls.Add(Me.Label6)
         Me.grp_datos_personales.Controls.Add(Me.txt_fecha_nac)
         Me.grp_datos_personales.Controls.Add(Me.txt_nro_documento)
@@ -135,10 +143,46 @@ Partial Class abm_empleados
         Me.grp_datos_personales.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_personales.Location = New System.Drawing.Point(11, 11)
         Me.grp_datos_personales.Name = "grp_datos_personales"
-        Me.grp_datos_personales.Size = New System.Drawing.Size(443, 181)
+        Me.grp_datos_personales.Size = New System.Drawing.Size(494, 214)
         Me.grp_datos_personales.TabIndex = 0
         Me.grp_datos_personales.TabStop = False
         Me.grp_datos_personales.Text = "Datos Personales"
+        '
+        'cmb_tieneCurso
+        '
+        Me.cmb_tieneCurso.FormattingEnabled = True
+        Me.cmb_tieneCurso.Items.AddRange(New Object() {"SI", "NO", "DESCONOCIDO"})
+        Me.cmb_tieneCurso.Location = New System.Drawing.Point(168, 177)
+        Me.cmb_tieneCurso.Name = "cmb_tieneCurso"
+        Me.cmb_tieneCurso.Size = New System.Drawing.Size(99, 21)
+        Me.cmb_tieneCurso.TabIndex = 32
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(268, 180)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(26, 13)
+        Me.Label8.TabIndex = 31
+        Me.Label8.Text = "Año"
+        '
+        'txt_añoCurso
+        '
+        Me.txt_añoCurso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txt_añoCurso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txt_añoCurso.Location = New System.Drawing.Point(295, 177)
+        Me.txt_añoCurso.Name = "txt_añoCurso"
+        Me.txt_añoCurso.Size = New System.Drawing.Size(84, 20)
+        Me.txt_añoCurso.TabIndex = 30
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(4, 180)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(149, 13)
+        Me.Label7.TabIndex = 28
+        Me.Label7.Text = "¿Tiene curso de vacunación?"
         '
         'Label6
         '
@@ -151,10 +195,10 @@ Partial Class abm_empleados
         '
         'txt_fecha_nac
         '
-        Me.txt_fecha_nac.Location = New System.Drawing.Point(124, 131)
+        Me.txt_fecha_nac.Location = New System.Drawing.Point(170, 131)
         Me.txt_fecha_nac.Mask = "00/00/0000"
         Me.txt_fecha_nac.Name = "txt_fecha_nac"
-        Me.txt_fecha_nac.Size = New System.Drawing.Size(135, 20)
+        Me.txt_fecha_nac.Size = New System.Drawing.Size(171, 20)
         Me.txt_fecha_nac.TabIndex = 5
         Me.txt_fecha_nac.ValidatingType = GetType(Date)
         '
@@ -162,9 +206,9 @@ Partial Class abm_empleados
         '
         Me.txt_nro_documento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txt_nro_documento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_nro_documento.Location = New System.Drawing.Point(263, 50)
+        Me.txt_nro_documento.Location = New System.Drawing.Point(327, 50)
         Me.txt_nro_documento.Name = "txt_nro_documento"
-        Me.txt_nro_documento.Size = New System.Drawing.Size(170, 20)
+        Me.txt_nro_documento.Size = New System.Drawing.Size(135, 20)
         Me.txt_nro_documento.TabIndex = 2
         '
         'cmd_buscar_x_documento
@@ -173,7 +217,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_documento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_x_documento.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_x_documento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_x_documento.Location = New System.Drawing.Point(408, 19)
+        Me.cmd_buscar_x_documento.Location = New System.Drawing.Point(463, 46)
         Me.cmd_buscar_x_documento.Name = "cmd_buscar_x_documento"
         Me.cmd_buscar_x_documento.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_x_documento.TabIndex = 1
@@ -185,27 +229,16 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_apellido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_x_apellido.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_x_apellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_x_apellido.Location = New System.Drawing.Point(386, 102)
+        Me.cmd_buscar_x_apellido.Location = New System.Drawing.Point(463, 102)
         Me.cmd_buscar_x_apellido.Name = "cmd_buscar_x_apellido"
         Me.cmd_buscar_x_apellido.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_x_apellido.TabIndex = 6
         Me.cmd_buscar_x_apellido.UseVisualStyleBackColor = True
         '
-        'cmb_tipo_doc
-        '
-        Me.cmb_tipo_doc._descripcion = "descripcion"
-        Me.cmb_tipo_doc._nombre_tabla = "TIPOS_DOCUMENTO"
-        Me.cmb_tipo_doc._pk = "id"
-        Me.cmb_tipo_doc.FormattingEnabled = True
-        Me.cmb_tipo_doc.Location = New System.Drawing.Point(124, 49)
-        Me.cmb_tipo_doc.Name = "cmb_tipo_doc"
-        Me.cmb_tipo_doc.Size = New System.Drawing.Size(80, 21)
-        Me.cmb_tipo_doc.TabIndex = 1
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(226, 157)
+        Me.Label4.Location = New System.Drawing.Point(272, 158)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(13, 13)
         Me.Label4.TabIndex = 25
@@ -213,16 +246,16 @@ Partial Class abm_empleados
         '
         'txt_telefono
         '
-        Me.txt_telefono.Location = New System.Drawing.Point(245, 154)
+        Me.txt_telefono.Location = New System.Drawing.Point(295, 154)
         Me.txt_telefono.Mask = "999999999"
         Me.txt_telefono.Name = "txt_telefono"
-        Me.txt_telefono.Size = New System.Drawing.Size(135, 20)
+        Me.txt_telefono.Size = New System.Drawing.Size(171, 20)
         Me.txt_telefono.TabIndex = 7
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(210, 157)
+        Me.Label3.Location = New System.Drawing.Point(292, 157)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(10, 13)
         Me.Label3.TabIndex = 23
@@ -230,16 +263,16 @@ Partial Class abm_empleados
         '
         'txt_caracteristica
         '
-        Me.txt_caracteristica.Location = New System.Drawing.Point(137, 154)
+        Me.txt_caracteristica.Location = New System.Drawing.Point(170, 154)
         Me.txt_caracteristica.Mask = "9999999"
         Me.txt_caracteristica.Name = "txt_caracteristica"
-        Me.txt_caracteristica.Size = New System.Drawing.Size(67, 20)
+        Me.txt_caracteristica.Size = New System.Drawing.Size(97, 20)
         Me.txt_caracteristica.TabIndex = 6
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(121, 158)
+        Me.Label2.Location = New System.Drawing.Point(190, 158)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(10, 13)
         Me.Label2.TabIndex = 21
@@ -258,9 +291,9 @@ Partial Class abm_empleados
         '
         Me.txt_apellido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txt_apellido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_apellido.Location = New System.Drawing.Point(124, 105)
+        Me.txt_apellido.Location = New System.Drawing.Point(170, 105)
         Me.txt_apellido.Name = "txt_apellido"
-        Me.txt_apellido.Size = New System.Drawing.Size(256, 20)
+        Me.txt_apellido.Size = New System.Drawing.Size(292, 20)
         Me.txt_apellido.TabIndex = 4
         '
         'lbl_apellido
@@ -283,15 +316,15 @@ Partial Class abm_empleados
         '
         'txt_nombre
         '
-        Me.txt_nombre.Location = New System.Drawing.Point(124, 79)
+        Me.txt_nombre.Location = New System.Drawing.Point(170, 79)
         Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(256, 20)
+        Me.txt_nombre.Size = New System.Drawing.Size(292, 20)
         Me.txt_nombre.TabIndex = 3
         '
         'lbl_documento
         '
         Me.lbl_documento.AutoSize = True
-        Me.lbl_documento.Location = New System.Drawing.Point(211, 53)
+        Me.lbl_documento.Location = New System.Drawing.Point(274, 53)
         Me.lbl_documento.Name = "lbl_documento"
         Me.lbl_documento.Size = New System.Drawing.Size(47, 13)
         Me.lbl_documento.TabIndex = 5
@@ -299,9 +332,9 @@ Partial Class abm_empleados
         '
         'txt_id_empleado
         '
-        Me.txt_id_empleado.Location = New System.Drawing.Point(124, 22)
+        Me.txt_id_empleado.Location = New System.Drawing.Point(170, 22)
         Me.txt_id_empleado.Name = "txt_id_empleado"
-        Me.txt_id_empleado.Size = New System.Drawing.Size(136, 20)
+        Me.txt_id_empleado.Size = New System.Drawing.Size(53, 20)
         Me.txt_id_empleado.TabIndex = 0
         '
         'lbl_descripcion
@@ -329,7 +362,7 @@ Partial Class abm_empleados
         Me.cmd_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(1019, 581)
+        Me.cmd_salir.Location = New System.Drawing.Point(1033, 665)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(60, 60)
         Me.cmd_salir.TabIndex = 3
@@ -345,7 +378,7 @@ Partial Class abm_empleados
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar.Location = New System.Drawing.Point(149, 578)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(163, 662)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(60, 60)
@@ -364,7 +397,7 @@ Partial Class abm_empleados
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_guardar.Location = New System.Drawing.Point(81, 578)
+        Me.cmd_guardar.Location = New System.Drawing.Point(95, 662)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(60, 60)
@@ -383,7 +416,7 @@ Partial Class abm_empleados
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.Location = New System.Drawing.Point(13, 578)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(27, 662)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(60, 60)
@@ -416,9 +449,9 @@ Partial Class abm_empleados
         Me.grp_datos_laborales.Controls.Add(Me.lbl_localidad)
         Me.grp_datos_laborales.Controls.Add(Me.lbl_departamento)
         Me.grp_datos_laborales.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_laborales.Location = New System.Drawing.Point(12, 317)
+        Me.grp_datos_laborales.Location = New System.Drawing.Point(11, 362)
         Me.grp_datos_laborales.Name = "grp_datos_laborales"
-        Me.grp_datos_laborales.Size = New System.Drawing.Size(443, 232)
+        Me.grp_datos_laborales.Size = New System.Drawing.Size(491, 232)
         Me.grp_datos_laborales.TabIndex = 2
         Me.grp_datos_laborales.TabStop = False
         Me.grp_datos_laborales.Text = "Datos Laborales"
@@ -427,7 +460,7 @@ Partial Class abm_empleados
         '
         Me.txt_año_curso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_año_curso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_año_curso.Location = New System.Drawing.Point(347, 159)
+        Me.txt_año_curso.Location = New System.Drawing.Point(393, 159)
         Me.txt_año_curso.Name = "txt_año_curso"
         Me.txt_año_curso.Size = New System.Drawing.Size(87, 20)
         Me.txt_año_curso.TabIndex = 6
@@ -435,7 +468,7 @@ Partial Class abm_empleados
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(269, 162)
+        Me.Label5.Location = New System.Drawing.Point(315, 162)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(73, 13)
         Me.Label5.TabIndex = 50
@@ -445,7 +478,7 @@ Partial Class abm_empleados
         '
         Me.txt_cuie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_cuie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_cuie.Location = New System.Drawing.Point(122, 103)
+        Me.txt_cuie.Location = New System.Drawing.Point(168, 103)
         Me.txt_cuie.Name = "txt_cuie"
         Me.txt_cuie.Size = New System.Drawing.Size(184, 20)
         Me.txt_cuie.TabIndex = 3
@@ -463,21 +496,10 @@ Partial Class abm_empleados
         '
         Me.txt_efectores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_efectores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_efectores.Location = New System.Drawing.Point(122, 75)
+        Me.txt_efectores.Location = New System.Drawing.Point(168, 75)
         Me.txt_efectores.Name = "txt_efectores"
         Me.txt_efectores.Size = New System.Drawing.Size(282, 20)
         Me.txt_efectores.TabIndex = 2
-        '
-        'cmb_estado_empleado
-        '
-        Me.cmb_estado_empleado._descripcion = "descripcion"
-        Me.cmb_estado_empleado._nombre_tabla = "ESTADOS_EMPLEADOS"
-        Me.cmb_estado_empleado._pk = "id"
-        Me.cmb_estado_empleado.FormattingEnabled = True
-        Me.cmb_estado_empleado.Location = New System.Drawing.Point(124, 156)
-        Me.cmb_estado_empleado.Name = "cmb_estado_empleado"
-        Me.cmb_estado_empleado.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estado_empleado.TabIndex = 5
         '
         'Label1
         '
@@ -498,7 +520,7 @@ Partial Class abm_empleados
         Me.cmd_limpiar_laboral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_limpiar_laboral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar_laboral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar_laboral.Location = New System.Drawing.Point(346, 200)
+        Me.cmd_limpiar_laboral.Location = New System.Drawing.Point(392, 200)
         Me.cmd_limpiar_laboral.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_limpiar_laboral.Name = "cmd_limpiar_laboral"
         Me.cmd_limpiar_laboral.Size = New System.Drawing.Size(25, 25)
@@ -506,17 +528,6 @@ Partial Class abm_empleados
         Me.cmd_limpiar_laboral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar_laboral.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar_laboral.UseVisualStyleBackColor = False
-        '
-        'cmb_departamentos
-        '
-        Me.cmb_departamentos._descripcion = "descripcion"
-        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamentos._pk = "id"
-        Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
-        Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
-        Me.cmb_departamentos.TabIndex = 0
         '
         'cmd_efector_nuevo
         '
@@ -528,7 +539,7 @@ Partial Class abm_empleados
         Me.cmd_efector_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_efector_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_efector_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(411, 71)
+        Me.cmd_efector_nuevo.Location = New System.Drawing.Point(457, 71)
         Me.cmd_efector_nuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_efector_nuevo.Name = "cmd_efector_nuevo"
         Me.cmd_efector_nuevo.Size = New System.Drawing.Size(25, 25)
@@ -547,7 +558,7 @@ Partial Class abm_empleados
         Me.cmd_eliminar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_eliminar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_eliminar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar_efector.Location = New System.Drawing.Point(411, 200)
+        Me.cmd_eliminar_efector.Location = New System.Drawing.Point(457, 200)
         Me.cmd_eliminar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_eliminar_efector.Name = "cmd_eliminar_efector"
         Me.cmd_eliminar_efector.Size = New System.Drawing.Size(25, 25)
@@ -566,7 +577,7 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_agregar_efector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_agregar_efector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_agregar_efector.Location = New System.Drawing.Point(378, 200)
+        Me.cmd_agregar_efector.Location = New System.Drawing.Point(424, 200)
         Me.cmd_agregar_efector.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_agregar_efector.Name = "cmd_agregar_efector"
         Me.cmd_agregar_efector.Size = New System.Drawing.Size(25, 25)
@@ -574,17 +585,6 @@ Partial Class abm_empleados
         Me.cmd_agregar_efector.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_efector.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_efector.UseVisualStyleBackColor = False
-        '
-        'cmb_perfil
-        '
-        Me.cmb_perfil._descripcion = "descripcion"
-        Me.cmb_perfil._nombre_tabla = "PERFILES_SIGIPSA"
-        Me.cmb_perfil._pk = "id"
-        Me.cmb_perfil.FormattingEnabled = True
-        Me.cmb_perfil.Location = New System.Drawing.Point(124, 183)
-        Me.cmb_perfil.Name = "cmb_perfil"
-        Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_perfil.TabIndex = 7
         '
         'lbl_perfil
         '
@@ -595,17 +595,6 @@ Partial Class abm_empleados
         Me.lbl_perfil.TabIndex = 37
         Me.lbl_perfil.Text = "Perfil"
         '
-        'cmb_cargo
-        '
-        Me.cmb_cargo._descripcion = "descripcion"
-        Me.cmb_cargo._nombre_tabla = "CARGO"
-        Me.cmb_cargo._pk = "id"
-        Me.cmb_cargo.FormattingEnabled = True
-        Me.cmb_cargo.Location = New System.Drawing.Point(122, 129)
-        Me.cmb_cargo.Name = "cmb_cargo"
-        Me.cmb_cargo.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_cargo.TabIndex = 4
-        '
         'lbl_cargo
         '
         Me.lbl_cargo.AutoSize = True
@@ -614,17 +603,6 @@ Partial Class abm_empleados
         Me.lbl_cargo.Size = New System.Drawing.Size(35, 13)
         Me.lbl_cargo.TabIndex = 35
         Me.lbl_cargo.Text = "Cargo"
-        '
-        'cmb_localidades
-        '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
-        Me.cmb_localidades.TabIndex = 1
         '
         'lbl_vacunatorio
         '
@@ -658,11 +636,11 @@ Partial Class abm_empleados
         Me.dgv_empleados.AllowUserToAddRows = False
         Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_empleado, Me.nombres, Me.apellidos, Me.id_tipo_doc, Me.tipo_doc, Me.nro_doc})
-        Me.dgv_empleados.Location = New System.Drawing.Point(461, 16)
+        Me.dgv_empleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_empleado, Me.tipo_doc, Me.nro_doc, Me.nombres, Me.apellidos, Me.id_tipo_doc})
+        Me.dgv_empleados.Location = New System.Drawing.Point(511, 16)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
-        Me.dgv_empleados.Size = New System.Drawing.Size(615, 262)
+        Me.dgv_empleados.Size = New System.Drawing.Size(605, 262)
         Me.dgv_empleados.TabIndex = 9
         '
         'id_empleado
@@ -670,7 +648,21 @@ Partial Class abm_empleados
         Me.id_empleado.HeaderText = "id"
         Me.id_empleado.Name = "id_empleado"
         Me.id_empleado.ReadOnly = True
+        Me.id_empleado.Visible = False
         Me.id_empleado.Width = 80
+        '
+        'tipo_doc
+        '
+        Me.tipo_doc.HeaderText = "Tipo Doc"
+        Me.tipo_doc.Name = "tipo_doc"
+        Me.tipo_doc.ReadOnly = True
+        '
+        'nro_doc
+        '
+        Me.nro_doc.HeaderText = "Nro Documento"
+        Me.nro_doc.Name = "nro_doc"
+        Me.nro_doc.ReadOnly = True
+        Me.nro_doc.Width = 150
         '
         'nombres
         '
@@ -694,29 +686,16 @@ Partial Class abm_empleados
         Me.id_tipo_doc.Visible = False
         Me.id_tipo_doc.Width = 50
         '
-        'tipo_doc
-        '
-        Me.tipo_doc.HeaderText = "Tipo Doc"
-        Me.tipo_doc.Name = "tipo_doc"
-        Me.tipo_doc.ReadOnly = True
-        '
-        'nro_doc
-        '
-        Me.nro_doc.HeaderText = "Nro Documento"
-        Me.nro_doc.Name = "nro_doc"
-        Me.nro_doc.ReadOnly = True
-        Me.nro_doc.Width = 150
-        '
         'dgv_efectores
         '
         Me.dgv_efectores.AllowUserToAddRows = False
         Me.dgv_efectores.AllowUserToDeleteRows = False
         Me.dgv_efectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_efectores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cuie, Me.nombre_efector, Me.cargo, Me.perfil, Me.estado_empleado, Me.año_curso, Me.id_cargo, Me.id_perfil, Me.id_estado})
-        Me.dgv_efectores.Location = New System.Drawing.Point(461, 324)
+        Me.dgv_efectores.Location = New System.Drawing.Point(511, 362)
         Me.dgv_efectores.Name = "dgv_efectores"
         Me.dgv_efectores.ReadOnly = True
-        Me.dgv_efectores.Size = New System.Drawing.Size(618, 225)
+        Me.dgv_efectores.Size = New System.Drawing.Size(605, 225)
         Me.dgv_efectores.TabIndex = 10
         '
         'cuie
@@ -757,6 +736,7 @@ Partial Class abm_empleados
         Me.año_curso.HeaderText = "Año Curso"
         Me.año_curso.Name = "año_curso"
         Me.año_curso.ReadOnly = True
+        Me.año_curso.Visible = False
         '
         'id_cargo
         '
@@ -790,7 +770,7 @@ Partial Class abm_empleados
         '
         'txt_email
         '
-        Me.txt_email.Location = New System.Drawing.Point(126, 19)
+        Me.txt_email.Location = New System.Drawing.Point(169, 21)
         Me.txt_email.Name = "txt_email"
         Me.txt_email.Size = New System.Drawing.Size(257, 20)
         Me.txt_email.TabIndex = 0
@@ -815,7 +795,7 @@ Partial Class abm_empleados
         '
         'txt_fecha
         '
-        Me.txt_fecha.Location = New System.Drawing.Point(125, 68)
+        Me.txt_fecha.Location = New System.Drawing.Point(169, 65)
         Me.txt_fecha.Mask = "00/00/0000"
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(97, 20)
@@ -836,9 +816,9 @@ Partial Class abm_empleados
         Me.grp_datos_sigipsa.Controls.Add(Me.txt_email)
         Me.grp_datos_sigipsa.Controls.Add(Me.lbl_mail)
         Me.grp_datos_sigipsa.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_sigipsa.Location = New System.Drawing.Point(12, 191)
+        Me.grp_datos_sigipsa.Location = New System.Drawing.Point(12, 231)
         Me.grp_datos_sigipsa.Name = "grp_datos_sigipsa"
-        Me.grp_datos_sigipsa.Size = New System.Drawing.Size(443, 125)
+        Me.grp_datos_sigipsa.Size = New System.Drawing.Size(490, 125)
         Me.grp_datos_sigipsa.TabIndex = 1
         Me.grp_datos_sigipsa.TabStop = False
         Me.grp_datos_sigipsa.Text = "Datos Sigipsa"
@@ -849,7 +829,7 @@ Partial Class abm_empleados
         Me.cmd_buscar_x_usuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmd_buscar_x_usuario.FlatAppearance.BorderSize = 0
         Me.cmd_buscar_x_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar_x_usuario.Location = New System.Drawing.Point(388, 42)
+        Me.cmd_buscar_x_usuario.Location = New System.Drawing.Point(432, 42)
         Me.cmd_buscar_x_usuario.Name = "cmd_buscar_x_usuario"
         Me.cmd_buscar_x_usuario.Size = New System.Drawing.Size(25, 25)
         Me.cmd_buscar_x_usuario.TabIndex = 2
@@ -865,7 +845,7 @@ Partial Class abm_empleados
         Me.cmd_cambiar_estado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_cambiar_estado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_cambiar_estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_cambiar_estado.Location = New System.Drawing.Point(272, 91)
+        Me.cmd_cambiar_estado.Location = New System.Drawing.Point(316, 91)
         Me.cmd_cambiar_estado.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_cambiar_estado.Name = "cmd_cambiar_estado"
         Me.cmd_cambiar_estado.Size = New System.Drawing.Size(25, 25)
@@ -873,17 +853,6 @@ Partial Class abm_empleados
         Me.cmd_cambiar_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_cambiar_estado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_cambiar_estado.UseVisualStyleBackColor = False
-        '
-        'cmb_estados
-        '
-        Me.cmb_estados._descripcion = "descripcion"
-        Me.cmb_estados._nombre_tabla = "ESTADOS_USUARIOS"
-        Me.cmb_estados._pk = "id"
-        Me.cmb_estados.FormattingEnabled = True
-        Me.cmb_estados.Location = New System.Drawing.Point(124, 91)
-        Me.cmb_estados.Name = "cmb_estados"
-        Me.cmb_estados.Size = New System.Drawing.Size(139, 21)
-        Me.cmb_estados.TabIndex = 3
         '
         'lbl_estado
         '
@@ -898,7 +867,7 @@ Partial Class abm_empleados
         '
         Me.txt_usuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txt_usuario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txt_usuario.Location = New System.Drawing.Point(125, 45)
+        Me.txt_usuario.Location = New System.Drawing.Point(169, 45)
         Me.txt_usuario.Name = "txt_usuario"
         Me.txt_usuario.Size = New System.Drawing.Size(257, 20)
         Me.txt_usuario.TabIndex = 1
@@ -920,11 +889,88 @@ Partial Class abm_empleados
         Me.Label22.BackColor = System.Drawing.Color.Transparent
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(460, 289)
+        Me.Label22.Location = New System.Drawing.Point(508, 290)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(179, 17)
         Me.Label22.TabIndex = 54
         Me.Label22.Text = "Empleados registrados:"
+        '
+        'cmb_estado_empleado
+        '
+        Me.cmb_estado_empleado._descripcion = "descripcion"
+        Me.cmb_estado_empleado._nombre_tabla = "ESTADOS_EMPLEADOS"
+        Me.cmb_estado_empleado._pk = "id"
+        Me.cmb_estado_empleado.FormattingEnabled = True
+        Me.cmb_estado_empleado.Location = New System.Drawing.Point(170, 156)
+        Me.cmb_estado_empleado.Name = "cmb_estado_empleado"
+        Me.cmb_estado_empleado.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_estado_empleado.TabIndex = 5
+        '
+        'cmb_departamentos
+        '
+        Me.cmb_departamentos._descripcion = "descripcion"
+        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamentos._pk = "id"
+        Me.cmb_departamentos.FormattingEnabled = True
+        Me.cmb_departamentos.Location = New System.Drawing.Point(168, 22)
+        Me.cmb_departamentos.Name = "cmb_departamentos"
+        Me.cmb_departamentos.Size = New System.Drawing.Size(281, 21)
+        Me.cmb_departamentos.TabIndex = 0
+        '
+        'cmb_perfil
+        '
+        Me.cmb_perfil._descripcion = "descripcion"
+        Me.cmb_perfil._nombre_tabla = "PERFILES_SIGIPSA"
+        Me.cmb_perfil._pk = "id"
+        Me.cmb_perfil.FormattingEnabled = True
+        Me.cmb_perfil.Location = New System.Drawing.Point(170, 183)
+        Me.cmb_perfil.Name = "cmb_perfil"
+        Me.cmb_perfil.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_perfil.TabIndex = 7
+        '
+        'cmb_cargo
+        '
+        Me.cmb_cargo._descripcion = "descripcion"
+        Me.cmb_cargo._nombre_tabla = "CARGO"
+        Me.cmb_cargo._pk = "id"
+        Me.cmb_cargo.FormattingEnabled = True
+        Me.cmb_cargo.Location = New System.Drawing.Point(168, 129)
+        Me.cmb_cargo.Name = "cmb_cargo"
+        Me.cmb_cargo.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_cargo.TabIndex = 4
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(168, 49)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(281, 21)
+        Me.cmb_localidades.TabIndex = 1
+        '
+        'cmb_estados
+        '
+        Me.cmb_estados._descripcion = "descripcion"
+        Me.cmb_estados._nombre_tabla = "ESTADOS_USUARIOS"
+        Me.cmb_estados._pk = "id"
+        Me.cmb_estados.FormattingEnabled = True
+        Me.cmb_estados.Location = New System.Drawing.Point(169, 90)
+        Me.cmb_estados.Name = "cmb_estados"
+        Me.cmb_estados.Size = New System.Drawing.Size(139, 21)
+        Me.cmb_estados.TabIndex = 3
+        '
+        'cmb_tipo_doc
+        '
+        Me.cmb_tipo_doc._descripcion = "descripcion"
+        Me.cmb_tipo_doc._nombre_tabla = "TIPOS_DOCUMENTO"
+        Me.cmb_tipo_doc._pk = "id"
+        Me.cmb_tipo_doc.FormattingEnabled = True
+        Me.cmb_tipo_doc.Location = New System.Drawing.Point(170, 49)
+        Me.cmb_tipo_doc.Name = "cmb_tipo_doc"
+        Me.cmb_tipo_doc.Size = New System.Drawing.Size(97, 21)
+        Me.cmb_tipo_doc.TabIndex = 1
         '
         'abm_empleados
         '
@@ -932,7 +978,7 @@ Partial Class abm_empleados
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1088, 644)
+        Me.ClientSize = New System.Drawing.Size(1128, 737)
         Me.Controls.Add(Me.lbl_contador_empleados)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.dgv_efectores)
@@ -1002,12 +1048,6 @@ Partial Class abm_empleados
     Friend WithEvents cmb_departamentos As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents tltp_empleados As System.Windows.Forms.ToolTip
     Friend WithEvents cmd_limpiar_laboral As System.Windows.Forms.Button
-    Friend WithEvents id_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmb_estados As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents lbl_estado As System.Windows.Forms.Label
     Friend WithEvents cmd_cambiar_estado As System.Windows.Forms.Button
@@ -1025,6 +1065,19 @@ Partial Class abm_empleados
     Public WithEvents txt_nro_documento As System.Windows.Forms.TextBox
     Friend WithEvents txt_año_curso As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents txt_fecha_nac As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents cmb_tieneCurso As System.Windows.Forms.ComboBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Public WithEvents txt_añoCurso As System.Windows.Forms.TextBox
+    Friend WithEvents id_empleado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nro_doc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombres As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents apellidos As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_tipo_doc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cuie As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre_efector As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cargo As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1034,7 +1087,4 @@ Partial Class abm_empleados
     Friend WithEvents id_cargo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_perfil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_estado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txt_fecha_nac As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
 End Class

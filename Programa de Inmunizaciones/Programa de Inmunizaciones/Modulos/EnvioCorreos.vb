@@ -62,7 +62,7 @@ Module Correo
             'correos.Attachments.Add(archivo)
 
 
-            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Inmunizaciones2019")
+            envios.Credentials = New NetworkCredential("soft.inmunizaciones@gmail.com", "Sistemas_2019")
 
             ''Datos importantes no modificables para tener acceso a las cuentas
 

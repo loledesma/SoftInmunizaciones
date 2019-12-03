@@ -11,6 +11,7 @@ Public Class Menu
             por_up_back_up.ShowDialog()
             pop_up_recordatorios.verificar()
             pop_up_recordatorios.verificarMañana()
+            pop_up_recordatorios.verificarAtencionesPendientesCaducadas()
             If pop_up_ajustes_pendientes.verificar() = True Then
                 pop_up_ajustes_pendientes.ShowDialog()
             Else
@@ -275,5 +276,13 @@ Public Class Menu
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Registrar_recordatorio.Show()
+    End Sub
+
+    Private Sub SupervisionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupervisionesToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub RegistrarNuevaSupervisiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarNuevaSupervisiónToolStripMenuItem.Click
+        Registrar_supervisiones.Show()
     End Sub
 End Class

@@ -128,7 +128,7 @@
             sql &= " WHERE REF.cuie ='" & Me.txt_cuie.Text & "'"
         End If
 
-        sql &= "ORDER BY REF.cuie "
+        sql &= "ORDER BY D.descripcion, L.descripcion "
 
         tabla = acceso.consulta(sql)
 
