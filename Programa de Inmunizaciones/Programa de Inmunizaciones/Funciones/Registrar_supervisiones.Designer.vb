@@ -65,17 +65,23 @@ Partial Class Registrar_supervisiones
         Me.cmb_tipos_documento = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.chk_registroAlDiaNO = New System.Windows.Forms.CheckBox()
-        Me.chk_registroAlDiaSI = New System.Windows.Forms.CheckBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.rdbtn_tieneCargaAlDiaNO = New System.Windows.Forms.RadioButton()
+        Me.rdbtn_tieneCargaAlDiaSI = New System.Windows.Forms.RadioButton()
+        Me.rdbtn_cargaEnSigipsaNO = New System.Windows.Forms.RadioButton()
+        Me.rdbtn_cargaEnSigipsaSI = New System.Windows.Forms.RadioButton()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.chk_cargaSigipsaNO = New System.Windows.Forms.CheckBox()
-        Me.chk_cargaSigipsaSI = New System.Windows.Forms.CheckBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmb_tipo_heladera = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmb_heladera = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.rdbtn_coincideStockNO = New System.Windows.Forms.RadioButton()
+        Me.rdbtn_coincideStockSI = New System.Windows.Forms.RadioButton()
+        Me.rdbtn_tienePerdidaAlDiaNO = New System.Windows.Forms.RadioButton()
+        Me.rdbtn_tienePerdidaAlDiaSI = New System.Windows.Forms.RadioButton()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.grp_datos_vacunadores.SuspendLayout()
         CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -93,7 +99,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_limpiar.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
-        Me.cmd_limpiar.Location = New System.Drawing.Point(194, 945)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(194, 735)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(78, 75)
@@ -113,7 +119,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_guardar.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
-        Me.cmd_guardar.Location = New System.Drawing.Point(104, 945)
+        Me.cmd_guardar.Location = New System.Drawing.Point(104, 735)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(78, 75)
@@ -133,7 +139,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_nuevo.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
-        Me.cmd_nuevo.Location = New System.Drawing.Point(14, 945)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(14, 735)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(78, 75)
@@ -150,7 +156,7 @@ Partial Class Registrar_supervisiones
         Me.cmd_salir.FlatAppearance.BorderSize = 0
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_salir.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
-        Me.cmd_salir.Location = New System.Drawing.Point(1214, 945)
+        Me.cmd_salir.Location = New System.Drawing.Point(1214, 735)
         Me.cmd_salir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(78, 75)
@@ -528,11 +534,17 @@ Partial Class Registrar_supervisiones
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.chk_registroAlDiaNO)
-        Me.GroupBox1.Controls.Add(Me.chk_registroAlDiaSI)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_tienePerdidaAlDiaNO)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_tienePerdidaAlDiaSI)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_coincideStockNO)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_coincideStockSI)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_tieneCargaAlDiaNO)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_tieneCargaAlDiaSI)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_cargaEnSigipsaNO)
+        Me.GroupBox1.Controls.Add(Me.rdbtn_cargaEnSigipsaSI)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.chk_cargaSigipsaNO)
-        Me.GroupBox1.Controls.Add(Me.chk_cargaSigipsaSI)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Location = New System.Drawing.Point(16, 374)
@@ -542,25 +554,58 @@ Partial Class Registrar_supervisiones
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registro Sigipsa ♥"
         '
-        'chk_registroAlDiaNO
+        'Label10
         '
-        Me.chk_registroAlDiaNO.AutoSize = True
-        Me.chk_registroAlDiaNO.Location = New System.Drawing.Point(308, 59)
-        Me.chk_registroAlDiaNO.Name = "chk_registroAlDiaNO"
-        Me.chk_registroAlDiaNO.Size = New System.Drawing.Size(51, 23)
-        Me.chk_registroAlDiaNO.TabIndex = 28
-        Me.chk_registroAlDiaNO.Text = "NO"
-        Me.chk_registroAlDiaNO.UseVisualStyleBackColor = True
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(377, 30)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(155, 19)
+        Me.Label10.TabIndex = 31
+        Me.Label10.Text = "Tiene stock coincidente?"
         '
-        'chk_registroAlDiaSI
+        'rdbtn_tieneCargaAlDiaNO
         '
-        Me.chk_registroAlDiaSI.AutoSize = True
-        Me.chk_registroAlDiaSI.Location = New System.Drawing.Point(262, 59)
-        Me.chk_registroAlDiaSI.Name = "chk_registroAlDiaSI"
-        Me.chk_registroAlDiaSI.Size = New System.Drawing.Size(40, 23)
-        Me.chk_registroAlDiaSI.TabIndex = 27
-        Me.chk_registroAlDiaSI.Text = "SI"
-        Me.chk_registroAlDiaSI.UseVisualStyleBackColor = True
+        Me.rdbtn_tieneCargaAlDiaNO.AutoSize = True
+        Me.rdbtn_tieneCargaAlDiaNO.Location = New System.Drawing.Point(307, 58)
+        Me.rdbtn_tieneCargaAlDiaNO.Name = "rdbtn_tieneCargaAlDiaNO"
+        Me.rdbtn_tieneCargaAlDiaNO.Size = New System.Drawing.Size(50, 23)
+        Me.rdbtn_tieneCargaAlDiaNO.TabIndex = 30
+        Me.rdbtn_tieneCargaAlDiaNO.TabStop = True
+        Me.rdbtn_tieneCargaAlDiaNO.Text = "NO"
+        Me.rdbtn_tieneCargaAlDiaNO.UseVisualStyleBackColor = True
+        '
+        'rdbtn_tieneCargaAlDiaSI
+        '
+        Me.rdbtn_tieneCargaAlDiaSI.AutoSize = True
+        Me.rdbtn_tieneCargaAlDiaSI.Location = New System.Drawing.Point(262, 58)
+        Me.rdbtn_tieneCargaAlDiaSI.Name = "rdbtn_tieneCargaAlDiaSI"
+        Me.rdbtn_tieneCargaAlDiaSI.Size = New System.Drawing.Size(39, 23)
+        Me.rdbtn_tieneCargaAlDiaSI.TabIndex = 29
+        Me.rdbtn_tieneCargaAlDiaSI.TabStop = True
+        Me.rdbtn_tieneCargaAlDiaSI.Text = "SI"
+        Me.rdbtn_tieneCargaAlDiaSI.UseVisualStyleBackColor = True
+        '
+        'rdbtn_cargaEnSigipsaNO
+        '
+        Me.rdbtn_cargaEnSigipsaNO.AutoSize = True
+        Me.rdbtn_cargaEnSigipsaNO.Location = New System.Drawing.Point(307, 28)
+        Me.rdbtn_cargaEnSigipsaNO.Name = "rdbtn_cargaEnSigipsaNO"
+        Me.rdbtn_cargaEnSigipsaNO.Size = New System.Drawing.Size(50, 23)
+        Me.rdbtn_cargaEnSigipsaNO.TabIndex = 28
+        Me.rdbtn_cargaEnSigipsaNO.TabStop = True
+        Me.rdbtn_cargaEnSigipsaNO.Text = "NO"
+        Me.rdbtn_cargaEnSigipsaNO.UseVisualStyleBackColor = True
+        '
+        'rdbtn_cargaEnSigipsaSI
+        '
+        Me.rdbtn_cargaEnSigipsaSI.AutoSize = True
+        Me.rdbtn_cargaEnSigipsaSI.Location = New System.Drawing.Point(262, 28)
+        Me.rdbtn_cargaEnSigipsaSI.Name = "rdbtn_cargaEnSigipsaSI"
+        Me.rdbtn_cargaEnSigipsaSI.Size = New System.Drawing.Size(39, 23)
+        Me.rdbtn_cargaEnSigipsaSI.TabIndex = 27
+        Me.rdbtn_cargaEnSigipsaSI.TabStop = True
+        Me.rdbtn_cargaEnSigipsaSI.Text = "SI"
+        Me.rdbtn_cargaEnSigipsaSI.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -570,26 +615,6 @@ Partial Class Registrar_supervisiones
         Me.Label7.Size = New System.Drawing.Size(156, 19)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Tiene el registro al día?"
-        '
-        'chk_cargaSigipsaNO
-        '
-        Me.chk_cargaSigipsaNO.AutoSize = True
-        Me.chk_cargaSigipsaNO.Location = New System.Drawing.Point(308, 30)
-        Me.chk_cargaSigipsaNO.Name = "chk_cargaSigipsaNO"
-        Me.chk_cargaSigipsaNO.Size = New System.Drawing.Size(51, 23)
-        Me.chk_cargaSigipsaNO.TabIndex = 25
-        Me.chk_cargaSigipsaNO.Text = "NO"
-        Me.chk_cargaSigipsaNO.UseVisualStyleBackColor = True
-        '
-        'chk_cargaSigipsaSI
-        '
-        Me.chk_cargaSigipsaSI.AutoSize = True
-        Me.chk_cargaSigipsaSI.Location = New System.Drawing.Point(262, 30)
-        Me.chk_cargaSigipsaSI.Name = "chk_cargaSigipsaSI"
-        Me.chk_cargaSigipsaSI.Size = New System.Drawing.Size(40, 23)
-        Me.chk_cargaSigipsaSI.TabIndex = 24
-        Me.chk_cargaSigipsaSI.Text = "SI"
-        Me.chk_cargaSigipsaSI.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -655,6 +680,59 @@ Partial Class Registrar_supervisiones
         Me.cmb_heladera.Size = New System.Drawing.Size(249, 27)
         Me.cmb_heladera.TabIndex = 17
         '
+        'rdbtn_coincideStockNO
+        '
+        Me.rdbtn_coincideStockNO.AutoSize = True
+        Me.rdbtn_coincideStockNO.Location = New System.Drawing.Point(583, 28)
+        Me.rdbtn_coincideStockNO.Name = "rdbtn_coincideStockNO"
+        Me.rdbtn_coincideStockNO.Size = New System.Drawing.Size(50, 23)
+        Me.rdbtn_coincideStockNO.TabIndex = 33
+        Me.rdbtn_coincideStockNO.TabStop = True
+        Me.rdbtn_coincideStockNO.Text = "NO"
+        Me.rdbtn_coincideStockNO.UseVisualStyleBackColor = True
+        '
+        'rdbtn_coincideStockSI
+        '
+        Me.rdbtn_coincideStockSI.AutoSize = True
+        Me.rdbtn_coincideStockSI.Location = New System.Drawing.Point(538, 28)
+        Me.rdbtn_coincideStockSI.Name = "rdbtn_coincideStockSI"
+        Me.rdbtn_coincideStockSI.Size = New System.Drawing.Size(39, 23)
+        Me.rdbtn_coincideStockSI.TabIndex = 32
+        Me.rdbtn_coincideStockSI.TabStop = True
+        Me.rdbtn_coincideStockSI.Text = "SI"
+        Me.rdbtn_coincideStockSI.UseVisualStyleBackColor = True
+        '
+        'rdbtn_tienePerdidaAlDiaNO
+        '
+        Me.rdbtn_tienePerdidaAlDiaNO.AutoSize = True
+        Me.rdbtn_tienePerdidaAlDiaNO.Location = New System.Drawing.Point(583, 58)
+        Me.rdbtn_tienePerdidaAlDiaNO.Name = "rdbtn_tienePerdidaAlDiaNO"
+        Me.rdbtn_tienePerdidaAlDiaNO.Size = New System.Drawing.Size(50, 23)
+        Me.rdbtn_tienePerdidaAlDiaNO.TabIndex = 36
+        Me.rdbtn_tienePerdidaAlDiaNO.TabStop = True
+        Me.rdbtn_tienePerdidaAlDiaNO.Text = "NO"
+        Me.rdbtn_tienePerdidaAlDiaNO.UseVisualStyleBackColor = True
+        '
+        'rdbtn_tienePerdidaAlDiaSI
+        '
+        Me.rdbtn_tienePerdidaAlDiaSI.AutoSize = True
+        Me.rdbtn_tienePerdidaAlDiaSI.Location = New System.Drawing.Point(538, 58)
+        Me.rdbtn_tienePerdidaAlDiaSI.Name = "rdbtn_tienePerdidaAlDiaSI"
+        Me.rdbtn_tienePerdidaAlDiaSI.Size = New System.Drawing.Size(39, 23)
+        Me.rdbtn_tienePerdidaAlDiaSI.TabIndex = 35
+        Me.rdbtn_tienePerdidaAlDiaSI.TabStop = True
+        Me.rdbtn_tienePerdidaAlDiaSI.Text = "SI"
+        Me.rdbtn_tienePerdidaAlDiaSI.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(377, 60)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(151, 19)
+        Me.Label11.TabIndex = 34
+        Me.Label11.Text = "Tiene perdidas al día?"
+        '
         'Registrar_supervisiones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
@@ -662,7 +740,7 @@ Partial Class Registrar_supervisiones
         Me.AutoScroll = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1316, 931)
+        Me.ClientSize = New System.Drawing.Size(1339, 823)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.grp_datos_vacunadores)
@@ -737,15 +815,21 @@ Partial Class Registrar_supervisiones
     Friend WithEvents cmd_agregar_empleado As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_empleado As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents chk_registroAlDiaNO As System.Windows.Forms.CheckBox
-    Friend WithEvents chk_registroAlDiaSI As System.Windows.Forms.CheckBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents chk_cargaSigipsaNO As System.Windows.Forms.CheckBox
-    Friend WithEvents chk_cargaSigipsaSI As System.Windows.Forms.CheckBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents cmb_heladera As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents cmb_tipo_heladera As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents rdbtn_tieneCargaAlDiaNO As System.Windows.Forms.RadioButton
+    Friend WithEvents rdbtn_tieneCargaAlDiaSI As System.Windows.Forms.RadioButton
+    Friend WithEvents rdbtn_cargaEnSigipsaNO As System.Windows.Forms.RadioButton
+    Friend WithEvents rdbtn_cargaEnSigipsaSI As System.Windows.Forms.RadioButton
+    Friend WithEvents rdbtn_tienePerdidaAlDiaNO As System.Windows.Forms.RadioButton
+    Friend WithEvents rdbtn_tienePerdidaAlDiaSI As System.Windows.Forms.RadioButton
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents rdbtn_coincideStockNO As System.Windows.Forms.RadioButton
+    Friend WithEvents rdbtn_coincideStockSI As System.Windows.Forms.RadioButton
 End Class

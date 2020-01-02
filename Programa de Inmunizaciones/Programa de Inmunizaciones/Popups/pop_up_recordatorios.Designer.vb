@@ -45,12 +45,12 @@ Partial Class pop_up_recordatorios
         Me.cmd_refresh = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgv_atencionescaducadas = New System.Windows.Forms.DataGridView()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.efector = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.asunto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_modificar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.id_atencion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.dgv_recordatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_recordatoriosDiaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_atencionescaducadas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -286,6 +286,26 @@ Partial Class pop_up_recordatorios
         Me.dgv_atencionescaducadas.Size = New System.Drawing.Size(959, 136)
         Me.dgv_atencionescaducadas.TabIndex = 67
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
+        Me.Button2.Location = New System.Drawing.Point(746, 524)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(5)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(71, 60)
+        Me.Button2.TabIndex = 68
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'efector
         '
         Me.efector.HeaderText = "Centro de Salud"
@@ -312,6 +332,7 @@ Partial Class pop_up_recordatorios
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.ReadOnly = True
         Me.cmd_modificar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.cmd_modificar.Text = "Modificar"
         '
         'id_atencion
         '
@@ -319,26 +340,6 @@ Partial Class pop_up_recordatorios
         Me.id_atencion.Name = "id_atencion"
         Me.id_atencion.ReadOnly = True
         Me.id_atencion.Visible = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ImeMode = System.Windows.Forms.ImeMode.AlphaFull
-        Me.Button2.Location = New System.Drawing.Point(746, 524)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(5)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(71, 60)
-        Me.Button2.TabIndex = 68
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'pop_up_recordatorios
         '
@@ -385,10 +386,10 @@ Partial Class pop_up_recordatorios
     Friend WithEvents cmd_refresh As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents dgv_atencionescaducadas As System.Windows.Forms.DataGridView
+    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents efector As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents asunto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_modificar As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents id_atencion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

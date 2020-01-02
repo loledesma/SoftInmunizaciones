@@ -479,10 +479,10 @@
     End Sub
 
     Private Sub abm_empleados_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.Control And e.KeyCode.ToString = "N" Then
+        If e.Control And e.KeyCode.ToString = "N" Or e.KeyCode.ToString = "F7" Then
             nuevo()
         End If
-        If e.Control And e.KeyCode.ToString = "G" Then
+        If e.Control And e.KeyCode.ToString = "G" Or e.KeyCode.ToString = "F5" Then
             guardar()
         End If
     End Sub

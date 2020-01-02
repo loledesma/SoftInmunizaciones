@@ -53,6 +53,8 @@ Partial Class Menu
         Me.RegistroDeReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecordatoriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarNuevaSupervisiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarSupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HeldareasYPCsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -102,8 +104,6 @@ Partial Class Menu
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmd_enviar_correo = New System.Windows.Forms.Button()
-        Me.RegistrarNuevaSupervisiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultarSupervisionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_programa_inmunizaciones.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -273,6 +273,16 @@ Partial Class Menu
         Me.SupervisionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarNuevaSupervisiónToolStripMenuItem, Me.ConsultarSupervisionesToolStripMenuItem})
         resources.ApplyResources(Me.SupervisionesToolStripMenuItem, "SupervisionesToolStripMenuItem")
         Me.SupervisionesToolStripMenuItem.Name = "SupervisionesToolStripMenuItem"
+        '
+        'RegistrarNuevaSupervisiónToolStripMenuItem
+        '
+        Me.RegistrarNuevaSupervisiónToolStripMenuItem.Name = "RegistrarNuevaSupervisiónToolStripMenuItem"
+        resources.ApplyResources(Me.RegistrarNuevaSupervisiónToolStripMenuItem, "RegistrarNuevaSupervisiónToolStripMenuItem")
+        '
+        'ConsultarSupervisionesToolStripMenuItem
+        '
+        Me.ConsultarSupervisionesToolStripMenuItem.Name = "ConsultarSupervisionesToolStripMenuItem"
+        resources.ApplyResources(Me.ConsultarSupervisionesToolStripMenuItem, "ConsultarSupervisionesToolStripMenuItem")
         '
         'HeldareasYPCsToolStripMenuItem
         '
@@ -599,16 +609,6 @@ Partial Class Menu
         Me.cmd_enviar_correo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_enviar_correo.Name = "cmd_enviar_correo"
         Me.cmd_enviar_correo.UseVisualStyleBackColor = False
-        '
-        'RegistrarNuevaSupervisiónToolStripMenuItem
-        '
-        Me.RegistrarNuevaSupervisiónToolStripMenuItem.Name = "RegistrarNuevaSupervisiónToolStripMenuItem"
-        resources.ApplyResources(Me.RegistrarNuevaSupervisiónToolStripMenuItem, "RegistrarNuevaSupervisiónToolStripMenuItem")
-        '
-        'ConsultarSupervisionesToolStripMenuItem
-        '
-        Me.ConsultarSupervisionesToolStripMenuItem.Name = "ConsultarSupervisionesToolStripMenuItem"
-        resources.ApplyResources(Me.ConsultarSupervisionesToolStripMenuItem, "ConsultarSupervisionesToolStripMenuItem")
         '
         'Menu
         '

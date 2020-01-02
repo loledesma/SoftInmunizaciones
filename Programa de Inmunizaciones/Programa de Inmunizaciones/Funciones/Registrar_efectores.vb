@@ -102,7 +102,8 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_nombre.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre like '%" & txt_nombre.Text & "%'"
+                sql &= " WHERE E.nombre = ' " & Me.txt_nombre.Text & " '"
+                sql &= " ORDER BY E.NOMBRE "
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
@@ -362,11 +363,14 @@
     End Sub
 
     Private Sub registrar_efectores_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.Control And e.KeyCode.ToString = "N" Then
+        If e.Control And e.KeyCode.ToString = "N" Or e.KeyCode.ToString = "F7" Then
             nuevo()
         End If
-        If e.Control And e.KeyCode.ToString = "G" Then
+        If e.Control And e.KeyCode.ToString = "G" Or e.KeyCode.ToString = "F5" Then
             guardar()
+        End If
+        If e.KeyCode.ToString = "F3" Then
+            buscar()
         End If
     End Sub
 
@@ -1012,6 +1016,8 @@
         Next
     End Sub
 
+
+
     Private Sub cmd_actualizar_sigipsa_Click(sender As Object, e As EventArgs) Handles cmd_actualizar_sigipsa.Click
         If txt_numero_doc.Text = "" Then
             MessageBox.Show("Ingrese un un numero de documento para actualizar los datos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1140,7 +1146,7 @@
         End If
 
     End Sub
-    Private Sub cmd_buscar_cuie_Click(sender As Object, e As EventArgs) Handles cmd_buscar_cuie.Click
+    Private Sub buscar()
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
@@ -1277,6 +1283,9 @@
         limpiar(Me.Controls)
         txt_nombre.Focus()
         Me.condicion_estado = estado.modificar
+    End Sub
+    Private Sub cmd_buscar_cuie_Click(sender As Object, e As EventArgs) Handles cmd_buscar_cuie.Click
+        buscar()
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged
