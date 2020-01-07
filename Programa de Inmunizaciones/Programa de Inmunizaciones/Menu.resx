@@ -10635,7 +10635,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>GeVac ©JL Soluciones 2017</value>
+    <value>GeVac ® JL Soluciones 2020</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
     <value>ToolStripMenuItem1</value>
@@ -10809,6 +10809,18 @@
     <value>SupervisionesToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;SupervisionesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarNuevaSupervisiónToolStripMenuItem.Name" xml:space="preserve">
+    <value>RegistrarNuevaSupervisiónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RegistrarNuevaSupervisiónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsultarSupervisionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>ConsultarSupervisionesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ConsultarSupervisionesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;HeldareasYPCsToolStripMenuItem.Name" xml:space="preserve">
@@ -11067,18 +11079,6 @@
     <value>GestiónDeBarriosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;GestiónDeBarriosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegistrarNuevaSupervisiónToolStripMenuItem.Name" xml:space="preserve">
-    <value>RegistrarNuevaSupervisiónToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;RegistrarNuevaSupervisiónToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ConsultarSupervisionesToolStripMenuItem.Name" xml:space="preserve">
-    <value>ConsultarSupervisionesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ConsultarSupervisionesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

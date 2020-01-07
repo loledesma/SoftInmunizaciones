@@ -200,10 +200,10 @@
 
 
     Private Sub Registrar_notificaciones_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.Control And e.KeyCode.ToString = "N" Then
+        If e.Control And e.KeyCode.ToString = "N" Or e.KeyCode.ToString = "F7" Then
             nuevo()
         End If
-        If e.Control And e.KeyCode.ToString = "G" Then
+        If e.Control And e.KeyCode.ToString = "G" Or e.KeyCode.ToString = "F5" Then
             guardar()
         End If
     End Sub
@@ -244,11 +244,11 @@
             Me.cmb_stock.Focus()
             Return False
             Exit Function
-            'ElseIf Me.txt_fecha.Text >= hoy Then
-            '    MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            '    Me.txt_fecha.Focus()
-            '    Return False
-            '    Exit Function
+        ElseIf Me.txt_fecha.Text > hoy Then
+            MessageBox.Show("Debe ingresar una fecha de alta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.txt_fecha.Focus()
+            Return False
+            Exit Function
         End If
         Return True
     End Function

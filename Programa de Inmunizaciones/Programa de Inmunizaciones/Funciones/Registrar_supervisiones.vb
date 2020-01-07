@@ -24,4 +24,6 @@
         Me.cmb_empleados.DisplayMember = "nombre"
         Me.cmb_empleados.ValueMember = "id"
     End Sub
+
+   
 End Class
