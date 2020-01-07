@@ -37,7 +37,7 @@
         imprimir()
     End Sub
 
-    
+
     Private Sub ReportViewer1_Resize(sender As Object, e As EventArgs) Handles ReportViewer1.Resize
         Me.ReportViewer1.Width = Me.Width - 50
         Me.ReportViewer1.Height = Me.Height - 200
