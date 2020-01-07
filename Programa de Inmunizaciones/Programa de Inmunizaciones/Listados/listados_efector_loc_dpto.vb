@@ -117,40 +117,22 @@
         sql &= " EF.cuie as cuie, EF.nombre as nombre_efector, EF.horario_desde as horario_desde, EF.horario_hasta as horario_hasta, (cast(ef.calle as varchar ) + ' ' + cast(ef.nro as varchar)) as direccion, EF.telefono as teléfono "
         sql &= " FROM EFECTORES EF JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
         sql &= " JOIN LOCALIDADES L ON EF.id_localidad= L.id "
-        sql &= " JOIN TIPOS_EFECTORES TE ON EF.id_tipo = TE.id "
+        sql &= " JOIN TIPOS_EFECTORES TE ON EF.id_tipo = TE.id WHERE 1 = 1 "
 
         If Me.cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
-            If cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-                If cmb_tipo_efector.SelectedIndex <> -1 Then
-                    sql &= " AND EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
-                End If
-            ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
-                sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
-            End If
-        ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
-            If cmb_tipo_efector.SelectedIndex <> -1 Then
-                sql &= " AND EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
-            End If
-        ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
-            sql &= " WHERE EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
+            sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
         End If
-        If Me.cmb_departamentos.SelectedIndex = -1 Then
-            If Me.cmb_localidades.SelectedIndex = -1 Then
-                If Me.cmb_tipo_efector.SelectedIndex <> -1 Then
-                    If Me.txt_referente.Text <> "" Then
-                        sql &= "WHERE EF.id_referente = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%') and EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
-                    End If
-                ElseIf txt_referente.Text <> "" Then
-                    sql &= "WHERE EF.id_referente = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%')"
-                End If
+        If cmb_localidades.SelectedIndex <> -1 Then
+            sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
             End If
+        If cmb_tipo_efector.SelectedIndex <> -1 Then
+            sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
+        ElseIf cmb_tipo_efector.SelectedIndex = -1 Then
+            sql &= "and EF.id_tipo != 4 "
         End If
-
-
-        sql &= " WHERE EF.id_tipo != 4 "
+        If Me.txt_referente.Text <> "" Then
+            sql &= "AND EF.id_referente = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%')"
+        End If
         sql &= " ORDER BY nombre_departamento, nombre_localidad, tipo_efector, nombre_efector "
 
         tabla = acceso.consulta(sql)
