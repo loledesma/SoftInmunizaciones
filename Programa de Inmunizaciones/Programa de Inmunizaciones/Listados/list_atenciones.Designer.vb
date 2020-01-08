@@ -44,6 +44,12 @@ Partial Class list_atenciones
         Me.lbl_desde = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.tltp_atenciones = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmb_asuntos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmb_estados_atenciones = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txt_palabra_contenida = New System.Windows.Forms.TextBox()
         CType(Me.LISTATENCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
@@ -74,7 +80,7 @@ Partial Class list_atenciones
         Me.grp_datos_efector.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_efector.Location = New System.Drawing.Point(18, 11)
         Me.grp_datos_efector.Name = "grp_datos_efector"
-        Me.grp_datos_efector.Size = New System.Drawing.Size(439, 133)
+        Me.grp_datos_efector.Size = New System.Drawing.Size(439, 148)
         Me.grp_datos_efector.TabIndex = 4
         Me.grp_datos_efector.TabStop = False
         Me.grp_datos_efector.Text = "Datos Efector"
@@ -158,6 +164,12 @@ Partial Class list_atenciones
         'grp_datos_atenciones
         '
         Me.grp_datos_atenciones.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_atenciones.Controls.Add(Me.txt_palabra_contenida)
+        Me.grp_datos_atenciones.Controls.Add(Me.Label3)
+        Me.grp_datos_atenciones.Controls.Add(Me.Label2)
+        Me.grp_datos_atenciones.Controls.Add(Me.cmb_estados_atenciones)
+        Me.grp_datos_atenciones.Controls.Add(Me.Label1)
+        Me.grp_datos_atenciones.Controls.Add(Me.cmb_asuntos)
         Me.grp_datos_atenciones.Controls.Add(Me.cmd_ejecutar)
         Me.grp_datos_atenciones.Controls.Add(Me.txt_fecha_hasta)
         Me.grp_datos_atenciones.Controls.Add(Me.lbl_hasta)
@@ -166,7 +178,7 @@ Partial Class list_atenciones
         Me.grp_datos_atenciones.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.grp_datos_atenciones.Location = New System.Drawing.Point(472, 11)
         Me.grp_datos_atenciones.Name = "grp_datos_atenciones"
-        Me.grp_datos_atenciones.Size = New System.Drawing.Size(514, 133)
+        Me.grp_datos_atenciones.Size = New System.Drawing.Size(514, 148)
         Me.grp_datos_atenciones.TabIndex = 5
         Me.grp_datos_atenciones.TabStop = False
         Me.grp_datos_atenciones.Text = "Datos Atenciones"
@@ -181,7 +193,7 @@ Partial Class list_atenciones
         Me.cmd_ejecutar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange
         Me.cmd_ejecutar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
         Me.cmd_ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_ejecutar.Location = New System.Drawing.Point(385, 30)
+        Me.cmd_ejecutar.Location = New System.Drawing.Point(447, 28)
         Me.cmd_ejecutar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmd_ejecutar.Name = "cmd_ejecutar"
         Me.cmd_ejecutar.Size = New System.Drawing.Size(60, 60)
@@ -192,7 +204,7 @@ Partial Class list_atenciones
         '
         'txt_fecha_hasta
         '
-        Me.txt_fecha_hasta.Location = New System.Drawing.Point(281, 50)
+        Me.txt_fecha_hasta.Location = New System.Drawing.Point(301, 19)
         Me.txt_fecha_hasta.Mask = "00/00/0000"
         Me.txt_fecha_hasta.Name = "txt_fecha_hasta"
         Me.txt_fecha_hasta.Size = New System.Drawing.Size(97, 20)
@@ -202,7 +214,7 @@ Partial Class list_atenciones
         'lbl_hasta
         '
         Me.lbl_hasta.AutoSize = True
-        Me.lbl_hasta.Location = New System.Drawing.Point(236, 54)
+        Me.lbl_hasta.Location = New System.Drawing.Point(256, 23)
         Me.lbl_hasta.Name = "lbl_hasta"
         Me.lbl_hasta.Size = New System.Drawing.Size(35, 13)
         Me.lbl_hasta.TabIndex = 34
@@ -210,7 +222,7 @@ Partial Class list_atenciones
         '
         'txt_fecha_desde
         '
-        Me.txt_fecha_desde.Location = New System.Drawing.Point(116, 50)
+        Me.txt_fecha_desde.Location = New System.Drawing.Point(136, 19)
         Me.txt_fecha_desde.Mask = "00/00/0000"
         Me.txt_fecha_desde.Name = "txt_fecha_desde"
         Me.txt_fecha_desde.Size = New System.Drawing.Size(97, 20)
@@ -220,7 +232,7 @@ Partial Class list_atenciones
         'lbl_desde
         '
         Me.lbl_desde.AutoSize = True
-        Me.lbl_desde.Location = New System.Drawing.Point(59, 53)
+        Me.lbl_desde.Location = New System.Drawing.Point(74, 23)
         Me.lbl_desde.Name = "lbl_desde"
         Me.lbl_desde.Size = New System.Drawing.Size(38, 13)
         Me.lbl_desde.TabIndex = 33
@@ -239,10 +251,66 @@ Partial Class list_atenciones
         ReportDataSource1.Value = Me.LISTATENCIONESBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Programa_de_Inmunizaciones.list_atenciones.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(18, 150)
+        Me.ReportViewer1.Location = New System.Drawing.Point(18, 165)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(967, 436)
+        Me.ReportViewer1.Size = New System.Drawing.Size(967, 496)
         Me.ReportViewer1.TabIndex = 6
+        '
+        'cmb_asuntos
+        '
+        Me.cmb_asuntos._descripcion = "descripcion"
+        Me.cmb_asuntos._nombre_tabla = "ASUNTO_ATENCIONES"
+        Me.cmb_asuntos._pk = "id"
+        Me.cmb_asuntos.FormattingEnabled = True
+        Me.cmb_asuntos.Location = New System.Drawing.Point(136, 45)
+        Me.cmb_asuntos.Name = "cmb_asuntos"
+        Me.cmb_asuntos.Size = New System.Drawing.Size(262, 21)
+        Me.cmb_asuntos.TabIndex = 50
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(72, 53)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(40, 13)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Asunto"
+        '
+        'cmb_estados_atenciones
+        '
+        Me.cmb_estados_atenciones._descripcion = "descripcion"
+        Me.cmb_estados_atenciones._nombre_tabla = "ESTADOS_ATENCION"
+        Me.cmb_estados_atenciones._pk = "id"
+        Me.cmb_estados_atenciones.FormattingEnabled = True
+        Me.cmb_estados_atenciones.Location = New System.Drawing.Point(136, 72)
+        Me.cmb_estados_atenciones.Name = "cmb_estados_atenciones"
+        Me.cmb_estados_atenciones.Size = New System.Drawing.Size(262, 21)
+        Me.cmb_estados_atenciones.TabIndex = 52
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(72, 78)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.TabIndex = 53
+        Me.Label2.Text = "Estado"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(19, 103)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(93, 13)
+        Me.Label3.TabIndex = 54
+        Me.Label3.Text = "Palabra contenida"
+        '
+        'txt_palabra_contenida
+        '
+        Me.txt_palabra_contenida.Location = New System.Drawing.Point(136, 100)
+        Me.txt_palabra_contenida.Name = "txt_palabra_contenida"
+        Me.txt_palabra_contenida.Size = New System.Drawing.Size(262, 20)
+        Me.txt_palabra_contenida.TabIndex = 55
         '
         'list_atenciones
         '
@@ -250,7 +318,7 @@ Partial Class list_atenciones
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(997, 598)
+        Me.ClientSize = New System.Drawing.Size(997, 664)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.grp_datos_atenciones)
         Me.Controls.Add(Me.grp_datos_efector)
@@ -285,4 +353,10 @@ Partial Class list_atenciones
     Friend WithEvents tltp_atenciones As System.Windows.Forms.ToolTip
     Friend WithEvents LISTATENCIONESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Inmunizaciones As Programa_de_Inmunizaciones.Inmunizaciones
+    Friend WithEvents txt_palabra_contenida As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents cmb_estados_atenciones As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cmb_asuntos As Programa_de_Inmunizaciones.ComboBoxV1
 End Class
