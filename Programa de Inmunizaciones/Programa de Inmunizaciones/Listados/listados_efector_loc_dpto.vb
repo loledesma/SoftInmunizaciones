@@ -13,6 +13,10 @@
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_tipo_efector.cargar()
         Me.cmb_tipo_efector.SelectedIndex = -1
+        Me.cmb_estado_efector.cargar()
+        Me.cmb_estado_efector.SelectedIndex = -1
+        Me.cmb_tipo_institucion.cargar()
+        Me.cmb_tipo_institucion.SelectedIndex = -1
         tip()
         Me.cmb_departamentos.Focus()
         Me.ReportViewer1.Clear()
@@ -110,6 +114,7 @@
     'End Function
 
     Private Sub imprimir()
+        Me.ReportViewer1.Clear()
         Dim tabla As New DataTable
         Dim sql As String = ""
 
@@ -124,15 +129,24 @@
         End If
         If cmb_localidades.SelectedIndex <> -1 Then
             sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-            End If
+        End If
         If cmb_tipo_efector.SelectedIndex <> -1 Then
             sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
         ElseIf cmb_tipo_efector.SelectedIndex = -1 Then
             sql &= "and EF.id_tipo != 4 "
         End If
         If Me.txt_referente.Text <> "" Then
-            sql &= "AND EF.id_referente = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%')"
+            sql &= "AND (EF.id_referente = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%') OR EF.cuie = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%'))"
         End If
+
+        If Me.cmb_estado_efector.SelectedIndex <> -1 Then
+            sql &= " AND EF.id_estado = " & Me.cmb_estado_efector.SelectedValue
+        End If
+
+        If Me.cmb_tipo_institucion.SelectedIndex <> -1 Then
+            sql &= " AND EF.id_tipo_organismo = " & Me.cmb_tipo_institucion.SelectedValue
+        End If
+
         sql &= " ORDER BY nombre_departamento, nombre_localidad, tipo_efector, nombre_efector "
 
         tabla = acceso.consulta(sql)

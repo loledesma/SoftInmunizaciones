@@ -32,15 +32,19 @@ Partial Class listados_efector_loc_dpto
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_referente = New System.Windows.Forms.TextBox()
         Me.lbl_tipo = New System.Windows.Forms.Label()
+        Me.cmb_tipo_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.lbl_localidad = New System.Windows.Forms.Label()
         Me.lbl_departamento = New System.Windows.Forms.Label()
         Me.tltp_notificaciones = New System.Windows.Forms.ToolTip(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.LISTEFECTORXLOCXDPTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmb_tipo_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_departamentos = New Programa_de_Inmunizaciones.ComboBoxV1()
-        Me.cmb_localidades = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.cmb_estado_efector = New Programa_de_Inmunizaciones.ComboBoxV1()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmb_tipo_institucion = New Programa_de_Inmunizaciones.ComboBoxV1()
         CType(Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inmunizaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_datos_efector.SuspendLayout()
@@ -81,6 +85,10 @@ Partial Class listados_efector_loc_dpto
         Me.grp_datos_efector.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grp_datos_efector.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_efector.Controls.Add(Me.cmb_tipo_institucion)
+        Me.grp_datos_efector.Controls.Add(Me.Label3)
+        Me.grp_datos_efector.Controls.Add(Me.Label2)
+        Me.grp_datos_efector.Controls.Add(Me.cmb_estado_efector)
         Me.grp_datos_efector.Controls.Add(Me.Label1)
         Me.grp_datos_efector.Controls.Add(Me.txt_referente)
         Me.grp_datos_efector.Controls.Add(Me.cmd_ejecutar)
@@ -101,7 +109,7 @@ Partial Class listados_efector_loc_dpto
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(510, 27)
+        Me.Label1.Location = New System.Drawing.Point(541, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 13)
         Me.Label1.TabIndex = 35
@@ -109,7 +117,7 @@ Partial Class listados_efector_loc_dpto
         '
         'txt_referente
         '
-        Me.txt_referente.Location = New System.Drawing.Point(570, 23)
+        Me.txt_referente.Location = New System.Drawing.Point(601, 22)
         Me.txt_referente.Name = "txt_referente"
         Me.txt_referente.Size = New System.Drawing.Size(284, 20)
         Me.txt_referente.TabIndex = 34
@@ -122,6 +130,39 @@ Partial Class listados_efector_loc_dpto
         Me.lbl_tipo.Size = New System.Drawing.Size(28, 13)
         Me.lbl_tipo.TabIndex = 33
         Me.lbl_tipo.Text = "Tipo"
+        '
+        'cmb_tipo_efector
+        '
+        Me.cmb_tipo_efector._descripcion = "descripcion"
+        Me.cmb_tipo_efector._nombre_tabla = "TIPOS_EFECTORES"
+        Me.cmb_tipo_efector._pk = "id"
+        Me.cmb_tipo_efector.FormattingEnabled = True
+        Me.cmb_tipo_efector.Location = New System.Drawing.Point(122, 76)
+        Me.cmb_tipo_efector.Name = "cmb_tipo_efector"
+        Me.cmb_tipo_efector.Size = New System.Drawing.Size(151, 21)
+        Me.cmb_tipo_efector.TabIndex = 32
+        '
+        'cmb_departamentos
+        '
+        Me.cmb_departamentos._descripcion = "descripcion"
+        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
+        Me.cmb_departamentos._pk = "id"
+        Me.cmb_departamentos.FormattingEnabled = True
+        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
+        Me.cmb_departamentos.Name = "cmb_departamentos"
+        Me.cmb_departamentos.Size = New System.Drawing.Size(382, 21)
+        Me.cmb_departamentos.TabIndex = 0
+        '
+        'cmb_localidades
+        '
+        Me.cmb_localidades._descripcion = "descripcion"
+        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
+        Me.cmb_localidades._pk = "id"
+        Me.cmb_localidades.FormattingEnabled = True
+        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
+        Me.cmb_localidades.Name = "cmb_localidades"
+        Me.cmb_localidades.Size = New System.Drawing.Size(382, 21)
+        Me.cmb_localidades.TabIndex = 1
         '
         'lbl_localidad
         '
@@ -161,38 +202,45 @@ Partial Class listados_efector_loc_dpto
         '
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         '
-        'cmb_tipo_efector
+        'cmb_estado_efector
         '
-        Me.cmb_tipo_efector._descripcion = "descripcion"
-        Me.cmb_tipo_efector._nombre_tabla = "TIPOS_EFECTORES"
-        Me.cmb_tipo_efector._pk = "id"
-        Me.cmb_tipo_efector.FormattingEnabled = True
-        Me.cmb_tipo_efector.Location = New System.Drawing.Point(122, 76)
-        Me.cmb_tipo_efector.Name = "cmb_tipo_efector"
-        Me.cmb_tipo_efector.Size = New System.Drawing.Size(183, 21)
-        Me.cmb_tipo_efector.TabIndex = 32
+        Me.cmb_estado_efector._descripcion = "descripcion"
+        Me.cmb_estado_efector._nombre_tabla = "estados_efector"
+        Me.cmb_estado_efector._pk = "id"
+        Me.cmb_estado_efector.FormattingEnabled = True
+        Me.cmb_estado_efector.Location = New System.Drawing.Point(329, 76)
+        Me.cmb_estado_efector.Name = "cmb_estado_efector"
+        Me.cmb_estado_efector.Size = New System.Drawing.Size(175, 21)
+        Me.cmb_estado_efector.TabIndex = 36
         '
-        'cmb_departamentos
+        'Label2
         '
-        Me.cmb_departamentos._descripcion = "descripcion"
-        Me.cmb_departamentos._nombre_tabla = "DEPARTAMENTOS"
-        Me.cmb_departamentos._pk = "id"
-        Me.cmb_departamentos.FormattingEnabled = True
-        Me.cmb_departamentos.Location = New System.Drawing.Point(122, 22)
-        Me.cmb_departamentos.Name = "cmb_departamentos"
-        Me.cmb_departamentos.Size = New System.Drawing.Size(382, 21)
-        Me.cmb_departamentos.TabIndex = 0
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(283, 79)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.TabIndex = 37
+        Me.Label2.Text = "Estado"
         '
-        'cmb_localidades
+        'Label3
         '
-        Me.cmb_localidades._descripcion = "descripcion"
-        Me.cmb_localidades._nombre_tabla = "LOCALIDADES"
-        Me.cmb_localidades._pk = "id"
-        Me.cmb_localidades.FormattingEnabled = True
-        Me.cmb_localidades.Location = New System.Drawing.Point(122, 49)
-        Me.cmb_localidades.Name = "cmb_localidades"
-        Me.cmb_localidades.Size = New System.Drawing.Size(382, 21)
-        Me.cmb_localidades.TabIndex = 1
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(541, 51)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(94, 13)
+        Me.Label3.TabIndex = 38
+        Me.Label3.Text = "Tipo de Institución"
+        '
+        'cmb_tipo_institucion
+        '
+        Me.cmb_tipo_institucion._descripcion = "descripcion"
+        Me.cmb_tipo_institucion._nombre_tabla = "TIPO_INSTITUCION"
+        Me.cmb_tipo_institucion._pk = "id"
+        Me.cmb_tipo_institucion.FormattingEnabled = True
+        Me.cmb_tipo_institucion.Location = New System.Drawing.Point(641, 48)
+        Me.cmb_tipo_institucion.Name = "cmb_tipo_institucion"
+        Me.cmb_tipo_institucion.Size = New System.Drawing.Size(244, 21)
+        Me.cmb_tipo_institucion.TabIndex = 39
         '
         'listados_efector_loc_dpto
         '
@@ -230,4 +278,8 @@ Partial Class listados_efector_loc_dpto
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txt_referente As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents cmb_tipo_institucion As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents cmb_estado_efector As Programa_de_Inmunizaciones.ComboBoxV1
 End Class

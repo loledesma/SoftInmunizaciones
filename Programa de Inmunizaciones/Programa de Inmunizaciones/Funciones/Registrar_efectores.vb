@@ -25,7 +25,7 @@
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
-
+        cmb_tipo_institucion.cargar()
         cmb_tipos_efectores.cargar()
         cmb_estado_efector.cargar()
         cmb_tipo_carga.cargar()
@@ -189,7 +189,11 @@
             Me.cmb_notifica.SelectedValue = tabla2.Rows(0)("id_tipo_notificacion")
         End If
 
-
+        If IsDBNull(tabla2.Rows(0)("id_tipo_organismo")) Then
+            Me.cmb_tipo_institucion.SelectedIndex = -1
+        Else
+            Me.cmb_tipo_institucion.SelectedValue = tabla2.Rows(0)("id_tipo_organismo")
+        End If
         If IsDBNull(tabla2.Rows(0)("estado_rm")) Then
             Me.cmb_estado_rm.SelectedIndex = -1
         Else
@@ -376,6 +380,7 @@
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         Me.nuevo()
+
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
@@ -454,6 +459,11 @@
         ElseIf cmb_departamento.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un departamento al cual pertenezca el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_departamento.Focus()
+            Return False
+            Exit Function
+        ElseIf cmb_tipo_institucion.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un tipo de institución!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_tipo_institucion.Focus()
             Return False
             Exit Function
         End If
@@ -554,6 +564,11 @@
             sql &= ", horario_hasta = " & Me.txt_horarioHasta.Text
         Else
             sql &= ", horario_hasta = Null"
+        End If
+        If Me.cmb_tipo_institucion.SelectedIndex <> -1 Then
+            sql &= ", id_tipo_organismo = " & Me.cmb_tipo_institucion.SelectedValue
+        Else
+            sql &= ", id_tipo_organismo = 5" 'Valor asociado al estado: -DESCONOCIDO-
         End If
 
 
@@ -707,6 +722,11 @@
         End If
         If txt_correo_efector.Text = "" Then
             sql &= ", correo_efector = Null"
+        End If
+        If Me.cmb_tipo_institucion.SelectedIndex <> -1 Then
+            sql &= ", id_tipo_organismo = " & Me.cmb_tipo_institucion.SelectedValue
+        Else
+            sql &= ", id_tipo_organismo = 5" 'Valor asociado al estado: -DESCONOCIDO-
         End If
         acceso.insertar(sql)
     End Sub

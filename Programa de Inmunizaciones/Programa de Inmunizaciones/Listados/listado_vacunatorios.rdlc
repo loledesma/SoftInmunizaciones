@@ -481,7 +481,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!direccion.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -574,7 +576,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!tipo_efector.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -622,7 +626,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.50396cm</Top>
+        <Top>1.37806cm</Top>
         <Left>0.5353cm</Left>
         <Height>1.2cm</Height>
         <Width>28.54606cm</Width>
@@ -630,6 +634,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <FontFamily>Calibri</FontFamily>
         </Style>
       </Tablix>
       <Textbox Name="Textbox2">
@@ -647,7 +652,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.88035cm</Top>
+        <Top>3.25716cm</Top>
         <Left>26.58136cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -662,14 +667,47 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>= "Vacunatorios en el listado:" &amp; count(Fields!nombre_efector.Value)</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.24792cm</Top>
+        <Left>24.91448cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.16688cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.02551in</Height>
+    <Height>1.54634in</Height>
     <Style />
   </Body>
   <Width>11.61844in</Width>
   <Page>
     <PageHeader>
-      <Height>3.04271cm</Height>
+      <Height>1.905cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -680,7 +718,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Vacunatorios registrados</Value>
+                  <Value>Vacunatorios registrados en GeVac</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>30pt</FontSize>
@@ -692,10 +730,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.80229cm</Top>
-          <Left>8.88511cm</Left>
+          <Left>7.1124cm</Left>
           <Height>1.73771cm</Height>
-          <Width>12.85187cm</Width>
+          <Width>18.4875cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -722,6 +759,7 @@
           <Source>Embedded</Source>
           <Value>Proceincor4</Value>
           <Sizing>FitProportional</Sizing>
+          <Top>0cm</Top>
           <Left>1.07728cm</Left>
           <Height>2.59755cm</Height>
           <Width>4.95847cm</Width>
@@ -799,6 +837,7 @@
           <Source>Embedded</Source>
           <Value>vacu_logo_minnuevo</Value>
           <Sizing>Fit</Sizing>
+          <Top>0cm</Top>
           <Left>6.14158cm</Left>
           <Height>2.59755cm</Height>
           <Width>4.88125cm</Width>

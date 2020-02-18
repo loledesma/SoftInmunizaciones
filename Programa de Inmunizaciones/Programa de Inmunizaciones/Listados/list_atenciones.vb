@@ -151,7 +151,7 @@
         sql &= " JOIN ESTADOS_ATENCION EA ON EA.id = A.id_estados_atencion "
         sql &= " JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
         sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id WHERE 1 = 1 "
-    
+
         If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
             MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_fecha_hasta.Focus()
