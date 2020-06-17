@@ -11,6 +11,10 @@
         Me.cmb_departamentos.cargar()
         Me.cmb_departamentos.SelectedIndex = -1
         Me.cmb_localidades.cargar()
+        Me.cmb_asuntos.cargar()
+        Me.cmb_estados_atenciones.cargar()
+        Me.cmb_estados_atenciones.SelectedIndex = -1
+        Me.cmb_asuntos.SelectedIndex = -1
         Me.cmb_localidades.SelectedIndex = -1
         acceso.autocompletar(txt_efectores, "EFECTORES", "nombre")
         acceso.autocompletar(txt_cuie, "EFECTORES", "cuie")
@@ -42,7 +46,7 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_efectores.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre='" & txt_efectores.Text & "'"
+                sql &= " WHERE E.nombre = '" & txt_efectores.Text & "'"
                 tabla = acceso.consulta(sql)
                 txt_cuie.Text = tabla.Rows(0)("cuie")
             End If
@@ -146,8 +150,8 @@
         sql &= " JOIN EFECTORES EF ON A.id_efector = EF.cuie"
         sql &= " JOIN ESTADOS_ATENCION EA ON EA.id = A.id_estados_atencion "
         sql &= " JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
-        sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id "
-    
+        sql &= " JOIN LOCALIDADES L ON EF.id_localidad = L.id WHERE 1 = 1 "
+
         If IsDate(txt_fecha_desde.Text) And IsDate(txt_fecha_hasta.Text) = False Then
             MessageBox.Show("Debe ingresar las dos fechas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.txt_fecha_hasta.Focus()
@@ -162,30 +166,30 @@
             If Me.validar_fecha() = False Then
                 Exit Sub
             Else
-                sql &= " WHERE fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
+                sql &= " AND fecha BETWEEN '" & Me.txt_fecha_desde.Text & "' AND '" & Me.txt_fecha_hasta.Text & "'"
             End If
             If Me.cmb_departamentos.SelectedIndex <> -1 Then
                 sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
-            ElseIf cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-            ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
             End If
-        ElseIf Me.cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
+
             If cmb_localidades.SelectedIndex <> -1 Then
                 sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-            ElseIf txt_cuie.Text <> "" Then
-                sql &= " AND EF.cuie='" & Me.txt_cuie.Text & "'"
             End If
-        ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
+
             If txt_cuie.Text <> "" Then
                 sql &= " AND EF.cuie ='" & Me.txt_cuie.Text & "'"
             End If
-        ElseIf txt_cuie.Text <> "" Then
-            sql &= " WHERE EF.cuie='" & Me.txt_cuie.Text & "'"
+            If cmb_asuntos.SelectedIndex <> -1 Then
+                sql &= " AND A.id_asunto = " & Me.cmb_asuntos.SelectedValue
+            End If
+            If cmb_estados_atenciones.SelectedIndex <> -1 Then
+                sql &= " AND A.id_estados_atencion = " & Me.cmb_estados_atenciones.SelectedValue
+            End If
+            If txt_palabra_contenida.Text <> "" Then
+                sql &= " AND A.descripcion like '% " & Me.txt_palabra_contenida.Text & "%' "
+            End If
         End If
+
 
         sql &= "ORDER BY fecha, nombre_efector, estado "
 

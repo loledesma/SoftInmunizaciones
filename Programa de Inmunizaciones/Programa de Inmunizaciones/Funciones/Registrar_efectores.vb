@@ -25,7 +25,7 @@
         cmb_departamento.cargar()
         cmb_localidades.cargar()
         cmb_cargo.cargar()
-
+        cmb_tipo_institucion.cargar()
         cmb_tipos_efectores.cargar()
         cmb_estado_efector.cargar()
         cmb_tipo_carga.cargar()
@@ -102,7 +102,8 @@
         If Me.condicion_click = doble_Click.desactivado Then
             If txt_nombre.Text <> "" Then
                 sql &= "SELECT E.cuie As cuie FROM EFECTORES E "
-                sql &= " WHERE E.nombre like '%" & txt_nombre.Text & "%'"
+                sql &= " WHERE E.nombre = ' " & Me.txt_nombre.Text & " '"
+                sql &= " ORDER BY E.NOMBRE "
                 tabla = acceso.consulta(sql)
                 If tabla.Rows.Count() <> 0 Then
                     txt_cuie.Text = tabla.Rows(0)("cuie")
@@ -188,7 +189,11 @@
             Me.cmb_notifica.SelectedValue = tabla2.Rows(0)("id_tipo_notificacion")
         End If
 
-
+        If IsDBNull(tabla2.Rows(0)("id_tipo_organismo")) Then
+            Me.cmb_tipo_institucion.SelectedIndex = -1
+        Else
+            Me.cmb_tipo_institucion.SelectedValue = tabla2.Rows(0)("id_tipo_organismo")
+        End If
         If IsDBNull(tabla2.Rows(0)("estado_rm")) Then
             Me.cmb_estado_rm.SelectedIndex = -1
         Else
@@ -362,16 +367,20 @@
     End Sub
 
     Private Sub registrar_efectores_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.Control And e.KeyCode.ToString = "N" Then
+        If e.Control And e.KeyCode.ToString = "N" Or e.KeyCode.ToString = "F7" Then
             nuevo()
         End If
-        If e.Control And e.KeyCode.ToString = "G" Then
+        If e.Control And e.KeyCode.ToString = "G" Or e.KeyCode.ToString = "F5" Then
             guardar()
+        End If
+        If e.KeyCode.ToString = "F3" Then
+            buscar()
         End If
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         Me.nuevo()
+
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
@@ -450,6 +459,11 @@
         ElseIf cmb_departamento.SelectedIndex = -1 Then
             MessageBox.Show("¡Debe seleccionar un departamento al cual pertenezca el efector!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
             cmb_departamento.Focus()
+            Return False
+            Exit Function
+        ElseIf cmb_tipo_institucion.SelectedIndex = -1 Then
+            MessageBox.Show("¡Debe seleccionar un tipo de institución!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            cmb_tipo_institucion.Focus()
             Return False
             Exit Function
         End If
@@ -550,6 +564,11 @@
             sql &= ", horario_hasta = " & Me.txt_horarioHasta.Text
         Else
             sql &= ", horario_hasta = Null"
+        End If
+        If Me.cmb_tipo_institucion.SelectedIndex <> -1 Then
+            sql &= ", id_tipo_organismo = " & Me.cmb_tipo_institucion.SelectedValue
+        Else
+            sql &= ", id_tipo_organismo = 5" 'Valor asociado al estado: -DESCONOCIDO-
         End If
 
 
@@ -703,6 +722,11 @@
         End If
         If txt_correo_efector.Text = "" Then
             sql &= ", correo_efector = Null"
+        End If
+        If Me.cmb_tipo_institucion.SelectedIndex <> -1 Then
+            sql &= ", id_tipo_organismo = " & Me.cmb_tipo_institucion.SelectedValue
+        Else
+            sql &= ", id_tipo_organismo = 5" 'Valor asociado al estado: -DESCONOCIDO-
         End If
         acceso.insertar(sql)
     End Sub
@@ -1012,6 +1036,8 @@
         Next
     End Sub
 
+
+
     Private Sub cmd_actualizar_sigipsa_Click(sender As Object, e As EventArgs) Handles cmd_actualizar_sigipsa.Click
         If txt_numero_doc.Text = "" Then
             MessageBox.Show("Ingrese un un numero de documento para actualizar los datos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1140,7 +1166,7 @@
         End If
 
     End Sub
-    Private Sub cmd_buscar_cuie_Click(sender As Object, e As EventArgs) Handles cmd_buscar_cuie.Click
+    Private Sub buscar()
         Dim sql As String = ""
         Dim tabla As New DataTable
         Dim tabla2 As New DataTable
@@ -1277,6 +1303,9 @@
         limpiar(Me.Controls)
         txt_nombre.Focus()
         Me.condicion_estado = estado.modificar
+    End Sub
+    Private Sub cmd_buscar_cuie_Click(sender As Object, e As EventArgs) Handles cmd_buscar_cuie.Click
+        buscar()
     End Sub
 
     Private Sub dgv_vacunatorios_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_vacunatorios.CellValueChanged

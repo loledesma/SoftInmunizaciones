@@ -2,6 +2,7 @@
     Enum estado
         insertar
         modificar
+        eliminar
     End Enum
 
     Enum dobleClick

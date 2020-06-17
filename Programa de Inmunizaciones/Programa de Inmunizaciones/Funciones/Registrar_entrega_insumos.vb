@@ -147,12 +147,13 @@
         Me.cmb_autorizador.ValueMember = "id"
     End Sub
     Private Sub Registrar_entrega_insumos_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.Control And e.KeyCode.ToString = "N" Then
+        If e.Control And e.KeyCode.ToString = "N" Or e.KeyCode.ToString = "F7" Then
             nuevo()
         End If
-        If e.Control And e.KeyCode.ToString = "G" Then
+        If e.Control And e.KeyCode.ToString = "G" Or e.KeyCode.ToString = "F5" Then
             guardar()
         End If
+
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click

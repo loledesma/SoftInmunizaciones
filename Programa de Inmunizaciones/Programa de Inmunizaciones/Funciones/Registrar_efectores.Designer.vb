@@ -99,8 +99,6 @@ Partial Class Registrar_efectores
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.tltp_efectores = New System.Windows.Forms.ToolTip(Me.components)
-        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
         Me.dgv_empleados = New System.Windows.Forms.DataGridView()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -122,6 +120,10 @@ Partial Class Registrar_efectores
         Me.localidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_notificar = New System.Windows.Forms.Button()
         Me.cmd_atenciones = New System.Windows.Forms.Button()
+        Me.lbl_contador_efectores = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.cmb_tipo_institucion = New Programa_de_Inmunizaciones.ComboBoxV1()
         Me.grp_datos_vacunatorio.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grp_datos_empleados.SuspendLayout()
@@ -132,6 +134,8 @@ Partial Class Registrar_efectores
         'grp_datos_vacunatorio
         '
         Me.grp_datos_vacunatorio.BackColor = System.Drawing.Color.Transparent
+        Me.grp_datos_vacunatorio.Controls.Add(Me.cmb_tipo_institucion)
+        Me.grp_datos_vacunatorio.Controls.Add(Me.Label27)
         Me.grp_datos_vacunatorio.Controls.Add(Me.txt_correo_efector)
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label26)
         Me.grp_datos_vacunatorio.Controls.Add(Me.cmb_notifica)
@@ -164,7 +168,7 @@ Partial Class Registrar_efectores
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label2)
         Me.grp_datos_vacunatorio.Controls.Add(Me.Label1)
         Me.grp_datos_vacunatorio.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_vacunatorio.Location = New System.Drawing.Point(10, 12)
+        Me.grp_datos_vacunatorio.Location = New System.Drawing.Point(12, 12)
         Me.grp_datos_vacunatorio.Name = "grp_datos_vacunatorio"
         Me.grp_datos_vacunatorio.Size = New System.Drawing.Size(671, 496)
         Me.grp_datos_vacunatorio.TabIndex = 0
@@ -447,7 +451,7 @@ Partial Class Registrar_efectores
         Me.GroupBox2.Location = New System.Drawing.Point(3, 362)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(582, 122)
-        Me.GroupBox2.TabIndex = 13
+        Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ubicación"
         '
@@ -599,7 +603,7 @@ Partial Class Registrar_efectores
         Me.grp_datos_empleados.Controls.Add(Me.cmb_tipos_documento)
         Me.grp_datos_empleados.Controls.Add(Me.Label18)
         Me.grp_datos_empleados.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grp_datos_empleados.Location = New System.Drawing.Point(3, 537)
+        Me.grp_datos_empleados.Location = New System.Drawing.Point(5, 537)
         Me.grp_datos_empleados.Name = "grp_datos_empleados"
         Me.grp_datos_empleados.Size = New System.Drawing.Size(678, 252)
         Me.grp_datos_empleados.TabIndex = 1
@@ -764,7 +768,7 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar_empleados.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_limpiar_empleados.Name = "cmd_limpiar_empleados"
         Me.cmd_limpiar_empleados.Size = New System.Drawing.Size(29, 29)
-        Me.cmd_limpiar_empleados.TabIndex = 12
+        Me.cmd_limpiar_empleados.TabIndex = 13
         Me.cmd_limpiar_empleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_limpiar_empleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_limpiar_empleados.UseVisualStyleBackColor = False
@@ -802,7 +806,7 @@ Partial Class Registrar_efectores
         Me.cmd_agregar_empleado.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_agregar_empleado.Name = "cmd_agregar_empleado"
         Me.cmd_agregar_empleado.Size = New System.Drawing.Size(29, 29)
-        Me.cmd_agregar_empleado.TabIndex = 13
+        Me.cmd_agregar_empleado.TabIndex = 12
         Me.cmd_agregar_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_agregar_empleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_agregar_empleado.UseVisualStyleBackColor = False
@@ -891,10 +895,10 @@ Partial Class Registrar_efectores
         Me.cmd_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_salir.Location = New System.Drawing.Point(1456, 797)
+        Me.cmd_salir.Location = New System.Drawing.Point(1339, 795)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(70, 69)
-        Me.cmd_salir.TabIndex = 6
+        Me.cmd_salir.TabIndex = 7
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_limpiar
@@ -907,7 +911,7 @@ Partial Class Registrar_efectores
         Me.cmd_limpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_limpiar.Location = New System.Drawing.Point(173, 798)
+        Me.cmd_limpiar.Location = New System.Drawing.Point(175, 798)
         Me.cmd_limpiar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_limpiar.Name = "cmd_limpiar"
         Me.cmd_limpiar.Size = New System.Drawing.Size(70, 69)
@@ -926,7 +930,7 @@ Partial Class Registrar_efectores
         Me.cmd_guardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_guardar.Location = New System.Drawing.Point(94, 799)
+        Me.cmd_guardar.Location = New System.Drawing.Point(96, 799)
         Me.cmd_guardar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(70, 69)
@@ -945,37 +949,14 @@ Partial Class Registrar_efectores
         Me.cmd_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.Location = New System.Drawing.Point(15, 799)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(17, 799)
         Me.cmd_nuevo.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(70, 69)
-        Me.cmd_nuevo.TabIndex = 7
+        Me.cmd_nuevo.TabIndex = 6
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'lbl_contador_efectores
-        '
-        Me.lbl_contador_efectores.AutoSize = True
-        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
-        Me.lbl_contador_efectores.Location = New System.Drawing.Point(844, 404)
-        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
-        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
-        Me.lbl_contador_efectores.TabIndex = 53
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
-        Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(707, 404)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(131, 16)
-        Me.Label22.TabIndex = 52
-        Me.Label22.Text = "Efectores registrados:"
         '
         'dgv_empleados
         '
@@ -991,7 +972,7 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_empleados.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv_empleados.Location = New System.Drawing.Point(698, 442)
+        Me.dgv_empleados.Location = New System.Drawing.Point(700, 442)
         Me.dgv_empleados.Name = "dgv_empleados"
         Me.dgv_empleados.ReadOnly = True
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -1002,7 +983,7 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_empleados.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_empleados.Size = New System.Drawing.Size(828, 347)
+        Me.dgv_empleados.Size = New System.Drawing.Size(709, 347)
         Me.dgv_empleados.TabIndex = 9
         '
         'id
@@ -1104,10 +1085,10 @@ Partial Class Registrar_efectores
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_vacunatorios.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_vacunatorios.Location = New System.Drawing.Point(698, 12)
+        Me.dgv_vacunatorios.Location = New System.Drawing.Point(700, 12)
         Me.dgv_vacunatorios.Name = "dgv_vacunatorios"
         Me.dgv_vacunatorios.ReadOnly = True
-        Me.dgv_vacunatorios.Size = New System.Drawing.Size(819, 374)
+        Me.dgv_vacunatorios.Size = New System.Drawing.Size(709, 374)
         Me.dgv_vacunatorios.TabIndex = 8
         '
         'cuie
@@ -1148,7 +1129,7 @@ Partial Class Registrar_efectores
         Me.cmd_notificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_notificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_notificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_notificar.Location = New System.Drawing.Point(253, 798)
+        Me.cmd_notificar.Location = New System.Drawing.Point(255, 798)
         Me.cmd_notificar.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_notificar.Name = "cmd_notificar"
         Me.cmd_notificar.Size = New System.Drawing.Size(70, 69)
@@ -1167,7 +1148,7 @@ Partial Class Registrar_efectores
         Me.cmd_atenciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.cmd_atenciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.cmd_atenciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_atenciones.Location = New System.Drawing.Point(338, 799)
+        Me.cmd_atenciones.Location = New System.Drawing.Point(340, 799)
         Me.cmd_atenciones.Margin = New System.Windows.Forms.Padding(5)
         Me.cmd_atenciones.Name = "cmd_atenciones"
         Me.cmd_atenciones.Size = New System.Drawing.Size(70, 69)
@@ -1176,6 +1157,49 @@ Partial Class Registrar_efectores
         Me.cmd_atenciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_atenciones.UseVisualStyleBackColor = False
         '
+        'lbl_contador_efectores
+        '
+        Me.lbl_contador_efectores.AutoSize = True
+        Me.lbl_contador_efectores.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_contador_efectores.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_contador_efectores.ForeColor = System.Drawing.Color.White
+        Me.lbl_contador_efectores.Location = New System.Drawing.Point(834, 411)
+        Me.lbl_contador_efectores.Name = "lbl_contador_efectores"
+        Me.lbl_contador_efectores.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_contador_efectores.TabIndex = 55
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Tw Cen MT", 10.0!)
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(697, 411)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(131, 16)
+        Me.Label22.TabIndex = 54
+        Me.Label22.Text = "Efectores registrados:"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(349, 305)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(88, 16)
+        Me.Label27.TabIndex = 36
+        Me.Label27.Text = "Tipo Institución"
+        '
+        'cmb_tipo_institucion
+        '
+        Me.cmb_tipo_institucion._descripcion = "descripcion"
+        Me.cmb_tipo_institucion._nombre_tabla = "TIPO_INSTITUCION"
+        Me.cmb_tipo_institucion._pk = "id"
+        Me.cmb_tipo_institucion.FormattingEnabled = True
+        Me.cmb_tipo_institucion.Location = New System.Drawing.Point(441, 302)
+        Me.cmb_tipo_institucion.Name = "cmb_tipo_institucion"
+        Me.cmb_tipo_institucion.Size = New System.Drawing.Size(174, 23)
+        Me.cmb_tipo_institucion.TabIndex = 15
+        '
         'Registrar_efectores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -1183,14 +1207,14 @@ Partial Class Registrar_efectores
         Me.AutoScroll = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1546, 878)
+        Me.ClientSize = New System.Drawing.Size(1443, 578)
+        Me.Controls.Add(Me.lbl_contador_efectores)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.grp_datos_vacunatorio)
         Me.Controls.Add(Me.cmd_atenciones)
         Me.Controls.Add(Me.cmd_notificar)
         Me.Controls.Add(Me.dgv_vacunatorios)
         Me.Controls.Add(Me.dgv_empleados)
-        Me.Controls.Add(Me.lbl_contador_efectores)
-        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_limpiar)
         Me.Controls.Add(Me.cmd_guardar)
@@ -1200,6 +1224,7 @@ Partial Class Registrar_efectores
         Me.KeyPreview = True
         Me.Name = "Registrar_efectores"
         Me.Text = "Registro de efectores"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.grp_datos_vacunatorio.ResumeLayout(False)
         Me.grp_datos_vacunatorio.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -1275,8 +1300,6 @@ Partial Class Registrar_efectores
     Friend WithEvents cmb_estado_rm As Programa_de_Inmunizaciones.ComboBoxV1
     Friend WithEvents tltp_efectores As System.Windows.Forms.ToolTip
     Friend WithEvents txt_referentes As System.Windows.Forms.TextBox
-    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents cmd_cadena_de_frio As System.Windows.Forms.Button
     Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
     Friend WithEvents dgv_vacunatorios As System.Windows.Forms.DataGridView
@@ -1308,4 +1331,8 @@ Partial Class Registrar_efectores
     Friend WithEvents cmd_atenciones As System.Windows.Forms.Button
     Friend WithEvents txt_correo_efector As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents lbl_contador_efectores As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents cmb_tipo_institucion As Programa_de_Inmunizaciones.ComboBoxV1
+    Friend WithEvents Label27 As System.Windows.Forms.Label
 End Class

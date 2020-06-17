@@ -13,6 +13,10 @@
         Me.cmb_localidades.SelectedIndex = -1
         Me.cmb_tipo_efector.cargar()
         Me.cmb_tipo_efector.SelectedIndex = -1
+        Me.cmb_estado_efector.cargar()
+        Me.cmb_estado_efector.SelectedIndex = -1
+        Me.cmb_tipo_institucion.cargar()
+        Me.cmb_tipo_institucion.SelectedIndex = -1
         tip()
         Me.cmb_departamentos.Focus()
         Me.ReportViewer1.Clear()
@@ -20,6 +24,7 @@
         System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo("es-AR")
         System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
 
+        Me.ReportViewer1.RefreshReport()
     End Sub
 
 
@@ -109,36 +114,40 @@
     'End Function
 
     Private Sub imprimir()
+        Me.ReportViewer1.Clear()
         Dim tabla As New DataTable
         Dim sql As String = ""
 
         sql &= "SELECT D.descripcion as nombre_departamento, L.descripcion as nombre_localidad, TE.descripcion as tipo_efector, "
-        sql &= " EF.cuie as cuie, EF.nombre as nombre_efector, EF.horario_desde as horario_desde, EF.horario_hasta as horario_hasta "
+        sql &= " EF.cuie as cuie, EF.nombre as nombre_efector, EF.horario_desde as horario_desde, EF.horario_hasta as horario_hasta, (cast(ef.calle as varchar ) + ' ' + cast(ef.nro as varchar)) as direccion, EF.telefono as teléfono "
         sql &= " FROM EFECTORES EF JOIN DEPARTAMENTOS D ON EF.id_departamento = D.id "
         sql &= " JOIN LOCALIDADES L ON EF.id_localidad= L.id "
-        sql &= " JOIN TIPOS_EFECTORES TE ON EF.id_tipo = TE.id "
+        sql &= " JOIN TIPOS_EFECTORES TE ON EF.id_tipo = TE.id WHERE 1 = 1 "
 
         If Me.cmb_departamentos.SelectedIndex <> -1 Then
-            sql &= " WHERE D.id = " & Me.cmb_departamentos.SelectedValue
-            If cmb_localidades.SelectedIndex <> -1 Then
-                sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
-                If cmb_tipo_efector.SelectedIndex <> -1 Then
-                    sql &= " AND EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
-                End If
-            ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
-                sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
-            End If
-        ElseIf cmb_localidades.SelectedIndex <> -1 Then
-            sql &= " WHERE L.id= " & Me.cmb_localidades.SelectedValue
-            If cmb_tipo_efector.SelectedIndex <> -1 Then
-                sql &= " AND EF.id_tipo = " & Me.cmb_tipo_efector.SelectedValue
-            End If
-        ElseIf cmb_tipo_efector.SelectedIndex <> -1 Then
-            sql &= " WHERE EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
+            sql &= " AND D.id = " & Me.cmb_departamentos.SelectedValue
+        End If
+        If cmb_localidades.SelectedIndex <> -1 Then
+            sql &= " AND L.id= " & Me.cmb_localidades.SelectedValue
+        End If
+        If cmb_tipo_efector.SelectedIndex <> -1 Then
+            sql &= " AND EF.id_tipo= " & Me.cmb_tipo_efector.SelectedValue
+        ElseIf cmb_tipo_efector.SelectedIndex = -1 Then
+            sql &= "and EF.id_tipo != 4 "
+        End If
+        If Me.txt_referente.Text <> "" Then
+            sql &= "AND (EF.id_referente = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%') OR EF.cuie = (select E.cuie from efectores e where e.nombre like '%" & Me.txt_referente.Text & "%'))"
         End If
 
+        If Me.cmb_estado_efector.SelectedIndex <> -1 Then
+            sql &= " AND EF.id_estado = " & Me.cmb_estado_efector.SelectedValue
+        End If
 
-        sql &= "ORDER BY nombre_departamento, nombre_localidad, tipo_efector, nombre_efector "
+        If Me.cmb_tipo_institucion.SelectedIndex <> -1 Then
+            sql &= " AND EF.id_tipo_organismo = " & Me.cmb_tipo_institucion.SelectedValue
+        End If
+
+        sql &= " ORDER BY nombre_departamento, nombre_localidad, tipo_efector, nombre_efector "
 
         tabla = acceso.consulta(sql)
 
@@ -148,7 +157,7 @@
             Exit Sub
         End If
 
-        Me.LISTEFECTORXLOCXDPTOBindingSource.DataSource = tabla
+        Me.LIST_EFECTOR_X_LOC_X_DPTOBindingSource.DataSource = tabla
         Me.ReportViewer1.RefreshReport()
     End Sub
 
@@ -162,5 +171,45 @@
         Me.ReportViewer1.Height = Me.Height - 200
 
         
+    End Sub
+
+    Private Sub txt_referente_Leave(sender As Object, e As EventArgs) Handles txt_referente.Leave
+        Dim tabla As New DataTable
+        Dim sql As String
+        If txt_referente.Text <> "" Then
+            sql = "SELECT E.nombre from efectores E where E.nombre like '%" & Me.txt_referente.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            txt_referente.Text = tabla.Rows(0)("nombre")
+            tabla.Clear()
+        End If
+    End Sub
+
+    
+
+
+    Private Sub txt_referente_MouseEnter_1(sender As Object, e As EventArgs) Handles txt_referente.MouseEnter
+        If txt_referente.Text <> "" Then
+            Dim sql As String = ""
+            Dim tabla As New DataTable
+            Dim efectores As String = ""
+            Dim empleados As String = ""
+            Dim tabla2 As New DataTable
+
+            sql &= "SELECT  EF.nombre as nombre "
+            sql &= " FROM EFECTORES EF "
+            sql &= " WHERE EF.nombre LIKE '%" & txt_referente.Text & "%'"
+            tabla = acceso.consulta(sql)
+
+            Dim c As Integer = 0
+            For c = 0 To tabla.Rows.Count - 1
+                efectores += tabla.Rows(c)("nombre") & vbCrLf
+            Next
+
+            ToolTip1.SetToolTip(txt_referente, efectores)
+
+        Else
+            Exit Sub
+        End If
     End Sub
 End Class
